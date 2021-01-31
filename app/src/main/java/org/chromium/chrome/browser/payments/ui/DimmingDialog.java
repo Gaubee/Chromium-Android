@@ -11,26 +11,28 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.ApiCompatibilityUtils;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.util.ColorUtils;
-import org.chromium.chrome.browser.widget.AlwaysDismissedDialog;
-import org.chromium.chrome.browser.widget.animation.AnimatorProperties;
+import org.chromium.components.browser_ui.widget.AlwaysDismissedDialog;
+import org.chromium.components.browser_ui.widget.animation.Interpolators;
+import org.chromium.ui.util.ColorUtils;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * A fullscreen semitransparent dialog used for dimming Chrome when overlaying a bottom sheet
@@ -56,7 +58,16 @@ import org.chromium.chrome.browser.widget.animation.AnimatorProperties;
     private final Dialog mDialog;
     private final ViewGroup mFullContainer;
     private final int mAnimatorTranslation;
+    private OnDismissListener mDismissListener;
     private boolean mIsAnimatingDisappearance;
+
+    /**
+     * Listener for the dismissal of the DimmingDialog.
+     */
+    public interface OnDismissListener {
+        /** Called when the UI is dismissed. */
+        void onDismiss();
+    }
 
     /**
      * Builds the dimming dialog.
@@ -64,8 +75,8 @@ import org.chromium.chrome.browser.widget.animation.AnimatorProperties;
      * @param activity        The activity on top of which the dialog should be displayed.
      * @param dismissListener The listener for the dismissal of this dialog.
      */
-    /* package */ DimmingDialog(
-            Activity activity, DialogInterface.OnDismissListener dismissListener) {
+    /* package */ DimmingDialog(Activity activity, OnDismissListener dismissListener) {
+        mDismissListener = dismissListener;
         // To handle the specced animations, the dialog is entirely contained within a translucent
         // FrameLayout. This could eventually be converted to a real BottomSheetDialog, but that
         // requires exploration of how interactions would work when the dialog can be sent back and
@@ -74,7 +85,7 @@ import org.chromium.chrome.browser.widget.animation.AnimatorProperties;
         mFullContainer.setBackgroundColor(ApiCompatibilityUtils.getColor(
                 activity.getResources(), R.color.modal_dialog_scrim_color));
         mDialog = new AlwaysDismissedDialog(activity, R.style.DimmingDialog);
-        mDialog.setOnDismissListener(dismissListener);
+        mDialog.setOnDismissListener((v) -> notifyListenerDialogDismissed());
         mDialog.addContentView(mFullContainer,
                 new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         Window dialogWindow = mDialog.getWindow();
@@ -106,9 +117,18 @@ import org.chromium.chrome.browser.widget.animation.AnimatorProperties;
         bottomSheetView.addOnLayoutChangeListener(new FadeInAnimator());
     }
 
-    /** Show the dialog. */
-    /* package */ void show() {
-        mDialog.show();
+    /**
+     * Show the dialog.
+     * @return Whether the show is successful.
+     */
+    /* package */ boolean show() {
+        try {
+            mDialog.show();
+            return true;
+        } catch (WindowManager.BadTokenException badToken) {
+            // The exception could be thrown according to https://crbug.com/1139441.
+            return false;
+        }
     }
 
     /** Hide the dialog without dismissing it. */
@@ -122,12 +142,18 @@ import org.chromium.chrome.browser.widget.animation.AnimatorProperties;
      * @param isAnimated If true, the dialog dismissal is animated.
      */
     /* package */ void dismiss(boolean isAnimated) {
-        if (!mDialog.isShowing()) return;
         if (isAnimated) {
             new DisappearingAnimator(true);
         } else {
             mDialog.dismiss();
+            notifyListenerDialogDismissed();
         }
+    }
+
+    private void notifyListenerDialogDismissed() {
+        if (mDismissListener == null) return;
+        mDismissListener.onDismiss();
+        mDismissListener = null;
     }
 
     /** @param overlay The overlay to show. This can be an error dialog, for example. */
@@ -185,7 +211,7 @@ import org.chromium.chrome.browser.widget.animation.AnimatorProperties;
             AnimatorSet alphaSet = new AnimatorSet();
             alphaSet.playTogether(scrimFader, alphaAnimator);
             alphaSet.setDuration(DIALOG_ENTER_ANIMATION_MS);
-            alphaSet.setInterpolator(new LinearOutSlowInInterpolator());
+            alphaSet.setInterpolator(Interpolators.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
             alphaSet.start();
         }
     }
@@ -197,25 +223,31 @@ import org.chromium.chrome.browser.widget.animation.AnimatorProperties;
         public DisappearingAnimator(boolean removeDialog) {
             mIsDialogClosing = removeDialog;
 
-            View child = mFullContainer.getChildAt(0);
-            assert child != null;
+            Collection<Animator> animators = new ArrayList<>();
 
-            Animator sheetFader = ObjectAnimator.ofFloat(child, View.ALPHA, child.getAlpha(), 0f);
-            Animator sheetTranslator =
-                    ObjectAnimator.ofFloat(child, View.TRANSLATION_Y, 0f, mAnimatorTranslation);
+            View child = mFullContainer.getChildAt(0);
+            if (child != null) {
+                // Sheet fader.
+                animators.add(ObjectAnimator.ofFloat(child, View.ALPHA, child.getAlpha(), 0f));
+                // Sheet translator.
+                animators.add(ObjectAnimator.ofFloat(
+                        child, View.TRANSLATION_Y, 0f, mAnimatorTranslation));
+            }
+
+            if (mIsDialogClosing) {
+                // Scrim fader.
+                animators.add(ObjectAnimator.ofInt(mFullContainer.getBackground(),
+                        AnimatorProperties.DRAWABLE_ALPHA_PROPERTY, 127, 0));
+            }
+
+            if (animators.isEmpty()) return;
+
+            mIsAnimatingDisappearance = true;
 
             AnimatorSet current = new AnimatorSet();
             current.setDuration(DIALOG_EXIT_ANIMATION_MS);
-            current.setInterpolator(new FastOutLinearInInterpolator());
-            if (mIsDialogClosing) {
-                Animator scrimFader = ObjectAnimator.ofInt(mFullContainer.getBackground(),
-                        AnimatorProperties.DRAWABLE_ALPHA_PROPERTY, 127, 0);
-                current.playTogether(sheetFader, sheetTranslator, scrimFader);
-            } else {
-                current.playTogether(sheetFader, sheetTranslator);
-            }
-
-            mIsAnimatingDisappearance = true;
+            current.setInterpolator(Interpolators.FAST_OUT_LINEAR_IN_INTERPOLATOR);
+            current.playTogether(animators);
             current.addListener(this);
             current.start();
         }
@@ -224,12 +256,22 @@ import org.chromium.chrome.browser.widget.animation.AnimatorProperties;
         public void onAnimationEnd(Animator animation) {
             mIsAnimatingDisappearance = false;
             mFullContainer.removeView(mFullContainer.getChildAt(0));
-            if (mIsDialogClosing && mDialog.isShowing()) mDialog.dismiss();
+            if (mIsDialogClosing) {
+                if (mDialog.isShowing()) mDialog.dismiss();
+                notifyListenerDialogDismissed();
+            }
         }
     }
 
     @VisibleForTesting
     public Dialog getDialogForTest() {
         return mDialog;
+    }
+
+    /**
+     * Force the Dialog window to refresh its visual state.
+     */
+    /* package */ void refresh() {
+        mDialog.getWindow().setAttributes(mDialog.getWindow().getAttributes());
     }
 }

@@ -4,14 +4,12 @@
 
 package org.chromium.chrome.browser.download;
 
-import static org.chromium.chrome.browser.download.DownloadBroadcastManager.getServiceDelegate;
+import static org.chromium.chrome.browser.download.DownloadBroadcastManagerImpl.getServiceDelegate;
 import static org.chromium.chrome.browser.download.DownloadSnackbarController.INVALID_NOTIFICATION_ID;
 
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -19,19 +17,25 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.shapes.OvalShape;
-import android.support.annotation.IntDef;
 import android.text.TextUtils;
+
+import android.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.ApplicationStatus;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.StrictModeContext;
-import org.chromium.base.VisibleForTesting;
-import org.chromium.base.library_loader.LibraryProcessType;
 import org.chromium.chrome.R;
+import org.chromium.chrome.browser.flags.CachedFeatureFlags;
+import org.chromium.chrome.browser.flags.ChromeFeatureList;
 import org.chromium.chrome.browser.notifications.NotificationUmaTracker;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
+import org.chromium.chrome.browser.profiles.OTRProfileID;
 import org.chromium.chrome.browser.profiles.Profile;
-import org.chromium.chrome.browser.util.FeatureUtilities;
+import org.chromium.components.browser_ui.notifications.NotificationManagerProxy;
+import org.chromium.components.browser_ui.notifications.NotificationManagerProxyImpl;
 import org.chromium.components.offline_items_collection.ContentId;
 import org.chromium.components.offline_items_collection.FailState;
 import org.chromium.components.offline_items_collection.LegacyHelpers;
@@ -83,20 +87,19 @@ public class DownloadNotificationService {
             "org.chromium.chrome.browser.download.OfflineItemsStateAtCancel";
 
     static final String EXTRA_NOTIFICATION_BUNDLE_ICON_ID = "Chrome.NotificationBundleIconIdExtra";
+    static final String EXTRA_IS_AUTO_RESUMPTION =
+            "org.chromium.chrome.browser.download.IS_AUTO_RESUMPTION";
     /** Notification Id starting value, to avoid conflicts from IDs used in prior versions. */
     private static final int STARTING_NOTIFICATION_ID = 1000000;
 
-    private static final String KEY_NEXT_DOWNLOAD_NOTIFICATION_ID = "NextDownloadNotificationId";
-
     private static final int MAX_RESUMPTION_ATTEMPT_LEFT = 5;
-    private static final String KEY_AUTO_RESUMPTION_ATTEMPT_LEFT = "ResumptionAttemptLeft";
 
     @VisibleForTesting
     final List<ContentId> mDownloadsInProgress = new ArrayList<ContentId>();
 
-    private NotificationManager mNotificationManager;
+    private final NotificationManagerProxy mNotificationManager;
     private Bitmap mDownloadSuccessLargeIcon;
-    private DownloadSharedPreferenceHelper mDownloadSharedPreferenceHelper;
+    private final DownloadSharedPreferenceHelper mDownloadSharedPreferenceHelper;
     private DownloadForegroundServiceManager mDownloadForegroundServiceManager;
 
     private static class LazyHolder {
@@ -114,8 +117,7 @@ public class DownloadNotificationService {
     @VisibleForTesting
     DownloadNotificationService() {
         mNotificationManager =
-                (NotificationManager) ContextUtils.getApplicationContext().getSystemService(
-                        Context.NOTIFICATION_SERVICE);
+                new NotificationManagerProxyImpl(ContextUtils.getApplicationContext());
         mDownloadSharedPreferenceHelper = DownloadSharedPreferenceHelper.getInstance();
         mDownloadForegroundServiceManager = new DownloadForegroundServiceManager();
     }
@@ -243,7 +245,7 @@ public class DownloadNotificationService {
                                                 .setPendingState(pendingState)
                                                 .build();
         Notification notification = DownloadNotificationFactory.buildNotification(
-                context, DownloadStatus.IN_PROGRESS, downloadUpdate);
+                context, DownloadStatus.IN_PROGRESS, downloadUpdate, notificationId);
         updateNotification(notificationId, notification, id,
                 new DownloadSharedPreferenceEntry(id, notificationId, isOffTheRecord,
                         canDownloadWhileMetered, fileName, true, isTransient));
@@ -254,7 +256,7 @@ public class DownloadNotificationService {
         startTrackingInProgressDownload(id);
     }
 
-    public void cancelNotification(int notificationId) {
+    private void cancelNotification(int notificationId) {
         // TODO(b/65052774): Add back NOTIFICATION_NAMESPACE when able to.
         mNotificationManager.cancel(notificationId);
     }
@@ -285,9 +287,9 @@ public class DownloadNotificationService {
                 mDownloadSharedPreferenceHelper.getDownloadSharedPreferenceEntry(id);
         if (entry == null) return;
 
-        cancelNotification(entry.notificationId, id);
         mDownloadForegroundServiceManager.updateDownloadStatus(ContextUtils.getApplicationContext(),
                 DownloadStatus.CANCELLED, entry.notificationId, null);
+        cancelNotification(entry.notificationId, id);
     }
 
     /**
@@ -320,7 +322,7 @@ public class DownloadNotificationService {
         }
         // If download is already paused, do nothing.
         if (entry != null && !entry.isAutoResumable && !forceRebuild) return;
-        boolean canDownloadWhileMetered = entry == null ? false : entry.canDownloadWhileMetered;
+        boolean canDownloadWhileMetered = entry != null && entry.canDownloadWhileMetered;
         // If download is interrupted due to network disconnection, show download pending state.
         if (isAutoResumable || pendingState != PendingState.NOT_PENDING) {
             notifyDownloadPending(id, fileName, isOffTheRecord, canDownloadWhileMetered,
@@ -344,7 +346,7 @@ public class DownloadNotificationService {
                                                 .build();
 
         Notification notification = DownloadNotificationFactory.buildNotification(
-                context, DownloadStatus.PAUSED, downloadUpdate);
+                context, DownloadStatus.PAUSED, downloadUpdate, notificationId);
         updateNotification(notificationId, notification, id,
                 new DownloadSharedPreferenceEntry(id, notificationId, isOffTheRecord,
                         canDownloadWhileMetered, fileName, isAutoResumable, isTransient));
@@ -402,7 +404,7 @@ public class DownloadNotificationService {
                                                 .setTotalBytes(totalBytes)
                                                 .build();
         Notification notification = DownloadNotificationFactory.buildNotification(
-                context, DownloadStatus.COMPLETED, downloadUpdate);
+                context, DownloadStatus.COMPLETED, downloadUpdate, notificationId);
 
         updateNotification(notificationId, notification, id, null);
         mDownloadForegroundServiceManager.updateDownloadStatus(
@@ -446,7 +448,7 @@ public class DownloadNotificationService {
                                                 .setFailState(failState)
                                                 .build();
         Notification notification = DownloadNotificationFactory.buildNotification(
-                context, DownloadStatus.FAILED, downloadUpdate);
+                context, DownloadStatus.FAILED, downloadUpdate, notificationId);
 
         updateNotification(notificationId, notification, id, null);
         mDownloadForegroundServiceManager.updateDownloadStatus(
@@ -483,7 +485,7 @@ public class DownloadNotificationService {
     void updateNotification(int id, Notification notification) {
         // TODO(b/65052774): Add back NOTIFICATION_NAMESPACE when able to.
         // Disabling StrictMode to avoid violations (crbug.com/789134).
-        try (StrictModeContext unused = StrictModeContext.allowDiskReads()) {
+        try (StrictModeContext ignored = StrictModeContext.allowDiskReads()) {
             mNotificationManager.notify(id, notification);
         }
     }
@@ -510,10 +512,6 @@ public class DownloadNotificationService {
                         ? NotificationUmaTracker.SystemNotificationType.DOWNLOAD_PAGES
                         : NotificationUmaTracker.SystemNotificationType.DOWNLOAD_FILES,
                 notification);
-
-        // Record the number of other notifications when there's a new notification.
-        DownloadNotificationUmaHelper.recordExistingNotificationsCountHistogram(
-                mDownloadSharedPreferenceHelper.getEntries().size(), true /* withForeground */);
     }
 
     private static boolean canResumeDownload(Context context, DownloadSharedPreferenceEntry entry) {
@@ -529,7 +527,9 @@ public class DownloadNotificationService {
      * already in progress, do nothing.
      */
     void resumeAllPendingDownloads() {
-        if (FeatureUtilities.isDownloadAutoResumptionEnabledInNative()) return;
+        if (CachedFeatureFlags.isEnabled(ChromeFeatureList.DOWNLOADS_AUTO_RESUMPTION_NATIVE)) {
+            return;
+        }
 
         // Limit the number of auto resumption attempts in case Chrome falls into a vicious cycle.
         DownloadResumptionScheduler.getDownloadResumptionScheduler().cancel();
@@ -553,6 +553,7 @@ public class DownloadNotificationService {
             intent.setAction(ACTION_DOWNLOAD_RESUME);
             intent.putExtra(EXTRA_DOWNLOAD_CONTENTID_ID, entry.id.id);
             intent.putExtra(EXTRA_DOWNLOAD_CONTENTID_NAMESPACE, entry.id.namespace);
+            intent.putExtra(EXTRA_IS_AUTO_RESUMPTION, true);
 
             resumeDownload(intent);
         }
@@ -560,7 +561,7 @@ public class DownloadNotificationService {
 
     @VisibleForTesting
     void resumeDownload(Intent intent) {
-        DownloadBroadcastManager.startDownloadBroadcastManager(
+        DownloadBroadcastManagerImpl.startDownloadBroadcastManager(
                 ContextUtils.getApplicationContext(), intent);
     }
 
@@ -581,15 +582,15 @@ public class DownloadNotificationService {
      * @return notificationId that is next based on stored value.
      */
     private static int getNextNotificationId() {
-        SharedPreferences sharedPreferences = ContextUtils.getAppSharedPreferences();
-        int nextNotificationId = sharedPreferences.getInt(
-                KEY_NEXT_DOWNLOAD_NOTIFICATION_ID, STARTING_NOTIFICATION_ID);
+        int nextNotificationId = SharedPreferencesManager.getInstance().readInt(
+                ChromePreferenceKeys.DOWNLOAD_NEXT_DOWNLOAD_NOTIFICATION_ID,
+                STARTING_NOTIFICATION_ID);
         int nextNextNotificationId = nextNotificationId == Integer.MAX_VALUE
                 ? STARTING_NOTIFICATION_ID
                 : nextNotificationId + 1;
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(KEY_NEXT_DOWNLOAD_NOTIFICATION_ID, nextNextNotificationId);
-        editor.apply();
+        SharedPreferencesManager.getInstance().writeInt(
+                ChromePreferenceKeys.DOWNLOAD_NEXT_DOWNLOAD_NOTIFICATION_ID,
+                nextNextNotificationId);
         return nextNotificationId;
     }
 
@@ -613,30 +614,26 @@ public class DownloadNotificationService {
 
     /**
      * Helper method to update the remaining number of background resumption attempts left.
+     *
+     * @param numAutoResumptionAttemptLeft the number of auto resumption attempts left.
      */
     private static void updateResumptionAttemptLeft(int numAutoResumptionAttemptLeft) {
-        ContextUtils.getAppSharedPreferences()
-                .edit()
-                .putInt(KEY_AUTO_RESUMPTION_ATTEMPT_LEFT, numAutoResumptionAttemptLeft)
-                .apply();
+        SharedPreferencesManager.getInstance().writeInt(
+                ChromePreferenceKeys.DOWNLOAD_AUTO_RESUMPTION_ATTEMPT_LEFT,
+                numAutoResumptionAttemptLeft);
     }
 
-    /**
-     * Helper method to get the remaining number of background resumption attempts left.
-     */
+    /** Helper method to get the remaining number of background resumption attempts left. */
     private static int getResumptionAttemptLeft() {
-        SharedPreferences sharedPrefs = ContextUtils.getAppSharedPreferences();
-        return sharedPrefs.getInt(KEY_AUTO_RESUMPTION_ATTEMPT_LEFT, MAX_RESUMPTION_ATTEMPT_LEFT);
+        return SharedPreferencesManager.getInstance().readInt(
+                ChromePreferenceKeys.DOWNLOAD_AUTO_RESUMPTION_ATTEMPT_LEFT,
+                MAX_RESUMPTION_ATTEMPT_LEFT);
     }
 
-    /**
-     * Helper method to clear the remaining number of background resumption attempts left.
-     */
+    /** Helper method to clear the remaining number of background resumption attempts left. */
     static void clearResumptionAttemptLeft() {
-        ContextUtils.getAppSharedPreferences()
-                .edit()
-                .remove(KEY_AUTO_RESUMPTION_ATTEMPT_LEFT)
-                .apply();
+        SharedPreferencesManager.getInstance().removeKey(
+                ChromePreferenceKeys.DOWNLOAD_AUTO_RESUMPTION_ATTEMPT_LEFT);
     }
 
     void onForegroundServiceRestarted(int pinnedNotificationId) {
@@ -708,10 +705,8 @@ public class DownloadNotificationService {
     }
 
     private void cancelOffTheRecordDownloads() {
-        boolean cancelActualDownload =
-                BrowserStartupController.get(LibraryProcessType.PROCESS_BROWSER)
-                        .isStartupSuccessfullyCompleted()
-                && Profile.getLastUsedProfile().hasOffTheRecordProfile();
+        boolean cancelActualDownload = BrowserStartupController.getInstance().isFullBrowserStarted()
+                && Profile.getLastUsedRegularProfile().hasPrimaryOTRProfile();
 
         List<DownloadSharedPreferenceEntry> entries = mDownloadSharedPreferenceHelper.getEntries();
         List<DownloadSharedPreferenceEntry> copies =
@@ -722,7 +717,13 @@ public class DownloadNotificationService {
             notifyDownloadCanceled(id, false);
             if (cancelActualDownload) {
                 DownloadServiceDelegate delegate = getServiceDelegate(id);
-                delegate.cancelDownload(id, true);
+                DownloadMetrics.recordDownloadCancel(DownloadMetrics.CancelFrom.CANCEL_SHUTDOWN);
+                // TODO(crbug.com/1164379): Pass OTRProfileID of the current OTR profile to cancel
+                // non-primary OTR downloads.
+                OTRProfileID otrProfileID = Profile.getLastUsedRegularProfile()
+                                                    .getPrimaryOTRProfile()
+                                                    .getOTRProfileID();
+                delegate.cancelDownload(id, otrProfileID);
                 delegate.destroyServiceDelegate();
             }
         }

@@ -4,10 +4,10 @@
 
 package org.chromium.chrome.browser.tabmodel;
 
-import android.support.annotation.Nullable;
+import android.annotation.Nullable;
 
-import org.chromium.base.VisibleForTesting;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tab.TabLaunchType;
 import org.chromium.content_public.browser.LoadUrlParams;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public interface TabModelSelector {
     /**
      * A delegate interface to push close all tabs requests.
      */
-    public interface CloseAllTabsDelegate {
+    interface CloseAllTabsDelegate {
         /**
          * Sends a request to close all tabs for a {@link TabModel}.
          * @param incognito Whether the tabs to be closed are incognito.
@@ -43,15 +43,15 @@ public interface TabModelSelector {
     TabModel getModel(boolean incognito);
 
     /**
+     * Get the {@link TabModelFilterProvider} that provides {@link TabModelFilter}.
+     * @return  Never returns null. Returns a stub when real model is uninitialized.
+     */
+    TabModelFilterProvider getTabModelFilterProvider();
+
+    /**
      * @return a list for the underlying models
      */
     List<TabModel> getModels();
-
-    /**
-     * @return the model at {@code index} or null if no model exist for that index.
-     */
-    @VisibleForTesting
-    TabModel getModelAt(int index);
 
     /**
      * Get the current tab model.
@@ -161,6 +161,36 @@ public interface TabModelSelector {
      * @return Whether the tab state for this {@link TabModelSelector} has been initialized.
      */
     boolean isTabStateInitialized();
+
+    /**
+     * Merges the tab states from two tab models.
+     */
+    void mergeState();
+
+    /**
+     * Prevents the TabModelSelector from destroying its tabs to allow for reparenting.
+     *
+     * This is only safe to be called immediately before destruction. After entering reparenting
+     * mode, all the tabs are removed and stored in memory and on disk. The app is recreated right
+     * after, so there should never be a need to "exit" reparenting mode.
+     */
+    void enterReparentingMode();
+
+    /** Returns whether reparenting is in progress. */
+    boolean isReparentingInProgress();
+
+    /**
+     * Subscribe an {@link IncognitoTabModelObserver} to events that the {@link IncognitoTabModel}
+     * in this selector emits.  The model could be observed directly, but observing the
+     * selector allows an observer to subscribe itself before the model is created.
+     * @param incognitoObserver The observer to subscribe.
+     */
+    void addIncognitoTabModelObserver(IncognitoTabModelObserver incognitoObserver);
+
+    /**
+     * Unsubscribe from {@link IncognitoTabModelObserver}.
+     */
+    void removeIncognitoTabModelObserver(IncognitoTabModelObserver incognitoObserver);
 
     /**
      * Destroy all owned {@link TabModel}s and {@link Tab}s referenced by this selector.

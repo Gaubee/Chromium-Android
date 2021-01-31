@@ -6,10 +6,10 @@ package org.chromium.chrome.browser.sync;
 
 import org.chromium.base.Promise;
 import org.chromium.chrome.browser.bookmarks.BookmarkModel;
+import org.chromium.chrome.browser.browsing_data.BrowsingDataBridge;
+import org.chromium.chrome.browser.browsing_data.BrowsingDataBridge.OnClearBrowsingDataListener;
 import org.chromium.chrome.browser.browsing_data.BrowsingDataType;
 import org.chromium.chrome.browser.browsing_data.TimePeriod;
-import org.chromium.chrome.browser.preferences.privacy.BrowsingDataBridge;
-import org.chromium.chrome.browser.preferences.privacy.BrowsingDataBridge.OnClearBrowsingDataListener;
 
 /**
  * A class to wipe the user's bookmarks and all types of sync data.
@@ -49,5 +49,18 @@ public class SyncUserDataWiper {
 
         return promise;
     }
-}
 
+    /**
+     * Wipes the user's bookmarks and sync data if required.
+     * @param required Whether the promise the user's bookmarks and sync data should be wiped.
+     * @return A promise which will be fulfilled once the data is wiped if required is true, or
+     *         immediately otherwise.
+     */
+    public static Promise<Void> wipeSyncUserDataIfRequired(boolean required) {
+        if (required) {
+            return SyncUserDataWiper.wipeSyncUserData();
+        } else {
+            return Promise.fulfilled(null);
+        }
+    }
+}

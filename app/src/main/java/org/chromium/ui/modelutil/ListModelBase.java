@@ -4,7 +4,7 @@
 
 package org.chromium.ui.modelutil;
 
-import android.support.annotation.NonNull;
+import android.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,13 +55,56 @@ public class ListModelBase<T, P> extends ListObservableImpl<P> implements Simple
     }
 
     /**
+     * Inserts a given {@code item} at position {@code position} of the held {@link List}.
+     * Notifies observers about the inserted item.
+     * @param position The position of the item to be inserted.
+     * @param item The item to be inserted.
+     */
+    public void add(int position, T item) {
+        mItems.add(position, item);
+        notifyItemInserted(position);
+    }
+
+    /**
      * Appends all given {@code items} to the last position of the held {@link List}.
      * Notifies observers about the inserted items.
      * @param items The items to be stored.
      */
     public void addAll(Collection<T> items) {
-        int insertionIndex = mItems.size();
-        mItems.addAll(items);
+        addAll(items, mItems.size());
+    }
+
+    /**
+     * Adds all given {@code items} to the {@link List} at specific position.
+     * Notifies observers about the inserted items.
+     * @param items The items to be stored.
+     * @param insertionIndex Position where items should be inserted.
+     */
+    public void addAll(Collection<? extends T> items, int insertionIndex) {
+        mItems.addAll(insertionIndex, items);
+        notifyItemRangeInserted(insertionIndex, items.size());
+    }
+
+    /**
+     * Appends all given {@code items} to the last position of the held {@link List}.
+     * Notifies observers about the inserted items.
+     * @param items The items to be stored.
+     */
+    public void addAll(SimpleList<T> items) {
+        addAll(items, mItems.size());
+    }
+
+    /**
+     * Adds all given {@code items} to the {@link List} at specific position.
+     * Notifies observers about the inserted items.
+     * @param items The items to be stored.
+     * @param insertionIndex Position where items should be inserted.
+     */
+    public void addAll(SimpleList<T> items, int insertionIndex) {
+        int currentIndex = insertionIndex;
+        for (T item : items) {
+            mItems.add(currentIndex++, item);
+        }
         notifyItemRangeInserted(insertionIndex, items.size());
     }
 
@@ -142,5 +185,25 @@ public class ListModelBase<T, P> extends ListObservableImpl<P> implements Simple
      */
     public int indexOf(Object item) {
         return mItems.indexOf(item);
+    }
+
+    /**
+     * Moves a single {@code item} from current {@code index} to new {@code index}.
+     * @param curIndex The position of the item before move.
+     * @param newIndex The position of the item after move.
+     */
+    public void move(int curIndex, int newIndex) {
+        T item = mItems.remove(curIndex);
+        if (newIndex == mItems.size()) {
+            mItems.add(item);
+        } else {
+            mItems.add(newIndex, item);
+        }
+        notifyItemMoved(curIndex, newIndex);
+    }
+
+    /** Clear all items from the list. */
+    public void clear() {
+        if (size() > 0) removeRange(0, size());
     }
 }

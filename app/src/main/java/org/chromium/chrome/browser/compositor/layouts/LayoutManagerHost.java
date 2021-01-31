@@ -8,8 +8,10 @@ import android.content.Context;
 import android.graphics.RectF;
 import android.view.View;
 
+import org.chromium.base.supplier.ObservableSupplier;
 import org.chromium.chrome.browser.compositor.TitleCache;
-import org.chromium.chrome.browser.fullscreen.ChromeFullscreenManager;
+import org.chromium.chrome.browser.fullscreen.BrowserControlsManager;
+import org.chromium.chrome.browser.fullscreen.FullscreenManager;
 
 /**
  * This is the minimal interface of the host view from the layout side.
@@ -20,12 +22,21 @@ public interface LayoutManagerHost {
      * If set to true, the time it takes for ContentView to become ready will be
      * logged to the screen.
      */
-    static final boolean LOG_CHROME_VIEW_SHOW_TIME = false;
+    boolean LOG_CHROME_VIEW_SHOW_TIME = false;
 
     /**
      * Requests a refresh of the visuals.
      */
     void requestRender();
+
+    /**
+     * Requests a refresh of the visuals.
+     * @param onUpdateEffective Callback that will be called when there is a buffer swap for the
+     *                          requested update. The rendered frame for this request won't be
+     *                          visible until a buffer swap occurs. Note that there is no guarantee
+     *                          the updated buffer is the one currently being displayed for pre-Q.
+     */
+    default void requestRender(Runnable onUpdateEffective) {}
 
     /**
      * @return The Android context of the host view.
@@ -96,9 +107,19 @@ public interface LayoutManagerHost {
     TitleCache getTitleCache();
 
     /**
+     * @return The manager providing browser control state.
+     */
+    BrowserControlsManager getBrowserControlsManager();
+
+    /**
+     * @return An {@link ObservableSupplier} supplier for the {@link BrowserControlsManager}.
+     */
+    ObservableSupplier<BrowserControlsManager> getBrowserControlsManagerSupplier();
+
+    /**
      * @return The manager in charge of handling fullscreen changes.
      */
-    ChromeFullscreenManager getFullscreenManager();
+    FullscreenManager getFullscreenManager();
 
     /**
      * Called when the currently visible content has been changed.

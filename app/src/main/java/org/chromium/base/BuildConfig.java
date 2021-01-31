@@ -1,18 +1,13 @@
 package org.chromium.base;
 public class BuildConfig {
-    public static boolean IS_MULTIDEX_ENABLED ;
-    public static String FIREBASE_APP_ID = "";
-    public static boolean DCHECK_IS_ON ;
-    public static boolean IS_UBSAN ;
-    public static String[] COMPRESSED_LOCALES = {
-            // "am", "ar", "bg", "ca", "cs", "da", "de", "el", "en-GB", "en-US", "es", "es-419",
-            // "fa", "fi", "fr", "he", "hi", "hr", "hu", "id", "it", "ja", "ko", "lt",
-            // "lv", "nb", "nl", "pl", "pt-BR", "pt-PT", "ro", "ru", "sk", "sl", "sr",
-            // "sv", "sw", "th", "tr", "uk", "vi", "zh-CN", "zh-TW"
-            "en-US","zh-CN", "zh-TW"
-    };
-    public static String[] UNCOMPRESSED_LOCALES = {
-            // "en-US","zh-CN", "zh-TW"
-    };
-    public static int R_STRING_PRODUCT_VERSION ;
+    public static final boolean IS_MULTIDEX_ENABLED = false;
+    public static final boolean DCHECK_IS_ON = false;
+    public static final boolean IS_UBSAN = false;
+    public static final boolean IS_CHROME_BRANDED = false;
+    public static final int R_STRING_PRODUCT_VERSION = org.chromium.base.R.string.product_version;
+    public static final int MIN_SDK_VERSION = 21;
+    public static final boolean BUNDLES_SUPPORTED = false;
+    public static final boolean IS_INCREMENTAL_INSTALL = false;
+    public static final boolean IS_CHROMECAST_BRANDING_INTERNAL = false;
+    public static final boolean ISOLATED_SPLITS_ENABLED = false;
 }

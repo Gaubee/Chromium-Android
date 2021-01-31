@@ -10,8 +10,8 @@ import android.content.Intent;
 import android.util.Log;
 
 import org.chromium.chrome.browser.ShortcutHelper;
-import org.chromium.chrome.browser.ShortcutSource;
 import org.chromium.chrome.browser.document.ChromeLauncherActivity;
+import org.chromium.components.webapps.ShortcutSource;
 
 /**
  * Proxy that responds to tapping on the Bookmarks widget.
@@ -21,9 +21,8 @@ public class BookmarkWidgetProxy extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (BookmarkWidgetService.getChangeFolderAction(context)
-                .equals(intent.getAction())) {
-            BookmarkWidgetService.changeFolder(context, intent);
+        if (BookmarkWidgetServiceImpl.getChangeFolderAction().equals(intent.getAction())) {
+            BookmarkWidgetServiceImpl.changeFolder(intent);
         } else {
             Intent view = new Intent(intent);
             view.setClass(context, ChromeLauncherActivity.class);

@@ -33,11 +33,14 @@ public final class PartnerLocationDescriptor {
     public static final int CURRENT_LOCATION_VALUE = 1;
 
 
+    @java.lang.Override
     public final int getNumber() {
       return value;
     }
 
     /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -60,14 +63,29 @@ public final class PartnerLocationDescriptor {
     private static final com.google.protobuf.Internal.EnumLiteMap<
         LocationRole> internalValueMap =
           new com.google.protobuf.Internal.EnumLiteMap<LocationRole>() {
+            @java.lang.Override
             public LocationRole findValueByNumber(int number) {
               return LocationRole.forNumber(number);
             }
           };
 
-    private final int value;
+    public static com.google.protobuf.Internal.EnumVerifier 
+        internalGetVerifier() {
+      return LocationRoleVerifier.INSTANCE;
+    }
 
-    private LocationRole(int value) {
+    private static final class LocationRoleVerifier implements 
+         com.google.protobuf.Internal.EnumVerifier { 
+            static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new LocationRoleVerifier();
+            @java.lang.Override
+            public boolean isInRange(int number) {
+              return LocationRole.forNumber(number) != null;
+            }
+          }
+
+      private final int value;
+
+    LocationRole(int value) {
       this.value = value;
     }
 
@@ -99,11 +117,14 @@ public final class PartnerLocationDescriptor {
     public static final int DEVICE_LOCATION_VALUE = 12;
 
 
+    @java.lang.Override
     public final int getNumber() {
       return value;
     }
 
     /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -126,14 +147,29 @@ public final class PartnerLocationDescriptor {
     private static final com.google.protobuf.Internal.EnumLiteMap<
         LocationProducer> internalValueMap =
           new com.google.protobuf.Internal.EnumLiteMap<LocationProducer>() {
+            @java.lang.Override
             public LocationProducer findValueByNumber(int number) {
               return LocationProducer.forNumber(number);
             }
           };
 
-    private final int value;
+    public static com.google.protobuf.Internal.EnumVerifier 
+        internalGetVerifier() {
+      return LocationProducerVerifier.INSTANCE;
+    }
 
-    private LocationProducer(int value) {
+    private static final class LocationProducerVerifier implements 
+         com.google.protobuf.Internal.EnumVerifier { 
+            static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new LocationProducerVerifier();
+            @java.lang.Override
+            public boolean isInRange(int number) {
+              return LocationProducer.forNumber(number) != null;
+            }
+          }
+
+      private final int value;
+
+    LocationProducer(int value) {
       this.value = value;
     }
 
@@ -146,19 +182,23 @@ public final class PartnerLocationDescriptor {
 
     /**
      * <code>optional sfixed32 latitude_e7 = 1;</code>
+     * @return Whether the latitudeE7 field is set.
      */
     boolean hasLatitudeE7();
     /**
      * <code>optional sfixed32 latitude_e7 = 1;</code>
+     * @return The latitudeE7.
      */
     int getLatitudeE7();
 
     /**
      * <code>optional sfixed32 longitude_e7 = 2;</code>
+     * @return Whether the longitudeE7 field is set.
      */
     boolean hasLongitudeE7();
     /**
      * <code>optional sfixed32 longitude_e7 = 2;</code>
+     * @return The longitudeE7.
      */
     int getLongitudeE7();
   }
@@ -177,18 +217,23 @@ public final class PartnerLocationDescriptor {
     private int latitudeE7_;
     /**
      * <code>optional sfixed32 latitude_e7 = 1;</code>
+     * @return Whether the latitudeE7 field is set.
      */
+    @java.lang.Override
     public boolean hasLatitudeE7() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional sfixed32 latitude_e7 = 1;</code>
+     * @return The latitudeE7.
      */
+    @java.lang.Override
     public int getLatitudeE7() {
       return latitudeE7_;
     }
     /**
      * <code>optional sfixed32 latitude_e7 = 1;</code>
+     * @param value The latitudeE7 to set.
      */
     private void setLatitudeE7(int value) {
       bitField0_ |= 0x00000001;
@@ -206,18 +251,23 @@ public final class PartnerLocationDescriptor {
     private int longitudeE7_;
     /**
      * <code>optional sfixed32 longitude_e7 = 2;</code>
+     * @return Whether the longitudeE7 field is set.
      */
+    @java.lang.Override
     public boolean hasLongitudeE7() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional sfixed32 longitude_e7 = 2;</code>
+     * @return The longitudeE7.
      */
+    @java.lang.Override
     public int getLongitudeE7() {
       return longitudeE7_;
     }
     /**
      * <code>optional sfixed32 longitude_e7 = 2;</code>
+     * @param value The longitudeE7 to set.
      */
     private void setLongitudeE7(int value) {
       bitField0_ |= 0x00000002;
@@ -231,35 +281,19 @@ public final class PartnerLocationDescriptor {
       longitudeE7_ = 0;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeSFixed32(1, latitudeE7_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeSFixed32(2, longitudeE7_);
-      }
-      unknownFields.writeTo(output);
+    public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
-
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeSFixed32Size(1, latitudeE7_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeSFixed32Size(2, longitudeE7_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
+    public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
-
     public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -322,10 +356,10 @@ public final class PartnerLocationDescriptor {
     }
 
     public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
     }
     public static Builder newBuilder(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
@@ -344,18 +378,24 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional sfixed32 latitude_e7 = 1;</code>
+       * @return Whether the latitudeE7 field is set.
        */
+      @java.lang.Override
       public boolean hasLatitudeE7() {
         return instance.hasLatitudeE7();
       }
       /**
        * <code>optional sfixed32 latitude_e7 = 1;</code>
+       * @return The latitudeE7.
        */
+      @java.lang.Override
       public int getLatitudeE7() {
         return instance.getLatitudeE7();
       }
       /**
        * <code>optional sfixed32 latitude_e7 = 1;</code>
+       * @param value The latitudeE7 to set.
+       * @return This builder for chaining.
        */
       public Builder setLatitudeE7(int value) {
         copyOnWrite();
@@ -364,6 +404,7 @@ public final class PartnerLocationDescriptor {
       }
       /**
        * <code>optional sfixed32 latitude_e7 = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLatitudeE7() {
         copyOnWrite();
@@ -373,18 +414,24 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional sfixed32 longitude_e7 = 2;</code>
+       * @return Whether the longitudeE7 field is set.
        */
+      @java.lang.Override
       public boolean hasLongitudeE7() {
         return instance.hasLongitudeE7();
       }
       /**
        * <code>optional sfixed32 longitude_e7 = 2;</code>
+       * @return The longitudeE7.
        */
+      @java.lang.Override
       public int getLongitudeE7() {
         return instance.getLongitudeE7();
       }
       /**
        * <code>optional sfixed32 longitude_e7 = 2;</code>
+       * @param value The longitudeE7 to set.
+       * @return This builder for chaining.
        */
       public Builder setLongitudeE7(int value) {
         copyOnWrite();
@@ -393,6 +440,7 @@ public final class PartnerLocationDescriptor {
       }
       /**
        * <code>optional sfixed32 longitude_e7 = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLongitudeE7() {
         copyOnWrite();
@@ -402,89 +450,54 @@ public final class PartnerLocationDescriptor {
 
       // @@protoc_insertion_point(builder_scope:org.chromium.chrome.browser.omnibox.geo.LatLng)
     }
-    protected final Object dynamicMethod(
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
         com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-        Object arg0, Object arg1) {
+        java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
         case NEW_MUTABLE_INSTANCE: {
           return new org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng();
         }
-        case IS_INITIALIZED: {
-          return DEFAULT_INSTANCE;
-        }
-        case MAKE_IMMUTABLE: {
-          return null;
-        }
         case NEW_BUILDER: {
           return new Builder();
         }
-        case VISIT: {
-          Visitor visitor = (Visitor) arg0;
-          org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng other = (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng) arg1;
-          latitudeE7_ = visitor.visitInt(
-              hasLatitudeE7(), latitudeE7_,
-              other.hasLatitudeE7(), other.latitudeE7_);
-          longitudeE7_ = visitor.visitInt(
-              hasLongitudeE7(), longitudeE7_,
-              other.hasLongitudeE7(), other.longitudeE7_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-              .INSTANCE) {
-            bitField0_ |= other.bitField0_;
-          }
-          return this;
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "bitField0_",
+              "latitudeE7_",
+              "longitudeE7_",
+            };
+            java.lang.String info =
+                "\u0001\u0002\u0000\u0001\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u100d\u0000\u0002" +
+                "\u100d\u0001";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
-        case MERGE_FROM_STREAM: {
-          com.google.protobuf.CodedInputStream input =
-              (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                default: {
-                  if (!parseUnknownField(tag, input)) {
-                    done = true;
-                  }
-                  break;
-                }
-                case 13: {
-                  bitField0_ |= 0x00000001;
-                  latitudeE7_ = input.readSFixed32();
-                  break;
-                }
-                case 21: {
-                  bitField0_ |= 0x00000002;
-                  longitudeE7_ = input.readSFixed32();
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(
-                    e.getMessage()).setUnfinishedMessage(this));
-          } finally {
-          }
-        }
+        // fall through
         case GET_DEFAULT_INSTANCE: {
           return DEFAULT_INSTANCE;
         }
         case GET_PARSER: {
-          if (PARSER == null) {    synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+          com.google.protobuf.Parser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng> parser = PARSER;
+          if (parser == null) {
+            synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
               }
             }
           }
-          return PARSER;
-        }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
       }
       throw new UnsupportedOperationException();
     }
@@ -493,8 +506,12 @@ public final class PartnerLocationDescriptor {
     // @@protoc_insertion_point(class_scope:org.chromium.chrome.browser.omnibox.geo.LatLng)
     private static final org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new LatLng();
-      DEFAULT_INSTANCE.makeImmutable();
+      LatLng defaultInstance = new LatLng();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        LatLng.class, defaultInstance);
     }
 
     public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng getDefaultInstance() {
@@ -513,42 +530,50 @@ public final class PartnerLocationDescriptor {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+     * @return Whether the wifi field is set.
      */
     boolean hasWifi();
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+     * @return The wifi.
      */
     org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi getWifi();
 
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+     * @return Whether the cell field is set.
      */
     boolean hasCell();
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+     * @return The cell.
      */
     org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell getCell();
 
     /**
      * <code>optional bool connected = 3;</code>
+     * @return Whether the connected field is set.
      */
     boolean hasConnected();
     /**
      * <code>optional bool connected = 3;</code>
+     * @return The connected.
      */
     boolean getConnected();
 
     /**
      * <code>optional int64 timestamp_ms = 4;</code>
+     * @return Whether the timestampMs field is set.
      */
     boolean hasTimestampMs();
     /**
      * <code>optional int64 timestamp_ms = 4;</code>
+     * @return The timestampMs.
      */
     long getTimestampMs();
 
-    public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.TypeCase getTypeCase();
+    org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.TypeCase getTypeCase();
   }
   /**
    * Protobuf type {@code org.chromium.chrome.browser.omnibox.geo.VisibleNetwork}
@@ -566,24 +591,29 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional string bssid = 1;</code>
+       * @return Whether the bssid field is set.
        */
       boolean hasBssid();
       /**
        * <code>optional string bssid = 1;</code>
+       * @return The bssid.
        */
       java.lang.String getBssid();
       /**
        * <code>optional string bssid = 1;</code>
+       * @return The bytes for bssid.
        */
       com.google.protobuf.ByteString
           getBssidBytes();
 
       /**
        * <code>optional int32 level_dbm = 2;</code>
+       * @return Whether the levelDbm field is set.
        */
       boolean hasLevelDbm();
       /**
        * <code>optional int32 level_dbm = 2;</code>
+       * @return The levelDbm.
        */
       int getLevelDbm();
     }
@@ -603,31 +633,36 @@ public final class PartnerLocationDescriptor {
       private java.lang.String bssid_;
       /**
        * <code>optional string bssid = 1;</code>
+       * @return Whether the bssid field is set.
        */
+      @java.lang.Override
       public boolean hasBssid() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>optional string bssid = 1;</code>
+       * @return The bssid.
        */
+      @java.lang.Override
       public java.lang.String getBssid() {
         return bssid_;
       }
       /**
        * <code>optional string bssid = 1;</code>
+       * @return The bytes for bssid.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString
           getBssidBytes() {
         return com.google.protobuf.ByteString.copyFromUtf8(bssid_);
       }
       /**
        * <code>optional string bssid = 1;</code>
+       * @param value The bssid to set.
        */
       private void setBssid(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
+        value.getClass();
   bitField0_ |= 0x00000001;
         bssid_ = value;
       }
@@ -640,32 +675,35 @@ public final class PartnerLocationDescriptor {
       }
       /**
        * <code>optional string bssid = 1;</code>
+       * @param value The bytes for bssid to set.
        */
       private void setBssidBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
         bssid_ = value.toStringUtf8();
+        bitField0_ |= 0x00000001;
       }
 
       public static final int LEVEL_DBM_FIELD_NUMBER = 2;
       private int levelDbm_;
       /**
        * <code>optional int32 level_dbm = 2;</code>
+       * @return Whether the levelDbm field is set.
        */
+      @java.lang.Override
       public boolean hasLevelDbm() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>optional int32 level_dbm = 2;</code>
+       * @return The levelDbm.
        */
+      @java.lang.Override
       public int getLevelDbm() {
         return levelDbm_;
       }
       /**
        * <code>optional int32 level_dbm = 2;</code>
+       * @param value The levelDbm to set.
        */
       private void setLevelDbm(int value) {
         bitField0_ |= 0x00000002;
@@ -679,35 +717,19 @@ public final class PartnerLocationDescriptor {
         levelDbm_ = 0;
       }
 
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeString(1, getBssid());
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeInt32(2, levelDbm_);
-        }
-        unknownFields.writeTo(output);
+      public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
       }
-
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeStringSize(1, getBssid());
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, levelDbm_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
+      public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
       }
-
       public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -770,10 +792,10 @@ public final class PartnerLocationDescriptor {
       }
 
       public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
       }
       public static Builder newBuilder(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
       }
 
       /**
@@ -792,25 +814,33 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional string bssid = 1;</code>
+         * @return Whether the bssid field is set.
          */
+        @java.lang.Override
         public boolean hasBssid() {
           return instance.hasBssid();
         }
         /**
          * <code>optional string bssid = 1;</code>
+         * @return The bssid.
          */
+        @java.lang.Override
         public java.lang.String getBssid() {
           return instance.getBssid();
         }
         /**
          * <code>optional string bssid = 1;</code>
+         * @return The bytes for bssid.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString
             getBssidBytes() {
           return instance.getBssidBytes();
         }
         /**
          * <code>optional string bssid = 1;</code>
+         * @param value The bssid to set.
+         * @return This builder for chaining.
          */
         public Builder setBssid(
             java.lang.String value) {
@@ -820,6 +850,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional string bssid = 1;</code>
+         * @return This builder for chaining.
          */
         public Builder clearBssid() {
           copyOnWrite();
@@ -828,6 +859,8 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional string bssid = 1;</code>
+         * @param value The bytes for bssid to set.
+         * @return This builder for chaining.
          */
         public Builder setBssidBytes(
             com.google.protobuf.ByteString value) {
@@ -838,18 +871,24 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional int32 level_dbm = 2;</code>
+         * @return Whether the levelDbm field is set.
          */
+        @java.lang.Override
         public boolean hasLevelDbm() {
           return instance.hasLevelDbm();
         }
         /**
          * <code>optional int32 level_dbm = 2;</code>
+         * @return The levelDbm.
          */
+        @java.lang.Override
         public int getLevelDbm() {
           return instance.getLevelDbm();
         }
         /**
          * <code>optional int32 level_dbm = 2;</code>
+         * @param value The levelDbm to set.
+         * @return This builder for chaining.
          */
         public Builder setLevelDbm(int value) {
           copyOnWrite();
@@ -858,6 +897,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional int32 level_dbm = 2;</code>
+         * @return This builder for chaining.
          */
         public Builder clearLevelDbm() {
           copyOnWrite();
@@ -867,90 +907,54 @@ public final class PartnerLocationDescriptor {
 
         // @@protoc_insertion_point(builder_scope:org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi)
       }
-      protected final Object dynamicMethod(
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
           com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-          Object arg0, Object arg1) {
+          java.lang.Object arg0, java.lang.Object arg1) {
         switch (method) {
           case NEW_MUTABLE_INSTANCE: {
             return new org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi();
           }
-          case IS_INITIALIZED: {
-            return DEFAULT_INSTANCE;
-          }
-          case MAKE_IMMUTABLE: {
-            return null;
-          }
           case NEW_BUILDER: {
             return new Builder();
           }
-          case VISIT: {
-            Visitor visitor = (Visitor) arg0;
-            org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi other = (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi) arg1;
-            bssid_ = visitor.visitString(
-                hasBssid(), bssid_,
-                other.hasBssid(), other.bssid_);
-            levelDbm_ = visitor.visitInt(
-                hasLevelDbm(), levelDbm_,
-                other.hasLevelDbm(), other.levelDbm_);
-            if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-                .INSTANCE) {
-              bitField0_ |= other.bitField0_;
-            }
-            return this;
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "bitField0_",
+                "bssid_",
+                "levelDbm_",
+              };
+              java.lang.String info =
+                  "\u0001\u0002\u0000\u0001\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u1008\u0000\u0002" +
+                  "\u1004\u0001";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
           }
-          case MERGE_FROM_STREAM: {
-            com.google.protobuf.CodedInputStream input =
-                (com.google.protobuf.CodedInputStream) arg0;
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-                (com.google.protobuf.ExtensionRegistryLite) arg1;
-            try {
-              boolean done = false;
-              while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                  case 0:
-                    done = true;
-                    break;
-                  default: {
-                    if (!parseUnknownField(tag, input)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                  case 10: {
-                    String s = input.readString();
-                    bitField0_ |= 0x00000001;
-                    bssid_ = s;
-                    break;
-                  }
-                  case 16: {
-                    bitField0_ |= 0x00000002;
-                    levelDbm_ = input.readInt32();
-                    break;
-                  }
-                }
-              }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              throw new RuntimeException(e.setUnfinishedMessage(this));
-            } catch (java.io.IOException e) {
-              throw new RuntimeException(
-                  new com.google.protobuf.InvalidProtocolBufferException(
-                      e.getMessage()).setUnfinishedMessage(this));
-            } finally {
-            }
-          }
+          // fall through
           case GET_DEFAULT_INSTANCE: {
             return DEFAULT_INSTANCE;
           }
           case GET_PARSER: {
-            if (PARSER == null) {    synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.class) {
-                if (PARSER == null) {
-                  PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            com.google.protobuf.Parser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi> parser = PARSER;
+            if (parser == null) {
+              synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
                 }
               }
             }
-            return PARSER;
-          }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
         }
         throw new UnsupportedOperationException();
       }
@@ -959,8 +963,12 @@ public final class PartnerLocationDescriptor {
       // @@protoc_insertion_point(class_scope:org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi)
       private static final org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new WiFi();
-        DEFAULT_INSTANCE.makeImmutable();
+        WiFi defaultInstance = new WiFi();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          WiFi.class, defaultInstance);
       }
 
       public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi getDefaultInstance() {
@@ -980,73 +988,89 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
+       * @return Whether the type field is set.
        */
       boolean hasType();
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
+       * @return The type.
        */
       org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type getType();
 
       /**
        * <code>optional int32 cell_id = 2;</code>
+       * @return Whether the cellId field is set.
        */
       boolean hasCellId();
       /**
        * <code>optional int32 cell_id = 2;</code>
+       * @return The cellId.
        */
       int getCellId();
 
       /**
        * <code>optional int32 location_area_code = 3;</code>
+       * @return Whether the locationAreaCode field is set.
        */
       boolean hasLocationAreaCode();
       /**
        * <code>optional int32 location_area_code = 3;</code>
+       * @return The locationAreaCode.
        */
       int getLocationAreaCode();
 
       /**
        * <code>optional int32 mobile_country_code = 4;</code>
+       * @return Whether the mobileCountryCode field is set.
        */
       boolean hasMobileCountryCode();
       /**
        * <code>optional int32 mobile_country_code = 4;</code>
+       * @return The mobileCountryCode.
        */
       int getMobileCountryCode();
 
       /**
        * <code>optional int32 mobile_network_code = 5;</code>
+       * @return Whether the mobileNetworkCode field is set.
        */
       boolean hasMobileNetworkCode();
       /**
        * <code>optional int32 mobile_network_code = 5;</code>
+       * @return The mobileNetworkCode.
        */
       int getMobileNetworkCode();
 
       /**
        * <code>optional int32 primary_scrambling_code = 6;</code>
+       * @return Whether the primaryScramblingCode field is set.
        */
       boolean hasPrimaryScramblingCode();
       /**
        * <code>optional int32 primary_scrambling_code = 6;</code>
+       * @return The primaryScramblingCode.
        */
       int getPrimaryScramblingCode();
 
       /**
        * <code>optional int32 physical_cell_id = 7;</code>
+       * @return Whether the physicalCellId field is set.
        */
       boolean hasPhysicalCellId();
       /**
        * <code>optional int32 physical_cell_id = 7;</code>
+       * @return The physicalCellId.
        */
       int getPhysicalCellId();
 
       /**
        * <code>optional int32 tracking_area_code = 8;</code>
+       * @return Whether the trackingAreaCode field is set.
        */
       boolean hasTrackingAreaCode();
       /**
        * <code>optional int32 tracking_area_code = 8;</code>
+       * @return The trackingAreaCode.
        */
       int getTrackingAreaCode();
     }
@@ -1109,11 +1133,14 @@ public final class PartnerLocationDescriptor {
         public static final int WCDMA_VALUE = 4;
 
 
+        @java.lang.Override
         public final int getNumber() {
           return value;
         }
 
         /**
+         * @param value The number of the enum to look for.
+         * @return The enum associated with the given number.
          * @deprecated Use {@link #forNumber(int)} instead.
          */
         @java.lang.Deprecated
@@ -1139,14 +1166,29 @@ public final class PartnerLocationDescriptor {
         private static final com.google.protobuf.Internal.EnumLiteMap<
             Type> internalValueMap =
               new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+                @java.lang.Override
                 public Type findValueByNumber(int number) {
                   return Type.forNumber(number);
                 }
               };
 
-        private final int value;
+        public static com.google.protobuf.Internal.EnumVerifier 
+            internalGetVerifier() {
+          return TypeVerifier.INSTANCE;
+        }
 
-        private Type(int value) {
+        private static final class TypeVerifier implements 
+             com.google.protobuf.Internal.EnumVerifier { 
+                static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new TypeVerifier();
+                @java.lang.Override
+                public boolean isInRange(int number) {
+                  return Type.forNumber(number) != null;
+                }
+              }
+
+          private final int value;
+
+        Type(int value) {
           this.value = value;
         }
 
@@ -1158,26 +1200,28 @@ public final class PartnerLocationDescriptor {
       private int type_;
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
+       * @return Whether the type field is set.
        */
+      @java.lang.Override
       public boolean hasType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
+       * @return The type.
        */
+      @java.lang.Override
       public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type getType() {
         org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type result = org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type.forNumber(type_);
         return result == null ? org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type.UNKNOWN : result;
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
+       * @param value The type to set.
        */
       private void setType(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
+        bitField0_ |= 0x00000001;
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
@@ -1191,18 +1235,23 @@ public final class PartnerLocationDescriptor {
       private int cellId_;
       /**
        * <code>optional int32 cell_id = 2;</code>
+       * @return Whether the cellId field is set.
        */
+      @java.lang.Override
       public boolean hasCellId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>optional int32 cell_id = 2;</code>
+       * @return The cellId.
        */
+      @java.lang.Override
       public int getCellId() {
         return cellId_;
       }
       /**
        * <code>optional int32 cell_id = 2;</code>
+       * @param value The cellId to set.
        */
       private void setCellId(int value) {
         bitField0_ |= 0x00000002;
@@ -1220,18 +1269,23 @@ public final class PartnerLocationDescriptor {
       private int locationAreaCode_;
       /**
        * <code>optional int32 location_area_code = 3;</code>
+       * @return Whether the locationAreaCode field is set.
        */
+      @java.lang.Override
       public boolean hasLocationAreaCode() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional int32 location_area_code = 3;</code>
+       * @return The locationAreaCode.
        */
+      @java.lang.Override
       public int getLocationAreaCode() {
         return locationAreaCode_;
       }
       /**
        * <code>optional int32 location_area_code = 3;</code>
+       * @param value The locationAreaCode to set.
        */
       private void setLocationAreaCode(int value) {
         bitField0_ |= 0x00000004;
@@ -1249,18 +1303,23 @@ public final class PartnerLocationDescriptor {
       private int mobileCountryCode_;
       /**
        * <code>optional int32 mobile_country_code = 4;</code>
+       * @return Whether the mobileCountryCode field is set.
        */
+      @java.lang.Override
       public boolean hasMobileCountryCode() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional int32 mobile_country_code = 4;</code>
+       * @return The mobileCountryCode.
        */
+      @java.lang.Override
       public int getMobileCountryCode() {
         return mobileCountryCode_;
       }
       /**
        * <code>optional int32 mobile_country_code = 4;</code>
+       * @param value The mobileCountryCode to set.
        */
       private void setMobileCountryCode(int value) {
         bitField0_ |= 0x00000008;
@@ -1278,18 +1337,23 @@ public final class PartnerLocationDescriptor {
       private int mobileNetworkCode_;
       /**
        * <code>optional int32 mobile_network_code = 5;</code>
+       * @return Whether the mobileNetworkCode field is set.
        */
+      @java.lang.Override
       public boolean hasMobileNetworkCode() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>optional int32 mobile_network_code = 5;</code>
+       * @return The mobileNetworkCode.
        */
+      @java.lang.Override
       public int getMobileNetworkCode() {
         return mobileNetworkCode_;
       }
       /**
        * <code>optional int32 mobile_network_code = 5;</code>
+       * @param value The mobileNetworkCode to set.
        */
       private void setMobileNetworkCode(int value) {
         bitField0_ |= 0x00000010;
@@ -1307,18 +1371,23 @@ public final class PartnerLocationDescriptor {
       private int primaryScramblingCode_;
       /**
        * <code>optional int32 primary_scrambling_code = 6;</code>
+       * @return Whether the primaryScramblingCode field is set.
        */
+      @java.lang.Override
       public boolean hasPrimaryScramblingCode() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <code>optional int32 primary_scrambling_code = 6;</code>
+       * @return The primaryScramblingCode.
        */
+      @java.lang.Override
       public int getPrimaryScramblingCode() {
         return primaryScramblingCode_;
       }
       /**
        * <code>optional int32 primary_scrambling_code = 6;</code>
+       * @param value The primaryScramblingCode to set.
        */
       private void setPrimaryScramblingCode(int value) {
         bitField0_ |= 0x00000020;
@@ -1336,18 +1405,23 @@ public final class PartnerLocationDescriptor {
       private int physicalCellId_;
       /**
        * <code>optional int32 physical_cell_id = 7;</code>
+       * @return Whether the physicalCellId field is set.
        */
+      @java.lang.Override
       public boolean hasPhysicalCellId() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <code>optional int32 physical_cell_id = 7;</code>
+       * @return The physicalCellId.
        */
+      @java.lang.Override
       public int getPhysicalCellId() {
         return physicalCellId_;
       }
       /**
        * <code>optional int32 physical_cell_id = 7;</code>
+       * @param value The physicalCellId to set.
        */
       private void setPhysicalCellId(int value) {
         bitField0_ |= 0x00000040;
@@ -1365,18 +1439,23 @@ public final class PartnerLocationDescriptor {
       private int trackingAreaCode_;
       /**
        * <code>optional int32 tracking_area_code = 8;</code>
+       * @return Whether the trackingAreaCode field is set.
        */
+      @java.lang.Override
       public boolean hasTrackingAreaCode() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <code>optional int32 tracking_area_code = 8;</code>
+       * @return The trackingAreaCode.
        */
+      @java.lang.Override
       public int getTrackingAreaCode() {
         return trackingAreaCode_;
       }
       /**
        * <code>optional int32 tracking_area_code = 8;</code>
+       * @param value The trackingAreaCode to set.
        */
       private void setTrackingAreaCode(int value) {
         bitField0_ |= 0x00000080;
@@ -1390,77 +1469,19 @@ public final class PartnerLocationDescriptor {
         trackingAreaCode_ = 0;
       }
 
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeEnum(1, type_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeInt32(2, cellId_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          output.writeInt32(3, locationAreaCode_);
-        }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          output.writeInt32(4, mobileCountryCode_);
-        }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          output.writeInt32(5, mobileNetworkCode_);
-        }
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
-          output.writeInt32(6, primaryScramblingCode_);
-        }
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          output.writeInt32(7, physicalCellId_);
-        }
-        if (((bitField0_ & 0x00000080) == 0x00000080)) {
-          output.writeInt32(8, trackingAreaCode_);
-        }
-        unknownFields.writeTo(output);
+      public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
       }
-
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeEnumSize(1, type_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, cellId_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, locationAreaCode_);
-        }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, mobileCountryCode_);
-        }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, mobileNetworkCode_);
-        }
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(6, primaryScramblingCode_);
-        }
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(7, physicalCellId_);
-        }
-        if (((bitField0_ & 0x00000080) == 0x00000080)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(8, trackingAreaCode_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
+      public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
       }
-
       public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1523,10 +1544,10 @@ public final class PartnerLocationDescriptor {
       }
 
       public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
       }
       public static Builder newBuilder(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
       }
 
       /**
@@ -1545,18 +1566,24 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
+         * @return Whether the type field is set.
          */
+        @java.lang.Override
         public boolean hasType() {
           return instance.hasType();
         }
         /**
          * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
+         * @return The type.
          */
+        @java.lang.Override
         public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type getType() {
           return instance.getType();
         }
         /**
          * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
+         * @param value The enum numeric value on the wire for type to set.
+         * @return This builder for chaining.
          */
         public Builder setType(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type value) {
           copyOnWrite();
@@ -1565,6 +1592,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell.Type type = 1;</code>
+         * @return This builder for chaining.
          */
         public Builder clearType() {
           copyOnWrite();
@@ -1574,18 +1602,24 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional int32 cell_id = 2;</code>
+         * @return Whether the cellId field is set.
          */
+        @java.lang.Override
         public boolean hasCellId() {
           return instance.hasCellId();
         }
         /**
          * <code>optional int32 cell_id = 2;</code>
+         * @return The cellId.
          */
+        @java.lang.Override
         public int getCellId() {
           return instance.getCellId();
         }
         /**
          * <code>optional int32 cell_id = 2;</code>
+         * @param value The cellId to set.
+         * @return This builder for chaining.
          */
         public Builder setCellId(int value) {
           copyOnWrite();
@@ -1594,6 +1628,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional int32 cell_id = 2;</code>
+         * @return This builder for chaining.
          */
         public Builder clearCellId() {
           copyOnWrite();
@@ -1603,18 +1638,24 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional int32 location_area_code = 3;</code>
+         * @return Whether the locationAreaCode field is set.
          */
+        @java.lang.Override
         public boolean hasLocationAreaCode() {
           return instance.hasLocationAreaCode();
         }
         /**
          * <code>optional int32 location_area_code = 3;</code>
+         * @return The locationAreaCode.
          */
+        @java.lang.Override
         public int getLocationAreaCode() {
           return instance.getLocationAreaCode();
         }
         /**
          * <code>optional int32 location_area_code = 3;</code>
+         * @param value The locationAreaCode to set.
+         * @return This builder for chaining.
          */
         public Builder setLocationAreaCode(int value) {
           copyOnWrite();
@@ -1623,6 +1664,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional int32 location_area_code = 3;</code>
+         * @return This builder for chaining.
          */
         public Builder clearLocationAreaCode() {
           copyOnWrite();
@@ -1632,18 +1674,24 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional int32 mobile_country_code = 4;</code>
+         * @return Whether the mobileCountryCode field is set.
          */
+        @java.lang.Override
         public boolean hasMobileCountryCode() {
           return instance.hasMobileCountryCode();
         }
         /**
          * <code>optional int32 mobile_country_code = 4;</code>
+         * @return The mobileCountryCode.
          */
+        @java.lang.Override
         public int getMobileCountryCode() {
           return instance.getMobileCountryCode();
         }
         /**
          * <code>optional int32 mobile_country_code = 4;</code>
+         * @param value The mobileCountryCode to set.
+         * @return This builder for chaining.
          */
         public Builder setMobileCountryCode(int value) {
           copyOnWrite();
@@ -1652,6 +1700,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional int32 mobile_country_code = 4;</code>
+         * @return This builder for chaining.
          */
         public Builder clearMobileCountryCode() {
           copyOnWrite();
@@ -1661,18 +1710,24 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional int32 mobile_network_code = 5;</code>
+         * @return Whether the mobileNetworkCode field is set.
          */
+        @java.lang.Override
         public boolean hasMobileNetworkCode() {
           return instance.hasMobileNetworkCode();
         }
         /**
          * <code>optional int32 mobile_network_code = 5;</code>
+         * @return The mobileNetworkCode.
          */
+        @java.lang.Override
         public int getMobileNetworkCode() {
           return instance.getMobileNetworkCode();
         }
         /**
          * <code>optional int32 mobile_network_code = 5;</code>
+         * @param value The mobileNetworkCode to set.
+         * @return This builder for chaining.
          */
         public Builder setMobileNetworkCode(int value) {
           copyOnWrite();
@@ -1681,6 +1736,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional int32 mobile_network_code = 5;</code>
+         * @return This builder for chaining.
          */
         public Builder clearMobileNetworkCode() {
           copyOnWrite();
@@ -1690,18 +1746,24 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional int32 primary_scrambling_code = 6;</code>
+         * @return Whether the primaryScramblingCode field is set.
          */
+        @java.lang.Override
         public boolean hasPrimaryScramblingCode() {
           return instance.hasPrimaryScramblingCode();
         }
         /**
          * <code>optional int32 primary_scrambling_code = 6;</code>
+         * @return The primaryScramblingCode.
          */
+        @java.lang.Override
         public int getPrimaryScramblingCode() {
           return instance.getPrimaryScramblingCode();
         }
         /**
          * <code>optional int32 primary_scrambling_code = 6;</code>
+         * @param value The primaryScramblingCode to set.
+         * @return This builder for chaining.
          */
         public Builder setPrimaryScramblingCode(int value) {
           copyOnWrite();
@@ -1710,6 +1772,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional int32 primary_scrambling_code = 6;</code>
+         * @return This builder for chaining.
          */
         public Builder clearPrimaryScramblingCode() {
           copyOnWrite();
@@ -1719,18 +1782,24 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional int32 physical_cell_id = 7;</code>
+         * @return Whether the physicalCellId field is set.
          */
+        @java.lang.Override
         public boolean hasPhysicalCellId() {
           return instance.hasPhysicalCellId();
         }
         /**
          * <code>optional int32 physical_cell_id = 7;</code>
+         * @return The physicalCellId.
          */
+        @java.lang.Override
         public int getPhysicalCellId() {
           return instance.getPhysicalCellId();
         }
         /**
          * <code>optional int32 physical_cell_id = 7;</code>
+         * @param value The physicalCellId to set.
+         * @return This builder for chaining.
          */
         public Builder setPhysicalCellId(int value) {
           copyOnWrite();
@@ -1739,6 +1808,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional int32 physical_cell_id = 7;</code>
+         * @return This builder for chaining.
          */
         public Builder clearPhysicalCellId() {
           copyOnWrite();
@@ -1748,18 +1818,24 @@ public final class PartnerLocationDescriptor {
 
         /**
          * <code>optional int32 tracking_area_code = 8;</code>
+         * @return Whether the trackingAreaCode field is set.
          */
+        @java.lang.Override
         public boolean hasTrackingAreaCode() {
           return instance.hasTrackingAreaCode();
         }
         /**
          * <code>optional int32 tracking_area_code = 8;</code>
+         * @return The trackingAreaCode.
          */
+        @java.lang.Override
         public int getTrackingAreaCode() {
           return instance.getTrackingAreaCode();
         }
         /**
          * <code>optional int32 tracking_area_code = 8;</code>
+         * @param value The trackingAreaCode to set.
+         * @return This builder for chaining.
          */
         public Builder setTrackingAreaCode(int value) {
           copyOnWrite();
@@ -1768,6 +1844,7 @@ public final class PartnerLocationDescriptor {
         }
         /**
          * <code>optional int32 tracking_area_code = 8;</code>
+         * @return This builder for chaining.
          */
         public Builder clearTrackingAreaCode() {
           copyOnWrite();
@@ -1777,142 +1854,62 @@ public final class PartnerLocationDescriptor {
 
         // @@protoc_insertion_point(builder_scope:org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell)
       }
-      protected final Object dynamicMethod(
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
           com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-          Object arg0, Object arg1) {
+          java.lang.Object arg0, java.lang.Object arg1) {
         switch (method) {
           case NEW_MUTABLE_INSTANCE: {
             return new org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell();
           }
-          case IS_INITIALIZED: {
-            return DEFAULT_INSTANCE;
-          }
-          case MAKE_IMMUTABLE: {
-            return null;
-          }
           case NEW_BUILDER: {
             return new Builder();
           }
-          case VISIT: {
-            Visitor visitor = (Visitor) arg0;
-            org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell other = (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell) arg1;
-            type_ = visitor.visitInt(hasType(), type_,
-                other.hasType(), other.type_);
-            cellId_ = visitor.visitInt(
-                hasCellId(), cellId_,
-                other.hasCellId(), other.cellId_);
-            locationAreaCode_ = visitor.visitInt(
-                hasLocationAreaCode(), locationAreaCode_,
-                other.hasLocationAreaCode(), other.locationAreaCode_);
-            mobileCountryCode_ = visitor.visitInt(
-                hasMobileCountryCode(), mobileCountryCode_,
-                other.hasMobileCountryCode(), other.mobileCountryCode_);
-            mobileNetworkCode_ = visitor.visitInt(
-                hasMobileNetworkCode(), mobileNetworkCode_,
-                other.hasMobileNetworkCode(), other.mobileNetworkCode_);
-            primaryScramblingCode_ = visitor.visitInt(
-                hasPrimaryScramblingCode(), primaryScramblingCode_,
-                other.hasPrimaryScramblingCode(), other.primaryScramblingCode_);
-            physicalCellId_ = visitor.visitInt(
-                hasPhysicalCellId(), physicalCellId_,
-                other.hasPhysicalCellId(), other.physicalCellId_);
-            trackingAreaCode_ = visitor.visitInt(
-                hasTrackingAreaCode(), trackingAreaCode_,
-                other.hasTrackingAreaCode(), other.trackingAreaCode_);
-            if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-                .INSTANCE) {
-              bitField0_ |= other.bitField0_;
-            }
-            return this;
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "bitField0_",
+                "type_",
+                org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type.internalGetVerifier(),
+                "cellId_",
+                "locationAreaCode_",
+                "mobileCountryCode_",
+                "mobileNetworkCode_",
+                "primaryScramblingCode_",
+                "physicalCellId_",
+                "trackingAreaCode_",
+              };
+              java.lang.String info =
+                  "\u0001\b\u0000\u0001\u0001\b\b\u0000\u0000\u0000\u0001\u100c\u0000\u0002\u1004\u0001" +
+                  "\u0003\u1004\u0002\u0004\u1004\u0003\u0005\u1004\u0004\u0006\u1004\u0005\u0007\u1004" +
+                  "\u0006\b\u1004\u0007";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
           }
-          case MERGE_FROM_STREAM: {
-            com.google.protobuf.CodedInputStream input =
-                (com.google.protobuf.CodedInputStream) arg0;
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-                (com.google.protobuf.ExtensionRegistryLite) arg1;
-            try {
-              boolean done = false;
-              while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                  case 0:
-                    done = true;
-                    break;
-                  default: {
-                    if (!parseUnknownField(tag, input)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                  case 8: {
-                    int rawValue = input.readEnum();
-                    org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type value = org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Type.forNumber(rawValue);
-                    if (value == null) {
-                      super.mergeVarintField(1, rawValue);
-                    } else {
-                      bitField0_ |= 0x00000001;
-                      type_ = rawValue;
-                    }
-                    break;
-                  }
-                  case 16: {
-                    bitField0_ |= 0x00000002;
-                    cellId_ = input.readInt32();
-                    break;
-                  }
-                  case 24: {
-                    bitField0_ |= 0x00000004;
-                    locationAreaCode_ = input.readInt32();
-                    break;
-                  }
-                  case 32: {
-                    bitField0_ |= 0x00000008;
-                    mobileCountryCode_ = input.readInt32();
-                    break;
-                  }
-                  case 40: {
-                    bitField0_ |= 0x00000010;
-                    mobileNetworkCode_ = input.readInt32();
-                    break;
-                  }
-                  case 48: {
-                    bitField0_ |= 0x00000020;
-                    primaryScramblingCode_ = input.readInt32();
-                    break;
-                  }
-                  case 56: {
-                    bitField0_ |= 0x00000040;
-                    physicalCellId_ = input.readInt32();
-                    break;
-                  }
-                  case 64: {
-                    bitField0_ |= 0x00000080;
-                    trackingAreaCode_ = input.readInt32();
-                    break;
-                  }
-                }
-              }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              throw new RuntimeException(e.setUnfinishedMessage(this));
-            } catch (java.io.IOException e) {
-              throw new RuntimeException(
-                  new com.google.protobuf.InvalidProtocolBufferException(
-                      e.getMessage()).setUnfinishedMessage(this));
-            } finally {
-            }
-          }
+          // fall through
           case GET_DEFAULT_INSTANCE: {
             return DEFAULT_INSTANCE;
           }
           case GET_PARSER: {
-            if (PARSER == null) {    synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.class) {
-                if (PARSER == null) {
-                  PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            com.google.protobuf.Parser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell> parser = PARSER;
+            if (parser == null) {
+              synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
                 }
               }
             }
-            return PARSER;
-          }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
         }
         throw new UnsupportedOperationException();
       }
@@ -1921,8 +1918,12 @@ public final class PartnerLocationDescriptor {
       // @@protoc_insertion_point(class_scope:org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell)
       private static final org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new Cell();
-        DEFAULT_INSTANCE.makeImmutable();
+        Cell defaultInstance = new Cell();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          Cell.class, defaultInstance);
       }
 
       public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell getDefaultInstance() {
@@ -1939,13 +1940,12 @@ public final class PartnerLocationDescriptor {
     private int bitField0_;
     private int typeCase_ = 0;
     private java.lang.Object type_;
-    public enum TypeCase
-        implements com.google.protobuf.Internal.EnumLite {
+    public enum TypeCase {
       WIFI(1),
       CELL(2),
       TYPE_NOT_SET(0);
       private final int value;
-      private TypeCase(int value) {
+      TypeCase(int value) {
         this.value = value;
       }
       /**
@@ -1967,8 +1967,9 @@ public final class PartnerLocationDescriptor {
       public int getNumber() {
         return this.value;
       }
-    };
+    }
 
+      @java.lang.Override
     public TypeCase
     getTypeCase() {
       return TypeCase.forNumber(
@@ -1982,14 +1983,16 @@ public final class PartnerLocationDescriptor {
 
     public static final int WIFI_FIELD_NUMBER = 1;
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
      */
+    @java.lang.Override
     public boolean hasWifi() {
       return typeCase_ == 1;
     }
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
      */
+    @java.lang.Override
     public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi getWifi() {
       if (typeCase_ == 1) {
          return (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi) type_;
@@ -1997,28 +2000,19 @@ public final class PartnerLocationDescriptor {
       return org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.getDefaultInstance();
     }
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
      */
     private void setWifi(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      type_ = value;
+      value.getClass();
+  type_ = value;
       typeCase_ = 1;
     }
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
-     */
-    private void setWifi(
-        org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.Builder builderForValue) {
-      type_ = builderForValue.build();
-      typeCase_ = 1;
-    }
-    /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
      */
     private void mergeWifi(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi value) {
-      if (typeCase_ == 1 &&
+      value.getClass();
+  if (typeCase_ == 1 &&
           type_ != org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.getDefaultInstance()) {
         type_ = org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.newBuilder((org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi) type_)
             .mergeFrom(value).buildPartial();
@@ -2028,7 +2022,7 @@ public final class PartnerLocationDescriptor {
       typeCase_ = 1;
     }
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
      */
     private void clearWifi() {
       if (typeCase_ == 1) {
@@ -2039,14 +2033,16 @@ public final class PartnerLocationDescriptor {
 
     public static final int CELL_FIELD_NUMBER = 2;
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
      */
+    @java.lang.Override
     public boolean hasCell() {
       return typeCase_ == 2;
     }
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
      */
+    @java.lang.Override
     public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell getCell() {
       if (typeCase_ == 2) {
          return (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell) type_;
@@ -2054,28 +2050,19 @@ public final class PartnerLocationDescriptor {
       return org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.getDefaultInstance();
     }
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
      */
     private void setCell(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      type_ = value;
+      value.getClass();
+  type_ = value;
       typeCase_ = 2;
     }
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
-     */
-    private void setCell(
-        org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Builder builderForValue) {
-      type_ = builderForValue.build();
-      typeCase_ = 2;
-    }
-    /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
      */
     private void mergeCell(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell value) {
-      if (typeCase_ == 2 &&
+      value.getClass();
+  if (typeCase_ == 2 &&
           type_ != org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.getDefaultInstance()) {
         type_ = org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.newBuilder((org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell) type_)
             .mergeFrom(value).buildPartial();
@@ -2085,7 +2072,7 @@ public final class PartnerLocationDescriptor {
       typeCase_ = 2;
     }
     /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+     * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
      */
     private void clearCell() {
       if (typeCase_ == 2) {
@@ -2098,18 +2085,23 @@ public final class PartnerLocationDescriptor {
     private boolean connected_;
     /**
      * <code>optional bool connected = 3;</code>
+     * @return Whether the connected field is set.
      */
+    @java.lang.Override
     public boolean hasConnected() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional bool connected = 3;</code>
+     * @return The connected.
      */
+    @java.lang.Override
     public boolean getConnected() {
       return connected_;
     }
     /**
      * <code>optional bool connected = 3;</code>
+     * @param value The connected to set.
      */
     private void setConnected(boolean value) {
       bitField0_ |= 0x00000004;
@@ -2127,18 +2119,23 @@ public final class PartnerLocationDescriptor {
     private long timestampMs_;
     /**
      * <code>optional int64 timestamp_ms = 4;</code>
+     * @return Whether the timestampMs field is set.
      */
+    @java.lang.Override
     public boolean hasTimestampMs() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional int64 timestamp_ms = 4;</code>
+     * @return The timestampMs.
      */
+    @java.lang.Override
     public long getTimestampMs() {
       return timestampMs_;
     }
     /**
      * <code>optional int64 timestamp_ms = 4;</code>
+     * @param value The timestampMs to set.
      */
     private void setTimestampMs(long value) {
       bitField0_ |= 0x00000008;
@@ -2152,49 +2149,19 @@ public final class PartnerLocationDescriptor {
       timestampMs_ = 0L;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (typeCase_ == 1) {
-        output.writeMessage(1, (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi) type_);
-      }
-      if (typeCase_ == 2) {
-        output.writeMessage(2, (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell) type_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBool(3, connected_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt64(4, timestampMs_);
-      }
-      unknownFields.writeTo(output);
+    public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
-
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (typeCase_ == 1) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi) type_);
-      }
-      if (typeCase_ == 2) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell) type_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, connected_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, timestampMs_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
+    public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
-
     public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2257,10 +2224,10 @@ public final class PartnerLocationDescriptor {
     }
 
     public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
     }
     public static Builder newBuilder(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
@@ -2276,6 +2243,7 @@ public final class PartnerLocationDescriptor {
         super(DEFAULT_INSTANCE);
       }
 
+      @java.lang.Override
       public TypeCase
           getTypeCase() {
         return instance.getTypeCase();
@@ -2289,19 +2257,21 @@ public final class PartnerLocationDescriptor {
 
 
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
        */
+      @java.lang.Override
       public boolean hasWifi() {
         return instance.hasWifi();
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
        */
+      @java.lang.Override
       public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi getWifi() {
         return instance.getWifi();
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
        */
       public Builder setWifi(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi value) {
         copyOnWrite();
@@ -2309,16 +2279,16 @@ public final class PartnerLocationDescriptor {
         return this;
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
        */
       public Builder setWifi(
           org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.Builder builderForValue) {
         copyOnWrite();
-        instance.setWifi(builderForValue);
+        instance.setWifi(builderForValue.build());
         return this;
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
        */
       public Builder mergeWifi(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi value) {
         copyOnWrite();
@@ -2326,7 +2296,7 @@ public final class PartnerLocationDescriptor {
         return this;
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.WiFi wifi = 1;</code>
        */
       public Builder clearWifi() {
         copyOnWrite();
@@ -2335,19 +2305,21 @@ public final class PartnerLocationDescriptor {
       }
 
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
        */
+      @java.lang.Override
       public boolean hasCell() {
         return instance.hasCell();
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
        */
+      @java.lang.Override
       public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell getCell() {
         return instance.getCell();
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
        */
       public Builder setCell(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell value) {
         copyOnWrite();
@@ -2355,16 +2327,16 @@ public final class PartnerLocationDescriptor {
         return this;
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
        */
       public Builder setCell(
           org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Builder builderForValue) {
         copyOnWrite();
-        instance.setCell(builderForValue);
+        instance.setCell(builderForValue.build());
         return this;
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
        */
       public Builder mergeCell(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell value) {
         copyOnWrite();
@@ -2372,7 +2344,7 @@ public final class PartnerLocationDescriptor {
         return this;
       }
       /**
-       * <code>optional .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
+       * <code>.org.chromium.chrome.browser.omnibox.geo.VisibleNetwork.Cell cell = 2;</code>
        */
       public Builder clearCell() {
         copyOnWrite();
@@ -2382,18 +2354,24 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional bool connected = 3;</code>
+       * @return Whether the connected field is set.
        */
+      @java.lang.Override
       public boolean hasConnected() {
         return instance.hasConnected();
       }
       /**
        * <code>optional bool connected = 3;</code>
+       * @return The connected.
        */
+      @java.lang.Override
       public boolean getConnected() {
         return instance.getConnected();
       }
       /**
        * <code>optional bool connected = 3;</code>
+       * @param value The connected to set.
+       * @return This builder for chaining.
        */
       public Builder setConnected(boolean value) {
         copyOnWrite();
@@ -2402,6 +2380,7 @@ public final class PartnerLocationDescriptor {
       }
       /**
        * <code>optional bool connected = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearConnected() {
         copyOnWrite();
@@ -2411,18 +2390,24 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional int64 timestamp_ms = 4;</code>
+       * @return Whether the timestampMs field is set.
        */
+      @java.lang.Override
       public boolean hasTimestampMs() {
         return instance.hasTimestampMs();
       }
       /**
        * <code>optional int64 timestamp_ms = 4;</code>
+       * @return The timestampMs.
        */
+      @java.lang.Override
       public long getTimestampMs() {
         return instance.getTimestampMs();
       }
       /**
        * <code>optional int64 timestamp_ms = 4;</code>
+       * @param value The timestampMs to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestampMs(long value) {
         copyOnWrite();
@@ -2431,6 +2416,7 @@ public final class PartnerLocationDescriptor {
       }
       /**
        * <code>optional int64 timestamp_ms = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestampMs() {
         copyOnWrite();
@@ -2440,140 +2426,58 @@ public final class PartnerLocationDescriptor {
 
       // @@protoc_insertion_point(builder_scope:org.chromium.chrome.browser.omnibox.geo.VisibleNetwork)
     }
-    protected final Object dynamicMethod(
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
         com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-        Object arg0, Object arg1) {
+        java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
         case NEW_MUTABLE_INSTANCE: {
           return new org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork();
         }
-        case IS_INITIALIZED: {
-          return DEFAULT_INSTANCE;
-        }
-        case MAKE_IMMUTABLE: {
-          return null;
-        }
         case NEW_BUILDER: {
           return new Builder();
         }
-        case VISIT: {
-          Visitor visitor = (Visitor) arg0;
-          org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork other = (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork) arg1;
-          connected_ = visitor.visitBoolean(
-              hasConnected(), connected_,
-              other.hasConnected(), other.connected_);
-          timestampMs_ = visitor.visitLong(
-              hasTimestampMs(), timestampMs_,
-              other.hasTimestampMs(), other.timestampMs_);
-          switch (other.getTypeCase()) {
-            case WIFI: {
-              type_ = visitor.visitOneofMessage(
-                  typeCase_ == 1,
-                  type_,
-                  other.type_);
-              break;
-            }
-            case CELL: {
-              type_ = visitor.visitOneofMessage(
-                  typeCase_ == 2,
-                  type_,
-                  other.type_);
-              break;
-            }
-            case TYPE_NOT_SET: {
-              visitor.visitOneofNotSet(typeCase_ != 0);
-              break;
-            }
-          }
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-              .INSTANCE) {
-            if (other.typeCase_ != 0) {
-              typeCase_ = other.typeCase_;
-            }
-            bitField0_ |= other.bitField0_;
-          }
-          return this;
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "type_",
+              "typeCase_",
+              "bitField0_",
+              org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.class,
+              org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.class,
+              "connected_",
+              "timestampMs_",
+            };
+            java.lang.String info =
+                "\u0001\u0004\u0001\u0001\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u103c\u0000\u0002" +
+                "\u103c\u0000\u0003\u1007\u0002\u0004\u1002\u0003";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
-        case MERGE_FROM_STREAM: {
-          com.google.protobuf.CodedInputStream input =
-              (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                default: {
-                  if (!parseUnknownField(tag, input)) {
-                    done = true;
-                  }
-                  break;
-                }
-                case 10: {
-                  org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.Builder subBuilder = null;
-                  if (typeCase_ == 1) {
-                    subBuilder = ((org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi) type_).toBuilder();
-                  }
-                  type_ =
-                       input.readMessage(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi.parser(), extensionRegistry);
-                  if (subBuilder != null) {
-                    subBuilder.mergeFrom((org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.WiFi) type_);
-                    type_ = subBuilder.buildPartial();
-                  }
-                  typeCase_ = 1;
-                  break;
-                }
-                case 18: {
-                  org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.Builder subBuilder = null;
-                  if (typeCase_ == 2) {
-                    subBuilder = ((org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell) type_).toBuilder();
-                  }
-                  type_ =
-                       input.readMessage(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell.parser(), extensionRegistry);
-                  if (subBuilder != null) {
-                    subBuilder.mergeFrom((org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Cell) type_);
-                    type_ = subBuilder.buildPartial();
-                  }
-                  typeCase_ = 2;
-                  break;
-                }
-                case 24: {
-                  bitField0_ |= 0x00000004;
-                  connected_ = input.readBool();
-                  break;
-                }
-                case 32: {
-                  bitField0_ |= 0x00000008;
-                  timestampMs_ = input.readInt64();
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(
-                    e.getMessage()).setUnfinishedMessage(this));
-          } finally {
-          }
-        }
+        // fall through
         case GET_DEFAULT_INSTANCE: {
           return DEFAULT_INSTANCE;
         }
         case GET_PARSER: {
-          if (PARSER == null) {    synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+          com.google.protobuf.Parser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork> parser = PARSER;
+          if (parser == null) {
+            synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
               }
             }
           }
-          return PARSER;
-        }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
       }
       throw new UnsupportedOperationException();
     }
@@ -2582,8 +2486,12 @@ public final class PartnerLocationDescriptor {
     // @@protoc_insertion_point(class_scope:org.chromium.chrome.browser.omnibox.geo.VisibleNetwork)
     private static final org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new VisibleNetwork();
-      DEFAULT_INSTANCE.makeImmutable();
+      VisibleNetwork defaultInstance = new VisibleNetwork();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        VisibleNetwork.class, defaultInstance);
     }
 
     public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork getDefaultInstance() {
@@ -2603,46 +2511,56 @@ public final class PartnerLocationDescriptor {
 
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
+     * @return Whether the role field is set.
      */
     boolean hasRole();
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
+     * @return The role.
      */
     org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole getRole();
 
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
+     * @return Whether the producer field is set.
      */
     boolean hasProducer();
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
+     * @return The producer.
      */
     org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer getProducer();
 
     /**
      * <code>optional int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
      */
     boolean hasTimestamp();
     /**
      * <code>optional int64 timestamp = 3;</code>
+     * @return The timestamp.
      */
     long getTimestamp();
 
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LatLng latlng = 5;</code>
+     * @return Whether the latlng field is set.
      */
     boolean hasLatlng();
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LatLng latlng = 5;</code>
+     * @return The latlng.
      */
     org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng getLatlng();
 
     /**
      * <code>optional float radius = 7;</code>
+     * @return Whether the radius field is set.
      */
     boolean hasRadius();
     /**
      * <code>optional float radius = 7;</code>
+     * @return The radius.
      */
     float getRadius();
 
@@ -2676,26 +2594,28 @@ public final class PartnerLocationDescriptor {
     private int role_;
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
+     * @return Whether the role field is set.
      */
+    @java.lang.Override
     public boolean hasRole() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
+     * @return The role.
      */
+    @java.lang.Override
     public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole getRole() {
       org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole result = org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole.forNumber(role_);
       return result == null ? org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole.UNKNOWN_ROLE : result;
     }
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
+     * @param value The role to set.
      */
     private void setRole(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000001;
       role_ = value.getNumber();
+      bitField0_ |= 0x00000001;
     }
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
@@ -2709,26 +2629,28 @@ public final class PartnerLocationDescriptor {
     private int producer_;
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
+     * @return Whether the producer field is set.
      */
+    @java.lang.Override
     public boolean hasProducer() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
+     * @return The producer.
      */
+    @java.lang.Override
     public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer getProducer() {
       org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer result = org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer.forNumber(producer_);
       return result == null ? org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer.UNKNOWN_PRODUCER : result;
     }
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
+     * @param value The producer to set.
      */
     private void setProducer(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000002;
       producer_ = value.getNumber();
+      bitField0_ |= 0x00000002;
     }
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
@@ -2742,18 +2664,23 @@ public final class PartnerLocationDescriptor {
     private long timestamp_;
     /**
      * <code>optional int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
      */
+    @java.lang.Override
     public boolean hasTimestamp() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional int64 timestamp = 3;</code>
+     * @return The timestamp.
      */
+    @java.lang.Override
     public long getTimestamp() {
       return timestamp_;
     }
     /**
      * <code>optional int64 timestamp = 3;</code>
+     * @param value The timestamp to set.
      */
     private void setTimestamp(long value) {
       bitField0_ |= 0x00000004;
@@ -2772,12 +2699,14 @@ public final class PartnerLocationDescriptor {
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LatLng latlng = 5;</code>
      */
+    @java.lang.Override
     public boolean hasLatlng() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LatLng latlng = 5;</code>
      */
+    @java.lang.Override
     public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng getLatlng() {
       return latlng_ == null ? org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng.getDefaultInstance() : latlng_;
     }
@@ -2785,25 +2714,17 @@ public final class PartnerLocationDescriptor {
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LatLng latlng = 5;</code>
      */
     private void setLatlng(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      latlng_ = value;
+      value.getClass();
+  latlng_ = value;
       bitField0_ |= 0x00000008;
       }
     /**
      * <code>optional .org.chromium.chrome.browser.omnibox.geo.LatLng latlng = 5;</code>
      */
-    private void setLatlng(
-        org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng.Builder builderForValue) {
-      latlng_ = builderForValue.build();
-      bitField0_ |= 0x00000008;
-    }
-    /**
-     * <code>optional .org.chromium.chrome.browser.omnibox.geo.LatLng latlng = 5;</code>
-     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeLatlng(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng value) {
-      if (latlng_ != null &&
+      value.getClass();
+  if (latlng_ != null &&
           latlng_ != org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng.getDefaultInstance()) {
         latlng_ =
           org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng.newBuilder(latlng_).mergeFrom(value).buildPartial();
@@ -2823,18 +2744,23 @@ public final class PartnerLocationDescriptor {
     private float radius_;
     /**
      * <code>optional float radius = 7;</code>
+     * @return Whether the radius field is set.
      */
+    @java.lang.Override
     public boolean hasRadius() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>optional float radius = 7;</code>
+     * @return The radius.
      */
+    @java.lang.Override
     public float getRadius() {
       return radius_;
     }
     /**
      * <code>optional float radius = 7;</code>
+     * @param value The radius to set.
      */
     private void setRadius(float value) {
       bitField0_ |= 0x00000010;
@@ -2853,6 +2779,7 @@ public final class PartnerLocationDescriptor {
     /**
      * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
      */
+    @java.lang.Override
     public java.util.List<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork> getVisibleNetworkList() {
       return visibleNetwork_;
     }
@@ -2866,12 +2793,14 @@ public final class PartnerLocationDescriptor {
     /**
      * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
      */
+    @java.lang.Override
     public int getVisibleNetworkCount() {
       return visibleNetwork_.size();
     }
     /**
      * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
      */
+    @java.lang.Override
     public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork getVisibleNetwork(int index) {
       return visibleNetwork_.get(index);
     }
@@ -2883,9 +2812,10 @@ public final class PartnerLocationDescriptor {
       return visibleNetwork_.get(index);
     }
     private void ensureVisibleNetworkIsMutable() {
-      if (!visibleNetwork_.isModifiable()) {
+      com.google.protobuf.Internal.ProtobufList<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork> tmp = visibleNetwork_;
+      if (!tmp.isModifiable()) {
         visibleNetwork_ =
-            com.google.protobuf.GeneratedMessageLite.mutableCopy(visibleNetwork_);
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
        }
     }
 
@@ -2894,28 +2824,16 @@ public final class PartnerLocationDescriptor {
      */
     private void setVisibleNetwork(
         int index, org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      ensureVisibleNetworkIsMutable();
+      value.getClass();
+  ensureVisibleNetworkIsMutable();
       visibleNetwork_.set(index, value);
     }
     /**
      * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
      */
-    private void setVisibleNetwork(
-        int index, org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Builder builderForValue) {
-      ensureVisibleNetworkIsMutable();
-      visibleNetwork_.set(index, builderForValue.build());
-    }
-    /**
-     * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
-     */
     private void addVisibleNetwork(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      ensureVisibleNetworkIsMutable();
+      value.getClass();
+  ensureVisibleNetworkIsMutable();
       visibleNetwork_.add(value);
     }
     /**
@@ -2923,27 +2841,9 @@ public final class PartnerLocationDescriptor {
      */
     private void addVisibleNetwork(
         int index, org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      ensureVisibleNetworkIsMutable();
+      value.getClass();
+  ensureVisibleNetworkIsMutable();
       visibleNetwork_.add(index, value);
-    }
-    /**
-     * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
-     */
-    private void addVisibleNetwork(
-        org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Builder builderForValue) {
-      ensureVisibleNetworkIsMutable();
-      visibleNetwork_.add(builderForValue.build());
-    }
-    /**
-     * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
-     */
-    private void addVisibleNetwork(
-        int index, org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Builder builderForValue) {
-      ensureVisibleNetworkIsMutable();
-      visibleNetwork_.add(index, builderForValue.build());
     }
     /**
      * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
@@ -2968,63 +2868,19 @@ public final class PartnerLocationDescriptor {
       visibleNetwork_.remove(index);
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, role_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeEnum(2, producer_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt64(3, timestamp_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(5, getLatlng());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeFloat(7, radius_);
-      }
-      for (int i = 0; i < visibleNetwork_.size(); i++) {
-        output.writeMessage(23, visibleNetwork_.get(i));
-      }
-      unknownFields.writeTo(output);
+    public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
-
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, role_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, producer_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, timestamp_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getLatlng());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(7, radius_);
-      }
-      for (int i = 0; i < visibleNetwork_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(23, visibleNetwork_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
+    public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
-
     public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3087,10 +2943,10 @@ public final class PartnerLocationDescriptor {
     }
 
     public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
     }
     public static Builder newBuilder(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
@@ -3109,18 +2965,24 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
+       * @return Whether the role field is set.
        */
+      @java.lang.Override
       public boolean hasRole() {
         return instance.hasRole();
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
+       * @return The role.
        */
+      @java.lang.Override
       public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole getRole() {
         return instance.getRole();
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
+       * @param value The enum numeric value on the wire for role to set.
+       * @return This builder for chaining.
        */
       public Builder setRole(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole value) {
         copyOnWrite();
@@ -3129,6 +2991,7 @@ public final class PartnerLocationDescriptor {
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationRole role = 1 [default = UNKNOWN_ROLE];</code>
+       * @return This builder for chaining.
        */
       public Builder clearRole() {
         copyOnWrite();
@@ -3138,18 +3001,24 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
+       * @return Whether the producer field is set.
        */
+      @java.lang.Override
       public boolean hasProducer() {
         return instance.hasProducer();
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
+       * @return The producer.
        */
+      @java.lang.Override
       public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer getProducer() {
         return instance.getProducer();
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
+       * @param value The enum numeric value on the wire for producer to set.
+       * @return This builder for chaining.
        */
       public Builder setProducer(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer value) {
         copyOnWrite();
@@ -3158,6 +3027,7 @@ public final class PartnerLocationDescriptor {
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LocationProducer producer = 2 [default = UNKNOWN_PRODUCER];</code>
+       * @return This builder for chaining.
        */
       public Builder clearProducer() {
         copyOnWrite();
@@ -3167,18 +3037,24 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional int64 timestamp = 3;</code>
+       * @return Whether the timestamp field is set.
        */
+      @java.lang.Override
       public boolean hasTimestamp() {
         return instance.hasTimestamp();
       }
       /**
        * <code>optional int64 timestamp = 3;</code>
+       * @return The timestamp.
        */
+      @java.lang.Override
       public long getTimestamp() {
         return instance.getTimestamp();
       }
       /**
        * <code>optional int64 timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(long value) {
         copyOnWrite();
@@ -3187,6 +3063,7 @@ public final class PartnerLocationDescriptor {
       }
       /**
        * <code>optional int64 timestamp = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         copyOnWrite();
@@ -3197,12 +3074,14 @@ public final class PartnerLocationDescriptor {
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LatLng latlng = 5;</code>
        */
+      @java.lang.Override
       public boolean hasLatlng() {
         return instance.hasLatlng();
       }
       /**
        * <code>optional .org.chromium.chrome.browser.omnibox.geo.LatLng latlng = 5;</code>
        */
+      @java.lang.Override
       public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng getLatlng() {
         return instance.getLatlng();
       }
@@ -3220,7 +3099,7 @@ public final class PartnerLocationDescriptor {
       public Builder setLatlng(
           org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng.Builder builderForValue) {
         copyOnWrite();
-        instance.setLatlng(builderForValue);
+        instance.setLatlng(builderForValue.build());
         return this;
       }
       /**
@@ -3241,18 +3120,24 @@ public final class PartnerLocationDescriptor {
 
       /**
        * <code>optional float radius = 7;</code>
+       * @return Whether the radius field is set.
        */
+      @java.lang.Override
       public boolean hasRadius() {
         return instance.hasRadius();
       }
       /**
        * <code>optional float radius = 7;</code>
+       * @return The radius.
        */
+      @java.lang.Override
       public float getRadius() {
         return instance.getRadius();
       }
       /**
        * <code>optional float radius = 7;</code>
+       * @param value The radius to set.
+       * @return This builder for chaining.
        */
       public Builder setRadius(float value) {
         copyOnWrite();
@@ -3261,6 +3146,7 @@ public final class PartnerLocationDescriptor {
       }
       /**
        * <code>optional float radius = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRadius() {
         copyOnWrite();
@@ -3271,6 +3157,7 @@ public final class PartnerLocationDescriptor {
       /**
        * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
        */
+      @java.lang.Override
       public java.util.List<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork> getVisibleNetworkList() {
         return java.util.Collections.unmodifiableList(
             instance.getVisibleNetworkList());
@@ -3278,11 +3165,13 @@ public final class PartnerLocationDescriptor {
       /**
        * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
        */
+      @java.lang.Override
       public int getVisibleNetworkCount() {
         return instance.getVisibleNetworkCount();
       }/**
        * <code>repeated .org.chromium.chrome.browser.omnibox.geo.VisibleNetwork visible_network = 23;</code>
        */
+      @java.lang.Override
       public org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork getVisibleNetwork(int index) {
         return instance.getVisibleNetwork(index);
       }
@@ -3301,7 +3190,8 @@ public final class PartnerLocationDescriptor {
       public Builder setVisibleNetwork(
           int index, org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Builder builderForValue) {
         copyOnWrite();
-        instance.setVisibleNetwork(index, builderForValue);
+        instance.setVisibleNetwork(index,
+            builderForValue.build());
         return this;
       }
       /**
@@ -3327,7 +3217,7 @@ public final class PartnerLocationDescriptor {
       public Builder addVisibleNetwork(
           org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Builder builderForValue) {
         copyOnWrite();
-        instance.addVisibleNetwork(builderForValue);
+        instance.addVisibleNetwork(builderForValue.build());
         return this;
       }
       /**
@@ -3336,7 +3226,8 @@ public final class PartnerLocationDescriptor {
       public Builder addVisibleNetwork(
           int index, org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.Builder builderForValue) {
         copyOnWrite();
-        instance.addVisibleNetwork(index, builderForValue);
+        instance.addVisibleNetwork(index,
+            builderForValue.build());
         return this;
       }
       /**
@@ -3367,140 +3258,61 @@ public final class PartnerLocationDescriptor {
 
       // @@protoc_insertion_point(builder_scope:org.chromium.chrome.browser.omnibox.geo.LocationDescriptor)
     }
-    protected final Object dynamicMethod(
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
         com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-        Object arg0, Object arg1) {
+        java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
         case NEW_MUTABLE_INSTANCE: {
           return new org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor();
         }
-        case IS_INITIALIZED: {
-          return DEFAULT_INSTANCE;
-        }
-        case MAKE_IMMUTABLE: {
-          visibleNetwork_.makeImmutable();
-          return null;
-        }
         case NEW_BUILDER: {
           return new Builder();
         }
-        case VISIT: {
-          Visitor visitor = (Visitor) arg0;
-          org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor other = (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor) arg1;
-          role_ = visitor.visitInt(hasRole(), role_,
-              other.hasRole(), other.role_);
-          producer_ = visitor.visitInt(hasProducer(), producer_,
-              other.hasProducer(), other.producer_);
-          timestamp_ = visitor.visitLong(
-              hasTimestamp(), timestamp_,
-              other.hasTimestamp(), other.timestamp_);
-          latlng_ = visitor.visitMessage(latlng_, other.latlng_);
-          radius_ = visitor.visitFloat(
-              hasRadius(), radius_,
-              other.hasRadius(), other.radius_);
-          visibleNetwork_= visitor.visitList(visibleNetwork_, other.visibleNetwork_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-              .INSTANCE) {
-            bitField0_ |= other.bitField0_;
-          }
-          return this;
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "bitField0_",
+              "role_",
+              org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole.internalGetVerifier(),
+              "producer_",
+              org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer.internalGetVerifier(),
+              "timestamp_",
+              "latlng_",
+              "radius_",
+              "visibleNetwork_",
+              org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.class,
+            };
+            java.lang.String info =
+                "\u0001\u0006\u0000\u0001\u0001\u0017\u0006\u0000\u0001\u0000\u0001\u100c\u0000\u0002" +
+                "\u100c\u0001\u0003\u1002\u0002\u0005\u1009\u0003\u0007\u1001\u0004\u0017\u001b";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
-        case MERGE_FROM_STREAM: {
-          com.google.protobuf.CodedInputStream input =
-              (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                default: {
-                  if (!parseUnknownField(tag, input)) {
-                    done = true;
-                  }
-                  break;
-                }
-                case 8: {
-                  int rawValue = input.readEnum();
-                  org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole value = org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationRole.forNumber(rawValue);
-                  if (value == null) {
-                    super.mergeVarintField(1, rawValue);
-                  } else {
-                    bitField0_ |= 0x00000001;
-                    role_ = rawValue;
-                  }
-                  break;
-                }
-                case 16: {
-                  int rawValue = input.readEnum();
-                  org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer value = org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationProducer.forNumber(rawValue);
-                  if (value == null) {
-                    super.mergeVarintField(2, rawValue);
-                  } else {
-                    bitField0_ |= 0x00000002;
-                    producer_ = rawValue;
-                  }
-                  break;
-                }
-                case 24: {
-                  bitField0_ |= 0x00000004;
-                  timestamp_ = input.readInt64();
-                  break;
-                }
-                case 42: {
-                  org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng.Builder subBuilder = null;
-                  if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                    subBuilder = latlng_.toBuilder();
-                  }
-                  latlng_ = input.readMessage(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LatLng.parser(), extensionRegistry);
-                  if (subBuilder != null) {
-                    subBuilder.mergeFrom(latlng_);
-                    latlng_ = subBuilder.buildPartial();
-                  }
-                  bitField0_ |= 0x00000008;
-                  break;
-                }
-                case 61: {
-                  bitField0_ |= 0x00000010;
-                  radius_ = input.readFloat();
-                  break;
-                }
-                case 186: {
-                  if (!visibleNetwork_.isModifiable()) {
-                    visibleNetwork_ =
-                        com.google.protobuf.GeneratedMessageLite.mutableCopy(visibleNetwork_);
-                  }
-                  visibleNetwork_.add(
-                      input.readMessage(org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.VisibleNetwork.parser(), extensionRegistry));
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(
-                    e.getMessage()).setUnfinishedMessage(this));
-          } finally {
-          }
-        }
+        // fall through
         case GET_DEFAULT_INSTANCE: {
           return DEFAULT_INSTANCE;
         }
         case GET_PARSER: {
-          if (PARSER == null) {    synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+          com.google.protobuf.Parser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor> parser = PARSER;
+          if (parser == null) {
+            synchronized (org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
               }
             }
           }
-          return PARSER;
-        }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
       }
       throw new UnsupportedOperationException();
     }
@@ -3509,8 +3321,12 @@ public final class PartnerLocationDescriptor {
     // @@protoc_insertion_point(class_scope:org.chromium.chrome.browser.omnibox.geo.LocationDescriptor)
     private static final org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new LocationDescriptor();
-      DEFAULT_INSTANCE.makeImmutable();
+      LocationDescriptor defaultInstance = new LocationDescriptor();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        LocationDescriptor.class, defaultInstance);
     }
 
     public static org.chromium.chrome.browser.omnibox.geo.PartnerLocationDescriptor.LocationDescriptor getDefaultInstance() {

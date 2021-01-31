@@ -5,8 +5,9 @@
 package org.chromium.net;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.webkit.MimeTypeMap;
+
+import android.annotation.NonNull;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -18,16 +19,16 @@ import java.util.Locale;
  *  A mime type filter that supports filtering both mime types and file extensions.
  *  Note that this class is used specifically to implement
  *  the mime type filtering for web share target spec:
- *  https://pr-preview.s3.amazonaws.com/ewilligers/web-share-target/pull/53.html#determining-if-a-file-is-accepted.
+ *  https://wicg.github.io/web-share-target/level-2/#determining-if-a-file-is-accepted
  *  It is also used inside chrome/android/java/src/org/chromium/chrome/browser/photo_picker.
  */
 public class MimeTypeFilter implements FileFilter {
-    private HashSet<String> mExtensions = new HashSet<>();
-    private HashSet<String> mMimeTypes = new HashSet<>();
-    private HashSet<String> mMimeSupertypes = new HashSet<>();
-    private MimeTypeMap mMimeTypeMap;
+    private final HashSet<String> mExtensions = new HashSet<>();
+    private final HashSet<String> mMimeTypes = new HashSet<>();
+    private final HashSet<String> mMimeSupertypes = new HashSet<>();
+    private final MimeTypeMap mMimeTypeMap;
     private boolean mAcceptAllMimeTypes;
-    private boolean mAcceptDirectory;
+    private final boolean mAcceptDirectory;
 
     /**
      * Contructs a MimeTypeFilter object.
@@ -70,10 +71,8 @@ public class MimeTypeFilter implements FileFilter {
         }
 
         if (mimeType != null) {
-            if (mAcceptAllMimeTypes || mMimeTypes.contains(mimeType)
-                    || mMimeSupertypes.contains(getMimeSupertype(mimeType))) {
-                return true;
-            }
+            return mAcceptAllMimeTypes || mMimeTypes.contains(mimeType)
+                    || mMimeSupertypes.contains(getMimeSupertype(mimeType));
         }
         return false;
     }

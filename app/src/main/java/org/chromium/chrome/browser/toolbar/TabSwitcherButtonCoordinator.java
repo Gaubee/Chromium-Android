@@ -6,16 +6,10 @@ package org.chromium.chrome.browser.toolbar;
 
 import android.content.res.ColorStateList;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 
-import org.chromium.chrome.R;
-import org.chromium.chrome.browser.ThemeColorProvider;
-import org.chromium.chrome.browser.ThemeColorProvider.TintObserver;
-import org.chromium.chrome.browser.tabmodel.TabModelSelector;
-import org.chromium.chrome.browser.tabmodel.TabModelSelectorObserver;
-import org.chromium.chrome.browser.tabmodel.TabModelSelectorTabModelObserver;
+import org.chromium.chrome.browser.theme.ThemeColorProvider;
+import org.chromium.chrome.browser.theme.ThemeColorProvider.TintObserver;
 import org.chromium.chrome.browser.toolbar.TabCountProvider.TabCountObserver;
-import org.chromium.chrome.browser.util.AccessibilityUtil;
 import org.chromium.ui.modelutil.PropertyModel;
 import org.chromium.ui.modelutil.PropertyModelChangeProcessor;
 
@@ -32,10 +26,6 @@ public class TabSwitcherButtonCoordinator {
     private final PropertyModel mTabSwitcherButtonModel =
             new PropertyModel(TabSwitcherButtonProperties.ALL_KEYS);
 
-    private TabModelSelector mTabModelSelector;
-    private TabModelSelectorObserver mTabModelSelectorObserver;
-    private TabModelSelectorTabModelObserver mTabModelSelectorTabModelObserver;
-
     private ThemeColorProvider mThemeColorProvider;
     private TintObserver mTintObserver;
 
@@ -44,16 +34,11 @@ public class TabSwitcherButtonCoordinator {
 
     /**
      * Build the controller that manages the tab switcher button.
-     * @param root The root {@link ViewGroup} for locating the view to inflate.
+     * @param view The {@link TabSwitcherButtonView} the controller manages.
      */
-    public TabSwitcherButtonCoordinator(ViewGroup root) {
-        final TabSwitcherButtonView view = root.findViewById(R.id.tab_switcher_button);
+    public TabSwitcherButtonCoordinator(TabSwitcherButtonView view) {
         PropertyModelChangeProcessor.create(
                 mTabSwitcherButtonModel, view, new TabSwitcherButtonViewBinder());
-
-        CharSequence description = root.getResources().getString(R.string.open_tabs);
-        mTabSwitcherButtonModel.set(TabSwitcherButtonProperties.ON_LONG_CLICK_LISTENER,
-                v -> AccessibilityUtil.showAccessibilityToast(root.getContext(), v, description));
     }
 
     /**
@@ -73,17 +58,21 @@ public class TabSwitcherButtonCoordinator {
             }
         };
         mThemeColorProvider.addTintObserver(mTintObserver);
+        mTabSwitcherButtonModel.set(
+                TabSwitcherButtonProperties.TINT, mThemeColorProvider.getTint());
     }
 
     public void setTabCountProvider(TabCountProvider tabCountProvider) {
         mTabCountProvider = tabCountProvider;
+        updateButtonState();
         mTabCountObserver = new TabCountObserver() {
             @Override
             public void onTabCountChanged(int tabCount, boolean isIncognito) {
                 mTabSwitcherButtonModel.set(TabSwitcherButtonProperties.NUMBER_OF_TABS, tabCount);
+                updateButtonState();
             }
         };
-        mTabCountProvider.addObserver(mTabCountObserver);
+        mTabCountProvider.addObserverAndTrigger(mTabCountObserver);
     }
 
     public void destroy() {
@@ -95,5 +84,11 @@ public class TabSwitcherButtonCoordinator {
             mTabCountProvider.removeObserver(mTabCountObserver);
             mTabCountProvider = null;
         }
+    }
+
+    private void updateButtonState() {
+        boolean shouldEnable =
+                mTabSwitcherButtonModel.get(TabSwitcherButtonProperties.NUMBER_OF_TABS) >= 1;
+        mTabSwitcherButtonModel.set(TabSwitcherButtonProperties.IS_ENABLED, shouldEnable);
     }
 }

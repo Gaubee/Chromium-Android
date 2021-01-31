@@ -31,7 +31,7 @@ public class OptimizedFrameLayout extends FrameLayout {
         }
     }
 
-    private List<MeasurementState> mMatchParentChildren = new ArrayList<>();
+    private final List<MeasurementState> mMatchParentChildren = new ArrayList<>();
 
     public OptimizedFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);

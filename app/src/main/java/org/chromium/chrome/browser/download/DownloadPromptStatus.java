@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,18 +10,19 @@
 
 package org.chromium.chrome.browser.download;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @IntDef({
     DownloadPromptStatus.SHOW_INITIAL, DownloadPromptStatus.SHOW_PREFERENCE,
-    DownloadPromptStatus.DONT_SHOW
+    DownloadPromptStatus.DONT_SHOW, DownloadPromptStatus.MAX_VALUE
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface DownloadPromptStatus {
   int SHOW_INITIAL = 0;
   int SHOW_PREFERENCE = 1;
   int DONT_SHOW = 2;
+  int MAX_VALUE = 3;
 }

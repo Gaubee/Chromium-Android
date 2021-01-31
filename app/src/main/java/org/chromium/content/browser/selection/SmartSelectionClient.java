@@ -4,17 +4,22 @@
 
 package org.chromium.content.browser.selection;
 
+import android.content.Context;
 import android.os.Build;
-import android.support.annotation.IntDef;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.textclassifier.TextClassifier;
 
+import android.annotation.IntDef;
+
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.content_public.browser.SelectionClient;
 import org.chromium.content_public.browser.SelectionMetricsLogger;
 import org.chromium.content_public.browser.WebContents;
 import org.chromium.ui.base.WindowAndroid;
+import org.chromium.ui.touch_selection.SelectionEventType;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -27,26 +32,26 @@ import java.lang.annotation.RetentionPolicy;
  */
 @JNINamespace("content")
 public class SmartSelectionClient implements SelectionClient {
-    @IntDef({CLASSIFY, SUGGEST_AND_CLASSIFY})
+    @IntDef({RequestType.CLASSIFY, RequestType.SUGGEST_AND_CLASSIFY})
     @Retention(RetentionPolicy.SOURCE)
-    private @interface RequestType {}
+    private @interface RequestType {
+        // Request to obtain the type (e.g. phone number, e-mail address) and the most
+        // appropriate operation for the selected text.
+        int CLASSIFY = 0;
 
-    // Request to obtain the type (e.g. phone number, e-mail address) and the most
-    // appropriate operation for the selected text.
-    private static final int CLASSIFY = 0;
-
-    // Request to obtain the type (e.g. phone number, e-mail address), the most
-    // appropriate operation for the selected text and a better selection boundaries.
-    private static final int SUGGEST_AND_CLASSIFY = 1;
+        // Request to obtain the type (e.g. phone number, e-mail address), the most
+        // appropriate operation for the selected text and a better selection boundaries.
+        int SUGGEST_AND_CLASSIFY = 1;
+    }
 
     // The maximal number of characters on the left and on the right from the current selection.
     // Used for surrounding text request.
     private static final int NUM_EXTRA_CHARS = 240;
 
     private long mNativeSmartSelectionClient;
-    private SmartSelectionProvider mProvider;
-    private ResultCallback mCallback;
-    private SmartSelectionMetricsLogger mSmartSelectionMetricLogger;
+    private final SmartSelectionProvider mProvider;
+    private final ResultCallback mCallback;
+    private SmartSelectionMetricsLogger mSmartSelectionMetricsLogger;
 
     /**
      * Creates the SmartSelectionClient. Returns null in case SmartSelectionProvider does not exist
@@ -56,17 +61,23 @@ public class SmartSelectionClient implements SelectionClient {
         WindowAndroid windowAndroid = webContents.getTopLevelNativeWindow();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O || windowAndroid == null) return null;
 
-        return new SmartSelectionClient(callback, webContents, windowAndroid);
+        // Don't do Smart Selection when device is not provisioned or in incognito mode.
+        if (!isDeviceProvisioned(windowAndroid.getContext().get()) || webContents.isIncognito()) {
+            return null;
+        }
+
+        return new SmartSelectionClient(callback, webContents);
     }
 
-    private SmartSelectionClient(
-            ResultCallback callback, WebContents webContents, WindowAndroid windowAndroid) {
+    private SmartSelectionClient(ResultCallback callback, WebContents webContents) {
         assert Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
-        mProvider = new SmartSelectionProvider(callback, windowAndroid);
+        mProvider = new SmartSelectionProvider(callback, webContents);
         mCallback = callback;
-        mSmartSelectionMetricLogger =
-                SmartSelectionMetricsLogger.create(windowAndroid.getContext().get());
-        mNativeSmartSelectionClient = nativeInit(webContents);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            mSmartSelectionMetricsLogger = SmartSelectionMetricsLogger.create(webContents);
+        }
+        mNativeSmartSelectionClient =
+                SmartSelectionClientJni.get().init(SmartSelectionClient.this, webContents);
     }
 
     @CalledByNative
@@ -81,21 +92,23 @@ public class SmartSelectionClient implements SelectionClient {
     public void onSelectionChanged(String selection) {}
 
     @Override
-    public void onSelectionEvent(int eventType, float posXPix, float posYPix) {}
+    public void onSelectionEvent(@SelectionEventType int eventType, float posXPix, float posYPix) {}
 
     @Override
     public void selectWordAroundCaretAck(boolean didSelect, int startAdjust, int endAdjust) {}
 
     @Override
     public boolean requestSelectionPopupUpdates(boolean shouldSuggest) {
-        requestSurroundingText(shouldSuggest ? SUGGEST_AND_CLASSIFY : CLASSIFY);
+        requestSurroundingText(
+                shouldSuggest ? RequestType.SUGGEST_AND_CLASSIFY : RequestType.CLASSIFY);
         return true;
     }
 
     @Override
     public void cancelAllRequests() {
         if (mNativeSmartSelectionClient != 0) {
-            nativeCancelAllRequests(mNativeSmartSelectionClient);
+            SmartSelectionClientJni.get().cancelAllRequests(
+                    mNativeSmartSelectionClient, SmartSelectionClient.this);
         }
 
         mProvider.cancelAllRequests();
@@ -103,7 +116,7 @@ public class SmartSelectionClient implements SelectionClient {
 
     @Override
     public SelectionMetricsLogger getSelectionMetricsLogger() {
-        return mSmartSelectionMetricLogger;
+        return mSmartSelectionMetricsLogger;
     }
 
     @Override
@@ -127,7 +140,8 @@ public class SmartSelectionClient implements SelectionClient {
             return;
         }
 
-        nativeRequestSurroundingText(mNativeSmartSelectionClient, NUM_EXTRA_CHARS, callbackData);
+        SmartSelectionClientJni.get().requestSurroundingText(mNativeSmartSelectionClient,
+                SmartSelectionClient.this, NUM_EXTRA_CHARS, callbackData);
     }
 
     @CalledByNative
@@ -139,12 +153,12 @@ public class SmartSelectionClient implements SelectionClient {
         }
 
         switch (callbackData) {
-            case SUGGEST_AND_CLASSIFY:
-                mProvider.sendSuggestAndClassifyRequest(text, start, end, null);
+            case RequestType.SUGGEST_AND_CLASSIFY:
+                mProvider.sendSuggestAndClassifyRequest(text, start, end);
                 break;
 
-            case CLASSIFY:
-                mProvider.sendClassifyRequest(text, start, end, null);
+            case RequestType.CLASSIFY:
+                mProvider.sendClassifyRequest(text, start, end);
                 break;
 
             default:
@@ -153,12 +167,24 @@ public class SmartSelectionClient implements SelectionClient {
         }
     }
 
+    private static boolean isDeviceProvisioned(Context context) {
+        if (context == null || context.getContentResolver() == null) return true;
+        // Returns false when device is not provisioned, i.e. before a new device went through
+        // signup process.
+        return Settings.Global.getInt(
+                       context.getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 0)
+                != 0;
+    }
+
     private boolean textHasValidSelection(String text, int start, int end) {
         return !TextUtils.isEmpty(text) && 0 <= start && start < end && end <= text.length();
     }
 
-    private native long nativeInit(WebContents webContents);
-    private native void nativeRequestSurroundingText(
-            long nativeSmartSelectionClient, int numExtraCharacters, int callbackData);
-    private native void nativeCancelAllRequests(long nativeSmartSelectionClient);
+    @NativeMethods
+    interface Natives {
+        long init(SmartSelectionClient caller, WebContents webContents);
+        void requestSurroundingText(long nativeSmartSelectionClient, SmartSelectionClient caller,
+                int numExtraCharacters, int callbackData);
+        void cancelAllRequests(long nativeSmartSelectionClient, SmartSelectionClient caller);
+    }
 }

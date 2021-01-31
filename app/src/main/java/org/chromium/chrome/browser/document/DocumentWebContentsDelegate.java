@@ -5,6 +5,7 @@
 package org.chromium.chrome.browser.document;
 
 import org.chromium.base.BuildInfo;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.components.embedder_support.delegate.WebContentsDelegateAndroid;
 import org.chromium.content_public.browser.WebContents;
 
@@ -24,7 +25,7 @@ public class DocumentWebContentsDelegate extends WebContentsDelegateAndroid {
     /**
      * Native side pointer to the stubbed WebContentsDelegate.
      */
-    private long mNativePtr;
+    private final long mNativePtr;
 
     /**
      * @return The Singleton instance, creating it if necessary.
@@ -39,11 +40,13 @@ public class DocumentWebContentsDelegate extends WebContentsDelegateAndroid {
      * @param webContents The {@link WebContents} to attach to.
      */
     public void attachDelegate(WebContents webContents) {
-        nativeAttachContents(mNativePtr, webContents);
+        DocumentWebContentsDelegateJni.get().attachContents(
+                mNativePtr, DocumentWebContentsDelegate.this, webContents);
     }
 
     private DocumentWebContentsDelegate() {
-        mNativePtr = nativeInitialize();
+        mNativePtr =
+                DocumentWebContentsDelegateJni.get().initialize(DocumentWebContentsDelegate.this);
     }
 
     @Override
@@ -52,7 +55,10 @@ public class DocumentWebContentsDelegate extends WebContentsDelegateAndroid {
         return !BuildInfo.isDebugAndroid();
     }
 
-    private native long nativeInitialize();
-    private native void nativeAttachContents(
-            long nativeDocumentWebContentsDelegate, WebContents webContents);
+    @NativeMethods
+    interface Natives {
+        long initialize(DocumentWebContentsDelegate caller);
+        void attachContents(long nativeDocumentWebContentsDelegate,
+                DocumentWebContentsDelegate caller, WebContents webContents);
+    }
 }

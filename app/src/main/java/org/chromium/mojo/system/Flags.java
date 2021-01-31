@@ -77,7 +77,6 @@ public abstract class Flags<F extends Flags<F>> {
         if (obj == null) return false;
         if (getClass() != obj.getClass()) return false;
         Flags<?> other = (Flags<?>) obj;
-        if (mFlags != other.mFlags) return false;
-        return true;
+        return mFlags == other.mFlags;
     }
 }

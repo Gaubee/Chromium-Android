@@ -9,11 +9,11 @@ import android.animation.StateListAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.os.Build;
-import android.support.annotation.StyleRes;
-import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
+
+import androidx.annotation.StyleRes;
+import androidx.appcompat.widget.AppCompatButton;
 
 import org.chromium.ui.R;
 
@@ -35,9 +35,11 @@ import org.chromium.ui.R;
  *
  * Note: To ensure the button's shadow is fully visible, you may need to set
  * android:clipToPadding="false" on the button's parent view.
+ *
+ * See {@link R.styleable#ButtonCompat ButtonCompat Attributes}.
  */
 public class ButtonCompat extends AppCompatButton {
-    private RippleBackgroundHelper mRippleBackgroundHelper;
+    private final RippleBackgroundHelper mRippleBackgroundHelper;
 
     /**
      * Constructor for programmatically creating a {@link ButtonCompat}.
@@ -66,10 +68,13 @@ public class ButtonCompat extends AppCompatButton {
         int rippleColorId = a.getResourceId(
                 R.styleable.ButtonCompat_rippleColor, R.color.filled_button_ripple_color);
         boolean buttonRaised = a.getBoolean(R.styleable.ButtonCompat_buttonRaised, true);
+        int verticalInset = a.getDimensionPixelSize(R.styleable.ButtonCompat_verticalInset,
+                getResources().getDimensionPixelSize(R.dimen.button_bg_vertical_inset));
         a.recycle();
 
         mRippleBackgroundHelper = new RippleBackgroundHelper(this, buttonColorId, rippleColorId,
-                getResources().getDimensionPixelSize(R.dimen.button_compat_corner_radius));
+                getResources().getDimensionPixelSize(R.dimen.button_compat_corner_radius),
+                verticalInset);
         setRaised(buttonRaised);
     }
 
@@ -87,7 +92,6 @@ public class ButtonCompat extends AppCompatButton {
     */
     private void setRaised(boolean raised) {
         // All buttons are flat on pre-L devices.
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) return;
 
         if (raised) {
             // Use the StateListAnimator from the Widget.Material.Button style to animate the
@@ -110,14 +114,6 @@ public class ButtonCompat extends AppCompatButton {
         } else {
             setElevation(0f);
             setStateListAnimator(null);
-        }
-    }
-
-    @Override
-    protected void drawableStateChanged() {
-        super.drawableStateChanged();
-        if (mRippleBackgroundHelper != null) {
-            mRippleBackgroundHelper.onDrawableStateChanged();
         }
     }
 }

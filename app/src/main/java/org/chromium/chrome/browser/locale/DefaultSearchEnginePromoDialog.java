@@ -8,21 +8,22 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.Button;
 
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.Callback;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.base.metrics.RecordUserAction;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.locale.LocaleManager.SearchEnginePromoType;
-import org.chromium.chrome.browser.widget.PromoDialog;
-import org.chromium.chrome.browser.widget.RadioButtonLayout;
+import org.chromium.components.browser_ui.widget.PromoDialog;
+import org.chromium.components.browser_ui.widget.RadioButtonLayout;
 
 /** A dialog that forces the user to choose a default search engine. */
 public class DefaultSearchEnginePromoDialog extends PromoDialog {
     /** Notified about events happening to the dialog. */
-    public static interface DefaultSearchEnginePromoDialogObserver {
+    public interface DefaultSearchEnginePromoDialogObserver {
         void onDialogShown(DefaultSearchEnginePromoDialog shownDialog);
     }
     private static DefaultSearchEnginePromoDialogObserver sObserver;

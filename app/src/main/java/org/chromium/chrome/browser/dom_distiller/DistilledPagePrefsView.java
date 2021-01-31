@@ -6,7 +6,6 @@ package org.chromium.chrome.browser.dom_distiller;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.v7.app.AlertDialog;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,14 +20,17 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.components.dom_distiller.core.DistilledPagePrefs;
-import org.chromium.components.dom_distiller.core.FontFamily;
-import org.chromium.components.dom_distiller.core.Theme;
+import org.chromium.dom_distiller.mojom.FontFamily;
+import org.chromium.dom_distiller.mojom.Theme;
+import org.chromium.ui.UiUtils;
 
 import java.text.NumberFormat;
-import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -45,7 +47,7 @@ public class DistilledPagePrefsView extends LinearLayout
     private RadioGroup mRadioGroup;
 
     // Buttons for color mode.
-    private final Map<Theme, RadioButton> mColorModeButtons;
+    private final Map<Integer /* Theme */, RadioButton> mColorModeButtons;
 
     private final DistilledPagePrefs mDistilledPagePrefs;
 
@@ -68,9 +70,13 @@ public class DistilledPagePrefsView extends LinearLayout
      */
     public DistilledPagePrefsView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mDistilledPagePrefs = DomDistillerServiceFactory.getForProfile(
-                Profile.getLastUsedProfile()).getDistilledPagePrefs();
-        mColorModeButtons = new EnumMap<Theme, RadioButton>(Theme.class);
+        // TODO (https://crbug.com/1048632): Use the current profile (i.e., regular profile or
+        // incognito profile) instead of always using regular profile. It works correctly now, but
+        // it is not safe.
+        mDistilledPagePrefs =
+                DomDistillerServiceFactory.getForProfile(Profile.getLastUsedRegularProfile())
+                        .getDistilledPagePrefs();
+        mColorModeButtons = new HashMap<Integer /* Theme */, RadioButton>();
         mPercentageFormatter = NumberFormat.getPercentInstance(Locale.getDefault());
     }
 
@@ -80,7 +86,8 @@ public class DistilledPagePrefsView extends LinearLayout
     }
 
     public static void showDialog(Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogTheme);
+        AlertDialog.Builder builder = new UiUtils.CompatibleAlertDialogBuilder(
+                context, R.style.Theme_Chromium_AlertDialog);
         builder.setView(DistilledPagePrefsView.create(context));
         builder.show();
     }
@@ -130,10 +137,10 @@ public class DistilledPagePrefsView extends LinearLayout
                 return overrideTypeFace(view, position);
             }
 
-            private View overrideTypeFace(View view, int position) {
+            private View overrideTypeFace(View view, int family) {
+                FontFamily.validate(family);
                 if (view instanceof TextView) {
                     TextView textView = (TextView) view;
-                    FontFamily family = FontFamily.values()[position];
                     if (family == FontFamily.MONOSPACE) {
                         textView.setTypeface(Typeface.MONOSPACE);
                     } else if (family == FontFamily.SANS_SERIF) {
@@ -148,12 +155,11 @@ public class DistilledPagePrefsView extends LinearLayout
 
         adapter.setDropDownViewResource(R.layout.distilled_page_font_family_spinner);
         mFontFamilySpinner.setAdapter(adapter);
-        mFontFamilySpinner.setSelection(mDistilledPagePrefs.getFontFamily().ordinal());
+        mFontFamilySpinner.setSelection(mDistilledPagePrefs.getFontFamily());
         mFontFamilySpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                FontFamily family = FontFamily.getFontFamilyForValue(position);
-                if (family != null) {
+            public void onItemSelected(AdapterView<?> parent, View view, int family, long id) {
+                if (FontFamily.isKnownValue(family)) {
                     mDistilledPagePrefs.setFontFamily(family);
                 }
             }
@@ -207,15 +213,17 @@ public class DistilledPagePrefsView extends LinearLayout
     // DistilledPagePrefs.Observer
 
     @Override
-    public void onChangeFontFamily(FontFamily fontFamily) {
-        mFontFamilySpinner.setSelection(fontFamily.ordinal());
+    public void onChangeFontFamily(int fontFamily) {
+        FontFamily.validate(fontFamily);
+        mFontFamilySpinner.setSelection(fontFamily);
     }
 
     /**
      * Changes which button is selected if the theme is changed in another tab.
      */
     @Override
-    public void onChangeTheme(Theme theme) {
+    public void onChangeTheme(int theme) {
+        Theme.validate(theme);
         mColorModeButtons.get(theme).setChecked(true);
     }
 
@@ -248,7 +256,8 @@ public class DistilledPagePrefsView extends LinearLayout
      * Initiatializes a Button and selects it if it corresponds to the current
      * theme.
      */
-    private RadioButton initializeAndGetButton(int id, final Theme theme) {
+    private RadioButton initializeAndGetButton(int id, final int theme) {
+        Theme.validate(theme);
         final RadioButton button = (RadioButton) findViewById(id);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

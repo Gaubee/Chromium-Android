@@ -19,11 +19,12 @@ public interface CompositorSurfaceManager {
     /**
      * Delivers Surface lifecycle events to the target of this CompositorSurfaceManager.
      */
-    public interface SurfaceManagerCallbackTarget {
-        public void surfaceRedrawNeededAsync(Runnable drawingFinished);
-        public void surfaceChanged(Surface surface, int format, int width, int height);
-        public void surfaceCreated(Surface surface);
-        public void surfaceDestroyed(Surface surface);
+    interface SurfaceManagerCallbackTarget {
+        void surfaceRedrawNeededAsync(Runnable drawingFinished);
+        void surfaceChanged(Surface surface, int format, int width, int height);
+        void surfaceCreated(Surface surface);
+        void surfaceDestroyed(Surface surface);
+        void unownedSurfaceDestroyed();
     }
 
     /**
@@ -38,6 +39,12 @@ public interface CompositorSurfaceManager {
      * recreated. Note that |format| must be either OPAQUE or TRANSLUCENT.
      */
     void requestSurface(int format);
+
+    /**
+     * Returns the PixelFormat of the currently owned surface if any (OPAQUE or TRANSLUCENT),
+     * or UNKNOWN if there is no owned surface or it isn't initialized yet.
+     */
+    int getFormatOfOwnedSurface();
 
     /**
      * Called to notify us that the client no longer needs the surface that it doesn't own. This

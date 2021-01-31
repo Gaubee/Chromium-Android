@@ -7,8 +7,10 @@ package org.chromium.chrome.browser.omnibox.suggestions;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.annotation.Nullable;
+
 import org.chromium.ui.UiUtils;
-import org.chromium.ui.modelutil.ModelListAdapter;
+import org.chromium.ui.modelutil.ListObservable;
 import org.chromium.ui.modelutil.PropertyKey;
 import org.chromium.ui.modelutil.PropertyModel;
 
@@ -16,19 +18,14 @@ import org.chromium.ui.modelutil.PropertyModel;
  * Handles property updates to the suggestion list component.
  */
 class SuggestionListViewBinder {
-    /**
-     * Holds the view components needed to renderer the suggestion list.
-     */
+    /** Holds the view components needed to renderer the suggestion list. */
     public static class SuggestionListViewHolder {
         public final ViewGroup container;
-        public final OmniboxSuggestionsList listView;
-        public final ModelListAdapter adapter;
+        public final OmniboxSuggestionsDropdown dropdown;
 
-        public SuggestionListViewHolder(
-                ViewGroup container, OmniboxSuggestionsList list, ModelListAdapter adapter) {
+        public SuggestionListViewHolder(ViewGroup container, OmniboxSuggestionsDropdown dropdown) {
             this.container = container;
-            this.listView = list;
-            this.adapter = adapter;
+            this.dropdown = dropdown;
         }
     }
 
@@ -41,23 +38,33 @@ class SuggestionListViewBinder {
             PropertyModel model, SuggestionListViewHolder view, PropertyKey propertyKey) {
         if (SuggestionListProperties.VISIBLE.equals(propertyKey)) {
             boolean visible = model.get(SuggestionListProperties.VISIBLE);
+            // Actual View showing the dropdown.
+            View dropdownView = view.dropdown.getViewGroup();
             if (visible) {
                 view.container.setVisibility(View.VISIBLE);
-                if (view.listView.getParent() == null) view.container.addView(view.listView);
-                view.listView.show();
+                if (dropdownView.getParent() == null) view.container.addView(dropdownView);
+                view.dropdown.show();
             } else {
-                view.listView.setVisibility(View.GONE);
-                UiUtils.removeViewFromParent(view.listView);
+                view.dropdown.hide();
+                UiUtils.removeViewFromParent(dropdownView);
                 view.container.setVisibility(View.INVISIBLE);
             }
         } else if (SuggestionListProperties.EMBEDDER.equals(propertyKey)) {
-            view.listView.setEmbedder(model.get(SuggestionListProperties.EMBEDDER));
+            view.dropdown.setEmbedder(model.get(SuggestionListProperties.EMBEDDER));
+        } else if (SuggestionListProperties.OBSERVER.equals(propertyKey)) {
+            view.dropdown.setObserver(model.get(SuggestionListProperties.OBSERVER));
         } else if (SuggestionListProperties.SUGGESTION_MODELS.equals(propertyKey)) {
-            view.adapter.updateSuggestions(model.get(SuggestionListProperties.SUGGESTION_MODELS));
-            view.listView.setSelection(0);
-        } else if (SuggestionListProperties.USE_DARK_BACKGROUND.equals(propertyKey)) {
-            view.listView.refreshPopupBackground(
-                    model.get(SuggestionListProperties.USE_DARK_BACKGROUND));
+            // This should only ever be bound once.
+            model.get(SuggestionListProperties.SUGGESTION_MODELS)
+                    .addObserver(new ListObservable.ListObserver<Void>() {
+                        @Override
+                        public void onItemRangeChanged(ListObservable<Void> source, int index,
+                                int count, @Nullable Void payload) {
+                            view.dropdown.resetSelection();
+                        }
+                    });
+        } else if (SuggestionListProperties.IS_INCOGNITO.equals(propertyKey)) {
+            view.dropdown.refreshPopupBackground(model.get(SuggestionListProperties.IS_INCOGNITO));
         }
     }
 }

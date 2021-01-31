@@ -8,7 +8,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.MainThread;
+
+import androidx.annotation.MainThread;
 
 import org.chromium.base.Log;
 import org.chromium.components.background_task_scheduler.BackgroundTask;
@@ -41,7 +42,7 @@ public class GCMBackgroundTask implements BackgroundTask {
             return false;
         }
 
-        ChromeGcmListenerService.dispatchMessageToDriver(context, message);
+        ChromeGcmListenerServiceImpl.dispatchMessageToDriver(message);
         return false;
     }
 

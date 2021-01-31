@@ -5,7 +5,6 @@
 package org.chromium.chrome.browser.feature_engagement;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.database.Cursor;
@@ -13,15 +12,17 @@ import android.net.Uri;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
-import android.support.v4.content.ContextCompat;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
+
+import androidx.annotation.VisibleForTesting;
+import androidx.core.content.ContextCompat;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
 import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.base.metrics.RecordUserAction;
+import org.chromium.base.task.PostTask;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
+import org.chromium.ui.display.DisplayAndroid;
 
 /**
  * This class detects screenshots by monitoring the screenshots directory on internal and external
@@ -81,7 +82,7 @@ public class ScreenshotMonitor {
 
             if (!doesChangeLookLikeScreenshot(uri)) return;
 
-            ThreadUtils.postOnUiThread(new Runnable() {
+            PostTask.postTask(UiThreadTaskTraits.DEFAULT, new Runnable() {
                 @Override
                 public void run() {
                     if (mScreenshotMonitor == null) return;
@@ -150,13 +151,10 @@ public class ScreenshotMonitor {
         }
 
         // Check width and height.
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowManager =
-                (WindowManager) ContextUtils.getApplicationContext().getSystemService(
-                        Context.WINDOW_SERVICE);
-        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        int screenHeight = displayMetrics.heightPixels;
-        int screenWidth = displayMetrics.widthPixels;
+        DisplayAndroid display =
+                DisplayAndroid.getNonMultiDisplay(ContextUtils.getApplicationContext());
+        int screenHeight = display.getDisplayWidth();
+        int screenWidth = display.getDisplayHeight();
         int imageHeight = Integer.parseInt(imageHeightString);
         int imageWidth = Integer.parseInt(imageWidthString);
 
@@ -168,10 +166,9 @@ public class ScreenshotMonitor {
         if (screenHeight == imageHeight || screenWidth == imageWidth) return true;
         // Just in case the device gets rotated after the snapshot and before the event, check
         // width against height instead of width.
-        if (screenHeight == imageWidth || screenWidth == imageHeight) return true;
+        return screenHeight == imageWidth || screenWidth == imageHeight;
 
         // Otherwise assume this is not a screenshot.
-        return false;
     }
 
     @VisibleForTesting

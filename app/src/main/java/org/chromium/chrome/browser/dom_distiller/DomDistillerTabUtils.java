@@ -4,20 +4,29 @@
 
 package org.chromium.chrome.browser.dom_distiller;
 
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.annotations.JNINamespace;
-import org.chromium.chrome.browser.ChromeFeatureList;
+import org.chromium.base.annotations.NativeMethods;
+import org.chromium.chrome.browser.flags.ChromeFeatureList;
 import org.chromium.chrome.browser.preferences.Pref;
-import org.chromium.chrome.browser.preferences.PrefServiceBridge;
+import org.chromium.chrome.browser.profiles.Profile;
+import org.chromium.chrome.browser.tab.Tab;
 import org.chromium.components.navigation_interception.InterceptNavigationDelegate;
+import org.chromium.components.user_prefs.UserPrefs;
 import org.chromium.content_public.browser.WebContents;
+import org.chromium.url.GURL;
 
 /**
  * A helper class for using the DOM Distiller.
  */
 @JNINamespace("android")
 public class DomDistillerTabUtils {
-    // Triggering heuristics encoded in native enum DistillerHeuristicsType.
+    /** Triggering heuristics encoded in native enum DistillerHeuristicsType. */
     private static Integer sHeuristics;
+
+    /** Used to specify whether mobile friendly is enabled for testing purposes. */
+    private static Boolean sExcludeMobileFriendlyForTesting;
 
     private DomDistillerTabUtils() {
     }
@@ -30,7 +39,7 @@ public class DomDistillerTabUtils {
      * @param webContents the WebContents to distill.
      */
     public static void distillCurrentPageAndView(WebContents webContents) {
-        nativeDistillCurrentPageAndView(webContents);
+        DomDistillerTabUtilsJni.get().distillCurrentPageAndView(webContents);
     }
 
     /**
@@ -40,7 +49,7 @@ public class DomDistillerTabUtils {
      * @param webContents the WebContents to distill.
      */
     public static void distillCurrentPage(WebContents webContents) {
-        nativeDistillCurrentPage(webContents);
+        DomDistillerTabUtilsJni.get().distillCurrentPage(webContents);
     }
 
     /**
@@ -53,7 +62,7 @@ public class DomDistillerTabUtils {
      */
     public static void distillAndView(
             WebContents sourceWebContents, WebContents destinationWebContents) {
-        nativeDistillAndView(sourceWebContents, destinationWebContents);
+        DomDistillerTabUtilsJni.get().distillAndView(sourceWebContents, destinationWebContents);
     }
 
     /**
@@ -62,8 +71,8 @@ public class DomDistillerTabUtils {
      * @param url The original URL.
      * @return the formatted URL of the original page.
      */
-    public static String getFormattedUrlFromOriginalDistillerUrl(String url) {
-        return nativeGetFormattedUrlFromOriginalDistillerUrl(url);
+    public static String getFormattedUrlFromOriginalDistillerUrl(GURL url) {
+        return DomDistillerTabUtilsJni.get().getFormattedUrlFromOriginalDistillerUrl(url);
     }
 
     /**
@@ -91,17 +100,26 @@ public class DomDistillerTabUtils {
      * @return True if heuristic is ADABOOST_MODEL, and "Simplified view for accessibility"
      * is disabled.
      */
-    public static boolean shouldExcludeMobileFriendly() {
-        return !PrefServiceBridge.getInstance().getBoolean(Pref.READER_FOR_ACCESSIBILITY_ENABLED)
+    public static boolean shouldExcludeMobileFriendly(Tab tab) {
+        if (sExcludeMobileFriendlyForTesting != null) return sExcludeMobileFriendlyForTesting;
+        WebContents webContents = tab.getWebContents();
+        assert webContents != null;
+        return !UserPrefs.get(Profile.fromWebContents(webContents))
+                        .getBoolean(Pref.READER_FOR_ACCESSIBILITY)
                 && getDistillerHeuristics() == DistillerHeuristicsType.ADABOOST_MODEL;
     }
 
+    @VisibleForTesting
+    public static void setExcludeMobileFriendlyForTesting(boolean excludeForTesting) {
+        sExcludeMobileFriendlyForTesting = excludeForTesting;
+    }
+
     /**
-     * Cached version of nativeGetDistillerHeuristics().
+     * Cached version of DomDistillerTabUtilsJni.get().getDistillerHeuristics().
      */
     public static @DistillerHeuristicsType int getDistillerHeuristics() {
         if (sHeuristics == null) {
-            sHeuristics = nativeGetDistillerHeuristics();
+            sHeuristics = DomDistillerTabUtilsJni.get().getDistillerHeuristics();
         }
         return sHeuristics;
     }
@@ -123,15 +141,17 @@ public class DomDistillerTabUtils {
      */
     public static void setInterceptNavigationDelegate(
             InterceptNavigationDelegate delegate, WebContents webContents) {
-        nativeSetInterceptNavigationDelegate(delegate, webContents);
+        DomDistillerTabUtilsJni.get().setInterceptNavigationDelegate(delegate, webContents);
     }
 
-    private static native void nativeDistillCurrentPageAndView(WebContents webContents);
-    private static native void nativeDistillCurrentPage(WebContents webContents);
-    private static native void nativeDistillAndView(
-            WebContents sourceWebContents, WebContents destinationWebContents);
-    private static native String nativeGetFormattedUrlFromOriginalDistillerUrl(String url);
-    private static native int nativeGetDistillerHeuristics();
-    private static native void nativeSetInterceptNavigationDelegate(
-            InterceptNavigationDelegate delegate, WebContents webContents);
+    @NativeMethods
+    interface Natives {
+        void distillCurrentPageAndView(WebContents webContents);
+        void distillCurrentPage(WebContents webContents);
+        void distillAndView(WebContents sourceWebContents, WebContents destinationWebContents);
+        String getFormattedUrlFromOriginalDistillerUrl(GURL url);
+        int getDistillerHeuristics();
+        void setInterceptNavigationDelegate(
+                InterceptNavigationDelegate delegate, WebContents webContents);
+    }
 }

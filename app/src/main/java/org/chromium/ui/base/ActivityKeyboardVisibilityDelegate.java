@@ -5,8 +5,9 @@
 package org.chromium.ui.base;
 
 import android.app.Activity;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import android.annotation.Nullable;
 
 import org.chromium.ui.KeyboardVisibilityDelegate;
 
@@ -20,7 +21,7 @@ import java.lang.ref.WeakReference;
 public class ActivityKeyboardVisibilityDelegate
         extends KeyboardVisibilityDelegate implements View.OnLayoutChangeListener {
     private boolean mIsKeyboardShowing;
-    private WeakReference<Activity> mActivity;
+    private final WeakReference<Activity> mActivity;
 
     /**
      * Creates a new delegate listening to the given activity. If the activity is destroyed, it will

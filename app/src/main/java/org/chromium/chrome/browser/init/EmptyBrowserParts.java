@@ -39,16 +39,10 @@ public class EmptyBrowserParts implements BrowserParts {
     }
 
     @Override
-    public void onStartupFailure() {
-    }
+    public void onStartupFailure(Exception failureCause) {}
 
     @Override
-    public boolean isActivityDestroyed() {
-        return false;
-    }
-
-    @Override
-    public boolean isActivityFinishing() {
+    public boolean isActivityFinishingOrDestroyed() {
         return false;
     }
 

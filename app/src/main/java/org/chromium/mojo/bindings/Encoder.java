@@ -13,6 +13,7 @@ import org.chromium.mojo.system.Pair;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,7 +100,7 @@ public class Encoder {
     /**
      * Base offset in the byte buffer for writing.
      */
-    private int mBaseOffset;
+    private final int mBaseOffset;
 
     /**
      * The encoder state shared by the main encoder and all its sub-encoder.
@@ -244,7 +245,7 @@ public class Encoder {
         }
         final int arrayNullability = nullable
                 ? BindingsHelper.ARRAY_NULLABLE : BindingsHelper.NOTHING_NULLABLE;
-        encode(v.getBytes(Charset.forName("utf8")), offset, arrayNullability,
+        encode(v.getBytes(StandardCharsets.UTF_8), offset, arrayNullability,
                 BindingsHelper.UNSPECIFIED_ARRAY_LENGTH);
     }
 

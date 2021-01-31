@@ -6,13 +6,14 @@ package org.chromium.chrome.browser.firstrun;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.AnyRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.annotation.AnyRes;
 
 import org.chromium.chrome.R;
 
@@ -51,10 +52,10 @@ public class TabbedModeFirstRunActivity extends FirstRunActivity {
      * Layout that sizes itself according to DialogWhenLarge constraints.
      */
     private static class ContentLayout extends FrameLayout {
-        private TypedValue mFixedWidthMajor = new TypedValue();
-        private TypedValue mFixedWidthMinor = new TypedValue();
-        private TypedValue mFixedHeightMajor = new TypedValue();
-        private TypedValue mFixedHeightMinor = new TypedValue();
+        private final TypedValue mFixedWidthMajor = new TypedValue();
+        private final TypedValue mFixedWidthMinor = new TypedValue();
+        private final TypedValue mFixedHeightMajor = new TypedValue();
+        private final TypedValue mFixedHeightMinor = new TypedValue();
 
         public ContentLayout(Context context) {
             super(context);

@@ -5,6 +5,8 @@
 package org.chromium.chrome.browser.history;
 
 import org.chromium.base.annotations.CalledByNative;
+import org.chromium.base.annotations.NativeMethods;
+import org.chromium.chrome.browser.profiles.Profile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +18,9 @@ public class BrowsingHistoryBridge implements HistoryProvider {
     private boolean mRemovingItems;
     private boolean mHasPendingRemoveRequest;
 
-    public BrowsingHistoryBridge(boolean isIncognito) {
-        mNativeHistoryBridge = nativeInit(isIncognito);
+    public BrowsingHistoryBridge(Profile profile) {
+        mNativeHistoryBridge =
+                BrowsingHistoryBridgeJni.get().init(BrowsingHistoryBridge.this, profile);
     }
 
     @Override
@@ -28,24 +31,28 @@ public class BrowsingHistoryBridge implements HistoryProvider {
     @Override
     public void destroy() {
         if (mNativeHistoryBridge != 0) {
-            nativeDestroy(mNativeHistoryBridge);
+            BrowsingHistoryBridgeJni.get().destroy(
+                    mNativeHistoryBridge, BrowsingHistoryBridge.this);
             mNativeHistoryBridge = 0;
         }
     }
 
     @Override
     public void queryHistory(String query) {
-        nativeQueryHistory(mNativeHistoryBridge, new ArrayList<HistoryItem>(), query);
+        BrowsingHistoryBridgeJni.get().queryHistory(mNativeHistoryBridge,
+                BrowsingHistoryBridge.this, new ArrayList<HistoryItem>(), query);
     }
 
     @Override
     public void queryHistoryContinuation() {
-        nativeQueryHistoryContinuation(mNativeHistoryBridge, new ArrayList<HistoryItem>());
+        BrowsingHistoryBridgeJni.get().queryHistoryContinuation(
+                mNativeHistoryBridge, BrowsingHistoryBridge.this, new ArrayList<HistoryItem>());
     }
 
     @Override
     public void markItemForRemoval(HistoryItem item) {
-        nativeMarkItemForRemoval(mNativeHistoryBridge, item.getUrl(), item.getNativeTimestamps());
+        BrowsingHistoryBridgeJni.get().markItemForRemoval(mNativeHistoryBridge,
+                BrowsingHistoryBridge.this, item.getUrl(), item.getNativeTimestamps());
     }
 
     @Override
@@ -58,7 +65,8 @@ public class BrowsingHistoryBridge implements HistoryProvider {
         }
         mRemovingItems = true;
         mHasPendingRemoveRequest = false;
-        nativeRemoveItems(mNativeHistoryBridge);
+        BrowsingHistoryBridgeJni.get().removeItems(
+                mNativeHistoryBridge, BrowsingHistoryBridge.this);
     }
 
     @CalledByNative
@@ -99,13 +107,16 @@ public class BrowsingHistoryBridge implements HistoryProvider {
         }
     }
 
-    private native long nativeInit(boolean isIncognito);
-    private native void nativeDestroy(long nativeBrowsingHistoryBridge);
-    private native void nativeQueryHistory(
-            long nativeBrowsingHistoryBridge, List<HistoryItem> historyItems, String query);
-    private native void nativeQueryHistoryContinuation(
-            long nativeBrowsingHistoryBridge, List<HistoryItem> historyItems);
-    private native void nativeMarkItemForRemoval(
-            long nativeBrowsingHistoryBridge, String url, long[] nativeTimestamps);
-    private native void nativeRemoveItems(long nativeBrowsingHistoryBridge);
+    @NativeMethods
+    interface Natives {
+        long init(BrowsingHistoryBridge caller, Profile profile);
+        void destroy(long nativeBrowsingHistoryBridge, BrowsingHistoryBridge caller);
+        void queryHistory(long nativeBrowsingHistoryBridge, BrowsingHistoryBridge caller,
+                List<HistoryItem> historyItems, String query);
+        void queryHistoryContinuation(long nativeBrowsingHistoryBridge,
+                BrowsingHistoryBridge caller, List<HistoryItem> historyItems);
+        void markItemForRemoval(long nativeBrowsingHistoryBridge, BrowsingHistoryBridge caller,
+                String url, long[] nativeTimestamps);
+        void removeItems(long nativeBrowsingHistoryBridge, BrowsingHistoryBridge caller);
+    }
 }

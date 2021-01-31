@@ -8,16 +8,20 @@ import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.SharedPreferences;
 import android.os.Build;
-import android.support.annotation.IntDef;
-import android.support.v4.app.NotificationManagerCompat;
+import android.text.format.DateUtils;
+
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+import androidx.core.app.NotificationManagerCompat;
 
 import org.chromium.base.ContextUtils;
-import org.chromium.base.library_loader.LibraryLoader;
-import org.chromium.base.metrics.CachedMetrics;
+import org.chromium.base.MathUtils;
 import org.chromium.base.metrics.RecordHistogram;
-import org.chromium.chrome.browser.notifications.channels.ChannelDefinitions;
+import org.chromium.base.metrics.RecordUserAction;
+import org.chromium.chrome.browser.notifications.channels.ChromeChannelDefinitions;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -44,8 +48,16 @@ public class NotificationUmaTracker {
             SystemNotificationType.WEBAPK, SystemNotificationType.BROWSER_ACTIONS,
             SystemNotificationType.WEBAPP_ACTIONS,
             SystemNotificationType.OFFLINE_CONTENT_SUGGESTION,
-            SystemNotificationType.TRUSTED_WEB_ACTIVITY_SITES,
-            SystemNotificationType.OFFLINE_PAGES})
+            SystemNotificationType.TRUSTED_WEB_ACTIVITY_SITES, SystemNotificationType.OFFLINE_PAGES,
+            SystemNotificationType.SEND_TAB_TO_SELF, SystemNotificationType.UPDATES,
+            SystemNotificationType.CLICK_TO_CALL, SystemNotificationType.SHARED_CLIPBOARD,
+            SystemNotificationType.PERMISSION_REQUESTS,
+            SystemNotificationType.PERMISSION_REQUESTS_HIGH, SystemNotificationType.ANNOUNCEMENT,
+            SystemNotificationType.SHARE_SAVE_IMAGE, SystemNotificationType.TWA_DISCLOSURE_INITIAL,
+            SystemNotificationType.TWA_DISCLOSURE_SUBSEQUENT,
+            SystemNotificationType.CHROME_REENGAGEMENT_1,
+            SystemNotificationType.CHROME_REENGAGEMENT_2,
+            SystemNotificationType.CHROME_REENGAGEMENT_3})
     @Retention(RetentionPolicy.SOURCE)
     public @interface SystemNotificationType {
         int UNKNOWN = -1;
@@ -64,8 +76,21 @@ public class NotificationUmaTracker {
         int OFFLINE_CONTENT_SUGGESTION = 12;
         int TRUSTED_WEB_ACTIVITY_SITES = 13;
         int OFFLINE_PAGES = 14;
+        int SEND_TAB_TO_SELF = 15;
+        int UPDATES = 16;
+        int CLICK_TO_CALL = 17;
+        int SHARED_CLIPBOARD = 18;
+        int PERMISSION_REQUESTS = 19;
+        int PERMISSION_REQUESTS_HIGH = 20;
+        int ANNOUNCEMENT = 21;
+        int SHARE_SAVE_IMAGE = 22;
+        int TWA_DISCLOSURE_INITIAL = 23;
+        int TWA_DISCLOSURE_SUBSEQUENT = 24;
+        int CHROME_REENGAGEMENT_1 = 25;
+        int CHROME_REENGAGEMENT_2 = 26;
+        int CHROME_REENGAGEMENT_3 = 27;
 
-        int NUM_ENTRIES = 15;
+        int NUM_ENTRIES = 28;
     }
 
     /*
@@ -74,26 +99,58 @@ public class NotificationUmaTracker {
      * sure to keep this list in sync.  Additions should be treated as APPEND ONLY to keep the UMA
      * metric semantics the same over time.
      */
-    @IntDef({ActionType.UNKNOWN})
+    @IntDef({ActionType.UNKNOWN, ActionType.DOWNLOAD_PAUSE, ActionType.DOWNLOAD_RESUME,
+            ActionType.DOWNLOAD_CANCEL, ActionType.DOWNLOAD_PAGE_PAUSE,
+            ActionType.DOWNLOAD_PAGE_RESUME, ActionType.DOWNLOAD_PAGE_CANCEL,
+            ActionType.CONTENT_SUGGESTION_SETTINGS, ActionType.WEB_APP_ACTION_SHARE,
+            ActionType.WEB_APP_ACTION_OPEN_IN_CHROME,
+            ActionType.OFFLINE_CONTENT_SUGGESTION_SETTINGS, ActionType.SHARING_TRY_AGAIN,
+            ActionType.SETTINGS, ActionType.ANNOUNCEMENT_ACK, ActionType.ANNOUNCEMENT_OPEN})
     @Retention(RetentionPolicy.SOURCE)
     public @interface ActionType {
         int UNKNOWN = -1;
-        // Pause button when an user download is in progress.
-        int DOWNLOAD_FILES_IN_PROGRESS_PAUSE = 0;
-        // Resume button when an user download is in progress.
-        int DOWNLOAD_FILES_IN_PROGRESS_RESUME = 1;
-        int NUM_ENTRIES = 2;
-    }
+        // Pause button on user download notification.
+        int DOWNLOAD_PAUSE = 0;
+        // Resume button on user download notification.
+        int DOWNLOAD_RESUME = 1;
+        // Cancel button on user download notification.
+        int DOWNLOAD_CANCEL = 2;
+        // Pause button on page download notification.
+        int DOWNLOAD_PAGE_PAUSE = 3;
+        // Resume button on page download notification.
+        int DOWNLOAD_PAGE_RESUME = 4;
+        // Cancel button on page download notification.
+        int DOWNLOAD_PAGE_CANCEL = 5;
+        // Setting button on content suggestion notification.
+        int CONTENT_SUGGESTION_SETTINGS = 6;
+        // Share button on web app action notification.
+        int WEB_APP_ACTION_SHARE = 7;
+        // Open in Chrome button on web app action notification.
+        int WEB_APP_ACTION_OPEN_IN_CHROME = 8;
+        // Setting button in offline content suggestion notification.
+        int OFFLINE_CONTENT_SUGGESTION_SETTINGS = 9;
+        // Dismiss button on sharing notification.
+        // int SHARING_DISMISS = 10; deprecated
+        // Try again button on sharing error notification.
+        int SHARING_TRY_AGAIN = 11;
+        // Settings button for notifications.
+        int SETTINGS = 12;
+        // Ack button on announcement notification.
+        int ANNOUNCEMENT_ACK = 13;
+        // Open button on announcement notification.
+        int ANNOUNCEMENT_OPEN = 14;
+        // "Got it" button on the TWA "Running in Chrome" notification.
+        int TWA_NOTIFICATION_ACCEPTANCE = 15;
 
-    private static final String LAST_SHOWN_NOTIFICATION_TYPE_KEY =
-            "NotificationUmaTracker.LastShownNotificationType";
+        int NUM_ENTRIES = 16;
+    }
 
     private static class LazyHolder {
         private static final NotificationUmaTracker INSTANCE = new NotificationUmaTracker();
     }
 
     /** Cached objects. */
-    private final SharedPreferences mSharedPreferences;
+    private final SharedPreferencesManager mSharedPreferences;
     private final NotificationManagerCompat mNotificationManager;
 
     public static NotificationUmaTracker getInstance() {
@@ -101,7 +158,7 @@ public class NotificationUmaTracker {
     }
 
     private NotificationUmaTracker() {
-        mSharedPreferences = ContextUtils.getAppSharedPreferences();
+        mSharedPreferences = SharedPreferencesManager.getInstance();
         mNotificationManager = NotificationManagerCompat.from(ContextUtils.getApplicationContext());
     }
 
@@ -113,8 +170,9 @@ public class NotificationUmaTracker {
      * @param notification The notification that was shown.
      * @see SystemNotificationType
      */
-    public void onNotificationShown(@SystemNotificationType int type, Notification notification) {
-        if (type == SystemNotificationType.UNKNOWN) return;
+    public void onNotificationShown(
+            @SystemNotificationType int type, @Nullable Notification notification) {
+        if (type == SystemNotificationType.UNKNOWN || notification == null) return;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             logNotificationShown(type, notification.getChannelId());
@@ -126,48 +184,105 @@ public class NotificationUmaTracker {
     /**
      * Logs notification click event when the user taps on the notification body.
      * @param type Type of the notification.
+     * @param createTime The notification creation timestamp.
      */
-    public void onNotificationContentClick(@SystemNotificationType int type) {
+    public void onNotificationContentClick(@SystemNotificationType int type, long createTime) {
         if (type == SystemNotificationType.UNKNOWN) return;
 
-        new CachedMetrics
-                .EnumeratedHistogramSample("Mobile.SystemNotification.Content.Click",
-                        SystemNotificationType.NUM_ENTRIES)
-                .record(type);
+        RecordHistogram.recordEnumeratedHistogram("Mobile.SystemNotification.Content.Click", type,
+                SystemNotificationType.NUM_ENTRIES);
+        if (type == SystemNotificationType.DOWNLOAD_FILES) {
+            RecordUserAction.record("Mobile.SystemNotification.Content.Click.Downloads_Files");
+        }
+        recordNotificationAgeHistogram("Mobile.SystemNotification.Content.Click.Age", createTime);
+
+        switch (type) {
+            case SystemNotificationType.SEND_TAB_TO_SELF:
+                recordNotificationAgeHistogram(
+                        "Mobile.SystemNotification.Content.Click.Age.SendTabToSelf", createTime);
+                break;
+            case SystemNotificationType.CLICK_TO_CALL:
+                recordNotificationAgeHistogram(
+                        "Mobile.SystemNotification.Content.Click.Age.ClickToCall", createTime);
+                break;
+            case SystemNotificationType.SHARED_CLIPBOARD:
+                recordNotificationAgeHistogram(
+                        "Mobile.SystemNotification.Content.Click.Age.SharedClipboard", createTime);
+                break;
+        }
     }
 
     /**
      * Logs notification dismiss event the user swipes away the notification.
      * @param type Type of the notification.
+     * @param createTime The notification creation timestamp.
      */
-    public void onNotificationDismiss(@SystemNotificationType int type) {
+    public void onNotificationDismiss(@SystemNotificationType int type, long createTime) {
         if (type == SystemNotificationType.UNKNOWN) return;
 
         // TODO(xingliu): This may not work if Android kill Chrome before native library is loaded.
         // Cache data in Android shared preference and flush them to native when available.
-        new CachedMetrics
-                .EnumeratedHistogramSample(
-                        "Mobile.SystemNotification.Dismiss", SystemNotificationType.NUM_ENTRIES)
-                .record(type);
+        RecordHistogram.recordEnumeratedHistogram(
+                "Mobile.SystemNotification.Dismiss", type, SystemNotificationType.NUM_ENTRIES);
+        recordNotificationAgeHistogram("Mobile.SystemNotification.Dismiss.Age", createTime);
+
+        switch (type) {
+            case SystemNotificationType.SEND_TAB_TO_SELF:
+                recordNotificationAgeHistogram(
+                        "Mobile.SystemNotification.Dismiss.Age.SendTabToSelf", createTime);
+                break;
+            case SystemNotificationType.CLICK_TO_CALL:
+                recordNotificationAgeHistogram(
+                        "Mobile.SystemNotification.Dismiss.Age.ClickToCall", createTime);
+                break;
+            case SystemNotificationType.SHARED_CLIPBOARD:
+                recordNotificationAgeHistogram(
+                        "Mobile.SystemNotification.Dismiss.Age.SharedClipboard", createTime);
+                break;
+        }
     }
 
     /**
      * Logs notification button click event.
-     * @param type Type of the notification action button.
+     * @param actionType Type of the notification action button.
+     * @param notificationType Type of the notification.
+     * @param createTime The notification creation timestamp.
      */
-    public void onNotificationActionClick(@ActionType int type) {
-        if (type == ActionType.UNKNOWN) return;
+    public void onNotificationActionClick(@ActionType int actionType,
+            @SystemNotificationType int notificationType, long createTime) {
+        if (actionType == ActionType.UNKNOWN) return;
 
         // TODO(xingliu): This may not work if Android kill Chrome before native library is loaded.
         // Cache data in Android shared preference and flush them to native when available.
-        new CachedMetrics
-                .EnumeratedHistogramSample(
-                        "Mobile.SystemNotification.Action.Click", ActionType.NUM_ENTRIES)
-                .record(type);
+        RecordHistogram.recordEnumeratedHistogram(
+                "Mobile.SystemNotification.Action.Click", actionType, ActionType.NUM_ENTRIES);
+        recordNotificationAgeHistogram("Mobile.SystemNotification.Action.Click.Age", createTime);
+
+        switch (notificationType) {
+            case SystemNotificationType.SEND_TAB_TO_SELF:
+                recordNotificationAgeHistogram(
+                        "Mobile.SystemNotification.Action.Click.Age.SendTabToSelf", createTime);
+                break;
+            case SystemNotificationType.CLICK_TO_CALL:
+                recordNotificationAgeHistogram(
+                        "Mobile.SystemNotification.Action.Click.Age.ClickToCall", createTime);
+                break;
+            case SystemNotificationType.SHARED_CLIPBOARD:
+                recordNotificationAgeHistogram(
+                        "Mobile.SystemNotification.Action.Click.Age.SharedClipboard", createTime);
+                break;
+        }
     }
 
-    private void logNotificationShown(
-            @SystemNotificationType int type, @ChannelDefinitions.ChannelId String channelId) {
+    /**
+     * Tracks UMA when failed to notify {@link NotificationManager}.
+     */
+    public void onFailedToNotify(@SystemNotificationType int type) {
+        recordHistogram("Mobile.SystemNotification.NotifyFailure", type);
+    }
+
+    private void logNotificationShown(@SystemNotificationType int type,
+            @ChromeChannelDefinitions.ChannelId String channelId) {
         if (!mNotificationManager.areNotificationsEnabled()) {
             logPotentialBlockedCause();
             recordHistogram("Mobile.SystemNotification.Blocked", type);
@@ -183,7 +298,7 @@ public class NotificationUmaTracker {
     }
 
     @TargetApi(26)
-    private boolean isChannelBlocked(@ChannelDefinitions.ChannelId String channelId) {
+    private boolean isChannelBlocked(@ChromeChannelDefinitions.ChannelId String channelId) {
         // Use non-compat notification manager as compat does not have getNotificationChannel (yet).
         NotificationManager notificationManager =
                 ContextUtils.getApplicationContext().getSystemService(NotificationManager.class);
@@ -192,14 +307,17 @@ public class NotificationUmaTracker {
     }
 
     private void saveLastShownNotification(@SystemNotificationType int type) {
-        mSharedPreferences.edit().putInt(LAST_SHOWN_NOTIFICATION_TYPE_KEY, type).apply();
+        mSharedPreferences.writeInt(
+                ChromePreferenceKeys.NOTIFICATIONS_LAST_SHOWN_NOTIFICATION_TYPE, type);
     }
 
     private void logPotentialBlockedCause() {
-        int lastType = mSharedPreferences.getInt(
-                LAST_SHOWN_NOTIFICATION_TYPE_KEY, SystemNotificationType.UNKNOWN);
+        int lastType = mSharedPreferences.readInt(
+                ChromePreferenceKeys.NOTIFICATIONS_LAST_SHOWN_NOTIFICATION_TYPE,
+                SystemNotificationType.UNKNOWN);
         if (lastType == -1) return;
-        mSharedPreferences.edit().remove(LAST_SHOWN_NOTIFICATION_TYPE_KEY).apply();
+        mSharedPreferences.removeKey(
+                ChromePreferenceKeys.NOTIFICATIONS_LAST_SHOWN_NOTIFICATION_TYPE);
 
         recordHistogram("Mobile.SystemNotification.BlockedAfterShown", lastType);
     }
@@ -207,7 +325,24 @@ public class NotificationUmaTracker {
     private static void recordHistogram(String name, @SystemNotificationType int type) {
         if (type == SystemNotificationType.UNKNOWN) return;
 
-        if (!LibraryLoader.getInstance().isInitialized()) return;
         RecordHistogram.recordEnumeratedHistogram(name, type, SystemNotificationType.NUM_ENTRIES);
+    }
+
+    /**
+     * Records the notification age, defined as the duration from the notification shown to the time
+     * when an user interaction happens.
+     * @param name The histogram name.
+     * @param createTime The creation timestamp of the notification, generated by
+     *                   {@link System#currentTimeMillis()}.
+     */
+    private static void recordNotificationAgeHistogram(String name, long createTime) {
+        // If we didn't get shared preference data, do nothing.
+        if (createTime == NotificationIntentInterceptor.INVALID_CREATE_TIME) return;
+
+        int ageSample = (int) MathUtils.clamp(
+                (System.currentTimeMillis() - createTime) / DateUtils.MINUTE_IN_MILLIS, 0,
+                Integer.MAX_VALUE);
+        RecordHistogram.recordCustomCountHistogram(name, ageSample, 1,
+                (int) (DateUtils.WEEK_IN_MILLIS / DateUtils.MINUTE_IN_MILLIS), 50);
     }
 }

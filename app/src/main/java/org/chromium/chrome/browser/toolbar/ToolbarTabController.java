@@ -17,8 +17,8 @@ public interface ToolbarTabController {
     void stopOrReloadCurrentTab();
 
     /**
-     * Navigates the current Tab back.
-     * @return Whether or not the current Tab did go back.
+     * Handles a back press action in tab page.
+     * @return True if back press event is consumed here.
      */
     boolean back();
 

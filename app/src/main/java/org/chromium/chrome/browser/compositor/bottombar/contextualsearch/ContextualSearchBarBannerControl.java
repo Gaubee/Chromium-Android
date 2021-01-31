@@ -9,16 +9,18 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.view.ViewGroup;
 
+import org.chromium.base.MathUtils;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.compositor.animation.CompositorAnimator;
 import org.chromium.chrome.browser.compositor.bottombar.OverlayPanel;
 import org.chromium.chrome.browser.compositor.bottombar.OverlayPanelAnimation;
 import org.chromium.chrome.browser.compositor.bottombar.OverlayPanelInflater;
-import org.chromium.chrome.browser.util.MathUtils;
+import org.chromium.chrome.browser.layouts.animation.CompositorAnimator;
 import org.chromium.ui.resources.dynamics.DynamicResourceLoader;
 
 /**
- * Controls the Search Bar Banner.
+ * Controls the Search Bar Banner, which presents a banner above the Bar.
+ * This can be used for promotional features.
+ * TODO(donnd): consider removal since this is currently unused.
  */
 public class ContextualSearchBarBannerControl extends OverlayPanelInflater {
     /**
@@ -250,22 +252,23 @@ public class ContextualSearchBarBannerControl extends OverlayPanelInflater {
      * Animates the Bar Banner appearance.
      */
     public void animateAppearance() {
-        CompositorAnimator appearance =
+        CompositorAnimator rippleWidth = CompositorAnimator.ofFloat(
+                mOverlayPanel.getAnimationHandler(), mRippleMinimumWidthPx, mRippleMaximumWidthPx,
+                OverlayPanelAnimation.BASE_ANIMATION_DURATION_MS,
+                animator -> { mRippleWidthPx = animator.getAnimatedValue(); });
+        CompositorAnimator rippleOpacity =
                 CompositorAnimator.ofFloat(mOverlayPanel.getAnimationHandler(), 0.f, 1.f,
-                        OverlayPanelAnimation.BASE_ANIMATION_DURATION_MS, null);
-        appearance.addUpdateListener(animator -> {
-            float percentage = animator.getAnimatedFraction();
-            mRippleWidthPx = Math.round(MathUtils.interpolate(
-                    mRippleMinimumWidthPx, mRippleMaximumWidthPx, percentage));
+                        OverlayPanelAnimation.BASE_ANIMATION_DURATION_MS,
+                        animator -> { mRippleOpacity = animator.getAnimatedValue(); });
+        CompositorAnimator textOpacity =
+                CompositorAnimator.ofFloat(mOverlayPanel.getAnimationHandler(), 0.f, 1.f,
+                        OverlayPanelAnimation.BASE_ANIMATION_DURATION_MS / 2,
+                        animator -> { mTextOpacity = animator.getAnimatedValue(); });
+        textOpacity.setStartDelay(OverlayPanelAnimation.BASE_ANIMATION_DURATION_MS / 2);
 
-            mRippleOpacity = MathUtils.interpolate(0.f, 1.f, percentage);
-
-            float textOpacityDelay = 0.5f;
-            float textOpacityPercentage =
-                    Math.max(0.f, percentage - textOpacityDelay) / (1.f - textOpacityDelay);
-            mTextOpacity = MathUtils.interpolate(0.f, 1.f, textOpacityPercentage);
-        });
-        appearance.start();
+        rippleWidth.start();
+        rippleOpacity.start();
+        textOpacity.start();
     }
 
     /**
@@ -274,12 +277,11 @@ public class ContextualSearchBarBannerControl extends OverlayPanelInflater {
     private void animateDisappearance() {
         mIsHiding = true;
         CompositorAnimator disappearance =
-                CompositorAnimator.ofFloat(mOverlayPanel.getAnimationHandler(), 1.f, 0.f,
-                        OverlayPanelAnimation.BASE_ANIMATION_DURATION_MS, null);
+                CompositorAnimator.ofFloat(mOverlayPanel.getAnimationHandler(), getPaddedHeightPx(),
+                        0.f, OverlayPanelAnimation.BASE_ANIMATION_DURATION_MS, null);
         disappearance.addUpdateListener(animator -> {
             if (isVisible()) {
-                float percentage = animator.getAnimatedFraction();
-                mHeightPx = MathUtils.interpolate(getPaddedHeightPx(), 0.f, percentage);
+                mHeightPx = animator.getAnimatedValue();
             }
         });
         disappearance.addListener(new AnimatorListenerAdapter() {

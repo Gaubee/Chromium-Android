@@ -5,34 +5,38 @@
 package org.chromium.chrome.browser.gesturenav;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
-import android.util.AttributeSet;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import android.gesture.GesturePoint;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import org.chromium.chrome.browser.ActivityTabProvider;
-import org.chromium.chrome.browser.ChromeActivity;
-import org.chromium.chrome.browser.ChromeFeatureList;
-import org.chromium.chrome.browser.tab.Tab;
+import androidx.annotation.VisibleForTesting;
+
+import org.chromium.base.Callback;
+import org.chromium.base.supplier.Supplier;
+import org.chromium.chrome.browser.gesturenav.NavigationBubble.CloseTarget;
 
 /**
- * FrameLayout that supports side-wise slide gesture for history navigation. Inheriting
- * class may need to override {@link #isGestureConsumed()} if {@link #onTouchEvent} cannot
- * be relied upon to know whether the side-wise swipe related event was handled. Namely
- * {@link  android.support.v7.widget.RecyclerView}) always claims to handle touch events.
+ * FrameLayout that supports side-wise slide gesture for history navigation.
  */
-public class HistoryNavigationLayout extends FrameLayout {
-    @IntDef({GestureState.NONE, GestureState.STARTED, GestureState.DRAGGED})
-    private @interface GestureState {
-        int NONE = 0;
-        int STARTED = 1;
-        int DRAGGED = 2;
-    }
+class HistoryNavigationLayout extends FrameLayout implements ViewGroup.OnHierarchyChangeListener {
+    // {@link NavigationGlow} object for rendered pages.
+    private final NavigationGlow mCompositorGlowEffect;
 
-    private GestureDetector mDetector;
+    // Whether the current tab shows a native or rendered page.
+    private final Supplier<Boolean> mIsNativePage;
 
+    // Callback that performs navigation action in response to UI.,
+    private final Callback<Boolean> mNavigateCallback;
+
+    // Frame layout hosting the arrow puck UI.
     private SideSlideLayout mSideSlideLayout;
+
+    // {@link NavigationGlow} object for native pages. Lazily created.
+    private NavigationGlow mJavaGlowEffect;
+
+    // Navigation sheet showing the navigation history.
+    private final Supplier<NavigationSheet> mNavigationSheet;
 
     // Async runnable for ending the refresh animation after the page first
     // loads a frame. This is used to provide a reasonable minimum animation time.
@@ -42,160 +46,210 @@ public class HistoryNavigationLayout extends FrameLayout {
     // it does not conflict with pending Android draws.
     private Runnable mDetachLayoutRunnable;
 
-    // Provides activity tab where the navigation should happen.
-    private ActivityTabProvider mTabProvider;
-
-    public HistoryNavigationLayout(Context context) {
-        this(context, null);
-    }
-
-    public HistoryNavigationLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        if (!ChromeFeatureList.isEnabled(ChromeFeatureList.GESTURE_NAVIGATION)) return;
-        if (context instanceof ChromeActivity) {
-            mTabProvider = ((ChromeActivity) context).getActivityTabProvider();
-            mDetector = new GestureDetector(getContext(), new SideNavGestureListener());
-        } else {
-            throw new IllegalStateException("This native page should be under ChromeActivity");
-        }
-    }
-
-    private void createLayout() {
-        mSideSlideLayout = new SideSlideLayout(getContext());
-        mSideSlideLayout.setLayoutParams(
-                new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-        mSideSlideLayout.setEnabled(false);
-        mSideSlideLayout.setOnNavigationListener((isForward) -> {
-            if (mTabProvider == null) return;
-            Tab tab = mTabProvider.getActivityTab();
-            if (isForward) {
-                tab.goForward();
-            } else {
-                tab.goBack();
-            }
-            cancelStopNavigatingRunnable();
-            mSideSlideLayout.post(getStopNavigatingRunnable());
-        });
-
-        mSideSlideLayout.setOnResetListener(() -> {
-            if (mDetachLayoutRunnable != null) return;
-            mDetachLayoutRunnable = () -> {
-                mDetachLayoutRunnable = null;
-                detachSideSlideLayoutIfNecessary();
-            };
-            mSideSlideLayout.post(mDetachLayoutRunnable);
-        });
+    public HistoryNavigationLayout(Context context, Supplier<Boolean> isNativePage,
+            NavigationGlow compositorGlowEffect, Supplier<NavigationSheet> navigationSheet,
+            Callback<Boolean> navigateCallback) {
+        super(context);
+        mIsNativePage = isNativePage;
+        mCompositorGlowEffect = compositorGlowEffect;
+        mNavigationSheet = navigationSheet;
+        mNavigateCallback = navigateCallback;
+        setOnHierarchyChangeListener(this);
+        setVisibility(View.INVISIBLE);
     }
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent e) {
-        if (mDetector != null) {
-            mDetector.onTouchEvent(e);
-            if (e.getAction() == MotionEvent.ACTION_UP) {
-                if (mSideSlideLayout != null) mSideSlideLayout.release(true);
-            }
-        }
-        return super.dispatchTouchEvent(e);
+    public void onChildViewAdded(View parent, View child) {
+        if (getVisibility() != View.VISIBLE) setVisibility(View.VISIBLE);
     }
 
-    private class SideNavGestureListener extends GestureDetector.SimpleOnGestureListener {
-        private @GestureState int mState = GestureState.NONE;
-
-        @Override
-        public boolean onDown(MotionEvent event) {
-            mState = GestureState.STARTED;
-            return true;
-        }
-
-        @Override
-        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-            if (wasLastSideSwipeGestureConsumed()) {
-                reset();
-                mState = GestureState.NONE;
-                return true;
-            }
-            if (mState == GestureState.STARTED) {
-                if (Math.abs(distanceX) > Math.abs(distanceY)) {
-                    boolean forward = distanceX > 0;
-                    if (canNavigate(forward)) {
-                        start(forward);
-                        mState = GestureState.DRAGGED;
-                    }
-                }
-                if (mState != GestureState.DRAGGED) mState = GestureState.NONE;
-            }
-            if (mState == GestureState.DRAGGED) mSideSlideLayout.pull(-distanceX);
-            return true;
-        }
-    }
-
-    private boolean canNavigate(boolean forward) {
-        if (mTabProvider == null) return false;
-        Tab tab = mTabProvider.getActivityTab();
-        return forward ? tab.canGoForward() : tab.canGoBack();
+    @Override
+    public void onChildViewRemoved(View parent, View child) {
+        // TODO(jinsukkim): Replace INVISIBLE with GONE to avoid performing layout/measurements.
+        if (getChildCount() == 0) setVisibility(View.INVISIBLE);
     }
 
     /**
-     * Checks if the gesture event was consumed by one of children views, in which case
-     * history navigation should not proceed. Whatever the child view does with the gesture
-     * events should take precedence and not be disturbed by the navigation.
-     *
-     * @return {@code true} if gesture event is consumed by one of the children.
+     * Creates a view hosting the gesture navigation UI.
+     * @return The created view.
      */
-    public boolean wasLastSideSwipeGestureConsumed() {
-        return false;
+    private SideSlideLayout createLayout() {
+        mSideSlideLayout = new SideSlideLayout(getContext());
+        mSideSlideLayout.setLayoutParams(
+                new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        return mSideSlideLayout;
     }
 
-    private void start(boolean isForward) {
-        if (mSideSlideLayout == null) createLayout();
+    /**
+     * Start showing arrow widget for navigation back/forward.
+     * @param forward {@code true} for forward navigation, or {@code false} for back.
+     * @param closeIndicator
+     */
+    void showBubble(boolean forward, @CloseTarget int closeIndicator) {
+        if (mSideSlideLayout == null) {
+            SideSlideLayout sideSlideLayout = createLayout();
+            sideSlideLayout.setOnNavigationListener((direction) -> {
+                mNavigateCallback.onResult(direction);
+                cancelStopNavigatingRunnable();
+                sideSlideLayout.post(getStopNavigatingRunnable());
+            });
+            sideSlideLayout.setOnResetListener(() -> {
+                if (getDetachLayoutRunnable() != null) return;
+                sideSlideLayout.post(createDetachLayoutRunnable());
+            });
+        }
         mSideSlideLayout.setEnabled(true);
-        mSideSlideLayout.setDirection(isForward);
-        attachSideSlideLayoutIfNecessary();
+        mSideSlideLayout.setDirection(forward);
+        mSideSlideLayout.setCloseIndicator(closeIndicator);
+        attachLayoutIfNecessary();
         mSideSlideLayout.start();
+        mNavigationSheet.get().start(forward, closeIndicator != CloseTarget.NONE);
     }
 
     /**
-     * Reset navigation UI in action.
+     * Create {@link NavigationGlow} object, lazily when possible.
      */
-    public void reset() {
-        cancelStopNavigatingRunnable();
-        if (mSideSlideLayout != null) mSideSlideLayout.reset();
+    private NavigationGlow getGlowEffect() {
+        if (mIsNativePage.get()) {
+            if (mJavaGlowEffect == null) mJavaGlowEffect = new AndroidUiNavigationGlow(this);
+            return mJavaGlowEffect;
+        } else {
+            return mCompositorGlowEffect;
+        }
     }
 
-    private void cancelStopNavigatingRunnable() {
+    /**
+     * Start showing edge glow effect.
+     * @param p Current position of the touch event.
+     */
+    void showGlow(GesturePoint p) {
+        getGlowEffect().prepare(p.x, p.y);
+    }
+
+    /**
+     * Signals a pull update.
+     * @param offset The change in horizontal pull distance (positive if toward right,
+     *         negative if left).
+     */
+    void pullBubble(float offset) {
+        if (mSideSlideLayout == null) return;
+        mSideSlideLayout.pull(offset);
+        NavigationSheet navigationSheet = mNavigationSheet.get();
+        navigationSheet.onScroll(offset - mSideSlideLayout.getPullOffset(),
+                mSideSlideLayout.getOverscroll(), mSideSlideLayout.willNavigate());
+
+        mSideSlideLayout.fadeBubble(!navigationSheet.isHidden(), /* animate= */ true);
+        if (navigationSheet.isExpanded()) mSideSlideLayout.hideBubble();
+    }
+
+    /**
+     * Signals a pull update for glow effect.
+     * @param offset The change in horizontal pull distance.
+     */
+    void pullGlow(float offset) {
+        getGlowEffect().onScroll(offset);
+    }
+
+    /**
+     * Release the active pull. If no pull has started, the release will be ignored.
+     * If the pull was sufficiently large, the navigation sequence will be initiated.
+     * @param allowNav {@code true} if release action is supposed to trigger navigation.
+     */
+    void releaseBubble(boolean allowNav) {
+        if (mSideSlideLayout == null) return;
+        cancelStopNavigatingRunnable();
+        NavigationSheet navigationSheet = mNavigationSheet.get();
+        mSideSlideLayout.release(allowNav && navigationSheet.isHidden());
+        navigationSheet.release();
+    }
+
+    /**
+     * Release the glow effect.
+     */
+    void releaseGlow() {
+        getGlowEffect().release();
+    }
+
+    /**
+     * Reset navigation bubble UI in action.
+     */
+    void resetBubble() {
+        if (mSideSlideLayout == null) return;
+        cancelStopNavigatingRunnable();
+        mSideSlideLayout.reset();
+    }
+
+    /**
+     * Reset the glow effect.
+     */
+    void resetGlow() {
+        getGlowEffect().reset();
+    }
+
+    /**
+     * @return {@link SideSlideLayout} object.
+     */
+    SideSlideLayout getSideSlideLayout() {
+        return mSideSlideLayout;
+    }
+
+    /**
+     * Cancel navigation operation by removing the runnable in the queue.
+     */
+    void cancelStopNavigatingRunnable() {
         if (mStopNavigatingRunnable != null) {
             mSideSlideLayout.removeCallbacks(mStopNavigatingRunnable);
             mStopNavigatingRunnable = null;
         }
     }
 
-    private void cancelDetachLayoutRunnable() {
+    Runnable getDetachLayoutRunnable() {
+        return mDetachLayoutRunnable;
+    }
+
+    Runnable createDetachLayoutRunnable() {
+        mDetachLayoutRunnable = () -> {
+            mDetachLayoutRunnable = null;
+            detachLayoutIfNecessary();
+        };
+        return mDetachLayoutRunnable;
+    }
+
+    /**
+     * Cancel the operation detaching the layout from view hierarchy.
+     */
+    void cancelDetachLayoutRunnable() {
         if (mDetachLayoutRunnable != null) {
             mSideSlideLayout.removeCallbacks(mDetachLayoutRunnable);
             mDetachLayoutRunnable = null;
         }
     }
 
-    private Runnable getStopNavigatingRunnable() {
+    Runnable getStopNavigatingRunnable() {
         if (mStopNavigatingRunnable == null) {
             mStopNavigatingRunnable = () -> mSideSlideLayout.stopNavigating();
         }
         return mStopNavigatingRunnable;
     }
 
-    private void attachSideSlideLayoutIfNecessary() {
+    /**
+     * Attach {@link SideSlideLayout} to view hierarchy when UI is activated.
+     */
+    private void attachLayoutIfNecessary() {
         // The animation view is attached/detached on-demand to minimize overlap
         // with composited SurfaceView content.
         cancelDetachLayoutRunnable();
-        if (mSideSlideLayout.getParent() == null) {
-            addView(mSideSlideLayout);
-        }
+        if (isLayoutDetached()) addView(mSideSlideLayout);
     }
 
-    private void detachSideSlideLayoutIfNecessary() {
+    private void detachLayoutIfNecessary() {
+        if (isLayoutDetached()) return;
         cancelDetachLayoutRunnable();
-        if (mSideSlideLayout.getParent() != null) {
-            removeView(mSideSlideLayout);
-        }
+        removeView(mSideSlideLayout);
+    }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    boolean isLayoutDetached() {
+        return mSideSlideLayout == null || mSideSlideLayout.getParent() == null;
     }
 }

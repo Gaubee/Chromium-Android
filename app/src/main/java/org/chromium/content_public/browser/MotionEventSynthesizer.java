@@ -12,7 +12,7 @@ import org.chromium.content.browser.MotionEventSynthesizerImpl;
  * Injects synthetic touch events. All the coordinates are of physical unit.
  */
 public interface MotionEventSynthesizer {
-    public static MotionEventSynthesizer create(View target) {
+    static MotionEventSynthesizer create(View target) {
         return MotionEventSynthesizerImpl.create(target);
     }
 
@@ -25,7 +25,7 @@ public interface MotionEventSynthesizer {
      * @param id Id property of the point.
      * @param toolType ToolType property of the point.
      */
-    void setPointer(int index, int x, int y, int id, int toolType);
+    void setPointer(int index, float x, float y, int id, int toolType);
 
     /**
      * Injects a synthetic action with the preset points and delta.

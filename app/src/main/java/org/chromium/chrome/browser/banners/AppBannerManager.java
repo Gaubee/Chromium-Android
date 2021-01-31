@@ -7,59 +7,75 @@ package org.chromium.chrome.browser.banners;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.ContextUtils;
-import org.chromium.base.VisibleForTesting;
+import org.chromium.base.ThreadUtils;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
-import org.chromium.chrome.R;
-import org.chromium.chrome.browser.ShortcutHelper;
-import org.chromium.chrome.browser.vr.VrModuleProvider;
-import org.chromium.chrome.browser.webapps.AddToHomescreenDialog;
+import org.chromium.base.annotations.NativeMethods;
+import org.chromium.components.webapps.WebappsUtils;
 import org.chromium.content_public.browser.WebContents;
 
 /**
- * Manages an AppBannerInfoBar for a Tab.
+ * Manages an AppBannerInfoBar for a WebContents.
  *
  * The AppBannerManager is responsible for fetching details about native apps to display in the
  * banner. The actual observation of the WebContents (which triggers the automatic creation and
  * removal of banners, among other things) is done by the native-side AppBannerManagerAndroid.
  */
-@JNINamespace("banners")
+@JNINamespace("webapps")
 public class AppBannerManager {
+    /**
+     * A struct containing the string resources IDs for the strings to show in the install
+     * dialog (both the dialog title and the accept button).
+     */
+    public static class InstallStringPair {
+        public final @StringRes int titleTextId;
+        public final @StringRes int buttonTextId;
+
+        public InstallStringPair(@StringRes int titleText, @StringRes int buttonText) {
+            titleTextId = titleText;
+            buttonTextId = buttonText;
+        }
+    }
+
+    public static final InstallStringPair PWA_PAIR = new InstallStringPair(
+            R.string.menu_add_to_homescreen_install, R.string.app_banner_install);
+    public static final InstallStringPair NON_PWA_PAIR =
+            new InstallStringPair(R.string.menu_add_to_homescreen, R.string.add);
+
+    /** The key to use to store and retrieve (from the menu data) what was shown in the menu. */
+    public static final String MENU_TITLE_KEY = "AppMenuTitleShown";
+
     private static final String TAG = "AppBannerManager";
 
     /** Retrieves information about a given package. */
     private static AppDetailsDelegate sAppDetailsDelegate;
 
-    /** Whether add to home screen is permitted by the system. */
-    private static Boolean sIsSupported;
-
-    /** Whether the tab to which this manager is attached to is permitted to show banners. */
-    private boolean mIsEnabledForTab;
-
     /** Pointer to the native side AppBannerManager. */
     private long mNativePointer;
+
+    /** Whether add to home screen is permitted by the system. */
+    private static Boolean sIsSupported;
 
     /**
      * Checks if the add to home screen intent is supported.
      * @return true if add to home screen is supported, false otherwise.
      */
-    public static boolean isSupported() {
-        // TODO(mthiesse, https://crbug.com/840811): Support the app banner dialog in VR.
-        if (VrModuleProvider.getDelegate().isInVr()) return false;
+    @CalledByNative
+    private static boolean isSupported() {
         if (sIsSupported == null) {
-            sIsSupported = ShortcutHelper.isAddToHomeIntentSupported();
+            sIsSupported = WebappsUtils.isAddToHomeIntentSupported();
         }
         return sIsSupported;
     }
 
-    /**
-     * Checks if app banners are enabled for the tab which this manager is attached to.
-     * @return true if app banners can be shown for this tab, false otherwise.
-     */
-    @CalledByNative
-    private boolean isEnabledForTab() {
-        return isSupported() && mIsEnabledForTab;
+    /** Overrides whether the system supports add to home screen. Used in testing. */
+    @VisibleForTesting
+    public static void setIsSupported(boolean state) {
+        sIsSupported = state;
     }
 
     /**
@@ -77,7 +93,6 @@ public class AppBannerManager {
      */
     private AppBannerManager(long nativePointer) {
         mNativePointer = nativePointer;
-        mIsEnabledForTab = isSupported();
     }
 
     @CalledByNative
@@ -101,8 +116,8 @@ public class AppBannerManager {
         if (sAppDetailsDelegate == null) return;
 
         Context context = ContextUtils.getApplicationContext();
-        int iconSizeInPx = Math.round(
-                context.getResources().getDisplayMetrics().density * iconSizeInDp);
+        int iconSizeInPx =
+                Math.round(context.getResources().getDisplayMetrics().density * iconSizeInDp);
         sAppDetailsDelegate.getAppDetailsAsynchronously(
                 createAppDetailsObserver(), url, packageName, referrer, iconSizeInPx);
     }
@@ -121,101 +136,80 @@ public class AppBannerManager {
                 String imageUrl = data.imageUrl();
                 if (TextUtils.isEmpty(imageUrl)) return;
 
-                nativeOnAppDetailsRetrieved(
-                        mNativePointer, data, data.title(), data.packageName(), data.imageUrl());
+                AppBannerManagerJni.get().onAppDetailsRetrieved(mNativePointer,
+                        AppBannerManager.this, data, data.title(), data.packageName(),
+                        data.imageUrl());
             }
         };
     }
 
-    /** Enables or disables app banners. */
-    public void setIsEnabledForTab(boolean state) {
-        mIsEnabledForTab = state;
-    }
-
     /** Returns the language option to use for the add to homescreen dialog and menu item. */
-    public static int getHomescreenLanguageOption() {
-        int languageOption = nativeGetHomescreenLanguageOption();
-        if (languageOption == LanguageOption.INSTALL) {
-            return R.string.menu_add_to_homescreen_install;
+    public static InstallStringPair getHomescreenLanguageOption(WebContents webContents) {
+        AppBannerManager manager =
+                webContents != null ? AppBannerManager.forWebContents(webContents) : null;
+        if (manager != null && manager.getIsPwa(webContents)) {
+            return PWA_PAIR;
+        } else {
+            return NON_PWA_PAIR;
         }
-        return R.string.menu_add_to_homescreen;
     }
 
-    /** Returns the language option to use for app banners. */
-    public static int getAppBannerLanguageOption() {
-        int languageOption = nativeGetHomescreenLanguageOption();
-        if (languageOption == LanguageOption.ADD) {
-            return R.string.app_banner_add;
-        } else if (languageOption == LanguageOption.INSTALL) {
-            return R.string.app_banner_install;
-        }
-        return R.string.menu_add_to_homescreen;
-    }
-
+    /** Sets the app-banner-showing logic to ignore the Chrome channel. */
     @VisibleForTesting
-    public AddToHomescreenDialog getAddToHomescreenDialogForTesting() {
-        return nativeGetAddToHomescreenDialogForTesting(mNativePointer);
-    }
-
-    /** Overrides whether the system supports add to home screen. Used in testing. */
-    @VisibleForTesting
-    public static void setIsSupported(boolean state) {
-        sIsSupported = state;
+    public static void ignoreChromeChannelForTesting() {
+        AppBannerManagerJni.get().ignoreChromeChannelForTesting();
     }
 
     /** Returns whether the native AppBannerManager is working. */
     @VisibleForTesting
     public boolean isRunningForTesting() {
-        return nativeIsRunningForTesting(mNativePointer);
-    }
-
-    /** Signal to native that the add to homescreen menu item was tapped for metrics purposes. */
-    public void recordMenuItemAddToHomescreen() {
-        nativeRecordMenuItemAddToHomescreen(mNativePointer);
-    }
-
-    /** Signal to native that the menu was opened for metrics purposes. */
-    public void recordMenuOpen() {
-        nativeRecordMenuOpen(mNativePointer);
+        return AppBannerManagerJni.get().isRunningForTesting(mNativePointer, AppBannerManager.this);
     }
 
     /** Sets constants (in days) the banner should be blocked for after dismissing and ignoring. */
     @VisibleForTesting
     static void setDaysAfterDismissAndIgnoreForTesting(int dismissDays, int ignoreDays) {
-        nativeSetDaysAfterDismissAndIgnoreToTrigger(dismissDays, ignoreDays);
+        AppBannerManagerJni.get().setDaysAfterDismissAndIgnoreToTrigger(dismissDays, ignoreDays);
     }
 
     /** Sets a constant (in days) that gets added to the time when the current time is requested. */
     @VisibleForTesting
     static void setTimeDeltaForTesting(int days) {
-        nativeSetTimeDeltaForTesting(days);
+        AppBannerManagerJni.get().setTimeDeltaForTesting(days);
     }
 
     /** Sets the total required engagement to trigger the banner. */
     @VisibleForTesting
     static void setTotalEngagementForTesting(double engagement) {
-        nativeSetTotalEngagementToTrigger(engagement);
+        AppBannerManagerJni.get().setTotalEngagementToTrigger(engagement);
     }
 
     /** Returns the AppBannerManager object. This is owned by the C++ banner manager. */
-    public static AppBannerManager getAppBannerManagerForWebContents(WebContents webContents) {
-        return nativeGetJavaBannerManagerForWebContents(webContents);
+    public static AppBannerManager forWebContents(WebContents contents) {
+        ThreadUtils.assertOnUiThread();
+        return AppBannerManagerJni.get().getJavaBannerManagerForWebContents(contents);
     }
 
-    private static native int nativeGetHomescreenLanguageOption();
-    private native void nativeRecordMenuItemAddToHomescreen(long nativeAppBannerManagerAndroid);
-    private native void nativeRecordMenuOpen(long nativeAppBannerManagerAndroid);
-    private static native AppBannerManager nativeGetJavaBannerManagerForWebContents(
-            WebContents webContents);
-    private native boolean nativeOnAppDetailsRetrieved(long nativeAppBannerManagerAndroid,
-            AppData data, String title, String packageName, String imageUrl);
+    /**
+     * Checks whether the renderer has navigated to a PWA.
+     * @param contents The web contents to check.
+     * @return true if the site has been determined to contain a PWA.
+     */
+    public boolean getIsPwa(WebContents contents) {
+        return !TextUtils.equals("", AppBannerManagerJni.get().getInstallableWebAppName(contents));
+    }
 
-    // Testing methods.
-    private native AddToHomescreenDialog nativeGetAddToHomescreenDialogForTesting(
-            long nativeAppBannerManagerAndroid);
-    private native boolean nativeIsRunningForTesting(long nativeAppBannerManagerAndroid);
-    private static native void nativeSetDaysAfterDismissAndIgnoreToTrigger(
-            int dismissDays, int ignoreDays);
-    private static native void nativeSetTimeDeltaForTesting(int days);
-    private static native void nativeSetTotalEngagementToTrigger(double engagement);
+    @NativeMethods
+    interface Natives {
+        AppBannerManager getJavaBannerManagerForWebContents(WebContents webContents);
+        String getInstallableWebAppName(WebContents webContents);
+        boolean onAppDetailsRetrieved(long nativeAppBannerManagerAndroid, AppBannerManager caller,
+                AppData data, String title, String packageName, String imageUrl);
+        // Testing methods.
+        void ignoreChromeChannelForTesting();
+        boolean isRunningForTesting(long nativeAppBannerManagerAndroid, AppBannerManager caller);
+        void setDaysAfterDismissAndIgnoreToTrigger(int dismissDays, int ignoreDays);
+        void setTimeDeltaForTesting(int days);
+        void setTotalEngagementToTrigger(double engagement);
+    }
 }

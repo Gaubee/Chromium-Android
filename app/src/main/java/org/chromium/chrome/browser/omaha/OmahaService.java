@@ -9,17 +9,19 @@ import android.app.IntentService;
 import android.app.job.JobService;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.Nullable;
+
+import android.annotation.Nullable;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
-import org.chromium.base.ThreadUtils;
 import org.chromium.base.task.AsyncTask;
+import org.chromium.base.task.PostTask;
 import org.chromium.components.background_task_scheduler.BackgroundTask;
 import org.chromium.components.background_task_scheduler.BackgroundTaskSchedulerFactory;
 import org.chromium.components.background_task_scheduler.TaskIds;
 import org.chromium.components.background_task_scheduler.TaskInfo;
 import org.chromium.components.background_task_scheduler.TaskParameters;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
 
 /**
  * Manages scheduling and running of the Omaha client code.
@@ -34,18 +36,16 @@ public class OmahaService extends OmahaBase implements BackgroundTask {
         @Override
         public void scheduleService(long currentTimestampMs, long nextTimestampMs) {
             if (Build.VERSION.SDK_INT < OmahaBase.MIN_API_JOB_SCHEDULER) {
-                getScheduler().createAlarm(OmahaClient.createIntent(getContext()), nextTimestampMs);
+                getScheduler().createAlarm(
+                        OmahaClientImpl.createIntent(getContext()), nextTimestampMs);
                 Log.i(OmahaBase.TAG, "Scheduled using AlarmManager and IntentService");
             } else {
                 final long delay = nextTimestampMs - currentTimestampMs;
-                ThreadUtils.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (scheduleJobService(getContext(), delay)) {
-                            Log.i(OmahaBase.TAG, "Scheduled using JobService");
-                        } else {
-                            Log.e(OmahaBase.TAG, "Failed to schedule job");
-                        }
+                PostTask.runOrPostTask(UiThreadTaskTraits.DEFAULT, () -> {
+                    if (scheduleJobService(getContext(), delay)) {
+                        Log.i(OmahaBase.TAG, "Scheduled using JobService");
+                    } else {
+                        Log.e(OmahaBase.TAG, "Failed to schedule job");
                     }
                 });
             }
@@ -80,7 +80,7 @@ public class OmahaService extends OmahaBase implements BackgroundTask {
      */
     static void startServiceImmediately(Context context) {
         if (Build.VERSION.SDK_INT < OmahaBase.MIN_API_JOB_SCHEDULER) {
-            context.startService(OmahaClient.createIntent(context));
+            context.startService(OmahaClientImpl.createIntent(context));
         } else {
             scheduleJobService(context, 0);
         }
@@ -133,9 +133,8 @@ public class OmahaService extends OmahaBase implements BackgroundTask {
     static boolean scheduleJobService(Context context, long delayMs) {
         long latency = Math.max(0, delayMs);
 
-        TaskInfo taskInfo = TaskInfo.createOneOffTask(TaskIds.OMAHA_JOB_ID, OmahaService.class,
-                                            latency, latency)
-                                    .build();
+        TaskInfo taskInfo =
+                TaskInfo.createOneOffTask(TaskIds.OMAHA_JOB_ID, latency, latency).build();
         return BackgroundTaskSchedulerFactory.getScheduler().schedule(context, taskInfo);
     }
 }

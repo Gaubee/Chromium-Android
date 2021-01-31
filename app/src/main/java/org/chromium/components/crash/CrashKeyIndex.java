@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.components.crash;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -18,7 +18,8 @@ import java.lang.annotation.RetentionPolicy;
 @IntDef({
     CrashKeyIndex.LOADED_DYNAMIC_MODULE, CrashKeyIndex.ACTIVE_DYNAMIC_MODULE,
     CrashKeyIndex.APPLICATION_STATUS, CrashKeyIndex.INSTALLED_MODULES,
-    CrashKeyIndex.EMULATED_MODULES, CrashKeyIndex.NUM_KEYS
+    CrashKeyIndex.EMULATED_MODULES, CrashKeyIndex.DYNAMIC_MODULE_DEX_NAME,
+    CrashKeyIndex.PARTNER_CUSTOMIZATION_CONFIG
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface CrashKeyIndex {
@@ -27,5 +28,7 @@ public @interface CrashKeyIndex {
   int APPLICATION_STATUS = 2;
   int INSTALLED_MODULES = 3;
   int EMULATED_MODULES = 4;
-  int NUM_KEYS = 5;
+  int DYNAMIC_MODULE_DEX_NAME = 5;
+  int PARTNER_CUSTOMIZATION_CONFIG = 6;
+  int NUM_ENTRIES = 7;
 }

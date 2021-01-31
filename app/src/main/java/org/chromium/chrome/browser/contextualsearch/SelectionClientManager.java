@@ -5,15 +5,16 @@
 package org.chromium.chrome.browser.contextualsearch;
 
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.view.textclassifier.TextClassifier;
 
-import org.chromium.chrome.browser.ChromeFeatureList;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.content_public.browser.SelectionClient;
 import org.chromium.content_public.browser.SelectionMetricsLogger;
 import org.chromium.content_public.browser.SelectionPopupController;
 import org.chromium.content_public.browser.WebContents;
+import org.chromium.ui.touch_selection.SelectionEventType;
 
 /**
  * Manages the current {@link SelectionClient} instances, with support for 0-2 instances.
@@ -43,8 +44,7 @@ public class SelectionClientManager {
      * @param webContents The {@link WebContents} that will show popups for this client.
      */
     SelectionClientManager(WebContents webContents) {
-        if (ChromeFeatureList.isEnabled(ChromeFeatureList.CHROME_SMART_SELECTION)
-                && Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
             assert webContents != null;
             mOptionalSelectionClient = SelectionClient.createSmartSelectionClient(webContents);
             SelectionPopupController controller =
@@ -59,11 +59,6 @@ public class SelectionClientManager {
     SelectionClientManager(SelectionClient optionalSelectionClient, boolean enableSmartSelection) {
         mOptionalSelectionClient = optionalSelectionClient;
         mIsSmartSelectionEnabledInChrome = enableSmartSelection;
-    }
-
-    /** @return Whether Smart Text Selection is currently enabled in Chrome. */
-    boolean isSmartSelectionEnabledInChrome() {
-        return mIsSmartSelectionEnabledInChrome;
     }
 
     /**
@@ -156,7 +151,8 @@ public class SelectionClientManager {
         }
 
         @Override
-        public void onSelectionEvent(int eventType, float posXPix, float posYPix) {
+        public void onSelectionEvent(
+                @SelectionEventType int eventType, float posXPix, float posYPix) {
             mSmartSelectionClient.onSelectionEvent(eventType, posXPix, posYPix);
             mContextualSearchSelectionClient.onSelectionEvent(eventType, posXPix, posYPix);
         }

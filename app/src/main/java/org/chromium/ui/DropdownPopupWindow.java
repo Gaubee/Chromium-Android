@@ -21,7 +21,7 @@ import android.widget.PopupWindow;
  * that blocks user from selecting the items.
  */
 public class DropdownPopupWindow {
-    private DropdownPopupWindowInterface mPopup;
+    private final DropdownPopupWindowInterface mPopup;
 
     /**
      * Creates an DropdownPopupWindow with specified parameters.

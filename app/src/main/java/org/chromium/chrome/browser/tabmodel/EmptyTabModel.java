@@ -4,9 +4,15 @@
 
 package org.chromium.chrome.browser.tabmodel;
 
-import org.chromium.base.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tab.TabCreationState;
+import org.chromium.chrome.browser.tab.TabLaunchType;
+import org.chromium.chrome.browser.tab.TabSelectionType;
+
+import java.util.List;
 
 /**
  * Singleton class intended to stub out Tab model before it has been created.
@@ -53,12 +59,13 @@ public class EmptyTabModel implements TabModel {
     }
 
     @Override
-    public void closeAllTabs() {
-    }
+    public void closeMultipleTabs(List<Tab> tabs, boolean canUndo) {}
 
     @Override
-    public void closeAllTabs(boolean allowDelegation, boolean uponExit) {
-    }
+    public void closeAllTabs() {}
+
+    @Override
+    public void closeAllTabs(boolean allowDelegation, boolean uponExit) {}
 
     @Override
     public int getCount() {
@@ -85,7 +92,7 @@ public class EmptyTabModel implements TabModel {
     public void setIndex(int i, @TabSelectionType int type) {}
 
     @Override
-    public boolean isCurrentModel() {
+    public boolean isActiveModel() {
         return false;
     }
 
@@ -103,6 +110,12 @@ public class EmptyTabModel implements TabModel {
     @Override
     public boolean closeTab(Tab tab, boolean animate, boolean uponExit, boolean canUndo) {
         return false;
+    }
+
+    @Override
+    public boolean closeTab(
+            Tab tab, Tab recommendedNextTab, boolean animate, boolean uponExit, boolean canUndo) {
+        return closeTab(tab, animate, uponExit, canUndo);
     }
 
     @Override
@@ -125,7 +138,8 @@ public class EmptyTabModel implements TabModel {
     }
 
     @Override
-    public void addTab(Tab tab, int index, @TabLaunchType int type) {
+    public void addTab(
+            Tab tab, int index, @TabLaunchType int type, @TabCreationState int creationState) {
         assert false;
     }
 
@@ -134,6 +148,9 @@ public class EmptyTabModel implements TabModel {
 
     @Override
     public void removeObserver(TabModelObserver observer) {}
+
+    @Override
+    public void setActive(boolean active) {}
 
     @Override
     public void removeTab(Tab tab) {}

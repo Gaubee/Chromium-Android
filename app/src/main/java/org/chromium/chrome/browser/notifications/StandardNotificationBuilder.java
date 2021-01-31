@@ -8,6 +8,10 @@ import android.app.Notification;
 import android.content.Context;
 import android.os.Build;
 
+import org.chromium.components.browser_ui.notifications.NotificationMetadata;
+import org.chromium.components.browser_ui.notifications.NotificationWrapper;
+import org.chromium.components.browser_ui.notifications.NotificationWrapperBuilder;
+
 /**
  * Builds a notification using the standard Notification.BigTextStyle layout.
  */
@@ -20,13 +24,14 @@ public class StandardNotificationBuilder extends NotificationBuilderBase {
     }
 
     @Override
-    public Notification build() {
+    public NotificationWrapper build(NotificationMetadata metadata) {
         // Note: this is not a NotificationCompat builder so be mindful of the
         // API level of methods you call on the builder.
         // TODO(crbug.com/697104) We should probably use a Compat builder.
-        ChromeNotificationBuilder builder =
-                NotificationBuilderFactory.createChromeNotificationBuilder(
-                        false /* preferCompat */, mChannelId, mRemotePackageForBuilderContext);
+        NotificationWrapperBuilder builder =
+                NotificationWrapperBuilderFactory.createNotificationWrapperBuilder(
+                        false /* preferCompat */, mChannelId, mRemotePackageForBuilderContext,
+                        metadata);
 
         builder.setContentTitle(mTitle);
         builder.setContentText(mBody);
@@ -62,10 +67,7 @@ public class StandardNotificationBuilder extends NotificationBuilderBase {
         builder.setShowWhen(true);
         builder.setOnlyAlertOnce(!mRenotify);
         setGroupOnBuilder(builder, mOrigin);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // Public versions only supported since L, and createPublicNotification requires L+.
-            builder.setPublicVersion(createPublicNotification(mContext));
-        }
-        return builder.build();
+        builder.setPublicVersion(createPublicNotification(mContext));
+        return builder.buildNotificationWrapper();
     }
 }

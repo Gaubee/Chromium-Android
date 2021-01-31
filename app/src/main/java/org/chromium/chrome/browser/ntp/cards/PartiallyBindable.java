@@ -4,7 +4,7 @@
 
 package org.chromium.chrome.browser.ntp.cards;
 
-import android.support.annotation.Nullable;
+import android.annotation.Nullable;
 
 import org.chromium.chrome.browser.ntp.cards.NewTabPageViewHolder.PartialBindCallback;
 import org.chromium.ui.modelutil.RecyclerViewAdapter;
@@ -21,7 +21,7 @@ public interface PartiallyBindable
      * Display the data at {@code position} under this subtree.
      * @param holder The view holder that should be updated.
      * @param position The position of the item under this subtree.
-     * @see android.support.v7.widget.RecyclerView.Adapter#onBindViewHolder
+     * @see androidx.recyclerview.widget.RecyclerView.Adapter#onBindViewHolder
      */
     void onBindViewHolder(NewTabPageViewHolder holder, int position);
 

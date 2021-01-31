@@ -5,21 +5,27 @@
 package org.chromium.chrome.browser;
 
 import android.os.SystemClock;
-import android.support.annotation.IntDef;
+import android.text.format.DateUtils;
 import android.util.LruCache;
+
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.Callback;
 import org.chromium.base.SysUtils;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.base.metrics.RecordHistogram;
-import org.chromium.blink.mojom.document_metadata.CopylessPaste;
-import org.chromium.blink.mojom.document_metadata.WebPage;
+import org.chromium.blink.mojom.DocumentMetadata;
+import org.chromium.blink.mojom.WebPage;
 import org.chromium.chrome.browser.historyreport.AppIndexingReporter;
 import org.chromium.chrome.browser.tab.Tab;
-import org.chromium.chrome.browser.util.UrlUtilities;
+import org.chromium.chrome.browser.tabmodel.TabModelSelector;
+import org.chromium.chrome.browser.tabmodel.TabModelSelectorTabObserver;
+import org.chromium.components.embedder_support.util.UrlUtilities;
 import org.chromium.content_public.browser.RenderFrameHost;
 import org.chromium.content_public.browser.WebContents;
 import org.chromium.services.service_manager.InterfaceProvider;
+import org.chromium.url.GURL;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -29,11 +35,12 @@ import java.lang.annotation.RetentionPolicy;
  */
 public class AppIndexingUtil {
     private static final int CACHE_SIZE = 100;
-    private static final int CACHE_VISIT_CUTOFF_MS = 60 * 60 * 1000; // 1 hour
+    private static final int CACHE_VISIT_CUTOFF_MS = (int) DateUtils.HOUR_IN_MILLIS;
     // Cache of recently seen urls. If a url is among the CACHE_SIZE most recent pages visited, and
     // the parse was in the last CACHE_VISIT_CUTOFF_MS milliseconds, then we don't parse the page,
     // and instead just report the view (not the content) to App Indexing.
     private LruCache<String, CacheEntry> mPageCache;
+    private TabModelSelectorTabObserver mObserver;
 
     private static Callback<WebPage> sCallbackForTesting;
 
@@ -48,29 +55,46 @@ public class AppIndexingUtil {
         int NUM_ENTRIES = 3;
     }
 
+    AppIndexingUtil(@Nullable TabModelSelector mTabModelSelectorImpl) {
+        if (mTabModelSelectorImpl != null && isEnabledForDevice()) {
+            mObserver = new TabModelSelectorTabObserver(mTabModelSelectorImpl) {
+                @Override
+                public void onPageLoadFinished(final Tab tab, GURL url) {
+                    extractDocumentMetadata(tab);
+                }
+
+                @Override
+                public void didFirstVisuallyNonEmptyPaint(Tab tab) {
+                    reportPageView(tab);
+                }
+            };
+        }
+    }
+
+    void destroy() {
+        if (mObserver != null) mObserver.destroy();
+    }
+
     /**
      * Extracts entities from document metadata and reports it to on-device App Indexing.
      * This call can cache entities from recently parsed webpages, in which case, only the url and
      * title of the page is reported to App Indexing.
      */
-    public void extractCopylessPasteMetadata(final Tab tab) {
-        final String url = tab.getUrl();
-        boolean isHttpOrHttps = UrlUtilities.isHttpOrHttps(url);
-        if (!isEnabledForDevice() || tab.isIncognito() || !isHttpOrHttps) {
-            return;
-        }
+    @VisibleForTesting
+    void extractDocumentMetadata(final Tab tab) {
+        if (!isEnabledForTab(tab)) return;
 
         // There are three conditions that can occur with respect to the cache.
-        // 1. Cache hit, and an entity was found previously. Report only the page view to App
-        //    Indexing.
+        // 1. Cache hit, and an entity was found previously.
         // 2. Cache hit, but no entity was found. Ignore.
         // 3. Cache miss, we need to parse the page.
+        // Note that page view is reported unconditionally.
+        final String url = tab.getUrlString();
         if (wasPageVisitedRecently(url)) {
             if (lastPageVisitContainedEntity(url)) {
                 // Condition 1
                 RecordHistogram.recordEnumeratedHistogram(
                         "CopylessPaste.CacheHit", CacheHit.WITH_ENTITY, CacheHit.NUM_ENTRIES);
-                getAppIndexingReporter().reportWebPageView(url, tab.getTitle());
                 return;
             }
             // Condition 2
@@ -80,12 +104,12 @@ public class AppIndexingUtil {
             // Condition 3
             RecordHistogram.recordEnumeratedHistogram(
                     "CopylessPaste.CacheHit", CacheHit.MISS, CacheHit.NUM_ENTRIES);
-            CopylessPaste copylessPaste = getCopylessPasteInterface(tab);
-            if (copylessPaste == null) {
+            DocumentMetadata documentMetadata = getDocumentMetadataInterface(tab);
+            if (documentMetadata == null) {
                 return;
             }
-            copylessPaste.getEntities(webpage -> {
-                copylessPaste.close();
+            documentMetadata.getEntities(webpage -> {
+                documentMetadata.close();
                 putCacheEntry(url, webpage != null);
                 if (sCallbackForTesting != null) {
                     sCallbackForTesting.onResult(webpage);
@@ -97,6 +121,12 @@ public class AppIndexingUtil {
     }
 
     @VisibleForTesting
+    void reportPageView(Tab tab) {
+        if (!isEnabledForTab(tab)) return;
+        getAppIndexingReporter().reportWebPageView(tab.getUrlString(), tab.getTitle());
+    }
+
+    @VisibleForTesting
     static void setCallbackForTesting(Callback<WebPage> callback) {
         sCallbackForTesting = callback;
     }
@@ -104,10 +134,7 @@ public class AppIndexingUtil {
     private boolean wasPageVisitedRecently(String url) {
         if (url == null) return false;
         CacheEntry entry = getPageCache().get(url);
-        if (entry == null || (getElapsedTime() - entry.lastSeenTimeMs > CACHE_VISIT_CUTOFF_MS)) {
-            return false;
-        }
-        return true;
+        return entry != null && (getElapsedTime() - entry.lastSeenTimeMs <= CACHE_VISIT_CUTOFF_MS);
     }
 
     /**
@@ -117,10 +144,7 @@ public class AppIndexingUtil {
     private boolean lastPageVisitContainedEntity(String url) {
         if (url == null) return false;
         CacheEntry entry = getPageCache().get(url);
-        if (entry == null || !entry.containedEntity) {
-            return false;
-        }
-        return true;
+        return entry != null && entry.containedEntity;
     }
 
     private void putCacheEntry(String url, boolean containedEntity) {
@@ -136,7 +160,7 @@ public class AppIndexingUtil {
     }
 
     @VisibleForTesting
-    CopylessPaste getCopylessPasteInterface(Tab tab) {
+    DocumentMetadata getDocumentMetadataInterface(Tab tab) {
         WebContents webContents = tab.getWebContents();
         if (webContents == null) return null;
 
@@ -146,7 +170,7 @@ public class AppIndexingUtil {
         InterfaceProvider interfaces = mainFrame.getRemoteInterfaces();
         if (interfaces == null) return null;
 
-        return interfaces.getInterface(CopylessPaste.MANAGER);
+        return interfaces.getInterface(DocumentMetadata.MANAGER);
     }
 
     @VisibleForTesting
@@ -154,8 +178,16 @@ public class AppIndexingUtil {
         return SystemClock.elapsedRealtime();
     }
 
+    @VisibleForTesting
     boolean isEnabledForDevice() {
         return !SysUtils.isLowEndDevice();
+    }
+
+    @VisibleForTesting
+    boolean isEnabledForTab(Tab tab) {
+        final String url = tab.getUrlString();
+        boolean isHttpOrHttps = UrlUtilities.isHttpOrHttps(url);
+        return isEnabledForDevice() && !tab.isIncognito() && isHttpOrHttps;
     }
 
     private LruCache<String, CacheEntry> getPageCache() {

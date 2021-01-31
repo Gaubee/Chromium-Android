@@ -7,14 +7,18 @@ package org.chromium.chrome.browser.compositor.layouts.phone;
 import android.content.Context;
 
 import org.chromium.base.metrics.RecordUserAction;
+import org.chromium.base.supplier.ObservableSupplier;
+import org.chromium.chrome.browser.browser_controls.BrowserControlsStateProvider;
 import org.chromium.chrome.browser.compositor.layouts.LayoutRenderHost;
 import org.chromium.chrome.browser.compositor.layouts.LayoutUpdateHost;
 import org.chromium.chrome.browser.compositor.layouts.content.TabContentManager;
 import org.chromium.chrome.browser.compositor.layouts.phone.stack.NonOverlappingStack;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tabmodel.EmptyTabModelSelectorObserver;
 import org.chromium.chrome.browser.tabmodel.TabList;
 import org.chromium.chrome.browser.tabmodel.TabModel;
 import org.chromium.chrome.browser.tabmodel.TabModelSelector;
+import org.chromium.chrome.browser.tabmodel.TabModelSelectorObserver;
 import org.chromium.chrome.browser.tabmodel.TabModelUtils;
 
 import java.util.ArrayList;
@@ -23,9 +27,6 @@ import java.util.ArrayList;
  * Layout that displays all normal tabs in one stack and all incognito tabs in a second.
  */
 public class StackLayout extends StackLayoutBase {
-    // One stack for normal tabs and one stack for incognito tabs.
-    private static final int NUM_STACKS = 2;
-
     public static final int NORMAL_STACK_INDEX = 0;
     public static final int INCOGNITO_STACK_INDEX = 1;
 
@@ -36,12 +37,17 @@ public class StackLayout extends StackLayoutBase {
     private boolean mAnimatingStackSwitch;
 
     /**
-     * @param context     The current Android's context.
-     * @param updateHost  The {@link LayoutUpdateHost} view for this layout.
-     * @param renderHost  The {@link LayoutRenderHost} view for this layout.
+     * @param context                              The current Android's context.
+     * @param updateHost                           The {@link LayoutUpdateHost} view for this
+     *                                             layout.
+     * @param renderHost                           The {@link LayoutRenderHost} view for this
+     *                                             layout.
+     * @param browserControlsStateProviderSupplier The {@link ObservableSupplier} for the
+     *                                             {@link BrowserControlsStateProvider}.
      */
-    public StackLayout(Context context, LayoutUpdateHost updateHost, LayoutRenderHost renderHost) {
-        super(context, updateHost, renderHost);
+    public StackLayout(Context context, LayoutUpdateHost updateHost, LayoutRenderHost renderHost,
+            ObservableSupplier<BrowserControlsStateProvider> browserControlsStateProviderSupplier) {
+        super(context, updateHost, renderHost, browserControlsStateProviderSupplier);
     }
 
     @Override
@@ -52,9 +58,27 @@ public class StackLayout extends StackLayoutBase {
     @Override
     public void setTabModelSelector(TabModelSelector modelSelector, TabContentManager manager) {
         super.setTabModelSelector(modelSelector, manager);
+        if (modelSelector.getTabModelFilterProvider().getCurrentTabModelFilter() == null) {
+            // Registers an observer of the TabModel's creation if it hasn't been created yet. Once
+            // the TabModel is ready, we will call setTablists() immediately.
+            // See https://crbug.com/1142858.
+            TabModelSelectorObserver selectorObserver = new EmptyTabModelSelectorObserver() {
+                @Override
+                public void onChange() {
+                    mTabModelSelector.removeObserver(this);
+                    setTablists();
+                }
+            };
+            mTabModelSelector.addObserver(selectorObserver);
+        } else {
+            setTablists();
+        }
+    }
+
+    private void setTablists() {
         ArrayList<TabList> tabLists = new ArrayList<TabList>();
-        tabLists.add(modelSelector.getModel(false));
-        tabLists.add(modelSelector.getModel(true));
+        tabLists.add(mTabModelSelector.getTabModelFilterProvider().getTabModelFilter(false));
+        tabLists.add(mTabModelSelector.getTabModelFilterProvider().getTabModelFilter(true));
         setTabLists(tabLists);
     }
 

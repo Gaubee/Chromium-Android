@@ -14,6 +14,7 @@ import org.chromium.mojo.system.UntypedHandle;
 
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * A Decoder is a helper class for deserializing a mojo struct. It enables deserialization of basic
@@ -539,7 +540,7 @@ public class Decoder {
         if (bytes == null) {
             return null;
         }
-        return new String(bytes, Charset.forName("utf8"));
+        return new String(bytes, StandardCharsets.UTF_8);
     }
 
     /**

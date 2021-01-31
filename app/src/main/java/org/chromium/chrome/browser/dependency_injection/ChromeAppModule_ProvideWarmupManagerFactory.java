@@ -6,9 +6,13 @@ import javax.annotation.Generated;
 import org.chromium.chrome.browser.WarmupManager;
 
 @Generated(
-  value = "dagger.internal.codegen.ComponentProcessor",
-  comments = "https://google.github.io/dagger"
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
 )
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes"
+})
 public final class ChromeAppModule_ProvideWarmupManagerFactory implements Factory<WarmupManager> {
   private final ChromeAppModule module;
 
@@ -18,20 +22,14 @@ public final class ChromeAppModule_ProvideWarmupManagerFactory implements Factor
 
   @Override
   public WarmupManager get() {
-    return provideInstance(module);
-  }
-
-  public static WarmupManager provideInstance(ChromeAppModule module) {
-    return proxyProvideWarmupManager(module);
+    return provideWarmupManager(module);
   }
 
   public static ChromeAppModule_ProvideWarmupManagerFactory create(ChromeAppModule module) {
     return new ChromeAppModule_ProvideWarmupManagerFactory(module);
   }
 
-  public static WarmupManager proxyProvideWarmupManager(ChromeAppModule instance) {
-    return Preconditions.checkNotNull(
-        instance.provideWarmupManager(),
-        "Cannot return null from a non-@Nullable @Provides method");
+  public static WarmupManager provideWarmupManager(ChromeAppModule instance) {
+    return Preconditions.checkNotNullFromProvides(instance.provideWarmupManager());
   }
 }

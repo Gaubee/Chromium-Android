@@ -9,16 +9,17 @@ import android.os.ResultReceiver;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
-import org.chromium.base.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.content.browser.input.ImeAdapterImpl;
+import org.chromium.ui.base.WindowAndroid;
 
 /**
  * Adapts and plumbs android IME service onto the chrome text input API.
  */
 public interface ImeAdapter {
     /** Composition key code sent when user either hit a key or hit a selection. */
-    @VisibleForTesting
-    static final int COMPOSITION_KEY_CODE = 229;
+    int COMPOSITION_KEY_CODE = 229;
 
     /**
      * @param webContents {@link WebContents} object.
@@ -33,8 +34,10 @@ public interface ImeAdapter {
      * @return the default {@link InputMethodManagerWrapper} that the ImeAdapter uses to
      * make calls to the InputMethodManager.
      */
-    static InputMethodManagerWrapper createDefaultInputMethodManagerWrapper(Context context) {
-        return ImeAdapterImpl.createDefaultInputMethodManagerWrapper(context);
+    static InputMethodManagerWrapper createDefaultInputMethodManagerWrapper(Context context,
+            WindowAndroid windowAndroid, InputMethodManagerWrapper.Delegate delegate) {
+        return ImeAdapterImpl.createDefaultInputMethodManagerWrapper(
+                context, windowAndroid, delegate);
     }
 
     /**
@@ -67,6 +70,13 @@ public interface ImeAdapter {
     void setInputMethodManagerWrapper(InputMethodManagerWrapper immw);
 
     /**
+     * Advances the focus to next input field in the current form.
+     *
+     * @param focusType indicates whether to advance forward or backward direction.
+     */
+    void advanceFocusInForm(int focusType);
+
+    /**
      * @return a newly instantiated {@link ResultReceiver} used to scroll to the editable
      *     node at the right timing.
      */
@@ -86,4 +96,21 @@ public interface ImeAdapter {
      */
     @VisibleForTesting
     void setComposingTextForTest(final CharSequence text, final int newCursorPosition);
+
+    /**
+     * Call this when we get result from ResultReceiver passed in calling showSoftInput().
+     * @param resultCode The result of showSoftInput() as defined in InputMethodManager.
+     */
+    @VisibleForTesting
+    void onShowKeyboardReceiveResult(int resultCode);
+
+    /**
+     * Returns true if the overlaycontent flag is set in the JS, else false.
+     * This determines whether to fire geometrychange event to JS and also not
+     * resize the visual/layout viewports in response to keyboard visibility
+     * changes.
+     *
+     * @return Whether overlaycontent flag is set or not.
+     */
+    boolean shouldVirtualKeyboardOverlayContent();
 }

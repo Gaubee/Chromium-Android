@@ -12,12 +12,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint.Align;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.support.v7.content.res.AppCompatResources;
 import android.text.TextPaint;
 
-import org.chromium.base.VisibleForTesting;
-import org.chromium.chrome.R;
-import org.chromium.chrome.browser.widget.TintedDrawable;
+import androidx.annotation.VisibleForTesting;
+
+import org.chromium.chrome.browser.theme.ThemeUtils;
+import org.chromium.components.browser_ui.widget.TintedDrawable;
 
 import java.util.Locale;
 
@@ -49,8 +49,7 @@ public class TabSwitcherDrawable extends TintedDrawable {
 
     private TabSwitcherDrawable(Context context, boolean useLight, Bitmap bitmap) {
         super(context, bitmap);
-        int id = useLight ? R.color.light_mode_tint : R.color.dark_mode_tint;
-        setTint(AppCompatResources.getColorStateList(context, id));
+        setTint(ThemeUtils.getThemedToolbarIconTint(context, useLight));
         mSingleDigitTextSize =
                 context.getResources().getDimension(R.dimen.toolbar_tab_count_text_size_1_digit);
         mDoubleDigitTextSize =

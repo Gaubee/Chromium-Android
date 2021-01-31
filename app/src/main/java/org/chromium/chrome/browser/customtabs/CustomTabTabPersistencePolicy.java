@@ -5,10 +5,11 @@
 package org.chromium.chrome.browser.customtabs;
 
 import android.app.Activity;
-import android.os.StrictMode;
-import android.support.annotation.Nullable;
 import android.util.Pair;
 import android.util.SparseBooleanArray;
+
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.ApplicationStatus;
@@ -16,16 +17,19 @@ import org.chromium.base.Callback;
 import org.chromium.base.Log;
 import org.chromium.base.StreamUtil;
 import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.base.task.AsyncTask;
-import org.chromium.chrome.browser.ChromeActivity;
+import org.chromium.base.task.BackgroundOnlyAsyncTask;
+import org.chromium.base.task.SequencedTaskRunner;
+import org.chromium.base.task.TaskRunner;
+import org.chromium.chrome.browser.app.ChromeActivity;
 import org.chromium.chrome.browser.compositor.layouts.content.TabContentManager;
 import org.chromium.chrome.browser.dependency_injection.ActivityScope;
-import org.chromium.chrome.browser.tab.TabState;
+import org.chromium.chrome.browser.tab.TabStateFileManager;
 import org.chromium.chrome.browser.tabmodel.TabModel;
 import org.chromium.chrome.browser.tabmodel.TabModelSelector;
 import org.chromium.chrome.browser.tabmodel.TabPersistencePolicy;
 import org.chromium.chrome.browser.tabmodel.TabPersistentStore;
+import org.chromium.chrome.browser.tabpersistence.TabStateDirectory;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
@@ -40,7 +44,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
 
 import javax.inject.Inject;
 
@@ -49,7 +52,6 @@ import javax.inject.Inject;
  */
 @ActivityScope
 public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
-    static final String SAVED_STATE_DIRECTORY = "custom_tabs";
 
     /** Threshold where old state files should be deleted (30 days). */
     protected static final long STATE_EXPIRY_THRESHOLD = 30L * 24 * 60 * 60 * 1000;
@@ -59,48 +61,23 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
 
     private static final String TAG = "tabmodel";
 
-    /** Prevents two state directories from getting created simultaneously. */
-    private static final Object DIR_CREATION_LOCK = new Object();
-
     /**
      * Prevents two clean up tasks from getting created simultaneously. Also protects against
      * incorrectly interleaving create/run/cancel on the task.
      */
     private static final Object CLEAN_UP_TASK_LOCK = new Object();
 
-    private static File sStateDirectory;
     private static AsyncTask<Void> sCleanupTask;
-
-    /**
-     * The folder where the state should be saved to.
-     * @return A file representing the directory that contains TabModelSelector states.
-     */
-    public static File getOrCreateCustomTabModeStateDirectory() {
-        synchronized (DIR_CREATION_LOCK) {
-            if (sStateDirectory == null) {
-                sStateDirectory = new File(
-                        TabPersistentStore.getOrCreateBaseStateDirectory(), SAVED_STATE_DIRECTORY);
-                StrictMode.ThreadPolicy oldPolicy = StrictMode.allowThreadDiskWrites();
-                try {
-                    if (!sStateDirectory.exists() && !sStateDirectory.mkdirs()) {
-                        Log.e(TAG, "Failed to create state folder: " + sStateDirectory);
-                    }
-                } finally {
-                    StrictMode.setThreadPolicy(oldPolicy);
-                }
-            }
-        }
-        return sStateDirectory;
-    }
 
     private final int mTaskId;
     private final boolean mShouldRestore;
 
     private AsyncTask<Void> mInitializationTask;
+    private SequencedTaskRunner mTaskRunner;
     private boolean mDestroyed;
 
     @Inject
-    public CustomTabTabPersistencePolicy(ChromeActivity activity) {
+    public CustomTabTabPersistencePolicy(ChromeActivity<?> activity) {
         mTaskId = activity.getTaskId();
         mShouldRestore = (activity.getSavedInstanceState() != null);
     }
@@ -120,7 +97,7 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
 
     @Override
     public File getOrCreateStateDirectory() {
-        return getOrCreateCustomTabModeStateDirectory();
+        return TabStateDirectory.getOrCreateCustomTabModeStateDirectory();
     }
 
     @Override
@@ -140,8 +117,8 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
     }
 
     @Override
-    public boolean performInitialization(Executor executor) {
-        mInitializationTask = new AsyncTask<Void>() {
+    public boolean performInitialization(TaskRunner taskRunner) {
+        mInitializationTask = new BackgroundOnlyAsyncTask<Void>() {
             @Override
             protected Void doInBackground() {
                 File stateDir = getOrCreateStateDirectory();
@@ -159,7 +136,7 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
                 }
                 return null;
             }
-        }.executeOnExecutor(executor);
+        }.executeOnTaskRunner(taskRunner);
 
         return true;
     }
@@ -213,18 +190,21 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
         mDestroyed = true;
     }
 
+    @Override
+    public void setTaskRunner(SequencedTaskRunner taskRunner) {
+        mTaskRunner = taskRunner;
+    }
+
     /**
      * Triggers an async deletion of the tab state metadata file.
      */
     public void deleteMetadataStateFileAsync() {
-        AsyncTask.SERIAL_EXECUTOR.execute(new Runnable() {
-            @Override
-            public void run() {
-                File stateDir = getOrCreateStateDirectory();
-                File metadataFile = new File(stateDir, getStateFileName());
-                if (metadataFile.exists() && !metadataFile.delete()) {
-                    Log.e(TAG, "Failed to delete file: " + metadataFile);
-                }
+        assert mTaskRunner != null;
+        mTaskRunner.postTask(() -> {
+            File stateDir = getOrCreateStateDirectory();
+            File metadataFile = new File(stateDir, getStateFileName());
+            if (metadataFile.exists() && !metadataFile.delete()) {
+                Log.e(TAG, "Failed to delete file: " + metadataFile);
             }
         });
     }
@@ -269,7 +249,8 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
      * @param activity The activity whose tab IDs are to be collected from.
      * @param tabIds Where the tab IDs should be added to.
      */
-    private static void getAllTabIdsForActivity(CustomTabActivity activity, Set<Integer> tabIds) {
+    private static void getAllTabIdsForActivity(
+            BaseCustomTabActivity activity, Set<Integer> tabIds) {
         if (activity == null) return;
         TabModelSelector selector = activity.getTabModelSelector();
         if (selector == null) return;
@@ -293,8 +274,8 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
         ThreadUtils.assertOnUiThread();
 
         for (Activity activity : ApplicationStatus.getRunningActivities()) {
-            if (!(activity instanceof CustomTabActivity)) continue;
-            getAllTabIdsForActivity((CustomTabActivity) activity, liveTabIds);
+            if (!(activity instanceof BaseCustomTabActivity)) continue;
+            getAllTabIdsForActivity((BaseCustomTabActivity) activity, liveTabIds);
             liveTaskIds.add(activity.getTaskId());
         }
     }
@@ -336,7 +317,8 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
                     continue;
                 }
 
-                Pair<Integer, Boolean> tabInfo = TabState.parseInfoFromFilename(file.getName());
+                Pair<Integer, Boolean> tabInfo =
+                        TabStateFileManager.parseInfoFromFilename(file.getName());
                 if (tabInfo == null) continue;
                 allTabIds.add(tabInfo.first);
             }
@@ -373,7 +355,8 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
 
                 // The tab state is not referenced by any current activities or any metadata files,
                 // so mark it for deletion.
-                filesToDelete.add(TabState.getTabStateFilename(unreferencedTabId, false));
+                filesToDelete.add(
+                        TabStateFileManager.getTabStateFilename(unreferencedTabId, false));
             }
 
             for (int i = 0; i < mDeletableMetadataFiles.size(); i++) {
@@ -382,7 +365,8 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
                 try {
                     int taskId = Integer.parseInt(id);
 
-                    // Ignore the metadata file if it belongs to a currently live CustomTabActivity.
+                    // Ignore the metadata file if it belongs to a currently live
+                    // BaseCustomTabActivity.
                     if (liveTaskIds.contains(taskId)) continue;
 
                     filesToDelete.add(metadataFile.getName());
@@ -390,7 +374,7 @@ public class CustomTabTabPersistencePolicy implements TabPersistencePolicy {
                     SparseBooleanArray unusedTabIds = mTabIdsByMetadataFile.get(metadataFile);
                     if (unusedTabIds == null) continue;
                     for (int j = 0; j < unusedTabIds.size(); j++) {
-                        filesToDelete.add(TabState.getTabStateFilename(
+                        filesToDelete.add(TabStateFileManager.getTabStateFilename(
                                 unusedTabIds.keyAt(j), false));
                     }
                 } catch (NumberFormatException ex) {

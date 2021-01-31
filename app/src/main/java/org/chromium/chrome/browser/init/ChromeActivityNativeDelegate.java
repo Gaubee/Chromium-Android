@@ -6,6 +6,8 @@ package org.chromium.chrome.browser.init;
 
 import android.content.Intent;
 
+import android.annotation.Nullable;
+
 /**
  * An activity level delegate to handle native initialization and activity lifecycle related tasks
  * that depend on native code. The lifecycle callbacks defined here are called synchronously with
@@ -41,9 +43,9 @@ public interface ChromeActivityNativeDelegate {
     void onStopWithNative();
 
     /**
-     * @return Whether the activity linked to the delegate has been destroyed.
+     * @return Whether the activity linked to the delegate has been destroyed or is finishing.
      */
-    boolean isActivityDestroyed();
+    boolean isActivityFinishingOrDestroyed();
 
     /**
      * Carry out native code dependent tasks that relate to processing a new intent coming to
@@ -68,6 +70,7 @@ public interface ChromeActivityNativeDelegate {
 
     /**
      * Called when any failure about the initialization occurs.
+     * @param failureCause The Exception from the original failure.
      */
-    void onStartupFailure();
+    void onStartupFailure(@Nullable Exception failureCause);
 }

@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.chrome.browser.omnibox;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -30,7 +30,8 @@ import java.lang.annotation.RetentionPolicy;
     OmniboxSuggestionType.PHYSICAL_WEB_OVERFLOW_DEPRECATED,
     OmniboxSuggestionType.TAB_SEARCH_DEPRECATED, OmniboxSuggestionType.DOCUMENT_SUGGESTION,
     OmniboxSuggestionType.PEDAL, OmniboxSuggestionType.CLIPBOARD_TEXT,
-    OmniboxSuggestionType.CLIPBOARD_IMAGE, OmniboxSuggestionType.NUM_TYPES
+    OmniboxSuggestionType.CLIPBOARD_IMAGE, OmniboxSuggestionType.TILE_SUGGESTION,
+    OmniboxSuggestionType.TILE_NAVSUGGEST, OmniboxSuggestionType.NUM_TYPES
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface OmniboxSuggestionType {
@@ -101,5 +102,7 @@ public @interface OmniboxSuggestionType {
   int PEDAL = 25;
   int CLIPBOARD_TEXT = 26;
   int CLIPBOARD_IMAGE = 27;
-  int NUM_TYPES = 28;
+  int TILE_SUGGESTION = 28;
+  int TILE_NAVSUGGEST = 29;
+  int NUM_TYPES = 30;
 }

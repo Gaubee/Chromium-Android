@@ -7,13 +7,13 @@ package org.chromium.chrome.browser.compositor.layouts.phone.stack;
 import android.content.Context;
 import android.content.res.Resources;
 
+import org.chromium.base.MathUtils;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.compositor.layouts.Layout.Orientation;
 import org.chromium.chrome.browser.compositor.layouts.components.LayoutTab;
-import org.chromium.chrome.browser.compositor.layouts.eventfilter.ScrollDirection;
 import org.chromium.chrome.browser.compositor.layouts.phone.StackLayoutBase;
 import org.chromium.chrome.browser.compositor.layouts.phone.stack.StackAnimation.OverviewAnimationType;
-import org.chromium.chrome.browser.util.MathUtils;
+import org.chromium.chrome.browser.tasks.tab_management.TabUiFeatureUtilities;
 import org.chromium.ui.base.LocalizationUtils;
 
 /**
@@ -396,7 +396,11 @@ public class OverlappingStack extends Stack {
             }
 
             // The beginning, size, and clipped size of the current tab.
-            float tabOffset, tabSize, tabClippedSize, borderAdjustmentSize, insetBorderPadding;
+            float tabOffset;
+            float tabSize;
+            float tabClippedSize;
+            float borderAdjustmentSize;
+            float insetBorderPadding;
             if (portrait) {
                 // portrait LTR & RTL
                 tabOffset = layoutTab.getY();
@@ -620,11 +624,19 @@ public class OverlappingStack extends Stack {
 
     @Override
     public float getMaxTabHeight() {
-        return mLayout.getHeightMinusBrowserControls();
+        // TODO(crbug.com/1095698): Rework when the stack enter animation is created so that we can
+        // remove this feature specific fix.
+        // When conditional tab strip is enabled, the bottom browser control height should be 0
+        // eventually when overview mode is visible. Hence, we pre-acknowledge the fact and assume
+        // the bottom control height to be 0 here so that the animation is correctly set up.
+        if (TabUiFeatureUtilities.isConditionalTabStripEnabled()) {
+            return mLayout.getHeight() - mLayout.getTopContentOffsetDp();
+        }
+        return mLayout.getHeightMinusContentOffsetsDp();
     }
 
     @Override
-    protected void updateCurrentMode(int orientation) {
+    protected void updateCurrentMode(@Orientation int orientation) {
         setWarpState(true, false);
         super.updateCurrentMode(orientation);
     }
@@ -663,41 +675,5 @@ public class OverlappingStack extends Stack {
         }
 
         mWarpSize = warp;
-    }
-
-    @Override
-    public void swipeStarted(long time, @ScrollDirection int direction, float x, float y) {
-        if (direction != ScrollDirection.DOWN) return;
-
-        // Turn off warping the tabs because we need them to track the user's finger;
-        setWarpState(false, false);
-
-        super.swipeStarted(time, direction, x, y);
-
-        // Don't let the tabs even out during this scroll.
-        mEvenOutProgress = 1.f;
-    }
-
-    @Override
-    public void swipeFinished(long time) {
-        if (!mInSwipe) return;
-
-        // Mark the tabs to even themselves out.
-        mEvenOutProgress = 0.f;
-
-        // Reset the warp state.
-        setWarpState(true, true);
-
-        super.swipeFinished(time);
-    }
-
-    @Override
-    public void swipeCancelled(long time) {
-        if (!mInSwipe) return;
-
-        mEvenOutProgress = 0.f;
-        setWarpState(true, true);
-
-        super.swipeCancelled(time);
     }
 }

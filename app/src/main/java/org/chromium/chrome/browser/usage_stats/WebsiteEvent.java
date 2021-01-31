@@ -4,8 +4,8 @@
 
 package org.chromium.chrome.browser.usage_stats;
 
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
+import android.annotation.IntDef;
+import android.annotation.NonNull;
 
 /**
  * A discrete point in time representing a single piece of browsing activity for a given

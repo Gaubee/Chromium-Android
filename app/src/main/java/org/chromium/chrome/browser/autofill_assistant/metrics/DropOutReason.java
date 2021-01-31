@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.chrome.browser.autofill_assistant.metrics;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -22,7 +22,12 @@ import java.lang.annotation.RetentionPolicy;
     DropOutReason.PR_FAILED, DropOutReason.CONTENT_DESTROYED, DropOutReason.RENDER_PROCESS_GONE,
     DropOutReason.INTERSTITIAL_PAGE, DropOutReason.SCRIPT_SHUTDOWN,
     DropOutReason.SAFETY_NET_TERMINATE, DropOutReason.TAB_DETACHED, DropOutReason.TAB_CHANGED,
-    DropOutReason.NUM_ENTRIES
+    DropOutReason.GET_SCRIPTS_FAILED, DropOutReason.GET_SCRIPTS_UNPARSABLE,
+    DropOutReason.NO_INITIAL_SCRIPTS, DropOutReason.DFM_INSTALL_FAILED,
+    DropOutReason.DOMAIN_CHANGE_DURING_BROWSE_MODE, DropOutReason.BACK_BUTTON_CLICKED,
+    DropOutReason.ONBOARDING_BACK_BUTTON_CLICKED, DropOutReason.NAVIGATION_WHILE_RUNNING,
+    DropOutReason.UI_CLOSED_UNEXPECTEDLY, DropOutReason.ONBOARDING_NAVIGATION,
+    DropOutReason.ONBOARDING_DIALOG_DISMISSED, DropOutReason.MAX_VALUE
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface DropOutReason {
@@ -43,5 +48,16 @@ public @interface DropOutReason {
   int SAFETY_NET_TERMINATE = 14;
   int TAB_DETACHED = 15;
   int TAB_CHANGED = 16;
-  int NUM_ENTRIES = 17;
+  int GET_SCRIPTS_FAILED = 17;
+  int GET_SCRIPTS_UNPARSABLE = 18;
+  int NO_INITIAL_SCRIPTS = 19;
+  int DFM_INSTALL_FAILED = 20;
+  int DOMAIN_CHANGE_DURING_BROWSE_MODE = 21;
+  int BACK_BUTTON_CLICKED = 22;
+  int ONBOARDING_BACK_BUTTON_CLICKED = 23;
+  int NAVIGATION_WHILE_RUNNING = 24;
+  int UI_CLOSED_UNEXPECTEDLY = 25;
+  int ONBOARDING_NAVIGATION = 26;
+  int ONBOARDING_DIALOG_DISMISSED = 27;
+  int MAX_VALUE = ONBOARDING_DIALOG_DISMISSED;
 }

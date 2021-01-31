@@ -6,8 +6,11 @@ package org.chromium.components.dom_distiller.core;
 
 import android.text.TextUtils;
 
-import org.chromium.base.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
+import org.chromium.url.GURL;
 
 /**
  * Wrapper for the dom_distiller::url_utils.
@@ -22,13 +25,20 @@ public final class DomDistillerUrlUtils {
      *
      * @param scheme The scheme for the DOM Distiller source.
      * @param url The URL to distill.
+     * @param title The title of the page being distilled.
      * @return the URL to load to get the distilled version of a page.
      */
     @VisibleForTesting
-    public static String getDistillerViewUrlFromUrl(String scheme, String url) {
+    public static String getDistillerViewUrlFromUrl(String scheme, String url, String title) {
         assert scheme != null;
         if (TextUtils.isEmpty(url)) return url;
-        return nativeGetDistillerViewUrlFromUrl(scheme, url);
+        return DomDistillerUrlUtilsJni.get().getDistillerViewUrlFromUrl(scheme, url, title);
+    }
+
+    @Deprecated
+    public static String getOriginalUrlFromDistillerUrl(String url) {
+        if (TextUtils.isEmpty(url)) return url;
+        return DomDistillerUrlUtilsJni.get().getOriginalUrlFromDistillerUrl(url).getSpec();
     }
 
     /**
@@ -37,9 +47,14 @@ public final class DomDistillerUrlUtils {
      * @param url The current viewer URL.
      * @return the URL of the original page.
      */
-    public static String getOriginalUrlFromDistillerUrl(String url) {
-        if (TextUtils.isEmpty(url)) return url;
-        return nativeGetOriginalUrlFromDistillerUrl(url);
+    public static GURL getOriginalUrlFromDistillerUrl(GURL url) {
+        if (url.isEmpty()) return url;
+        return DomDistillerUrlUtilsJni.get().getOriginalUrlFromDistillerUrl(url.getSpec());
+    }
+
+    public static boolean isDistilledPage(String url) {
+        if (TextUtils.isEmpty(url)) return false;
+        return DomDistillerUrlUtilsJni.get().isDistilledPage(url);
     }
 
     /**
@@ -48,19 +63,22 @@ public final class DomDistillerUrlUtils {
      * @param url The url of the page.
      * @return whether the url is for a distilled page.
      */
-    public static boolean isDistilledPage(String url) {
-        if (TextUtils.isEmpty(url)) return false;
-        return nativeIsDistilledPage(url);
+    public static boolean isDistilledPage(GURL url) {
+        return isDistilledPage(url.getSpec());
     }
 
     public static String getValueForKeyInUrl(String url, String key) {
         assert key != null;
         if (TextUtils.isEmpty(url)) return null;
-        return nativeGetValueForKeyInUrl(url, key);
+        return DomDistillerUrlUtilsJni.get().getValueForKeyInUrl(url, key);
     }
 
-    private static native String nativeGetDistillerViewUrlFromUrl(String scheme, String url);
-    private static native String nativeGetOriginalUrlFromDistillerUrl(String viewerUrl);
-    private static native boolean nativeIsDistilledPage(String url);
-    private static native String nativeGetValueForKeyInUrl(String url, String key);
+    @NativeMethods
+    @VisibleForTesting
+    public interface Natives {
+        String getDistillerViewUrlFromUrl(String scheme, String url, String title);
+        GURL getOriginalUrlFromDistillerUrl(String viewerUrl);
+        boolean isDistilledPage(String url);
+        String getValueForKeyInUrl(String url, String key);
+    }
 }

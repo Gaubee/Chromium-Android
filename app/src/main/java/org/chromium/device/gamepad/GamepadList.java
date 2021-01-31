@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 import org.chromium.base.ThreadUtils;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
 
 /**
  * Class to manage connected gamepad devices list.
@@ -33,7 +34,7 @@ public class GamepadList {
     private InputManager mInputManager;
     private int mAttachedToWindowCounter;
     private boolean mIsGamepadAPIActive;
-    private InputDeviceListener mInputDeviceListener;
+    private final InputDeviceListener mInputDeviceListener;
 
     private GamepadList() {
         mInputDeviceListener = new InputDeviceListener() {
@@ -145,10 +146,7 @@ public class GamepadList {
     }
 
     private boolean isDeviceConnected(int index) {
-        if (index < MAX_GAMEPADS && getDevice(index) != null) {
-            return true;
-        }
-        return false;
+        return index < MAX_GAMEPADS && getDevice(index) != null;
     }
 
     private GamepadDevice getDeviceById(int deviceId) {
@@ -288,11 +286,13 @@ public class GamepadList {
                 final GamepadDevice device = getDevice(i);
                 if (device != null) {
                     device.updateButtonsAndAxesMapping();
-                    nativeSetGamepadData(webGamepadsPtr, i, device.isStandardGamepad(), true,
-                            device.getName(), device.getTimestamp(), device.getAxes(),
-                            device.getButtons());
+                    GamepadListJni.get().setGamepadData(GamepadList.this, webGamepadsPtr, i,
+                            device.isStandardGamepad(), true, device.getName(),
+                            device.getTimestamp(), device.getAxes(), device.getButtons(),
+                            device.getButtonsLength());
                 } else {
-                    nativeSetGamepadData(webGamepadsPtr, i, false, false, null, 0, null, null);
+                    GamepadListJni.get().setGamepadData(GamepadList.this, webGamepadsPtr, i, false,
+                            false, null, 0, null, null, 0);
                 }
             }
         }
@@ -316,10 +316,14 @@ public class GamepadList {
         }
     }
 
-    private native void nativeSetGamepadData(long webGamepadsPtr, int index, boolean mapping,
-            boolean connected, String devicename, long timestamp, float[] axes, float[] buttons);
-
     private static class LazyHolder {
         private static final GamepadList INSTANCE = new GamepadList();
+    }
+
+    @NativeMethods
+    interface Natives {
+        void setGamepadData(GamepadList caller, long webGamepadsPtr, int index, boolean mapping,
+                boolean connected, String devicename, long timestamp, float[] axes, float[] buttons,
+                int buttonsLength);
     }
 }

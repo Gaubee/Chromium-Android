@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 The Chromium Authors. All rights reserved.
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file. -->
+
+<network-security-config>
+    <!-- Starting with Android P (API level 28), the default value of
+    isCleartextTrafficPermitted() is false. For the SystemWebViewShell
+    test browser we explicitly set cleartextTrafficPermitted here to
+    preserve functionality. (crbug.com/898190) -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="user"/>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+</network-security-config>
+<!-- chrome/android/java/res_base/xml/network_security_config.xml -->
+
+<!-- Copyright 2016 The Chromium Authors. All rights reserved.
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file. -->
+
+<!--<network-security-config>-->
+<!--    &lt;!&ndash; We delegate the handling of HLS videos to Android MediaPlayer. Starting-->
+<!--    with Android P, the default value of isCleartextTrafficPermitted() is false.-->
+<!--    This breaks our usage of MediaPlayer. We have to explicitly set-->
+<!--    cleartextTrafficPermitted here to preserve functionality.-->
+<!--    See https://crbug.com/827265. See also MediaPlayerRenderer. &ndash;&gt;-->
+<!--    <base-config cleartextTrafficPermitted="true">-->
+<!--        <trust-anchors>-->
+<!--            <certificates src="user"/>-->
+<!--            <certificates src="system"/>-->
+<!--        </trust-anchors>-->
+<!--    </base-config>-->
+<!--</network-security-config>-->
+
+<!-- components/cronet/android/test/res/xml/network_security_config.xml -->
+
+
+<!-- Copyright 2016 The Chromium Authors. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+
+<!--<network-security-config>-->
+<!--  <domain-config cleartextTrafficPermitted="false">-->
+<!--    <domain includeSubdomains="true">example.com</domain>-->
+<!--  </domain-config>-->
+<!--</network-security-config>-->
+
+<!-- components/cronet/android/test/smoketests/res/platform_only/xml/network_security_config.xml -->
+
+
+<!-- Copyright 2016 The Chromium Authors. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+
+<!--<network-security-config/>-->

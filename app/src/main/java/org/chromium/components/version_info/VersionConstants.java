@@ -4,14 +4,18 @@
 
 package org.chromium.components.version_info;
 
+import org.chromium.base.annotations.MainDex;
+
 // Constants shared by Android Chrome and WebView. Chrome specific constants are
 // in ChromeVersionConstants.
+@MainDex
 public class VersionConstants {
-    public static final String PRODUCT_VERSION = "73.0.3683.93";
+    public static final String PRODUCT_VERSION = "90.0.4395.0";
     @SuppressWarnings({"ComplexBooleanConstant", "IdentityBinaryExpression"})
     public static final boolean IS_OFFICIAL_BUILD = 1 == 1;
 
-    public static final int PRODUCT_MAJOR_VERSION = 73;
+    public static final int PRODUCT_MAJOR_VERSION = 90;
+    public static final int PRODUCT_BUILD_VERSION = 4395;
 
     public static final int CHANNEL = Channel.STABLE;
 }

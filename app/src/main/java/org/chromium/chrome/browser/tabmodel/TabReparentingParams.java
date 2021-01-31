@@ -5,8 +5,8 @@
 package org.chromium.chrome.browser.tabmodel;
 
 import android.content.ComponentName;
-import android.content.Intent;
-import android.support.annotation.Nullable;
+
+import android.annotation.Nullable;
 
 import org.chromium.chrome.browser.tab.Tab;
 import org.chromium.content_public.browser.LoadUrlParams;
@@ -17,27 +17,19 @@ import org.chromium.content_public.browser.WebContents;
  */
 public class TabReparentingParams implements AsyncTabParams {
     private final Tab mTabToReparent;
-    private final Intent mOriginalIntent;
     private final Runnable mFinalizeCallback;
 
     /**
      * Basic constructor for {@link TabReparentingParams}.
      */
-    public TabReparentingParams(
-            Tab tabToReparent, Intent originalIntent, Runnable finalizeCallback) {
+    public TabReparentingParams(Tab tabToReparent, Runnable finalizeCallback) {
         mTabToReparent = tabToReparent;
-        mOriginalIntent = originalIntent;
         mFinalizeCallback = finalizeCallback;
     }
 
     @Override
     public LoadUrlParams getLoadUrlParams() {
         return null;
-    }
-
-    @Override
-    public Intent getOriginalIntent() {
-        return mOriginalIntent;
     }
 
     @Override

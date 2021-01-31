@@ -5,30 +5,34 @@
 package org.chromium.chrome.browser.payments;
 
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.Pair;
 
+import android.annotation.Nullable;
+
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.Callback;
 import org.chromium.base.task.AsyncTask;
+import org.chromium.base.task.BackgroundOnlyAsyncTask;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.ChromeActivity;
-import org.chromium.chrome.browser.autofill.CardType;
+import org.chromium.chrome.browser.app.ChromeActivity;
 import org.chromium.chrome.browser.autofill.CreditCardScanner;
 import org.chromium.chrome.browser.autofill.PersonalDataManager;
 import org.chromium.chrome.browser.autofill.PersonalDataManager.AutofillProfile;
 import org.chromium.chrome.browser.autofill.PersonalDataManager.CreditCard;
-import org.chromium.chrome.browser.payments.PaymentRequestImpl.PaymentRequestServiceObserverForTest;
-import org.chromium.chrome.browser.preferences.autofill.AutofillProfileBridge.DropdownKeyValue;
-import org.chromium.chrome.browser.widget.prefeditor.EditorBase;
-import org.chromium.chrome.browser.widget.prefeditor.EditorFieldModel;
-import org.chromium.chrome.browser.widget.prefeditor.EditorFieldModel.EditorFieldValidator;
-import org.chromium.chrome.browser.widget.prefeditor.EditorFieldModel.EditorValueIconGenerator;
-import org.chromium.chrome.browser.widget.prefeditor.EditorModel;
+import org.chromium.chrome.browser.autofill.prefeditor.EditorBase;
+import org.chromium.chrome.browser.autofill.prefeditor.EditorFieldModel;
+import org.chromium.chrome.browser.autofill.prefeditor.EditorFieldModel.EditorFieldValidator;
+import org.chromium.chrome.browser.autofill.prefeditor.EditorFieldModel.EditorValueIconGenerator;
+import org.chromium.chrome.browser.autofill.prefeditor.EditorModel;
+import org.chromium.chrome.browser.autofill.settings.AutofillProfileBridge.DropdownKeyValue;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.components.payments.BasicCardUtils;
+import org.chromium.components.payments.MethodStrings;
+import org.chromium.components.payments.PaymentRequestService;
 import org.chromium.content_public.browser.WebContents;
 import org.chromium.payments.mojom.PaymentMethodData;
 
@@ -51,7 +55,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class CardEditor extends EditorBase<AutofillPaymentInstrument>
         implements CreditCardScanner.Delegate {
-    /** Description of a card type. */
+    /** Description of a card network. */
     private static class CardIssuerNetwork {
         /**
          * The identifier for the drawable resource of the card issuer network, e.g.,
@@ -90,9 +94,6 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
     /** The dropdown key that triggers the address editor to add a new billing address. */
     private static final String BILLING_ADDRESS_ADD_NEW = "add";
 
-    /** The shared preference for the 'save card to device' checkbox status. */
-    private static final String CHECK_SAVE_CARD_TO_DEVICE = "check_save_card_to_device";
-
     /** The web contents where the web payments API is invoked. */
     private final WebContents mWebContents;
 
@@ -108,9 +109,6 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
 
     /** Used for verifying billing address completeness and also editing billing addresses. */
     private final AddressEditor mAddressEditor;
-
-    /** An optional observer used by tests. */
-    @Nullable private final PaymentRequestServiceObserverForTest mObserverForTest;
 
     /**
      * A mapping from all card issuer networks recognized in Chrome to information about these
@@ -131,11 +129,6 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
      * complete payment instrument.
      */
     private final Set<String> mAcceptedBasicCardIssuerNetworks;
-
-    /**
-     * The accepted card types: CardType.UNKNOWN, CardType.CREDIT, CardType.DEBIT, CardType.PREPAID.
-     */
-    private final Set<Integer> mAcceptedBasicCardTypes;
 
     /**
      * The information about the accepted card issuer networks. Used in the editor as a hint to the
@@ -162,7 +155,7 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
     private boolean mIsScanning;
     private int mCurrentMonth;
     private int mCurrentYear;
-    private boolean mIsIncognito;
+    private final boolean mIsIncognito;
 
     /**
      * Builds a credit card editor.
@@ -170,19 +163,19 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
      * @param webContents     The web contents where the web payments API is invoked.
      * @param addressEditor   Used for verifying billing address completeness and also editing
      *                        billing addresses.
-     * @param observerForTest Optional observer for test.
+     * @param includeOrgLabel Whether the labels in the billing address dropdown should include the
+     *                        organization name.
      */
-    public CardEditor(WebContents webContents, AddressEditor addressEditor,
-            @Nullable PaymentRequestServiceObserverForTest observerForTest) {
+    public CardEditor(
+            WebContents webContents, AddressEditor addressEditor, boolean includeOrgLabel) {
         assert webContents != null;
         assert addressEditor != null;
 
         mWebContents = webContents;
         mAddressEditor = addressEditor;
-        mObserverForTest = observerForTest;
 
         List<AutofillProfile> profiles =
-                PersonalDataManager.getInstance().getBillingAddressesToSuggest();
+                PersonalDataManager.getInstance().getBillingAddressesToSuggest(includeOrgLabel);
         mProfilesForBillingAddress = new ArrayList<>();
         mIncompleteProfilesForBillingAddress = new HashMap<>();
         for (int i = 0; i < profiles.size(); i++) {
@@ -233,7 +226,6 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
 
         mAcceptedIssuerNetworks = new HashSet<>();
         mAcceptedBasicCardIssuerNetworks = new HashSet<>();
-        mAcceptedBasicCardTypes = new HashSet<>();
         mAcceptedCardIssuerNetworks = new ArrayList<>();
         mHandler = new Handler();
 
@@ -254,14 +246,14 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
 
         mCardIconGenerator = value -> {
             if (value == null) return 0;
-            CardIssuerNetwork cardTypeInfo = mCardIssuerNetworks.get(
+            CardIssuerNetwork cardNetworkInfo = mCardIssuerNetworks.get(
                     PersonalDataManager.getInstance().getBasicCardIssuerNetwork(
                             value.toString(), false));
-            if (cardTypeInfo == null) return 0;
-            return cardTypeInfo.icon;
+            if (cardNetworkInfo == null) return 0;
+            return cardNetworkInfo.icon;
         };
 
-        mCalendar = new AsyncTask<Calendar>() {
+        mCalendar = new BackgroundOnlyAsyncTask<Calendar>() {
             @Override
             protected Calendar doInBackground() {
                 return Calendar.getInstance();
@@ -270,20 +262,19 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
         mCalendar.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         ChromeActivity activity = ChromeActivity.fromWebContents(mWebContents);
-        mIsIncognito = activity != null && activity.getCurrentTabModel() != null
-                && activity.getCurrentTabModel().isIncognito();
+        mIsIncognito = activity != null && activity.getCurrentTabModel().isIncognito();
     }
 
     private boolean isCardNumberLengthMaximum(@Nullable CharSequence value) {
         if (TextUtils.isEmpty(value)) return false;
-        String cardType = PersonalDataManager.getInstance().getBasicCardIssuerNetwork(
+        String cardNetwork = PersonalDataManager.getInstance().getBasicCardIssuerNetwork(
                 value.toString(), false);
-        if (TextUtils.isEmpty(cardType)) return false;
+        if (TextUtils.isEmpty(cardNetwork)) return false;
 
         // Below maximum values are consistent with the values used to check the validity of the
         // credit card number in autofill::IsValidCreditCardNumber.
         String cardNumber = removeSpaceAndBar(value);
-        switch (cardType) {
+        switch (cardNetwork) {
             case AMEX:
                 return cardNumber.length() == 15;
             case DINERS:
@@ -308,15 +299,12 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
     public void addAcceptedPaymentMethodIfRecognized(PaymentMethodData data) {
         assert data != null;
         String method = data.supportedMethod;
-        if (mCardIssuerNetworks.containsKey(method)) {
-            addAcceptedNetwork(method);
-        } else if (BasicCardUtils.BASIC_CARD_METHOD_NAME.equals(method)) {
+        if (MethodStrings.BASIC_CARD.equals(method)) {
             Set<String> basicCardNetworks = BasicCardUtils.convertBasicCardToNetworks(data);
             mAcceptedBasicCardIssuerNetworks.addAll(basicCardNetworks);
             for (String network : basicCardNetworks) {
                 addAcceptedNetwork(network);
             }
-            mAcceptedBasicCardTypes.addAll(BasicCardUtils.convertBasicCardToTypes(data));
         }
     }
 
@@ -331,6 +319,15 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
             mAcceptedIssuerNetworks.add(network);
             mAcceptedCardIssuerNetworks.add(mCardIssuerNetworks.get(network));
         }
+    }
+
+    /**
+     * Allows calling |edit| with a single callback used for both 'done' and 'cancel'.
+     * @see #edit(AutofillPaymentInstrument, Callback, Callback)
+     */
+    public void edit(@Nullable final AutofillPaymentInstrument toEdit,
+            final Callback<AutofillPaymentInstrument> callback) {
+        edit(toEdit, callback, callback);
     }
 
     /**
@@ -351,29 +348,34 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
      */
     @Override
     public void edit(@Nullable final AutofillPaymentInstrument toEdit,
-            final Callback<AutofillPaymentInstrument> callback) {
-        super.edit(toEdit, callback);
+            final Callback<AutofillPaymentInstrument> doneCallback,
+            final Callback<AutofillPaymentInstrument> cancelCallback) {
+        super.edit(toEdit, doneCallback, cancelCallback);
 
-        // If |toEdit| is null, we're creating a new credit card.
-        final boolean isNewCard = toEdit == null;
+        final boolean isNewCard;
+        final AutofillPaymentInstrument instrument;
+        final EditorModel editor;
 
-        // Ensure that |instrument| and |card| are never null.
-        final AutofillPaymentInstrument instrument = isNewCard
-                ? new AutofillPaymentInstrument(mWebContents, new CreditCard(),
-                          null /* billingAddress */, null /* methodName */,
-                          false /* matchesMerchantCardTypeExactly */)
-                : toEdit;
+        if (toEdit == null) {
+            // We're creating a new credit card.
+            isNewCard = true;
+            // Ensure that |instrument| is never null.
+            instrument = new AutofillPaymentInstrument(mWebContents, new CreditCard(),
+                    null /* billingAddress */, null /* methodName */);
+            editor = new EditorModel(mContext.getString(R.string.payments_add_card));
+        } else {
+            isNewCard = false;
+            instrument = toEdit;
+            editor = new EditorModel(toEdit.getEditTitle());
+        }
+
         final CreditCard card = instrument.getCard();
-
-        final EditorModel editor = new EditorModel(
-                isNewCard ? mContext.getString(R.string.payments_add_card) : toEdit.getEditTitle());
-
         if (card.getIsLocal()) {
             Calendar calendar = null;
             try {
                 calendar = mCalendar.get();
             } catch (InterruptedException | ExecutionException e) {
-                mHandler.post(() -> callback.onResult(null));
+                mHandler.post(cancelCallback.bind(toEdit));
                 return;
             }
             assert calendar != null;
@@ -396,7 +398,7 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
 
         // If the user clicks [Cancel], send |toEdit| card back to the caller (will return original
         // state, which could be null, a full card, or a partial card).
-        editor.setCancelCallback(() -> callback.onResult(toEdit));
+        editor.setCancelCallback(cancelCallback.bind(toEdit));
 
         // If the user clicks [Done], save changes on disk, mark the card "complete," and send it
         // back to the caller.
@@ -405,7 +407,7 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
 
             String methodName = card.getBasicCardIssuerNetwork();
             if (mAcceptedBasicCardIssuerNetworks.contains(methodName)) {
-                methodName = BasicCardUtils.BASIC_CARD_METHOD_NAME;
+                methodName = MethodStrings.BASIC_CARD;
             }
             assert methodName != null;
 
@@ -414,7 +416,7 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
             assert billingAddress != null;
 
             instrument.completeInstrument(card, methodName, billingAddress);
-            callback.onResult(instrument);
+            doneCallback.onResult(instrument);
         });
 
         mEditorDialog.show(editor);
@@ -462,7 +464,8 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
                 descriptions.add(mAcceptedCardIssuerNetworks.get(i).description);
             }
             mIconHint = EditorFieldModel.createIconList(
-                    mContext.getString(getAcceptedCardsLabelResourceId()), icons, descriptions);
+                    mContext.getString(R.string.payments_accepted_cards_label), icons,
+                    descriptions);
         }
         editor.addField(mIconHint);
 
@@ -542,11 +545,12 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
                           R.string.payments_card_expiration_invalid_validation_message));
             mMonthField.setIsFullLine(false);
 
-            if (mObserverForTest != null) {
+            if (PaymentRequestService.getObserverForTest() != null) {
                 mMonthField.setDropdownCallback(new Callback<Pair<String, Runnable>>() {
                     @Override
                     public void onResult(final Pair<String, Runnable> eventData) {
-                        mObserverForTest.onPaymentRequestServiceExpirationMonthChange();
+                        PaymentRequestService.getObserverForTest()
+                                .onPaymentRequestServiceExpirationMonthChange();
                     }
                 });
             }
@@ -570,22 +574,6 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
             mYearField.setValue(mYearField.getDropdownKeyValues().get(0).getKey());
         }
         editor.addField(mYearField);
-    }
-
-    private int getAcceptedCardsLabelResourceId() {
-        int credit = mAcceptedBasicCardTypes.contains(CardType.CREDIT) ? 1 : 0;
-        int debit = mAcceptedBasicCardTypes.contains(CardType.DEBIT) ? 1 : 0;
-        int prepaid = mAcceptedBasicCardTypes.contains(CardType.PREPAID) ? 1 : 0;
-        int[][][] resourceIds = new int[2][2][2];
-        resourceIds[0][0][0] = R.string.payments_accepted_cards_label;
-        resourceIds[0][0][1] = R.string.payments_accepted_prepaid_cards_label;
-        resourceIds[0][1][0] = R.string.payments_accepted_debit_cards_label;
-        resourceIds[0][1][1] = R.string.payments_accepted_debit_prepaid_cards_label;
-        resourceIds[1][0][0] = R.string.payments_accepted_credit_cards_label;
-        resourceIds[1][0][1] = R.string.payments_accepted_credit_prepaid_cards_label;
-        resourceIds[1][1][0] = R.string.payments_accepted_credit_debit_cards_label;
-        resourceIds[1][1][1] = R.string.payments_accepted_cards_label;
-        return resourceIds[credit][debit][prepaid];
     }
 
     /** Builds the key-value pairs for the month dropdown. */
@@ -689,8 +677,9 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
                 final boolean isSelectingIncompleteAddress =
                         mIncompleteProfilesForBillingAddress.containsKey(eventData.first);
                 if (!isAddingNewAddress && !isSelectingIncompleteAddress) {
-                    if (mObserverForTest != null) {
-                        mObserverForTest.onPaymentRequestServiceBillingAddressChangeProcessed();
+                    if (PaymentRequestService.getObserverForTest() != null) {
+                        PaymentRequestService.getObserverForTest()
+                                .onPaymentRequestServiceBillingAddressChangeProcessed();
                     }
                     return;
                 }
@@ -777,7 +766,7 @@ public class CardEditor extends EditorBase<AutofillPaymentInstrument>
         if (mSaveCardCheckbox == null) {
             mSaveCardCheckbox = EditorFieldModel.createCheckbox(
                     mContext.getString(R.string.payments_save_card_to_device_checkbox),
-                    CHECK_SAVE_CARD_TO_DEVICE);
+                    ChromePreferenceKeys.PAYMENTS_CHECK_SAVE_CARD_TO_DEVICE);
         }
         editor.addField(mSaveCardCheckbox);
     }

@@ -5,17 +5,22 @@
 package org.chromium.chrome.browser.browserservices;
 
 import android.net.Uri;
-import android.support.customtabs.CustomTabsService;
-import android.support.customtabs.CustomTabsSessionToken;
-import android.support.customtabs.PostMessageBackend;
+
+import androidx.annotation.VisibleForTesting;
+import androidx.browser.customtabs.CustomTabsService;
+import androidx.browser.customtabs.CustomTabsSessionToken;
+import androidx.browser.customtabs.PostMessageBackend;
 
 import org.chromium.base.ContextUtils;
-import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
-import org.chromium.chrome.browser.browserservices.OriginVerifier.OriginVerificationListener;
+import org.chromium.base.task.PostTask;
+import org.chromium.chrome.browser.browserservices.verification.OriginVerifier;
+import org.chromium.chrome.browser.browserservices.verification.OriginVerifier.OriginVerificationListener;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.components.embedder_support.util.Origin;
 import org.chromium.content_public.browser.MessagePort;
 import org.chromium.content_public.browser.MessagePort.MessageCallback;
+import org.chromium.content_public.browser.NavigationHandle;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
 import org.chromium.content_public.browser.WebContents;
 import org.chromium.content_public.browser.WebContentsObserver;
 
@@ -67,12 +72,9 @@ public class PostMessageHandler implements OriginVerificationListener {
             private boolean mNavigatedOnce;
 
             @Override
-            public void didFinishNavigation(String url, boolean isInMainFrame, boolean isErrorPage,
-                    boolean hasCommitted, boolean isSameDocument, boolean isFragmentNavigation,
-                    boolean isRendererInitiated, boolean isDownload, Integer pageTransition,
-                    int errorCode, String errorDescription, int httpStatusCode) {
-                if (mNavigatedOnce && hasCommitted && isInMainFrame && !isSameDocument
-                        && mChannel != null) {
+            public void didFinishNavigation(NavigationHandle navigation) {
+                if (mNavigatedOnce && navigation.hasCommitted() && navigation.isInMainFrame()
+                        && !navigation.isSameDocument() && mChannel != null) {
                     webContents.removeObserver(this);
                     disconnectChannel();
                     return;
@@ -97,8 +99,8 @@ public class PostMessageHandler implements OriginVerificationListener {
         mChannel = webContents.createMessageChannel();
         mChannel[0].setMessageCallback(mMessageCallback, null);
 
-        webContents.postMessageToFrame(
-                null, "", mPostMessageUri.toString(), "", new MessagePort[] {mChannel[1]});
+        webContents.postMessageToMainFrame(
+                "", mPostMessageUri.toString(), "", new MessagePort[] {mChannel[1]});
 
         mPostMessageBackend.onNotifyMessageChannelReady(null);
     }
@@ -135,7 +137,7 @@ public class PostMessageHandler implements OriginVerificationListener {
         if (mWebContents == null || mWebContents.isDestroyed()) {
             return CustomTabsService.RESULT_FAILURE_MESSAGING_ERROR;
         }
-        ThreadUtils.postOnUiThread(new Runnable() {
+        PostTask.postTask(UiThreadTaskTraits.DEFAULT, new Runnable() {
             @Override
             public void run() {
                 // It is still possible that the page has navigated while this task is in the queue.

@@ -5,6 +5,8 @@
 package org.chromium.chrome.browser.tabmodel;
 
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tab.TabSelectionType;
+import org.chromium.chrome.browser.tab.state.CriticalPersistedTabData;
 import org.chromium.content_public.browser.WebContents;
 
 import java.util.ArrayList;
@@ -14,7 +16,7 @@ import java.util.List;
  * A set of convenience methods used for interacting with {@link TabList}s and {@link TabModel}s.
  */
 public class TabModelUtils {
-    private TabModelUtils() { }
+    private TabModelUtils() {}
 
     /**
      * @param model The {@link TabModel} to act on.
@@ -101,7 +103,7 @@ public class TabModelUtils {
         int count = model.getCount();
 
         for (int i = 0; i < count; i++) {
-            if (model.getTabAt(i).getUrl().contentEquals(url)) return i;
+            if (model.getTabAt(i).getUrlString().contentEquals(url)) return i;
         }
 
         return TabModel.INVALID_TAB_INDEX;
@@ -164,7 +166,7 @@ public class TabModelUtils {
 
         ArrayList<Tab> childTabs = new ArrayList<Tab>();
         for (int i = 0; i < model.getCount(); i++) {
-            if (model.getTabAt(i).getParentId() == tabId) {
+            if (CriticalPersistedTabData.from(model.getTabAt(i)).getParentId() == tabId) {
                 childTabs.add(model.getTabAt(i));
             }
         }

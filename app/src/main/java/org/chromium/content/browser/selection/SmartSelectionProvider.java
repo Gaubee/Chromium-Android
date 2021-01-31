@@ -10,19 +10,22 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.os.LocaleList;
-import android.support.annotation.IntDef;
 import android.view.textclassifier.TextClassification;
 import android.view.textclassifier.TextClassificationManager;
 import android.view.textclassifier.TextClassifier;
 import android.view.textclassifier.TextSelection;
 
+import android.annotation.IntDef;
+
 import org.chromium.base.task.AsyncTask;
+import org.chromium.content.browser.WindowEventObserver;
+import org.chromium.content.browser.WindowEventObserverManager;
 import org.chromium.content_public.browser.SelectionClient;
+import org.chromium.content_public.browser.WebContents;
 import org.chromium.ui.base.WindowAndroid;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.util.Locale;
 
 /**
  * Controls Smart Text selection. Talks to the Android TextClassificationManager API.
@@ -30,25 +33,35 @@ import java.util.Locale;
 public class SmartSelectionProvider {
     private static final String TAG = "SmartSelProvider";
 
-    @IntDef({CLASSIFY, SUGGEST_AND_CLASSIFY})
+    @IntDef({RequestType.CLASSIFY, RequestType.SUGGEST_AND_CLASSIFY})
     @Retention(RetentionPolicy.SOURCE)
-    private @interface RequestType {}
+    private @interface RequestType {
+        int CLASSIFY = 0;
+        int SUGGEST_AND_CLASSIFY = 1;
+    }
 
-    private static final int CLASSIFY = 0;
-    private static final int SUGGEST_AND_CLASSIFY = 1;
-
-    private SelectionClient.ResultCallback mResultCallback;
+    private final SelectionClient.ResultCallback mResultCallback;
     private WindowAndroid mWindowAndroid;
     private ClassificationTask mClassificationTask;
     private TextClassifier mTextClassifier;
 
-    private Handler mHandler;
-    private Runnable mFailureResponseRunnable;
+    private final Handler mHandler;
+    private final Runnable mFailureResponseRunnable;
 
     public SmartSelectionProvider(
-            SelectionClient.ResultCallback callback, WindowAndroid windowAndroid) {
+            SelectionClient.ResultCallback callback, WebContents webContents) {
         mResultCallback = callback;
-        mWindowAndroid = windowAndroid;
+        mWindowAndroid = webContents.getTopLevelNativeWindow();
+        WindowEventObserverManager manager = WindowEventObserverManager.from(webContents);
+        if (manager != null) {
+            manager.addObserver(new WindowEventObserver() {
+                @Override
+                public void onWindowAndroidChanged(WindowAndroid newWindowAndroid) {
+                    mWindowAndroid = newWindowAndroid;
+                }
+            });
+        }
+
         mHandler = new Handler();
         mFailureResponseRunnable = new Runnable() {
             @Override
@@ -58,13 +71,12 @@ public class SmartSelectionProvider {
         };
     }
 
-    public void sendSuggestAndClassifyRequest(
-            CharSequence text, int start, int end, Locale[] locales) {
-        sendSmartSelectionRequest(SUGGEST_AND_CLASSIFY, text, start, end, locales);
+    public void sendSuggestAndClassifyRequest(CharSequence text, int start, int end) {
+        sendSmartSelectionRequest(RequestType.SUGGEST_AND_CLASSIFY, text, start, end);
     }
 
-    public void sendClassifyRequest(CharSequence text, int start, int end, Locale[] locales) {
-        sendSmartSelectionRequest(CLASSIFY, text, start, end, locales);
+    public void sendClassifyRequest(CharSequence text, int start, int end) {
+        sendSmartSelectionRequest(RequestType.CLASSIFY, text, start, end);
     }
 
     public void cancelAllRequests() {
@@ -74,8 +86,16 @@ public class SmartSelectionProvider {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.O)
     public void setTextClassifier(TextClassifier textClassifier) {
         mTextClassifier = textClassifier;
+
+        Context context = mWindowAndroid.getContext().get();
+        if (context == null) {
+            return;
+        }
+        ((TextClassificationManager) context.getSystemService(Context.TEXT_CLASSIFICATION_SERVICE))
+                .setTextClassifier(textClassifier);
     }
 
     // TODO(wnwen): Remove this suppression once the constant is added to lint.
@@ -98,7 +118,7 @@ public class SmartSelectionProvider {
 
     @TargetApi(Build.VERSION_CODES.O)
     private void sendSmartSelectionRequest(
-            @RequestType int requestType, CharSequence text, int start, int end, Locale[] locales) {
+            @RequestType int requestType, CharSequence text, int start, int end) {
         TextClassifier classifier = getTextClassifier();
         if (classifier == null || classifier == TextClassifier.NO_OP) {
             mHandler.post(mFailureResponseRunnable);
@@ -110,28 +130,30 @@ public class SmartSelectionProvider {
             mClassificationTask = null;
         }
 
-        mClassificationTask =
-                new ClassificationTask(classifier, requestType, text, start, end, locales);
+        // We checked mWindowAndroid.getContext().get() is not null in getTextClassifier(), so pass
+        // the value directly here.
+        mClassificationTask = new ClassificationTask(
+                classifier, requestType, text, start, end, mWindowAndroid.getContext().get());
         mClassificationTask.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
     }
 
     @TargetApi(Build.VERSION_CODES.O)
     private class ClassificationTask extends AsyncTask<SelectionClient.Result> {
         private final TextClassifier mTextClassifier;
-        private final int mRequestType;
+        private final @RequestType int mRequestType;
         private final CharSequence mText;
         private final int mOriginalStart;
         private final int mOriginalEnd;
-        private final Locale[] mLocales;
+        private final Context mContext;
 
         ClassificationTask(TextClassifier classifier, @RequestType int requestType,
-                CharSequence text, int start, int end, Locale[] locales) {
+                CharSequence text, int start, int end, Context context) {
             mTextClassifier = classifier;
             mRequestType = requestType;
             mText = text;
             mOriginalStart = start;
             mOriginalEnd = end;
-            mLocales = locales;
+            mContext = context;
         }
 
         @Override
@@ -141,23 +163,17 @@ public class SmartSelectionProvider {
 
             TextSelection textSelection = null;
 
-            if (mRequestType == SUGGEST_AND_CLASSIFY) {
+            if (mRequestType == RequestType.SUGGEST_AND_CLASSIFY) {
                 textSelection = mTextClassifier.suggestSelection(
-                        mText, start, end, makeLocaleList(mLocales));
+                        mText, start, end, LocaleList.getAdjustedDefault());
                 start = Math.max(0, textSelection.getSelectionStartIndex());
                 end = Math.min(mText.length(), textSelection.getSelectionEndIndex());
                 if (isCancelled()) return new SelectionClient.Result();
             }
 
-            TextClassification tc =
-                    mTextClassifier.classifyText(mText, start, end, makeLocaleList(mLocales));
+            TextClassification tc = mTextClassifier.classifyText(
+                    mText, start, end, LocaleList.getAdjustedDefault());
             return makeResult(start, end, tc, textSelection);
-        }
-
-        @SuppressLint("NewApi")
-        private LocaleList makeLocaleList(Locale[] locales) {
-            if (locales == null || locales.length == 0) return null;
-            return new LocaleList(locales);
         }
 
         private SelectionClient.Result makeResult(
@@ -172,6 +188,11 @@ public class SmartSelectionProvider {
             result.onClickListener = tc.getOnClickListener();
             result.textSelection = ts;
             result.textClassification = tc;
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                result.additionalIcons = AdditionalMenuItemProviderImpl.loadIconDrawables(
+                        mContext, result.textClassification);
+            }
 
             return result;
         }

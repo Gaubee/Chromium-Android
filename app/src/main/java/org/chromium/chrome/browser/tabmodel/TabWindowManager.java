@@ -1,71 +1,29 @@
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
 package org.chromium.chrome.browser.tabmodel;
 
 import android.app.Activity;
-import android.util.SparseArray;
 
-import org.chromium.base.ActivityState;
-import org.chromium.base.ApplicationStatus;
-import org.chromium.base.ApplicationStatus.ActivityStateListener;
-import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
-import org.chromium.chrome.browser.ChromeTabbedActivity;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tabmodel.NextTabPolicy.NextTabPolicySupplier;
 import org.chromium.ui.base.WindowAndroid;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Manages multiple {@link TabModelSelector} instances, each owned by different {@link Activity}s.
+ *
+ * Each of the 0-3 {@link WindowAndroid} contains 1 {@link Activity},
+ * which contains 1 {@link TabModelSelector}, which contains 2 {@link TabModel}s,
+ * each of which contains n {@link Tab}s.
+ *
+ * Also manages tabs being reparented in AsyncTabParamsManager.
+ *
+ * This is the highest level of the hierarchy of Tab containers.
  */
-public class TabWindowManager implements ActivityStateListener {
-    /**
-     * An index that represents the invalid state (i.e. when the window wasn't found in the list).
-     */
-    public static final int INVALID_WINDOW_INDEX = -1;
-
+public interface TabWindowManager {
     /** The maximum number of simultaneous TabModelSelector instances in this Application. */
-    public static final int MAX_SIMULTANEOUS_SELECTORS = 3;
-
-    /**
-     * A factory interface for building a {@link TabModelSelector} instance.
-     */
-    public interface TabModelSelectorFactory {
-        /**
-         * Builds a {@link TabModelSelector}.
-         *
-         * @param activity An {@link Activity} instance.
-         * @param tabCreatorManager A {@link TabCreatorManager} instance.
-         * @param selectorIndex The index of the {@link TabModelSelector}.
-         * @return A new {@link TabModelSelector} instance.
-         */
-        TabModelSelector buildSelector(Activity activity, TabCreatorManager tabCreatorManager,
-                int selectorIndex);
-    }
-
-    /** The singleton reference. */
-    private static TabWindowManager sInstance;
-
-    private TabModelSelectorFactory mSelectorFactory = new DefaultTabModelSelectorFactory();
-
-    private List<TabModelSelector> mSelectors = new ArrayList<>();
-
-    private Map<Activity, TabModelSelector> mAssignments = new HashMap<>();
-
-    /**
-     * @return The singleton instance of {@link TabWindowManager}.
-     */
-    public static TabWindowManager getInstance() {
-        ThreadUtils.assertOnUiThread();
-        if (sInstance == null) sInstance = new TabWindowManager();
-        return sInstance;
-    }
+    int MAX_SIMULTANEOUS_SELECTORS = 3;
 
     /**
      * Called to request a {@link TabModelSelector} based on {@code index}. Note that the
@@ -73,38 +31,19 @@ public class TabWindowManager implements ActivityStateListener {
      * {@link #getIndexForWindow(Activity)} should be called to grab the actual index if required.
      *
      * @param tabCreatorManager An instance of {@link TabCreatorManager}.
+     * @param nextTabPolicySupplier An instance of {@link NextTabPolicySupplier}.
      * @param index The index of the requested {@link TabModelSelector}. Not guaranteed to be the
      *              index of the {@link TabModelSelector} returned.
      * @return A {@link TabModelSelector} index, or {@code null} if there are too many
      *         {@link TabModelSelector}s already built.
      */
-    public TabModelSelector requestSelector(
-            Activity activity, TabCreatorManager tabCreatorManager, int index) {
-        if (mAssignments.get(activity) != null) {
-            return mAssignments.get(activity);
-        }
+    TabModelSelector requestSelector(Activity activity, TabCreatorManager tabCreatorManager,
+            NextTabPolicySupplier nextTabPolicySupplier, int index);
 
-        if (index < 0 || index >= mSelectors.size()) index = 0;
-
-        if (mSelectors.get(index) != null) {
-            for (int i = 0; i < mSelectors.size(); i++) {
-                if (mSelectors.get(i) == null) {
-                    index = i;
-                    break;
-                }
-            }
-        }
-
-        // Too many activities going at once.
-        if (mSelectors.get(index) != null) return null;
-
-        TabModelSelector selector = mSelectorFactory.buildSelector(
-                activity, tabCreatorManager, index);
-        mSelectors.set(index, selector);
-        mAssignments.put(activity, selector);
-
-        return selector;
-    }
+    /**
+     * An index that represents the invalid state (i.e. when the window wasn't found in the list).
+     */
+    int INVALID_WINDOW_INDEX = -1;
 
     /**
      * Finds the current index of the {@link TabModelSelector} bound to {@code window}.
@@ -114,109 +53,27 @@ public class TabWindowManager implements ActivityStateListener {
      * @return         The index of the {@link TabModelSelector} or {@link #INVALID_WINDOW_INDEX} if
      *                 not found.
      */
-    public int getIndexForWindow(Activity activity) {
-        if (activity == null) return INVALID_WINDOW_INDEX;
-        TabModelSelector selector = mAssignments.get(activity);
-        if (selector == null) return INVALID_WINDOW_INDEX;
-        int index = mSelectors.indexOf(selector);
-        return index == -1 ? INVALID_WINDOW_INDEX : index;
-    }
+    int getIndexForWindow(Activity activity);
 
     /**
      * @return The number of {@link TabModelSelector}s currently assigned to {@link Activity}s.
      */
-    public int getNumberOfAssignedTabModelSelectors() {
-        return mAssignments.size();
-    }
+    int getNumberOfAssignedTabModelSelectors();
 
     /**
      * @return The total number of incognito tabs across all tab model selectors.
      */
-    public int getIncognitoTabCount() {
-        int count = 0;
-        for (int i = 0; i < mSelectors.size(); i++) {
-            if (mSelectors.get(i) != null) {
-                count += mSelectors.get(i).getModel(true).getCount();
-            }
-        }
-
-        // Count tabs that are moving between activities (e.g. a tab that was recently reparented
-        // and hasn't been attached to its new activity yet).
-        SparseArray<AsyncTabParams> asyncTabParams = AsyncTabParamsManager.getAsyncTabParams();
-        for (int i = 0; i < asyncTabParams.size(); i++) {
-            Tab tab = asyncTabParams.valueAt(i).getTabToReparent();
-            if (tab != null && tab.isIncognito()) count++;
-        }
-        return count;
-    }
+    int getIncognitoTabCount();
 
     /**
-     * @param tabId The ID of the tab in question.
-     * @return Whether the given tab exists in any currently loaded selector.
-     */
-    public boolean tabExistsInAnySelector(int tabId) {
-        return getTabById(tabId) != null;
-    }
+     * @param tab The tab to look for in each model.
+     * @return The TabModel containing the given Tab or null if one doesn't exist.
+     **/
+    TabModel getTabModelForTab(Tab tab);
 
     /**
      * @param tabId The ID of the tab in question.
      * @return Specified {@link Tab} or {@code null} if the {@link Tab} is not found.
      */
-    public Tab getTabById(int tabId) {
-        for (int i = 0; i < mSelectors.size(); i++) {
-            TabModelSelector selector = mSelectors.get(i);
-            if (selector != null) {
-                final Tab tab = selector.getTabById(tabId);
-                if (tab != null) return tab;
-            }
-        }
-
-        if (AsyncTabParamsManager.hasParamsForTabId(tabId)) {
-            return AsyncTabParamsManager.getAsyncTabParams().get(tabId).getTabToReparent();
-        }
-
-        return null;
-    }
-
-    @Override
-    public void onActivityStateChange(Activity activity, int newState) {
-        if (newState == ActivityState.DESTROYED && mAssignments.containsKey(activity)) {
-            int index = mSelectors.indexOf(mAssignments.remove(activity));
-            if (index >= 0) mSelectors.set(index, null);
-            // TODO(dtrainor): Move TabModelSelector#destroy() calls here.
-        }
-    }
-
-    /**
-     * Allows overriding the default {@link TabModelSelectorFactory} with another one.  Typically
-     * for testing.
-     * @param factory A {@link TabModelSelectorFactory} instance.
-     */
-    @VisibleForTesting
-    public void setTabModelSelectorFactory(TabModelSelectorFactory factory) {
-        mSelectorFactory = factory;
-    }
-
-    private TabWindowManager() {
-        ApplicationStatus.registerStateListenerForAllActivities(this);
-
-        for (int i = 0; i < MAX_SIMULTANEOUS_SELECTORS; i++) mSelectors.add(null);
-    }
-
-    private static class DefaultTabModelSelectorFactory implements TabModelSelectorFactory {
-        @Override
-        public TabModelSelector buildSelector(Activity activity,
-                TabCreatorManager tabCreatorManager, int selectorIndex) {
-            // Merge tabs if this is the TabModelSelector for ChromeTabbedActivity and there are no
-            // other instances running. This indicates that it is a complete cold start of
-            // ChromeTabbedActivity. Tabs should only be merged during a cold start of
-            // ChromeTabbedActivity and not other instances (e.g. ChromeTabbedActivity2).
-            boolean mergeTabs = activity.getClass().equals(ChromeTabbedActivity.class)
-                    && getInstance().getNumberOfAssignedTabModelSelectors() == 0;
-            TabPersistencePolicy persistencePolicy = new TabbedModeTabPersistencePolicy(
-                    selectorIndex, mergeTabs);
-            return new TabModelSelectorImpl(
-                    activity, tabCreatorManager, persistencePolicy, true, true);
-        }
-    }
+    Tab getTabById(int tabId);
 }

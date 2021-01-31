@@ -33,40 +33,40 @@ public interface Interface extends ConnectionErrorHandler, Closeable {
      * @see java.io.Closeable#close()
      */
     @Override
-    public void close();
+    void close();
 
     /**
      * A proxy to a mojo interface. This is base class for all generated proxies. It implements the
      * Interface and each time a method is called, the parameters are serialized and sent to the
      * {@link MessageReceiverWithResponder}, along with the response callback if needed.
      */
-    public interface Proxy extends Interface {
+    interface Proxy extends Interface {
         /**
          * Class allowing to interact with the proxy itself.
          */
-        public interface Handler extends Closeable {
+        interface Handler extends Closeable {
             /**
              * Sets the {@link ConnectionErrorHandler} that will be notified of errors.
              */
-            public void setErrorHandler(ConnectionErrorHandler errorHandler);
+            void setErrorHandler(ConnectionErrorHandler errorHandler);
 
             /**
              * Unbinds the proxy and passes the handle. Can return null if the proxy is not bound or
              * if the proxy is not over a message pipe.
              */
-            public MessagePipeHandle passHandle();
+            MessagePipeHandle passHandle();
 
             /**
              * Returns the version number of the interface that the remote side supports.
              */
-            public int getVersion();
+            int getVersion();
 
             /**
              * Queries the max version that the remote side supports. On completion, the result will
              * be returned as the input of |callback|. The version number of this interface pointer
              * will also be updated.
              */
-            public void queryVersion(Callback1<Integer> callback);
+            void queryVersion(Callback1<Integer> callback);
 
             /**
              * If the remote side doesn't support the specified version, it will close its end of
@@ -77,13 +77,13 @@ public interface Interface extends ConnectionErrorHandler, Closeable {
              * by the remote side, it is guaranteed that all calls to the interface methods after
              * requireVersion(X) will be ignored.
              */
-            public void requireVersion(int version);
+            void requireVersion(int version);
         }
 
         /**
          * Returns the {@link Handler} object allowing to interact with the proxy itself.
          */
-        public Handler getProxyHandler();
+        Handler getProxyHandler();
     }
 
     /**
@@ -400,21 +400,23 @@ public interface Interface extends ConnectionErrorHandler, Closeable {
 
         /**
          * Binds the given implementation to the handle.
+         * Returns the router that owns the implementation and connection handle, which can be used
+         * to close the binding if necessary. If the router (and by consequence the handle) is
+         * intentionally leaked it will close itself when the connection handle is closed and the
+         * proxy receives the connection error.
          */
-        public void bind(I impl, MessagePipeHandle handle) {
-            // The router (and by consequence the handle) is intentionally leaked. It will close
-            // itself when the connected handle is closed and the proxy receives the connection
-            // error.
+        public Router bind(I impl, MessagePipeHandle handle) {
             Router router = new RouterImpl(handle);
             bind(handle.getCore(), impl, router);
             router.start();
+            return router;
         }
 
         /**
          * Binds the given implementation to the InterfaceRequest.
          */
-        public final void bind(I impl, InterfaceRequest<I> request) {
-            bind(impl, request.passHandle());
+        public final Router bind(I impl, InterfaceRequest<I> request) {
+            return bind(impl, request.passHandle());
         }
 
         /**

@@ -31,7 +31,7 @@ public class TabLoadTracker {
          * Called when the loading state tracked by this tab should visually change.
          * @param id The id of the Tab.
          */
-        public void loadStateChanged(int id);
+        void loadStateChanged(int id);
     }
 
     /**
@@ -91,7 +91,7 @@ public class TabLoadTracker {
         return mLoading || mPageLoading;
     }
 
-    private Runnable mLoadFinishedRunnable = new Runnable() {
+    private final Runnable mLoadFinishedRunnable = new Runnable() {
         @Override
         public void run() {
             mLoading = false;
@@ -99,7 +99,7 @@ public class TabLoadTracker {
         }
     };
 
-    private Runnable mPageLoadFinishedRunnable = new Runnable() {
+    private final Runnable mPageLoadFinishedRunnable = new Runnable() {
         @Override
         public void run() {
             mPageLoading = false;

@@ -21,8 +21,9 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import android.view.inputmethod.InputContentInfo;
 
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.Log;
-import org.chromium.base.VisibleForTesting;
 
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -33,7 +34,7 @@ import java.util.regex.Pattern;
  * effectively hide the existence of autocomplete text from keyboard.
  */
 public class SpannableAutocompleteEditTextModel implements AutocompleteEditTextModelBase {
-    private static final String TAG = "cr_SpanAutocomplete";
+    private static final String TAG = "SpanAutocomplete";
 
     private static final boolean DEBUG = false;
 
@@ -70,6 +71,12 @@ public class SpannableAutocompleteEditTextModel implements AutocompleteEditTextM
     // For testing.
     private int mLastUpdateSelStart;
     private int mLastUpdateSelEnd;
+
+    // This controls whether AutocompleteEditText is permitted to pass-through specific
+    // Accessibility announcements, in particular the TEXT_CHANGED and TEXT_SELECTION_CHANGED.
+    // The only events of the above type that are allowed are ones coming from
+    // SpannableAutocompleteEditTextModel.
+    private boolean mDelegateShouldIgnoreAccessibilityEvents = true;
 
     public SpannableAutocompleteEditTextModel(AutocompleteEditTextModelBase.Delegate delegate) {
         if (DEBUG) Log.i(TAG, "constructor");
@@ -134,6 +141,8 @@ public class SpannableAutocompleteEditTextModel implements AutocompleteEditTextM
             removedCount = oldState.getUserText().length();
             fromIndex = 0;
         }
+
+        mDelegateShouldIgnoreAccessibilityEvents = false;
         if (!oldState.getText().equals(newState.getText())
                 && (addedCount != 0 || removedCount != 0)) {
             AccessibilityEvent event =
@@ -144,15 +153,13 @@ public class SpannableAutocompleteEditTextModel implements AutocompleteEditTextM
             event.setAddedCount(addedCount);
             mDelegate.sendAccessibilityEventUnchecked(event);
         }
-        if (oldState.getSelStart() != newState.getSelEnd()
+
+        if (oldState.getSelStart() != newState.getSelStart()
                 || oldState.getSelEnd() != newState.getSelEnd()) {
-            AccessibilityEvent event =
-                    AccessibilityEvent.obtain(AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED);
-            event.setFromIndex(newState.getSelStart());
-            event.setToIndex(newState.getSelEnd());
-            event.setItemCount(newState.getUserText().length());
-            mDelegate.sendAccessibilityEventUnchecked(event);
+            mDelegate.sendAccessibilityEventUnchecked(
+                    AccessibilityEvent.obtain(AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED));
         }
+        mDelegateShouldIgnoreAccessibilityEvents = true;
     }
 
     private void sendAccessibilityEventForAppendingAutocomplete(AutocompleteState newState) {
@@ -164,7 +171,9 @@ public class SpannableAutocompleteEditTextModel implements AutocompleteEditTextM
         eventTextChanged.setFromIndex(newState.getUserText().length());
         eventTextChanged.setRemovedCount(0);
         eventTextChanged.setAddedCount(newState.getAutocompleteText().length());
+        mDelegateShouldIgnoreAccessibilityEvents = false;
         mDelegate.sendAccessibilityEventUnchecked(eventTextChanged);
+        mDelegateShouldIgnoreAccessibilityEvents = true;
     }
 
     private void notifyAccessibilityService() {
@@ -275,13 +284,21 @@ public class SpannableAutocompleteEditTextModel implements AutocompleteEditTextM
                 clearAutocompleteTextAndUpdateSpanCursor();
             }
         }
-        notifyAutocompleteTextStateChanged();
         updateSelectionForTesting();
+        notifyAutocompleteTextStateChanged();
     }
 
     @Override
     public void onFocusChanged(boolean focused) {
         if (DEBUG) Log.i(TAG, "onFocusChanged: " + focused);
+
+        if (!focused) {
+            // Reset selection now. It will be updated immediately after focus is re-gained.
+            // We do this to ensure the selection changed announcements are advertised by us
+            // since we suppress all TEXT_SELECTION_CHANGED announcements coming from EditText.
+            mPreviouslyNotifiedState.setSelection(-1, -1);
+            mCurrentState.setSelection(-1, -1);
+        }
     }
 
     @Override
@@ -343,28 +360,31 @@ public class SpannableAutocompleteEditTextModel implements AutocompleteEditTextM
     @Override
     public boolean shouldAutocomplete() {
         boolean retVal = mBatchEditNestCount == 0 && mLastEditWasTyping
-                && mCurrentState.isCursorAtEndOfUserText() && !isKeyboardBlacklisted()
+                && mCurrentState.isCursorAtEndOfUserText() && doesKeyboardSupportAutocomplete()
                 && isNonCompositionalText(getTextWithoutAutocomplete());
         if (DEBUG) Log.i(TAG, "shouldAutocomplete: " + retVal);
         return retVal;
     }
 
-    private boolean isKeyboardBlacklisted() {
+    private boolean doesKeyboardSupportAutocomplete() {
         String pkgName = mDelegate.getKeyboardPackageName();
-        return pkgName.contains(".iqqi") // crbug.com/767016
-                || pkgName.contains("omronsoft") || pkgName.contains(".iwnn"); // crbug.com/758443
+        return !pkgName.contains(".iqqi") // crbug.com/767016
+                && !pkgName.contains("omronsoft") && !pkgName.contains(".iwnn"); // crbug.com/758443
     }
 
     private boolean shouldFinishCompositionOnDeletion() {
         // crbug.com/758443, crbug.com/766888: Japanese keyboard does not finish composition when we
         // restore the deleted text, and later typing will make Japanese keyboard move before the
         // restored character. Most keyboards accept finishComposingText and update their internal
-        // states. One exception is the recent version of Samsung keyboard which works goofily only
-        // when we finish composing text here. Since it is more difficult to blacklist all Japanese
+        // states.
+        String pkgName = mDelegate.getKeyboardPackageName();
+        // One exception is the recent version of Samsung keyboard which works goofily only
+        // when we finish composing text here. Since it is more difficult to block all Japanese
         // keyboards, instead we call finishComposingText() for all the keyboards except for Samsung
         // keyboard.
-        String pkgName = mDelegate.getKeyboardPackageName();
-        return !pkgName.contains("com.sec.android.inputmethod");
+        return !pkgName.contains("com.sec.android.inputmethod")
+                // crbug.com/1071011: LG keyboard has the same issue.
+                && !pkgName.contains("com.lge.ime");
     }
 
     @VisibleForTesting
@@ -402,7 +422,7 @@ public class SpannableAutocompleteEditTextModel implements AutocompleteEditTextM
 
     @Override
     public boolean shouldIgnoreAccessibilityEvent() {
-        return mBatchEditNestCount > 0;
+        return mDelegateShouldIgnoreAccessibilityEvents;
     }
 
     /**

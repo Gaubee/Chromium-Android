@@ -4,18 +4,23 @@
 
 package org.chromium.chrome.browser.modaldialog;
 
-import org.chromium.chrome.browser.ChromeActivity;
+import org.chromium.base.supplier.Supplier;
+import org.chromium.chrome.browser.app.ChromeActivity;
 import org.chromium.chrome.browser.lifecycle.Destroyable;
 import org.chromium.chrome.browser.lifecycle.NativeInitObserver;
 import org.chromium.chrome.browser.tab.EmptyTabObserver;
 import org.chromium.chrome.browser.tab.Tab;
 import org.chromium.chrome.browser.tab.TabObserver;
+import org.chromium.chrome.browser.tab.TabSelectionType;
 import org.chromium.chrome.browser.tabmodel.TabModelSelector;
 import org.chromium.chrome.browser.tabmodel.TabModelSelectorTabModelObserver;
-import org.chromium.chrome.browser.tabmodel.TabSelectionType;
+import org.chromium.chrome.browser.ui.TabObscuringHandler;
+import org.chromium.components.browser_ui.util.ComposedBrowserControlsVisibilityDelegate;
 import org.chromium.ui.modaldialog.DialogDismissalCause;
 import org.chromium.ui.modaldialog.ModalDialogManager;
 import org.chromium.ui.modaldialog.ModalDialogManager.ModalDialogType;
+import org.chromium.ui.util.TokenHolder;
+import org.chromium.url.GURL;
 
 /**
  * Class responsible for handling dismissal of a tab modal dialog on user actions outside the tab
@@ -25,7 +30,7 @@ public class TabModalLifetimeHandler implements NativeInitObserver, Destroyable 
     /** The observer to dismiss all dialogs when the attached tab is not interactable. */
     private final TabObserver mTabObserver = new EmptyTabObserver() {
         @Override
-        public void onInteractabilityChanged(boolean isInteractable) {
+        public void onInteractabilityChanged(Tab tab, boolean isInteractable) {
             updateSuspensionState();
         }
 
@@ -37,24 +42,40 @@ public class TabModalLifetimeHandler implements NativeInitObserver, Destroyable 
                 mActiveTab = null;
             }
         }
+
+        @Override
+        public void onPageLoadStarted(Tab tab, GURL url) {
+            if (mActiveTab == tab) {
+                mManager.dismissDialogsOfType(ModalDialogType.TAB, DialogDismissalCause.NAVIGATE);
+            }
+        }
     };
 
-    private final ChromeActivity mActivity;
+    private ChromeActivity mActivity;
     private final ModalDialogManager mManager;
-
-    private TabModalPresenter mPresenter;
+    private final Supplier<ComposedBrowserControlsVisibilityDelegate> mAppVisibilityDelegate;
+    private final Supplier<TabObscuringHandler> mTabObscuringHandlerSupplier;
+    private ChromeTabModalPresenter mPresenter;
     private TabModelSelectorTabModelObserver mTabModelObserver;
-    private boolean mHasBottomControls;
     private Tab mActiveTab;
+    private int mTabModalSuspendedToken;
 
     /**
      * @param activity The {@link ChromeActivity} that this handler is attached to.
      * @param manager The {@link ModalDialogManager} that this handler handles.
+     * @param appVisibilityDelegate The {@link ComposedBrowserControlsVisibilityDelegate} that
+     *                              handles the application browser controls visibility.
+     * @param tabObscuringHandler {@link TabObscuringHandler} object.
      */
-    public TabModalLifetimeHandler(ChromeActivity activity, ModalDialogManager manager) {
+    public TabModalLifetimeHandler(ChromeActivity activity, ModalDialogManager manager,
+            Supplier<ComposedBrowserControlsVisibilityDelegate> appVisibilityDelegate,
+            Supplier<TabObscuringHandler> tabObscuringHandler) {
         mActivity = activity;
         mManager = manager;
+        mAppVisibilityDelegate = appVisibilityDelegate;
+        mTabObscuringHandlerSupplier = tabObscuringHandler;
         activity.getLifecycleDispatcher().register(this);
+        mTabModalSuspendedToken = TokenHolder.INVALID_TOKEN;
     }
 
     /**
@@ -64,10 +85,7 @@ public class TabModalLifetimeHandler implements NativeInitObserver, Destroyable 
     public void onOmniboxFocusChanged(boolean hasFocus) {
         if (mPresenter == null) return;
 
-        // If has bottom controls, the view hierarchy will be updated by mBottomSheetObserver.
-        if (mPresenter.getDialogModel() != null && !mHasBottomControls) {
-            mPresenter.updateContainerHierarchy(!hasFocus);
-        }
+        if (mPresenter.getDialogModel() != null) mPresenter.updateContainerHierarchy(!hasFocus);
     }
 
     /**
@@ -81,9 +99,9 @@ public class TabModalLifetimeHandler implements NativeInitObserver, Destroyable 
 
     @Override
     public void onFinishNativeInitialization() {
-        mPresenter = new TabModalPresenter(mActivity);
+        mPresenter = new ChromeTabModalPresenter(mActivity, mTabObscuringHandlerSupplier);
+        mAppVisibilityDelegate.get().addDelegate(mPresenter.getBrowserControlsVisibilityDelegate());
         mManager.registerPresenter(mPresenter, ModalDialogType.TAB);
-        mHasBottomControls = mActivity.getBottomSheet() != null;
 
         handleTabChanged(mActivity.getActivityTab());
         TabModelSelector tabModelSelector = mActivity.getTabModelSelector();
@@ -113,15 +131,23 @@ public class TabModalLifetimeHandler implements NativeInitObserver, Destroyable 
     @Override
     public void destroy() {
         if (mTabModelObserver != null) mTabModelObserver.destroy();
+        if (mPresenter != null) mPresenter.destroy();
+
+        if (mActiveTab != null) {
+            mActiveTab.removeObserver(mTabObserver);
+            mActiveTab = null;
+        }
+        mActivity = null;
     }
 
     /** Update whether the {@link ModalDialogManager} should suspend tab modal dialogs. */
     private void updateSuspensionState() {
         assert mActiveTab != null;
         if (mActiveTab.isUserInteractable()) {
-            mManager.resumeType(ModalDialogType.TAB);
-        } else {
-            mManager.suspendType(ModalDialogType.TAB);
+            mManager.resumeType(ModalDialogType.TAB, mTabModalSuspendedToken);
+            mTabModalSuspendedToken = TokenHolder.INVALID_TOKEN;
+        } else if (mTabModalSuspendedToken == TokenHolder.INVALID_TOKEN) {
+            mTabModalSuspendedToken = mManager.suspendType(ModalDialogType.TAB);
         }
     }
 }

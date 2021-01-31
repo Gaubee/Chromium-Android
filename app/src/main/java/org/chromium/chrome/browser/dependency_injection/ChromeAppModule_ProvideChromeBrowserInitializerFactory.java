@@ -6,11 +6,14 @@ import javax.annotation.Generated;
 import org.chromium.chrome.browser.init.ChromeBrowserInitializer;
 
 @Generated(
-  value = "dagger.internal.codegen.ComponentProcessor",
-  comments = "https://google.github.io/dagger"
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
 )
-public final class ChromeAppModule_ProvideChromeBrowserInitializerFactory
-    implements Factory<ChromeBrowserInitializer> {
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes"
+})
+public final class ChromeAppModule_ProvideChromeBrowserInitializerFactory implements Factory<ChromeBrowserInitializer> {
   private final ChromeAppModule module;
 
   public ChromeAppModule_ProvideChromeBrowserInitializerFactory(ChromeAppModule module) {
@@ -19,11 +22,7 @@ public final class ChromeAppModule_ProvideChromeBrowserInitializerFactory
 
   @Override
   public ChromeBrowserInitializer get() {
-    return provideInstance(module);
-  }
-
-  public static ChromeBrowserInitializer provideInstance(ChromeAppModule module) {
-    return proxyProvideChromeBrowserInitializer(module);
+    return provideChromeBrowserInitializer(module);
   }
 
   public static ChromeAppModule_ProvideChromeBrowserInitializerFactory create(
@@ -31,10 +30,7 @@ public final class ChromeAppModule_ProvideChromeBrowserInitializerFactory
     return new ChromeAppModule_ProvideChromeBrowserInitializerFactory(module);
   }
 
-  public static ChromeBrowserInitializer proxyProvideChromeBrowserInitializer(
-      ChromeAppModule instance) {
-    return Preconditions.checkNotNull(
-        instance.provideChromeBrowserInitializer(),
-        "Cannot return null from a non-@Nullable @Provides method");
+  public static ChromeBrowserInitializer provideChromeBrowserInitializer(ChromeAppModule instance) {
+    return Preconditions.checkNotNullFromProvides(instance.provideChromeBrowserInitializer());
   }
 }

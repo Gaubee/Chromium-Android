@@ -163,16 +163,12 @@ public class ChildProcessLauncher {
                     };
             mConnection = mDelegate.getBoundConnection(mConnectionAllocator, serviceCallback);
             if (mConnection != null) {
-                assert mConnectionAllocator.isConnectionFromAllocator(mConnection);
                 setupConnection();
                 return true;
             }
-            if (!allocateAndSetupConnection(
-                        serviceCallback, setupConnection, queueIfNoFreeConnection)
-                    && !queueIfNoFreeConnection) {
-                return false;
-            }
-            return true;
+            return allocateAndSetupConnection(
+                    serviceCallback, setupConnection, queueIfNoFreeConnection)
+                    || queueIfNoFreeConnection;
         } finally {
             TraceEvent.end("ChildProcessLauncher.start");
         }

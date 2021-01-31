@@ -5,20 +5,26 @@
 package org.chromium.chrome.browser.infobar;
 
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
-import android.support.graphics.drawable.Animatable2Compat;
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.TextView;
 
-import org.chromium.base.ThreadUtils;
+import android.annotation.Nullable;
+import androidx.core.view.ViewCompat;
+import androidx.vectordrawable.graphics.drawable.Animatable2Compat;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+
 import org.chromium.base.annotations.CalledByNative;
+import org.chromium.base.annotations.NativeMethods;
+import org.chromium.base.task.PostTask;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.download.DownloadInfoBarController;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.components.infobars.InfoBar;
+import org.chromium.components.infobars.InfoBarLayout;
 import org.chromium.components.offline_items_collection.ContentId;
+import org.chromium.components.offline_items_collection.OfflineItemSchedule;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
 
 /**
  * An {@link InfoBar} to provide information about currently running downloads.
@@ -33,7 +39,8 @@ public class DownloadProgressInfoBar extends InfoBar {
          * Called when a link is clicked by the user.
          * @param itemId The ContentId of the item currently being shown in the InfoBar.
          */
-        void onLinkClicked(@Nullable ContentId itemId);
+        void onLinkClicked(
+                @Nullable ContentId itemId, @Nullable final OfflineItemSchedule schedule);
 
         /**
          * Called when the InfoBar is closed either implicitly or explicitly by the user.
@@ -53,7 +60,7 @@ public class DownloadProgressInfoBar extends InfoBar {
 
     private DownloadProgressInfoBar(
             Client client, DownloadInfoBarController.DownloadProgressInfoBarData info) {
-        super(info.icon, null, null);
+        super(info.icon, 0, null, null);
         mInfo = info;
         mClient = client;
     }
@@ -69,8 +76,8 @@ public class DownloadProgressInfoBar extends InfoBar {
     }
 
     @Override
-    public boolean isBottomMostInfoBar() {
-        return true;
+    public int getPriority() {
+        return InfoBarPriority.BACKGROUND;
     }
 
     @Override
@@ -81,14 +88,17 @@ public class DownloadProgressInfoBar extends InfoBar {
 
     @Override
     public void onLinkClicked() {
-        mClient.onLinkClicked(mInfo.id);
+        mClient.onLinkClicked(mInfo.id, mInfo.schedule);
     }
 
     /**
      * @return The tab associated with this infobar.
      */
     public Tab getTab() {
-        return getNativeInfoBarPtr() == 0 ? null : nativeGetTab(getNativeInfoBarPtr());
+        return getNativeInfoBarPtr() == 0
+                ? null
+                : DownloadProgressInfoBarJni.get().getTab(
+                        getNativeInfoBarPtr(), DownloadProgressInfoBar.this);
     }
 
     /**
@@ -131,7 +141,7 @@ public class DownloadProgressInfoBar extends InfoBar {
             return;
         }
 
-        mAnimatedDrawable = AnimatedVectorDrawableCompat.create(getContext(), mInfo.icon);
+        mAnimatedDrawable = AnimatedVectorDrawableCompat.create(layout.getContext(), mInfo.icon);
         mAnimatedDrawable.registerAnimationCallback(new Animatable2Compat.AnimationCallback() {
             @Override
             public void onAnimationEnd(Drawable drawable) {
@@ -151,7 +161,7 @@ public class DownloadProgressInfoBar extends InfoBar {
     }
 
     private void restartIconAnimation() {
-        ThreadUtils.postOnUiThread(() -> {
+        PostTask.postTask(UiThreadTaskTraits.DEFAULT, () -> {
             if (mAnimatedDrawable == null) return;
             mAnimatedDrawable.start();
         });
@@ -164,8 +174,8 @@ public class DownloadProgressInfoBar extends InfoBar {
     public void updateInfoBar(DownloadInfoBarController.DownloadProgressInfoBarData info) {
         if (getView() == null) return;
 
-        mInfo = info;
-        setLayoutProperties((InfoBarLayout) getView(), info);
+        mInfo.update(info);
+        setLayoutProperties((InfoBarLayout) getView(), mInfo);
     }
 
     @Override
@@ -179,7 +189,7 @@ public class DownloadProgressInfoBar extends InfoBar {
      */
     public static void createInfoBar(
             Client client, Tab tab, DownloadInfoBarController.DownloadProgressInfoBarData info) {
-        nativeCreate(client, tab, info);
+        DownloadProgressInfoBarJni.get().create(client, tab, info);
     }
 
     /**
@@ -187,6 +197,7 @@ public class DownloadProgressInfoBar extends InfoBar {
      */
     public void closeInfoBar() {
         mClient.onInfoBarClosed(false);
+        if (mAnimatedDrawable != null) mAnimatedDrawable.clearAnimationCallbacks();
         super.onCloseButtonClicked();
     }
 
@@ -196,8 +207,10 @@ public class DownloadProgressInfoBar extends InfoBar {
         return new DownloadProgressInfoBar(client, info);
     }
 
-    private static native void nativeCreate(
-            Client client, Tab tab, DownloadInfoBarController.DownloadProgressInfoBarData info);
-
-    private native Tab nativeGetTab(long nativeDownloadProgressInfoBar);
+    @NativeMethods
+    interface Natives {
+        void create(
+                Client client, Tab tab, DownloadInfoBarController.DownloadProgressInfoBarData info);
+        Tab getTab(long nativeDownloadProgressInfoBar, DownloadProgressInfoBar caller);
+    }
 }

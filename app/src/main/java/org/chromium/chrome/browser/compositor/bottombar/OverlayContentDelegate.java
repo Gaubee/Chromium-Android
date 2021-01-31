@@ -4,7 +4,7 @@
 
 package org.chromium.chrome.browser.compositor.bottombar;
 
-import org.chromium.chrome.browser.externalnav.ExternalNavigationHandler;
+import org.chromium.components.external_intents.ExternalNavigationHandler;
 import org.chromium.components.navigation_interception.NavigationParams;
 
 /**
@@ -23,15 +23,22 @@ public class OverlayContentDelegate {
      * Called when a page navigation results in an error page.
      * @param url The URL that caused the failure.
      * @param isExternalUrl Whether the URL is different from the initially loaded URL.
-     * @param isFailure Whether the loaded page is an error page.
+     * @param isFailure Whether the loaded page is a page with an error response.
+     * @param isError Whether the loaded page is an error (interstitial) page.
      */
-    public void onMainFrameNavigation(String url, boolean isExternalUrl, boolean isFailure) {}
+    public void onMainFrameNavigation(
+            String url, boolean isExternalUrl, boolean isFailure, boolean isError) {}
+
+    /**
+     * Called when a page title gets updated.
+     * @param title Title string
+     */
+    public void onTitleUpdated(String title) {}
 
     /**
      * Called when content started loading in the panel.
-     * @param url The URL that is loading.
      */
-    public void onContentLoadStarted(String url) {}
+    public void onContentLoadStarted() {}
 
     /**
      * Called when the navigation entry has been committed.
@@ -60,6 +67,12 @@ public class OverlayContentDelegate {
     public void onVisibilityChanged(boolean isVisible) {}
 
     /**
+     * Called when the SSL state changes.
+     */
+
+    public void onSSLStateUpdated() {}
+
+    /**
      * Called once the WebContents has been seen.
      */
     public void onContentViewSeen() {}
@@ -68,9 +81,4 @@ public class OverlayContentDelegate {
      * Called once the WebContents has been created and set up completely.
      */
     public void onContentViewCreated() {}
-
-    /**
-     * Called once the WebContents has been destroyed.
-     */
-    public void onContentViewDestroyed() {}
 }

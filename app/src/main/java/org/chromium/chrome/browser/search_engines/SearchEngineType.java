@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.chrome.browser.search_engines;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -43,7 +43,10 @@ import java.lang.annotation.RetentionPolicy;
     SearchEngineType.SEARCH_ENGINE_ZOZNAM, SearchEngineType.SEARCH_ENGINE_360,
     SearchEngineType.SEARCH_ENGINE_COCCOC, SearchEngineType.SEARCH_ENGINE_DUCKDUCKGO,
     SearchEngineType.SEARCH_ENGINE_PARSIJOO, SearchEngineType.SEARCH_ENGINE_QWANT,
-    SearchEngineType.SEARCH_ENGINE_MAX
+    SearchEngineType.SEARCH_ENGINE_GIVERO, SearchEngineType.SEARCH_ENGINE_GMX,
+    SearchEngineType.SEARCH_ENGINE_INFO_COM, SearchEngineType.SEARCH_ENGINE_METAGER,
+    SearchEngineType.SEARCH_ENGINE_OCEANHERO, SearchEngineType.SEARCH_ENGINE_PRIVACYWALL,
+    SearchEngineType.SEARCH_ENGINE_ECOSIA, SearchEngineType.SEARCH_ENGINE_MAX
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface SearchEngineType {
@@ -104,5 +107,12 @@ public @interface SearchEngineType {
   int SEARCH_ENGINE_DUCKDUCKGO = 50;
   int SEARCH_ENGINE_PARSIJOO = 51;
   int SEARCH_ENGINE_QWANT = 52;
-  int SEARCH_ENGINE_MAX = 53;
+  int SEARCH_ENGINE_GIVERO = 53;
+  int SEARCH_ENGINE_GMX = 54;
+  int SEARCH_ENGINE_INFO_COM = 55;
+  int SEARCH_ENGINE_METAGER = 56;
+  int SEARCH_ENGINE_OCEANHERO = 57;
+  int SEARCH_ENGINE_PRIVACYWALL = 58;
+  int SEARCH_ENGINE_ECOSIA = 59;
+  int SEARCH_ENGINE_MAX = 60;
 }

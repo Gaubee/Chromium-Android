@@ -4,19 +4,17 @@
 
 package org.chromium.chrome.browser.ntp.cards;
 
-import android.support.annotation.CallSuper;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.chromium.base.Callback;
-import org.chromium.chrome.browser.metrics.ImpressionTracker;
 
 /**
  * Holds metadata about an item we want to display on the NTP. An item can be anything that will be
  * displayed on the NTP {@link RecyclerView}.
  */
 public class NewTabPageViewHolder extends RecyclerView.ViewHolder {
-    private final ImpressionTracker mImpressionTracker;
 
     /**
      * Constructs a {@link NewTabPageViewHolder} used to display an part of the NTP (e.g., header,
@@ -26,7 +24,6 @@ public class NewTabPageViewHolder extends RecyclerView.ViewHolder {
      */
     public NewTabPageViewHolder(View itemView) {
         super(itemView);
-        mImpressionTracker = new ImpressionTracker(itemView);
     }
 
     /**
@@ -43,21 +40,8 @@ public class NewTabPageViewHolder extends RecyclerView.ViewHolder {
     public void updateLayoutParams() {
     }
 
-    /**
-     * Called when the view holder is recycled, to release unused resources.
-     * @see NewTabPageAdapter#onViewRecycled(NewTabPageViewHolder)
-     */
-    @CallSuper
-    public void recycle() {
-        mImpressionTracker.setListener(null);
-    }
-
     protected RecyclerView.LayoutParams getParams() {
         return (RecyclerView.LayoutParams) itemView.getLayoutParams();
-    }
-
-    protected void setImpressionListener(ImpressionTracker.Listener listener) {
-        mImpressionTracker.setListener(listener);
     }
 
     /**

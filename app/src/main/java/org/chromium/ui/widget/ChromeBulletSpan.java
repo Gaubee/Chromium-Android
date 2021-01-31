@@ -17,7 +17,7 @@ import org.chromium.ui.R;
  * positioning to prevent it from being cut off.
  */
 public class ChromeBulletSpan extends BulletSpan {
-    private int mXOffset;
+    private final int mXOffset;
 
     /**
      * Construts a new ChromeBuletSpan.

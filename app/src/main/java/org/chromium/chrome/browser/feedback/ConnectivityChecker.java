@@ -4,13 +4,17 @@
 
 package org.chromium.chrome.browser.feedback;
 
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.Log;
 import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.base.task.AsyncTask;
+import org.chromium.base.task.PostTask;
 import org.chromium.chrome.browser.profiles.Profile;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -52,7 +56,7 @@ public final class ConnectivityChecker {
     }
 
     private static void postResult(final ConnectivityCheckerCallback callback, final int result) {
-        ThreadUtils.postOnUiThread(new Runnable() {
+        PostTask.postTask(UiThreadTaskTraits.DEFAULT, new Runnable() {
             @Override
             public void run() {
                 callback.onResult(result);
@@ -82,7 +86,7 @@ public final class ConnectivityChecker {
 
     static void checkConnectivitySystemNetworkStack(
             String urlStr, final int timeoutMs, final ConnectivityCheckerCallback callback) {
-        if (!nativeIsUrlValid(urlStr)) {
+        if (!ConnectivityCheckerJni.get().isUrlValid(urlStr)) {
             Log.w(TAG, "Predefined URL invalid.");
             postResult(callback, ConnectivityCheckResult.ERROR);
             return;
@@ -157,7 +161,7 @@ public final class ConnectivityChecker {
     static void checkConnectivityChromeNetworkStack(
             Profile profile, String url, long timeoutMs, ConnectivityCheckerCallback callback) {
         ThreadUtils.assertOnUiThread();
-        nativeCheckConnectivity(profile, url, timeoutMs, callback);
+        ConnectivityCheckerJni.get().checkConnectivity(profile, url, timeoutMs, callback);
     }
 
     @CalledByNative
@@ -167,8 +171,10 @@ public final class ConnectivityChecker {
 
     private ConnectivityChecker() {}
 
-    private static native void nativeCheckConnectivity(
-            Profile profile, String url, long timeoutMs, ConnectivityCheckerCallback callback);
-
-    private static native boolean nativeIsUrlValid(String url);
+    @NativeMethods
+    interface Natives {
+        void checkConnectivity(
+                Profile profile, String url, long timeoutMs, ConnectivityCheckerCallback callback);
+        boolean isUrlValid(String url);
+    }
 }

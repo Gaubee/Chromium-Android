@@ -4,10 +4,11 @@
 
 package org.chromium.chrome.browser.bookmarks;
 
-import org.chromium.chrome.browser.favicon.LargeIconBridge;
-import org.chromium.chrome.browser.widget.selection.SelectableListLayout;
-import org.chromium.chrome.browser.widget.selection.SelectionDelegate;
 import org.chromium.components.bookmarks.BookmarkId;
+import org.chromium.components.browser_ui.widget.dragreorder.DragStateDelegate;
+import org.chromium.components.browser_ui.widget.selectable_list.SelectableListLayout;
+import org.chromium.components.browser_ui.widget.selectable_list.SelectionDelegate;
+import org.chromium.components.favicon.LargeIconBridge;
 
 /**
  * Interface used by UI components in the main bookmarks UI to broadcast UI change notifications
@@ -23,7 +24,7 @@ interface BookmarkDelegate {
          * Let the tab containing bookmark manager load the url and later handle UI updates.
          * @param url The url to open in tab.
          */
-        public void onBookmarkUIStateChange(String url);
+        void onBookmarkUIStateChange(String url);
     }
 
     /**
@@ -58,10 +59,8 @@ interface BookmarkDelegate {
     /**
      * Closes the Bookmark UI (if on phone) and opens the given bookmark.
      * @param bookmark       bookmark to open.
-     * @param launchLocation The UI location where user tried to open bookmark. It is one of
-     *                       {@link BookmarkLaunchLocation} values
      */
-    void openBookmark(BookmarkId bookmark, int launchLocation);
+    void openBookmark(BookmarkId bookmark);
 
     /**
      * Shows the search UI.
@@ -98,4 +97,35 @@ interface BookmarkDelegate {
      * @return LargeIconBridge instance. By sharing the instance, we can also share the cache.
      */
     LargeIconBridge getLargeIconBridge();
+
+    /**
+     * @return The drag state delegate that is associated with this list of bookmarks.
+     */
+    DragStateDelegate getDragStateDelegate();
+
+    /**
+     * Move a bookmark one position down within its folder.
+     *
+     * @param bookmarkId The bookmark to move.
+     */
+    void moveDownOne(BookmarkId bookmarkId);
+
+    /**
+     * Move a bookmark one position up within its folder.
+     *
+     * @param bookmarkId The bookmark to move.
+     */
+    void moveUpOne(BookmarkId bookmarkId);
+
+    /**
+     * Notified when the menu is opened for a bookmark row displayed in the UI.
+     */
+    void onBookmarkItemMenuOpened();
+
+    /**
+     * Scroll the bookmarks list such that bookmarkId is shown in the view, and highlight it.
+     *
+     * @param bookmarkId The BookmarkId of the bookmark of interest.
+     */
+    void highlightBookmark(BookmarkId bookmarkId);
 }

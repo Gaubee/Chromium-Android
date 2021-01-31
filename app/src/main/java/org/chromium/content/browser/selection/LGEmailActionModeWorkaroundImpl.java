@@ -20,7 +20,8 @@ import android.widget.PopupWindow;
 
 import org.chromium.base.Log;
 import org.chromium.base.PackageUtils;
-import org.chromium.base.ThreadUtils;
+import org.chromium.base.task.PostTask;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -34,7 +35,7 @@ import java.lang.reflect.Method;
  * This is a version code limited workaround to avoid crashes in the app.
  */
 public final class LGEmailActionModeWorkaroundImpl {
-    private static final String TAG = "cr_Ime";
+    private static final String TAG = "Ime";
 
     // This is the last broken version shipped on LG V20/NRD90M.
     public static final int LGEmailWorkaroundMaxVersion = 67502100;
@@ -103,7 +104,7 @@ public final class LGEmailActionModeWorkaroundImpl {
 
                 @Override
                 public void onDestroyActionMode(final ActionMode mode) {
-                    ThreadUtils.postOnUiThread(new Runnable() {
+                    PostTask.postTask(UiThreadTaskTraits.DEFAULT, new Runnable() {
                         @Override
                         public void run() {
                             c.onDestroyActionMode(mode);
@@ -124,7 +125,7 @@ public final class LGEmailActionModeWorkaroundImpl {
                     null, contentContainer, 150, new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animator animation) {
-                            ThreadUtils.postOnUiThread(new Runnable() {
+                            PostTask.postTask(UiThreadTaskTraits.DEFAULT, new Runnable() {
                                 @Override
                                 public void run() {
                                     popupWindow.dismiss();

@@ -70,7 +70,7 @@ public abstract class ActionModeCallbackHelper {
 
         @Override
         public void onDestroyActionMode(ActionMode mode) {}
-    };
+    }
 
     /**
      * @return {@code true} if action mode is started and in proper working state.
@@ -100,7 +100,14 @@ public abstract class ActionModeCallbackHelper {
      * Set the action mode menu items allowed on the content.
      * @param allowedMenuItems bit field of item-flag mapping.
      */
-    public abstract void setAllowedMenuItems(int menItems);
+    public abstract void setAllowedMenuItems(int allowedMenuItems);
+
+    /**
+     * If the passed in mode and menu matches one of the MENU_ITEM_* items, return it.
+     * Otherwise, return 0. Only call from inside the implementation of
+     * ActionMode.Callback#onActionItemClicked.
+     */
+    public abstract int getAllowedMenuItemIfAny(ActionMode mode, MenuItem item);
 
     /**
      * @see {@link ActionMode.Callback#onCreateActionMode(ActionMode, Menu)}

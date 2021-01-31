@@ -4,12 +4,9 @@
 
 package org.chromium.chrome.browser.explore_sites;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Point;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import org.chromium.chrome.R;
@@ -17,6 +14,7 @@ import org.chromium.chrome.browser.native_page.NativePageNavigationDelegate;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.content_public.browser.LoadUrlParams;
 import org.chromium.ui.base.PageTransition;
+import org.chromium.ui.display.DisplayAndroid;
 import org.chromium.ui.mojom.WindowOpenDisposition;
 
 import java.util.List;
@@ -28,9 +26,9 @@ import java.util.List;
 public class ExperimentalExploreSitesSection {
     private static final int MAX_TILES = 3;
 
-    private Profile mProfile;
-    private NativePageNavigationDelegate mNavigationDelegate;
-    private View mExploreSection;
+    private final Profile mProfile;
+    private final NativePageNavigationDelegate mNavigationDelegate;
+    private final View mExploreSection;
     private LinearLayout mCategorySection;
 
     public ExperimentalExploreSitesSection(
@@ -51,7 +49,7 @@ public class ExperimentalExploreSitesSection {
                 (View v)
                         -> mNavigationDelegate.openUrl(WindowOpenDisposition.CURRENT_TAB,
                                 new LoadUrlParams(
-                                        ExploreSitesBridgeExperimental.nativeGetCatalogUrl(),
+                                        ExploreSitesBridgeExperimentalJni.get().getCatalogUrl(),
                                         PageTransition.AUTO_BOOKMARK)));
     }
 
@@ -61,11 +59,9 @@ public class ExperimentalExploreSitesSection {
         // TODO(chili): Try to get this from view hierarchy. This gets called before the
         // mExploreSection is measured when opening ntp via 3 dot menu -> new tab,
         // causing a crash. Max width is set to tile grid max width.
-        Point screenSize = new Point();
-        ((WindowManager) mExploreSection.getContext().getSystemService(Context.WINDOW_SERVICE))
-                .getDefaultDisplay()
-                .getSize(screenSize);
-        int tileWidth = Math.min(screenSize.x,
+        int width =
+                DisplayAndroid.getNonMultiDisplay(mExploreSection.getContext()).getDisplayWidth();
+        int tileWidth = Math.min(width,
                                 mExploreSection.getResources().getDimensionPixelSize(
                                         R.dimen.tile_grid_layout_max_width))
                 / MAX_TILES;

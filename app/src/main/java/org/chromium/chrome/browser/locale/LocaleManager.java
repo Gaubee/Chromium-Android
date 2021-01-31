@@ -6,33 +6,37 @@ package org.chromium.chrome.browser.locale;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.StrictMode;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
+
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.ActivityState;
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.ApplicationStatus;
 import org.chromium.base.Callback;
+import org.chromium.base.CommandLine;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.library_loader.LibraryLoader;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.AppHooks;
-import org.chromium.chrome.browser.ChromeFeatureList;
-import org.chromium.chrome.browser.preferences.PreferencesLauncher;
-import org.chromium.chrome.browser.preferences.SearchEnginePreference;
-import org.chromium.chrome.browser.search_engines.TemplateUrl;
-import org.chromium.chrome.browser.search_engines.TemplateUrlService;
-import org.chromium.chrome.browser.snackbar.Snackbar;
-import org.chromium.chrome.browser.snackbar.SnackbarManager;
-import org.chromium.chrome.browser.snackbar.SnackbarManager.SnackbarController;
+import org.chromium.chrome.browser.flags.ChromeFeatureList;
+import org.chromium.chrome.browser.flags.ChromeSwitches;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
+import org.chromium.chrome.browser.search_engines.TemplateUrlServiceFactory;
+import org.chromium.chrome.browser.search_engines.settings.SearchEngineSettings;
+import org.chromium.chrome.browser.settings.SettingsLauncherImpl;
+import org.chromium.chrome.browser.ui.messages.snackbar.Snackbar;
+import org.chromium.chrome.browser.ui.messages.snackbar.SnackbarManager;
+import org.chromium.chrome.browser.ui.messages.snackbar.SnackbarManager.SnackbarController;
 import org.chromium.chrome.browser.vr.OnExitVrRequestListener;
 import org.chromium.chrome.browser.vr.VrModuleProvider;
-import org.chromium.chrome.browser.widget.PromoDialog;
+import org.chromium.components.browser_ui.settings.SettingsLauncher;
+import org.chromium.components.browser_ui.widget.PromoDialog;
+import org.chromium.components.search_engines.TemplateUrl;
 import org.chromium.ui.base.PageTransition;
 
 import java.lang.annotation.Retention;
@@ -45,9 +49,6 @@ import java.util.concurrent.Callable;
  * Manager for some locale specific logics.
  */
 public class LocaleManager {
-    public static final String PREF_AUTO_SWITCH = "LocaleManager_PREF_AUTO_SWITCH";
-    public static final String PREF_PROMO_SHOWN = "LocaleManager_PREF_PROMO_SHOWN";
-    public static final String PREF_WAS_IN_SPECIAL_LOCALE = "LocaleManager_WAS_IN_SPECIAL_LOCALE";
     public static final String SPECIAL_LOCALE_ID = "US";
 
     /** The current state regarding search engine promo dialogs. */
@@ -71,6 +72,8 @@ public class LocaleManager {
         int SHOW_NEW = 2;
     }
 
+    // TODO(crbug.com/1022108): Remove this when downstream uses the replacement:
+    // {@link ChromePreferenceKeys#LOCALE_MANAGER_SEARCH_ENGINE_PROMO_SHOW_STATE}.
     protected static final String KEY_SEARCH_ENGINE_PROMO_SHOW_STATE =
             "com.android.chrome.SEARCH_ENGINE_PROMO_SHOWN";
 
@@ -87,14 +90,15 @@ public class LocaleManager {
     private WeakReference<SnackbarManager> mSnackbarManager = new WeakReference<>(null);
     private LocaleTemplateUrlLoader mLocaleTemplateUrlLoader;
 
-    private SnackbarController mSnackbarController = new SnackbarController() {
+    private final SnackbarController mSnackbarController = new SnackbarController() {
         @Override
         public void onDismissNoAction(Object actionData) { }
 
         @Override
         public void onAction(Object actionData) {
             Context context = ContextUtils.getApplicationContext();
-            PreferencesLauncher.launchSettingsPage(context, SearchEnginePreference.class);
+            SettingsLauncher settingsLauncher = new SettingsLauncherImpl();
+            settingsLauncher.launchSettingsActivity(context, SearchEngineSettings.class);
         }
     };
 
@@ -115,14 +119,9 @@ public class LocaleManager {
      */
     public LocaleManager() {
         @SearchEnginePromoState
-        int state = SearchEnginePromoState.SHOULD_CHECK;
-        StrictMode.ThreadPolicy oldPolicy = StrictMode.allowThreadDiskReads();
-        try {
-            state = ContextUtils.getAppSharedPreferences().getInt(
-                    KEY_SEARCH_ENGINE_PROMO_SHOW_STATE, SearchEnginePromoState.SHOULD_CHECK);
-        } finally {
-            StrictMode.setThreadPolicy(oldPolicy);
-        }
+        int state = SharedPreferencesManager.getInstance().readInt(
+                ChromePreferenceKeys.LOCALE_MANAGER_SEARCH_ENGINE_PROMO_SHOW_STATE,
+                SearchEnginePromoState.SHOULD_CHECK);
         mSearchEnginePromoCompleted = state == SearchEnginePromoState.CHECKED_AND_SHOWN;
     }
 
@@ -199,8 +198,9 @@ public class LocaleManager {
      * long as the user is in this locale.
      */
     protected void maybeAutoSwitchSearchEngine() {
-        SharedPreferences preferences = ContextUtils.getAppSharedPreferences();
-        boolean wasInSpecialLocale = preferences.getBoolean(PREF_WAS_IN_SPECIAL_LOCALE, false);
+        SharedPreferencesManager preferences = SharedPreferencesManager.getInstance();
+        boolean wasInSpecialLocale = preferences.readBoolean(
+                ChromePreferenceKeys.LOCALE_MANAGER_WAS_IN_SPECIAL_LOCALE, false);
         boolean isInSpecialLocale = isSpecialLocaleEnabled();
         if (wasInSpecialLocale && !isInSpecialLocale) {
             revertDefaultSearchEngineOverride();
@@ -212,7 +212,8 @@ public class LocaleManager {
             // As long as the user is in the special locale, special engines should be in the list.
             addSpecialSearchEngines();
         }
-        preferences.edit().putBoolean(PREF_WAS_IN_SPECIAL_LOCALE, isInSpecialLocale).apply();
+        preferences.writeBoolean(
+                ChromePreferenceKeys.LOCALE_MANAGER_WAS_IN_SPECIAL_LOCALE, isInSpecialLocale);
     }
 
     /**
@@ -227,7 +228,7 @@ public class LocaleManager {
     public void showSearchEnginePromoIfNeeded(
             final Activity activity, final @Nullable Callback<Boolean> onSearchEngineFinalized) {
         assert LibraryLoader.getInstance().isInitialized();
-        TemplateUrlService.getInstance().runWhenLoaded(new Runnable() {
+        TemplateUrlServiceFactory.get().runWhenLoaded(new Runnable() {
             @Override
             public void run() {
                 handleSearchEnginePromoWithTemplateUrlsLoaded(activity, onSearchEngineFinalized);
@@ -237,7 +238,7 @@ public class LocaleManager {
 
     private void handleSearchEnginePromoWithTemplateUrlsLoaded(
             final Activity activity, final @Nullable Callback<Boolean> onSearchEngineFinalized) {
-        assert TemplateUrlService.getInstance().isLoaded();
+        assert TemplateUrlServiceFactory.get().isLoaded();
 
         final Callback<Boolean> finalizeInternalCallback = new Callback<Boolean>() {
             @Override
@@ -255,8 +256,8 @@ public class LocaleManager {
                 if (onSearchEngineFinalized != null) onSearchEngineFinalized.onResult(result);
             }
         };
-        if (TemplateUrlService.getInstance().isDefaultSearchManaged()
-                || ApiCompatibilityUtils.isDemoUser(activity)) {
+        if (TemplateUrlServiceFactory.get().isDefaultSearchManaged()
+                || ApiCompatibilityUtils.isDemoUser()) {
             finalizeInternalCallback.onResult(true);
             return;
         }
@@ -342,15 +343,16 @@ public class LocaleManager {
      * @return Whether auto switch for search engine is enabled.
      */
     public boolean isSearchEngineAutoSwitchEnabled() {
-        return ContextUtils.getAppSharedPreferences().getBoolean(PREF_AUTO_SWITCH, false);
+        return SharedPreferencesManager.getInstance().readBoolean(
+                ChromePreferenceKeys.LOCALE_MANAGER_AUTO_SWITCH, false);
     }
 
     /**
      * Sets whether auto switch for search engine is enabled.
      */
     public void setSearchEngineAutoSwitch(boolean isEnabled) {
-        ContextUtils.getAppSharedPreferences().edit().putBoolean(PREF_AUTO_SWITCH, isEnabled)
-                .apply();
+        SharedPreferencesManager.getInstance().writeBoolean(
+                ChromePreferenceKeys.LOCALE_MANAGER_AUTO_SWITCH, isEnabled);
     }
 
     /**
@@ -368,7 +370,7 @@ public class LocaleManager {
         Snackbar snackbar = Snackbar.make(title, mSnackbarController, Snackbar.TYPE_NOTIFICATION,
                 Snackbar.UMA_SPECIAL_LOCALE);
         snackbar.setDuration(SNACKBAR_DURATION_MS);
-        snackbar.setAction(context.getString(R.string.preferences), null);
+        snackbar.setAction(context.getString(R.string.settings), null);
         manager.showSnackbar(snackbar);
     }
 
@@ -378,8 +380,8 @@ public class LocaleManager {
     @SearchEnginePromoType
     public int getSearchEnginePromoShowType() {
         if (!isSpecialLocaleEnabled()) return SearchEnginePromoType.DONT_SHOW;
-        SharedPreferences preferences = ContextUtils.getAppSharedPreferences();
-        if (preferences.getBoolean(PREF_PROMO_SHOWN, false)) {
+        SharedPreferencesManager preferences = SharedPreferencesManager.getInstance();
+        if (preferences.readBoolean(ChromePreferenceKeys.LOCALE_MANAGER_PROMO_SHOWN, false)) {
             return SearchEnginePromoType.DONT_SHOW;
         }
         return SearchEnginePromoType.SHOW_SOGOU;
@@ -409,12 +411,10 @@ public class LocaleManager {
      */
     protected void onUserSearchEngineChoiceFromPromoDialog(
             @SearchEnginePromoType int type, List<String> keywords, String keyword) {
-        TemplateUrlService.getInstance().setSearchEngine(keyword);
-        ContextUtils.getAppSharedPreferences()
-                .edit()
-                .putInt(KEY_SEARCH_ENGINE_PROMO_SHOW_STATE,
-                        SearchEnginePromoState.CHECKED_AND_SHOWN)
-                .apply();
+        TemplateUrlServiceFactory.get().setSearchEngine(keyword);
+        SharedPreferencesManager.getInstance().writeInt(
+                ChromePreferenceKeys.LOCALE_MANAGER_SEARCH_ENGINE_PROMO_SHOW_STATE,
+                SearchEnginePromoState.CHECKED_AND_SHOWN);
         mSearchEnginePromoCompleted = true;
     }
 
@@ -479,14 +479,9 @@ public class LocaleManager {
             return false;
         }
         @SearchEnginePromoState
-        int state = SearchEnginePromoState.SHOULD_CHECK;
-        StrictMode.ThreadPolicy oldPolicy = StrictMode.allowThreadDiskReads();
-        try {
-            state = ContextUtils.getAppSharedPreferences().getInt(
-                    KEY_SEARCH_ENGINE_PROMO_SHOW_STATE, SearchEnginePromoState.SHOULD_CHECK);
-        } finally {
-            StrictMode.setThreadPolicy(oldPolicy);
-        }
+        int state = SharedPreferencesManager.getInstance().readInt(
+                ChromePreferenceKeys.LOCALE_MANAGER_SEARCH_ENGINE_PROMO_SHOW_STATE,
+                SearchEnginePromoState.SHOULD_CHECK);
         return !mSearchEnginePromoCheckedThisSession
                 && state == SearchEnginePromoState.SHOULD_CHECK;
     }
@@ -499,4 +494,17 @@ public class LocaleManager {
      */
     public void recordLocaleBasedSearchMetrics(
             boolean isFromSearchWidget, String url, @PageTransition int transition) {}
+
+    /**
+     * @return Whether the user requires special handling.
+     */
+    public boolean isSpecialUser() {
+        return CommandLine.getInstance().hasSwitch(ChromeSwitches.FORCE_ENABLE_SPECIAL_USER);
+    }
+
+    /**
+     * Record metrics related to user type.
+     */
+    @CalledByNative
+    public void recordUserTypeMetrics() {}
 }

@@ -8,8 +8,6 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.os.SystemClock;
-import android.support.v4.view.ViewCompat;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -17,36 +15,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
-import org.chromium.base.ActivityState;
-import org.chromium.base.ApplicationStatus;
-import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.ChromeActivity;
-import org.chromium.chrome.browser.UrlConstants;
+import org.chromium.chrome.browser.app.ChromeActivity;
+import org.chromium.chrome.browser.browser_controls.BrowserControlsStateProvider;
 import org.chromium.chrome.browser.compositor.layouts.content.InvalidationAwareThumbnailProvider;
-import org.chromium.chrome.browser.native_page.NativePage;
-import org.chromium.chrome.browser.util.ViewUtils;
-
-import java.util.concurrent.TimeUnit;
+import org.chromium.chrome.browser.ui.native_page.NativePage;
+import org.chromium.chrome.browser.ui.native_page.NativePageHost;
+import org.chromium.components.embedder_support.util.UrlConstants;
+import org.chromium.ui.base.DeviceFormFactor;
+import org.chromium.ui.base.ViewUtils;
 
 /**
  * The native recent tabs page. Lists recently closed tabs, open windows and tabs from the user's
  * synced devices, and snapshot documents sent from Chrome to Mobile in an expandable list view.
  */
 public class RecentTabsPage
-        implements NativePage, ApplicationStatus.ActivityStateListener,
-                   ExpandableListView.OnChildClickListener,
+        implements NativePage, ExpandableListView.OnChildClickListener,
                    ExpandableListView.OnGroupCollapseListener,
                    ExpandableListView.OnGroupExpandListener, RecentTabsManager.UpdatedCallback,
                    View.OnAttachStateChangeListener, View.OnCreateContextMenuListener,
-                   InvalidationAwareThumbnailProvider {
+                   InvalidationAwareThumbnailProvider, BrowserControlsStateProvider.Observer {
     private final Activity mActivity;
+    private final BrowserControlsStateProvider mBrowserControlsStateProvider;
     private final ExpandableListView mListView;
     private final String mTitle;
     private final ViewGroup mView;
 
     private RecentTabsManager mRecentTabsManager;
     private RecentTabsRowAdapter mAdapter;
+    private NativePageHost mPageHost;
 
     private boolean mSnapshotContentChanged;
     private int mSnapshotListPosition;
@@ -55,31 +52,22 @@ public class RecentTabsPage
     private int mSnapshotHeight;
 
     /**
-     * Whether the page is in the foreground and is visible.
-     */
-    private boolean mInForeground;
-
-    /**
      * Whether {@link #mView} is attached to the application window.
      */
     private boolean mIsAttachedToWindow;
-
-    /**
-     * The time, whichever is most recent, that the page:
-     * - Moved to the foreground
-     * - Became visible
-     */
-    private long mForegroundTimeMs;
 
     /**
      * Constructor returns an instance of RecentTabsPage.
      *
      * @param activity The activity this view belongs to.
      * @param recentTabsManager The RecentTabsManager which provides the model data.
+     * @param pageHost The NativePageHost used to provide a history navigation delegate object.
      */
-    public RecentTabsPage(ChromeActivity activity, RecentTabsManager recentTabsManager) {
+    public RecentTabsPage(
+            ChromeActivity activity, RecentTabsManager recentTabsManager, NativePageHost pageHost) {
         mActivity = activity;
         mRecentTabsManager = recentTabsManager;
+        mPageHost = pageHost;
         Resources resources = activity.getResources();
 
         mTitle = resources.getString(R.string.recent_tabs);
@@ -96,41 +84,17 @@ public class RecentTabsPage
         mListView.setOnCreateContextMenuListener(this);
 
         mView.addOnAttachStateChangeListener(this);
-        ApplicationStatus.registerStateListenerForActivity(this, activity);
-        // {@link #mInForeground} will be updated once the view is attached to the window.
 
-        View recentTabsRoot = mView.findViewById(R.id.recent_tabs_root);
-        if (activity.getFullscreenManager().getBottomControlsHeight() != 0) {
-            ViewCompat.setPaddingRelative(recentTabsRoot,
-                    ViewCompat.getPaddingStart(recentTabsRoot),
-                    activity.getFullscreenManager().getTopControlsHeight(),
-                    ViewCompat.getPaddingEnd(recentTabsRoot),
-                    activity.getFullscreenManager().getBottomControlsHeight());
+        if (!DeviceFormFactor.isNonMultiDisplayContextOnTablet(mActivity)) {
+            mBrowserControlsStateProvider = activity.getBrowserControlsManager();
+            mBrowserControlsStateProvider.addObserver(this);
+            onBottomControlsHeightChanged(mBrowserControlsStateProvider.getBottomControlsHeight(),
+                    mBrowserControlsStateProvider.getBottomControlsMinHeight());
+        } else {
+            mBrowserControlsStateProvider = null;
         }
 
         onUpdated();
-    }
-
-    /**
-     * Updates whether the page is in the foreground based on whether the application is in the
-     * foreground and whether {@link #mView} is attached to the application window. If the page is
-     * no longer in the foreground, records the time that the page spent in the foreground to UMA.
-     */
-    private void updateForegroundState() {
-        boolean inForeground = mIsAttachedToWindow
-                && ApplicationStatus.getStateForActivity(mActivity) == ActivityState.RESUMED;
-        if (mInForeground == inForeground) {
-            return;
-        }
-
-        mInForeground = inForeground;
-        if (mInForeground) {
-            mForegroundTimeMs = SystemClock.elapsedRealtime();
-            mRecentTabsManager.recordRecentTabMetrics();
-        } else {
-            RecordHistogram.recordLongTimesHistogram("NewTabPage.RecentTabsPage.TimeVisibleAndroid",
-                    SystemClock.elapsedRealtime() - mForegroundTimeMs, TimeUnit.MILLISECONDS);
-        }
     }
 
     // NativePage overrides
@@ -170,24 +134,19 @@ public class RecentTabsPage
         assert !mIsAttachedToWindow : "Destroy called before removed from window";
         mRecentTabsManager.destroy();
         mRecentTabsManager = null;
+        mPageHost = null;
         mAdapter.notifyDataSetInvalidated();
         mAdapter = null;
         mListView.setAdapter((RecentTabsRowAdapter) null);
 
         mView.removeOnAttachStateChangeListener(this);
-        ApplicationStatus.unregisterActivityStateListener(this);
+        if (mBrowserControlsStateProvider != null) {
+            mBrowserControlsStateProvider.removeObserver(this);
+        }
     }
 
     @Override
     public void updateForUrl(String url) {
-    }
-
-    // ApplicationStatus.ActivityStateListener
-    @Override
-    public void onActivityStateChange(Activity activity, int state) {
-        // Called when the user locks the screen or moves Chrome to the background via the task
-        // switcher.
-        updateForegroundState();
     }
 
     // View.OnAttachStateChangeListener
@@ -196,7 +155,6 @@ public class RecentTabsPage
         // Called when the user opens the RecentTabsPage or switches back to the RecentTabsPage from
         // another tab.
         mIsAttachedToWindow = true;
-        updateForegroundState();
 
         // Work around a bug on Samsung devices where the recent tabs page does not appear after
         // toggling the Sync quick setting.  For some reason, the layout is being dropped on the
@@ -208,7 +166,6 @@ public class RecentTabsPage
     public void onViewDetachedFromWindow(View view) {
         // Called when the user navigates from the RecentTabsPage or switches to another tab.
         mIsAttachedToWindow = false;
-        updateForegroundState();
     }
 
     // ExpandableListView.OnChildClickedListener
@@ -289,5 +246,50 @@ public class RecentTabsPage
         mSnapshotListTop = topItem == null ? 0 : topItem.getTop();
         mSnapshotWidth = mView.getWidth();
         mSnapshotHeight = mView.getHeight();
+    }
+
+    @Override
+    public void onBottomControlsHeightChanged(
+            int bottomControlsHeight, int bottomControlsMinHeight) {
+        updateMargins();
+    }
+
+    @Override
+    public void onTopControlsHeightChanged(int topControlsHeight, int topControlsMinHeight) {
+        updateMargins();
+    }
+
+    @Override
+    public void onControlsOffsetChanged(int topOffset, int topControlsMinHeightOffset,
+            int bottomOffset, int bottomControlsMinHeightOffset, boolean needsAnimate) {
+        updateMargins();
+    }
+
+    private void updateMargins() {
+        final View recentTabsRoot = mView.findViewById(R.id.recent_tabs_root);
+        final int topControlsHeight = mBrowserControlsStateProvider.getTopControlsHeight();
+        final int contentOffset = mBrowserControlsStateProvider.getContentOffset();
+        ViewGroup.MarginLayoutParams layoutParams =
+                (ViewGroup.MarginLayoutParams) recentTabsRoot.getLayoutParams();
+        int topMargin = layoutParams.topMargin;
+
+        // If the top controls are at the resting position or their height is decreasing, we want to
+        // update the margin. We don't do this if the controls height is increasing because changing
+        // the margin shrinks the view height to its final value, leaving a gap at the bottom until
+        // the animation finishes.
+        if (contentOffset >= topControlsHeight) {
+            topMargin = topControlsHeight;
+        }
+
+        // If the content offset is different from the margin, we use translationY to position the
+        // view in line with the content offset.
+        recentTabsRoot.setTranslationY(contentOffset - topMargin);
+
+        final int bottomMargin = mBrowserControlsStateProvider.getBottomControlsHeight();
+        if (topMargin != layoutParams.topMargin || bottomMargin != layoutParams.bottomMargin) {
+            layoutParams.topMargin = topMargin;
+            layoutParams.bottomMargin = bottomMargin;
+            recentTabsRoot.setLayoutParams(layoutParams);
+        }
     }
 }

@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.components.offlinepages;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -19,10 +19,10 @@ import java.lang.annotation.RetentionPolicy;
     SavePageResult.SUCCESS, SavePageResult.CANCELLED, SavePageResult.DEVICE_FULL,
     SavePageResult.CONTENT_UNAVAILABLE, SavePageResult.ARCHIVE_CREATION_FAILED,
     SavePageResult.STORE_FAILURE, SavePageResult.ALREADY_EXISTS, SavePageResult.SKIPPED,
-    SavePageResult.SECURITY_CERTIFICATE_ERROR, SavePageResult.ERROR_PAGE,
-    SavePageResult.INTERSTITIAL_PAGE, SavePageResult.DIGEST_CALCULATION_FAILED,
+    SavePageResult.DEPRECATED_SECURITY_CERTIFICATE_ERROR, SavePageResult.DEPRECATED_ERROR_PAGE,
+    SavePageResult.DEPRECATED_INTERSTITIAL_PAGE, SavePageResult.DIGEST_CALCULATION_FAILED,
     SavePageResult.FILE_MOVE_FAILED, SavePageResult.ADD_TO_DOWNLOAD_MANAGER_FAILED,
-    SavePageResult.PERMISSION_DENIED, SavePageResult.MAX_VALUE
+    SavePageResult.STORAGE_PERMISSION_DENIED, SavePageResult.INCORRECT_URL, SavePageResult.MAX_VALUE
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface SavePageResult {
@@ -38,15 +38,9 @@ public @interface SavePageResult {
    * accessible.
    */
   int SKIPPED = 7;
-  int SECURITY_CERTIFICATE_ERROR = 8;
-  /**
-   * Returned when we detect trying to save a chrome error page.
-   */
-  int ERROR_PAGE = 9;
-  /**
-   * Returned when we detect trying to save a chrome interstitial page.
-   */
-  int INTERSTITIAL_PAGE = 10;
+  int DEPRECATED_SECURITY_CERTIFICATE_ERROR = 8;
+  int DEPRECATED_ERROR_PAGE = 9;
+  int DEPRECATED_INTERSTITIAL_PAGE = 10;
   /**
    * Failed to compute digest for the archive file.
    */
@@ -62,6 +56,10 @@ public @interface SavePageResult {
   /**
    * Unable to get write permission on public directory.
    */
-  int PERMISSION_DENIED = 14;
-  int MAX_VALUE = 14;
+  int STORAGE_PERMISSION_DENIED = 14;
+  /**
+   * The URL from the tab or saved page doesn't match the requested page URL.
+   */
+  int INCORRECT_URL = 15;
+  int MAX_VALUE = INCORRECT_URL;
 }

@@ -16,9 +16,9 @@ public interface ContentChildProcessConstants {
     // IChildProcessService.setupConnection call, once the connection has been established.
 
     // Key for the number of CPU cores.
-    public static final String EXTRA_CPU_COUNT = "com.google.android.apps.chrome.extra.cpu_count";
+    String EXTRA_CPU_COUNT = "com.google.android.apps.chrome.extra.cpu_count";
 
     // Key for the CPU features mask.
-    public static final String EXTRA_CPU_FEATURES =
+    String EXTRA_CPU_FEATURES =
             "com.google.android.apps.chrome.extra.cpu_features";
 }

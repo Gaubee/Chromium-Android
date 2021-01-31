@@ -6,23 +6,24 @@ package org.chromium.chrome.browser.net.spdyproxy;
 
 import android.content.Context;
 
-import org.chromium.base.Callback;
-import org.chromium.base.ContextUtils;
-import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
-import org.chromium.base.annotations.CalledByNative;
-import org.chromium.chrome.browser.UrlConstants;
-import org.chromium.chrome.browser.preferences.datareduction.DataReductionDataUseItem;
-import org.chromium.chrome.browser.preferences.datareduction.DataReductionPromoUtils;
-import org.chromium.chrome.browser.preferences.datareduction.DataReductionProxySavingsClearedReason;
-import org.chromium.chrome.browser.preferences.datareduction.DataReductionStatsPreference;
-import org.chromium.chrome.browser.util.ConversionUtils;
+import androidx.annotation.VisibleForTesting;
 
-import java.text.NumberFormat;
+import org.chromium.base.Callback;
+import org.chromium.base.ThreadUtils;
+import org.chromium.base.annotations.CalledByNative;
+import org.chromium.base.annotations.NativeMethods;
+import org.chromium.chrome.browser.datareduction.DataReductionPromoUtils;
+import org.chromium.chrome.browser.datareduction.settings.DataReductionDataUseItem;
+import org.chromium.chrome.browser.datareduction.settings.DataReductionStatsPreference;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
+import org.chromium.chrome.browser.settings.datareduction.DataReductionProxySavingsClearedReason;
+import org.chromium.components.browser_ui.util.ConversionUtils;
+import org.chromium.components.embedder_support.util.UrlConstants;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -60,15 +61,13 @@ public class DataReductionProxySettings {
     @VisibleForTesting
     public static final String DATA_REDUCTION_PROXY_ENABLED_KEY = "Data Reduction Proxy Enabled";
 
-    // Visible for backup and restore
-    public static final String DATA_REDUCTION_ENABLED_PREF = "BANDWIDTH_REDUCTION_PROXY_ENABLED";
-
     private static DataReductionProxySettings sSettings;
 
-    public static final String DATA_REDUCTION_FIRST_ENABLED_TIME =
-            "BANDWIDTH_REDUCTION_FIRST_ENABLED_TIME";
-
+    // The saved data threshold for showing the Lite mode menu footer.
     private static final long DATA_REDUCTION_MAIN_MENU_ITEM_SAVED_KB_THRESHOLD = 100;
+
+    // The received data threshold for showing the data reduction chart in settings.
+    public static final long DATA_REDUCTION_SHOW_CHART_KB_THRESHOLD = 100;
 
     private Callback<List<DataReductionDataUseItem>> mQueryDataUsageCallback;
 
@@ -94,8 +93,8 @@ public class DataReductionProxySettings {
     private static void reconcileDataReductionProxyEnabledState() {
         ThreadUtils.assertOnUiThread();
         boolean enabled = getInstance().isDataReductionProxyEnabled();
-        ContextUtils.getAppSharedPreferences().edit()
-                .putBoolean(DATA_REDUCTION_ENABLED_PREF, enabled).apply();
+        SharedPreferencesManager.getInstance().writeBoolean(
+                ChromePreferenceKeys.DATA_REDUCTION_ENABLED, enabled);
     }
 
     /**
@@ -125,17 +124,20 @@ public class DataReductionProxySettings {
         // Note that this technically leaks the native object, however,
         // DataReductionProxySettings is a singleton that lives forever and there's no clean
         // shutdown of Chrome on Android
-        mNativeDataReductionProxySettings = nativeInit();
+        mNativeDataReductionProxySettings =
+                DataReductionProxySettingsJni.get().init(DataReductionProxySettings.this);
     }
 
     /** Returns true if the SPDY proxy promo is allowed to be shown. */
     public boolean isDataReductionProxyPromoAllowed() {
-        return nativeIsDataReductionProxyPromoAllowed(mNativeDataReductionProxySettings);
+        return DataReductionProxySettingsJni.get().isDataReductionProxyPromoAllowed(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     /** Returns true if the data saver proxy promo is allowed to be shown as part of FRE. */
     public boolean isDataReductionProxyFREPromoAllowed() {
-        return nativeIsDataReductionProxyFREPromoAllowed(mNativeDataReductionProxySettings);
+        return DataReductionProxySettingsJni.get().isDataReductionProxyFREPromoAllowed(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     /** Returns true if the snackbar promo is allowed to be shown. */
@@ -149,22 +151,23 @@ public class DataReductionProxySettings {
      */
     public void setDataReductionProxyEnabled(Context context, boolean enabled) {
         if (enabled
-                && ContextUtils.getAppSharedPreferences().getLong(
-                           DATA_REDUCTION_FIRST_ENABLED_TIME, 0)
+                && SharedPreferencesManager.getInstance().readLong(
+                           ChromePreferenceKeys.DATA_REDUCTION_FIRST_ENABLED_TIME, 0)
                         == 0) {
-            ContextUtils.getAppSharedPreferences()
-                    .edit()
-                    .putLong(DATA_REDUCTION_FIRST_ENABLED_TIME, System.currentTimeMillis())
-                    .apply();
+            SharedPreferencesManager.getInstance().writeLong(
+                    ChromePreferenceKeys.DATA_REDUCTION_FIRST_ENABLED_TIME,
+                    System.currentTimeMillis());
         }
-        ContextUtils.getAppSharedPreferences().edit()
-                .putBoolean(DATA_REDUCTION_ENABLED_PREF, enabled).apply();
-        nativeSetDataReductionProxyEnabled(mNativeDataReductionProxySettings, enabled);
+        SharedPreferencesManager.getInstance().writeBoolean(
+                ChromePreferenceKeys.DATA_REDUCTION_ENABLED, enabled);
+        DataReductionProxySettingsJni.get().setDataReductionProxyEnabled(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this, enabled);
     }
 
     /** Returns true if the Data Reduction Proxy proxy is enabled. */
     public boolean isDataReductionProxyEnabled() {
-        return nativeIsDataReductionProxyEnabled(mNativeDataReductionProxySettings);
+        return DataReductionProxySettingsJni.get().isDataReductionProxyEnabled(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     /**
@@ -179,7 +182,8 @@ public class DataReductionProxySettings {
 
     /** Returns true if the SPDY proxy is managed by an administrator's policy. */
     public boolean isDataReductionProxyManaged() {
-        return nativeIsDataReductionProxyManaged(mNativeDataReductionProxySettings);
+        return DataReductionProxySettingsJni.get().isDataReductionProxyManaged(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     /**
@@ -187,7 +191,8 @@ public class DataReductionProxySettings {
      * @return The last update time in milliseconds since the epoch.
      */
     public long getDataReductionLastUpdateTime() {
-        return nativeGetDataReductionLastUpdateTime(mNativeDataReductionProxySettings);
+        return DataReductionProxySettingsJni.get().getDataReductionLastUpdateTime(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     /**
@@ -196,7 +201,8 @@ public class DataReductionProxySettings {
      * @return The time that the proxy was first enabled in milliseconds since the epoch.
      */
     public long getDataReductionProxyFirstEnabledTime() {
-        return ContextUtils.getAppSharedPreferences().getLong(DATA_REDUCTION_FIRST_ENABLED_TIME, 0);
+        return SharedPreferencesManager.getInstance().readLong(
+                ChromePreferenceKeys.DATA_REDUCTION_FIRST_ENABLED_TIME, 0);
     }
 
     /**
@@ -204,14 +210,13 @@ public class DataReductionProxySettings {
      * @param reason from the DataReductionProxySavingsClearedReason enum
      */
     public void clearDataSavingStatistics(@DataReductionProxySavingsClearedReason int reason) {
-        // When the data saving statistics are cleared, reset the snackbar promo that tells the user
-        // how much data they have saved using Data Saver so far.
-        DataReductionPromoUtils.saveSnackbarPromoDisplayed(0);
-        ContextUtils.getAppSharedPreferences()
-                .edit()
-                .putLong(DATA_REDUCTION_FIRST_ENABLED_TIME, System.currentTimeMillis())
-                .apply();
-        nativeClearDataSavingStatistics(mNativeDataReductionProxySettings, reason);
+        // When the data saving statistics are cleared, reset the milestone promo that tells the
+        // user how much data they have saved using Data Saver so far.
+        DataReductionPromoUtils.saveMilestonePromoDisplayed(0);
+        SharedPreferencesManager.getInstance().writeLong(
+                ChromePreferenceKeys.DATA_REDUCTION_FIRST_ENABLED_TIME, System.currentTimeMillis());
+        DataReductionProxySettingsJni.get().clearDataSavingStatistics(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this, reason);
     }
 
     /**
@@ -219,7 +224,8 @@ public class DataReductionProxySettings {
      * @return The content lengths.
      */
     public ContentLengths getContentLengths() {
-        return nativeGetContentLengths(mNativeDataReductionProxySettings);
+        return DataReductionProxySettingsJni.get().getContentLengths(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     /**
@@ -236,7 +242,8 @@ public class DataReductionProxySettings {
      * @return The HTTP content length saved.
      */
     public long getTotalHttpContentLengthSaved() {
-        return nativeGetTotalHttpContentLengthSaved(mNativeDataReductionProxySettings);
+        return DataReductionProxySettingsJni.get().getTotalHttpContentLengthSaved(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     /**
@@ -245,7 +252,8 @@ public class DataReductionProxySettings {
      * @return The history of daily totals
      */
     public long[] getOriginalNetworkStatsHistory() {
-        return nativeGetDailyOriginalContentLengths(mNativeDataReductionProxySettings);
+        return DataReductionProxySettingsJni.get().getDailyOriginalContentLengths(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     /**
@@ -254,17 +262,8 @@ public class DataReductionProxySettings {
      * @return The history of daily totals
      */
     public long[] getReceivedNetworkStatsHistory() {
-        return nativeGetDailyReceivedContentLengths(mNativeDataReductionProxySettings);
-    }
-
-    /**
-     * Returns the header used to request a data reduction proxy pass through. When a request is
-     * sent to the data reduction proxy with this header, it will respond with the original
-     * uncompressed response.
-     * @return The data reduction proxy pass through header.
-     */
-    public String getDataReductionProxyPassThroughHeader() {
-        return nativeGetDataReductionProxyPassThroughHeader(mNativeDataReductionProxySettings);
+        return DataReductionProxySettingsJni.get().getDailyReceivedContentLengths(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     /**
@@ -272,40 +271,14 @@ public class DataReductionProxySettings {
      * @return true if the data reduction proxy is unreachable.
      */
     public boolean isDataReductionProxyUnreachable() {
-        return nativeIsDataReductionProxyUnreachable(mNativeDataReductionProxySettings);
-    }
-
-    /**
-     * @return The data reduction settings as a string percentage.
-     */
-    public String getContentLengthPercentSavings() {
-        ContentLengths length = getContentLengths();
-
-        double savings = 0;
-        if (length.getOriginal() > 0L  && length.getOriginal() > length.getReceived()) {
-            savings = (length.getOriginal() - length.getReceived()) / (double) length.getOriginal();
-        }
-        NumberFormat percentageFormatter = NumberFormat.getPercentInstance(Locale.getDefault());
-        return percentageFormatter.format(savings);
+        return DataReductionProxySettingsJni.get().isDataReductionProxyUnreachable(
+                mNativeDataReductionProxySettings, DataReductionProxySettings.this);
     }
 
     public Map<String, String> toFeedbackMap() {
         Map<String, String> map = new HashMap<>();
         map.put(DATA_REDUCTION_PROXY_ENABLED_KEY, String.valueOf(isDataReductionProxyEnabled()));
         return map;
-    }
-
-    /**
-     * If the given URL is a WebLite URL and should be overridden because the Data
-     * Reduction Proxy is on, the user is in the Lo-Fi previews experiment, and the scheme of the
-     * lite_url param is HTTP, returns the URL contained in the lite_url param. Otherwise returns
-     * the given URL.
-     *
-     * @param url The URL to evaluate.
-     * @return The URL to be used. Returns null if the URL param is null.
-     */
-    public String maybeRewriteWebliteUrl(String url) {
-        return nativeMaybeRewriteWebliteUrl(mNativeDataReductionProxySettings, url);
     }
 
     /**
@@ -319,8 +292,9 @@ public class DataReductionProxySettings {
     public void queryDataUsage(
             int numDays, Callback<List<DataReductionDataUseItem>> queryDataUsageCallback) {
         mQueryDataUsageCallback = queryDataUsageCallback;
-        nativeQueryDataUsage(mNativeDataReductionProxySettings,
-                new ArrayList<DataReductionDataUseItem>(), numDays);
+        DataReductionProxySettingsJni.get().queryDataUsage(mNativeDataReductionProxySettings,
+                DataReductionProxySettings.this, new ArrayList<DataReductionDataUseItem>(),
+                numDays);
     }
 
     @CalledByNative
@@ -337,35 +311,35 @@ public class DataReductionProxySettings {
         mQueryDataUsageCallback = null;
     }
 
-    private native long nativeInit();
-    private native boolean nativeIsDataReductionProxyPromoAllowed(
-            long nativeDataReductionProxySettingsAndroid);
-    private native boolean nativeIsDataReductionProxyFREPromoAllowed(
-            long nativeDataReductionProxySettingsAndroid);
-    private native boolean nativeIsDataReductionProxyEnabled(
-            long nativeDataReductionProxySettingsAndroid);
-    private native boolean nativeIsDataReductionProxyManaged(
-            long nativeDataReductionProxySettingsAndroid);
-    private native void nativeSetDataReductionProxyEnabled(
-            long nativeDataReductionProxySettingsAndroid, boolean enabled);
-    private native long nativeGetDataReductionLastUpdateTime(
-            long nativeDataReductionProxySettingsAndroid);
-    private native void nativeClearDataSavingStatistics(
-            long nativeDataReductionProxySettingsAndroid, int reason);
-    private native ContentLengths nativeGetContentLengths(
-            long nativeDataReductionProxySettingsAndroid);
-    private native long nativeGetTotalHttpContentLengthSaved(
-            long nativeDataReductionProxySettingsAndroid);
-    private native long[] nativeGetDailyOriginalContentLengths(
-            long nativeDataReductionProxySettingsAndroid);
-    private native long[] nativeGetDailyReceivedContentLengths(
-            long nativeDataReductionProxySettingsAndroid);
-    private native String nativeGetDataReductionProxyPassThroughHeader(
-            long nativeDataReductionProxySettingsAndroid);
-    private native boolean nativeIsDataReductionProxyUnreachable(
-            long nativeDataReductionProxySettingsAndroid);
-    private native String nativeMaybeRewriteWebliteUrl(
-            long nativeDataReductionProxySettingsAndroid, String url);
-    private native void nativeQueryDataUsage(long nativeDataReductionProxySettingsAndroid,
-            List<DataReductionDataUseItem> items, int numDays);
+    @NativeMethods
+    interface Natives {
+        long init(DataReductionProxySettings caller);
+        boolean isDataReductionProxyPromoAllowed(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        boolean isDataReductionProxyFREPromoAllowed(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        boolean isDataReductionProxyEnabled(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        boolean isDataReductionProxyManaged(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        void setDataReductionProxyEnabled(long nativeDataReductionProxySettingsAndroid,
+                DataReductionProxySettings caller, boolean enabled);
+        long getDataReductionLastUpdateTime(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        void clearDataSavingStatistics(long nativeDataReductionProxySettingsAndroid,
+                DataReductionProxySettings caller, int reason);
+        ContentLengths getContentLengths(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        long getTotalHttpContentLengthSaved(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        long[] getDailyOriginalContentLengths(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        long[] getDailyReceivedContentLengths(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        boolean isDataReductionProxyUnreachable(
+                long nativeDataReductionProxySettingsAndroid, DataReductionProxySettings caller);
+        void queryDataUsage(long nativeDataReductionProxySettingsAndroid,
+                DataReductionProxySettings caller, List<DataReductionDataUseItem> items,
+                int numDays);
+    }
 }

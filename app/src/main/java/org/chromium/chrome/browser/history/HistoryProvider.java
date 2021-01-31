@@ -13,7 +13,7 @@ public interface HistoryProvider {
     /**
      * Observer to be notified of browsing history events.
      */
-    public interface BrowsingHistoryObserver {
+    interface BrowsingHistoryObserver {
         /**
          * Called after {@link BrowsingHistoryBridge#queryHistory(String, long)} is complete.
          * @param items The items that matched the #queryHistory() parameters.

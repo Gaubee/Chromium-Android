@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.chrome.browser.consent_auditor;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -18,8 +18,7 @@ import java.lang.annotation.RetentionPolicy;
 @IntDef({
     ConsentAuditorFeature.CHROME_SYNC, ConsentAuditorFeature.PLAY_STORE,
     ConsentAuditorFeature.BACKUP_AND_RESTORE, ConsentAuditorFeature.GOOGLE_LOCATION_SERVICE,
-    ConsentAuditorFeature.CHROME_UNIFIED_CONSENT, ConsentAuditorFeature.ASSISTANT_ACTIVITY_CONTROL,
-    ConsentAuditorFeature.FEATURE_LAST
+    ConsentAuditorFeature.ASSISTANT_ACTIVITY_CONTROL, ConsentAuditorFeature.FEATURE_LAST
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface ConsentAuditorFeature {
@@ -27,7 +26,9 @@ public @interface ConsentAuditorFeature {
   int PLAY_STORE = 1;
   int BACKUP_AND_RESTORE = 2;
   int GOOGLE_LOCATION_SERVICE = 3;
-  int CHROME_UNIFIED_CONSENT = 4;
+  /**
+   * CHROME_UNIFIED_CONSENT = 4, (deprecated, not used)
+   */
   int ASSISTANT_ACTIVITY_CONTROL = 5;
   int FEATURE_LAST = ASSISTANT_ACTIVITY_CONTROL;
 }

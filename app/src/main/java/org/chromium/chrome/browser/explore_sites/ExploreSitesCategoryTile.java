@@ -17,9 +17,9 @@ import java.util.List;
  */
 @JNINamespace("explore_sites")
 public class ExploreSitesCategoryTile {
-    private String mNavigationUrl;
-    private String mIconUrl;
-    private String mCategoryName;
+    private final String mNavigationUrl;
+    private final String mIconUrl;
+    private final String mCategoryName;
     private Drawable mIconDrawable;
 
     public ExploreSitesCategoryTile() {
@@ -31,7 +31,7 @@ public class ExploreSitesCategoryTile {
     public ExploreSitesCategoryTile(String categoryName, String iconUrl, String navigationUrl) {
         mCategoryName = categoryName;
         mIconUrl = iconUrl;
-        mNavigationUrl = ExploreSitesBridgeExperimental.nativeGetCatalogUrl() + navigationUrl;
+        mNavigationUrl = ExploreSitesBridgeExperimentalJni.get().getCatalogUrl() + navigationUrl;
     }
 
     public String getNavigationUrl() {

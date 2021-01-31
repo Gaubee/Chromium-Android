@@ -8,8 +8,6 @@ package org.chromium.webapk.lib.common;
  * Stores WebAPK related constants.
  */
 public final class WebApkConstants {
-    public static final String WEBAPK_PACKAGE_PREFIX = "org.chromium.webapk";
-
     // WebAPK id prefix. The id is used for storing WebAPK data in Chrome's SharedPreferences.
     public static final String WEBAPK_ID_PREFIX = "webapk-";
 
@@ -27,25 +25,21 @@ public final class WebApkConstants {
     // Activity launch time for uma tracking of Chrome web apk startup
     public static final String EXTRA_WEBAPK_LAUNCH_TIME =
             "org.chromium.chrome.browser.webapk_launch_time";
+    public static final String EXTRA_NEW_STYLE_SPLASH_SHOWN_TIME =
+            "org.chromium.webapk.new_style_splash_shown_time";
     // Whether the WebAPK provides a splash screen activity which should be launched by the host
     // browser to hide the web contents while the page is loading.
     public static final String EXTRA_SPLASH_PROVIDED_BY_WEBAPK =
             "org.chromium.chrome.browser.webapk.splash_provided_by_webapk";
     // Tells the host browser to relaunch the WebAPK.
     public static final String EXTRA_RELAUNCH = "org.chromium.webapk.relaunch";
+    public static final String EXTRA_IS_WEBAPK = "org.chromium.webapk.is_webapk";
 
-    // Must be kept in sync with chrome/browser/android/shortcut_info.h.
+    // Must be kept in sync with components/webapps/android/shortcut_info.h.
     public static final int SHORTCUT_SOURCE_UNKNOWN = 0;
     public static final int SHORTCUT_SOURCE_EXTERNAL_INTENT = 9;
     public static final int SHORTCUT_SOURCE_SHARE = 13;
 
     /** Name of the shared preferences file. */
     public static final String PREF_PACKAGE = "org.chromium.webapk.shell_apk";
-
-    /**
-     * Action used by host browser to launch splash screen activity to hide web contents while the
-     * page is loading.
-     */
-    public static final String ACTION_SHOW_SPLASH =
-            "org.chromium.webapk.shell_apk.ACTION_SHOW_SPLASH";
 }

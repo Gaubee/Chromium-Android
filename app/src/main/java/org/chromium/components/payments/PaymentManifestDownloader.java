@@ -4,12 +4,15 @@
 
 package org.chromium.components.payments;
 
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.ThreadUtils;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.content_public.browser.WebContents;
-
-import java.net.URI;
+import org.chromium.url.GURL;
+import org.chromium.url.Origin;
 
 /**
  * See comment in:
@@ -22,10 +25,17 @@ public class PaymentManifestDownloader {
         /**
          * Called on successful download of a payment method manifest.
          *
+         * @param paymentMethodManifestUrl The URL of the payment method manifest after all
+         * redirects and the optional HTTP Link rel=payment-method-manifest header have been
+         * followed.
+         * @param paymentMethodManifestOrigin The origin of the payment method manifest after all
+         * redirects and the optional HTTP Link rel=payment-method-manifest header have been
+         * followed.
          * @param content The successfully downloaded payment method manifest.
          */
         @CalledByNative("ManifestDownloadCallback")
-        void onPaymentMethodManifestDownloadSuccess(String content);
+        void onPaymentMethodManifestDownloadSuccess(
+                GURL paymentMethodManifestUrl, Origin paymentMethodManifestOrigin, String content);
 
         /**
          * Called on successful download of a web app manifest.
@@ -35,9 +45,13 @@ public class PaymentManifestDownloader {
         @CalledByNative("ManifestDownloadCallback")
         void onWebAppManifestDownloadSuccess(String content);
 
-        /** Called on failed download. */
+        /**
+         * Called on failed download.
+         *
+         * @param errorMessage The error message, which could be empty or null.
+         */
         @CalledByNative("ManifestDownloadCallback")
-        void onManifestDownloadFailure();
+        void onManifestDownloadFailure(String errorMessage);
     }
 
     private long mNativeObject;
@@ -51,7 +65,7 @@ public class PaymentManifestDownloader {
     public void initialize(WebContents webContents) {
         ThreadUtils.assertOnUiThread();
         assert mNativeObject == 0;
-        mNativeObject = nativeInit(webContents);
+        mNativeObject = PaymentManifestDownloaderJni.get().init(webContents);
     }
 
     /** @return Whether the native downloader is initialized. */
@@ -63,45 +77,61 @@ public class PaymentManifestDownloader {
     /**
      * Downloads the payment method manifest file asynchronously.
      *
-     * @param methodName The payment method name that is a URI with HTTPS scheme.
-     * @param callback   The callback to invoke when finished downloading.
+     * @param merchantOrigin The origin of the iframe that invoked the PaymentRequest API.
+     * @param methodName     The payment method name that is a URI with HTTPS scheme.
+     * @param callback       The callback to invoke when finished downloading.
      */
-    public void downloadPaymentMethodManifest(URI methodName, ManifestDownloadCallback callback) {
+    public void downloadPaymentMethodManifest(
+            Origin merchantOrigin, GURL methodName, ManifestDownloadCallback callback) {
         ThreadUtils.assertOnUiThread();
         assert mNativeObject != 0;
-        nativeDownloadPaymentMethodManifest(mNativeObject, methodName, callback);
+        assert merchantOrigin != null;
+        PaymentManifestDownloaderJni.get().downloadPaymentMethodManifest(mNativeObject,
+                PaymentManifestDownloader.this, merchantOrigin, methodName, callback);
     }
 
     /**
      * Downloads the web app manifest file asynchronously.
      *
-     * @param webAppManifestUri The web app manifest URI with HTTPS scheme.
-     * @param callback          The callback to invoke when finished downloading.
+     * @param paymentMethodManifestOrigin The origin of the payment method manifest that is pointing
+     *                                    to this web app manifest.
+     * @param webAppManifestUrl           The web app manifest URL with HTTPS scheme.
+     * @param callback                    The callback to invoke when finished downloading.
      */
-    public void downloadWebAppManifest(URI webAppManifestUri, ManifestDownloadCallback callback) {
+    public void downloadWebAppManifest(Origin paymentMethodManifestOrigin, GURL webAppManifestUrl,
+            ManifestDownloadCallback callback) {
         ThreadUtils.assertOnUiThread();
         assert mNativeObject != 0;
-        nativeDownloadWebAppManifest(mNativeObject, webAppManifestUri, callback);
+        assert paymentMethodManifestOrigin != null;
+        PaymentManifestDownloaderJni.get().downloadWebAppManifest(mNativeObject,
+                PaymentManifestDownloader.this, paymentMethodManifestOrigin, webAppManifestUrl,
+                callback);
     }
 
     /** Destroys the native downloader. */
     public void destroy() {
         ThreadUtils.assertOnUiThread();
         assert mNativeObject != 0;
-        nativeDestroy(mNativeObject);
+        PaymentManifestDownloaderJni.get().destroy(mNativeObject, PaymentManifestDownloader.this);
         mNativeObject = 0;
     }
 
-    @CalledByNative
-    private static String getUriString(URI methodName) {
-        return methodName.toString();
+    /** @return An opaque origin to be used in tests. */
+    @VisibleForTesting
+    public static Origin createOpaqueOriginForTest() {
+        return PaymentManifestDownloaderJni.get().createOpaqueOriginForTest();
     }
 
-    private static native long nativeInit(WebContents webContents);
-    private native void nativeDownloadPaymentMethodManifest(
-            long nativePaymentManifestDownloaderAndroid, URI methodName,
-            ManifestDownloadCallback callback);
-    private native void nativeDownloadWebAppManifest(long nativePaymentManifestDownloaderAndroid,
-            URI webAppManifestUri, ManifestDownloadCallback callback);
-    private native void nativeDestroy(long nativePaymentManifestDownloaderAndroid);
+    @NativeMethods
+    interface Natives {
+        long init(WebContents webContents);
+        void downloadPaymentMethodManifest(long nativePaymentManifestDownloaderAndroid,
+                PaymentManifestDownloader caller, Origin merchantOrigin, GURL methodName,
+                ManifestDownloadCallback callback);
+        void downloadWebAppManifest(long nativePaymentManifestDownloaderAndroid,
+                PaymentManifestDownloader caller, Origin paymentMethodManifestOrigin,
+                GURL webAppManifestUri, ManifestDownloadCallback callback);
+        void destroy(long nativePaymentManifestDownloaderAndroid, PaymentManifestDownloader caller);
+        Origin createOpaqueOriginForTest();
+    }
 }

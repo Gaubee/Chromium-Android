@@ -7,14 +7,17 @@ package org.chromium.chrome.browser.download.items;
 import org.chromium.base.Callback;
 import org.chromium.base.ObserverList;
 import org.chromium.components.offline_items_collection.ContentId;
-import org.chromium.components.offline_items_collection.LaunchLocation;
 import org.chromium.components.offline_items_collection.LegacyHelpers;
 import org.chromium.components.offline_items_collection.OfflineContentProvider;
 import org.chromium.components.offline_items_collection.OfflineItem;
+import org.chromium.components.offline_items_collection.OfflineItemSchedule;
+import org.chromium.components.offline_items_collection.OpenParams;
 import org.chromium.components.offline_items_collection.ShareCallback;
+import org.chromium.components.offline_items_collection.UpdateDelta;
 import org.chromium.components.offline_items_collection.VisualsCallback;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Filters out download offline items till downloads backend fully supports offline content
@@ -23,8 +26,8 @@ import java.util.ArrayList;
  */
 class DownloadBlockedOfflineContentProvider
         implements OfflineContentProvider, OfflineContentProvider.Observer {
-    private OfflineContentProvider mProvider;
-    private ObserverList<Observer> mObservers;
+    private final OfflineContentProvider mProvider;
+    private final ObserverList<Observer> mObservers;
 
     public DownloadBlockedOfflineContentProvider(OfflineContentProvider provider) {
         mProvider = provider;
@@ -33,9 +36,9 @@ class DownloadBlockedOfflineContentProvider
     }
 
     @Override
-    public void openItem(@LaunchLocation int location, ContentId id) {
+    public void openItem(OpenParams openParams, ContentId id) {
         assert !LegacyHelpers.isLegacyDownload(id);
-        mProvider.openItem(location, id);
+        mProvider.openItem(openParams, id);
     }
 
     @Override
@@ -63,6 +66,12 @@ class DownloadBlockedOfflineContentProvider
     }
 
     @Override
+    public void changeSchedule(final ContentId id, final OfflineItemSchedule schedule) {
+        assert !LegacyHelpers.isLegacyDownload(id);
+        mProvider.changeSchedule(id, schedule);
+    }
+
+    @Override
     public void getItemById(ContentId id, Callback<OfflineItem> callback) {
         assert !LegacyHelpers.isLegacyDownload(id);
         mProvider.getItemById(id, callback);
@@ -85,6 +94,12 @@ class DownloadBlockedOfflineContentProvider
     }
 
     @Override
+    public void renameItem(ContentId id, String name, Callback<Integer> callback) {
+        assert !LegacyHelpers.isLegacyDownload(id);
+        mProvider.renameItem(id, name, callback);
+    }
+
+    @Override
     public void addObserver(Observer observer) {
         mObservers.addObserver(observer);
     }
@@ -95,7 +110,7 @@ class DownloadBlockedOfflineContentProvider
     }
 
     @Override
-    public void onItemsAdded(ArrayList<OfflineItem> items) {
+    public void onItemsAdded(List<OfflineItem> items) {
         ArrayList<OfflineItem> filteredList = getFilteredList(items);
         for (Observer observer : mObservers) {
             observer.onItemsAdded(filteredList);
@@ -111,14 +126,14 @@ class DownloadBlockedOfflineContentProvider
     }
 
     @Override
-    public void onItemUpdated(OfflineItem item) {
+    public void onItemUpdated(OfflineItem item, UpdateDelta updateDelta) {
         if (LegacyHelpers.isLegacyDownload(item.id)) return;
         for (Observer observer : mObservers) {
-            observer.onItemUpdated(item);
+            observer.onItemUpdated(item, updateDelta);
         }
     }
 
-    private ArrayList<OfflineItem> getFilteredList(ArrayList<OfflineItem> items) {
+    private ArrayList<OfflineItem> getFilteredList(List<OfflineItem> items) {
         ArrayList<OfflineItem> filteredList = new ArrayList<>();
         for (OfflineItem item : items) {
             if (LegacyHelpers.isLegacyDownload(item.id)) continue;

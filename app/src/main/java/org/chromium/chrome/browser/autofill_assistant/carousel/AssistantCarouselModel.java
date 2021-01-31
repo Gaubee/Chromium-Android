@@ -4,57 +4,31 @@
 
 package org.chromium.chrome.browser.autofill_assistant.carousel;
 
-import org.chromium.base.annotations.CalledByNative;
-import org.chromium.base.annotations.JNINamespace;
-import org.chromium.ui.modelutil.ListModel;
 import org.chromium.ui.modelutil.PropertyModel;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * State for the carousel of the Autofill Assistant.
  */
-@JNINamespace("autofill_assistant")
 public class AssistantCarouselModel extends PropertyModel {
-    static final WritableBooleanPropertyKey REVERSE_LAYOUT = new WritableBooleanPropertyKey();
+    public static final WritableObjectPropertyKey<List<AssistantChip>> CHIPS =
+            new WritableObjectPropertyKey<>();
 
-    private final ListModel<AssistantChip> mChipsModel = new ListModel<>();
+    static final WritableBooleanPropertyKey DISABLE_CHANGE_ANIMATIONS =
+            new WritableBooleanPropertyKey();
 
     public AssistantCarouselModel() {
-        super(REVERSE_LAYOUT);
+        super(CHIPS, DISABLE_CHANGE_ANIMATIONS);
+        set(CHIPS, new ArrayList<>());
     }
 
-    public ListModel<AssistantChip> getChipsModel() {
-        return mChipsModel;
+    public void setChips(List<AssistantChip> chips) {
+        set(CHIPS, chips);
     }
 
-    @CalledByNative
-    private void setChips(int[] types, String[] texts, AssistantCarouselDelegate delegate) {
-        assert types.length == texts.length;
-        List<AssistantChip> chips = new ArrayList<>();
-        boolean reverseLayout = false;
-        for (int i = 0; i < types.length; i++) {
-            int index = i;
-            int type = types[i];
-
-            if (type != AssistantChipType.CHIP_ASSISTIVE) {
-                reverseLayout = true;
-            }
-
-            chips.add(new AssistantChip(type, texts[i], () -> {
-                clearChips();
-                delegate.onChipSelected(index);
-            }));
-        }
-
-        mChipsModel.set(chips);
-        set(REVERSE_LAYOUT, reverseLayout);
-    }
-
-    @CalledByNative
-    public void clearChips() {
-        mChipsModel.set(Collections.emptyList());
+    public void setDisableChangeAnimations(boolean disable) {
+        set(DISABLE_CHANGE_ANIMATIONS, disable);
     }
 }

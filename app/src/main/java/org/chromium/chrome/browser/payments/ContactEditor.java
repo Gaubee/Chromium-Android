@@ -4,20 +4,23 @@
 
 package org.chromium.chrome.browser.payments;
 
-import android.support.annotation.Nullable;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Patterns;
 
+import android.annotation.Nullable;
+
 import org.chromium.base.Callback;
+import org.chromium.base.StrictModeContext;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.autofill.PersonalDataManager;
 import org.chromium.chrome.browser.autofill.PersonalDataManager.AutofillProfile;
 import org.chromium.chrome.browser.autofill.PhoneNumberUtil;
-import org.chromium.chrome.browser.widget.prefeditor.EditorBase;
-import org.chromium.chrome.browser.widget.prefeditor.EditorFieldModel;
-import org.chromium.chrome.browser.widget.prefeditor.EditorFieldModel.EditorFieldValidator;
-import org.chromium.chrome.browser.widget.prefeditor.EditorModel;
+import org.chromium.chrome.browser.autofill.prefeditor.EditorBase;
+import org.chromium.chrome.browser.autofill.prefeditor.EditorFieldModel;
+import org.chromium.chrome.browser.autofill.prefeditor.EditorFieldModel.EditorFieldValidator;
+import org.chromium.chrome.browser.autofill.prefeditor.EditorModel;
+import org.chromium.payments.mojom.PayerErrors;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,15 +30,19 @@ import java.util.UUID;
  * Contact information editor.
  */
 public class ContactEditor extends EditorBase<AutofillContact> {
+    // Bit field values are identical to ProfileFields in payments_profile_comparator.h.
+    // Please also modify payments_profile_comparator.h after changing these bits since
+    // missing fields on both Android and Desktop are recorded in the same UMA metric:
+    // PaymentRequest.MissingContactFields.
     public @interface CompletionStatus {}
     /** Can be sent to the merchant as-is without editing first. */
     public static final int COMPLETE = 0;
     /** The contact name is missing. */
     public static final int INVALID_NAME = 1 << 0;
-    /** The contact email is invalid or missing. */
-    public static final int INVALID_EMAIL = 1 << 1;
     /** The contact phone number is invalid or missing. */
-    public static final int INVALID_PHONE_NUMBER = 1 << 2;
+    public static final int INVALID_PHONE_NUMBER = 1 << 1;
+    /** The contact email is invalid or missing. */
+    public static final int INVALID_EMAIL = 1 << 2;
 
     private final boolean mRequestPayerName;
     private final boolean mRequestPayerPhone;
@@ -44,6 +51,7 @@ public class ContactEditor extends EditorBase<AutofillContact> {
     private final Set<CharSequence> mPayerNames;
     private final Set<CharSequence> mPhoneNumbers;
     private final Set<CharSequence> mEmailAddresses;
+    @Nullable private PayerErrors mPayerErrors;
     @Nullable private EditorFieldValidator mPhoneValidator;
     @Nullable private EditorFieldValidator mEmailValidator;
 
@@ -143,10 +151,29 @@ public class ContactEditor extends EditorBase<AutofillContact> {
         if (getEmailValidator().isValid(emailAddress)) mEmailAddresses.add(emailAddress);
     }
 
-    @Override
+    /**
+     * Sets the payer errors to indicate error messages from merchant's retry() call.
+     *
+     * @param errors The payer errors from merchant's retry() call.
+     */
+    public void setPayerErrors(@Nullable PayerErrors errors) {
+        mPayerErrors = errors;
+    }
+
+    /**
+     * Allows calling |edit| with a single callback used for both 'done' and 'cancel'.
+     * @see #edit(AutofillContact, Callback, Callback)
+     */
     public void edit(
             @Nullable final AutofillContact toEdit, final Callback<AutofillContact> callback) {
-        super.edit(toEdit, callback);
+        edit(toEdit, callback, callback);
+    }
+
+    @Override
+    public void edit(@Nullable final AutofillContact toEdit,
+            final Callback<AutofillContact> doneCallback,
+            final Callback<AutofillContact> cancelCallback) {
+        super.edit(toEdit, doneCallback, cancelCallback);
 
         final AutofillContact contact = toEdit == null
                 ? new AutofillContact(mContext, new AutofillProfile(), null, null, null,
@@ -189,13 +216,22 @@ public class ContactEditor extends EditorBase<AutofillContact> {
                 ? mContext.getString(R.string.payments_add_contact_details_label)
                 : toEdit.getEditTitle());
 
-        if (nameField != null) editor.addField(nameField);
-        if (phoneField != null) editor.addField(phoneField);
-        if (emailField != null) editor.addField(emailField);
+        if (nameField != null) {
+            nameField.setCustomErrorMessage(mPayerErrors != null ? mPayerErrors.name : null);
+            editor.addField(nameField);
+        }
+        if (phoneField != null) {
+            phoneField.setCustomErrorMessage(mPayerErrors != null ? mPayerErrors.phone : null);
+            editor.addField(phoneField);
+        }
+        if (emailField != null) {
+            emailField.setCustomErrorMessage(mPayerErrors != null ? mPayerErrors.email : null);
+            editor.addField(emailField);
+        }
 
         // If the user clicks [Cancel], send |toEdit| contact back to the caller, which was the
         // original state (could be null, a complete contact, a partial contact).
-        editor.setCancelCallback(() -> callback.onResult(toEdit));
+        editor.setCancelCallback(cancelCallback.bind(toEdit));
 
         editor.setDoneCallback(() -> {
             String name = null;
@@ -231,10 +267,11 @@ public class ContactEditor extends EditorBase<AutofillContact> {
 
             profile.setIsLocal(true);
             contact.completeContact(profile.getGUID(), name, phone, email);
-            callback.onResult(contact);
+            doneCallback.onResult(contact);
         });
 
         mEditorDialog.show(editor);
+        if (mPayerErrors != null) mEditorDialog.validateForm();
     }
 
     private EditorFieldValidator getPhoneValidator() {
@@ -242,9 +279,13 @@ public class ContactEditor extends EditorBase<AutofillContact> {
             mPhoneValidator = new EditorFieldValidator() {
                 @Override
                 public boolean isValid(@Nullable CharSequence value) {
-                    return value != null
-                            && PhoneNumberUtils.isGlobalPhoneNumber(
-                                       PhoneNumberUtils.stripSeparators(value.toString()));
+                    // TODO(crbug.com/999286): PhoneNumberUtils internally trigger disk reads for
+                    //                         certain devices/configurations.
+                    try (StrictModeContext ignored = StrictModeContext.allowDiskReads()) {
+                        return value != null
+                                && PhoneNumberUtils.isGlobalPhoneNumber(
+                                        PhoneNumberUtils.stripSeparators(value.toString()));
+                    }
                 }
 
                 @Override

@@ -5,19 +5,23 @@
 package org.chromium.chrome.browser.offlinepages.indicator;
 
 import android.app.Activity;
-import android.support.annotation.Nullable;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
+import android.annotation.Nullable;
+
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.ChromeActivity;
-import org.chromium.chrome.browser.snackbar.Snackbar;
-import org.chromium.chrome.browser.snackbar.SnackbarView;
+import org.chromium.chrome.browser.app.ChromeActivity;
+import org.chromium.chrome.browser.ui.messages.snackbar.Snackbar;
+import org.chromium.chrome.browser.ui.messages.snackbar.SnackbarView;
+import org.chromium.ui.base.WindowAndroid;
 
 /**
  * Visual representation of a snackbar positioned at the top.
  */
 public class TopSnackbarView extends SnackbarView {
+    private final Activity mActivity;
+
     /**
      * Creates an instance of the {@link SnackbarView}.
      * @param activity The activity that displays the snackbar.
@@ -28,8 +32,10 @@ public class TopSnackbarView extends SnackbarView {
      *                   will determine where to attach the snackbar.
      */
     public TopSnackbarView(Activity activity, OnClickListener listener, Snackbar snackbar,
-            @Nullable ViewGroup parentView) {
-        super(activity, listener, snackbar, parentView);
+            @Nullable WindowAndroid windowAndroid) {
+        super(activity, listener, snackbar, (ViewGroup) activity.findViewById(android.R.id.content),
+                windowAndroid);
+        mActivity = activity;
     }
 
     @Override
@@ -43,12 +49,6 @@ public class TopSnackbarView extends SnackbarView {
     }
 
     @Override
-    protected ViewGroup findParentView(Activity activity) {
-        // Override this in order not to associate top snackbar view with bottom container view.
-        return (ViewGroup) activity.findViewById(android.R.id.content);
-    }
-
-    @Override
     public void announceforAccessibility() {
         mMessageView.announceForAccessibility(mMessageView.getContentDescription() + " "
                 + mContainerView.getResources().getString(R.string.top_bar_screen_position));
@@ -59,8 +59,8 @@ public class TopSnackbarView extends SnackbarView {
 
         ChromeActivity chromeActivity = (ChromeActivity) mActivity;
 
-        if (chromeActivity.getFullscreenManager().getContentOffset() == 0) return 0;
+        if (chromeActivity.getBrowserControlsManager().getContentOffset() == 0) return 0;
 
-        return chromeActivity.getFullscreenManager().getTopControlsHeight();
+        return chromeActivity.getBrowserControlsManager().getTopControlsHeight();
     }
 }

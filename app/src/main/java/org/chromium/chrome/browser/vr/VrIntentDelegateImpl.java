@@ -18,7 +18,7 @@ import com.google.vr.ndk.base.DaydreamApi;
     @Override
     public Intent setupVrFreIntent(Context context, Intent freIntent) {
         Intent intent = new Intent();
-        intent.setClassName(context, VrFirstRunActivity.class.getName());
+//        intent.setClassName(context, VrFirstRunActivity.class.getName());
         intent.addCategory(DAYDREAM_CATEGORY);
         intent.putExtra(VR_FRE_INTENT_EXTRA, new Intent(freIntent));
         return intent;

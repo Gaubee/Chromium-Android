@@ -5,26 +5,25 @@
 package org.chromium.chrome.browser.metrics;
 
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
 
-import org.chromium.base.library_loader.LibraryProcessType;
 import org.chromium.base.metrics.RecordHistogram;
-import org.chromium.chrome.browser.ChromeActivity;
+import org.chromium.base.supplier.ObservableSupplier;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tabmodel.TabModelSelector;
 import org.chromium.chrome.browser.tabmodel.TabModelSelectorTabObserver;
-import org.chromium.chrome.browser.util.UrlUtilities;
-import org.chromium.content_public.browser.BrowserStartupController;
+import org.chromium.components.embedder_support.util.UrlUtilities;
+import org.chromium.content_public.browser.NavigationHandle;
 import org.chromium.content_public.browser.WebContents;
-
-import java.util.concurrent.TimeUnit;
+import org.chromium.url.GURL;
 
 /**
  * Tracks the first navigation and first contentful paint events for a tab within an activity during
  * startup.
  */
 public class ActivityTabStartupMetricsTracker {
+    private static final String UMA_HISTOGRAM_TABBED_SUFFIX = ".Tabbed";
+
     private final long mActivityStartTimeMs;
-    private final ChromeActivity mActivity;
 
     // Event duration recorded from the |mActivityStartTimeMs|.
     private long mFirstCommitTimeMs;
@@ -32,34 +31,22 @@ public class ActivityTabStartupMetricsTracker {
     private TabModelSelectorTabObserver mTabModelSelectorTabObserver;
     private PageLoadMetrics.Observer mPageLoadMetricsObserver;
     private boolean mShouldTrackStartupMetrics;
+    private boolean mVisibleContentRecorded;
 
-    public ActivityTabStartupMetricsTracker(ChromeActivity activity) {
+    public ActivityTabStartupMetricsTracker(
+            ObservableSupplier<TabModelSelector> tabModelSelectorSupplier) {
         mActivityStartTimeMs = SystemClock.uptimeMillis();
-        mActivity = activity;
-        BrowserStartupController.get(LibraryProcessType.PROCESS_BROWSER)
-                .addStartupCompletedObserver(new BrowserStartupController.StartupCallback() {
-                    @Override
-                    public void onSuccess() {
-                        // The activity's TabModelSelector may not have been initialized yet
-                        // causing a crash. See https://crbug.com/847580
-                        if (!mActivity.areTabModelsInitialized()) return;
-                        registerObservers();
-                    }
-
-                    @Override
-                    public void onFailure() {}
-                });
+        tabModelSelectorSupplier.addObserver((selector) -> registerObservers(selector));
     }
 
-    private void registerObservers() {
+    private void registerObservers(TabModelSelector tabModelSelector) {
         if (!mShouldTrackStartupMetrics) return;
         mTabModelSelectorTabObserver =
-                new TabModelSelectorTabObserver(mActivity.getTabModelSelector()) {
-
+                new TabModelSelectorTabObserver(tabModelSelector) {
                     private boolean mIsFirstPageLoadStart = true;
 
                     @Override
-                    public void onPageLoadStarted(Tab tab, String url) {
+                    public void onPageLoadStarted(Tab tab, GURL url) {
                         // Discard startup navigation measurements when the user interfered and
                         // started the 2nd navigation (in activity lifetime) in parallel.
                         if (!mIsFirstPageLoadStart) {
@@ -70,24 +57,24 @@ public class ActivityTabStartupMetricsTracker {
                     }
 
                     @Override
-                    public void onDidFinishNavigation(Tab tab, String url, boolean isInMainFrame,
-                            boolean isErrorPage, boolean hasCommitted, boolean isSameDocument,
-                            boolean isFragmentNavigation, @Nullable Integer pageTransition,
-                            int errorCode, int httpStatusCode) {
-                        boolean isTrackedPage = hasCommitted && isInMainFrame && !isErrorPage
-                                && !isSameDocument && !isFragmentNavigation
-                                && UrlUtilities.isHttpOrHttps(url);
+                    public void onDidFinishNavigation(Tab tab, NavigationHandle navigation) {
+                        boolean isTrackedPage = navigation.hasCommitted()
+                                && navigation.isInMainFrame() && !navigation.isErrorPage()
+                                && !navigation.isSameDocument()
+                                && !navigation.isFragmentNavigation()
+                                && UrlUtilities.isHttpOrHttps(navigation.getUrl());
                         registerFinishNavigation(isTrackedPage);
                     }
                 };
         mPageLoadMetricsObserver = new PageLoadMetrics.Observer() {
-            private final static long NO_NAVIGATION_ID = -1;
+            private static final long NO_NAVIGATION_ID = -1;
 
             private long mNavigationId = NO_NAVIGATION_ID;
             private boolean mShouldRecordHistograms;
 
             @Override
-            public void onNewNavigation(WebContents webContents, long navigationId) {
+            public void onNewNavigation(WebContents webContents, long navigationId,
+                    boolean isFirstNavigationInWebContents) {
                 if (mNavigationId != NO_NAVIGATION_ID) return;
 
                 mNavigationId = navigationId;
@@ -114,6 +101,20 @@ public class ActivityTabStartupMetricsTracker {
         mShouldTrackStartupMetrics = true;
     }
 
+    /**
+     * Cancels tracking the startup metrics.
+     * Must only be called on the UI thread.
+     */
+    public void cancelTrackingStartupMetrics() {
+        if (!mShouldTrackStartupMetrics) return;
+
+        // Ensure we haven't tried to record metrics already.
+        assert mFirstCommitTimeMs == 0;
+
+        mHistogramSuffix = null;
+        mShouldTrackStartupMetrics = false;
+    }
+
     public void destroy() {
         mShouldTrackStartupMetrics = false;
         if (mTabModelSelectorTabObserver != null) {
@@ -138,7 +139,7 @@ public class ActivityTabStartupMetricsTracker {
             mFirstCommitTimeMs = SystemClock.uptimeMillis() - mActivityStartTimeMs;
             RecordHistogram.recordMediumTimesHistogram(
                     "Startup.Android.Cold.TimeToFirstNavigationCommit" + mHistogramSuffix,
-                    mFirstCommitTimeMs, TimeUnit.MILLISECONDS);
+                    mFirstCommitTimeMs);
         }
         mShouldTrackStartupMetrics = false;
     }
@@ -154,11 +155,31 @@ public class ActivityTabStartupMetricsTracker {
         if (mFirstCommitTimeMs == 0) return;
 
         if (UmaUtils.hasComeToForeground() && !UmaUtils.hasComeToBackground()) {
+            long durationMs = firstContentfulPaintMs - mActivityStartTimeMs;
             RecordHistogram.recordMediumTimesHistogram(
                     "Startup.Android.Cold.TimeToFirstContentfulPaint" + mHistogramSuffix,
-                    firstContentfulPaintMs - mActivityStartTimeMs, TimeUnit.MILLISECONDS);
+                    durationMs);
+            if (mHistogramSuffix.equals(UMA_HISTOGRAM_TABBED_SUFFIX)) {
+                recordVisibleContent(durationMs);
+            }
         }
         // This is the last event we track, so destroy this tracker and remove observers.
         destroy();
+    }
+
+    /**
+     * Record the first Visible Content time.
+     * This metric reports the minimum value of
+     * Startup.Android.Cold.TimeToFirstContentfulPaint.Tabbed and
+     * Browser.PaintPreview.TabbedPlayer.TimeToFirstBitmap.
+     *
+     * @param durationMs duration in millis.
+     */
+    public void recordVisibleContent(long durationMs) {
+        if (mVisibleContentRecorded) return;
+
+        mVisibleContentRecorded = true;
+        RecordHistogram.recordMediumTimesHistogram(
+                "Startup.Android.Cold.TimeToVisibleContent", durationMs);
     }
 }

@@ -7,39 +7,39 @@ package org.chromium.chrome.browser.omnibox.geo;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Process;
 import android.os.SystemClock;
 import android.provider.Settings;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.v4.util.ObjectsCompat;
 import android.util.Base64;
+
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.util.ObjectsCompat;
 
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.CollectionUtil;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.metrics.RecordHistogram;
-import org.chromium.chrome.browser.ContentSettingsType;
-import org.chromium.chrome.browser.UrlConstants;
 import org.chromium.chrome.browser.omnibox.geo.VisibleNetworks.VisibleCell;
 import org.chromium.chrome.browser.omnibox.geo.VisibleNetworks.VisibleWifi;
-import org.chromium.chrome.browser.preferences.website.ContentSettingValues;
-import org.chromium.chrome.browser.preferences.website.PermissionInfo;
-import org.chromium.chrome.browser.preferences.website.WebsitePreferenceBridge;
+import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.tab.Tab;
-import org.chromium.chrome.browser.util.UrlUtilities;
+import org.chromium.components.browser_ui.site_settings.PermissionInfo;
+import org.chromium.components.browser_ui.site_settings.WebsitePreferenceBridge;
+import org.chromium.components.content_settings.ContentSettingValues;
+import org.chromium.components.content_settings.ContentSettingsType;
+import org.chromium.components.embedder_support.util.UrlConstants;
+import org.chromium.components.embedder_support.util.UrlUtilitiesJni;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Provides methods for building the X-Geo HTTP header, which provides device location to a server
@@ -92,15 +92,15 @@ public class GeolocationHeader {
             UmaPermission.GPS_ONLY_APP_BLOCKED_DOMAIN_YES,
             UmaPermission.GPS_ONLY_APP_BLOCKED_DOMAIN_PROMPT,
             UmaPermission.GPS_ONLY_APP_BLOCKED_DOMAIN_BLOCKED,
-            UmaPermission.MASTER_OFF_APP_YES_DOMAIN_YES,
-            UmaPermission.MASTER_OFF_APP_YES_DOMAIN_PROMPT,
-            UmaPermission.MASTER_OFF_APP_YES_DOMAIN_BLOCKED,
-            UmaPermission.MASTER_OFF_APP_PROMPT_DOMAIN_YES,
-            UmaPermission.MASTER_OFF_APP_PROMPT_DOMAIN_PROMPT,
-            UmaPermission.MASTER_OFF_APP_PROMPT_DOMAIN_BLOCKED,
-            UmaPermission.MASTER_OFF_APP_BLOCKED_DOMAIN_YES,
-            UmaPermission.MASTER_OFF_APP_BLOCKED_DOMAIN_PROMPT,
-            UmaPermission.MASTER_OFF_APP_BLOCKED_DOMAIN_BLOCKED, UmaPermission.UNSUITABLE_URL,
+            UmaPermission.LOCATION_OFF_APP_YES_DOMAIN_YES,
+            UmaPermission.LOCATION_OFF_APP_YES_DOMAIN_PROMPT,
+            UmaPermission.LOCATION_OFF_APP_YES_DOMAIN_BLOCKED,
+            UmaPermission.LOCATION_OFF_APP_PROMPT_DOMAIN_YES,
+            UmaPermission.LOCATION_OFF_APP_PROMPT_DOMAIN_PROMPT,
+            UmaPermission.LOCATION_OFF_APP_PROMPT_DOMAIN_BLOCKED,
+            UmaPermission.LOCATION_OFF_APP_BLOCKED_DOMAIN_YES,
+            UmaPermission.LOCATION_OFF_APP_BLOCKED_DOMAIN_PROMPT,
+            UmaPermission.LOCATION_OFF_APP_BLOCKED_DOMAIN_BLOCKED, UmaPermission.UNSUITABLE_URL,
             UmaPermission.NOT_HTTPS})
     @Retention(RetentionPolicy.SOURCE)
     public @interface UmaPermission {
@@ -144,22 +144,22 @@ public class GeolocationHeader {
         int GPS_ONLY_APP_BLOCKED_DOMAIN_YES = 31;
         int GPS_ONLY_APP_BLOCKED_DOMAIN_PROMPT = 32;
         int GPS_ONLY_APP_BLOCKED_DOMAIN_BLOCKED = 33;
-        int MASTER_OFF_APP_YES_DOMAIN_YES = 34;
-        int MASTER_OFF_APP_YES_DOMAIN_PROMPT = 35;
-        int MASTER_OFF_APP_YES_DOMAIN_BLOCKED = 36;
-        int MASTER_OFF_APP_PROMPT_DOMAIN_YES = 37;
-        int MASTER_OFF_APP_PROMPT_DOMAIN_PROMPT = 38;
-        int MASTER_OFF_APP_PROMPT_DOMAIN_BLOCKED = 39;
-        int MASTER_OFF_APP_BLOCKED_DOMAIN_YES = 40;
-        int MASTER_OFF_APP_BLOCKED_DOMAIN_PROMPT = 41;
-        int MASTER_OFF_APP_BLOCKED_DOMAIN_BLOCKED = 42;
+        int LOCATION_OFF_APP_YES_DOMAIN_YES = 34;
+        int LOCATION_OFF_APP_YES_DOMAIN_PROMPT = 35;
+        int LOCATION_OFF_APP_YES_DOMAIN_BLOCKED = 36;
+        int LOCATION_OFF_APP_PROMPT_DOMAIN_YES = 37;
+        int LOCATION_OFF_APP_PROMPT_DOMAIN_PROMPT = 38;
+        int LOCATION_OFF_APP_PROMPT_DOMAIN_BLOCKED = 39;
+        int LOCATION_OFF_APP_BLOCKED_DOMAIN_YES = 40;
+        int LOCATION_OFF_APP_BLOCKED_DOMAIN_PROMPT = 41;
+        int LOCATION_OFF_APP_BLOCKED_DOMAIN_BLOCKED = 42;
         int UNSUITABLE_URL = 43;
         int NOT_HTTPS = 44;
         int NUM_ENTRIES = 45;
     }
 
     @IntDef({LocationSource.HIGH_ACCURACY, LocationSource.BATTERY_SAVING, LocationSource.GPS_ONLY,
-            LocationSource.MASTER_OFF})
+            LocationSource.LOCATION_OFF})
     @Retention(RetentionPolicy.SOURCE)
     public @interface LocationSource {
         @VisibleForTesting
@@ -169,7 +169,7 @@ public class GeolocationHeader {
         @VisibleForTesting
         int GPS_ONLY = 2;
         @VisibleForTesting
-        int MASTER_OFF = 3;
+        int LOCATION_OFF = 3;
     }
 
     @IntDef({Permission.GRANTED, Permission.PROMPT, Permission.BLOCKED})
@@ -246,12 +246,12 @@ public class GeolocationHeader {
     }
 
     @HeaderState
-    private static int geoHeaderStateForUrl(String url, boolean isIncognito, boolean recordUma) {
+    private static int geoHeaderStateForUrl(Profile profile, String url, boolean recordUma) {
         // Only send X-Geo in normal mode.
-        if (isIncognito) return HeaderState.INCOGNITO;
+        if (profile.isOffTheRecord()) return HeaderState.INCOGNITO;
 
         // Only send X-Geo header to Google domains.
-        if (!UrlUtilities.nativeIsGoogleSearchUrl(url)) return HeaderState.UNSUITABLE_URL;
+        if (!UrlUtilitiesJni.get().isGoogleSearchUrl(url)) return HeaderState.UNSUITABLE_URL;
 
         Uri uri = Uri.parse(url);
         if (!UrlConstants.HTTPS_SCHEME.equals(uri.getScheme())) return HeaderState.NOT_HTTPS;
@@ -262,7 +262,7 @@ public class GeolocationHeader {
         }
 
         // Only send X-Geo header if the user hasn't disabled geolocation for url.
-        if (isLocationDisabledForUrl(uri, isIncognito)) {
+        if (isLocationDisabledForUrl(profile, uri)) {
             if (recordUma) recordHistogram(UMA_LOCATION_DISABLED_FOR_GOOGLE_DOMAIN);
             return HeaderState.LOCATION_PERMISSION_BLOCKED;
         }
@@ -283,13 +283,59 @@ public class GeolocationHeader {
      * @param tab The Tab currently being accessed.
      * @return The X-Geo header string or null.
      */
+    @Nullable
     public static String getGeoHeader(String url, Tab tab) {
-        // TODO(lbargu): Refactor and simplify flow.
-        boolean isIncognito = tab.isIncognito();
+        Profile profile = Profile.fromWebContents(tab.getWebContents());
+        if (profile == null) return null;
+
+        return getGeoHeader(url, profile, tab);
+    }
+
+    /**
+     * Returns an X-Geo HTTP header string if:
+     *  1. The current mode is not incognito.
+     *  2. The url is a google search URL (e.g. www.google.co.uk/search?q=cars), and
+     *  3. The user has not disabled sharing location with this url, and
+     *  4. There is a valid and recent location available.
+     *
+     * Returns null otherwise. This will never prompt for location access.
+     *
+     * @param url The URL of the request with which this header will be sent.
+     * @param profile The Tab currently being accessed.
+     * @return The X-Geo header string or null.
+     */
+    @SuppressWarnings("unused")
+    @CalledByNative
+    @Nullable
+    public static String getGeoHeader(String url, Profile profile) {
+        if (profile == null) return null;
+        Tab tab = null;
+
+        return getGeoHeader(url, profile, tab);
+    }
+
+    /**
+     * Returns an X-Geo HTTP header string if:
+     *  1. The current mode is not incognito.
+     *  2. The url is a google search URL (e.g. www.google.co.uk/search?q=cars), and
+     *  3. The user has not disabled sharing location with this url, and
+     *  4. There is a valid and recent location available.
+     *
+     * Returns null otherwise.
+     *
+     * @param url The URL of the request with which this header will be sent.
+     * @param profile The user profile being accessed.
+     * @param tab The Tab currently being accessed. Can be null, in which case, location permissions
+     *         will never prompt.
+     * @return The X-Geo header string or null.
+     */
+    @Nullable
+    private static String getGeoHeader(String url, Profile profile, Tab tab) {
         Location locationToAttach = null;
         VisibleNetworks visibleNetworksToAttach = null;
         long locationAge = Long.MAX_VALUE;
-        @HeaderState int headerState = geoHeaderStateForUrl(url, isIncognito, true);
+        @HeaderState
+        int headerState = geoHeaderStateForUrl(profile, url, true);
         if (headerState == HeaderState.HEADER_ENABLED) {
             locationToAttach =
                     GeolocationTracker.getLastKnownLocation(ContextUtils.getApplicationContext());
@@ -317,14 +363,15 @@ public class GeolocationHeader {
 
         @LocationSource int locationSource = getLocationSource();
         @Permission int appPermission = getGeolocationPermission(tab);
-        @Permission int domainPermission = getDomainPermission(url, isIncognito);
+        @Permission
+        int domainPermission = getDomainPermission(profile, url);
 
         // Record the permission state with a histogram.
         recordPermissionHistogram(locationSource, appPermission, domainPermission,
                 locationToAttach != null, headerState);
 
-        if (locationSource != LocationSource.MASTER_OFF && appPermission != Permission.BLOCKED
-                && domainPermission != Permission.BLOCKED && !isIncognito) {
+        if (locationSource != LocationSource.LOCATION_OFF && appPermission != Permission.BLOCKED
+                && domainPermission != Permission.BLOCKED && !profile.isOffTheRecord()) {
             // Record the Location Age with a histogram.
             recordLocationAgeHistogram(locationSource, locationAge);
             long duration = sFirstLocationTime == Long.MAX_VALUE
@@ -352,6 +399,7 @@ public class GeolocationHeader {
         return header.toString();
     }
 
+    @SuppressWarnings("unused")
     @CalledByNative
     static boolean hasGeolocationPermission() {
         if (sUseAppPermissionGrantedForTesting) return sAppPermissionGrantedForTesting;
@@ -366,14 +414,9 @@ public class GeolocationHeader {
         // Work around a bug in OnePlus2 devices running Lollipop, where the NETWORK_PROVIDER
         // incorrectly requires FINE_LOCATION permission (it should only require COARSE_LOCATION
         // permission). http://crbug.com/580733
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M
-                && ApiCompatibilityUtils.checkPermission(ContextUtils.getApplicationContext(),
-                        Manifest.permission.ACCESS_FINE_LOCATION, pid, uid)
-                        != PackageManager.PERMISSION_GRANTED) {
-            return false;
-        }
-
-        return true;
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                || ApiCompatibilityUtils.checkPermission(ContextUtils.getApplicationContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION, pid, uid) == PackageManager.PERMISSION_GRANTED;
     }
 
     /**
@@ -386,8 +429,9 @@ public class GeolocationHeader {
             return sAppPermissionGrantedForTesting ? Permission.GRANTED : Permission.BLOCKED;
         }
         if (hasGeolocationPermission()) return Permission.GRANTED;
-        return tab.getWindowAndroid().canRequestPermission(
-                       Manifest.permission.ACCESS_COARSE_LOCATION)
+        return (tab != null
+                       && tab.getWindowAndroid().canRequestPermission(
+                               Manifest.permission.ACCESS_COARSE_LOCATION))
                 ? Permission.PROMPT
                 : Permission.BLOCKED;
     }
@@ -396,15 +440,14 @@ public class GeolocationHeader {
      * Returns true if the user has disabled sharing their location with url (e.g. via the
      * geolocation infobar).
      */
-    static boolean isLocationDisabledForUrl(Uri uri, boolean isIncognito) {
+    static boolean isLocationDisabledForUrl(Profile profile, Uri uri) {
         boolean enabled =
                 // TODO(raymes): The call to isPermissionControlledByDSE is only needed if this
                 // could be called for an origin that isn't the default search engine. Otherwise
                 // remove this line.
                 WebsitePreferenceBridge.isPermissionControlledByDSE(
-                        ContentSettingsType.CONTENT_SETTINGS_TYPE_GEOLOCATION, uri.toString(),
-                        isIncognito)
-                && locationContentSettingForUrl(uri, isIncognito) == ContentSettingValues.ALLOW;
+                        profile, ContentSettingsType.GEOLOCATION, uri.toString())
+                && locationContentSettingForUrl(profile, uri) == ContentSettingValues.ALLOW;
         return !enabled;
     }
 
@@ -413,10 +456,10 @@ public class GeolocationHeader {
      * geolocation infobar).
      */
     static @ContentSettingValues @Nullable Integer locationContentSettingForUrl(
-            Uri uri, boolean isIncognito) {
+            Profile profile, Uri uri) {
         PermissionInfo locationSettings = new PermissionInfo(
-                PermissionInfo.Type.GEOLOCATION, uri.toString(), null, isIncognito);
-        return locationSettings.getContentSetting();
+                ContentSettingsType.GEOLOCATION, uri.toString(), null, profile.isOffTheRecord());
+        return locationSettings.getContentSetting(profile);
     }
 
     @VisibleForTesting
@@ -438,12 +481,9 @@ public class GeolocationHeader {
 
     /** Returns the location source. */
     @LocationSource
-    // We should replace our usage of LOCATION_PROVIDERS_ALLOWED when the min API is 19.
-    @SuppressWarnings("deprecation")
     private static int getLocationSource() {
         if (sUseLocationSourceForTesting) return sLocationSourceForTesting;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             int locationMode;
             try {
                 locationMode = Settings.Secure.getInt(
@@ -451,7 +491,7 @@ public class GeolocationHeader {
                         Settings.Secure.LOCATION_MODE);
             } catch (Settings.SettingNotFoundException e) {
                 Log.e(TAG, "Error getting the LOCATION_MODE");
-                return LocationSource.MASTER_OFF;
+                return LocationSource.LOCATION_OFF;
             }
             if (locationMode == Settings.Secure.LOCATION_MODE_HIGH_ACCURACY) {
                 return LocationSource.HIGH_ACCURACY;
@@ -460,23 +500,8 @@ public class GeolocationHeader {
             } else if (locationMode == Settings.Secure.LOCATION_MODE_BATTERY_SAVING) {
                 return LocationSource.BATTERY_SAVING;
             } else {
-                return LocationSource.MASTER_OFF;
+                return LocationSource.LOCATION_OFF;
             }
-        } else {
-            String locationProviders = Settings.Secure.getString(
-                    ContextUtils.getApplicationContext().getContentResolver(),
-                    Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
-            if (locationProviders.contains(LocationManager.GPS_PROVIDER)
-                    && locationProviders.contains(LocationManager.NETWORK_PROVIDER)) {
-                return LocationSource.HIGH_ACCURACY;
-            } else if (locationProviders.contains(LocationManager.GPS_PROVIDER)) {
-                return LocationSource.GPS_ONLY;
-            } else if (locationProviders.contains(LocationManager.NETWORK_PROVIDER)) {
-                return LocationSource.BATTERY_SAVING;
-            } else {
-                return LocationSource.MASTER_OFF;
-            }
-        }
     }
 
     private static boolean isNetworkLocationEnabled() {
@@ -496,10 +521,10 @@ public class GeolocationHeader {
      * geolocation infobar).
      */
     @Permission
-    private static int getDomainPermission(String url, boolean isIncognito) {
+    private static int getDomainPermission(Profile profile, String url) {
         @ContentSettingValues
-        @Nullable
-        Integer domainPermission = locationContentSettingForUrl(Uri.parse(url), isIncognito);
+//        @Nullable
+        Integer domainPermission = locationContentSettingForUrl(profile, Uri.parse(url));
         switch (domainPermission) {
             case ContentSettingValues.ALLOW:
                 return Permission.GRANTED;
@@ -609,30 +634,30 @@ public class GeolocationHeader {
                     return UmaPermission.GPS_ONLY_APP_BLOCKED_DOMAIN_BLOCKED;
                 }
             }
-        } else if (locationSource == LocationSource.MASTER_OFF) {
+        } else if (locationSource == LocationSource.LOCATION_OFF) {
             if (appPermission == Permission.GRANTED) {
                 if (domainPermission == Permission.GRANTED) {
-                    return UmaPermission.MASTER_OFF_APP_YES_DOMAIN_YES;
+                    return UmaPermission.LOCATION_OFF_APP_YES_DOMAIN_YES;
                 } else if (domainPermission == Permission.PROMPT) {
-                    return UmaPermission.MASTER_OFF_APP_YES_DOMAIN_PROMPT;
+                    return UmaPermission.LOCATION_OFF_APP_YES_DOMAIN_PROMPT;
                 } else if (domainPermission == Permission.BLOCKED) {
-                    return UmaPermission.MASTER_OFF_APP_YES_DOMAIN_BLOCKED;
+                    return UmaPermission.LOCATION_OFF_APP_YES_DOMAIN_BLOCKED;
                 }
             } else if (appPermission == Permission.PROMPT) {
                 if (domainPermission == Permission.GRANTED) {
-                    return UmaPermission.MASTER_OFF_APP_PROMPT_DOMAIN_YES;
+                    return UmaPermission.LOCATION_OFF_APP_PROMPT_DOMAIN_YES;
                 } else if (domainPermission == Permission.PROMPT) {
-                    return UmaPermission.MASTER_OFF_APP_PROMPT_DOMAIN_PROMPT;
+                    return UmaPermission.LOCATION_OFF_APP_PROMPT_DOMAIN_PROMPT;
                 } else if (domainPermission == Permission.BLOCKED) {
-                    return UmaPermission.MASTER_OFF_APP_PROMPT_DOMAIN_BLOCKED;
+                    return UmaPermission.LOCATION_OFF_APP_PROMPT_DOMAIN_BLOCKED;
                 }
             } else if (appPermission == Permission.BLOCKED) {
                 if (domainPermission == Permission.GRANTED) {
-                    return UmaPermission.MASTER_OFF_APP_BLOCKED_DOMAIN_YES;
+                    return UmaPermission.LOCATION_OFF_APP_BLOCKED_DOMAIN_YES;
                 } else if (domainPermission == Permission.PROMPT) {
-                    return UmaPermission.MASTER_OFF_APP_BLOCKED_DOMAIN_PROMPT;
+                    return UmaPermission.LOCATION_OFF_APP_BLOCKED_DOMAIN_PROMPT;
                 } else if (domainPermission == Permission.BLOCKED) {
-                    return UmaPermission.MASTER_OFF_APP_BLOCKED_DOMAIN_BLOCKED;
+                    return UmaPermission.LOCATION_OFF_APP_BLOCKED_DOMAIN_BLOCKED;
                 }
             }
         }
@@ -653,7 +678,7 @@ public class GeolocationHeader {
 
     /**
      * Determines the name for a Time Listening Histogram. Returns empty string if the location
-     * source is MASTER_OFF as we do not record histograms for that case.
+     * source is LOCATION_OFF as we do not record histograms for that case.
      */
     private static String getTimeListeningHistogramEnum(
             int locationSource, boolean locationAttached) {
@@ -683,7 +708,7 @@ public class GeolocationHeader {
         String name = getTimeListeningHistogramEnum(locationSource, locationAttached);
         if (name == null) return;
         RecordHistogram.recordCustomTimesHistogram(
-                name, duration, 1, TIME_LISTENING_HISTOGRAM_MAX_MILLIS, TimeUnit.MILLISECONDS, 50);
+                name, duration, 1, TIME_LISTENING_HISTOGRAM_MAX_MILLIS, 50);
     }
 
     /** Records a data point for one of the GeolocationHeader.LocationAge* histograms. */

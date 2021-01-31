@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,35 +10,30 @@
 
 package org.chromium.components.security_state;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @IntDef({
-    ConnectionSecurityLevel.NONE, ConnectionSecurityLevel.HTTP_SHOW_WARNING,
-    ConnectionSecurityLevel.EV_SECURE, ConnectionSecurityLevel.SECURE,
+    ConnectionSecurityLevel.NONE, ConnectionSecurityLevel.SECURE,
     ConnectionSecurityLevel.SECURE_WITH_POLICY_INSTALLED_CERT, ConnectionSecurityLevel.DANGEROUS,
-    ConnectionSecurityLevel.SECURITY_LEVEL_COUNT
+    ConnectionSecurityLevel.WARNING, ConnectionSecurityLevel.SECURITY_LEVEL_COUNT
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface ConnectionSecurityLevel {
   /**
-   * HTTP/no URL/HTTPS but with insecure passive content on the page.
+   * Neutral; neither positively secure nor insecure. Used for e.g. some types of non-http/https
+   * URLs.
    */
   int NONE = 0;
   /**
    * HTTP, in a case where we want to show a visible warning about the page's lack of security. The
    * criteria used to classify pages as NONE vs. HTTP_SHOW_WARNING will change over time.
-   * Eventually, NONE will be eliminated. See https://crbug.com/647754.
-   */
-  int HTTP_SHOW_WARNING = 1;
-  /**
-   * HTTPS with valid EV cert.
-   */
-  int EV_SECURE = 2;
-  /**
-   * HTTPS (non-EV) with valid cert.
+   * Eventually, NONE will be eliminated. See https://crbug.com/647754. DEPRECATED: Use WARNING
+   * instead in most cases. HTTP_SHOW_WARNING = 1, HTTPS with valid EV cert. DEPRECATED: EV certs no
+   * longer receive special UI treatment. See https://crbug.com/1006943. EV_SECURE = 2, HTTPS (non-
+   * EV) with valid cert.
    */
   int SECURE = 3;
   /**
@@ -52,5 +47,11 @@ public @interface ConnectionSecurityLevel {
    * page, malware, phishing, or any other serious security issue that could be dangerous.
    */
   int DANGEROUS = 5;
-  int SECURITY_LEVEL_COUNT = 6;
+  /**
+   * Pages deemed insecure, where we should show a warning indicator. This includes HTTP pages
+   * (previously these were HTTP_SHOW_WARNING) and cases where we consider an HTTPS page to be
+   * insecure (e.g., legacy TLS versions).
+   */
+  int WARNING = 6;
+  int SECURITY_LEVEL_COUNT = 7;
 }

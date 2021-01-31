@@ -4,23 +4,24 @@
 
 package org.chromium.chrome.browser.bookmarks;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.widget.Toolbar;
 
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.SynchronousInitializationActivity;
 import org.chromium.chrome.browser.bookmarks.BookmarkBridge.BookmarkItem;
 import org.chromium.chrome.browser.bookmarks.BookmarkBridge.BookmarkModelObserver;
-import org.chromium.chrome.browser.widget.EmptyAlertEditText;
-import org.chromium.chrome.browser.widget.TintedDrawable;
 import org.chromium.components.bookmarks.BookmarkId;
+import org.chromium.components.browser_ui.widget.TintedDrawable;
 import org.chromium.components.url_formatter.UrlFormatter;
+import org.chromium.url.GURL;
 
 /**
  * The activity that enables the user to modify the title, url and parent folder of a bookmark.
@@ -33,13 +34,13 @@ public class BookmarkEditActivity extends SynchronousInitializationActivity {
 
     private BookmarkModel mModel;
     private BookmarkId mBookmarkId;
-    private EmptyAlertEditText mTitleEditText;
-    private EmptyAlertEditText mUrlEditText;
+    private BookmarkTextInputLayout mTitleEditText;
+    private BookmarkTextInputLayout mUrlEditText;
     private TextView mFolderTextView;
 
     private MenuItem mDeleteButton;
 
-    private BookmarkModelObserver mBookmarkModelObserver = new BookmarkModelObserver() {
+    private final BookmarkModelObserver mBookmarkModelObserver = new BookmarkModelObserver() {
         @Override
         public void bookmarkModelChanged() {
             if (mModel.doesBookmarkExist(mBookmarkId)) {
@@ -67,9 +68,9 @@ public class BookmarkEditActivity extends SynchronousInitializationActivity {
         }
 
         setContentView(R.layout.bookmark_edit);
-        mTitleEditText = (EmptyAlertEditText) findViewById(R.id.title_text);
+        mTitleEditText = findViewById(R.id.title_text);
         mFolderTextView = (TextView) findViewById(R.id.folder_text);
-        mUrlEditText = (EmptyAlertEditText) findViewById(R.id.url_text);
+        mUrlEditText = findViewById(R.id.url_text);
 
         mFolderTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +100,8 @@ public class BookmarkEditActivity extends SynchronousInitializationActivity {
         BookmarkItem bookmarkItem = mModel.getBookmarkById(mBookmarkId);
         // While the user is editing the bookmark, do not override user's input.
         if (!modelChanged) {
-            mTitleEditText.setText(bookmarkItem.getTitle());
-            mUrlEditText.setText(bookmarkItem.getUrl());
+            mTitleEditText.getEditText().setText(bookmarkItem.getTitle());
+            mUrlEditText.getEditText().setText(bookmarkItem.getUrl().getSpec());
         }
         mFolderTextView.setText(mModel.getBookmarkTitle(bookmarkItem.getParentId()));
         mTitleEditText.setEnabled(bookmarkItem.isEditable());
@@ -137,8 +138,7 @@ public class BookmarkEditActivity extends SynchronousInitializationActivity {
     @Override
     protected void onStop() {
         if (mModel.doesBookmarkExist(mBookmarkId)) {
-            final String originalUrl =
-                    mModel.getBookmarkById(mBookmarkId).getUrl();
+            final GURL originalUrl = mModel.getBookmarkById(mBookmarkId).getUrl();
             final String title = mTitleEditText.getTrimmedText();
             final String url = mUrlEditText.getTrimmedText();
 
@@ -148,8 +148,8 @@ public class BookmarkEditActivity extends SynchronousInitializationActivity {
 
             if (!mUrlEditText.isEmpty()
                     && mModel.getBookmarkById(mBookmarkId).isUrlEditable()) {
-                String fixedUrl = UrlFormatter.fixupUrl(url);
-                if (fixedUrl != null && !fixedUrl.equals(originalUrl)) {
+                GURL fixedUrl = UrlFormatter.fixupUrl(url);
+                if (fixedUrl.isValid() && !fixedUrl.equals(originalUrl)) {
                     mModel.setBookmarkUrl(mBookmarkId, fixedUrl);
                 }
             }
@@ -166,18 +166,23 @@ public class BookmarkEditActivity extends SynchronousInitializationActivity {
         super.onDestroy();
     }
 
-    private void openBookmark() {
-        // TODO(kkimlabs): Refactor this out to handle the intent in ChromeActivity.
-        // If this activity was started via startActivityForResult(), set the result. Otherwise,
-        // launch the bookmark directly.
-        if (getCallingActivity() != null) {
-            Intent intent = new Intent();
-            intent.putExtra(BookmarkActivity.INTENT_VISIT_BOOKMARK_ID, mBookmarkId.toString());
-            setResult(RESULT_OK, intent);
-        } else {
-            BookmarkUtils.openBookmark(
-                    mModel, this, mBookmarkId, BookmarkLaunchLocation.BOOKMARK_EDITOR);
-        }
-        finish();
+    @VisibleForTesting
+    BookmarkTextInputLayout getTitleEditText() {
+        return mTitleEditText;
+    }
+
+    @VisibleForTesting
+    BookmarkTextInputLayout getUrlEditText() {
+        return mUrlEditText;
+    }
+
+    @VisibleForTesting
+    MenuItem getDeleteButton() {
+        return mDeleteButton;
+    }
+
+    @VisibleForTesting
+    TextView getFolderTextView() {
+        return mFolderTextView;
     }
 }

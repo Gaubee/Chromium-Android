@@ -14,12 +14,17 @@ import android.view.DragEvent;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnSystemUiVisibilityChangeListener;
+import android.view.ViewGroup.OnHierarchyChangeListener;
 import android.view.ViewStructure;
 import android.view.accessibility.AccessibilityNodeProvider;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.FrameLayout;
 
+import android.annotation.Nullable;
+
+import org.chromium.base.ObserverList;
 import org.chromium.base.TraceEvent;
 import org.chromium.base.compat.ApiHelperForO;
 import org.chromium.content_public.browser.ImeAdapter;
@@ -29,22 +34,34 @@ import org.chromium.content_public.browser.ViewEventSink;
 import org.chromium.content_public.browser.WebContents;
 import org.chromium.content_public.browser.WebContentsAccessibility;
 import org.chromium.ui.base.EventForwarder;
+import org.chromium.ui.base.EventOffsetHandler;
 
 /**
  * The containing view for {@link WebContents} that exists in the Android UI hierarchy and exposes
  * the various {@link View} functionality to it.
+ *
+ * While ContentView is a ViewGroup, the only place that should add children is ViewAndroidDelegate,
+ * and only for cases that WebContentsAccessibility handles (such as anchoring popups). This is
+ * because the accessibility support provided by WebContentsAccessibility ignores all child views.
+ * In other words, any children added to this are *not* accessible.
  */
-public class ContentView
-        extends FrameLayout implements ViewEventSink.InternalAccessDelegate, SmartClipProvider {
-    private static final String TAG = "cr.ContentView";
+public class ContentView extends FrameLayout
+        implements ViewEventSink.InternalAccessDelegate, SmartClipProvider,
+                   OnHierarchyChangeListener, OnSystemUiVisibilityChangeListener {
+    private static final String TAG = "ContentView";
 
     // Default value to signal that the ContentView's size need not be overridden.
     public static final int DEFAULT_MEASURE_SPEC =
             MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
 
-    private final WebContents mWebContents;
+    @Nullable
+    private WebContents mWebContents;
+    private boolean mIsObscuredForAccessibility;
+    private final ObserverList<OnHierarchyChangeListener> mHierarchyChangeListeners =
+            new ObserverList<>();
+    private final ObserverList<OnSystemUiVisibilityChangeListener> mSystemUiChangeListeners =
+            new ObserverList<>();
     private ViewEventSink mViewEventSink;
-    private EventForwarder mEventForwarder;
 
     /**
      * The desired size of this view in {@link MeasureSpec}. Set by the host
@@ -53,6 +70,9 @@ public class ContentView
     private int mDesiredWidthMeasureSpec = DEFAULT_MEASURE_SPEC;
     private int mDesiredHeightMeasureSpec = DEFAULT_MEASURE_SPEC;
 
+    @Nullable
+    private final EventOffsetHandler mEventOffsetHandler;
+
     /**
      * Constructs a new ContentView for the appropriate Android version.
      * @param context The Context the view is running in, through which it can
@@ -60,11 +80,12 @@ public class ContentView
      * @param webContents The WebContents managing this content view.
      * @return an instance of a ContentView.
      */
-    public static ContentView createContentView(Context context, WebContents webContents) {
+    public static ContentView createContentView(Context context,
+            @Nullable EventOffsetHandler eventOffsetHandler, @Nullable WebContents webContents) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return new ContentViewApi23(context, webContents);
+            return new ContentViewApi23(context, eventOffsetHandler, webContents);
         }
-        return new ContentView(context, webContents);
+        return new ContentView(context, eventOffsetHandler, webContents);
     }
 
     /**
@@ -73,7 +94,7 @@ public class ContentView
      *                access the current theme, resources, etc.
      * @param webContents A pointer to the WebContents managing this content view.
      */
-    ContentView(Context context, WebContents webContents) {
+    ContentView(Context context, EventOffsetHandler eventOffsetHandler, WebContents webContents) {
         super(context, null, android.R.attr.webViewStyle);
 
         if (getScrollBarStyle() == View.SCROLLBARS_INSIDE_OVERLAY) {
@@ -82,6 +103,7 @@ public class ContentView
         }
 
         mWebContents = webContents;
+        mEventOffsetHandler = eventOffsetHandler;
 
         setFocusable(true);
         setFocusableInTouchMode(true);
@@ -89,11 +111,46 @@ public class ContentView
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             ApiHelperForO.setDefaultFocusHighlightEnabled(this, false);
         }
+
+        setOnHierarchyChangeListener(this);
+        setOnSystemUiVisibilityChangeListener(this);
     }
 
     protected WebContentsAccessibility getWebContentsAccessibility() {
-        return !mWebContents.isDestroyed() ? WebContentsAccessibility.fromWebContents(mWebContents)
-                                           : null;
+        return hasValidWebContents() ? WebContentsAccessibility.fromWebContents(mWebContents)
+                                     : null;
+    }
+
+    public WebContents getWebContents() {
+        return mWebContents;
+    }
+
+    public void setWebContents(WebContents webContents) {
+        boolean wasFocused = isFocused();
+        boolean wasWindowFocused = hasWindowFocus();
+        boolean wasAttached = isAttachedToWindow();
+        boolean wasObscured = mIsObscuredForAccessibility;
+        if (wasFocused) onFocusChanged(false, View.FOCUS_FORWARD, null);
+        if (wasWindowFocused) onWindowFocusChanged(false);
+        if (wasAttached) onDetachedFromWindow();
+        if (wasObscured) setIsObscuredForAccessibility(false);
+        mWebContents = webContents;
+        mViewEventSink = null;
+        if (wasFocused) onFocusChanged(true, View.FOCUS_FORWARD, null);
+        if (wasWindowFocused) onWindowFocusChanged(true);
+        if (wasAttached) onAttachedToWindow();
+        if (wasObscured) setIsObscuredForAccessibility(true);
+    }
+
+    /**
+     * Control whether WebContentsAccessibility will respond to accessibility requests.
+     */
+    public void setIsObscuredForAccessibility(boolean isObscured) {
+        if (mIsObscuredForAccessibility == isObscured) return;
+        mIsObscuredForAccessibility = isObscured;
+        WebContentsAccessibility wcax = getWebContentsAccessibility();
+        if (wcax == null) return;
+        wcax.setObscuredByAnotherView(mIsObscuredForAccessibility);
     }
 
     @Override
@@ -112,6 +169,76 @@ public class ContentView
     public void setDesiredMeasureSpec(int width, int height) {
         mDesiredWidthMeasureSpec = width;
         mDesiredHeightMeasureSpec = height;
+    }
+
+    @Override
+    public void setOnHierarchyChangeListener(OnHierarchyChangeListener listener) {
+        assert listener == this : "Use add/removeOnHierarchyChangeListener instead.";
+        super.setOnHierarchyChangeListener(listener);
+    }
+
+    /**
+     * Registers the given listener to receive state changes for the content view hierarchy.
+     * @param listener Listener to receive view hierarchy state changes.
+     */
+    public void addOnHierarchyChangeListener(OnHierarchyChangeListener listener) {
+        mHierarchyChangeListeners.addObserver(listener);
+    }
+
+    /**
+     * Unregisters the given listener from receiving state changes for the content view hierarchy.
+     * @param listener Listener that doesn't want to receive view hierarchy state changes.
+     */
+    public void removeOnHierarchyChangeListener(OnHierarchyChangeListener listener) {
+        mHierarchyChangeListeners.removeObserver(listener);
+    }
+
+    @Override
+    public void setOnSystemUiVisibilityChangeListener(OnSystemUiVisibilityChangeListener listener) {
+        assert listener == this : "Use add/removeOnSystemUiVisibilityChangeListener instead.";
+        super.setOnSystemUiVisibilityChangeListener(listener);
+    }
+
+    /**
+     * Registers the given listener to receive system UI visibility state changes.
+     * @param listener Listener to receive system UI visibility state changes.
+     */
+    public void addOnSystemUiVisibilityChangeListener(OnSystemUiVisibilityChangeListener listener) {
+        mSystemUiChangeListeners.addObserver(listener);
+    }
+
+    /**
+     * Unregisters the given listener from receiving system UI visibility state changes.
+     * @param listener Listener that doesn't want to receive state changes.
+     */
+    public void removeOnSystemUiVisibilityChangeListener(
+            OnSystemUiVisibilityChangeListener listener) {
+        mSystemUiChangeListeners.removeObserver(listener);
+    }
+
+    // View.OnHierarchyChangeListener implementation
+
+    @Override
+    public void onChildViewRemoved(View parent, View child) {
+        for (OnHierarchyChangeListener listener : mHierarchyChangeListeners) {
+            listener.onChildViewRemoved(parent, child);
+        }
+    }
+
+    @Override
+    public void onChildViewAdded(View parent, View child) {
+        for (OnHierarchyChangeListener listener : mHierarchyChangeListeners) {
+            listener.onChildViewAdded(parent, child);
+        }
+    }
+
+    // View.OnHierarchyChangeListener implementation
+
+    @Override
+    public void onSystemUiVisibilityChange(int visibility) {
+        for (OnSystemUiVisibilityChangeListener listener : mSystemUiChangeListeners) {
+            listener.onSystemUiVisibilityChange(visibility);
+        }
     }
 
     @Override
@@ -142,13 +269,13 @@ public class ContentView
     @Override
     public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
         // Calls may come while/after WebContents is destroyed. See https://crbug.com/821750#c8.
-        if (mWebContents.isDestroyed()) return null;
+        if (!hasValidWebContents()) return null;
         return ImeAdapter.fromWebContents(mWebContents).onCreateInputConnection(outAttrs);
     }
 
     @Override
     public boolean onCheckIsTextEditor() {
-        if (mWebContents.isDestroyed()) return false;
+        if (!hasValidWebContents()) return false;
         return ImeAdapter.fromWebContents(mWebContents).onCheckIsTextEditor();
     }
 
@@ -157,8 +284,10 @@ public class ContentView
         try {
             TraceEvent.begin("ContentView.onFocusChanged");
             super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
-            getViewEventSink().setHideKeyboardOnBlur(true);
-            getViewEventSink().onViewFocusChanged(gainFocus);
+            if (hasValidWebContents()) {
+                getViewEventSink().setHideKeyboardOnBlur(true);
+                getViewEventSink().onViewFocusChanged(gainFocus);
+            }
         } finally {
             TraceEvent.end("ContentView.onFocusChanged");
         }
@@ -167,28 +296,65 @@ public class ContentView
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
-        getViewEventSink().onWindowFocusChanged(hasWindowFocus);
+        if (hasValidWebContents()) {
+            getViewEventSink().onWindowFocusChanged(hasWindowFocus);
+        }
     }
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        return getEventForwarder().onKeyUp(keyCode, event);
+        EventForwarder forwarder = getEventForwarder();
+        return forwarder != null && forwarder.onKeyUp(keyCode, event);
     }
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        return isFocused() ? getEventForwarder().dispatchKeyEvent(event)
-                           : super.dispatchKeyEvent(event);
+        if (!isFocused()) return super.dispatchKeyEvent(event);
+        EventForwarder forwarder = getEventForwarder();
+        return forwarder != null && forwarder.dispatchKeyEvent(event);
     }
 
     @Override
     public boolean onDragEvent(DragEvent event) {
-        return getEventForwarder().onDragEvent(event, this);
+        EventForwarder forwarder = getEventForwarder();
+        return forwarder != null && forwarder.onDragEvent(event, this);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent e) {
+        boolean ret = super.onInterceptTouchEvent(e);
+        if (mEventOffsetHandler != null) {
+            mEventOffsetHandler.onInterceptTouchEvent(e);
+        }
+        return ret;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return getEventForwarder().onTouchEvent(event);
+        EventForwarder forwarder = getEventForwarder();
+        boolean ret = forwarder != null && forwarder.onTouchEvent(event);
+        if (mEventOffsetHandler != null) mEventOffsetHandler.onTouchEvent(event);
+        return ret;
+    }
+
+    @Override
+    public boolean onInterceptHoverEvent(MotionEvent e) {
+        if (mEventOffsetHandler != null) {
+            mEventOffsetHandler.onInterceptHoverEvent(e);
+        }
+        return super.onInterceptHoverEvent(e);
+    }
+
+    @Override
+    public boolean dispatchDragEvent(DragEvent e) {
+        if (mEventOffsetHandler != null) {
+            mEventOffsetHandler.onPreDispatchDragEvent(e.getAction());
+        }
+        boolean ret = super.dispatchDragEvent(e);
+        if (mEventOffsetHandler != null) {
+            mEventOffsetHandler.onPostDispatchDragEvent(e.getAction());
+        }
+        return ret;
     }
 
     /**
@@ -198,7 +364,8 @@ public class ContentView
      */
     @Override
     public boolean onHoverEvent(MotionEvent event) {
-        boolean consumed = getEventForwarder().onHoverEvent(event);
+        EventForwarder forwarder = getEventForwarder();
+        boolean consumed = forwarder != null && forwarder.onHoverEvent(event);
         WebContentsAccessibility wcax = getWebContentsAccessibility();
         if (wcax != null && !wcax.isTouchExplorationEnabled()) super.onHoverEvent(event);
         return consumed;
@@ -206,18 +373,19 @@ public class ContentView
 
     @Override
     public boolean onGenericMotionEvent(MotionEvent event) {
-        return getEventForwarder().onGenericMotionEvent(event);
+        EventForwarder forwarder = getEventForwarder();
+        return forwarder != null && forwarder.onGenericMotionEvent(event);
     }
 
+    @Nullable
     private EventForwarder getEventForwarder() {
-        if (mEventForwarder == null) {
-            mEventForwarder = mWebContents.getEventForwarder();
-        }
-        return mEventForwarder;
+        return webContentsAttached() ? mWebContents.getEventForwarder() : null;
     }
 
     private ViewEventSink getViewEventSink() {
-        if (mViewEventSink == null) mViewEventSink = ViewEventSink.from(mWebContents);
+        if (mViewEventSink == null && hasValidWebContents()) {
+            mViewEventSink = ViewEventSink.from(mWebContents);
+        }
         return mViewEventSink;
     }
 
@@ -228,7 +396,9 @@ public class ContentView
 
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
-        getViewEventSink().onConfigurationChanged(newConfig);
+        if (hasValidWebContents()) {
+            getViewEventSink().onConfigurationChanged(newConfig);
+        }
         super.onConfigurationChanged(newConfig);
     }
 
@@ -240,48 +410,54 @@ public class ContentView
      */
     @Override
     public void scrollBy(int x, int y) {
-        getEventForwarder().scrollBy(x, y);
+        EventForwarder forwarder = getEventForwarder();
+        if (forwarder != null) forwarder.scrollBy(x, y);
     }
 
     @Override
     public void scrollTo(int x, int y) {
-        getEventForwarder().scrollTo(x, y);
+        EventForwarder forwarder = getEventForwarder();
+        if (forwarder != null) forwarder.scrollTo(x, y);
     }
 
     @Override
     protected int computeHorizontalScrollExtent() {
-        RenderCoordinates rc = RenderCoordinates.fromWebContents(mWebContents);
+        RenderCoordinates rc = getRenderCoordinates();
         return rc != null ? rc.getLastFrameViewportWidthPixInt() : 0;
     }
 
     @Override
     protected int computeHorizontalScrollOffset() {
-        RenderCoordinates rc = RenderCoordinates.fromWebContents(mWebContents);
+        RenderCoordinates rc = getRenderCoordinates();
         return rc != null ? rc.getScrollXPixInt() : 0;
     }
 
     @Override
     protected int computeHorizontalScrollRange() {
-        RenderCoordinates rc = RenderCoordinates.fromWebContents(mWebContents);
+        RenderCoordinates rc = getRenderCoordinates();
         return rc != null ? rc.getContentWidthPixInt() : 0;
     }
 
     @Override
     protected int computeVerticalScrollExtent() {
-        RenderCoordinates rc = RenderCoordinates.fromWebContents(mWebContents);
+        RenderCoordinates rc = getRenderCoordinates();
         return rc != null ? rc.getLastFrameViewportHeightPixInt() : 0;
     }
 
     @Override
     protected int computeVerticalScrollOffset() {
-        RenderCoordinates rc = RenderCoordinates.fromWebContents(mWebContents);
+        RenderCoordinates rc = getRenderCoordinates();
         return rc != null ? rc.getScrollYPixInt() : 0;
     }
 
     @Override
     protected int computeVerticalScrollRange() {
-        RenderCoordinates rc = RenderCoordinates.fromWebContents(mWebContents);
+        RenderCoordinates rc = getRenderCoordinates();
         return rc != null ? rc.getContentHeightPixInt() : 0;
+    }
+
+    private RenderCoordinates getRenderCoordinates() {
+        return hasValidWebContents() ? RenderCoordinates.fromWebContents(mWebContents) : null;
     }
 
     // End FrameLayout overrides.
@@ -298,25 +474,33 @@ public class ContentView
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        getViewEventSink().onAttachedToWindow();
+        if (hasValidWebContents()) {
+            getViewEventSink().onAttachedToWindow();
+        }
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        getViewEventSink().onDetachedFromWindow();
+        if (hasValidWebContents()) {
+            getViewEventSink().onDetachedFromWindow();
+        }
     }
 
     // Implements SmartClipProvider
     @Override
     public void extractSmartClipData(int x, int y, int width, int height) {
-        mWebContents.requestSmartClipExtract(x, y, width, height);
+        if (hasValidWebContents()) {
+            mWebContents.requestSmartClipExtract(x, y, width, height);
+        }
     }
 
     // Implements SmartClipProvider
     @Override
     public void setSmartClipResultHandler(final Handler resultHandler) {
-        mWebContents.setSmartClipResultHandler(resultHandler);
+        if (hasValidWebContents()) {
+            mWebContents.setSmartClipResultHandler(resultHandler);
+        }
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -342,9 +526,21 @@ public class ContentView
     //                End Implementation of ViewEventSink.InternalAccessDelegate                 //
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
-    private static class ContentViewApi23 extends ContentView {
-        public ContentViewApi23(Context context, WebContents webContents) {
-            super(context, webContents);
+    private boolean hasValidWebContents() {
+        return mWebContents != null && !mWebContents.isDestroyed();
+    }
+
+    private boolean webContentsAttached() {
+        return hasValidWebContents() && mWebContents.getTopLevelNativeWindow() != null;
+    }
+
+    /**
+     * ContentView on Api23 to override onProvideVirtualStructure.
+     */
+    public static class ContentViewApi23 extends ContentView {
+        protected ContentViewApi23(
+                Context context, EventOffsetHandler eventOffsetHandler, WebContents webContents) {
+            super(context, eventOffsetHandler, webContents);
         }
 
         @Override

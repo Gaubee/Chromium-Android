@@ -22,8 +22,9 @@ import org.chromium.base.CollectionUtil;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.ChromeActivity;
 import org.chromium.chrome.browser.ChromeTabbedActivity;
+import org.chromium.chrome.browser.app.ChromeActivity;
+import org.chromium.components.page_info.VrHandler;
 import org.chromium.ui.display.DisplayAndroid;
 import org.chromium.ui.display.DisplayAndroidManager;
 
@@ -32,7 +33,7 @@ import java.util.Collections;
 import java.util.Set;
 
 /** Delegate to call into VR. */
-public abstract class VrDelegate {
+public abstract class VrDelegate implements VrHandler {
     private static final String TAG = "VrDelegate";
     private static final String VR_BOOT_SYSTEM_PROPERTY = "ro.boot.vr";
     private static final String SAMSUNG_GALAXY_PREFIX = "SM-";
@@ -55,6 +56,7 @@ public abstract class VrDelegate {
     public abstract void forceExitVrImmediately();
     public abstract boolean onActivityResultWithNative(int requestCode, int resultCode);
     public abstract void onNativeLibraryAvailable();
+    @Override
     public abstract boolean isInVr();
     public abstract boolean canLaunch2DIntents();
     public abstract boolean onBackPressed();
@@ -132,22 +134,36 @@ public abstract class VrDelegate {
                 && vr_mode.getPhysicalWidth() != metrics.heightPixels) {
             return true;
         }
-        if (vr_mode.getPhysicalHeight() != metrics.widthPixels
-                && vr_mode.getPhysicalHeight() != metrics.heightPixels) {
-            return true;
-        }
-        return false;
+        return vr_mode.getPhysicalHeight() != metrics.widthPixels
+                && vr_mode.getPhysicalHeight() != metrics.heightPixels;
     }
 
     public abstract void onSaveInstanceState(Bundle outState);
 
-    /* package */ void setSystemUiVisibilityForVr(Activity activity) {
+    @Override
+    public void exitVrAndRun(Runnable r, @UiType int uiType) {
+        assert (isInVr());
+        switch (uiType) {
+            case UiType.CERTIFICATE_INFO:
+                requestToExitVrAndRunOnSuccess(r, UiUnsupportedMode.UNHANDLED_CERTIFICATE_INFO);
+                return;
+            case UiType.CONNECTION_SECURITY_INFO:
+                requestToExitVrAndRunOnSuccess(
+                        r, UiUnsupportedMode.UNHANDLED_CONNECTION_SECURITY_INFO);
+                return;
+            default:
+                assert false : "Unrecognized uiType";
+                return;
+        }
+    }
+
+    public void setSystemUiVisibilityForVr(Activity activity) {
         activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         int flags = activity.getWindow().getDecorView().getSystemUiVisibility();
         activity.getWindow().getDecorView().setSystemUiVisibility(flags | VR_SYSTEM_UI_FLAGS);
     }
 
-    /* package */ void addBlackOverlayViewForActivity(ChromeActivity activity) {
+    public void addBlackOverlayViewForActivity(ChromeActivity activity) {
         View overlay = activity.getWindow().findViewById(R.id.vr_overlay_view);
         if (overlay != null) return;
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
@@ -159,7 +175,7 @@ public abstract class VrDelegate {
         decor.addView(v, params);
     }
 
-    /* package */ void removeBlackOverlayView(Activity activity, boolean animate) {
+    public void removeBlackOverlayView(Activity activity, boolean animate) {
         View overlay = activity.getWindow().findViewById(R.id.vr_overlay_view);
         if (overlay == null) return;
         FrameLayout decor = (FrameLayout) activity.getWindow().getDecorView();
@@ -188,9 +204,8 @@ public abstract class VrDelegate {
         }
     }
 
-    /* package */ boolean activitySupportsVrBrowsing(Activity activity) {
-        if (activity instanceof ChromeTabbedActivity) return true;
-        return false;
+    public boolean activitySupportsVrBrowsing(Activity activity) {
+        return activity instanceof ChromeTabbedActivity;
     }
 
     /* package */ boolean relaunchOnMainDisplayIfNecessary(Activity activity, Intent intent) {
@@ -230,14 +245,13 @@ public abstract class VrDelegate {
     private boolean deviceCanChangeResolutionForVr() {
         // Samsung devices no longer change density when entering VR on O+.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) return false;
-        String model = android.os.Build.MODEL;
+        String model = Build.MODEL;
         if (SAMSUNG_GALAXY_8_ALT_MODELS.contains(model)) return true;
 
         // Only Samsung devices change resolution in VR.
         if (!model.startsWith(SAMSUNG_GALAXY_PREFIX)) return false;
-        CharSequence modelNumber = model.subSequence(3, 7);
+        String modelNumber = model.substring(3, 7);
         // Only S8(+) and Note 8 models change resolution in VR.
-        if (!SAMSUNG_GALAXY_8_MODELS.contains(modelNumber)) return false;
-        return true;
+        return SAMSUNG_GALAXY_8_MODELS.contains(modelNumber);
     }
 }

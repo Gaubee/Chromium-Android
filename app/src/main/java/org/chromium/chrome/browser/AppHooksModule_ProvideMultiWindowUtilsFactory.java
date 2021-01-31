@@ -6,11 +6,14 @@ import javax.annotation.Generated;
 import org.chromium.chrome.browser.multiwindow.MultiWindowUtils;
 
 @Generated(
-  value = "dagger.internal.codegen.ComponentProcessor",
-  comments = "https://google.github.io/dagger"
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
 )
-public final class AppHooksModule_ProvideMultiWindowUtilsFactory
-    implements Factory<MultiWindowUtils> {
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes"
+})
+public final class AppHooksModule_ProvideMultiWindowUtilsFactory implements Factory<MultiWindowUtils> {
   private final AppHooksModule module;
 
   public AppHooksModule_ProvideMultiWindowUtilsFactory(AppHooksModule module) {
@@ -19,20 +22,14 @@ public final class AppHooksModule_ProvideMultiWindowUtilsFactory
 
   @Override
   public MultiWindowUtils get() {
-    return provideInstance(module);
-  }
-
-  public static MultiWindowUtils provideInstance(AppHooksModule module) {
-    return proxyProvideMultiWindowUtils(module);
+    return provideMultiWindowUtils(module);
   }
 
   public static AppHooksModule_ProvideMultiWindowUtilsFactory create(AppHooksModule module) {
     return new AppHooksModule_ProvideMultiWindowUtilsFactory(module);
   }
 
-  public static MultiWindowUtils proxyProvideMultiWindowUtils(AppHooksModule instance) {
-    return Preconditions.checkNotNull(
-        instance.provideMultiWindowUtils(),
-        "Cannot return null from a non-@Nullable @Provides method");
+  public static MultiWindowUtils provideMultiWindowUtils(AppHooksModule instance) {
+    return Preconditions.checkNotNullFromProvides(instance.provideMultiWindowUtils());
   }
 }

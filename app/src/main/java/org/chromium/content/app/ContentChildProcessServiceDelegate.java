@@ -12,42 +12,34 @@ import android.os.RemoteException;
 import android.util.SparseArray;
 import android.view.Surface;
 
-import org.chromium.base.CommandLine;
 import org.chromium.base.JNIUtils;
 import org.chromium.base.Log;
-import org.chromium.base.ThreadUtils;
 import org.chromium.base.UnguessableToken;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
 import org.chromium.base.annotations.MainDex;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.base.library_loader.LibraryLoader;
-import org.chromium.base.library_loader.Linker;
-import org.chromium.base.library_loader.ProcessInitException;
 import org.chromium.base.memory.MemoryPressureUma;
 import org.chromium.base.process_launcher.ChildProcessServiceDelegate;
+import org.chromium.base.task.PostTask;
 import org.chromium.content.browser.ChildProcessCreationParamsImpl;
 import org.chromium.content.browser.ContentChildProcessConstants;
 import org.chromium.content.common.IGpuProcessCallback;
 import org.chromium.content.common.SurfaceWrapper;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
 import org.chromium.content_public.common.ContentProcessInfo;
-import org.chromium.content_public.common.ContentSwitches;
 
 import java.util.List;
 
 /**
- * This implementation of {@link ChildProcessServiceDelegate} loads the native library potentially
- * using the custom linker, provides access to view surfaces.
+ * This implementation of {@link ChildProcessServiceDelegate} loads the native library, provides
+ * access to view surfaces.
  */
 @JNINamespace("content")
 @MainDex
 public class ContentChildProcessServiceDelegate implements ChildProcessServiceDelegate {
     private static final String TAG = "ContentCPSDelegate";
-
-    // Linker-specific parameters for this child process service.
-    private ChromiumLinkerParams mLinkerParams;
-
-    // Child library process type.
-    private int mLibraryProcessType;
 
     private IGpuProcessCallback mGpuCallback;
 
@@ -67,9 +59,9 @@ public class ContentChildProcessServiceDelegate implements ChildProcessServiceDe
 
     @Override
     public void onServiceBound(Intent intent) {
-        mLinkerParams = ChromiumLinkerParams.create(intent.getExtras());
-        mLibraryProcessType =
-                ChildProcessCreationParamsImpl.getLibraryProcessType(intent.getExtras());
+        LibraryLoader.getInstance().getMediator().takeLoadAddressFromBundle(intent.getExtras());
+        LibraryLoader.getInstance().setLibraryProcessType(
+                ChildProcessCreationParamsImpl.getLibraryProcessType(intent.getExtras()));
     }
 
     @Override
@@ -82,12 +74,7 @@ public class ContentChildProcessServiceDelegate implements ChildProcessServiceDe
         mCpuFeatures = connectionBundle.getLong(ContentChildProcessConstants.EXTRA_CPU_FEATURES);
         assert mCpuCount > 0;
 
-        if (LibraryLoader.useCrazyLinker()) {
-            Bundle sharedRelros = connectionBundle.getBundle(Linker.EXTRA_LINKER_SHARED_RELROS);
-            if (sharedRelros != null) {
-                getLinker().useSharedRelros(sharedRelros);
-            }
-        }
+        LibraryLoader.getInstance().getMediator().takeSharedRelrosFromBundle(connectionBundle);
     }
 
     @Override
@@ -99,68 +86,29 @@ public class ContentChildProcessServiceDelegate implements ChildProcessServiceDe
     }
 
     @Override
-    public boolean loadNativeLibrary(Context hostContext) {
-        String processType =
-                CommandLine.getInstance().getSwitchValue(ContentSwitches.SWITCH_PROCESS_TYPE);
-        // Enable selective JNI registration when the process is not the browser process.
-        if (processType != null) {
-            JNIUtils.enableSelectiveJniRegistration();
+    public void loadNativeLibrary(Context hostContext) {
+        if (LibraryLoader.getInstance().isLoadedByZygote()) {
+            initializeLibrary();
+            return;
         }
 
-        Linker linker = null;
-        boolean requestedSharedRelro = false;
-        if (LibraryLoader.useCrazyLinker()) {
-            assert mLinkerParams != null;
-            linker = getLinker();
-            if (mLinkerParams.mWaitForSharedRelro) {
-                requestedSharedRelro = true;
-                linker.initServiceProcess(mLinkerParams.mBaseLoadAddress);
-            } else {
-                linker.disableSharedRelros();
-            }
-        }
-        boolean isLoaded = false;
-        boolean loadAtFixedAddressFailed = false;
-        try {
-            LibraryLoader.getInstance().loadNowOverrideApplicationContext(hostContext);
-            isLoaded = true;
-        } catch (ProcessInitException e) {
-            if (requestedSharedRelro) {
-                Log.w(TAG,
-                        "Failed to load native library with shared RELRO, "
-                                + "retrying without");
-                loadAtFixedAddressFailed = true;
-            } else {
-                Log.e(TAG, "Failed to load native library", e);
-            }
-        }
-        if (!isLoaded && requestedSharedRelro) {
-            linker.disableSharedRelros();
-            try {
-                LibraryLoader.getInstance().loadNowOverrideApplicationContext(hostContext);
-                isLoaded = true;
-            } catch (ProcessInitException e) {
-                Log.e(TAG, "Failed to load native library on retry", e);
-            }
-        }
-        if (!isLoaded) {
-            return false;
-        }
-        LibraryLoader.getInstance().registerRendererProcessHistogram(
-                requestedSharedRelro, loadAtFixedAddressFailed);
-        try {
-            LibraryLoader.getInstance().initialize(mLibraryProcessType);
-        } catch (ProcessInitException e) {
-            Log.w(TAG, "startup failed: %s", e);
-            return false;
-        }
+        JNIUtils.enableSelectiveJniRegistration();
+
+        LibraryLoader libraryLoader = LibraryLoader.getInstance();
+        libraryLoader.getMediator().initInChildProcess();
+        libraryLoader.loadNowOverrideApplicationContext(hostContext);
+        libraryLoader.registerRendererProcessHistogram();
+        initializeLibrary();
+    }
+
+    private void initializeLibrary() {
+        LibraryLoader.getInstance().initialize();
 
         // Now that the library is loaded, get the FD map,
         // TODO(jcivelli): can this be done in onBeforeMain? We would have to mode onBeforeMain
         // so it's called before FDs are registered.
-        nativeRetrieveFileDescriptorsIdsToKeys();
-
-        return true;
+        ContentChildProcessServiceDelegateJni.get().retrieveFileDescriptorsIdsToKeys(
+                ContentChildProcessServiceDelegate.this);
     }
 
     @Override
@@ -171,31 +119,15 @@ public class ContentChildProcessServiceDelegate implements ChildProcessServiceDe
 
     @Override
     public void onBeforeMain() {
-        nativeInitChildProcess(mCpuCount, mCpuFeatures);
-        ThreadUtils.postOnUiThread(() -> MemoryPressureUma.initializeForChildService());
-    }
-
-    @Override
-    public void onDestroy() {
-        // Try to shutdown the MainThread gracefully, but it might not have a
-        // chance to exit normally.
-        nativeShutdownMainThread();
+        ContentChildProcessServiceDelegateJni.get().initChildProcess(
+                ContentChildProcessServiceDelegate.this, mCpuCount, mCpuFeatures);
+        PostTask.postTask(
+                UiThreadTaskTraits.DEFAULT, () -> MemoryPressureUma.initializeForChildService());
     }
 
     @Override
     public void runMain() {
         ContentMain.start(false);
-    }
-
-    // Return a Linker instance. If testing, the Linker needs special setup.
-    private Linker getLinker() {
-        if (Linker.areTestsEnabled()) {
-            // For testing, set the Linker implementation and the test runner
-            // class name to match those used by the parent.
-            assert mLinkerParams != null;
-            Linker.setupForTesting(mLinkerParams.mTestRunnerClassNameForTesting);
-        }
-        return Linker.getInstance();
     }
 
     @CalledByNative
@@ -228,7 +160,7 @@ public class ContentChildProcessServiceDelegate implements ChildProcessServiceDe
 
     @SuppressWarnings("unused")
     @CalledByNative
-    private Surface getViewSurface(int surfaceId) {
+    private SurfaceWrapper getViewSurface(int surfaceId) {
         if (mGpuCallback == null) {
             Log.e(TAG, "No callback interface has been provided.");
             return null;
@@ -236,24 +168,25 @@ public class ContentChildProcessServiceDelegate implements ChildProcessServiceDe
 
         try {
             SurfaceWrapper wrapper = mGpuCallback.getViewSurface(surfaceId);
-            return wrapper != null ? wrapper.getSurface() : null;
+            return wrapper;
         } catch (RemoteException e) {
             Log.e(TAG, "Unable to call getViewSurface: %s", e);
             return null;
         }
     }
 
-    /**
-     * Initializes the native parts of the service.
-     *
-     * @param serviceImpl This ChildProcessService object.
-     * @param cpuCount The number of CPUs.
-     * @param cpuFeatures The CPU features.
-     */
-    private native void nativeInitChildProcess(int cpuCount, long cpuFeatures);
+    @NativeMethods
+    interface Natives {
+        /**
+         * Initializes the native parts of the service.
+         *
+         * @param cpuCount The number of CPUs.
+         * @param cpuFeatures The CPU features.
+         */
+        void initChildProcess(
+                ContentChildProcessServiceDelegate caller, int cpuCount, long cpuFeatures);
 
-    private native void nativeShutdownMainThread();
-
-    // Retrieves the FD IDs to keys map and set it by calling setFileDescriptorsIdsToKeys().
-    private native void nativeRetrieveFileDescriptorsIdsToKeys();
+        // Retrieves the FD IDs to keys map and set it by calling setFileDescriptorsIdsToKeys().
+        void retrieveFileDescriptorsIdsToKeys(ContentChildProcessServiceDelegate caller);
+    }
 }

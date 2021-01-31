@@ -3,14 +3,17 @@ package org.chromium.chrome.browser.dependency_injection;
 import dagger.internal.Factory;
 import dagger.internal.Preconditions;
 import javax.annotation.Generated;
-import org.chromium.chrome.browser.snackbar.SnackbarManager;
+import org.chromium.chrome.browser.ui.messages.snackbar.SnackbarManager;
 
 @Generated(
-  value = "dagger.internal.codegen.ComponentProcessor",
-  comments = "https://google.github.io/dagger"
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
 )
-public final class ChromeActivityCommonsModule_ProvideSnackbarManagerFactory
-    implements Factory<SnackbarManager> {
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes"
+})
+public final class ChromeActivityCommonsModule_ProvideSnackbarManagerFactory implements Factory<SnackbarManager> {
   private final ChromeActivityCommonsModule module;
 
   public ChromeActivityCommonsModule_ProvideSnackbarManagerFactory(
@@ -20,11 +23,7 @@ public final class ChromeActivityCommonsModule_ProvideSnackbarManagerFactory
 
   @Override
   public SnackbarManager get() {
-    return provideInstance(module);
-  }
-
-  public static SnackbarManager provideInstance(ChromeActivityCommonsModule module) {
-    return proxyProvideSnackbarManager(module);
+    return provideSnackbarManager(module);
   }
 
   public static ChromeActivityCommonsModule_ProvideSnackbarManagerFactory create(
@@ -32,9 +31,7 @@ public final class ChromeActivityCommonsModule_ProvideSnackbarManagerFactory
     return new ChromeActivityCommonsModule_ProvideSnackbarManagerFactory(module);
   }
 
-  public static SnackbarManager proxyProvideSnackbarManager(ChromeActivityCommonsModule instance) {
-    return Preconditions.checkNotNull(
-        instance.provideSnackbarManager(),
-        "Cannot return null from a non-@Nullable @Provides method");
+  public static SnackbarManager provideSnackbarManager(ChromeActivityCommonsModule instance) {
+    return Preconditions.checkNotNullFromProvides(instance.provideSnackbarManager());
   }
 }

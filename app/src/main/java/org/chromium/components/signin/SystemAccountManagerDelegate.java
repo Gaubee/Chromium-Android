@@ -24,6 +24,8 @@ import android.os.PatternMatcher;
 import android.os.Process;
 import android.os.SystemClock;
 
+import android.annotation.Nullable;
+
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.GooglePlayServicesAvailabilityException;
@@ -35,12 +37,13 @@ import org.chromium.base.Callback;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
 import org.chromium.base.ObserverList;
+import org.chromium.base.StrictModeContext;
 import org.chromium.base.ThreadUtils;
 import org.chromium.base.library_loader.LibraryLoader;
 import org.chromium.base.metrics.RecordHistogram;
+import org.chromium.gms.ChromiumPlayServicesAvailability;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Default implementation of {@link AccountManagerDelegate} which delegates all calls to the
@@ -88,7 +91,7 @@ public class SystemAccountManagerDelegate implements AccountManagerDelegate {
     protected void checkCanUseGooglePlayServices() throws AccountManagerDelegateException {
         Context context = ContextUtils.getApplicationContext();
         final int resultCode =
-                GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context);
+                ChromiumPlayServicesAvailability.getGooglePlayServicesConnectionResult(context);
         if (resultCode == ConnectionResult.SUCCESS) {
             return;
         }
@@ -132,12 +135,13 @@ public class SystemAccountManagerDelegate implements AccountManagerDelegate {
     }
 
     @Override
-    public String getAuthToken(Account account, String authTokenScope) throws AuthException {
+    public AccessTokenData getAuthToken(Account account, String authTokenScope)
+            throws AuthException {
         assert !ThreadUtils.runningOnUiThread();
-        assert AccountManagerFacade.GOOGLE_ACCOUNT_TYPE.equals(account.type);
+        assert AccountUtils.GOOGLE_ACCOUNT_TYPE.equals(account.type);
         try {
-            return GoogleAuthUtil.getTokenWithNotification(
-                    ContextUtils.getApplicationContext(), account, authTokenScope, null);
+            return new AccessTokenData(GoogleAuthUtil.getTokenWithNotification(
+                    ContextUtils.getApplicationContext(), account, authTokenScope, null));
         } catch (GoogleAuthException ex) {
             // This case includes a UserRecoverableNotifiedException, but most clients will have
             // their own retry mechanism anyway.
@@ -183,7 +187,7 @@ public class SystemAccountManagerDelegate implements AccountManagerDelegate {
 
     /**
      * Records a histogram value for how long time an action has taken using
-     * {@link RecordHistogram#recordTimesHistogram(String, long, TimeUnit))} iff the browser
+     * {@link RecordHistogram#recordTimesHistogram(String, long))} if the browser
      * process has been initialized.
      *
      * @param histogramName the name of the histogram.
@@ -191,7 +195,7 @@ public class SystemAccountManagerDelegate implements AccountManagerDelegate {
      */
     protected static void recordElapsedTimeHistogram(String histogramName, long elapsedMs) {
         if (!LibraryLoader.getInstance().isInitialized()) return;
-        RecordHistogram.recordTimesHistogram(histogramName, elapsedMs, TimeUnit.MILLISECONDS);
+        RecordHistogram.recordTimesHistogram(histogramName, elapsedMs);
     }
 
     // No permission is needed on 23+ and Chrome always has MANAGE_ACCOUNTS permission on lower APIs
@@ -219,7 +223,7 @@ public class SystemAccountManagerDelegate implements AccountManagerDelegate {
         ThreadUtils.assertOnUiThread();
         if (!hasManageAccountsPermission()) {
             if (callback != null) {
-                ThreadUtils.postOnUiThread(() -> callback.onResult(false));
+                ThreadUtils.postOnUiThread(callback.bind(false));
             }
             return;
         }
@@ -243,6 +247,26 @@ public class SystemAccountManagerDelegate implements AccountManagerDelegate {
         Bundle emptyOptions = new Bundle();
         mAccountManager.updateCredentials(
                 account, "android", emptyOptions, activity, realCallback, null);
+    }
+
+    @Nullable
+    @Override
+    public String getAccountGaiaId(String accountEmail) {
+        try {
+            return GoogleAuthUtil.getAccountId(ContextUtils.getApplicationContext(), accountEmail);
+        } catch (IOException | GoogleAuthException ex) {
+            Log.e(TAG, "SystemAccountManagerDelegate.getAccountGaiaId", ex);
+            return null;
+        }
+    }
+
+    @Override
+    public boolean isGooglePlayServicesAvailable() {
+        // TODO(http://crbug.com/577190): Remove StrictMode override.
+        try (StrictModeContext ignored = StrictModeContext.allowDiskWrites()) {
+            return ChromiumPlayServicesAvailability.isGooglePlayServicesAvailable(
+                    ContextUtils.getApplicationContext());
+        }
     }
 
     protected boolean hasGetAccountsPermission() {

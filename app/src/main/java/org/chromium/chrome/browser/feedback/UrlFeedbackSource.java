@@ -4,9 +4,10 @@
 
 package org.chromium.chrome.browser.feedback;
 
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Pair;
+
+import android.annotation.Nullable;
 
 import org.chromium.base.CollectionUtil;
 

@@ -6,11 +6,14 @@ import javax.annotation.Generated;
 import org.chromium.ui.base.ActivityWindowAndroid;
 
 @Generated(
-  value = "dagger.internal.codegen.ComponentProcessor",
-  comments = "https://google.github.io/dagger"
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
 )
-public final class ChromeActivityCommonsModule_ProvideActivityWindowAndroidFactory
-    implements Factory<ActivityWindowAndroid> {
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes"
+})
+public final class ChromeActivityCommonsModule_ProvideActivityWindowAndroidFactory implements Factory<ActivityWindowAndroid> {
   private final ChromeActivityCommonsModule module;
 
   public ChromeActivityCommonsModule_ProvideActivityWindowAndroidFactory(
@@ -20,11 +23,7 @@ public final class ChromeActivityCommonsModule_ProvideActivityWindowAndroidFacto
 
   @Override
   public ActivityWindowAndroid get() {
-    return provideInstance(module);
-  }
-
-  public static ActivityWindowAndroid provideInstance(ChromeActivityCommonsModule module) {
-    return proxyProvideActivityWindowAndroid(module);
+    return provideActivityWindowAndroid(module);
   }
 
   public static ChromeActivityCommonsModule_ProvideActivityWindowAndroidFactory create(
@@ -32,10 +31,8 @@ public final class ChromeActivityCommonsModule_ProvideActivityWindowAndroidFacto
     return new ChromeActivityCommonsModule_ProvideActivityWindowAndroidFactory(module);
   }
 
-  public static ActivityWindowAndroid proxyProvideActivityWindowAndroid(
+  public static ActivityWindowAndroid provideActivityWindowAndroid(
       ChromeActivityCommonsModule instance) {
-    return Preconditions.checkNotNull(
-        instance.provideActivityWindowAndroid(),
-        "Cannot return null from a non-@Nullable @Provides method");
+    return Preconditions.checkNotNullFromProvides(instance.provideActivityWindowAndroid());
   }
 }

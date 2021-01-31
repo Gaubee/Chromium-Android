@@ -14,14 +14,14 @@ public interface CrashReportingPermissionManager {
      *
      * @returns boolean Whether client is in-sample.
      */
-    public boolean isClientInMetricsSample();
+    boolean isClientInMetricsSample();
 
     /**
      * Checks whether uploading of crash dumps is permitted for the available network(s).
      *
      * @return whether uploading crash dumps is permitted.
      */
-    public boolean isNetworkAvailableForCrashUploads();
+    boolean isNetworkAvailableForCrashUploads();
 
     /**
      * Checks whether uploading of usage metrics and crash dumps is currently permitted, based on
@@ -29,7 +29,7 @@ public interface CrashReportingPermissionManager {
      *
      * @return whether the user has consented to reporting usage metrics and crash dumps.
      */
-    public boolean isUsageAndCrashReportingPermittedByUser();
+    boolean isUsageAndCrashReportingPermittedByUser();
 
     /**
      * Checks whether to ignore all consent and upload limitations for usage metrics and crash
@@ -37,5 +37,5 @@ public interface CrashReportingPermissionManager {
      *
      * @return whether crash dumps should be uploaded if at all possible.
      */
-    public boolean isUploadEnabledForTests();
+    boolean isUploadEnabledForTests();
 }

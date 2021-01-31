@@ -6,13 +6,17 @@ package org.chromium.chrome.browser.contextualsearch;
 
 import java.util.Map;
 
-/** Persists user-interaction outcomes and the associated EventID used to track them. */
+/**
+ * Persists user-interaction outcomes and the associated EventID used to track them.
+ * This allows recording a user's interaction with the feature and sending that to
+ * the server to facilitate offline quality analysis.
+ */
 interface ContextualSearchInteractionPersister {
     /** An EventID of 0 means no event ID is available.  Don't persist. */
-    public static final long NO_EVENT_ID = 0;
+    long NO_EVENT_ID = 0;
 
     /** An interaction value of 0 means no interaction. */
-    public static final int NO_INTERACTION = 0;
+    int NO_INTERACTION = 0;
 
     /**
      * Gets the current persisted interaction and returns it, after clearing the persisted state.

@@ -12,7 +12,10 @@ import android.os.Build;
 import android.os.Build.VERSION;
 import android.text.TextUtils;
 
+import androidx.annotation.ChecksSdkIntAtLeast;
+
 import org.chromium.base.annotations.CalledByNative;
+import org.chromium.base.compat.ApiHelperForP;
 
 /**
  * BuildInfo is a utility class providing easy access to {@link PackageInfo} information. This is
@@ -25,14 +28,17 @@ public class BuildInfo {
     private static PackageInfo sBrowserPackageInfo;
     private static boolean sInitialized;
 
+    /** Not a member variable to avoid creating the instance early (it is set early in start up). */
+    private static String sFirebaseAppId = "";
+
     /** The application name (e.g. "Chrome"). For WebView, this is name of the embedding app. */
     public final String hostPackageLabel;
     /** By default: same as versionCode. For WebView: versionCode of the embedding app. */
-    public final int hostVersionCode;
+    public final long hostVersionCode;
     /** The packageName of Chrome/WebView. Use application context for host app packageName. */
     public final String packageName;
     /** The versionCode of the apk. */
-    public final int versionCode;
+    public final long versionCode;
     /** The versionName of Chrome/WebView. Use application context for host app versionName. */
     public final String versionName;
     /** Result of PackageManager.getInstallerPackageName(). Never null, but may be "". */
@@ -50,25 +56,51 @@ public class BuildInfo {
     /** Product version as stored in Android resources. */
     public final String resourcesVersion;
 
-    private static class Holder { private static BuildInfo sInstance = new BuildInfo(); }
+    private static class Holder { private static final BuildInfo sInstance = new BuildInfo(); }
 
     @CalledByNative
     private static String[] getAll() {
         BuildInfo buildInfo = getInstance();
         String hostPackageName = ContextUtils.getApplicationContext().getPackageName();
         return new String[] {
-                Build.BRAND, Build.DEVICE, Build.ID, Build.MANUFACTURER, Build.MODEL,
-                String.valueOf(Build.VERSION.SDK_INT), Build.TYPE, Build.BOARD, hostPackageName,
-                String.valueOf(buildInfo.hostVersionCode), buildInfo.hostPackageLabel,
-                buildInfo.packageName, String.valueOf(buildInfo.versionCode), buildInfo.versionName,
-                buildInfo.androidBuildFingerprint, buildInfo.gmsVersionCode,
-                buildInfo.installerPackageName, buildInfo.abiString, BuildConfig.FIREBASE_APP_ID,
-                buildInfo.customThemes, buildInfo.resourcesVersion, buildInfo.extractedFileSuffix,
+                Build.BRAND,
+                Build.DEVICE,
+                Build.ID,
+                Build.MANUFACTURER,
+                Build.MODEL,
+                String.valueOf(Build.VERSION.SDK_INT),
+                Build.TYPE,
+                Build.BOARD,
+                hostPackageName,
+                String.valueOf(buildInfo.hostVersionCode),
+                buildInfo.hostPackageLabel,
+                buildInfo.packageName,
+                String.valueOf(buildInfo.versionCode),
+                buildInfo.versionName,
+                buildInfo.androidBuildFingerprint,
+                buildInfo.gmsVersionCode,
+                buildInfo.installerPackageName,
+                buildInfo.abiString,
+                sFirebaseAppId,
+                buildInfo.customThemes,
+                buildInfo.resourcesVersion,
+                buildInfo.extractedFileSuffix,
+                String.valueOf(
+                        ContextUtils.getApplicationContext().getApplicationInfo().targetSdkVersion),
+                isDebugAndroid() ? "1" : "0",
         };
     }
 
     private static String nullToEmpty(CharSequence seq) {
         return seq == null ? "" : seq.toString();
+    }
+
+    private static long packageVersionCode(PackageInfo pi) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            return ApiHelperForP.getLongVersionCode(pi);
+        } else {
+            return pi.versionCode;
+        }
     }
 
     /**
@@ -90,10 +122,10 @@ public class BuildInfo {
             String hostPackageName = appContext.getPackageName();
             PackageManager pm = appContext.getPackageManager();
             PackageInfo pi = pm.getPackageInfo(hostPackageName, 0);
-            hostVersionCode = pi.versionCode;
+            hostVersionCode = packageVersionCode(pi);
             if (sBrowserPackageInfo != null) {
                 packageName = sBrowserPackageInfo.packageName;
-                versionCode = sBrowserPackageInfo.versionCode;
+                versionCode = packageVersionCode(sBrowserPackageInfo);
                 versionName = nullToEmpty(sBrowserPackageInfo.versionName);
                 sBrowserPackageInfo = null;
             } else {
@@ -109,10 +141,11 @@ public class BuildInfo {
             try {
                 gmsPackageInfo = pm.getPackageInfo("com.google.android.gms", 0);
             } catch (NameNotFoundException e) {
-                Log.d(TAG, "GMS package is not found.", e);
+                Log.d(TAG, "GMS package is not found.");
             }
-            gmsVersionCode = gmsPackageInfo != null ? String.valueOf(gmsPackageInfo.versionCode)
-                                                    : "gms versionCode not available.";
+            gmsVersionCode = gmsPackageInfo != null
+                    ? String.valueOf(packageVersionCode(gmsPackageInfo))
+                    : "gms versionCode not available.";
 
             String hasCustomThemes = "true";
             try {
@@ -148,10 +181,9 @@ public class BuildInfo {
                 abiString = String.format("ABI1: %s, ABI2: %s", Build.CPU_ABI, Build.CPU_ABI2);
             }
 
-            // Use lastUpdateTime when developing locally, since versionCode does not normally
-            // change in this case.
-            long version = versionCode > 10 ? versionCode : pi.lastUpdateTime;
-            extractedFileSuffix = String.format("@%x", version);
+            // Append lastUpdateTime to versionCode, since versionCode is unlikely to change when
+            // developing locally but lastUpdateTime is.
+            extractedFileSuffix = String.format("@%x_%x", versionCode, pi.lastUpdateTime);
 
             // The value is truncated, as this is used for crash and UMA reporting.
             androidBuildFingerprint = Build.FINGERPRINT.substring(
@@ -171,30 +203,41 @@ public class BuildInfo {
 
     // The markers Begin:BuildCompat and End:BuildCompat delimit code
     // that is autogenerated from Android sources.
-    // Begin:BuildCompat Q
+    // Begin:BuildCompat S
 
     /**
-     * Checks if the device is running on a pre-release version of Android Q or newer.
+     * Checks if the device is running on a pre-release version of Android S or a release version of
+     * Android S or newer.
      * <p>
-     * <strong>Note:</strong> This method will return {@code false} on devices running release
-     * versions of Android. When Android Q is finalized for release, this method will be deprecated
-     * and all calls should be replaced with {@code Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q}.
+     * <strong>Note:</strong> When Android S is finalized for release, this method will be
+     * deprecated and all calls should be replaced with {@code Build.VERSION.SDK_INT >=
+     * Build.VERSION_CODES.S}.
      *
-     * @return {@code true} if Q APIs are available for use, {@code false} otherwise
+     * @return {@code true} if S APIs are available for use, {@code false} otherwise
      */
-    public static boolean isAtLeastQ() {
-        return VERSION.CODENAME.length() == 1 && VERSION.CODENAME.charAt(0) >= 'Q'
-                && VERSION.CODENAME.charAt(0) <= 'Z';
+    @ChecksSdkIntAtLeast(codename = "S")
+    public static boolean isAtLeastS() {
+        return VERSION.CODENAME.equals("S");
     }
 
     /**
-     * Checks if the application targets pre-release SDK Q
+     * Checks if the application targets pre-release SDK S
      */
-    public static boolean targetsAtLeastQ() {
-        return isAtLeastQ()
+    public static boolean targetsAtLeastS() {
+        return isAtLeastS()
                 && ContextUtils.getApplicationContext().getApplicationInfo().targetSdkVersion
                 == Build.VERSION_CODES.CUR_DEVELOPMENT;
     }
 
     // End:BuildCompat
+
+    public static void setFirebaseAppId(String id) {
+        assert sFirebaseAppId.equals("");
+        sFirebaseAppId = id;
+    }
+
+    public static String getFirebaseAppId() {
+        return sFirebaseAppId;
+    }
+
 }

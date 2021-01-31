@@ -8,17 +8,18 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
 import android.util.Pair;
+
+import android.annotation.NonNull;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.Callback;
 import org.chromium.base.CollectionUtil;
 import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
-import org.chromium.chrome.browser.AppHooks;
-import org.chromium.chrome.browser.profiles.Profile;
+import org.chromium.base.task.PostTask;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,37 +27,45 @@ import java.util.Map;
 /**
  * Used for gathering a variety of feedback from various components in Chrome and bundling it into
  * a set of Key - Value pairs used to submit feedback requests.
+ * @param <T> Initialization params used by subclasses for the feedback source builders.
  */
-public class FeedbackCollector implements Runnable {
+public abstract class FeedbackCollector<T> implements Runnable {
     /** The timeout for gathering data asynchronously. This timeout is ignored for screenshots. */
     private static final int TIMEOUT_MS = 500;
-
-    private final List<FeedbackSource> mSynchronousSources;
-    private final List<AsyncFeedbackSource> mAsynchronousSources;
     private final long mStartTime = SystemClock.elapsedRealtime();
 
     private final String mCategoryTag;
     private final String mDescription;
+
+    private List<FeedbackSource> mSynchronousSources;
+    private List<AsyncFeedbackSource> mAsynchronousSources;
 
     private ScreenshotSource mScreenshotTask;
 
     /** The callback is cleared once notified so we will never notify the caller twice. */
     private Callback<FeedbackCollector> mCallback;
 
-    public FeedbackCollector(Activity activity, Profile profile, @Nullable String url,
-            @Nullable String categoryTag, @Nullable String description,
-            @Nullable String feedbackContext, boolean takeScreenshot,
+    public FeedbackCollector(@Nullable String categoryTag, @Nullable String description,
             Callback<FeedbackCollector> callback) {
         mCategoryTag = categoryTag;
         mDescription = description;
         mCallback = callback;
+    }
 
+    // Subclasses must invoke init() at construction time.
+    protected void init(
+            Activity activity, @Nullable ScreenshotSource screenshotTask, T initParams) {
         // 1. Build all synchronous and asynchronous sources.
-        mSynchronousSources = buildSynchronousFeedbackSources(profile, url, feedbackContext);
-        mAsynchronousSources = buildAsynchronousFeedbackSources(profile);
+        mSynchronousSources = buildSynchronousFeedbackSources(initParams);
+        mAsynchronousSources = buildAsynchronousFeedbackSources(initParams);
 
-        // 2. Build the screenshot task if necessary.
-        if (takeScreenshot) mScreenshotTask = buildScreenshotSource(activity);
+        // Sanity check in case a source is added to the wrong list.
+        for (FeedbackSource source : mSynchronousSources) {
+            assert !(source instanceof AsyncFeedbackSource);
+        }
+
+        // 2. Set |mScreenshotTask| if not null.
+        if (screenshotTask != null) mScreenshotTask = screenshotTask;
 
         // 3. Start all asynchronous sources and the screenshot task.
         CollectionUtil.forEach(mAsynchronousSources, source -> source.start(this));
@@ -70,50 +79,12 @@ public class FeedbackCollector implements Runnable {
     }
 
     @VisibleForTesting
-    protected List<FeedbackSource> buildSynchronousFeedbackSources(
-            Profile profile, @Nullable String url, @Nullable String feedbackContext) {
-        List<FeedbackSource> sources = new ArrayList<>();
-
-        // This is the list of all synchronous sources of feedback.  Please add new synchronous
-        // entries here.
-        sources.addAll(AppHooks.get().getAdditionalFeedbackSources().getSynchronousSources());
-        sources.add(new UrlFeedbackSource(url));
-        sources.add(new VariationsFeedbackSource(profile));
-        sources.add(new DataReductionProxyFeedbackSource(profile));
-        sources.add(new HistogramFeedbackSource(profile));
-        sources.add(new LowEndDeviceFeedbackSource());
-        sources.add(new IMEFeedbackSource());
-        sources.add(new PermissionFeedbackSource());
-        sources.add(new FeedbackContextFeedbackSource(feedbackContext));
-        sources.add(new DuetFeedbackSource());
-        sources.add(new InterestFeedFeedbackSource());
-
-        // Sanity check in case a source is added to the wrong list.
-        for (FeedbackSource source : sources) {
-            assert !(source instanceof AsyncFeedbackSource);
-        }
-
-        return sources;
-    }
+    @NonNull
+    protected abstract List<FeedbackSource> buildSynchronousFeedbackSources(T initParams);
 
     @VisibleForTesting
-    protected List<AsyncFeedbackSource> buildAsynchronousFeedbackSources(Profile profile) {
-        List<AsyncFeedbackSource> sources = new ArrayList<>();
-
-        // This is the list of all asynchronous sources of feedback.  Please add new asynchronous
-        // entries here.
-        sources.addAll(AppHooks.get().getAdditionalFeedbackSources().getAsynchronousSources());
-        sources.add(new ConnectivityFeedbackSource(profile));
-        sources.add(new SystemInfoFeedbackSource());
-        sources.add(new ProcessIdFeedbackSource());
-
-        return sources;
-    }
-
-    @VisibleForTesting
-    protected ScreenshotSource buildScreenshotSource(Activity activity) {
-        return new ScreenshotTask(activity);
-    }
+    @NonNull
+    protected abstract List<AsyncFeedbackSource> buildAsynchronousFeedbackSources(T initParams);
 
     /** @return The category tag for this feedback report. */
     public String getCategoryTag() {
@@ -216,12 +187,7 @@ public class FeedbackCollector implements Runnable {
         final Callback<FeedbackCollector> callback = mCallback;
         mCallback = null;
 
-        ThreadUtils.postOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                callback.onResult(FeedbackCollector.this);
-            }
-        });
+        PostTask.postTask(UiThreadTaskTraits.DEFAULT, callback.bind(this));
     }
 
     private void doWorkOnAllFeedbackSources(Callback<FeedbackSource> worker) {

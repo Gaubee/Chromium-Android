@@ -7,16 +7,20 @@ package org.chromium.chrome.browser.browserservices;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 
 import org.chromium.base.Log;
 import org.chromium.chrome.browser.ChromeApplication;
-import org.chromium.chrome.browser.ChromeVersionInfo;
-import org.chromium.chrome.browser.preferences.ChromePreferenceManager;
+import org.chromium.chrome.browser.browserservices.permissiondelegation.PermissionUpdater;
+import org.chromium.chrome.browser.metrics.WebApkUma;
+import org.chromium.chrome.browser.version.ChromeVersionInfo;
+import org.chromium.components.embedder_support.util.Origin;
+import org.chromium.components.webapk.lib.common.WebApkConstants;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.inject.Inject;
 
 /**
  * A {@link android.content.BroadcastReceiver} that detects when a Trusted Web Activity client app
@@ -65,20 +69,25 @@ public class ClientAppBroadcastReceiver extends BroadcastReceiver {
 
     private final ClearDataStrategy mClearDataStrategy;
     private final ClientAppDataRegister mRegister;
-    private final ChromePreferenceManager mChromePreferenceManager;
+    private final BrowserServicesStore mStore;
+    private final PermissionUpdater mPermissionUpdater;
 
     /** Constructor with default dependencies for Android. */
+    @Inject
     public ClientAppBroadcastReceiver() {
-        this(new DialogClearDataStrategy(), new ClientAppDataRegister(),
-                ChromeApplication.getComponent().resolvePreferenceManager());
+        this(new ClearDataStrategy(), new ClientAppDataRegister(),
+                new BrowserServicesStore(
+                        ChromeApplication.getComponent().resolveSharedPreferencesManager()),
+                ChromeApplication.getComponent().resolveTwaPermissionUpdater());
     }
 
     /** Constructor to allow dependency injection in tests. */
     public ClientAppBroadcastReceiver(ClearDataStrategy strategy, ClientAppDataRegister register,
-            ChromePreferenceManager manager) {
+            BrowserServicesStore store, PermissionUpdater permissionUpdater) {
         mClearDataStrategy = strategy;
         mRegister = register;
-        mChromePreferenceManager = manager;
+        mStore = store;
+        mPermissionUpdater = permissionUpdater;
     }
 
     @Override
@@ -93,6 +102,18 @@ public class ClientAppBroadcastReceiver extends BroadcastReceiver {
         int uid = intent.getIntExtra(Intent.EXTRA_UID, -1);
         if (uid == -1) return;
 
+        boolean uninstalled = Intent.ACTION_PACKAGE_FULLY_REMOVED.equals(intent.getAction());
+
+        if (uninstalled && intent.getData() != null) {
+            String packageName = intent.getData().getSchemeSpecificPart();
+            if (packageName != null
+                    && packageName.startsWith(WebApkConstants.WEBAPK_PACKAGE_PREFIX)) {
+                // Native is likely not loaded. Defer recording UMA and UKM till the next browser
+                // launch.
+                WebApkUma.deferRecordWebApkUninstalled(packageName);
+            }
+        }
+
         try (BrowserServicesMetrics.TimingMetric unused =
                      BrowserServicesMetrics.getClientAppDataLoadTimingContext()) {
 
@@ -104,58 +125,36 @@ public class ClientAppBroadcastReceiver extends BroadcastReceiver {
             }
         }
 
-        boolean uninstalled = Intent.ACTION_PACKAGE_FULLY_REMOVED.equals(intent.getAction());
-        mClearDataStrategy.execute(context, mRegister, uid, uninstalled);
+        mClearDataStrategy.execute(context, mRegister, mPermissionUpdater, uid, uninstalled);
         clearPreferences(uid, uninstalled);
     }
 
     private void clearPreferences(int uid, boolean uninstalled) {
         String packageName = mRegister.getPackageNameForRegisteredUid(uid);
-        mChromePreferenceManager.removeTwaDisclosureAcceptanceForPackage(packageName);
+        mStore.removeTwaDisclosureAcceptanceForPackage(packageName);
         if (uninstalled) {
             mRegister.removePackage(uid);
         }
     }
 
-    interface ClearDataStrategy {
-        void execute(Context context, ClientAppDataRegister register, int uid, boolean uninstalled);
-    }
-
-    static class NotificationClearDataStrategy implements ClearDataStrategy {
-        private final ClearDataNotificationPublisher mNotificationPublisher;
-
-        NotificationClearDataStrategy(ClearDataNotificationPublisher notificationPublisher) {
-            mNotificationPublisher = notificationPublisher;
-        }
-
-        @Override
+    /** Implemented as a class partially for historic reasons, partially to help testing. */
+    static class ClearDataStrategy {
         public void execute(Context context, ClientAppDataRegister register,
-                int uid, boolean uninstalled) {
-            String appName = register.getAppNameForRegisteredUid(uid);
-            Set<String> domains = register.getDomainsForRegisteredUid(uid);
-
-            for (String domain : domains) {
-                mNotificationPublisher.showClearDataNotification(context, appName, domain,
-                        uninstalled);
-            }
-        }
-    }
-
-    static class DialogClearDataStrategy implements ClearDataStrategy {
-        @Override
-        public void execute(Context context, ClientAppDataRegister register, int uid,
-                boolean uninstalled) {
+                PermissionUpdater permissionUpdater, int uid, boolean uninstalled) {
             // Retrieving domains and origins ahead of time, because the register is about to be
             // cleaned up.
             Set<String> domains = register.getDomainsForRegisteredUid(uid);
             Set<String> origins = register.getOriginsForRegisteredUid(uid);
+
+            for (String originAsString : origins) {
+                Origin origin = Origin.create(originAsString);
+                if (origin != null) permissionUpdater.onClientAppUninstalled(origin);
+            }
+
             String appName = register.getAppNameForRegisteredUid(uid);
             Intent intent = ClearDataDialogActivity
                     .createIntent(context, appName, domains, origins, uninstalled);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
-            }
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
             context.startActivity(intent);
         }
     }

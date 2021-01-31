@@ -16,13 +16,13 @@ public interface ExceptionHandler {
      * Normal implementations should either throw the exception or return whether the connection
      * should be kept alive or terminated.
      */
-    public boolean handleException(RuntimeException e);
+    boolean handleException(RuntimeException e);
 
     /**
      * The default ExceptionHandler, which simply throws the exception upon receiving it. It can
      * also delegate the handling of the exceptions to another instance of ExceptionHandler.
      */
-    public static class DefaultExceptionHandler implements ExceptionHandler {
+    class DefaultExceptionHandler implements ExceptionHandler {
         private ExceptionHandler mDelegate;
 
         @Override

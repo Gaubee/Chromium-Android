@@ -12,6 +12,9 @@ import android.view.textclassifier.TextClassifier;
 import android.view.textclassifier.TextSelection;
 
 import org.chromium.content.browser.selection.SmartSelectionClient;
+import org.chromium.ui.touch_selection.SelectionEventType;
+
+import java.util.List;
 
 /**
  * Interface to a content layer client that can process and modify selection text.
@@ -20,7 +23,7 @@ public interface SelectionClient {
     /**
      * The result of the text analysis.
      */
-    public static class Result {
+    class Result {
         /**
          * The number of characters that the left boundary of the original
          * selection should be moved. Negative number means moving left.
@@ -64,6 +67,11 @@ public interface SelectionClient {
         public TextSelection textSelection;
 
         /**
+         * Icons for additional menu items.
+         */
+        public List<Drawable> additionalIcons;
+
+        /**
          * A helper method that returns true if the result has both visual info
          * and an action so that, for instance, one can make a new menu item.
          */
@@ -75,7 +83,7 @@ public interface SelectionClient {
     /**
      * The interface that returns the result of the selected text analysis.
      */
-    public interface ResultCallback {
+    interface ResultCallback {
         /**
          * The result is delivered with this method.
          */
@@ -94,7 +102,7 @@ public interface SelectionClient {
      * @param posXPix The x coordinate of the selection start handle.
      * @param posYPix The y coordinate of the selection start handle.
      */
-    void onSelectionEvent(int eventType, float posXPix, float posYPix);
+    void onSelectionEvent(@SelectionEventType int eventType, float posXPix, float posYPix);
 
     /**
      * Acknowledges that a selectWordAroundCaret action has completed with the given result.
@@ -119,9 +127,6 @@ public interface SelectionClient {
      */
     void cancelAllRequests();
 
-    // The clang-format tool is confused by the java 8 usage of default in an interface.
-    // TODO(donnd): remove this once it's supported.  See b/67428051.
-    // clang-format off
     /**
      * Returns a SelectionMetricsLogger associated with the SelectionClient or null.
      */
@@ -152,10 +157,9 @@ public interface SelectionClient {
     default TextClassifier getCustomTextClassifier() {
         return null;
     }
-    // clang-format on
 
     /** Creates a {@link SelectionClient} instance. */
-    public static SelectionClient createSmartSelectionClient(WebContents webContents) {
+    static SelectionClient createSmartSelectionClient(WebContents webContents) {
         SelectionClient.ResultCallback callback =
                 SelectionPopupController.fromWebContents(webContents).getResultCallback();
         return SmartSelectionClient.create(callback, webContents);

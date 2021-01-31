@@ -5,7 +5,6 @@
 package org.chromium.components.location;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,13 +12,12 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Process;
 import android.provider.Settings;
-import android.text.TextUtils;
 
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.Callback;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
+import org.chromium.base.compat.ApiHelperForP;
 import org.chromium.ui.base.WindowAndroid;
 
 /**
@@ -36,7 +34,7 @@ public class LocationUtils {
     protected LocationUtils() {}
 
     /**
-     * Returns the singleton instance of LocationSettings, creating it if needed.
+     * Returns the singleton instance of LocationUtils, creating it if needed.
      */
     public static LocationUtils getInstance() {
         ThreadUtils.assertOnUiThread();
@@ -72,51 +70,38 @@ public class LocationUtils {
      * Returns whether location services are enabled system-wide, i.e. whether any application is
      * able to access location.
      */
-    @SuppressLint("NewApi")
     @SuppressWarnings("deprecation")
     public boolean isSystemLocationSettingEnabled() {
         Context context = ContextUtils.getApplicationContext();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             LocationManager locationManager =
                     (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-            return locationManager != null && locationManager.isLocationEnabled();
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            return Settings.Secure.getInt(context.getContentResolver(),
-                           Settings.Secure.LOCATION_MODE, Settings.Secure.LOCATION_MODE_OFF)
-                    != Settings.Secure.LOCATION_MODE_OFF;
-        } else {
-            return !TextUtils.isEmpty(Settings.Secure.getString(
-                    context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED));
+            return locationManager != null && ApiHelperForP.isLocationEnabled(locationManager);
         }
+
+        return Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE,
+                       Settings.Secure.LOCATION_MODE_OFF)
+                != Settings.Secure.LOCATION_MODE_OFF;
     }
 
     /**
      * Returns whether location services are enabled in sensors-only mode, i.e. when network
      * location services are disabled but GPS and other sensors are enabled.
      */
-    @SuppressLint("NewApi")
     @SuppressWarnings("deprecation")
     public boolean isSystemLocationSettingSensorsOnly() {
         Context context = ContextUtils.getApplicationContext();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             LocationManager locationManager =
                     (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-            return locationManager != null && locationManager.isLocationEnabled()
+            return locationManager != null && ApiHelperForP.isLocationEnabled(locationManager)
                     && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                     && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            return Settings.Secure.getInt(context.getContentResolver(),
-                           Settings.Secure.LOCATION_MODE, Settings.Secure.LOCATION_MODE_OFF)
-                    == Settings.Secure.LOCATION_MODE_SENSORS_ONLY;
-        } else {
-            // Before Android K, location provider settings were stored as a comma-delimited list
-            // containing the names of enabled providers. In sensors-only mode, the GPS provider is
-            // present and the network provider is absent.
-            String locationProviders = Settings.Secure.getString(
-                    context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
-            return locationProviders.contains(LocationManager.GPS_PROVIDER)
-                    && !locationProviders.contains(LocationManager.NETWORK_PROVIDER);
         }
+
+        return Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE,
+                       Settings.Secure.LOCATION_MODE_OFF)
+                == Settings.Secure.LOCATION_MODE_SENSORS_ONLY;
     }
 
     /**
@@ -160,13 +145,12 @@ public class LocationUtils {
      * Instantiate this to explain how to create a LocationUtils instance in
      * LocationUtils.getInstance().
      */
-    public interface Factory { public LocationUtils create(); }
+    public interface Factory { LocationUtils create(); }
 
     /**
      * Call this to use a different subclass of LocationUtils throughout the program.
      * This can be used by embedders in addition to tests.
      */
-    @VisibleForTesting
     public static void setFactory(Factory factory) {
         sFactory = factory;
         sInstance = null;

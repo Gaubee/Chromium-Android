@@ -5,25 +5,26 @@
 package org.chromium.chrome.browser.payments;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Pair;
 
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+
+import org.chromium.base.StrictModeContext;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.autofill.PersonalDataManager;
 import org.chromium.chrome.browser.autofill.PersonalDataManager.AutofillProfile;
-import org.chromium.chrome.browser.preferences.autofill.AutofillProfileBridge;
-import org.chromium.chrome.browser.preferences.autofill.AutofillProfileBridge.AddressField;
-import org.chromium.chrome.browser.widget.prefeditor.EditableOption;
+import org.chromium.chrome.browser.autofill.settings.AutofillProfileBridge;
+import org.chromium.chrome.browser.autofill.settings.AutofillProfileBridge.AddressField;
+import org.chromium.components.autofill.EditableOption;
 import org.chromium.payments.mojom.PaymentAddress;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 import java.util.Locale;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -33,27 +34,26 @@ public class AutofillAddress extends EditableOption {
     /** The pattern for a valid region code. */
     private static final String REGION_CODE_PATTERN = "^[A-Z]{2}$";
 
-    // Language/script code pattern and capture group numbers.
-    private static final String LANGUAGE_SCRIPT_CODE_PATTERN =
-            "^([a-z]{2})(-([A-Z][a-z]{3}))?(-[A-Za-z]+)*$";
-    private static final int LANGUAGE_CODE_GROUP = 1;
-    private static final int SCRIPT_CODE_GROUP = 3;
-
-    @IntDef({CompletionStatus.COMPLETE, CompletionStatus.INVALID_ADDRESS,
-            CompletionStatus.INVALID_PHONE_NUMBER, CompletionStatus.INVALID_RECIPIENT,
-            CompletionStatus.INVALID_MULTIPLE_FIELDS})
+    // Bit field values are identical to ProfileFields in payments_profile_comparator.h. Please also
+    // modify payments_profile_comparator.h after changing these bits since missing fields on both
+    // Android and Desktop are recorded in the same UMA metric:
+    // PaymentRequest.MissingShippingFields.
+    @IntDef({CompletionStatus.COMPLETE, CompletionStatus.INVALID_RECIPIENT,
+            CompletionStatus.INVALID_PHONE_NUMBER, CompletionStatus.INVALID_ADDRESS})
     @Retention(RetentionPolicy.SOURCE)
     public @interface CompletionStatus {
         /** Can be sent to the merchant as-is without editing first. */
         int COMPLETE = 0;
-        /** The address is invalid. For example, missing state or city name. */
-        int INVALID_ADDRESS = 1;
-        /** The phone number is invalid or missing. */
-        int INVALID_PHONE_NUMBER = 2;
         /** The recipient is missing. */
-        int INVALID_RECIPIENT = 3;
-        /** Multiple fields are invalid or missing. */
-        int INVALID_MULTIPLE_FIELDS = 4;
+        int INVALID_RECIPIENT = 1 << 0;
+        /** The phone number is invalid or missing. */
+        int INVALID_PHONE_NUMBER = 1 << 1;
+        /**
+         * The address is invalid. For example, missing state or city name. To have consistent bit
+         * field values between Android and Desktop 1 << 2 is reserved for email address.
+         */
+        int INVALID_ADDRESS = 1 << 3;
+        int MAX_VALUE = 1 << 4;
     }
 
     @IntDef({CompletenessCheckType.NORMAL, CompletenessCheckType.IGNORE_PHONE})
@@ -67,9 +67,8 @@ public class AutofillAddress extends EditableOption {
 
     @Nullable private static Pattern sRegionCodePattern;
 
-    private Context mContext;
+    private final Context mContext;
     private AutofillProfile mProfile;
-    @Nullable private Pattern mLanguageScriptCodePattern;
     @Nullable private String mShippingLabelWithCountry;
     @Nullable private String mShippingLabelWithoutCountry;
     @Nullable private String mBillingLabel;
@@ -94,12 +93,25 @@ public class AutofillAddress extends EditableOption {
     }
 
     /**
-     * Updates the address and marks it "complete." Called after the user has edited this address.
+     * Updates the address and marks it "complete".
+     * Called after the user has edited this address.
      * Updates the identifier and labels.
      *
      * @param profile The new profile to use.
      */
     public void completeAddress(AutofillProfile profile) {
+        updateAddress(profile);
+        assert mIsComplete;
+    }
+
+    /**
+     * Updates the address and its completeness if needed.
+     * Called after the user has edited this address.
+     * Updates the identifier and labels.
+     *
+     * @param profile The new profile to use.
+     */
+    public void updateAddress(AutofillProfile profile) {
         // Since the profile changed, our cached labels are now out of date. Set them to null so the
         // labels are recomputed next time they are needed.
         mShippingLabelWithCountry = null;
@@ -110,7 +122,6 @@ public class AutofillAddress extends EditableOption {
         updateIdentifierAndLabels(mProfile.getGUID(), mProfile.getFullName(), mProfile.getLabel(),
                 mProfile.getPhoneNumber());
         checkAndUpdateAddressCompleteness();
-        assert mIsComplete;
     }
 
     /**
@@ -179,6 +190,7 @@ public class AutofillAddress extends EditableOption {
                 ? null
                 : mContext.getString(messageResIds.second);
         mIsComplete = mEditMessage == null;
+        mCompletenessScore = calculateCompletenessScore();
     }
 
     /**
@@ -197,24 +209,23 @@ public class AutofillAddress extends EditableOption {
             case CompletionStatus.COMPLETE:
                 editTitleResId = R.string.payments_edit_address;
                 break;
-            case CompletionStatus.INVALID_ADDRESS:
-                editMessageResId = R.string.payments_invalid_address;
-                editTitleResId = R.string.payments_add_valid_address;
+            case CompletionStatus.INVALID_RECIPIENT:
+                editMessageResId = R.string.payments_recipient_required;
+                editTitleResId = R.string.payments_add_recipient;
                 break;
             case CompletionStatus.INVALID_PHONE_NUMBER:
                 editMessageResId = R.string.payments_phone_number_required;
                 editTitleResId = R.string.payments_add_phone_number;
                 break;
-            case CompletionStatus.INVALID_RECIPIENT:
-                editMessageResId = R.string.payments_recipient_required;
-                editTitleResId = R.string.payments_add_recipient;
-                break;
-            case CompletionStatus.INVALID_MULTIPLE_FIELDS:
-                editMessageResId = R.string.payments_more_information_required;
-                editTitleResId = R.string.payments_add_more_information;
+            case CompletionStatus.INVALID_ADDRESS:
+                editMessageResId = R.string.payments_invalid_address;
+                editTitleResId = R.string.payments_add_valid_address;
                 break;
             default:
-                assert false : "Invalid completion status";
+                // Multiple bits are set.
+                assert completionStatus < CompletionStatus.MAX_VALUE : "Invalid completion status";
+                editMessageResId = R.string.payments_more_information_required;
+                editTitleResId = R.string.payments_add_more_information;
         }
 
         return new Pair<Integer, Integer>(editMessageResId, editTitleResId);
@@ -234,15 +245,21 @@ public class AutofillAddress extends EditableOption {
     @CompletionStatus
     public static int checkAddressCompletionStatus(
             AutofillProfile profile, @CompletenessCheckType int checkType) {
-        int invalidFieldsCount = 0;
         @CompletionStatus
         int completionStatus = CompletionStatus.COMPLETE;
 
-        if (checkType != CompletenessCheckType.IGNORE_PHONE
-                && !PhoneNumberUtils.isGlobalPhoneNumber(
-                           PhoneNumberUtils.stripSeparators(profile.getPhoneNumber().toString()))) {
-            completionStatus = CompletionStatus.INVALID_PHONE_NUMBER;
-            invalidFieldsCount++;
+        if (TextUtils.isEmpty(profile.getFullName())) {
+            completionStatus |= CompletionStatus.INVALID_RECIPIENT;
+        }
+
+        // TODO(crbug.com/999286): PhoneNumberUtils internally trigger disk reads for certain
+        //                         devices/configurations.
+        try (StrictModeContext ignored = StrictModeContext.allowDiskReads()) {
+            if (checkType != CompletenessCheckType.IGNORE_PHONE
+                    && !PhoneNumberUtils.isGlobalPhoneNumber(PhoneNumberUtils.stripSeparators(
+                    profile.getPhoneNumber()))) {
+                completionStatus |= CompletionStatus.INVALID_PHONE_NUMBER;
+            }
         }
 
         List<Integer> requiredFields = AutofillProfileBridge.getRequiredAddressFields(
@@ -250,18 +267,8 @@ public class AutofillAddress extends EditableOption {
         for (int fieldId : requiredFields) {
             if (fieldId == AddressField.RECIPIENT || fieldId == AddressField.COUNTRY) continue;
             if (!TextUtils.isEmpty(getProfileField(profile, fieldId))) continue;
-            completionStatus = CompletionStatus.INVALID_ADDRESS;
-            invalidFieldsCount++;
+            completionStatus |= CompletionStatus.INVALID_ADDRESS;
             break;
-        }
-
-        if (TextUtils.isEmpty(profile.getFullName())) {
-            completionStatus = CompletionStatus.INVALID_RECIPIENT;
-            invalidFieldsCount++;
-        }
-
-        if (invalidFieldsCount > 1) {
-            completionStatus = CompletionStatus.INVALID_MULTIPLE_FIELDS;
         }
 
         return completionStatus;
@@ -318,26 +325,25 @@ public class AutofillAddress extends EditableOption {
         result.sortingCode = mProfile.getSortingCode();
         result.organization = mProfile.getCompanyName();
         result.recipient = mProfile.getFullName();
-        result.languageCode = "";
-        result.scriptCode = "";
         result.phone = mProfile.getPhoneNumber();
-
-        if (mProfile.getLanguageCode() == null) return result;
-
-        if (mLanguageScriptCodePattern == null) {
-            mLanguageScriptCodePattern = Pattern.compile(LANGUAGE_SCRIPT_CODE_PATTERN);
-        }
-
-        Matcher matcher = mLanguageScriptCodePattern.matcher(mProfile.getLanguageCode());
-        if (matcher.matches()) {
-            result.languageCode = ensureNotNull(matcher.group(LANGUAGE_CODE_GROUP));
-            result.scriptCode = ensureNotNull(matcher.group(SCRIPT_CODE_GROUP));
-        }
 
         return result;
     }
 
-    private static String ensureNotNull(@Nullable String value) {
-        return value == null ? "" : value;
+    /** @return The missing fields of the shipping profile. */
+    public int getMissingFieldsOfShippingProfile() {
+        return checkAddressCompletionStatus(mProfile, CompletenessCheckType.NORMAL);
+    }
+
+    private int calculateCompletenessScore() {
+        int missingFields = checkAddressCompletionStatus(mProfile, CompletenessCheckType.NORMAL);
+
+        // Count how many are set. The completeness of the address is weighted so as
+        // to dominate the other fields.
+        int completenessScore = 0;
+        if ((missingFields & CompletionStatus.INVALID_RECIPIENT) == 0) completenessScore++;
+        if ((missingFields & CompletionStatus.INVALID_PHONE_NUMBER) == 0) completenessScore++;
+        if ((missingFields & CompletionStatus.INVALID_ADDRESS) == 0) completenessScore += 10;
+        return completenessScore;
     }
 }

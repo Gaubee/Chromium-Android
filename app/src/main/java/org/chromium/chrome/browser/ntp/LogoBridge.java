@@ -7,9 +7,8 @@ package org.chromium.chrome.browser.ntp;
 import android.graphics.Bitmap;
 
 import org.chromium.base.annotations.CalledByNative;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.chrome.browser.profiles.Profile;
-
-import jp.tomorrowkey.android.gifplayer.BaseGifImage;
 
 /**
  * Provides access to the search provider's logo via the C++ LogoService.
@@ -61,20 +60,14 @@ public class LogoBridge {
          */
         @CalledByNative("LogoObserver")
         void onLogoAvailable(Logo logo, boolean fromCache);
-    }
-
-    /**
-     * A callback that is called when the animated logo is successfully downloaded.
-     */
-    public interface AnimatedLogoCallback {
 
         /**
-         * Called when the animated GIF logo is successfully downloaded.
-         *
-         * @param animatedLogoImage The {@link BaseGifImage} representing the animated logo.
+         * Called when it has been determined from server that the cached logo (or null) is still
+         * valid. This is independent from OnLogoAvailable and is intended for users who need to
+         * take some action that can only happen when a logo won't later change.
          */
-        @CalledByNative("AnimatedLogoCallback")
-        void onAnimatedLogoAvailable(BaseGifImage animatedLogoImage);
+        @CalledByNative("LogoObserver")
+        void onCachedLogoRevalidated();
     }
 
     private long mNativeLogoBridge;
@@ -85,7 +78,7 @@ public class LogoBridge {
      * @param profile Profile of the tab that will show the logo.
      */
     public LogoBridge(Profile profile) {
-        mNativeLogoBridge = nativeInit(profile);
+        mNativeLogoBridge = LogoBridgeJni.get().init(LogoBridge.this, profile);
     }
 
     /**
@@ -94,7 +87,7 @@ public class LogoBridge {
      */
     void destroy() {
         assert mNativeLogoBridge != 0;
-        nativeDestroy(mNativeLogoBridge);
+        LogoBridgeJni.get().destroy(mNativeLogoBridge, LogoBridge.this);
         mNativeLogoBridge = 0;
     }
 
@@ -106,18 +99,7 @@ public class LogoBridge {
      *                     the cached logo is already available.
      */
     void getCurrentLogo(LogoObserver logoObserver) {
-        nativeGetCurrentLogo(mNativeLogoBridge, logoObserver);
-    }
-
-    /**
-     * Downloads an animated GIF logo. The given callback will not be called if the download failed
-     * or there is already an ongoing url fetching for the same url.
-     *
-     * @param callback The callback to be called when the animated logo is successfully downloaded.
-     * @param animatedLogoUrl The url from which to download the animated GIF logo.
-     */
-    void getAnimatedLogo(AnimatedLogoCallback callback, String animatedLogoUrl) {
-        nativeGetAnimatedLogo(mNativeLogoBridge, callback, animatedLogoUrl);
+        LogoBridgeJni.get().getCurrentLogo(mNativeLogoBridge, LogoBridge.this, logoObserver);
     }
 
     @CalledByNative
@@ -125,14 +107,10 @@ public class LogoBridge {
         return new Logo(image, onClickUrl, altText, gifUrl);
     }
 
-    @CalledByNative
-    private static BaseGifImage createGifImage(byte[] bytes) {
-        return new BaseGifImage(bytes);
+    @NativeMethods
+    interface Natives {
+        long init(LogoBridge caller, Profile profile);
+        void getCurrentLogo(long nativeLogoBridge, LogoBridge caller, LogoObserver logoObserver);
+        void destroy(long nativeLogoBridge, LogoBridge caller);
     }
-
-    private native long nativeInit(Profile profile);
-    private native void nativeGetCurrentLogo(long nativeLogoBridge, LogoObserver logoObserver);
-    private native void nativeGetAnimatedLogo(long nativeLogoBridge, AnimatedLogoCallback callback,
-            String gifUrl);
-    private native void nativeDestroy(long nativeLogoBridge);
 }

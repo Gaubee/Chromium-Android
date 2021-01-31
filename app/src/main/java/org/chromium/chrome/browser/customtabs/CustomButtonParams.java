@@ -11,9 +11,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.customtabs.CustomTabsIntent;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -23,11 +20,17 @@ import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import android.annotation.NonNull;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.browser.customtabs.CustomTabsIntent;
+
+import org.chromium.base.IntentUtils;
 import org.chromium.base.Log;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.util.IntentUtils;
-import org.chromium.chrome.browser.widget.TintedDrawable;
+import org.chromium.chrome.browser.theme.ThemeUtils;
+import org.chromium.components.browser_ui.widget.TintedDrawable;
+import org.chromium.ui.util.ColorUtils;
 import org.chromium.ui.widget.Toast;
 
 import java.util.ArrayList;
@@ -42,14 +45,14 @@ public class CustomButtonParams {
     private static final String TAG = "CustomTabs";
 
     private final PendingIntent mPendingIntent;
-    private int mId;
+    private final int mId;
     private Bitmap mIcon;
     private String mDescription;
-    private boolean mShouldTint;
-    private boolean mIsOnToolbar;
+    private final boolean mShouldTint;
+    private final boolean mIsOnToolbar;
 
     @VisibleForTesting
-    static final String SHOW_ON_TOOLBAR = "android.support.customtabs.customaction.SHOW_ON_TOOLBAR";
+    static final String SHOW_ON_TOOLBAR = "androidx.customtabs.customaction.SHOW_ON_TOOLBAR";
 
     private CustomButtonParams(int id, Bitmap icon, String description,
             @Nullable PendingIntent pendingIntent, boolean tinted, boolean onToolbar) {
@@ -87,7 +90,7 @@ public class CustomButtonParams {
     /**
      * @return The drawable for the customized button.
      */
-    Drawable getIcon(Context context) {
+    public Drawable getIcon(Context context) {
         if (mShouldTint) {
             return new TintedDrawable(context, mIcon);
         } else {
@@ -98,7 +101,7 @@ public class CustomButtonParams {
     /**
      * @return The content description for the customized button.
      */
-    String getDescription() {
+    public String getDescription() {
         return mDescription;
     }
 
@@ -237,13 +240,32 @@ public class CustomButtonParams {
     }
 
     /**
+     * Creates and returns a {@link CustomButtonParams} for a share button in the toolbar.
+     */
+    static CustomButtonParams createShareButton(Context context, int backgroundColor) {
+        int id = CustomTabsIntent.TOOLBAR_ACTION_BUTTON_ID;
+        String description = context.getResources().getString(R.string.share);
+        Intent shareIntent = new Intent(context, CustomTabsShareBroadcastReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                context, 0, shareIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        TintedDrawable drawable =
+                TintedDrawable.constructTintedDrawable(context, R.drawable.ic_share_white_24dp);
+        boolean useLightTint = ColorUtils.shouldUseLightForegroundOnBackground(backgroundColor);
+        drawable.setTint(ThemeUtils.getThemedToolbarIconTint(context, useLightTint));
+        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+
+        return new CustomButtonParams(
+                id, bitmap, description, pendingIntent, /*tinted=*/true, /*onToolbar=*/true);
+    }
+
+    /**
      * @return The bitmap contained in the given {@link Bundle}. Will return null if input is
      *         invalid.
      */
     static Bitmap parseBitmapFromBundle(Bundle bundle) {
         if (bundle == null) return null;
         Bitmap bitmap = IntentUtils.safeGetParcelable(bundle, CustomTabsIntent.KEY_ICON);
-        if (bitmap == null) return null;
         return bitmap;
     }
 
@@ -274,11 +296,14 @@ public class CustomButtonParams {
     /**
      * @return Whether the given icon's size is suitable to put on toolbar.
      */
-    static boolean doesIconFitToolbar(Context context, Bitmap bitmap) {
+    public boolean doesIconFitToolbar(Context context) {
+        return doesIconFitToolbar(context, mIcon);
+    }
+
+    private static boolean doesIconFitToolbar(Context context, Bitmap bitmap) {
         int height = context.getResources().getDimensionPixelSize(R.dimen.toolbar_icon_height);
         if (bitmap.getHeight() < height) return false;
         int scaledWidth = bitmap.getWidth() / bitmap.getHeight() * height;
-        if (scaledWidth > 2 * height) return false;
-        return true;
+        return scaledWidth <= 2 * height;
     }
 }

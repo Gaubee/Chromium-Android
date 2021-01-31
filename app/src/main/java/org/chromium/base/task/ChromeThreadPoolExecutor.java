@@ -6,8 +6,11 @@ package org.chromium.base.task;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
+import android.os.Process;
+
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.BuildConfig;
-import org.chromium.base.VisibleForTesting;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -34,7 +37,11 @@ class ChromeThreadPoolExecutor extends ThreadPoolExecutor {
         private final AtomicInteger mCount = new AtomicInteger(1);
         @Override
         public Thread newThread(Runnable r) {
-            return new Thread(r, "CrAsyncTask #" + mCount.getAndIncrement());
+            Thread t = new Thread(() -> {
+                Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
+                r.run();
+            }, "CrAsyncTask #" + mCount.getAndIncrement());
+            return t;
         }
     };
 
@@ -109,9 +116,9 @@ class ChromeThreadPoolExecutor extends ThreadPoolExecutor {
     }
 
     @Override
-    public void execute(Runnable command) {
+    public void execute(Runnable r) {
         try {
-            super.execute(command);
+            super.execute(r);
         } catch (RejectedExecutionException e) {
             Map<String, Integer> counts = getNumberOfClassNameOccurrencesInQueue();
 

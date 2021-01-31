@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,19 +10,17 @@
 
 package org.chromium.chrome.browser.explore_sites;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @IntDef({
-    ExploreSitesVariation.ENABLED, ExploreSitesVariation.EXPERIMENT,
-    ExploreSitesVariation.PERSONALIZED, ExploreSitesVariation.DISABLED
+    ExploreSitesVariation.ENABLED, ExploreSitesVariation.EXPERIMENT, ExploreSitesVariation.DISABLED
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface ExploreSitesVariation {
   int ENABLED = 0;
   int EXPERIMENT = 1;
-  int PERSONALIZED = 2;
-  int DISABLED = 3;
+  int DISABLED = 2;
 }

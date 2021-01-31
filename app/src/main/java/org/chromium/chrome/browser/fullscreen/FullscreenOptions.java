@@ -4,14 +4,11 @@
 
 package org.chromium.chrome.browser.fullscreen;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 /**
  * Options to control a fullscreen request.
  */
-public class FullscreenOptions implements Parcelable {
-    private boolean mShowNavigationBar;
+public class FullscreenOptions {
+    private final boolean mShowNavigationBar;
 
     /**
      * Constructs FullscreenOptions.
@@ -36,42 +33,5 @@ public class FullscreenOptions implements Parcelable {
         }
         FullscreenOptions options = (FullscreenOptions) obj;
         return mShowNavigationBar == options.mShowNavigationBar;
-    }
-
-    /**
-     * The Parcelable interface.
-     * */
-
-    public static final Parcelable.Creator<FullscreenOptions> CREATOR =
-            new Parcelable.Creator<FullscreenOptions>() {
-                @Override
-                public FullscreenOptions createFromParcel(Parcel in) {
-                    return new FullscreenOptions(in);
-                }
-
-                @Override
-                public FullscreenOptions[] newArray(int size) {
-                    return new FullscreenOptions[size];
-                }
-            };
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void writeToParcel(Parcel out, int flags) {
-        out.writeByte(mShowNavigationBar ? (byte) 1 : (byte) 0);
-    }
-
-    private FullscreenOptions(Parcel in) {
-        mShowNavigationBar = in.readByte() != 0;
     }
 }

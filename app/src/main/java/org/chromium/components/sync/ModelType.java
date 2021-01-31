@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.components.sync;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -19,21 +19,19 @@ import java.lang.annotation.RetentionPolicy;
     ModelType.UNSPECIFIED, ModelType.TOP_LEVEL_FOLDER, ModelType.BOOKMARKS,
     ModelType.FIRST_USER_MODEL_TYPE, ModelType.FIRST_REAL_MODEL_TYPE, ModelType.PREFERENCES,
     ModelType.PASSWORDS, ModelType.AUTOFILL_PROFILE, ModelType.AUTOFILL,
-    ModelType.AUTOFILL_WALLET_DATA, ModelType.AUTOFILL_WALLET_METADATA, ModelType.THEMES,
-    ModelType.TYPED_URLS, ModelType.EXTENSIONS, ModelType.SEARCH_ENGINES, ModelType.SESSIONS,
-    ModelType.APPS, ModelType.APP_SETTINGS, ModelType.EXTENSION_SETTINGS,
-    ModelType.APP_NOTIFICATIONS, ModelType.HISTORY_DELETE_DIRECTIVES,
-    ModelType.SYNCED_NOTIFICATIONS, ModelType.SYNCED_NOTIFICATION_APP_INFO, ModelType.DICTIONARY,
-    ModelType.FAVICON_IMAGES, ModelType.FAVICON_TRACKING, ModelType.DEVICE_INFO,
-    ModelType.PRIORITY_PREFERENCES, ModelType.SUPERVISED_USER_SETTINGS,
-    ModelType.DEPRECATED_SUPERVISED_USERS, ModelType.DEPRECATED_SUPERVISED_USER_SHARED_SETTINGS,
-    ModelType.DEPRECATED_ARTICLES, ModelType.APP_LIST, ModelType.DEPRECATED_WIFI_CREDENTIALS,
-    ModelType.SUPERVISED_USER_WHITELISTS, ModelType.ARC_PACKAGE, ModelType.PRINTERS,
-    ModelType.READING_LIST, ModelType.USER_EVENTS, ModelType.MOUNTAIN_SHARES,
-    ModelType.USER_CONSENTS, ModelType.SEND_TAB_TO_SELF, ModelType.PROXY_TABS,
-    ModelType.FIRST_PROXY_TYPE, ModelType.LAST_PROXY_TYPE, ModelType.LAST_USER_MODEL_TYPE,
-    ModelType.NIGORI, ModelType.FIRST_CONTROL_MODEL_TYPE, ModelType.EXPERIMENTS,
-    ModelType.LAST_CONTROL_MODEL_TYPE, ModelType.LAST_REAL_MODEL_TYPE, ModelType.MODEL_TYPE_COUNT
+    ModelType.AUTOFILL_WALLET_DATA, ModelType.AUTOFILL_WALLET_METADATA,
+    ModelType.AUTOFILL_WALLET_OFFER, ModelType.THEMES, ModelType.TYPED_URLS, ModelType.EXTENSIONS,
+    ModelType.SEARCH_ENGINES, ModelType.SESSIONS, ModelType.APPS, ModelType.APP_SETTINGS,
+    ModelType.EXTENSION_SETTINGS, ModelType.HISTORY_DELETE_DIRECTIVES, ModelType.DICTIONARY,
+    ModelType.DEPRECATED_FAVICON_IMAGES, ModelType.DEPRECATED_FAVICON_TRACKING,
+    ModelType.DEVICE_INFO, ModelType.PRIORITY_PREFERENCES, ModelType.SUPERVISED_USER_SETTINGS,
+    ModelType.APP_LIST, ModelType.DEPRECATED_SUPERVISED_USER_ALLOWLISTS, ModelType.ARC_PACKAGE,
+    ModelType.PRINTERS, ModelType.READING_LIST, ModelType.USER_EVENTS, ModelType.USER_CONSENTS,
+    ModelType.SEND_TAB_TO_SELF, ModelType.SECURITY_EVENTS, ModelType.WIFI_CONFIGURATIONS,
+    ModelType.WEB_APPS, ModelType.OS_PREFERENCES, ModelType.OS_PRIORITY_PREFERENCES,
+    ModelType.SHARING_MESSAGE, ModelType.PROXY_TABS, ModelType.FIRST_PROXY_TYPE,
+    ModelType.LAST_PROXY_TYPE, ModelType.LAST_USER_MODEL_TYPE, ModelType.NIGORI,
+    ModelType.LAST_REAL_MODEL_TYPE
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface ModelType {
@@ -58,7 +56,7 @@ public @interface ModelType {
   int FIRST_USER_MODEL_TYPE = 2;
   int FIRST_REAL_MODEL_TYPE = 2;
   /**
-   * A preference object.
+   * A preference object, a.k.a. "Settings".
    */
   int PREFERENCES = 3;
   /**
@@ -66,15 +64,15 @@ public @interface ModelType {
    */
   int PASSWORDS = 4;
   /**
-   * An AutofillProfile Object
+   * An autofill_profile object, i.e. an address.
    */
   int AUTOFILL_PROFILE = 5;
   /**
-   * An autofill object.
+   * An autofill object, i.e. an autocomplete entry keyed to an HTML form field.
    */
   int AUTOFILL = 6;
   /**
-   * Credit cards and addresses synced from the user's account. These are read-only on the client.
+   * Credit cards and addresses from the user's account. These are read-only on the client.
    */
   int AUTOFILL_WALLET_DATA = 7;
   /**
@@ -83,147 +81,141 @@ public @interface ModelType {
    */
   int AUTOFILL_WALLET_METADATA = 8;
   /**
-   * A themes object.
+   * Offers and rewards from the user's account. These are read-only on the client side.
    */
-  int THEMES = 9;
+  int AUTOFILL_WALLET_OFFER = 9;
   /**
-   * A typed_url object.
+   * A theme object.
    */
-  int TYPED_URLS = 10;
+  int THEMES = 10;
+  /**
+   * A typed_url object, i.e. a URL the user has typed into the Omnibox.
+   */
+  int TYPED_URLS = 11;
   /**
    * An extension object.
    */
-  int EXTENSIONS = 11;
+  int EXTENSIONS = 12;
   /**
    * An object representing a custom search engine.
    */
-  int SEARCH_ENGINES = 12;
+  int SEARCH_ENGINES = 13;
   /**
-   * An object representing a browser session.
+   * An object representing a browser session, e.g. an open tab. This is used for both "History"
+   * (together with TYPED_URLS) and "Tabs" (depending on PROXY_TABS).
    */
-  int SESSIONS = 13;
+  int SESSIONS = 14;
   /**
    * An app object.
    */
-  int APPS = 14;
+  int APPS = 15;
   /**
    * An app setting from the extension settings API.
    */
-  int APP_SETTINGS = 15;
+  int APP_SETTINGS = 16;
   /**
    * An extension setting from the extension settings API.
    */
-  int EXTENSION_SETTINGS = 16;
+  int EXTENSION_SETTINGS = 17;
   /**
-   * App notifications. Deprecated.
-   */
-  int APP_NOTIFICATIONS = 17;
-  /**
-   * History delete directives.
+   * History delete directives, used to propagate history deletions (e.g. based on a time range).
    */
   int HISTORY_DELETE_DIRECTIVES = 18;
   /**
-   * Synced push notifications. Deprecated.
+   * Custom spelling dictionary entries.
    */
-  int SYNCED_NOTIFICATIONS = 19;
+  int DICTIONARY = 19;
   /**
-   * Synced Notification app info. Deprecated.
+   * Favicon images, including both the image URL and the actual pixels.
    */
-  int SYNCED_NOTIFICATION_APP_INFO = 20;
+  int DEPRECATED_FAVICON_IMAGES = 20;
   /**
-   * Custom spelling dictionary.
+   * Favicon tracking information, i.e. metadata such as last visit date.
    */
-  int DICTIONARY = 21;
-  /**
-   * Favicon images.
-   */
-  int FAVICON_IMAGES = 22;
-  /**
-   * Favicon tracking information.
-   */
-  int FAVICON_TRACKING = 23;
+  int DEPRECATED_FAVICON_TRACKING = 21;
   /**
    * Client-specific metadata, synced before other user types.
    */
-  int DEVICE_INFO = 24;
+  int DEVICE_INFO = 22;
   /**
    * These preferences are synced before other user types and are never encrypted.
    */
-  int PRIORITY_PREFERENCES = 25;
+  int PRIORITY_PREFERENCES = 23;
   /**
    * Supervised user settings. Cannot be encrypted.
    */
-  int SUPERVISED_USER_SETTINGS = 26;
+  int SUPERVISED_USER_SETTINGS = 24;
   /**
-   * Deprecated supervised user types that are not used anymore.
+   * App List items, used by the ChromeOS app launcher.
    */
-  int DEPRECATED_SUPERVISED_USERS = 27;
-  int DEPRECATED_SUPERVISED_USER_SHARED_SETTINGS = 28;
+  int APP_LIST = 25;
   /**
-   * Distilled articles.
+   * TODO(crbug.com/1155257): Remove the deprecated type, because it isn't used. Supervised user
+   * allowlists. Each item contains a CRX ID (like an extension ID) and a name.
    */
-  int DEPRECATED_ARTICLES = 29;
+  int DEPRECATED_SUPERVISED_USER_ALLOWLISTS = 26;
   /**
-   * App List items
+   * ARC package items, i.e. Android apps on ChromeOS.
    */
-  int APP_LIST = 30;
+  int ARC_PACKAGE = 27;
   /**
-   * WiFi credentials. Each item contains the information for connecting to one WiFi network. This
-   * includes, e.g., network name and password.
+   * Printer device information. ChromeOS only.
    */
-  int DEPRECATED_WIFI_CREDENTIALS = 31;
+  int PRINTERS = 28;
   /**
-   * Supervised user whitelists. Each item contains a CRX ID (like an extension ID) and a name.
+   * Reading list items. iOS only.
    */
-  int SUPERVISED_USER_WHITELISTS = 32;
-  /**
-   * ARC Package items.
-   */
-  int ARC_PACKAGE = 33;
-  /**
-   * Printer device information.
-   */
-  int PRINTERS = 34;
-  /**
-   * Reading list items.
-   */
-  int READING_LIST = 35;
+  int READING_LIST = 29;
   /**
    * Commit only user events.
    */
-  int USER_EVENTS = 36;
-  /**
-   * Shares in project Mountain.
-   */
-  int MOUNTAIN_SHARES = 37;
+  int USER_EVENTS = 30;
   /**
    * Commit only user consents.
    */
-  int USER_CONSENTS = 38;
+  int USER_CONSENTS = 31;
   /**
    * Tabs sent between devices.
    */
-  int SEND_TAB_TO_SELF = 39;
+  int SEND_TAB_TO_SELF = 32;
+  /**
+   * Commit only security events.
+   */
+  int SECURITY_EVENTS = 33;
+  /**
+   * Wi-Fi network configurations + credentials
+   */
+  int WIFI_CONFIGURATIONS = 34;
+  /**
+   * A web app object.
+   */
+  int WEB_APPS = 35;
+  /**
+   * OS-specific preferences (a.k.a. "OS settings"). Chrome OS only.
+   */
+  int OS_PREFERENCES = 36;
+  /**
+   * Synced before other user types. Never encrypted. Chrome OS only.
+   */
+  int OS_PRIORITY_PREFERENCES = 37;
+  /**
+   * Commit only sharing message object.
+   */
+  int SHARING_MESSAGE = 38;
   /**
    * ---- Proxy types ---- Proxy types are excluded from the sync protocol, but are still considered
    * real user types. By convention, we prefix them with 'PROXY_' to distinguish them from normal
    * protocol types. Tab sync. This is a placeholder type, so that Sessions can be implicitly
    * enabled for history sync and tabs sync.
    */
-  int PROXY_TABS = 40;
-  int FIRST_PROXY_TYPE = 40;
-  int LAST_PROXY_TYPE = 40;
-  int LAST_USER_MODEL_TYPE = 40;
+  int PROXY_TABS = 39;
+  int FIRST_PROXY_TYPE = 39;
+  int LAST_PROXY_TYPE = 39;
+  int LAST_USER_MODEL_TYPE = 39;
   /**
    * ---- Control Types ---- An object representing a set of Nigori keys.
    */
-  int NIGORI = 41;
-  int FIRST_CONTROL_MODEL_TYPE = 41;
-  /**
-   * Flags to enable experimental features.
-   */
-  int EXPERIMENTS = 42;
-  int LAST_CONTROL_MODEL_TYPE = 42;
-  int LAST_REAL_MODEL_TYPE = 42;
-  int MODEL_TYPE_COUNT = 43;
+  int NIGORI = 40;
+  int LAST_REAL_MODEL_TYPE = 40;
+  int NUM_ENTRIES = 41;
 }

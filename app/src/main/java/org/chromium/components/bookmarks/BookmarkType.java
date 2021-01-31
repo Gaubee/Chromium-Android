@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,20 +10,21 @@
 
 package org.chromium.components.bookmarks;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @IntDef({
-    BookmarkType.NORMAL, BookmarkType.PARTNER, BookmarkType.LAST
+    BookmarkType.NORMAL, BookmarkType.PARTNER, BookmarkType.READING_LIST, BookmarkType.LAST
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface BookmarkType {
   int NORMAL = 0;
   int PARTNER = 1;
+  int READING_LIST = 2;
   /**
    * LAST must be the last element.
    */
-  int LAST = 1;
+  int LAST = 2;
 }

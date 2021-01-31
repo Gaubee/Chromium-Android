@@ -4,15 +4,18 @@
 
 package org.chromium.content_public.browser;
 
-import android.support.annotation.Nullable;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
-import org.chromium.base.VisibleForTesting;
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.content_public.browser.navigation_controller.LoadURLType;
 import org.chromium.content_public.browser.navigation_controller.UserAgentOverrideOption;
 import org.chromium.content_public.common.Referrer;
 import org.chromium.content_public.common.ResourceRequestBody;
 import org.chromium.ui.base.PageTransition;
+import org.chromium.url.GURL;
+import org.chromium.url.Origin;
 
 import java.util.Locale;
 import java.util.Map;
@@ -29,9 +32,7 @@ public class LoadUrlParams {
     // native code. Should not be accessed directly anywhere else outside of
     // this class.
     String mUrl;
-    // TODO(nasko,tedchoc): Don't use String to store initiator origin, as it
-    // is lossy format.
-    String mInitiatorOrigin;
+    Origin mInitiatorOrigin;
     int mLoadUrlType;
     int mTransitionType;
     Referrer mReferrer;
@@ -56,6 +57,14 @@ public class LoadUrlParams {
      */
     public LoadUrlParams(String url) {
         this(url, PageTransition.LINK);
+    }
+
+    /**
+     * Creates an instance with default page transition type.
+     * @param url the url to be loaded
+     */
+    public LoadUrlParams(GURL url) {
+        this(url.getSpec(), PageTransition.LINK);
     }
 
     /**
@@ -207,14 +216,14 @@ public class LoadUrlParams {
     /**
      * Sets the initiator origin.
      */
-    public void setInitiatorOrigin(String initiatorOrigin) {
+    public void setInitiatorOrigin(@Nullable Origin initiatorOrigin) {
         mInitiatorOrigin = initiatorOrigin;
     }
 
     /**
      * Return the initiator origin.
      */
-    public @Nullable String getInitiatorOrigin() {
+    public @Nullable Origin getInitiatorOrigin() {
         return mInitiatorOrigin;
     }
 
@@ -520,12 +529,15 @@ public class LoadUrlParams {
         if (mBaseUrlForDataUrl == null && mLoadUrlType == LoadURLType.DATA) {
             return true;
         }
-        return nativeIsDataScheme(mBaseUrlForDataUrl);
+        return LoadUrlParamsJni.get().isDataScheme(mBaseUrlForDataUrl);
     }
 
-    /**
-     * Parses |url| as a GURL on the native side, and
-     * returns true if it's scheme is data:.
-     */
-    private static native boolean nativeIsDataScheme(String url);
+    @NativeMethods
+    interface Natives {
+        /**
+         * Parses |url| as a GURL on the native side, and
+         * returns true if it's scheme is data:.
+         */
+        boolean isDataScheme(String url);
+    }
 }

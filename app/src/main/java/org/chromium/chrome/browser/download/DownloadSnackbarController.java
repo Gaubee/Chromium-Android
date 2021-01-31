@@ -6,19 +6,17 @@ package org.chromium.chrome.browser.download;
 
 import android.app.Activity;
 import android.app.DownloadManager;
-import android.content.Context;
 import android.content.Intent;
 
 import org.chromium.base.ApplicationStatus;
-import org.chromium.base.BuildInfo;
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.customtabs.CustomTabActivity;
 import org.chromium.chrome.browser.download.items.OfflineContentAggregatorNotificationBridgeUiFactory;
-import org.chromium.chrome.browser.snackbar.Snackbar;
-import org.chromium.chrome.browser.snackbar.SnackbarManager;
-import org.chromium.chrome.browser.util.FeatureUtilities;
+import org.chromium.chrome.browser.ui.messages.snackbar.Snackbar;
+import org.chromium.chrome.browser.ui.messages.snackbar.SnackbarManager;
+import org.chromium.components.offline_items_collection.LaunchLocation;
 import org.chromium.components.offline_items_collection.LegacyHelpers;
+import org.chromium.components.offline_items_collection.OpenParams;
 
 /**
  * Class for displaying a snackbar when a download completes.
@@ -45,7 +43,8 @@ public class DownloadSnackbarController implements SnackbarManager.SnackbarContr
     @Override
     public void onAction(Object actionData) {
         if (!(actionData instanceof ActionDataInfo)) {
-            DownloadManagerService.openDownloadsPage(ContextUtils.getApplicationContext());
+            DownloadManagerService.openDownloadsPage(
+                    ContextUtils.getApplicationContext(), DownloadOpenSource.SNACK_BAR);
             return;
         }
 
@@ -58,10 +57,11 @@ public class DownloadSnackbarController implements SnackbarManager.SnackbarContr
                                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             } else {
                 manager.openDownloadedContent(download.downloadInfo, download.systemDownloadId,
-                        DownloadMetrics.DownloadOpenSource.SNACK_BAR);
+                        DownloadOpenSource.SNACK_BAR);
             }
         } else {
             OfflineContentAggregatorNotificationBridgeUiFactory.instance().openItem(
+                    new OpenParams(LaunchLocation.PROGRESS_BAR),
                     download.downloadInfo.getContentId());
         }
 
@@ -76,54 +76,15 @@ public class DownloadSnackbarController implements SnackbarManager.SnackbarContr
     }
 
     /**
-     * Called to display the download succeeded snackbar.
-     *
-     * @param downloadInfo Info of the download.
-     * @param notificationId Notification Id of the successful download.
-     * @param downloadId Id of the download from Android DownloadManager.
-     * @param canBeResolved Whether the download can be resolved to any activity.
-     * @param usesAndroidDownloadManager Whether the download uses Android DownloadManager.
-     */
-    public void onDownloadSucceeded(
-            DownloadInfo downloadInfo, int notificationId, long downloadId, boolean canBeResolved,
-            boolean usesAndroidDownloadManager) {
-        Context appContext = ContextUtils.getApplicationContext();
-        if (FeatureUtilities.isDownloadProgressInfoBarEnabled()) return;
-        if (getSnackbarManager() == null) return;
-        Snackbar snackbar;
-        if (getActivity() instanceof CustomTabActivity) {
-            String packageLabel = BuildInfo.getInstance().hostPackageLabel;
-            snackbar = Snackbar.make(appContext.getString(R.string.download_succeeded_message,
-                                             downloadInfo.getFileName(), packageLabel),
-                    this, Snackbar.TYPE_NOTIFICATION, Snackbar.UMA_DOWNLOAD_SUCCEEDED);
-        } else {
-            snackbar =
-                    Snackbar.make(appContext.getString(R.string.download_succeeded_message_default,
-                                          downloadInfo.getFileName()),
-                            this, Snackbar.TYPE_NOTIFICATION, Snackbar.UMA_DOWNLOAD_SUCCEEDED);
-        }
-        // TODO(qinmin): Coalesce snackbars if multiple downloads finish at the same time.
-        snackbar.setDuration(SNACKBAR_DURATION_MS).setSingleLine(false);
-        ActionDataInfo info = null;
-        if (canBeResolved || !LegacyHelpers.isLegacyDownload(downloadInfo.getContentId())
-                || usesAndroidDownloadManager) {
-            info = new ActionDataInfo(downloadInfo, notificationId, downloadId,
-                    usesAndroidDownloadManager);
-        }
-        // Show downloads app if the download cannot be resolved to any activity.
-        snackbar.setAction(appContext.getString(R.string.open_downloaded_label), info);
-        getSnackbarManager().showSnackbar(snackbar);
-    }
-
-    /**
      * Called to display the download failed snackbar.
      *
      * @param errorMessage     The message to show on the snackbar.
      * @param showAllDownloads Whether to show all downloads in case the failure is caused by
      *                         duplicated files.
      */
-    public void onDownloadFailed(String errorMessage, boolean showAllDownloads) {
-        if (FeatureUtilities.isDownloadProgressInfoBarEnabled()) return;
+    public void onDownloadFailed(
+            String errorMessage, boolean showAllDownloads, boolean isOffTheRecord) {
+        if (isShowingDownloadInfoBar(isOffTheRecord)) return;
         if (getSnackbarManager() == null) return;
         // TODO(qinmin): Coalesce snackbars if multiple downloads finish at the same time.
         Snackbar snackbar = Snackbar.make(errorMessage, this, Snackbar.TYPE_NOTIFICATION,
@@ -168,5 +129,12 @@ public class DownloadSnackbarController implements SnackbarManager.SnackbarContr
             return ((SnackbarManager.SnackbarManageable) activity).getSnackbarManager();
         }
         return null;
+    }
+
+    private boolean isShowingDownloadInfoBar(boolean isOffTheRecord) {
+        DownloadInfoBarController infoBarController =
+                DownloadManagerService.getDownloadManagerService().getInfoBarController(
+                        isOffTheRecord);
+        return infoBarController != null && infoBarController.isShowing();
     }
 }

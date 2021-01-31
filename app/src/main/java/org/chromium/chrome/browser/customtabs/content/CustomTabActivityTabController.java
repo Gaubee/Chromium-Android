@@ -7,51 +7,60 @@ package org.chromium.chrome.browser.customtabs.content;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.Browser;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.customtabs.CustomTabsSessionToken;
 import android.text.TextUtils;
 import android.view.Window;
 
-import org.chromium.base.ObserverList;
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+import androidx.browser.customtabs.CustomTabsSessionToken;
+import androidx.browser.trusted.sharing.ShareTarget;
+
+import org.chromium.base.IntentUtils;
 import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.chrome.browser.ActivityTabProvider;
 import org.chromium.chrome.browser.ActivityTabProvider.HintlessActivityTabObserver;
-import org.chromium.chrome.browser.ChromeActivity;
 import org.chromium.chrome.browser.IntentHandler;
 import org.chromium.chrome.browser.ServiceTabLauncher;
 import org.chromium.chrome.browser.WarmupManager;
 import org.chromium.chrome.browser.WebContentsFactory;
+import org.chromium.chrome.browser.app.ChromeActivity;
+import org.chromium.chrome.browser.app.tab_activity_glue.ReparentingDelegateFactory;
+import org.chromium.chrome.browser.browserservices.BrowserServicesIntentDataProvider;
 import org.chromium.chrome.browser.compositor.CompositorViewHolder;
-import org.chromium.chrome.browser.compositor.layouts.content.TabContentManager;
 import org.chromium.chrome.browser.customtabs.CustomTabDelegateFactory;
+import org.chromium.chrome.browser.customtabs.CustomTabIncognitoManager;
 import org.chromium.chrome.browser.customtabs.CustomTabIntentDataProvider;
-import org.chromium.chrome.browser.customtabs.CustomTabIntentDataProvider.LaunchSourceType;
 import org.chromium.chrome.browser.customtabs.CustomTabNavigationEventObserver;
 import org.chromium.chrome.browser.customtabs.CustomTabObserver;
 import org.chromium.chrome.browser.customtabs.CustomTabTabPersistencePolicy;
 import org.chromium.chrome.browser.customtabs.CustomTabsConnection;
 import org.chromium.chrome.browser.customtabs.FirstMeaningfulPaintObserver;
 import org.chromium.chrome.browser.customtabs.PageLoadMetricsObserver;
-import org.chromium.chrome.browser.customtabs.TabObserverRegistrar;
+import org.chromium.chrome.browser.customtabs.ReparentingTaskProvider;
 import org.chromium.chrome.browser.dependency_injection.ActivityScope;
-import org.chromium.chrome.browser.init.ActivityLifecycleDispatcher;
+import org.chromium.chrome.browser.init.StartupTabPreloader;
+import org.chromium.chrome.browser.lifecycle.ActivityLifecycleDispatcher;
 import org.chromium.chrome.browser.lifecycle.InflationObserver;
-import org.chromium.chrome.browser.lifecycle.NativeInitObserver;
+import org.chromium.chrome.browser.metrics.UmaSessionStats;
+import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.tab.EmptyTabObserver;
+import org.chromium.chrome.browser.tab.RedirectHandlerTabHelper;
 import org.chromium.chrome.browser.tab.Tab;
-import org.chromium.chrome.browser.tab.TabRedirectHandler;
+import org.chromium.chrome.browser.tab.TabAssociatedApp;
+import org.chromium.chrome.browser.tab.TabCreationState;
+import org.chromium.chrome.browser.tab.TabLaunchType;
 import org.chromium.chrome.browser.tabmodel.AsyncTabParams;
 import org.chromium.chrome.browser.tabmodel.AsyncTabParamsManager;
 import org.chromium.chrome.browser.tabmodel.TabModel;
+import org.chromium.chrome.browser.tabmodel.TabModelSelector;
 import org.chromium.chrome.browser.tabmodel.TabModelSelectorImpl;
 import org.chromium.chrome.browser.tabmodel.TabReparentingParams;
-import org.chromium.chrome.browser.util.IntentUtils;
-import org.chromium.chrome.browser.util.UrlUtilities;
+import org.chromium.chrome.browser.translate.TranslateBridge;
+import org.chromium.chrome.browser.webapps.WebApkExtras;
 import org.chromium.content_public.browser.LoadUrlParams;
 import org.chromium.content_public.browser.WebContents;
-import org.chromium.ui.base.PageTransition;
+import org.chromium.content_public.common.Referrer;
+import org.chromium.network.mojom.ReferrerPolicy;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -61,13 +70,10 @@ import javax.inject.Inject;
 import dagger.Lazy;
 
 /**
- * Directly works with the {@link Tab}, {@link WebContents} and related objects in the context of
- * a Custom Tab activity. This includes creating or retrieving existing instances of Tab and
- * WebContents, initializing them, and loading urls in them. Loads the url received in the Intent
- * as soon as possible, and also executes further requests to load urls (see {@link #loadUrlInTab}).
+ * Creates a new Tab or retrieves an existing Tab for the CustomTabActivity, and initializes it.
  */
 @ActivityScope
-public class CustomTabActivityTabController implements InflationObserver, NativeInitObserver {
+public class CustomTabActivityTabController implements InflationObserver {
     // For CustomTabs.WebContentsStateOnLaunch, see histograms.xml. Append only.
     @IntDef({WebContentsState.NO_WEBCONTENTS, WebContentsState.PRERENDERED_WEBCONTENTS,
             WebContentsState.SPARE_WEBCONTENTS, WebContentsState.TRANSFERRED_WEBCONTENTS})
@@ -81,11 +87,12 @@ public class CustomTabActivityTabController implements InflationObserver, Native
         int NUM_ENTRIES = 4;
     }
 
+    private static final String GSA_STUDY_NAME = "GsaExperiments";
+
     private final Lazy<CustomTabDelegateFactory> mCustomTabDelegateFactory;
-    private final ChromeActivity mActivity;
+    private final ChromeActivity<?> mActivity;
     private final CustomTabsConnection mConnection;
-    private final CustomTabIntentDataProvider mIntentDataProvider;
-    private final Lazy<TabContentManager> mTabContentManager;
+    private final BrowserServicesIntentDataProvider mIntentDataProvider;
     private final TabObserverRegistrar mTabObserverRegistrar;
     private final Lazy<CompositorViewHolder> mCompositorViewHolder;
     private final WarmupManager mWarmupManager;
@@ -93,45 +100,45 @@ public class CustomTabActivityTabController implements InflationObserver, Native
     private final CustomTabActivityTabFactory mTabFactory;
     private final Lazy<CustomTabObserver> mCustomTabObserver;
     private final WebContentsFactory mWebContentsFactory;
+    private final CustomTabNavigationEventObserver mTabNavigationEventObserver;
+    private final ActivityTabProvider mActivityTabProvider;
+    private final CustomTabActivityTabProvider mTabProvider;
+    private final StartupTabPreloader mStartupTabPreloader;
+    private final ReparentingTaskProvider mReparentingTaskProvider;
+    private final Lazy<CustomTabIncognitoManager> mCustomTabIncognitoManager;
+    private final ProfileProvider mProfileProvider;
+    private final Lazy<AsyncTabParamsManager> mAsyncTabParamsManager;
 
     @Nullable
     private final CustomTabsSessionToken mSession;
     private final Intent mIntent;
 
-    private final ObserverList<Observer> mObservers = new ObserverList<>();
-
-    private boolean mHasCreatedTabEarly;
-
-    private CustomTabNavigationEventObserver mTabNavigationEventObserver;
-
     @Nullable
-    private String mSpeculatedUrl;
-    private boolean mUsingHiddenTab;
-
-    // This boolean is used to do a hack in navigation history for hidden tab loads with
-    // unmatching fragments.
-    private boolean mIsFirstLoad;
-
-    // Currently managed tab, see comment to getTab().
-    // Should be updated only via setTab method in order to notify observers.
-    @Nullable
-    private Tab mTab;
+    private final HintlessActivityTabObserver mTabSwapObserver = new HintlessActivityTabObserver() {
+        @Override
+        public void onActivityTabChanged(@Nullable Tab tab) {
+            mTabProvider.swapTab(tab);
+        }
+    };
 
     @Inject
-    public CustomTabActivityTabController(ChromeActivity activity,
+    public CustomTabActivityTabController(ChromeActivity<?> activity,
             Lazy<CustomTabDelegateFactory> customTabDelegateFactory,
-            CustomTabsConnection connection, CustomTabIntentDataProvider intentDataProvider,
-            Lazy<TabContentManager> tabContentManager, ActivityTabProvider tabProvider,
-            TabObserverRegistrar tabObserverRegistrar,
+            CustomTabsConnection connection, BrowserServicesIntentDataProvider intentDataProvider,
+            ActivityTabProvider activityTabProvider, TabObserverRegistrar tabObserverRegistrar,
             Lazy<CompositorViewHolder> compositorViewHolder,
             ActivityLifecycleDispatcher lifecycleDispatcher, WarmupManager warmupManager,
             CustomTabTabPersistencePolicy persistencePolicy, CustomTabActivityTabFactory tabFactory,
-            Lazy<CustomTabObserver> customTabObserver, WebContentsFactory webContentsFactory) {
+            Lazy<CustomTabObserver> customTabObserver, WebContentsFactory webContentsFactory,
+            CustomTabNavigationEventObserver tabNavigationEventObserver,
+            CustomTabActivityTabProvider tabProvider, StartupTabPreloader startupTabPreloader,
+            ReparentingTaskProvider reparentingTaskProvider,
+            Lazy<CustomTabIncognitoManager> customTabIncognitoManager,
+            ProfileProvider profileProvider, Lazy<AsyncTabParamsManager> asyncTabParamsManager) {
         mCustomTabDelegateFactory = customTabDelegateFactory;
         mActivity = activity;
         mConnection = connection;
         mIntentDataProvider = intentDataProvider;
-        mTabContentManager = tabContentManager;
         mTabObserverRegistrar = tabObserverRegistrar;
         mCompositorViewHolder = compositorViewHolder;
         mWarmupManager = warmupManager;
@@ -139,140 +146,70 @@ public class CustomTabActivityTabController implements InflationObserver, Native
         mTabFactory = tabFactory;
         mCustomTabObserver = customTabObserver;
         mWebContentsFactory = webContentsFactory;
+        mTabNavigationEventObserver = tabNavigationEventObserver;
+        mActivityTabProvider = activityTabProvider;
+        mTabProvider = tabProvider;
+        mStartupTabPreloader = startupTabPreloader;
+        mReparentingTaskProvider = reparentingTaskProvider;
+        mCustomTabIncognitoManager = customTabIncognitoManager;
+        mProfileProvider = profileProvider;
+        mAsyncTabParamsManager = asyncTabParamsManager;
 
         mSession = mIntentDataProvider.getSession();
         mIntent = mIntentDataProvider.getIntent();
-        mSpeculatedUrl = mConnection.getSpeculatedUrl(mSession);
 
-        tabProvider.addObserverAndTrigger(new HintlessActivityTabObserver() {
-            @Override
-            public void onActivityTabChanged(Tab tab) {
-                setTab(tab);
-            }
-        });
+        // Save speculated url, because it will be erased later with mConnection.takeHiddenTab().
+        mTabProvider.setSpeculatedUrl(mConnection.getSpeculatedUrl(mSession));
 
         lifecycleDispatcher.register(this);
     }
 
-    /** Adds an {@link Observer} */
-    public void addObserver(Observer observer) {
-        mObservers.addObserver(observer);
-    }
-
-    /** Removes an {@link Observer} */
-    public void removeObserver(Observer observer) {
-        mObservers.removeObserver(observer);
-    }
-
-    /**
-     * Returns tab currently managed by the Custom Tab activity.
-     *
-     * The difference from {@link ActivityTabProvider#getActivityTab()} is that we may have acquired
-     * a hidden tab (see {@link CustomTabsConnection#takeHiddenTab}), which is not yet added to a
-     * {@link TabModel}. In that case this method returns the hidden tab, and ActivityTabProvider
-     * returns null.
-     *
-     * During reparenting (i.e. after a call to {@link #detachAndStartReparenting}), both this
-     * method and ActivityTabProvider return null.
-     */
-    @Nullable
-    public Tab getTab() {
-        return mTab;
-    }
-
     /** @return whether allocating a child connection is needed during native initialization. */
     public boolean shouldAllocateChildConnection() {
-        return !mHasCreatedTabEarly && !hasSpeculated() && !mWarmupManager.hasSpareWebContents();
+        boolean hasSpeculated = !TextUtils.isEmpty(mConnection.getSpeculatedUrl(mSession));
+        int mode = mTabProvider.getInitialTabCreationMode();
+        return mode != TabCreationMode.EARLY && mode != TabCreationMode.HIDDEN
+                && !hasSpeculated && !mWarmupManager.hasSpareWebContents();
     }
 
-    /**
-     *  @return whether tab was created before finishing native init, and that tab has finished
-     *  loading.
-     */
-    public boolean earlyCreatedTabIsReady() {
-        return mHasCreatedTabEarly && mTab != null && !mTab.isLoading();
-    }
-
-    /**
-     * Loads the current tab with the given load params while taking client
-     * referrer and extra headers into account.
-     */
-    public void loadUrlInTab(final LoadUrlParams params, long timeStamp) {
-        if (mTab == null) {
+    public void detachAndStartReparenting(
+            Intent intent, Bundle startActivityOptions, Runnable finishCallback) {
+        Tab tab = mTabProvider.getTab();
+        if (tab == null) {
             assert false;
             return;
         }
-        String originalUrl = mIntentDataProvider.getUrlToLoad();
-
-        boolean isFirstLoad = mIsFirstLoad;
-        mIsFirstLoad = false;
-
-        // The following block is a hack that deals with urls preloaded with
-        // the wrong fragment. Does an extra pageload and replaces history.
-        if (hasSpeculated() && isFirstLoad
-                && UrlUtilities.urlsFragmentsDiffer(mSpeculatedUrl, originalUrl)) {
-            params.setShouldReplaceCurrentEntry(true);
-        }
-
-        mCustomTabObserver.get().trackNextPageLoadFromTimestamp(mTab, timeStamp);
-
-        // Manually generating metrics in case the hidden tab has completely finished loading.
-        String url = params.getUrl();
-        if (mUsingHiddenTab && !mTab.isLoading() && !mTab.isShowingErrorPage()) {
-            mCustomTabObserver.get().onPageLoadStarted(mTab, url);
-            mCustomTabObserver.get().onPageLoadFinished(mTab, url);
-            mTabNavigationEventObserver.onPageLoadStarted(mTab, url);
-            mTabNavigationEventObserver.onPageLoadFinished(mTab, url);
-        }
-
-        // No actual load to do if tab already has the exact correct url.
-        if (TextUtils.equals(mSpeculatedUrl, url) && mUsingHiddenTab && isFirstLoad) {
-            return;
-        }
-
-        IntentHandler.addReferrerAndHeaders(params, mIntent);
-        if (params.getReferrer() == null) {
-            params.setReferrer(mConnection.getReferrerForSession(mSession));
-        }
-
-        // See ChromeTabCreator#getTransitionType(). If the sender of the intent was a WebAPK, mark
-        // the intent as a standard link navigation. Pass the user gesture along since one must have
-        // been active to open a new tab and reach here. Otherwise, mark the navigation chain as
-        // starting from an external intent. See crbug.com/792990.
-        int defaultTransition = PageTransition.LINK | PageTransition.FROM_API;
-        if (mIntentDataProvider.isOpenedByWebApk()) {
-            params.setHasUserGesture(true);
-            defaultTransition = PageTransition.LINK;
-        }
-        params.setTransitionType(
-                IntentHandler.getTransitionTypeFromIntent(mIntent, defaultTransition));
-        mTab.loadUrl(params);
+        mTabProvider.removeTab();
+        mReparentingTaskProvider.get(tab).begin(
+                mActivity, intent, startActivityOptions, finishCallback);
     }
 
     /**
-     * Detaches the tab and starts reparenting into the browser using given {@param intent} and
-     * {@param startActivityOptions}.
+     * Closes the current tab. This doesn't necessarily lead to closing the entire activity, in
+     * case links with target="_blank" were followed. See the comment to
+     * {@link CustomTabActivityTabProvider.Observer#onAllTabsClosed}.
      */
-    public void detachAndStartReparenting(Intent intent, Bundle startActivityOptions,
-            Runnable finishCallback) {
-        if (mTab == null) {
-            assert false;
-            return;
-        }
-        Tab tab = mTab;
-        setTab(null);
-        tab.detachAndStartReparenting(intent, startActivityOptions, finishCallback);
+    public void closeTab() {
+        TabModel model = mTabFactory.getTabModelSelector().getCurrentModel();
+        model.closeTab(mTabProvider.getTab(), false, false, false);
     }
 
-    /** Closes the tab and deletes related metadata. */
+    public boolean onlyOneTabRemaining() {
+        TabModel model = mTabFactory.getTabModelSelector().getCurrentModel();
+        return model.getCount() == 1;
+    }
+
     public void closeAndForgetTab() {
         mTabFactory.getTabModelSelector().closeAllTabs(true);
         mTabPersistencePolicy.deleteMetadataStateFileAsync();
     }
 
-    /** Save the current state of the tab. */
     public void saveState() {
         mTabFactory.getTabModelSelector().saveState();
+    }
+
+    public TabModelSelector getTabModelSelector() {
+        return mTabFactory.getTabModelSelector();
     }
 
     @Override
@@ -283,20 +220,19 @@ public class CustomTabActivityTabController implements InflationObserver, Native
         if (mActivity.getSavedInstanceState() == null && mConnection.hasWarmUpBeenFinished()) {
             mTabFactory.initializeTabModels();
             Tab tab = getHiddenTab();
-            if (tab == null) tab = createTab(null);
-            setTab(tab);
-            mIsFirstLoad = true;
-            loadUrlInTab(new LoadUrlParams(mIntentDataProvider.getUrlToLoad()),
-                    IntentHandler.getTimestampFromIntent(mIntent));
-            mHasCreatedTabEarly = true;
+            if (tab == null) {
+                tab = createTab();
+                mTabProvider.setInitialTab(tab, TabCreationMode.EARLY);
+            } else {
+                mTabProvider.setInitialTab(tab, TabCreationMode.HIDDEN);
+            }
         }
     }
 
     @Override
     public void onPostInflationStartup() {}
 
-    @Override
-    public void onFinishNativeInitialization() {
+    public void finishNativeInitialization() {
         // If extra headers have been passed, cancel any current speculation, as
         // speculation doesn't support extra headers.
         if (IntentHandler.getExtraHeadersFromIntent(mIntent) != null) {
@@ -308,43 +244,10 @@ public class CustomTabActivityTabController implements InflationObserver, Native
         TabModel tabModel = tabModelSelector.getModel(mIntentDataProvider.isIncognito());
         tabModel.addObserver(mTabObserverRegistrar);
 
-        boolean successfulStateRestore = false;
-
-        // Attempt to restore the previous tab state if applicable.
-        if (mActivity.getSavedInstanceState() != null) {
-            assert mTab == null;
-            tabModelSelector.loadState(true);
-            tabModelSelector.restoreTabs(true);
-            setTab(tabModelSelector.getCurrentTab());
-            successfulStateRestore = mTab != null;
-            if (successfulStateRestore) initializeTab(mTab);
-        }
-
-        // If no tab was restored, create a new tab.
-        if (!successfulStateRestore) {
-            if (mTab != null) {
-                // When the tab is created early, we don't have the TabContentManager connected,
-                // since compositor related controllers were not initialized at that point.
-                mTab.attachTabContentManager(mTabContentManager.get());
-            } else {
-                setTab(createTab(mTabContentManager.get()));
-            }
-            tabModel.addTab(mTab, 0, mTab.getLaunchType());
-        }
-
-        // This cannot be done before because we want to do the reparenting only
-        // when we have compositor related controllers.
-        if (mUsingHiddenTab) {
-            TabReparentingParams params =
-                    (TabReparentingParams) AsyncTabParamsManager.remove(mTab.getId());
-            mTab.attachAndFinishReparenting(mActivity, mCustomTabDelegateFactory.get(),
-                    (params == null ? null : params.getFinalizeCallback()));
-        }
-
-        if (!mHasCreatedTabEarly && !successfulStateRestore && !mTab.isLoading()) {
-            loadUrlInTab(new LoadUrlParams(mIntentDataProvider.getUrlToLoad()),
-                    IntentHandler.getTimestampFromIntent(mIntent));
-        }
+        finalizeCreatingTab(tabModelSelector, tabModel);
+        Tab tab = mTabProvider.getTab();
+        assert tab != null;
+        assert mTabProvider.getInitialTabCreationMode() != TabCreationMode.NONE;
 
         // Put Sync in the correct state by calling tab state initialized. crbug.com/581811.
         tabModelSelector.markTabStateInitialized();
@@ -353,101 +256,226 @@ public class CustomTabActivityTabController implements InflationObserver, Native
         if (mIntent.hasExtra(ServiceTabLauncher.LAUNCH_REQUEST_ID_EXTRA)) {
             ServiceTabLauncher.onWebContentsForRequestAvailable(
                     mIntent.getIntExtra(ServiceTabLauncher.LAUNCH_REQUEST_ID_EXTRA, 0),
-                    mTab.getWebContents());
+                    tab.getWebContents());
         }
+    }
+
+    /**
+     * @return A tab if mStartupTabPreloader contains a tab matching the intent.
+     */
+    private Tab maybeTakeTabFromStartupTabPreloader() {
+        // Don't overwrite any pre-existing tab.
+        if (mTabProvider.getTab() != null) return null;
+
+        if (checkIsLikelyPostNavigation()) {
+            // The navigation is likely a POST. This does not match StartupTabPreloader's GET
+            // navigation.
+            return null;
+        }
+
+        LoadUrlParams loadUrlParams = new LoadUrlParams(mIntentDataProvider.getUrlToLoad());
+        String referrer = IntentHandler.getReferrerUrlIncludingExtraHeaders(mIntent);
+        if (!TextUtils.isEmpty(referrer)) {
+            loadUrlParams.setReferrer(new Referrer(referrer, ReferrerPolicy.DEFAULT));
+        }
+
+        Tab tab = mStartupTabPreloader.takeTabIfMatchingOrDestroy(
+                loadUrlParams, TabLaunchType.FROM_EXTERNAL_APP);
+        if (tab == null) return null;
+
+        TabAssociatedApp.from(tab).setAppId(mConnection.getClientPackageNameForSession(mSession));
+        initializeTab(tab);
+        return tab;
+    }
+
+    /**
+     * Checks if the launch intent is likely a POST navigation (likely because we don't do a POST
+     * navigation if the POST target is outside of the TWA/WebAPK scope.)
+     */
+    private boolean checkIsLikelyPostNavigation() {
+        if (mIntentDataProvider.getShareData() == null) return false;
+
+        WebApkExtras webApkExtras = mIntentDataProvider.getWebApkExtras();
+        if (webApkExtras != null && webApkExtras.shareTarget != null
+                && webApkExtras.shareTarget.isShareMethodPost()) {
+            return true;
+        }
+
+        ShareTarget shareTarget = mIntentDataProvider.getShareTarget();
+        return shareTarget != null && ShareTarget.METHOD_POST.equals(shareTarget.method);
+    }
+
+    // Creates the tab on native init, if it hasn't been created yet, and does all the additional
+    // initialization steps necessary at this stage.
+    private void finalizeCreatingTab(TabModelSelectorImpl tabModelSelector, TabModel tabModel) {
+        Tab earlyCreatedTab = mTabProvider.getTab();
+
+        Tab tab = earlyCreatedTab;
+        @TabCreationMode int mode = mTabProvider.getInitialTabCreationMode();
+
+        Tab restoredTab = tryRestoringTab(tabModelSelector);
+        if (restoredTab != null) {
+            assert earlyCreatedTab == null :
+                    "Shouldn't create a new tab when there's one to restore";
+            tab = restoredTab;
+            mode = TabCreationMode.RESTORED;
+        }
+
+        if (tab == null) {
+            // No tab was restored or created early, check if we preloaded a tab.
+            tab = maybeTakeTabFromStartupTabPreloader();
+            if (tab != null) mode = TabCreationMode.FROM_STARTUP_TAB_PRELOADER;
+        } else {
+            mStartupTabPreloader.destroy();
+        }
+
+        if (tab == null) {
+            // No tab was restored, preloaded or created early, creating a new tab.
+            tab = createTab();
+            mode = TabCreationMode.DEFAULT;
+        }
+
+        assert tab != null;
+
+        if (mode != TabCreationMode.RESTORED) {
+            tabModel.addTab(tab, 0, tab.getLaunchType(), TabCreationState.LIVE_IN_FOREGROUND);
+        }
+
+        // This cannot be done before because we want to do the reparenting only
+        // when we have compositor related controllers.
+        if (mode == TabCreationMode.HIDDEN) {
+            TabReparentingParams params =
+                    (TabReparentingParams) mAsyncTabParamsManager.get().remove(tab.getId());
+            mReparentingTaskProvider.get(tab).finish(
+                    ReparentingDelegateFactory.createReparentingTaskDelegate(
+                            mActivity.getCompositorViewHolder(), mActivity.getWindowAndroid(),
+                            mCustomTabDelegateFactory.get()),
+                    (params == null ? null : params.getFinalizeCallback()));
+        }
+
+        if (tab != earlyCreatedTab) {
+            mTabProvider.setInitialTab(tab, mode);
+        } // else we've already set the initial tab.
+
+        // Listen to tab swapping and closing.
+        mActivityTabProvider.addObserverAndTrigger(mTabSwapObserver);
+    }
+
+    @Nullable
+    private Tab tryRestoringTab(TabModelSelectorImpl tabModelSelector) {
+        if (mActivity.getSavedInstanceState() == null) return null;
+        tabModelSelector.loadState(true);
+        tabModelSelector.restoreTabs(true);
+        Tab tab = tabModelSelector.getCurrentTab();
+        if (tab != null) {
+            initializeTab(tab);
+        }
+        return tab;
     }
 
     /** Encapsulates CustomTabsConnection#takeHiddenTab() with additional initialization logic. */
     @Nullable
     private Tab getHiddenTab() {
         String url = mIntentDataProvider.getUrlToLoad();
-        String referrerUrl = mConnection.getReferrer(mSession, mIntent);
+        String referrerUrl = IntentHandler.getReferrerUrlIncludingExtraHeaders(mIntent);
         Tab tab = mConnection.takeHiddenTab(mSession, url, referrerUrl);
-        mUsingHiddenTab = tab != null;
-        if (!mUsingHiddenTab) return null;
+        if (tab == null) return null;
         RecordHistogram.recordEnumeratedHistogram("CustomTabs.WebContentsStateOnLaunch",
                 WebContentsState.PRERENDERED_WEBCONTENTS, WebContentsState.NUM_ENTRIES);
-        tab.setAppAssociatedWith(mConnection.getClientPackageNameForSession(mSession));
-        if (mIntentDataProvider.shouldEnableEmbeddedMediaExperience()) {
-            tab.enableEmbeddedMediaExperience(true);
-        }
+        TabAssociatedApp.from(tab).setAppId(mConnection.getClientPackageNameForSession(mSession));
         initializeTab(tab);
         return tab;
     }
 
-    private Tab createTab(@Nullable TabContentManager tabContentManager) {
+    private Tab createTab() {
+        // At this point we know native has been loaded, but we haven't kicked off a navigation yet.
+        // Experiment ids for GSA are normally set a bit later in the process, but this resulted in
+        // them being absent for the initial request. We set them here early.
+        int[] experimentIds = mIntentDataProvider.getGsaExperimentIds();
+        if (experimentIds != null) {
+            // When ids are set through the intent, we don't want them to override the existing ids.
+            boolean override = false;
+            UmaSessionStats.registerExternalExperiment(GSA_STUDY_NAME, experimentIds, override);
+        }
+
         WebContents webContents = takeWebContents();
-        Tab tab = mTabFactory.createTab();
-        int launchSource = mIntent.getIntExtra(
-                CustomTabIntentDataProvider.EXTRA_BROWSER_LAUNCH_SOURCE, LaunchSourceType.OTHER);
-        if (launchSource == LaunchSourceType.WEBAPK) {
-            String webapkPackageName = mIntent.getStringExtra(Browser.EXTRA_APPLICATION_ID);
-            tab.setAppAssociatedWith(webapkPackageName);
-        } else {
-            tab.setAppAssociatedWith(mConnection.getClientPackageNameForSession(mSession));
-        }
+        // clang-format off
+        Tab tab = mTabFactory.createTab(webContents, mCustomTabDelegateFactory.get(),
+                (preInitTab) -> TabAssociatedApp.from(preInitTab).setAppId(
+                                mConnection.getClientPackageNameForSession(mSession)));
+        // clang-format on
 
-        tab.initialize(webContents, tabContentManager, mCustomTabDelegateFactory.get(),
-                false /*initiallyHidden*/, false /*unfreeze*/);
-
-        if (mIntentDataProvider.shouldEnableEmbeddedMediaExperience()) {
-            tab.enableEmbeddedMediaExperience(true);
+        if (!tab.isIncognito()) {
+            mConnection.setClientDataHeaderForNewTab(mSession, webContents);
         }
 
         initializeTab(tab);
+
+        if (mIntentDataProvider.getTranslateLanguage() != null) {
+            TranslateBridge.setPredefinedTargetLanguage(
+                    tab, mIntentDataProvider.getTranslateLanguage());
+        }
+
         return tab;
     }
 
-    private void setTab(@Nullable Tab tab) {
-        if (tab == mTab) {
-            return;
-        }
-        mTab = tab;
-        for (Observer observer : mObservers) {
-            observer.onTabChanged();
-        }
+    private void recordWebContentsStateOnLaunch(int webContentsStateOnLaunch) {
+        RecordHistogram.recordEnumeratedHistogram("CustomTabs.WebContentsStateOnLaunch",
+                webContentsStateOnLaunch, WebContentsState.NUM_ENTRIES);
     }
 
     private WebContents takeWebContents() {
-        int webContentsStateOnLaunch;
-
         WebContents webContents = takeAsyncWebContents();
         if (webContents != null) {
-            webContentsStateOnLaunch = WebContentsState.TRANSFERRED_WEBCONTENTS;
+            // TODO(https://crbug.com/1033386): Remove assert before closing the bug.
+            assert !mIntentDataProvider.isIncognito()
+                : "UNEXPECTED. This path is not covered for incognito CCT.";
+            recordWebContentsStateOnLaunch(WebContentsState.TRANSFERRED_WEBCONTENTS);
             webContents.resumeLoadingCreatedWebContents();
-        } else {
-            webContents = mWarmupManager.takeSpareWebContents(mIntentDataProvider.isIncognito(),
-                    false /*initiallyHidden*/);
-            if (webContents != null) {
-                webContentsStateOnLaunch = WebContentsState.SPARE_WEBCONTENTS;
-            } else {
-                webContents = mWebContentsFactory.createWebContentsWithWarmRenderer(
-                        mIntentDataProvider.isIncognito(), false);
-                webContentsStateOnLaunch = WebContentsState.NO_WEBCONTENTS;
-            }
+            return webContents;
         }
 
-        RecordHistogram.recordEnumeratedHistogram("CustomTabs.WebContentsStateOnLaunch",
-                webContentsStateOnLaunch, WebContentsState.NUM_ENTRIES);
+        webContents = mWarmupManager.takeSpareWebContents(mIntentDataProvider.isIncognito(),
+                false /*initiallyHidden*/, WarmupManager.FOR_CCT);
+        if (webContents != null) {
+            // TODO(https://crbug.com/1033386): Remove assert before closing the bug.
+            assert !mIntentDataProvider.isIncognito()
+                : "UNEXPECTED. This path is not covered for incognito CCT.";
+            recordWebContentsStateOnLaunch(WebContentsState.SPARE_WEBCONTENTS);
+            return webContents;
+        }
 
-        return webContents;
+        recordWebContentsStateOnLaunch(WebContentsState.NO_WEBCONTENTS);
+        if (mCustomTabIncognitoManager.get().isEnabledIncognitoCCT()) {
+            return mWebContentsFactory.createWebContentsWithWarmRenderer(
+                    mCustomTabIncognitoManager.get().getProfile(), false);
+        } else {
+            Profile profile = mIntentDataProvider.isIncognito()
+                    ? mProfileProvider.getPrimaryOTRProfile()
+                    : mProfileProvider.getLastUsedRegularProfile();
+            return mWebContentsFactory.createWebContentsWithWarmRenderer(profile, false);
+        }
     }
 
     @Nullable
     private WebContents takeAsyncWebContents() {
         int assignedTabId = IntentUtils.safeGetIntExtra(
                 mIntent, IntentHandler.EXTRA_TAB_ID, Tab.INVALID_TAB_ID);
-        AsyncTabParams asyncParams = AsyncTabParamsManager.remove(assignedTabId);
+        AsyncTabParams asyncParams = mAsyncTabParamsManager.get().remove(assignedTabId);
         if (asyncParams == null) return null;
         return asyncParams.getWebContents();
     }
 
     private void initializeTab(Tab tab) {
-        TabRedirectHandler.from(tab).updateIntent(mIntent);
-        tab.getView().requestFocus();
+        // TODO(pkotwicz): Determine whether these should be done for webapps.
+        if (!mIntentDataProvider.isWebappOrWebApkActivity()) {
+            RedirectHandlerTabHelper.updateIntentInTab(tab, mIntent);
+            tab.getView().requestFocus();
+        }
 
-        mTabNavigationEventObserver = new CustomTabNavigationEventObserver(mSession, mConnection);
-
+        // TODO(pshmakov): invert these dependencies.
+        // Please don't register new observers here. Instead, inject TabObserverRegistrar in classes
+        // dedicated to your feature, and register there.
         mTabObserverRegistrar.registerTabObserver(mCustomTabObserver.get());
         mTabObserverRegistrar.registerTabObserver(mTabNavigationEventObserver);
         mTabObserverRegistrar.registerPageLoadMetricsObserver(
@@ -463,7 +491,7 @@ public class CustomTabActivityTabController implements InflationObserver, Native
 
     /** Sets the initial background color for the Tab, shown before the page content is ready. */
     private void prepareTabBackground(final Tab tab) {
-        if (!IntentHandler.notSecureIsIntentChromeOrFirstParty(mIntent)) return;
+        if (!CustomTabIntentDataProvider.isTrustedCustomTab(mIntent, mSession)) return;
 
         int backgroundColor = mIntentDataProvider.getInitialBackgroundColor();
         if (backgroundColor == Color.TRANSPARENT) return;
@@ -480,24 +508,14 @@ public class CustomTabActivityTabController implements InflationObserver, Native
                 // Blink has rendered the page by this point, but we need to wait for the compositor
                 // frame swap to avoid flash of white content.
                 mCompositorViewHolder.get().getCompositorView().surfaceRedrawNeededAsync(() -> {
-                    if (!tab.isInitialized() || mActivity.isActivityDestroyed()) return;
+                    if (!tab.isInitialized() || mActivity.isActivityFinishingOrDestroyed()) {
+                        return;
+                    }
                     tab.getView().setBackgroundResource(0);
                 });
             }
         };
 
         tab.addObserver(mediaObserver);
-    }
-
-    private boolean hasSpeculated() {
-        return !TextUtils.isEmpty(mSpeculatedUrl);
-    }
-
-    public interface Observer {
-        /**
-         * Fired when the tab managed by this class has changed. Use {@link #getTab()} to retrieve
-         * the new tab.
-         */
-        void onTabChanged();
     }
 }

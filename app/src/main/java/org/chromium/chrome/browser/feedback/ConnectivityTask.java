@@ -5,13 +5,16 @@
 package org.chromium.chrome.browser.feedback;
 
 import android.os.SystemClock;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
+
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.Log;
 import org.chromium.base.ThreadUtils;
-import org.chromium.base.VisibleForTesting;
+import org.chromium.base.task.PostTask;
 import org.chromium.chrome.browser.profiles.Profile;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
 import org.chromium.net.ConnectionType;
 import org.chromium.net.NetworkChangeNotifier;
 
@@ -121,6 +124,8 @@ public class ConnectivityTask {
                 return "3G";
             case ConnectionType.CONNECTION_4G:
                 return "4G";
+            case ConnectionType.CONNECTION_5G:
+                return "5G";
             case ConnectionType.CONNECTION_NONE:
                 return "NONE";
             case ConnectionType.CONNECTION_BLUETOOTH:
@@ -255,7 +260,7 @@ public class ConnectivityTask {
 
         private void postCallbackResult() {
             if (mCallback == null) return;
-            ThreadUtils.postOnUiThread(new Runnable() {
+            PostTask.postTask(UiThreadTaskTraits.DEFAULT, new Runnable() {
                 @Override
                 public void run() {
                     mCallback.onResult(get());

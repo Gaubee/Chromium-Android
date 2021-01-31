@@ -4,26 +4,25 @@
 
 package org.chromium.chrome.browser.offlinepages;
 
-import android.app.Activity;
-
 import org.chromium.base.Callback;
 import org.chromium.base.annotations.CalledByNative;
-import org.chromium.chrome.browser.share.ShareParams;
+import org.chromium.components.browser_ui.share.ShareParams;
+import org.chromium.ui.base.WindowAndroid;
 
 /**
  * This callback will save the state we need when the JNI call is done, and start the next stage of
  * processing for sharing.
  */
 public class PublishPageCallback implements Callback<String> {
-    private Callback<ShareParams> mShareCallback;
+    private final Callback<ShareParams> mShareCallback;
     OfflinePageItem mPage;
-    private Activity mActivity;
+    private final WindowAndroid mWindow;
     private static final String TAG = "PublishPageCallback";
 
     /** Create a callback for use when page publishing is completed. */
     public PublishPageCallback(
-            Activity activity, OfflinePageItem page, Callback<ShareParams> shareCallback) {
-        mActivity = activity;
+            WindowAndroid window, OfflinePageItem page, Callback<ShareParams> shareCallback) {
+        mWindow = window;
         mPage = page;
         mShareCallback = shareCallback;
     }
@@ -43,6 +42,6 @@ public class PublishPageCallback implements Callback<String> {
                     mPage.getAccessCount(), mPage.getLastAccessTimeMs(), mPage.getRequestOrigin());
         }
 
-        OfflinePageUtils.publishCompleted(page, mActivity, mShareCallback);
+        OfflinePageUtils.publishCompleted(page, mWindow, mShareCallback);
     }
 }

@@ -10,7 +10,8 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 
-import org.chromium.base.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.chrome.browser.WindowDelegate;
 
 /**
@@ -75,11 +76,9 @@ class KeyboardHideHelper implements ViewTreeObserver.OnGlobalLayoutListener {
             return;
         }
 
-        if (mWindowDelegate != null) {
-            assert mWindowDelegate.getWindowSoftInputMode()
-                    != WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING
-                       : "SOFT_INPUT_ADJUST_NOTHING prevents detecting window size changes.";
-        }
+        assert mWindowDelegate == null || mWindowDelegate.getWindowSoftInputMode()
+                != WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING
+                   : "SOFT_INPUT_ADJUST_NOTHING prevents detecting window size changes.";
 
         mView.getViewTreeObserver().addOnGlobalLayoutListener(this);
         mIsLayoutListenerAttached = true;

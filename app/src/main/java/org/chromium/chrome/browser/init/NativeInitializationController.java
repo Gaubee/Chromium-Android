@@ -5,13 +5,13 @@
 package org.chromium.chrome.browser.init;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
 
-import org.chromium.base.ContextUtils;
+import org.chromium.base.CommandLine;
+import org.chromium.base.Log;
 import org.chromium.base.ThreadUtils;
 import org.chromium.base.library_loader.LibraryLoader;
 import org.chromium.chrome.browser.firstrun.FirstRunFlowSequencer;
+import org.chromium.chrome.browser.flags.ChromeSwitches;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +23,9 @@ import java.util.List;
  *    the library has been loaded.
  */
 class NativeInitializationController {
-    private static final String TAG = "NativeInitializationController";
+    private static final String TAG = "NIController";
 
     private final ChromeActivityNativeDelegate mActivityDelegate;
-    private final Handler mHandler;
 
     private boolean mOnStartPending;
     private boolean mOnResumePending;
@@ -60,7 +59,6 @@ class NativeInitializationController {
      * @param activityDelegate The activity delegate for the owning activity.
      */
     public NativeInitializationController(ChromeActivityNativeDelegate activityDelegate) {
-        mHandler = new Handler(Looper.getMainLooper());
         mActivityDelegate = activityDelegate;
     }
 
@@ -73,9 +71,16 @@ class NativeInitializationController {
      */
     public void startBackgroundTasks(final boolean allocateChildConnection) {
         ThreadUtils.assertOnUiThread();
-        assert mBackgroundTasksComplete == null;
+        if (CommandLine.getInstance().hasSwitch(ChromeSwitches.DISABLE_NATIVE_INITIALIZATION)) {
+            Log.i(TAG, "Exit early and start Chrome without loading native library!");
+            return;
+        }
+
+        // This is a fairly low cost way to check if fetching the variations seed is needed. It can
+        // produces false positives, but that's okay. There's a later mechanism that checks a
+        // dedicated durable field to make sure the actual network request is only made once.
         boolean fetchVariationsSeed = FirstRunFlowSequencer.checkIfFirstRunIsNecessary(
-                ContextUtils.getApplicationContext(), mActivityDelegate.getInitialIntent(), false);
+                false, mActivityDelegate.getInitialIntent());
 
         mBackgroundTasksComplete = false;
         new AsyncInitTaskRunner() {
@@ -89,11 +94,11 @@ class NativeInitializationController {
             }
 
             @Override
-            protected void onFailure() {
+            protected void onFailure(Exception failureCause) {
                 // Initialization has failed, call onStartup failure to abandon the activity.
                 // This is not expected to return, so there is no need to set
                 // mBackgroundTasksComplete or do any other tidying up.
-                mActivityDelegate.onStartupFailure();
+                mActivityDelegate.onStartupFailure(failureCause);
             }
 
         }.startBackgroundTasks(allocateChildConnection, fetchVariationsSeed);
@@ -108,15 +113,8 @@ class NativeInitializationController {
             assert !mHasSignaledLibraryLoaded;
             mHasSignaledLibraryLoaded = true;
 
-            // Allow the UI thread to continue its initialization - so that this call back
-            // doesn't block priority work on the UI thread until it's idle.
-            mHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    if (mActivityDelegate.isActivityDestroyed()) return;
-                    mActivityDelegate.onCreateWithNative();
-                }
-            });
+            if (mActivityDelegate.isActivityFinishingOrDestroyed()) return;
+            mActivityDelegate.onCreateWithNative();
         }
     }
 
@@ -146,7 +144,7 @@ class NativeInitializationController {
             onResume();
         }
 
-        LibraryLoader.getInstance().onNativeInitializationComplete();
+        LibraryLoader.getInstance().onBrowserNativeInitializationComplete();
     }
 
     /**

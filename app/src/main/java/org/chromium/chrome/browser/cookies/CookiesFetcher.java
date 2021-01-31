@@ -9,7 +9,9 @@ import org.chromium.base.ImportantFileWriterAndroid;
 import org.chromium.base.Log;
 import org.chromium.base.ThreadUtils;
 import org.chromium.base.annotations.CalledByNative;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.base.task.AsyncTask;
+import org.chromium.base.task.BackgroundOnlyAsyncTask;
 import org.chromium.chrome.browser.crypto.CipherFactory;
 import org.chromium.chrome.browser.profiles.Profile;
 
@@ -29,6 +31,11 @@ import javax.crypto.CipherOutputStream;
 /**
  * Responsible for fetching, (de)serializing, and restoring cookies between the CookieJar and an
  * encrypted file storage.
+ *
+ * These methods are used for incognito only. Incognito cookies are kept separately from other
+ * profiles' cookies, and are normally not persisted (on most platforms). However, on Android we
+ * serialize and store them to avoid logging the user out of their accounts being used in incognito,
+ * if the app is killed e.g. while in the background.
  */
 public class CookiesFetcher {
     /** The default file name for the encrypted cookies storage. */
@@ -56,7 +63,7 @@ public class CookiesFetcher {
      */
     public static void persistCookies() {
         try {
-            nativePersistCookies();
+            CookiesFetcherJni.get().persistCookies();
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
@@ -120,14 +127,15 @@ public class CookiesFetcher {
             protected void onPostExecute(List<CanonicalCookie> cookies) {
                 // We can only access cookies and profiles on the UI thread.
                 for (CanonicalCookie cookie : cookies) {
-                    nativeRestoreCookies(cookie.getName(), cookie.getValue(), cookie.getDomain(),
-                            cookie.getPath(), cookie.getCreationDate(), cookie.getExpirationDate(),
-                            cookie.getLastAccessDate(), cookie.isSecure(), cookie.isHttpOnly(),
-                            cookie.getSameSite(), cookie.getPriority());
+                    CookiesFetcherJni.get().restoreCookies(cookie.getName(), cookie.getValue(),
+                            cookie.getDomain(), cookie.getPath(), cookie.getCreationDate(),
+                            cookie.getExpirationDate(), cookie.getLastAccessDate(),
+                            cookie.isSecure(), cookie.isHttpOnly(), cookie.getSameSite(),
+                            cookie.getPriority(), cookie.isSameParty(), cookie.sourceScheme(),
+                            cookie.sourcePort());
                 }
             }
-        }
-                .executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
+        }.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
     }
 
     /**
@@ -137,7 +145,7 @@ public class CookiesFetcher {
      */
     public static boolean deleteCookiesIfNecessary() {
         try {
-            if (Profile.getLastUsedProfile().hasOffTheRecordProfile()) return false;
+            if (Profile.getLastUsedRegularProfile().hasPrimaryOTRProfile()) return false;
             scheduleDeleteCookiesFile();
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -150,7 +158,7 @@ public class CookiesFetcher {
      * Delete the cookies file. Called when we detect that all incognito tabs have been closed.
      */
     private static void scheduleDeleteCookiesFile() {
-        new AsyncTask<Void>() {
+        new BackgroundOnlyAsyncTask<Void>() {
             @Override
             protected Void doInBackground() {
                 File cookiesFile = new File(fetchFileName());
@@ -161,31 +169,30 @@ public class CookiesFetcher {
                 }
                 return null;
             }
-        }
-                .executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
+        }.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
     }
 
     @CalledByNative
     private static CanonicalCookie createCookie(String name, String value, String domain,
             String path, long creation, long expiration, long lastAccess, boolean secure,
-            boolean httpOnly, int sameSite, int priority) {
+            boolean httpOnly, int sameSite, int priority, boolean sameParty, int sourceScheme,
+            int sourcePort) {
         return new CanonicalCookie(name, value, domain, path, creation, expiration, lastAccess,
-                secure, httpOnly, sameSite, priority);
+                secure, httpOnly, sameSite, priority, sameParty, sourceScheme, sourcePort);
     }
 
     @CalledByNative
     private static void onCookieFetchFinished(final CanonicalCookie[] cookies) {
         // Cookies fetching requires operations with the profile and must be
         // done in the main thread. Once that is done, do the save to disk
-        // part in {@link AsyncTask} to avoid strict mode violations.
-        new AsyncTask<Void>() {
+        // part in {@link BackgroundOnlyAsyncTask} to avoid strict mode violations.
+        new BackgroundOnlyAsyncTask<Void>() {
             @Override
             protected Void doInBackground() {
                 saveFetchedCookiesToDisk(cookies);
                 return null;
             }
-        }
-                .executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
+        }.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
     }
 
     private static void saveFetchedCookiesToDisk(CanonicalCookie[] cookies) {
@@ -198,8 +205,7 @@ public class CookiesFetcher {
             }
 
             ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
-            CipherOutputStream cipherOut =
-                    new CipherOutputStream(byteOut, cipher);
+            CipherOutputStream cipherOut = new CipherOutputStream(byteOut, cipher);
             out = new DataOutputStream(cipherOut);
             CanonicalCookie.saveListToStream(out, cookies);
             out.close();
@@ -223,8 +229,11 @@ public class CookiesFetcher {
         return new CanonicalCookie[size];
     }
 
-    private static native void nativePersistCookies();
-    private static native void nativeRestoreCookies(String name, String value, String domain,
-            String path, long creation, long expiration, long lastAccess, boolean secure,
-            boolean httpOnly, int sameSite, int priority);
+    @NativeMethods
+    interface Natives {
+        void persistCookies();
+        void restoreCookies(String name, String value, String domain, String path, long creation,
+                long expiration, long lastAccess, boolean secure, boolean httpOnly, int sameSite,
+                int priority, boolean sameParty, int sourceScheme, int sourcePort);
+    }
 }

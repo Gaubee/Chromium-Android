@@ -4,8 +4,7 @@
 
 package org.chromium.chrome.browser.tab;
 
-import org.chromium.base.Supplier;
-import org.chromium.chrome.browser.fullscreen.FullscreenManager;
+import org.chromium.base.ObserverList.RewindableIterator;
 import org.chromium.content_public.browser.GestureListenerManager;
 import org.chromium.content_public.browser.GestureStateListener;
 import org.chromium.content_public.browser.WebContents;
@@ -19,25 +18,25 @@ public final class TabGestureStateListener extends TabWebContentsUserData {
     private static final Class<TabGestureStateListener> USER_DATA_KEY =
             TabGestureStateListener.class;
 
+    private final Tab mTab;
     private GestureStateListener mGestureListener;
-    private Supplier<FullscreenManager> mFullscreenManager;
 
     /**
      * Creates TabGestureStateListener and lets the WebContentsUserData of the Tab manage it.
      * @param tab Tab instance that the active WebContents instance gets loaded in.
      */
-    public static TabGestureStateListener from(Tab tab, Supplier<FullscreenManager> fullscreen) {
+    public static TabGestureStateListener from(Tab tab) {
         TabGestureStateListener listener = tab.getUserDataHost().getUserData(USER_DATA_KEY);
         if (listener == null) {
-            tab.getUserDataHost().setUserData(
-                    USER_DATA_KEY, new TabGestureStateListener(tab, fullscreen));
+            listener = tab.getUserDataHost().setUserData(
+                    USER_DATA_KEY, new TabGestureStateListener(tab));
         }
         return listener;
     }
 
-    private TabGestureStateListener(Tab tab, Supplier<FullscreenManager> fullscreenManager) {
+    private TabGestureStateListener(Tab tab) {
         super(tab);
-        mFullscreenManager = fullscreenManager;
+        mTab = tab;
     }
 
     @Override
@@ -65,13 +64,11 @@ public final class TabGestureStateListener extends TabWebContentsUserData {
             }
 
             private void onScrollingStateChanged() {
-                FullscreenManager fullscreenManager = mFullscreenManager.get();
-                if (fullscreenManager == null) return;
-                fullscreenManager.onContentViewScrollingStateChanged(isScrollInProgress());
-            }
-
-            private boolean isScrollInProgress() {
-                return manager != null ? manager.isScrollInProgress() : false;
+                boolean scrolling = manager != null && manager.isScrollInProgress();
+                RewindableIterator<TabObserver> observers = ((TabImpl) mTab).getTabObservers();
+                while (observers.hasNext()) {
+                    observers.next().onContentViewScrollingStateChanged(scrolling);
+                }
             }
         };
         manager.addListener(mGestureListener);
@@ -79,8 +76,10 @@ public final class TabGestureStateListener extends TabWebContentsUserData {
 
     @Override
     public void cleanupWebContents(WebContents webContents) {
-        GestureListenerManager manager = GestureListenerManager.fromWebContents(webContents);
-        if (manager != null) manager.removeListener(mGestureListener);
+        if (webContents != null) {
+            GestureListenerManager manager = GestureListenerManager.fromWebContents(webContents);
+            if (manager != null) manager.removeListener(mGestureListener);
+        }
         mGestureListener = null;
     }
 }

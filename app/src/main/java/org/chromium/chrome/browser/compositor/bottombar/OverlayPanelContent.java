@@ -10,24 +10,31 @@ import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
 
-import org.chromium.base.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.annotations.CalledByNative;
-import org.chromium.chrome.browser.ChromeActivity;
-import org.chromium.chrome.browser.ChromeVersionInfo;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.chrome.browser.WebContentsFactory;
+import org.chromium.chrome.browser.app.ChromeActivity;
 import org.chromium.chrome.browser.content.ContentUtils;
 import org.chromium.chrome.browser.contextualsearch.ContextualSearchManager;
-import org.chromium.chrome.browser.externalnav.ExternalNavigationHandler;
+import org.chromium.chrome.browser.externalnav.ExternalNavigationDelegateImpl;
+import org.chromium.chrome.browser.incognito.IncognitoUtils;
+import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.version.ChromeVersionInfo;
 import org.chromium.components.embedder_support.delegate.WebContentsDelegateAndroid;
 import org.chromium.components.embedder_support.view.ContentView;
+import org.chromium.components.external_intents.ExternalNavigationHandler;
 import org.chromium.components.navigation_interception.InterceptNavigationDelegate;
 import org.chromium.components.navigation_interception.NavigationParams;
 import org.chromium.content_public.browser.LoadUrlParams;
+import org.chromium.content_public.browser.NavigationHandle;
 import org.chromium.content_public.browser.RenderCoordinates;
 import org.chromium.content_public.browser.WebContents;
 import org.chromium.content_public.browser.WebContentsObserver;
 import org.chromium.ui.base.ViewAndroidDelegate;
+import org.chromium.url.GURL;
 
 /**
  * Content container for an OverlayPanel. This class is responsible for the management of the
@@ -49,7 +56,7 @@ public class OverlayPanelContent {
     private final WebContentsDelegateAndroid mWebContentsDelegate;
 
     /** The activity that this content is contained in. */
-    private ChromeActivity mActivity;
+    private final ChromeActivity mActivity;
 
     /** Observer used for tracking loading and navigation. */
     private WebContentsObserver mWebContentsObserver;
@@ -83,10 +90,10 @@ public class OverlayPanelContent {
     private boolean mIsContentViewShowing;
 
     /** The observer used by this object to inform implementers of different events. */
-    private OverlayContentDelegate mContentDelegate;
+    private final OverlayContentDelegate mContentDelegate;
 
     /** Used to observe progress bar events. */
-    private OverlayContentProgressObserver mProgressObserver;
+    private final OverlayContentProgressObserver mProgressObserver;
 
     /** If a URL is set to delayed load (load on user interaction), it will be stored here. */
     private String mPendingUrl;
@@ -96,7 +103,7 @@ public class OverlayPanelContent {
     private InterceptNavigationDelegate mInterceptNavigationDelegate;
 
     /** Set to {@code True} if opened for an incognito tab. */
-    private boolean mIsIncognito;
+    private final boolean mIsIncognito;
 
     /** The desired size of the {@link ContentView} associated with this panel content. */
     private int mContentViewWidth;
@@ -138,7 +145,7 @@ public class OverlayPanelContent {
         public InterceptNavigationDelegateImpl() {
             Tab tab = mActivity.getActivityTab();
             mExternalNavHandler = (tab != null && tab.getWebContents() != null)
-                    ? new ExternalNavigationHandler(tab)
+                    ? new ExternalNavigationHandler(new ExternalNavigationDelegateImpl(tab))
                     : null;
         }
 
@@ -169,7 +176,7 @@ public class OverlayPanelContent {
     public OverlayPanelContent(OverlayContentDelegate contentDelegate,
             OverlayContentProgressObserver progressObserver, ChromeActivity activity,
             boolean isIncognito, float barHeight) {
-        mNativeOverlayPanelContentPtr = nativeInit();
+        mNativeOverlayPanelContentPtr = OverlayPanelContentJni.get().init(OverlayPanelContent.this);
         mContentDelegate = contentDelegate;
         mProgressObserver = progressObserver;
         mActivity = activity;
@@ -190,8 +197,8 @@ public class OverlayPanelContent {
             }
 
             @Override
-            public void onLoadProgressChanged(int progress) {
-                mProgressObserver.onProgressBarUpdated(progress);
+            public void visibleSSLStateChanged() {
+                mContentDelegate.onSSLStateUpdated();
             }
 
             @Override
@@ -210,6 +217,11 @@ public class OverlayPanelContent {
             }
 
             @Override
+            public boolean shouldCreateWebContents(GURL targetUrl) {
+                return false;
+            }
+
+            @Override
             public int getTopControlsHeight() {
                 return (int) (mBarHeightPx
                         / mActivity.getWindowAndroid().getDisplay().getDipScale());
@@ -218,11 +230,6 @@ public class OverlayPanelContent {
             @Override
             public int getBottomControlsHeight() {
                 return 0;
-            }
-
-            @Override
-            public boolean controlsResizeView() {
-                return false;
             }
         };
     }
@@ -253,11 +260,19 @@ public class OverlayPanelContent {
     }
 
     /**
+     * Whether we should reuse any existing WebContents instead of deleting and recreating.
+     * @param reuse {@code true} if we want to reuse the WebContents.
+     */
+    public void setReuseWebContents(boolean reuse) {
+        mShouldReuseWebContents = reuse;
+    }
+
+    /**
      * Call this when a loadUrl request has failed to notify the panel that the WebContents can
      * be reused.  See crbug.com/682953 for details.
      */
     void onLoadUrlFailed() {
-        mShouldReuseWebContents = true;
+        setReuseWebContents(true);
     }
 
     /**
@@ -300,10 +315,13 @@ public class OverlayPanelContent {
             destroyWebContents();
         }
 
+        Profile profile = IncognitoUtils.getProfileFromWindowAndroid(
+                mActivity.getWindowAndroid(), mIsIncognito);
         // Creates an initially hidden WebContents which gets shown when the panel is opened.
-        mWebContents = WebContentsFactory.createWebContents(mIsIncognito, true);
+        mWebContents = WebContentsFactory.createWebContents(profile, true);
 
-        ContentView cv = ContentView.createContentView(mActivity, mWebContents);
+        ContentView cv = ContentView.createContentView(
+                mActivity, null /* eventOffsetHandler */, mWebContents);
         if (mContentViewWidth != 0 || mContentViewHeight != 0) {
             int width = mContentViewWidth == 0 ? ContentView.DEFAULT_MEASURE_SPEC
                     : MeasureSpec.makeMeasureSpec(mContentViewWidth, MeasureSpec.EXACTLY);
@@ -318,13 +336,19 @@ public class OverlayPanelContent {
         ContentUtils.setUserAgentOverride(mWebContents);
 
         // Transfers the ownership of the WebContents to the native OverlayPanelContent.
-        nativeSetWebContents(mNativeOverlayPanelContentPtr, mWebContents, mWebContentsDelegate);
+        OverlayPanelContentJni.get().setWebContents(mNativeOverlayPanelContentPtr,
+                OverlayPanelContent.this, mWebContents, mWebContentsDelegate);
 
         mWebContentsObserver =
                 new WebContentsObserver(mWebContents) {
                     @Override
-                    public void didStartLoading(String url) {
-                        mContentDelegate.onContentLoadStarted(url);
+                    public void didStartLoading(GURL url) {
+                        mContentDelegate.onContentLoadStarted();
+                    }
+
+                    @Override
+                    public void loadProgressChanged(float progress) {
+                        mProgressObserver.onProgressBarUpdated(progress);
                     }
 
                     @Override
@@ -333,33 +357,35 @@ public class OverlayPanelContent {
                     }
 
                     @Override
-                    public void didStartNavigation(String url, boolean isInMainFrame,
-                            boolean isSameDocument, long navigationHandleProxy) {
-                        if (isInMainFrame && !isSameDocument) {
+                    public void didStartNavigation(NavigationHandle navigation) {
+                        if (navigation.isInMainFrame() && !navigation.isSameDocument()) {
+                            String url = navigation.getUrlString();
                             mContentDelegate.onMainFrameLoadStarted(
                                     url, !TextUtils.equals(url, mLoadedUrl));
                         }
                     }
 
                     @Override
-                    public void didFinishNavigation(String url, boolean isInMainFrame,
-                            boolean isErrorPage, boolean hasCommitted, boolean isSameDocument,
-                            boolean isFragmentNavigation, boolean isRendererInitiated,
-                            boolean isDownload, Integer pageTransition, int errorCode,
-                            String errorDescription, int httpStatusCode) {
-                        if (hasCommitted && isInMainFrame) {
+                    public void titleWasSet(String title) {
+                        mContentDelegate.onTitleUpdated(title);
+                    }
+
+                    @Override
+                    public void didFinishNavigation(NavigationHandle navigation) {
+                        if (navigation.hasCommitted() && navigation.isInMainFrame()) {
                             mIsProcessingPendingNavigation = false;
-                            mContentDelegate.onMainFrameNavigation(url,
-                                    !TextUtils.equals(url, mLoadedUrl),
-                                    isHttpFailureCode(httpStatusCode));
+                            mContentDelegate.onMainFrameNavigation(navigation.getUrlString(),
+                                    !TextUtils.equals(navigation.getUrlString(), mLoadedUrl),
+                                    isHttpFailureCode(navigation.httpStatusCode()),
+                                    navigation.isErrorPage());
                         }
                     }
                 };
 
         mContainerView = cv;
         mInterceptNavigationDelegate = new InterceptNavigationDelegateImpl();
-        nativeSetInterceptNavigationDelegate(
-                mNativeOverlayPanelContentPtr, mInterceptNavigationDelegate, mWebContents);
+        OverlayPanelContentJni.get().setInterceptNavigationDelegate(mNativeOverlayPanelContentPtr,
+                OverlayPanelContent.this, mInterceptNavigationDelegate, mWebContents);
 
         mContentDelegate.onContentViewCreated();
         resizePanelContentView();
@@ -371,8 +397,11 @@ public class OverlayPanelContent {
      */
     private void destroyWebContents() {
         if (mWebContents != null) {
+            mActivity.getCompositorViewHolder().removeView(mContainerView);
+
             // Native destroy will call up to destroy the Java WebContents.
-            nativeDestroyWebContents(mNativeOverlayPanelContentPtr);
+            OverlayPanelContentJni.get().destroyWebContents(
+                    mNativeOverlayPanelContentPtr, OverlayPanelContent.this);
             mWebContents = null;
             if (mWebContentsObserver != null) {
                 mWebContentsObserver.destroy();
@@ -384,9 +413,6 @@ public class OverlayPanelContent {
             mShouldReuseWebContents = false;
 
             setVisibility(false);
-
-            // After everything has been disposed, notify the observer.
-            mContentDelegate.onContentViewDestroyed();
         }
     }
 
@@ -401,7 +427,8 @@ public class OverlayPanelContent {
      *                          Otherwise the web contents never accounts for them.
      */
     public void updateBrowserControlsState(boolean areControlsHidden) {
-        nativeUpdateBrowserControlsState(mNativeOverlayPanelContentPtr, areControlsHidden);
+        OverlayPanelContentJni.get().updateBrowserControlsState(
+                mNativeOverlayPanelContentPtr, OverlayPanelContent.this, areControlsHidden);
     }
 
     /**
@@ -487,11 +514,17 @@ public class OverlayPanelContent {
         mNativeOverlayPanelContentPtr = 0;
     }
 
-    protected WebContents getWebContents() {
+    /**
+     * @return The associated {@link WebContents}.
+     */
+    public WebContents getWebContents() {
         return mWebContents;
     }
 
-    ViewGroup getContainerView() {
+    /**
+     * @return The associated {@link ContentView}.
+     */
+    public ViewGroup getContainerView() {
         return mContainerView;
     }
 
@@ -499,8 +532,8 @@ public class OverlayPanelContent {
         WebContents webContents = getWebContents();
         if (webContents == null) return;
         int viewHeight = mContentViewHeight - (mSubtractBarHeight ? mBarHeightPx : 0);
-        nativeOnPhysicalBackingSizeChanged(
-                mNativeOverlayPanelContentPtr, webContents, mContentViewWidth, viewHeight);
+        OverlayPanelContentJni.get().onPhysicalBackingSizeChanged(mNativeOverlayPanelContentPtr,
+                OverlayPanelContent.this, webContents, mContentViewWidth, viewHeight);
         mWebContents.setSize(mContentViewWidth, viewHeight);
     }
 
@@ -510,7 +543,8 @@ public class OverlayPanelContent {
      * @param urlTimeMs The time the URL was navigated to.
      */
     public void removeLastHistoryEntry(String historyUrl, long urlTimeMs) {
-        nativeRemoveLastHistoryEntry(mNativeOverlayPanelContentPtr, historyUrl, urlTimeMs);
+        OverlayPanelContentJni.get().removeLastHistoryEntry(
+                mNativeOverlayPanelContentPtr, OverlayPanelContent.this, historyUrl, urlTimeMs);
     }
 
     /**
@@ -521,24 +555,30 @@ public class OverlayPanelContent {
         if (mWebContents != null) destroyWebContents();
 
         // Tests will not create the native pointer, so we need to check if it's not zero
-        // otherwise calling nativeDestroy with zero will make Chrome crash.
+        // otherwise calling OverlayPanelContentJni.get().destroy with zero will make Chrome crash.
         if (mNativeOverlayPanelContentPtr != 0L) {
-            nativeDestroy(mNativeOverlayPanelContentPtr);
+            OverlayPanelContentJni.get().destroy(
+                    mNativeOverlayPanelContentPtr, OverlayPanelContent.this);
         }
     }
 
-    // Native calls.
-    private native long nativeInit();
-    private native void nativeDestroy(long nativeOverlayPanelContent);
-    private native void nativeRemoveLastHistoryEntry(
-            long nativeOverlayPanelContent, String historyUrl, long urlTimeMs);
-    private native void nativeOnPhysicalBackingSizeChanged(
-            long nativeOverlayPanelContent, WebContents webContents, int width, int height);
-    private native void nativeSetWebContents(long nativeOverlayPanelContent,
-            WebContents webContents, WebContentsDelegateAndroid delegate);
-    private native void nativeDestroyWebContents(long nativeOverlayPanelContent);
-    private native void nativeSetInterceptNavigationDelegate(long nativeOverlayPanelContent,
-            InterceptNavigationDelegate delegate, WebContents webContents);
-    private native void nativeUpdateBrowserControlsState(
-            long nativeOverlayPanelContent, boolean areControlsHidden);
+    @NativeMethods
+    interface Natives {
+        // Native calls.
+        long init(OverlayPanelContent caller);
+
+        void destroy(long nativeOverlayPanelContent, OverlayPanelContent caller);
+        void removeLastHistoryEntry(long nativeOverlayPanelContent, OverlayPanelContent caller,
+                String historyUrl, long urlTimeMs);
+        void onPhysicalBackingSizeChanged(long nativeOverlayPanelContent,
+                OverlayPanelContent caller, WebContents webContents, int width, int height);
+        void setWebContents(long nativeOverlayPanelContent, OverlayPanelContent caller,
+                WebContents webContents, WebContentsDelegateAndroid delegate);
+        void destroyWebContents(long nativeOverlayPanelContent, OverlayPanelContent caller);
+        void setInterceptNavigationDelegate(long nativeOverlayPanelContent,
+                OverlayPanelContent caller, InterceptNavigationDelegate delegate,
+                WebContents webContents);
+        void updateBrowserControlsState(long nativeOverlayPanelContent, OverlayPanelContent caller,
+                boolean areControlsHidden);
+    }
 }

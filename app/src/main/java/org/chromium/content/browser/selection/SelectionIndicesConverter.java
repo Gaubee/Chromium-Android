@@ -4,7 +4,7 @@
 
 package org.chromium.content.browser.selection;
 
-import org.chromium.base.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import java.text.BreakIterator;
 import java.util.regex.Pattern;
@@ -216,7 +216,7 @@ public class SelectionIndicesConverter {
         if (endOffset > globalEndOffset) {
             updateGlobalSelection(mGlobalSelectionText
                             + selectionText.substring(
-                                      globalEndOffset - startOffset, selectionText.length()),
+                                      globalEndOffset - startOffset),
                     mGlobalStartOffset);
         }
     }

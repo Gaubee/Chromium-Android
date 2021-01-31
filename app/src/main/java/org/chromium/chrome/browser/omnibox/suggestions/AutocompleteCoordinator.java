@@ -5,38 +5,53 @@
 package org.chromium.chrome.browser.omnibox.suggestions;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewCompat;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.widget.ListView;
+
+import android.annotation.NonNull;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.view.ViewCompat;
 
 import org.chromium.base.Callback;
 import org.chromium.base.StrictModeContext;
-import org.chromium.base.VisibleForTesting;
+import org.chromium.base.supplier.Supplier;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.ActivityTabProvider;
-import org.chromium.chrome.browser.omnibox.LocationBarVoiceRecognitionHandler;
+import org.chromium.chrome.browser.lifecycle.ActivityLifecycleDispatcher;
+import org.chromium.chrome.browser.omnibox.LocationBarDataProvider;
 import org.chromium.chrome.browser.omnibox.UrlBar.UrlTextChangeListener;
 import org.chromium.chrome.browser.omnibox.UrlBarEditingTextStateProvider;
 import org.chromium.chrome.browser.omnibox.UrlFocusChangeListener;
 import org.chromium.chrome.browser.omnibox.suggestions.AutocompleteController.OnSuggestionsReceivedListener;
-import org.chromium.chrome.browser.omnibox.suggestions.OmniboxSuggestionsList.OmniboxSuggestionListEmbedder;
 import org.chromium.chrome.browser.omnibox.suggestions.SuggestionListViewBinder.SuggestionListViewHolder;
-import org.chromium.chrome.browser.omnibox.suggestions.basic.SuggestionView;
+import org.chromium.chrome.browser.omnibox.suggestions.answer.AnswerSuggestionViewBinder;
+import org.chromium.chrome.browser.omnibox.suggestions.base.BaseSuggestionView;
+import org.chromium.chrome.browser.omnibox.suggestions.base.BaseSuggestionViewBinder;
 import org.chromium.chrome.browser.omnibox.suggestions.basic.SuggestionViewViewBinder;
-import org.chromium.chrome.browser.omnibox.suggestions.editurl.EditUrlSuggestionProcessor;
+import org.chromium.chrome.browser.omnibox.suggestions.carousel.BaseCarouselSuggestionViewBinder;
+import org.chromium.chrome.browser.omnibox.suggestions.editurl.EditUrlSuggestionView;
 import org.chromium.chrome.browser.omnibox.suggestions.editurl.EditUrlSuggestionViewBinder;
+import org.chromium.chrome.browser.omnibox.suggestions.entity.EntitySuggestionViewBinder;
+import org.chromium.chrome.browser.omnibox.suggestions.header.HeaderView;
+import org.chromium.chrome.browser.omnibox.suggestions.header.HeaderViewBinder;
+import org.chromium.chrome.browser.omnibox.suggestions.mostvisited.MostVisitedTilesProcessor;
+import org.chromium.chrome.browser.omnibox.suggestions.tail.TailSuggestionView;
+import org.chromium.chrome.browser.omnibox.suggestions.tail.TailSuggestionViewBinder;
+import org.chromium.chrome.browser.omnibox.voice.VoiceRecognitionHandler;
 import org.chromium.chrome.browser.profiles.Profile;
-import org.chromium.chrome.browser.toolbar.ToolbarDataProvider;
+import org.chromium.chrome.browser.share.ShareDelegate;
 import org.chromium.chrome.browser.util.KeyNavigationUtil;
+import org.chromium.components.omnibox.AutocompleteMatch;
+import org.chromium.components.query_tiles.QueryTile;
 import org.chromium.ui.ViewProvider;
-import org.chromium.ui.base.PageTransition;
-import org.chromium.ui.base.WindowAndroid;
+import org.chromium.ui.modaldialog.ModalDialogManager;
 import org.chromium.ui.modelutil.LazyConstructionPropertyMcp;
-import org.chromium.ui.modelutil.ModelListAdapter;
+import org.chromium.ui.modelutil.MVCListAdapter;
+import org.chromium.ui.modelutil.MVCListAdapter.ModelList;
 import org.chromium.ui.modelutil.PropertyModel;
 
 import java.util.ArrayList;
@@ -47,164 +62,140 @@ import java.util.List;
  */
 public class AutocompleteCoordinator implements UrlFocusChangeListener, UrlTextChangeListener {
     private final ViewGroup mParent;
-    private final AutocompleteMediator mMediator;
+    private OmniboxQueryTileCoordinator mQueryTileCoordinator;
+    private AutocompleteMediator mMediator;
+    private OmniboxSuggestionsDropdown mDropdown;
 
-    private ListView mListView;
-
-    /**
-     * A processor of omnibox suggestions. Implementers are provided the opportunity to analyze a
-     * suggestion and create a custom model.
-     */
-    public interface SuggestionProcessor {
-        /**
-         * @param suggestion The suggestion to process.
-         * @return Whether this suggestion processor handles this type of suggestion.
-         */
-        boolean doesProcessSuggestion(OmniboxSuggestion suggestion);
-
-        /**
-         * @return The type of view the models created by this processor represent.
-         */
-        int getViewTypeId();
-
-        /**
-         * @see org.chromium.chrome.browser.omnibox.UrlFocusChangeListener#onUrlFocusChange(boolean)
-         */
-        void onUrlFocusChange(boolean hasFocus);
-
-        /**
-         * Signals that native initialization has completed.
-         */
-        void onNativeInitialized();
-
-        /**
-         * Create a model for a suggestion at the specified position.
-         * @param suggestion The suggestion to create the model for.
-         * @return A model for the suggestion.
-         */
-        PropertyModel createModelForSuggestion(OmniboxSuggestion suggestion);
-
-        /**
-         * Populate a model for the given suggestion.
-         * @param suggestion The suggestion to populate the model for.
-         * @param model The model to populate.
-         * @param position The position of the suggestion in the list.
-         */
-        void populateModel(OmniboxSuggestion suggestion, PropertyModel model, int position);
-    }
-
-    /**
-     * Provides the additional functionality to trigger and interact with autocomplete suggestions.
-     */
-    public interface AutocompleteDelegate extends EditUrlSuggestionProcessor.LocationBarDelegate {
-        /**
-         * Notified that the URL text has changed.
-         */
-        void onUrlTextChanged();
-
-        /**
-         * Notified that suggestions have changed.
-         * @param autocompleteText The inline autocomplete text that can be appended to the
-         *                         currently entered user text.
-         */
-        void onSuggestionsChanged(String autocompleteText);
-
-        /**
-         * Notified that the suggestions have been hidden.
-         */
-        void onSuggestionsHidden();
-
-        /**
-         * Requests the keyboard be hidden.
-         */
-        void hideKeyboard();
-
-        /**
-         * Requests that the given URL be loaded in the current tab.
-         *
-         * @param url The URL to be loaded.
-         * @param transition The transition type associated with the url load.
-         * @param inputStart The time the input started for the load request.
-         */
-        void loadUrl(String url, @PageTransition int transition, long inputStart);
-
-        /**
-         * @return Whether the omnibox was focused via the NTP fakebox.
-         */
-        boolean didFocusUrlFromFakebox();
-
-        /**
-         * @return Whether the URL currently has focus.
-         */
-        boolean isUrlBarFocused();
-    }
-
-    /**
-     * Constructs a coordinator for the autocomplete system.
-     *
-     * @param parent The UI parent component for the autocomplete UI.
-     * @param delegate The delegate to fulfill additional autocomplete requirements.
-     * @param listEmbedder The embedder for controlling the display constraints of the suggestions
-     *                     list.
-     * @param urlBarEditingTextProvider Provider of editing text state from the UrlBar.
-     */
-    public AutocompleteCoordinator(ViewGroup parent, AutocompleteDelegate delegate,
-            OmniboxSuggestionListEmbedder listEmbedder,
-            UrlBarEditingTextStateProvider urlBarEditingTextProvider) {
+    public AutocompleteCoordinator(@NonNull ViewGroup parent,
+            @NonNull AutocompleteDelegate delegate,
+            @NonNull OmniboxSuggestionsDropdownEmbedder dropdownEmbedder,
+            @NonNull UrlBarEditingTextStateProvider urlBarEditingTextProvider,
+            @NonNull ActivityLifecycleDispatcher lifecycleDispatcher,
+            @NonNull Supplier<ModalDialogManager> modalDialogManagerSupplier,
+            @Nullable ActivityTabProvider activityTabProvider,
+            @Nullable Supplier<ShareDelegate> shareDelegateSupplier,
+            @NonNull LocationBarDataProvider locationBarDataProvider) {
         mParent = parent;
         Context context = parent.getContext();
 
         PropertyModel listModel = new PropertyModel(SuggestionListProperties.ALL_KEYS);
-        listModel.set(SuggestionListProperties.EMBEDDER, listEmbedder);
-        listModel.set(SuggestionListProperties.VISIBLE, false);
+        ModelList listItems = new ModelList();
 
-        ViewProvider<SuggestionListViewHolder> viewProvider = createViewProvider(context);
-        viewProvider.whenLoaded((holder) -> { mListView = holder.listView; });
+        listModel.set(SuggestionListProperties.EMBEDDER, dropdownEmbedder);
+        listModel.set(SuggestionListProperties.VISIBLE, false);
+        listModel.set(SuggestionListProperties.SUGGESTION_MODELS, listItems);
+
+        mQueryTileCoordinator = new OmniboxQueryTileCoordinator(context, this::onTileSelected);
+        mMediator = new AutocompleteMediator(context, delegate, urlBarEditingTextProvider,
+                new AutocompleteController(), listModel, new Handler(), lifecycleDispatcher,
+                modalDialogManagerSupplier, activityTabProvider, shareDelegateSupplier,
+                locationBarDataProvider);
+        mMediator.initDefaultProcessors(mQueryTileCoordinator::setTiles);
+
+        listModel.set(SuggestionListProperties.OBSERVER, mMediator);
+
+        ViewProvider<SuggestionListViewHolder> viewProvider =
+                createViewProvider(context, listItems);
+        viewProvider.whenLoaded((holder) -> { mDropdown = holder.dropdown; });
         LazyConstructionPropertyMcp.create(listModel, SuggestionListProperties.VISIBLE,
                 viewProvider, SuggestionListViewBinder::bind);
 
-        mMediator =
-                new AutocompleteMediator(context, delegate, urlBarEditingTextProvider, listModel);
+        // https://crbug.com/966227 Set initial layout direction ahead of inflating the suggestions.
+        updateSuggestionListLayoutDirection();
     }
 
-    private ViewProvider<SuggestionListViewHolder> createViewProvider(Context context) {
+    /**
+     * Clean up resources used by this class.
+     */
+    public void destroy() {
+        mQueryTileCoordinator.destroy();
+        mQueryTileCoordinator = null;
+        mMediator.destroy();
+        mMediator = null;
+    }
+
+    private ViewProvider<SuggestionListViewHolder> createViewProvider(
+            Context context, MVCListAdapter.ModelList modelList) {
         return new ViewProvider<SuggestionListViewHolder>() {
             private List<Callback<SuggestionListViewHolder>> mCallbacks = new ArrayList<>();
             private SuggestionListViewHolder mHolder;
 
             @Override
             public void inflate() {
-                ViewGroup container = (ViewGroup) ((ViewStub) mParent.getRootView().findViewById(
-                                                           R.id.omnibox_results_container_stub))
-                                              .inflate();
-                OmniboxSuggestionsList list;
-                try (StrictModeContext unused = StrictModeContext.allowDiskReads()) {
-                    list = new OmniboxSuggestionsList(context);
+                OmniboxSuggestionsDropdown dropdown;
+                try (StrictModeContext ignored = StrictModeContext.allowDiskReads()) {
+                    dropdown = new OmniboxSuggestionsDropdown(context);
                 }
 
                 // Start with visibility GONE to ensure that show() is called.
                 // http://crbug.com/517438
-                list.setVisibility(View.GONE);
-                ModelListAdapter adapter = new ModelListAdapter(context);
-                list.setAdapter(adapter);
-                list.setClipToPadding(false);
+                dropdown.getViewGroup().setVisibility(View.GONE);
+                dropdown.getViewGroup().setClipToPadding(false);
 
-                // Register a view type for a default omnibox suggestion.
+                OmniboxSuggestionsDropdownAdapter adapter =
+                        new OmniboxSuggestionsDropdownAdapter(modelList);
+                dropdown.setAdapter(adapter);
+
                 // Note: clang-format does a bad job formatting lambdas so we turn it off here.
                 // clang-format off
+                // Register a view type for a default omnibox suggestion.
                 adapter.registerType(
                         OmniboxSuggestionUiType.DEFAULT,
-                        () -> new SuggestionView(mListView.getContext()),
-                        SuggestionViewViewBinder::bind);
+                        parent -> new BaseSuggestionView<View>(
+                                parent.getContext(), R.layout.omnibox_basic_suggestion),
+                        new BaseSuggestionViewBinder<View>(SuggestionViewViewBinder::bind));
 
                 adapter.registerType(
                         OmniboxSuggestionUiType.EDIT_URL_SUGGESTION,
-                        () -> EditUrlSuggestionProcessor.createView(mListView.getContext()),
-                        EditUrlSuggestionViewBinder::bind);
+                        parent -> new EditUrlSuggestionView(parent.getContext()),
+                        new EditUrlSuggestionViewBinder());
+
+                adapter.registerType(
+                        OmniboxSuggestionUiType.ANSWER_SUGGESTION,
+                        parent -> new BaseSuggestionView<View>(
+                                parent.getContext(), R.layout.omnibox_answer_suggestion),
+                        new BaseSuggestionViewBinder<View>(AnswerSuggestionViewBinder::bind));
+
+                adapter.registerType(
+                        OmniboxSuggestionUiType.ENTITY_SUGGESTION,
+                        parent -> new BaseSuggestionView<View>(
+                                parent.getContext(), R.layout.omnibox_entity_suggestion),
+                        new BaseSuggestionViewBinder<View>(EntitySuggestionViewBinder::bind));
+
+                adapter.registerType(
+                        OmniboxSuggestionUiType.TAIL_SUGGESTION,
+                        parent -> new BaseSuggestionView<TailSuggestionView>(
+                                new TailSuggestionView(parent.getContext())),
+                        new BaseSuggestionViewBinder<TailSuggestionView>(
+                                TailSuggestionViewBinder::bind));
+
+                adapter.registerType(
+                        OmniboxSuggestionUiType.CLIPBOARD_SUGGESTION,
+                        parent -> new BaseSuggestionView<View>(
+                                parent.getContext(), R.layout.omnibox_basic_suggestion),
+                        new BaseSuggestionViewBinder<View>(SuggestionViewViewBinder::bind));
+
+                adapter.registerType(
+                        OmniboxSuggestionUiType.TILE_SUGGESTION,
+                        parent -> mQueryTileCoordinator.createView(parent.getContext()),
+                        mQueryTileCoordinator::bind);
+
+                adapter.registerType(
+                        OmniboxSuggestionUiType.TILE_NAVSUGGEST,
+                        MostVisitedTilesProcessor::createView,
+                        BaseCarouselSuggestionViewBinder::bind);
+
+                adapter.registerType(
+                        OmniboxSuggestionUiType.HEADER,
+                        parent -> new HeaderView(parent.getContext()),
+                        HeaderViewBinder::bind);
                 // clang-format on
 
-                mHolder = new SuggestionListViewHolder(container, list, adapter);
+                ViewGroup container = (ViewGroup) ((ViewStub) mParent.getRootView().findViewById(
+                                                           R.id.omnibox_results_container_stub))
+                                              .inflate();
 
+                mHolder = new SuggestionListViewHolder(container, dropdown);
                 for (int i = 0; i < mCallbacks.size(); i++) {
                     mCallbacks.get(i).onResult(mHolder);
                 }
@@ -233,33 +224,12 @@ public class AutocompleteCoordinator implements UrlFocusChangeListener, UrlTextC
     }
 
     /**
-     * Provides data and state for the toolbar component.
-     * @param toolbarDataProvider The data provider.
-     */
-    public void setToolbarDataProvider(ToolbarDataProvider toolbarDataProvider) {
-        mMediator.setToolbarDataProvider(toolbarDataProvider);
-    }
-
-    /**
      * Updates the profile used for generating autocomplete suggestions.
      * @param profile The profile to be used.
      */
     public void setAutocompleteProfile(Profile profile) {
         mMediator.setAutocompleteProfile(profile);
-    }
-
-    /**
-     * Set the WindowAndroid instance associated with the containing Activity.
-     */
-    public void setWindowAndroid(WindowAndroid windowAndroid) {
-        mMediator.setWindowAndroid(windowAndroid);
-    }
-
-    /**
-     * @param provider A means of accessing the activity's tab.
-     */
-    public void setActivityTabProvider(ActivityTabProvider provider) {
-        mMediator.setActivityTabProvider(provider);
+        mQueryTileCoordinator.setProfile(profile);
     }
 
     /**
@@ -284,7 +254,7 @@ public class AutocompleteCoordinator implements UrlFocusChangeListener, UrlTextC
      * @param index The index of the suggestion to fetch.
      * @return The suggestion at the given index.
      */
-    public OmniboxSuggestion getSuggestionAt(int index) {
+    public AutocompleteMatch getSuggestionAt(int index) {
         return mMediator.getSuggestionAt(index);
     }
 
@@ -296,26 +266,16 @@ public class AutocompleteCoordinator implements UrlFocusChangeListener, UrlTextC
     }
 
     /**
-     * @return The suggestion list popup containing the omnibox results (or null if it has not yet
-     *         been created).
-     */
-    @VisibleForTesting
-    public ListView getSuggestionList() {
-        return mListView;
-    }
-
-    /**
      * @see AutocompleteController#onVoiceResults(List)
      */
-    public void onVoiceResults(
-            @Nullable List<LocationBarVoiceRecognitionHandler.VoiceResult> results) {
+    public void onVoiceResults(@Nullable List<VoiceRecognitionHandler.VoiceResult> results) {
         mMediator.onVoiceResults(results);
     }
 
     /**
      * @return The current native pointer to the autocomplete results.
+     * TODO(ender): Figure out how to remove this.
      */
-    // TODO(tedchoc): Figure out how to remove this.
     public long getCurrentNativeAutocompleteResult() {
         return mMediator.getCurrentNativeAutocompleteResult();
     }
@@ -330,9 +290,10 @@ public class AutocompleteCoordinator implements UrlFocusChangeListener, UrlTextC
     /**
      * Update the visuals of the autocomplete UI.
      * @param useDarkColors Whether dark colors should be applied to the UI.
+     * @param isIncognito Whether the UI is for incognito mode or not.
      */
-    public void updateVisualsForState(boolean useDarkColors) {
-        mMediator.setUseDarkColors(useDarkColors);
+    public void updateVisualsForState(boolean useDarkColors, boolean isIncognito) {
+        mMediator.updateVisualsForState(useDarkColors, isIncognito);
     }
 
     /**
@@ -353,15 +314,16 @@ public class AutocompleteCoordinator implements UrlFocusChangeListener, UrlTextC
      * @return Whether the key event was handled.
      */
     public boolean handleKeyEvent(int keyCode, KeyEvent event) {
-        boolean isShowingList = mListView != null && mListView.isShown();
+        boolean isShowingList = mDropdown != null && mDropdown.getViewGroup().isShown();
 
-        boolean isUpOrDown = KeyNavigationUtil.isGoUpOrDown(event);
-        if (isShowingList && mMediator.getSuggestionCount() > 0 && isUpOrDown) {
+        boolean isAnyDirection = KeyNavigationUtil.isGoAnyDirection(event);
+        if (isShowingList && mMediator.getSuggestionCount() > 0 && isAnyDirection) {
             mMediator.allowPendingItemSelection();
         }
-        boolean isValidListKey = isUpOrDown || KeyNavigationUtil.isGoRight(event)
-                || KeyNavigationUtil.isEnter(event);
-        if (isShowingList && isValidListKey && mListView.onKeyDown(keyCode, event)) return true;
+        boolean isValidListKey = isAnyDirection || KeyNavigationUtil.isEnter(event);
+        if (isShowingList && isValidListKey && mDropdown.getViewGroup().onKeyDown(keyCode, event)) {
+            return true;
+        }
         if (KeyNavigationUtil.isEnter(event) && mParent.getVisibility() == View.VISIBLE) {
             mMediator.loadTypedOmniboxText(event.getEventTime());
             return true;
@@ -369,21 +331,9 @@ public class AutocompleteCoordinator implements UrlFocusChangeListener, UrlTextC
         return false;
     }
 
-    /**
-     * Notifies the autocomplete system that the text has changed that drives autocomplete and the
-     * autocomplete suggestions should be updated.
-     */
     @Override
-    public void onTextChangedForAutocomplete() {
-        mMediator.onTextChangedForAutocomplete();
-    }
-
-    /**
-     * Cancels the queued task to start the autocomplete controller, if any.
-     */
-    @VisibleForTesting
-    public void cancelPendingAutocompleteStart() {
-        mMediator.cancelPendingAutocompleteStart();
+    public void onTextChanged(String textWithoutAutocomplete, String textWithAutocomplete) {
+        mMediator.onTextChanged(textWithoutAutocomplete, textWithAutocomplete);
     }
 
     /**
@@ -394,19 +344,63 @@ public class AutocompleteCoordinator implements UrlFocusChangeListener, UrlTextC
     }
 
     /**
-     * Sets the autocomplete controller for the location bar.
+     * Given a search query, this will attempt to see if the query appears to be portion of a
+     * properly formed URL.  If it appears to be a URL, this will return the fully qualified
+     * version (i.e. including the scheme, etc...).  If the query does not appear to be a URL,
+     * this will return null.
      *
-     * @param controller The controller that will handle autocomplete/omnibox suggestions.
-     * @note Only used for testing.
+     * TODO(crbug.com/966424): Fix the dependency issue and remove this method.
+     *
+     * @param query The query to be expanded into a fully qualified URL if appropriate.
+     * @return The fully qualified URL or null.
      */
-    @VisibleForTesting
-    public void setAutocompleteController(AutocompleteController controller) {
-        mMediator.setAutocompleteController(controller);
+    @Deprecated
+    public static String qualifyPartialURLQuery(String query) {
+        return AutocompleteControllerJni.get().qualifyPartialURLQuery(query);
     }
 
-    /** Allows injecting autocomplete suggestions for testing. */
-    @VisibleForTesting
+    /**
+     * Sends a zero suggest request to the server in order to pre-populate the result cache.
+     */
+    public void prefetchZeroSuggestResults() {
+        AutocompleteControllerJni.get().prefetchZeroSuggestResults();
+    }
+
+    /**
+     * Provides data and state for the toolbar component.
+     * @param locationBarDataProvider The data provider.
+     */
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    public void setLocationBarDataProviderForTesting(
+            LocationBarDataProvider locationBarDataProvider) {
+        mMediator.setLocationBarDataProviderForTesting(locationBarDataProvider);
+    }
+
+    /** @return Suggestions Dropdown view, showing the list of suggestions. */
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    public OmniboxSuggestionsDropdown getSuggestionsDropdownForTest() {
+        return mDropdown;
+    }
+
+    /** @param controller The instance of AutocompleteController to be used. */
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    public void setAutocompleteControllerForTest(AutocompleteController controller) {
+        mMediator.setAutocompleteControllerForTest(controller);
+    }
+
+    /** @return The current receiving OnSuggestionsReceived events. */
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     public OnSuggestionsReceivedListener getSuggestionsReceivedListenerForTest() {
         return mMediator;
+    }
+
+    /** @return The ModelList for the currently shown suggestions. */
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    public ModelList getSuggestionModelListForTest() {
+        return mMediator.getSuggestionModelListForTest();
+    }
+
+    private void onTileSelected(QueryTile queryTile) {
+        mMediator.onQueryTileSelected(queryTile);
     }
 }

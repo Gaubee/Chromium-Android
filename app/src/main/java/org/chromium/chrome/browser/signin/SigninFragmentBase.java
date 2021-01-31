@@ -4,21 +4,13 @@
 
 package org.chromium.chrome.browser.signin;
 
+import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
@@ -26,23 +18,42 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import org.chromium.base.Log;
 import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.base.metrics.RecordUserAction;
 import org.chromium.base.task.AsyncTask;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.consent_auditor.ConsentAuditorFeature;
-import org.chromium.chrome.browser.externalauth.UserRecoverableErrorHandler;
-import org.chromium.chrome.browser.preferences.PrefServiceBridge;
-import org.chromium.components.signin.AccountIdProvider;
+import org.chromium.chrome.browser.preferences.Pref;
+import org.chromium.chrome.browser.profiles.Profile;
+import org.chromium.chrome.browser.signin.services.DisplayableProfileData;
+import org.chromium.chrome.browser.signin.services.IdentityServicesProvider;
+import org.chromium.chrome.browser.signin.services.ProfileDataCache;
+import org.chromium.chrome.browser.signin.ui.ConfirmSyncDataStateMachine;
+import org.chromium.chrome.browser.signin.ui.ConfirmSyncDataStateMachineDelegate;
+import org.chromium.chrome.browser.signin.ui.ConsentTextTracker;
+import org.chromium.chrome.browser.signin.ui.SigninView;
+import org.chromium.chrome.browser.signin.ui.account_picker.AccountPickerCoordinator;
+import org.chromium.chrome.browser.signin.ui.account_picker.AccountPickerDialogFragment;
+import org.chromium.chrome.browser.sync.SyncUserDataWiper;
+import org.chromium.components.externalauth.UserRecoverableErrorHandler;
 import org.chromium.components.signin.AccountManagerDelegateException;
-import org.chromium.components.signin.AccountManagerFacade;
+import org.chromium.components.signin.AccountManagerFacadeProvider;
 import org.chromium.components.signin.AccountManagerResult;
 import org.chromium.components.signin.AccountTrackerService;
+import org.chromium.components.signin.AccountUtils;
 import org.chromium.components.signin.AccountsChangeObserver;
 import org.chromium.components.signin.ChildAccountStatus;
 import org.chromium.components.signin.GmsAvailabilityException;
 import org.chromium.components.signin.GmsJustUpdatedException;
+import org.chromium.components.user_prefs.UserPrefs;
 import org.chromium.ui.text.NoUnderlineClickableSpan;
 import org.chromium.ui.text.SpanApplier;
 
@@ -50,15 +61,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * This fragment implements sign-in screen with account picker and descriptions of signin-related
- * features. Configuration for this fragment is provided by overriding {@link #getSigninArguments}
- * derived classes.
+ * features. Configuration for this fragment is provided {@link #getArguments}.
  */
 public abstract class SigninFragmentBase
-        extends Fragment implements AccountPickerDialogFragment.Callback {
+        extends Fragment implements AccountPickerCoordinator.Listener {
     private static final String TAG = "SigninFragmentBase";
 
     private static final String SETTINGS_LINK_OPEN = "<LINK1>";
@@ -73,16 +82,16 @@ public abstract class SigninFragmentBase
             "SigninFragmentBase.AccountPickerDialogFragment";
 
     private static final int ADD_ACCOUNT_REQUEST_CODE = 1;
+    private static final int ACCOUNT_PICKER_DIALOG_REQUEST_CODE = 2;
 
     @IntDef({SigninFlowType.DEFAULT, SigninFlowType.FORCED, SigninFlowType.CHOOSE_ACCOUNT,
-            SigninFlowType.ADD_ACCOUNT, SigninFlowType.CONSENT_BUMP})
+            SigninFlowType.ADD_ACCOUNT})
     @Retention(RetentionPolicy.SOURCE)
     @interface SigninFlowType {
         int DEFAULT = 0;
         int FORCED = 1;
         int CHOOSE_ACCOUNT = 2;
         int ADD_ACCOUNT = 3;
-        int CONSENT_BUMP = 4;
     }
 
     private @SigninFlowType int mSigninFlowType;
@@ -96,14 +105,15 @@ public abstract class SigninFragmentBase
 
     private String mSelectedAccountName;
     private boolean mIsDefaultAccountSelected;
-    private AccountsChangeObserver mAccountsChangedObserver;
-    private ProfileDataCache.Observer mProfileDataCacheObserver;
+    private final AccountsChangeObserver mAccountsChangedObserver;
+    private final ProfileDataCache.Observer mProfileDataCacheObserver;
     private ProfileDataCache mProfileDataCache;
     private List<String> mAccountNames;
     private boolean mResumed;
     private boolean mDestroyed;
     private boolean mIsSigninInProgress;
     private boolean mHasGmsError;
+    private boolean mRecordUndoSignin;
 
     private UserRecoverableErrorHandler.ModalDialog mGooglePlayServicesUpdateErrorHandler;
     private AlertDialog mGmsIsUpdatingDialog;
@@ -158,27 +168,10 @@ public abstract class SigninFragmentBase
         return result;
     }
 
-    /**
-     * Creates an argument bundle for the consent bump screen.
-     * @param accountName The name of the signed in account.
-     */
-    protected static Bundle createArgumentsForConsentBumpFlow(String accountName) {
-        Bundle result = new Bundle();
-        result.putInt(ARGUMENT_SIGNIN_FLOW_TYPE, SigninFlowType.CONSENT_BUMP);
-        result.putString(ARGUMENT_ACCOUNT_NAME, accountName);
-        return result;
-    }
-
     protected SigninFragmentBase() {
         mAccountsChangedObserver = this::triggerUpdateAccounts;
-        mProfileDataCacheObserver = (String accountId) -> updateProfileData();
+        mProfileDataCacheObserver = this::updateProfileData;
     }
-
-    /**
-     * This method should return arguments Bundle that contains arguments created by
-     * {@link #createArguments} and related methods.
-     */
-    protected abstract Bundle getSigninArguments();
 
     /** The sign-in was refused. */
     protected abstract void onSigninRefused();
@@ -205,16 +198,11 @@ public abstract class SigninFragmentBase
         return mSigninFlowType == SigninFlowType.FORCED;
     }
 
-    /** Returns whether this fragment is in Consent bump mode. */
-    protected boolean isConsentBump() {
-        return mSigninFlowType == SigninFlowType.CONSENT_BUMP;
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Bundle arguments = getSigninArguments();
+        Bundle arguments = getArguments();
         mRequestedAccountName = arguments.getString(ARGUMENT_ACCOUNT_NAME, null);
         mChildAccountStatus =
                 arguments.getInt(ARGUMENT_CHILD_ACCOUNT_STATUS, ChildAccountStatus.NOT_CHILD);
@@ -235,18 +223,12 @@ public abstract class SigninFragmentBase
 
         mConsentTextTracker = new ConsentTextTracker(getResources());
 
-        ProfileDataCache.BadgeConfig badgeConfig = null;
-        if (ChildAccountStatus.isChild(mChildAccountStatus)) {
-            Bitmap badge =
-                    BitmapFactory.decodeResource(getResources(), R.drawable.ic_account_child_20dp);
-            int badgePositionX = getResources().getDimensionPixelOffset(R.dimen.badge_position_x);
-            int badgePositionY = getResources().getDimensionPixelOffset(R.dimen.badge_position_y);
-            int badgeBorderSize = getResources().getDimensionPixelSize(R.dimen.badge_border_size);
-            badgeConfig = new ProfileDataCache.BadgeConfig(
-                    badge, new Point(badgePositionX, badgePositionY), badgeBorderSize);
-        }
-        mProfileDataCache = new ProfileDataCache(getActivity(),
-                getResources().getDimensionPixelSize(R.dimen.user_picture_size), badgeConfig);
+        mProfileDataCache = ProfileDataCache.createProfileDataCache(getActivity(),
+                ChildAccountStatus.isChild(mChildAccountStatus) ? R.drawable.ic_account_child_20dp
+                                                                : 0);
+        // By default this is set to true so that when system back button is pressed user action
+        // is recorded in onDestroy().
+        mRecordUndoSignin = true;
     }
 
     @Override
@@ -258,6 +240,7 @@ public abstract class SigninFragmentBase
             mConfirmSyncDataStateMachine.cancel(/* isBeingDestroyed = */ true);
             mConfirmSyncDataStateMachine = null;
         }
+        if (mRecordUndoSignin) RecordUserAction.record("Signin_Undo_Signin");
         mDestroyed = true;
     }
 
@@ -284,8 +267,6 @@ public abstract class SigninFragmentBase
             endImageViewDrawable = SigninView.getCheckmarkDrawable(getContext());
             mView.getRefuseButton().setVisibility(View.GONE);
             mView.getAcceptButtonEndPadding().setVisibility(View.INVISIBLE);
-        } else if (mSigninFlowType == SigninFlowType.CONSENT_BUMP) {
-            endImageViewDrawable = SigninView.getCheckmarkDrawable(getContext());
         } else {
             endImageViewDrawable = SigninView.getExpandArrowDrawable(getContext());
         }
@@ -296,8 +277,9 @@ public abstract class SigninFragmentBase
 
         // When a fragment that was in the FragmentManager backstack becomes visible again, the view
         // will be recreated by onCreateView. Update the state of this recreated UI.
-        if (mSelectedAccountName != null) updateProfileData();
-
+        if (mSelectedAccountName != null) {
+            updateProfileData(mSelectedAccountName);
+        }
         return mView;
     }
 
@@ -321,14 +303,13 @@ public abstract class SigninFragmentBase
     }
 
     private void updateSigninDetailsDescription(boolean addSettingsLink) {
-        final @StringRes int description = mChildAccountStatus == ChildAccountStatus.REGULAR_CHILD
-                ? R.string.signin_details_description_child_account
-                : R.string.signin_details_description;
-        final @Nullable Object settingsLinkSpan =
-                addSettingsLink ? new NoUnderlineClickableSpan(this::onSettingsLinkClicked) : null;
+        final /*@Nullable*/ Object settingsLinkSpan = addSettingsLink
+                ? new NoUnderlineClickableSpan(getResources(), this::onSettingsLinkClicked)
+                : null;
         final SpanApplier.SpanInfo spanInfo =
                 new SpanApplier.SpanInfo(SETTINGS_LINK_OPEN, SETTINGS_LINK_CLOSE, settingsLinkSpan);
-        mConsentTextTracker.setText(mView.getDetailsDescriptionView(), description,
+        mConsentTextTracker.setText(mView.getDetailsDescriptionView(),
+                R.string.signin_details_description,
                 input -> SpanApplier.applySpans(input.toString(), spanInfo));
     }
 
@@ -343,22 +324,14 @@ public abstract class SigninFragmentBase
                 : R.string.signin_sync_description;
         mConsentTextTracker.setText(mView.getSyncDescriptionView(), syncDescription);
 
-        mConsentTextTracker.setText(
-                mView.getTapToSearchTitleView(), R.string.signin_tap_to_search_title);
-        mConsentTextTracker.setText(
-                mView.getTapToSearchDescriptionView(), R.string.signin_tap_to_search_description);
-
-        mConsentTextTracker.setText(
-                mView.getSafeBrowsingTitleView(), R.string.signin_safe_browsing_title);
-        mConsentTextTracker.setText(
-                mView.getSafeBrowsingDescriptionView(), R.string.signin_safe_browsing_description);
-
         mConsentTextTracker.setText(mView.getRefuseButton(), getNegativeButtonTextId());
         mConsentTextTracker.setText(mView.getMoreButton(), R.string.more);
     }
 
-    private void updateProfileData() {
-        if (mSelectedAccountName == null) return;
+    private void updateProfileData(String accountEmail) {
+        if (!TextUtils.equals(accountEmail, mSelectedAccountName)) {
+            return;
+        }
         DisplayableProfileData profileData =
                 mProfileDataCache.getProfileDataOrDefault(mSelectedAccountName);
         mView.getAccountImageView().setImageDrawable(profileData.getImage());
@@ -367,12 +340,12 @@ public abstract class SigninFragmentBase
         if (!TextUtils.isEmpty(fullName)) {
             mConsentTextTracker.setTextNonRecordable(mView.getAccountTextPrimary(), fullName);
             mConsentTextTracker.setTextNonRecordable(
-                    mView.getAccountTextSecondary(), profileData.getAccountName());
+                    mView.getAccountTextSecondary(), profileData.getAccountEmail());
             mView.getAccountTextSecondary().setVisibility(View.VISIBLE);
         } else {
             // Full name is not available, show the email in the primary TextView.
             mConsentTextTracker.setTextNonRecordable(
-                    mView.getAccountTextPrimary(), profileData.getAccountName());
+                    mView.getAccountTextPrimary(), profileData.getAccountEmail());
             mView.getAccountTextSecondary().setVisibility(View.GONE);
         }
     }
@@ -384,17 +357,20 @@ public abstract class SigninFragmentBase
     }
 
     private void onAccountPickerClicked() {
-        if (isForcedSignin() || isConsentBump() || !areControlsEnabled()) return;
+        if (isForcedSignin() || !areControlsEnabled()) return;
         showAccountPicker();
     }
 
     private void onRefuseButtonClicked(View button) {
+        RecordUserAction.record("Signin_Undo_Signin");
+        mRecordUndoSignin = false;
         onSigninRefused();
     }
 
     private void onAcceptButtonClicked(View button) {
         if (!areControlsEnabled()) return;
         mIsSigninInProgress = true;
+        mRecordUndoSignin = false;
         RecordUserAction.record("Signin_Signin_WithDefaultSyncSettings");
 
         // Record the fact that the user consented to the consent text by clicking on a button
@@ -422,6 +398,8 @@ public abstract class SigninFragmentBase
      * visual appearance of these controls. Refuse button is always enabled.
      */
     private boolean areControlsEnabled() {
+        // Ignore clicks if the fragment is being removed or the app is being backgrounded.
+        if (!isResumed() || isStateSaved()) return false;
         return !mAccountSelectionPending && !mIsSigninInProgress && !mHasGmsError;
     }
 
@@ -430,7 +408,8 @@ public abstract class SigninFragmentBase
         // as this is needed for the previous account check.
         final long seedingStartTime = SystemClock.elapsedRealtime();
         final AccountTrackerService accountTrackerService =
-                IdentityServicesProvider.getAccountTrackerService();
+                IdentityServicesProvider.get().getAccountTrackerService(
+                        Profile.getLastUsedRegularProfile());
         if (accountTrackerService.checkAndSeedSystemAccounts()) {
             recordAccountTrackerServiceSeedingTime(seedingStartTime);
             runStateMachineAndSignin(settingsClicked);
@@ -448,26 +427,23 @@ public abstract class SigninFragmentBase
                         if (mDestroyed) return;
                         runStateMachineAndSignin(settingsClicked);
                     }
-
-                    @Override
-                    public void onSystemAccountsChanged() {}
                 };
         accountTrackerService.addSystemAccountsSeededListener(listener);
     }
 
     private void runStateMachineAndSignin(boolean settingsClicked) {
-        mConfirmSyncDataStateMachine = new ConfirmSyncDataStateMachine(getContext(),
-                getChildFragmentManager(),
-                ConfirmImportSyncDataDialog.ImportSyncType.PREVIOUS_DATA_FOUND,
-                PrefServiceBridge.getInstance().getSyncLastAccountName(), mSelectedAccountName,
-                new ConfirmImportSyncDataDialog.Listener() {
+        mConfirmSyncDataStateMachine = new ConfirmSyncDataStateMachine(
+                new ConfirmSyncDataStateMachineDelegate(getChildFragmentManager()),
+                UserPrefs.get(Profile.getLastUsedRegularProfile())
+                        .getString(Pref.GOOGLE_SERVICES_LAST_USERNAME),
+                mSelectedAccountName, new ConfirmSyncDataStateMachine.Listener() {
                     @Override
                     public void onConfirm(boolean wipeData) {
                         mConfirmSyncDataStateMachine = null;
 
                         // Don't start sign-in if this fragment has been destroyed.
                         if (mDestroyed) return;
-                        SigninManager.wipeSyncUserDataIfRequired(wipeData).then((Void v) -> {
+                        SyncUserDataWiper.wipeSyncUserDataIfRequired(wipeData).then((Void v) -> {
                             onSigninAccepted(mSelectedAccountName, mIsDefaultAccountSelected,
                                     settingsClicked, () -> mIsSigninInProgress = false);
                         });
@@ -483,7 +459,7 @@ public abstract class SigninFragmentBase
 
     private static void recordAccountTrackerServiceSeedingTime(long seedingStartTime) {
         RecordHistogram.recordTimesHistogram("Signin.AndroidAccountSigninViewSeedingTime",
-                SystemClock.elapsedRealtime() - seedingStartTime, TimeUnit.MILLISECONDS);
+                SystemClock.elapsedRealtime() - seedingStartTime);
     }
 
     /**
@@ -492,11 +468,11 @@ public abstract class SigninFragmentBase
      */
     private void recordConsent(TextView confirmationView) {
         // TODO(crbug.com/831257): Provide the account id synchronously from AccountManagerFacade.
-        final AccountIdProvider accountIdProvider = AccountIdProvider.getInstance();
         new AsyncTask<String>() {
             @Override
             public String doInBackground() {
-                return accountIdProvider.getAccountId(mSelectedAccountName);
+                return AccountManagerFacadeProvider.getInstance().getAccountGaiaId(
+                        mSelectedAccountName);
             }
 
             @Override
@@ -514,34 +490,38 @@ public abstract class SigninFragmentBase
 
         AccountPickerDialogFragment dialog =
                 AccountPickerDialogFragment.create(mSelectedAccountName);
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        dialog.setTargetFragment(this, ACCOUNT_PICKER_DIALOG_REQUEST_CODE);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.add(dialog, ACCOUNT_PICKER_DIALOG_TAG);
-        transaction.commit();
+        transaction.commitAllowingStateLoss();
     }
 
     private AccountPickerDialogFragment getAccountPickerDialogFragment() {
-        return (AccountPickerDialogFragment) getChildFragmentManager().findFragmentByTag(
+        return (AccountPickerDialogFragment) getFragmentManager().findFragmentByTag(
                 ACCOUNT_PICKER_DIALOG_TAG);
     }
 
     @Override
     public void onAccountSelected(String accountName, boolean isDefaultAccount) {
         selectAccount(accountName, isDefaultAccount);
+        getAccountPickerDialogFragment().dismissAllowingStateLoss();
     }
 
     @Override
     public void addAccount() {
         RecordUserAction.record("Signin_AddAccountToDevice");
         // TODO(https://crbug.com/842860): Revise createAddAccountIntent and AccountAdder.
-        AccountManagerFacade.get().createAddAccountIntent((@Nullable Intent intent) -> {
-            if (intent != null) {
-                startActivityForResult(intent, ADD_ACCOUNT_REQUEST_CODE);
-                return;
-            }
+        AccountManagerFacadeProvider.getInstance().createAddAccountIntent(
+                (@Nullable Intent intent) -> {
+                    if (intent != null) {
+                        startActivityForResult(intent, ADD_ACCOUNT_REQUEST_CODE);
+                        return;
+                    }
 
-            // AccountManagerFacade couldn't create intent, use AccountAdder as fallback.
-            AccountAdder.getInstance().addAccount(this, ADD_ACCOUNT_REQUEST_CODE);
-        });
+                    // AccountManagerFacade couldn't create intent, use SigninUtils to open settings
+                    // instead.
+                    SigninUtils.openSettingsForAllAccounts(getActivity());
+                });
     }
 
     @Override
@@ -554,11 +534,11 @@ public abstract class SigninFragmentBase
             // Found the account name, dismiss the account picker dialog if it is shown.
             AccountPickerDialogFragment accountPickerFragment = getAccountPickerDialogFragment();
             if (accountPickerFragment != null) {
-                accountPickerFragment.dismiss();
+                accountPickerFragment.dismissAllowingStateLoss();
             }
 
             // Wait for the account cache to be updated and select newly-added account.
-            AccountManagerFacade.get().waitForPendingUpdates(() -> {
+            AccountManagerFacadeProvider.getInstance().waitForPendingUpdates(() -> {
                 mAccountSelectionPending = true;
                 mRequestedAccountName = addedAccountName;
                 triggerUpdateAccounts();
@@ -570,7 +550,7 @@ public abstract class SigninFragmentBase
     public void onResume() {
         super.onResume();
         mResumed = true;
-        AccountManagerFacade.get().addObserver(mAccountsChangedObserver);
+        AccountManagerFacadeProvider.getInstance().addObserver(mAccountsChangedObserver);
         mProfileDataCache.addObserver(mProfileDataCacheObserver);
         triggerUpdateAccounts();
 
@@ -582,7 +562,7 @@ public abstract class SigninFragmentBase
         super.onPause();
         mResumed = false;
         mProfileDataCache.removeObserver(mProfileDataCacheObserver);
-        AccountManagerFacade.get().removeObserver(mAccountsChangedObserver);
+        AccountManagerFacadeProvider.getInstance().removeObserver(mAccountsChangedObserver);
 
         mView.stopAnimations();
     }
@@ -591,7 +571,7 @@ public abstract class SigninFragmentBase
         mSelectedAccountName = accountName;
         mIsDefaultAccountSelected = isDefaultAccount;
         mProfileDataCache.update(Collections.singletonList(mSelectedAccountName));
-        updateProfileData();
+        updateProfileData(mSelectedAccountName);
 
         AccountPickerDialogFragment accountPickerFragment = getAccountPickerDialogFragment();
         if (accountPickerFragment != null) {
@@ -600,15 +580,16 @@ public abstract class SigninFragmentBase
     }
 
     private void triggerUpdateAccounts() {
-        AccountManagerFacade.get().getGoogleAccountNames(this::updateAccounts);
+        AccountManagerFacadeProvider.getInstance().getGoogleAccounts(this::updateAccounts);
     }
 
-    private void updateAccounts(AccountManagerResult<List<String>> maybeAccountNames) {
+    private void updateAccounts(AccountManagerResult<List<Account>> accounts) {
         if (!mResumed) return;
 
-        mAccountNames = getAccountNames(maybeAccountNames);
+        mAccountNames = getAccountNames(accounts);
         mHasGmsError = mAccountNames == null;
-        if (mAccountNames == null) return;
+        mView.getAcceptButton().setEnabled(!mHasGmsError);
+        if (mHasGmsError) return;
 
         if (mAccountNames.isEmpty()) {
             mSelectedAccountName = null;
@@ -648,9 +629,9 @@ public abstract class SigninFragmentBase
     }
 
     @Nullable
-    private List<String> getAccountNames(AccountManagerResult<List<String>> maybeAccountNames) {
+    private List<String> getAccountNames(AccountManagerResult<List<Account>> accounts) {
         try {
-            List<String> result = maybeAccountNames.get();
+            List<String> result = AccountUtils.toAccountNames(accounts.get());
             dismissGmsErrorDialog();
             dismissGmsUpdatingDialog();
             return result;
@@ -679,7 +660,9 @@ public abstract class SigninFragmentBase
                 && mGooglePlayServicesUpdateErrorHandler.isShowing()) {
             return;
         }
-        boolean cancelable = !SigninManager.get().isForceSigninEnabled();
+        boolean cancelable = !IdentityServicesProvider.get()
+                                      .getSigninManager(Profile.getLastUsedRegularProfile())
+                                      .isForceSigninEnabled();
         mGooglePlayServicesUpdateErrorHandler =
                 new UserRecoverableErrorHandler.ModalDialog(getActivity(), cancelable);
         mGooglePlayServicesUpdateErrorHandler.handleError(getActivity(), gmsErrorCode);
@@ -713,7 +696,6 @@ public abstract class SigninFragmentBase
         mGmsIsUpdatingDialog.dismiss();
         mGmsIsUpdatingDialog = null;
         RecordHistogram.recordTimesHistogram("Signin.AndroidGmsUpdatingDialogShownTime",
-                SystemClock.elapsedRealtime() - mGmsIsUpdatingDialogShowTime,
-                TimeUnit.MILLISECONDS);
+                SystemClock.elapsedRealtime() - mGmsIsUpdatingDialogShowTime);
     }
 }

@@ -4,7 +4,7 @@
 
 package org.chromium.content.browser;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import org.chromium.base.metrics.RecordHistogram;
 
@@ -12,34 +12,33 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * An singleton class to record metrics about how Chrome is launched, either as full browser or only
- * the ServiceManager.
+ * A singleton class to record metrics about how Chrome is launched, either as full browser or
+ * minimal browser.
  */
 public class ServicificationStartupUma {
     // This enum is used to back UMA histograms, and should therefore be treated as append-only.
     @IntDef({ServicificationStartup.CHROME_COLD, ServicificationStartup.CHROME_HALF_WARM,
-            ServicificationStartup.SERVICE_MANAGER_COLD,
-            ServicificationStartup.SERVICE_MANAGER_WARM})
-
+            ServicificationStartup.MINIMAL_BROWSER_COLD,
+            ServicificationStartup.MINIMAL_BROWSER_WARM})
     @Retention(RetentionPolicy.SOURCE)
     public @interface ServicificationStartup {
         // Cold start of Chrome as a full browser.
         int CHROME_COLD = 0;
-        // Half warm start of Chrome with ServiceManager is already running.
+        // Half warm start of Chrome.
         int CHROME_HALF_WARM = 1;
-        // Cold start of only ServiceManager.
-        int SERVICE_MANAGER_COLD = 2;
-        // Warm start of only ServiceManager when the ServiceManager is already running.
-        int SERVICE_MANAGER_WARM = 3;
+        // Cold start of only the minimal browser.
+        int MINIMAL_BROWSER_COLD = 2;
+        // Warm start of only the minimal browser when already running.
+        int MINIMAL_BROWSER_WARM = 3;
 
-        int COUNT = 4;
+        int NUM_ENTRIES = 4;
     }
 
     // Caches the pending commits before the native is initialized.
-    private int[] mPendingCommits = new int[ServicificationStartup.COUNT];
+    private final int[] mPendingCommits = new int[ServicificationStartup.NUM_ENTRIES];
     private boolean mIsNativeInitialized;
 
-    private final static ServicificationStartupUma sInstance = new ServicificationStartupUma();
+    private static final ServicificationStartupUma sInstance = new ServicificationStartupUma();
 
     /**
      * Returns the singleton instance.
@@ -51,21 +50,21 @@ public class ServicificationStartupUma {
     /**
      * Returns the startup mode.
      */
-    public static int getStartupMode(boolean isFullBrowserStarted, boolean isServiceManagerStarted,
-            boolean startServiceManagerOnly) {
+    public static int getStartupMode(boolean isFullBrowserStarted, boolean isMinimalBrowserStarted,
+            boolean startMinimalBrowser) {
         if (isFullBrowserStarted) {
             return -1;
         }
 
-        if (isServiceManagerStarted) {
-            if (startServiceManagerOnly) {
-                return ServicificationStartup.SERVICE_MANAGER_WARM;
+        if (isMinimalBrowserStarted) {
+            if (startMinimalBrowser) {
+                return ServicificationStartup.MINIMAL_BROWSER_WARM;
             }
             return ServicificationStartup.CHROME_HALF_WARM;
         }
 
-        if (startServiceManagerOnly) {
-            return ServicificationStartup.SERVICE_MANAGER_COLD;
+        if (startMinimalBrowser) {
+            return ServicificationStartup.MINIMAL_BROWSER_COLD;
         }
         return ServicificationStartup.CHROME_COLD;
     }
@@ -93,7 +92,7 @@ public class ServicificationStartupUma {
     public void commit() {
         mIsNativeInitialized = true;
 
-        for (int i = 0; i < ServicificationStartup.COUNT; i++) {
+        for (int i = 0; i < ServicificationStartup.NUM_ENTRIES; i++) {
             if (mPendingCommits[i] > 0) {
                 for (int count = 0; count < mPendingCommits[i]; count++) {
                     recordStartupMode(i);
@@ -109,6 +108,6 @@ public class ServicificationStartupUma {
 
     private void recordStartupMode(@ServicificationStartup int startupMode) {
         RecordHistogram.recordEnumeratedHistogram(
-                "Servicification.Startup", startupMode, ServicificationStartup.COUNT);
+                "Servicification.Startup2", startupMode, ServicificationStartup.NUM_ENTRIES);
     }
 }

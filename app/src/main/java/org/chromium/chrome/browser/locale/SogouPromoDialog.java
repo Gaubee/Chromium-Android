@@ -7,8 +7,6 @@ package org.chromium.chrome.browser.locale;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
@@ -16,13 +14,18 @@ import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.TextView;
 
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+
 import org.chromium.base.Callback;
-import org.chromium.base.ContextUtils;
 import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.preferences.PreferencesLauncher;
-import org.chromium.chrome.browser.preferences.SearchEnginePreference;
-import org.chromium.chrome.browser.widget.PromoDialog;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
+import org.chromium.chrome.browser.search_engines.settings.SearchEngineSettings;
+import org.chromium.chrome.browser.settings.SettingsLauncherImpl;
+import org.chromium.components.browser_ui.settings.SettingsLauncher;
+import org.chromium.components.browser_ui.widget.PromoDialog;
 import org.chromium.ui.text.NoUnderlineClickableSpan;
 import org.chromium.ui.text.SpanApplier;
 import org.chromium.ui.text.SpanApplier.SpanInfo;
@@ -36,9 +39,9 @@ import java.lang.annotation.RetentionPolicy;
 public class SogouPromoDialog extends PromoDialog {
     // These constants are here to back a uma histogram. Append new constants at the end of this
     // list (do not rearrange) and don't forget to update NUM_ENTRIES.
-    @Retention(RetentionPolicy.SOURCE)
     @IntDef({UserChoice.USE_SOGOU, UserChoice.KEEP_GOOGLE, UserChoice.SETTINGS,
             UserChoice.BACK_KEY})
+    @Retention(RetentionPolicy.SOURCE)
     private @interface UserChoice {
         int USE_SOGOU = 0;
         int KEEP_GOOGLE = 1;
@@ -51,11 +54,7 @@ public class SogouPromoDialog extends PromoDialog {
     private final Callback<Boolean> mOnDismissedCallback;
 
     private final LocaleManager mLocaleManager;
-    private final ClickableSpan mSpan = new NoUnderlineClickableSpan((widget) -> {
-        mChoice = UserChoice.SETTINGS;
-        PreferencesLauncher.launchSettingsPage(getContext(), SearchEnginePreference.class);
-        dismiss();
-    });
+    private final ClickableSpan mSpan;
 
     @UserChoice
     private int mChoice = UserChoice.BACK_KEY;
@@ -67,6 +66,12 @@ public class SogouPromoDialog extends PromoDialog {
             @Nullable Callback<Boolean> onDismissed) {
         super(activity);
         mLocaleManager = localeManager;
+        mSpan = new NoUnderlineClickableSpan(activity.getResources(), (widget) -> {
+            mChoice = UserChoice.SETTINGS;
+            SettingsLauncher settingsLauncher = new SettingsLauncherImpl();
+            settingsLauncher.launchSettingsActivity(getContext(), SearchEngineSettings.class);
+            dismiss();
+        });
         setOnDismissListener(this);
         setCanceledOnTouchOutside(false);
         mOnDismissedCallback = onDismissed;
@@ -139,10 +144,8 @@ public class SogouPromoDialog extends PromoDialog {
             default:
                 assert false : "Unexpected choice";
         }
-        ContextUtils.getAppSharedPreferences()
-                .edit()
-                .putBoolean(LocaleManager.PREF_PROMO_SHOWN, true)
-                .apply();
+        SharedPreferencesManager.getInstance().writeBoolean(
+                ChromePreferenceKeys.LOCALE_MANAGER_PROMO_SHOWN, true);
         RecordHistogram.recordEnumeratedHistogram(
                 "SpecialLocale.PromotionDialog", mChoice, UserChoice.NUM_ENTRIES);
 

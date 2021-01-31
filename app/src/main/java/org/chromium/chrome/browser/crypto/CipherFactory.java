@@ -7,11 +7,14 @@ package org.chromium.chrome.browser.crypto;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.annotation.AnyThread;
+
 import org.chromium.base.Log;
 import org.chromium.base.ObserverList;
 import org.chromium.base.SecureRandomInitializer;
-import org.chromium.base.ThreadUtils;
 import org.chromium.base.task.AsyncTask;
+import org.chromium.base.task.PostTask;
+import org.chromium.content_public.browser.UiThreadTaskTraits;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -22,7 +25,6 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
-import javax.annotation.concurrent.ThreadSafe;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
@@ -48,9 +50,9 @@ import javax.crypto.spec.SecretKeySpec;
  * Explicitly ending the session destroys the {@link Bundle}, making the previous session's data
  * unreadable.
  */
-@ThreadSafe
+@AnyThread
 public class CipherFactory {
-    private static final String TAG = "cr.CipherFactory";
+    private static final String TAG = "CipherFactory";
     static final int NUM_BYTES = 16;
 
     static final String BUNDLE_IV = "org.chromium.content.browser.crypto.CipherFactory.IV";
@@ -79,7 +81,7 @@ public class CipherFactory {
 
     /** Singleton holder for the class. */
     private static class LazyHolder {
-        private static CipherFactory sInstance = new CipherFactory();
+        private static final CipherFactory sInstance = new CipherFactory();
     }
 
     /**
@@ -164,7 +166,7 @@ public class CipherFactory {
                     mData = data;
 
                     // Posting an asynchronous task to notify the observers.
-                    ThreadUtils.postOnUiThread(new Runnable() {
+                    PostTask.postTask(UiThreadTaskTraits.DEFAULT, new Runnable() {
                         @Override
                         public void run() {
                             notifyCipherDataGenerated();
@@ -268,19 +270,27 @@ public class CipherFactory {
      *
      */
     public boolean restoreFromBundle(Bundle savedInstanceState) {
-        if (savedInstanceState == null) return false;
+        if (savedInstanceState == null) {
+            Log.i(TAG, "#restoreFromBundle, no savedInstanceState.");
+            return false;
+        }
 
         byte[] wrappedKey = savedInstanceState.getByteArray(BUNDLE_KEY);
         byte[] iv = savedInstanceState.getByteArray(BUNDLE_IV);
-        if (wrappedKey == null || iv == null) return false;
+        if (wrappedKey == null || iv == null) {
+            Log.i(TAG, "#restoreFromBundle, no wrapped key or no iv.");
+            return false;
+        }
 
         try {
             Key bundledKey = new SecretKeySpec(wrappedKey, "AES");
             synchronized (mDataLock) {
                 if (mData == null) {
+                    Log.i(TAG, "#restoreFromBundle, creating new CipherData.");
                     mData = new CipherData(bundledKey, iv);
                     return true;
                 } else if (mData.key.equals(bundledKey) && Arrays.equals(mData.iv, iv)) {
+                    Log.i(TAG, "#restoreFromBundle, using existing CipherData.");
                     return true;
                 } else {
                     Log.e(TAG, "Attempted to restore different cipher data.");
@@ -316,7 +326,6 @@ public class CipherFactory {
     public void removeCipherDataObserver(CipherDataObserver observer) {
         mObservers.removeObserver(observer);
     }
-
 
     private void notifyCipherDataGenerated() {
         for (CipherDataObserver observer : mObservers) {

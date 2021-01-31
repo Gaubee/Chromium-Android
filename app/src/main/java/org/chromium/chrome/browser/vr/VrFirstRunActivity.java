@@ -9,8 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import org.chromium.base.metrics.CachedMetrics.BooleanHistogramSample;
-import org.chromium.chrome.browser.util.IntentUtils;
+import org.chromium.base.IntentUtils;
+import org.chromium.base.metrics.RecordHistogram;
 
 /**
  * Handles the DOFF flow when Chrome is launched in VR mode and the FRE is not complete. This is
@@ -22,47 +22,44 @@ import org.chromium.chrome.browser.util.IntentUtils;
 public class VrFirstRunActivity extends Activity {
     private static final long SHOW_DOFF_TIMEOUT_MS = 500;
 
-    private static final BooleanHistogramSample sFreNotCompleteBrowserHistogram =
-            new BooleanHistogramSample("VRFreNotComplete.Browser");
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        assert VrModuleProvider.getIntentDelegate().isVrIntent(getIntent());
-
-        recordFreHistogram();
-
-        // VrCore version M21 allows a transitioning VR activity to call DOFF and requires that
-        // we set VR mode programmatically. Up until then, this hack of having a pure VR activity
-        // works, but there's still a race every now and then that causes Chrome to crash and
-        // that's why we have a timeout below before we call DOFF. Redundantly setting VR mode
-        // here ensures that this never happens for users running the latest version of VrCore.
-        VrShellDelegate.setVrModeEnabled(this, true);
-        VrDaydreamApi daydreamApi = VrShellDelegate.getVrDaydreamApi();
-        if (!daydreamApi.isDaydreamCurrentViewer()) {
-            showFre();
-            return;
-        }
-        // Show DOFF with a timeout so that this activity has enough time to be the active VR
-        // app.
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                daydreamApi.exitFromVr(
-                        VrFirstRunActivity.this, VrShellDelegate.EXIT_VR_RESULT, new Intent());
-            }
-        }, SHOW_DOFF_TIMEOUT_MS);
+//        assert VrModuleProvider.getIntentDelegate().isVrIntent(getIntent());
+//
+//        recordFreHistogram();
+//
+//        // VrCore version M21 allows a transitioning VR activity to call DOFF and requires that
+//        // we set VR mode programmatically. Up until then, this hack of having a pure VR activity
+//        // works, but there's still a race every now and then that causes Chrome to crash and
+//        // that's why we have a timeout below before we call DOFF. Redundantly setting VR mode
+//        // here ensures that this never happens for users running the latest version of VrCore.
+//        VrShellDelegate.setVrModeEnabled(this, true);
+//        VrDaydreamApi daydreamApi = VrShellDelegate.getVrDaydreamApi();
+//        if (!daydreamApi.isDaydreamCurrentViewer()) {
+//            showFre();
+//            return;
+//        }
+//        // Show DOFF with a timeout so that this activity has enough time to be the active VR
+//        // app.
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                daydreamApi.exitFromVr(
+//                        VrFirstRunActivity.this, VrShellDelegate.EXIT_VR_RESULT, new Intent());
+//            }
+//        }, SHOW_DOFF_TIMEOUT_MS);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode != VrShellDelegate.EXIT_VR_RESULT) return;
+//        if (requestCode != VrShellDelegate.EXIT_VR_RESULT) return;
         if (resultCode == Activity.RESULT_OK) {
             showFre();
             return;
         }
         finish();
-        VrShellDelegate.getVrDaydreamApi().launchVrHomescreen();
+//        VrShellDelegate.getVrDaydreamApi().launchVrHomescreen();
     }
 
     private void showFre() {
@@ -73,7 +70,7 @@ public class VrFirstRunActivity extends Activity {
         finish();
     }
 
-    private void recordFreHistogram() {
-        sFreNotCompleteBrowserHistogram.record(true);
+    private static void recordFreHistogram() {
+        RecordHistogram.recordBooleanHistogram("VRFreNotComplete.Browser", true);
     }
 }

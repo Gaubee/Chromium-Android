@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.util.ViewUtils;
-import org.chromium.chrome.browser.widget.RoundedIconGenerator;
+import org.chromium.components.browser_ui.widget.RoundedIconGenerator;
+import org.chromium.ui.base.ViewUtils;
 
 /**
  * The View representing a single explore sites category.
@@ -27,7 +27,7 @@ public class ExperimentalExploreSitesCategoryTileView extends LinearLayout {
     /** The data represented by this tile. */
     private ExploreSitesCategoryTile mCategoryData;
 
-    private Resources mResources;
+    private final Resources mResources;
     private RoundedIconGenerator mIconGenerator;
 
     private TextView mTitleView;
@@ -71,7 +71,7 @@ public class ExperimentalExploreSitesCategoryTileView extends LinearLayout {
             drawable = new BitmapDrawable(mResources,
                     mIconGenerator.generateIconForText(mCategoryData.getCategoryName()));
         } else {
-            drawable = ViewUtils.createRoundedBitmapDrawable(
+            drawable = ViewUtils.createRoundedBitmapDrawable(mResources,
                     Bitmap.createScaledBitmap(bitmap, mIconWidthPx, mIconHeightPx, false),
                     mResources.getDimensionPixelSize(R.dimen.experimental_explore_sites_radius));
         }

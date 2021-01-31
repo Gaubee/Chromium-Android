@@ -11,5 +11,5 @@ import org.chromium.base.MemoryPressureLevel;
  */
 @FunctionalInterface
 public interface MemoryPressureCallback {
-    public void onPressure(@MemoryPressureLevel int pressure);
+    void onPressure(@MemoryPressureLevel int pressure);
 }

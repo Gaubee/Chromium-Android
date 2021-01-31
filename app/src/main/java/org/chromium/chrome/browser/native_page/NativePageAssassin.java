@@ -32,7 +32,7 @@ public class NativePageAssassin {
      * The most recently hidden tabs, limited to MAX_RECENT_TABS elements, ordered from oldest to
      * newest. Visible tabs are not included in this list.
      */
-    private ArrayList<WeakReference<Tab>> mRecentTabs = new ArrayList<WeakReference<Tab>>(
+    private final ArrayList<WeakReference<Tab>> mRecentTabs = new ArrayList<WeakReference<Tab>>(
             MAX_RECENT_TABS + 1);
 
     private NativePageAssassin() {}
@@ -84,12 +84,6 @@ public class NativePageAssassin {
     }
 
     private void freeze(Tab tab) {
-        if (tab == null) return;
-        NativePage pageToFreeze = tab.getNativePage();
-        if (pageToFreeze == null || pageToFreeze instanceof FrozenNativePage
-                || pageToFreeze.getView().getParent() != null) {
-            return;
-        }
-        tab.freezeNativePage();
+        if (tab != null) tab.freezeNativePage();
     }
 }

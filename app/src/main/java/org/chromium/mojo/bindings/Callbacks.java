@@ -19,7 +19,7 @@ public interface Callbacks {
         /**
          * Call the callback.
          */
-        public void call();
+        void call();
     }
 
     /**
@@ -31,7 +31,7 @@ public interface Callbacks {
         /**
          * Call the callback.
          */
-        public void call(T1 arg1);
+        void call(T1 arg1);
     }
 
     /**
@@ -44,7 +44,7 @@ public interface Callbacks {
         /**
          * Call the callback.
          */
-        public void call(T1 arg1, T2 arg2);
+        void call(T1 arg1, T2 arg2);
     }
 
     /**
@@ -58,7 +58,7 @@ public interface Callbacks {
         /**
          * Call the callback.
          */
-        public void call(T1 arg1, T2 arg2, T3 arg3);
+        void call(T1 arg1, T2 arg2, T3 arg3);
     }
 
     /**
@@ -73,7 +73,7 @@ public interface Callbacks {
         /**
          * Call the callback.
          */
-        public void call(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+        void call(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
     }
 
     /**
@@ -89,7 +89,7 @@ public interface Callbacks {
         /**
          * Call the callback.
          */
-        public void call(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+        void call(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
     }
 
     /**
@@ -106,7 +106,7 @@ public interface Callbacks {
         /**
          * Call the callback.
          */
-        public void call(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+        void call(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
     }
 
     /**
@@ -124,7 +124,7 @@ public interface Callbacks {
         /**
          * Call the callback.
          */
-        public void call(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+        void call(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
     }
 
 }

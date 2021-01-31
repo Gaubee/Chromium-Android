@@ -29,33 +29,6 @@ public final class EventConstants {
     public static final String DOWNLOAD_HOME_OPENED = "download_home_opened";
 
     /**
-     * The user triggered pull to refresh. Used to help determine when to show the Chrome Home
-     * in-product help.
-     */
-    public static final String PULL_TO_REFRESH = "pull_to_refresh";
-
-    /** The contextual suggestions button was shown to the user. */
-    public static final String CONTEXTUAL_SUGGESTIONS_BUTTON_SHOWN =
-            "contextual_suggestions_button_shown";
-
-    /**
-     * The contextual suggestions bottom sheet was explicitly dismissed via a tap on its close
-     * button.
-     */
-    public static final String CONTEXTUAL_SUGGESTIONS_DISMISSED =
-            "contextual_suggestions_dismissed";
-
-    /**
-     * The contextual suggestions bottom sheet was opened.
-     */
-    public static final String CONTEXTUAL_SUGGESTIONS_OPENED = "contextual_suggestions_opened";
-
-    /**
-     * A contextual suggestion was clicked, opened in a new tab or downloaded.
-     */
-    public static final String CONTEXTUAL_SUGGESTION_TAKEN = "contextual_suggestion_taken";
-
-    /**
      * Screenshot is taken with Chrome in the foreground.
      */
     public static final String SCREENSHOT_TAKEN_CHROME_IN_FOREGROUND =
@@ -83,6 +56,11 @@ public final class EventConstants {
     public static final String DATA_SAVER_DETAIL_OPENED = "data_saver_overview_opened";
 
     /**
+     * The data saver milestone promo was used (tapped).
+     */
+    public static final String DATA_SAVER_MILESTONE_PROMO_OPENED = "data_saver_milestone_promo";
+
+    /**
      * The previews verbose status view was opened.
      */
     public static final String PREVIEWS_VERBOSE_STATUS_OPENED = "previews_verbose_status_opened";
@@ -91,11 +69,6 @@ public final class EventConstants {
      * A page load used a preview.
      */
     public static final String PREVIEWS_PAGE_LOADED = "preview_page_load";
-
-    /**
-     * The download button for a media element was displayed.
-     */
-    public static final String MEDIA_DOWNLOAD_BUTTON_DISPLAYED = "media_download_button_displayed";
 
     /**
      * Contextual Search panel was opened.
@@ -143,13 +116,22 @@ public final class EventConstants {
             "contextual_search_triggered_by_longpress";
 
     /**
+     * Contextual Search attempted-trigger by Tap when user should Long-press.
+     */
+    public static final String CONTEXTUAL_SEARCH_TAPPED_BUT_SHOULD_LONGPRESS =
+            "contextual_search_tapped_but_should_longpress";
+
+    /**
+     * Contextual Search user fully enabled access to page content through the opt-in.
+     */
+    public static final String CONTEXTUAL_SEARCH_ENABLED_OPT_IN =
+            "contextual_search_enabled_opt_in";
+
+    /**
      * The partner homepage was pressed.
      */
     public static final String PARTNER_HOME_PAGE_BUTTON_PRESSED =
             "partner_home_page_button_pressed";
-
-    /** The user used a button in the bottom toolbar. */
-    public static final String CHROME_DUET_USED_BOTTOM_TOOLBAR = "chrome_duet_used_bottom_toolbar";
 
     /** The homepage button in the toolbar was clicked. */
     public static final String HOMEPAGE_BUTTON_CLICKED = "homepage_button_clicked";
@@ -162,6 +144,76 @@ public final class EventConstants {
 
     /** The `Translate` app menu button was clicked. */
     public static final String TRANSLATE_MENU_BUTTON_CLICKED = "translate_menu_button_clicked";
+
+    /** The keyboard accessory was used to fill address data into a form. */
+    public static final String KEYBOARD_ACCESSORY_ADDRESS_AUTOFILLED =
+            "keyboard_accessory_address_suggestion_accepted";
+
+    /** The keyboard accessory was used to fill a password form. */
+    public static final String KEYBOARD_ACCESSORY_PASSWORD_AUTOFILLED =
+            "keyboard_accessory_password_suggestion_accepted";
+
+    /** The keyboard accessory was used to fill payment data into a form. */
+    public static final String KEYBOARD_ACCESSORY_PAYMENT_AUTOFILLED =
+            "keyboard_accessory_payment_suggestion_accepted";
+
+    /** The keyboard accessory was swiped to reveal more suggestions. */
+    public static final String KEYBOARD_ACCESSORY_BAR_SWIPED = "keyboard_accessory_bar_swiped";
+
+    /** The Explore Sites tile was tapped. */
+    public static final String EXPLORE_SITES_TILE_TAPPED = "explore_sites_tile_tapped";
+
+    /** User has finished drop-to-merge to create a group. */
+    public static final String TAB_DRAG_AND_DROP_TO_GROUP = "tab_drag_and_drop_to_group";
+
+    /** User has tapped on Identity Disc. */
+    public static final String IDENTITY_DISC_USED = "identity_disc_used";
+
+    /** User has used Ephemeral Tab i.e. opened and browsed the content. */
+    public static final String EPHEMERAL_TAB_USED = "ephemeral_tab_used";
+
+    /** HomepagePromo has been accepted. */
+    public static final String NTP_SHOWN = "ntp_shown";
+    public static final String NTP_HOME_BUTTON_CLICKED = "ntp_homebutton_clicked";
+
+    public static final String TAB_SWITCHER_BUTTON_CLICKED = "tab_switcher_button_clicked";
+
+    /** Read later related events. */
+    public static final String APP_MENU_BOOKMARK_STAR_ICON_PRESSED =
+            "app_menu_bookmark_star_icon_pressed";
+    public static final String READ_LATER_CONTEXT_MENU_TAPPED = "read_later_context_menu_tapped";
+    public static final String READ_LATER_ARTICLE_SAVED = "read_later_article_saved";
+    public static final String READ_LATER_BOTTOM_SHEET_FOLDER_SEEN =
+            "read_later_bottom_sheet_folder_seen";
+    public static final String READ_LATER_BOOKMARK_FOLDER_OPENED =
+            "read_later_bookmark_folder_opened";
+
+    /** Video tutorial related events. */
+    public static final String VIDEO_TUTORIAL_DISMISSED_SUMMARY =
+            "video_tutorial_iph_dismissed_summary";
+    public static final String VIDEO_TUTORIAL_DISMISSED_CHROME_INTRO =
+            "video_tutorial_iph_dismissed_chrome_intro";
+    public static final String VIDEO_TUTORIAL_DISMISSED_DOWNLOAD =
+            "video_tutorial_iph_dismissed_download";
+    public static final String VIDEO_TUTORIAL_DISMISSED_SEARCH =
+            "video_tutorial_iph_dismissed_search";
+    public static final String VIDEO_TUTORIAL_DISMISSED_VOICE_SEARCH =
+            "video_tutorial_iph_dismissed_voice_search";
+    public static final String VIDEO_TUTORIAL_CLICKED_SUMMARY =
+            "video_tutorial_iph_clicked_summary";
+    public static final String VIDEO_TUTORIAL_CLICKED_CHROME_INTRO =
+            "video_tutorial_iph_clicked_chrome_intro";
+    public static final String VIDEO_TUTORIAL_CLICKED_DOWNLOAD =
+            "video_tutorial_iph_clicked_download";
+    public static final String VIDEO_TUTORIAL_CLICKED_SEARCH = "video_tutorial_iph_clicked_search";
+    public static final String VIDEO_TUTORIAL_CLICKED_VOICE_SEARCH =
+            "video_tutorial_iph_clicked_voice_search";
+
+    /** Reengagement events. */
+    public static final String STARTED_FROM_MAIN_INTENT = "started_from_main_intent";
+
+    /** PWA install events. */
+    public static final String PWA_INSTALL_MENU_SELECTED = "pwa_install_menu_clicked";
 
     /**
      * Do not instantiate.

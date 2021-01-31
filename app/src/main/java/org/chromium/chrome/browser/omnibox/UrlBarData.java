@@ -5,15 +5,13 @@
 package org.chromium.chrome.browser.omnibox;
 
 import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.Nullable;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 
+import android.annotation.Nullable;
+
 import org.chromium.base.CollectionUtil;
-import org.chromium.chrome.browser.UrlConstants;
+import org.chromium.components.embedder_support.util.UrlConstants;
 import org.chromium.content_public.common.ContentUrlConstants;
 
 import java.util.HashSet;
@@ -26,8 +24,9 @@ public class UrlBarData {
      * The URL schemes that should be displayed complete with path.
      */
     public static final HashSet<String> UNSUPPORTED_SCHEMES_TO_SPLIT =
-            CollectionUtil.newHashSet(UrlConstants.FILE_SCHEME, UrlConstants.JAVASCRIPT_SCHEME,
-                    UrlConstants.DATA_SCHEME, UrlConstants.CONTENT_SCHEME);
+            CollectionUtil.newHashSet(ContentUrlConstants.ABOUT_SCHEME, UrlConstants.DATA_SCHEME,
+                    UrlConstants.FILE_SCHEME, UrlConstants.FTP_SCHEME, UrlConstants.INLINE_SCHEME,
+                    UrlConstants.JAVASCRIPT_SCHEME, UrlConstants.CHROME_SCHEME);
     /**
      * URI schemes that ContentView can handle.
      *
@@ -62,21 +61,6 @@ public class UrlBarData {
 
     public static UrlBarData forUrlAndText(
             String url, CharSequence displayText, @Nullable String editingText) {
-        // Because Android versions 4.2 and before lack proper RTL support,
-        // force the formatted URL to render as LTR using an LRM character.
-        // See: https://www.ietf.org/rfc/rfc3987.txt and https://crbug.com/709417
-        if (displayText.length() > 0 && Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN_MR1
-                && displayText.charAt(0) != LRM) {
-            if (displayText instanceof String) {
-                displayText = LRM + (String) displayText;
-            } else if (displayText instanceof Spannable) {
-                displayText =
-                        new SpannableStringBuilder(displayText).insert(0, Character.toString(LRM));
-            } else {
-                assert false : "Unsupported CharSequence type for display text";
-            }
-        }
-
         int pathSearchOffset = 0;
         String displayTextStr = displayText.toString();
         String scheme = Uri.parse(displayTextStr).getScheme();
@@ -85,12 +69,19 @@ public class UrlBarData {
             if (UNSUPPORTED_SCHEMES_TO_SPLIT.contains(scheme)) {
                 return create(url, displayText, 0, displayText.length(), editingText);
             }
-            if (ACCEPTED_SCHEMES.contains(scheme)) {
-                for (pathSearchOffset = scheme.length(); pathSearchOffset < displayText.length();
-                        pathSearchOffset++) {
-                    char c = displayText.charAt(pathSearchOffset);
-                    if (c != ':' && c != '/') break;
+            if (UrlConstants.BLOB_SCHEME.equals(scheme)) {
+                int innerSchemeSearchOffset =
+                        findFirstIndexAfterSchemeSeparator(displayText, scheme.length());
+                Uri innerUri = Uri.parse(displayTextStr.substring(innerSchemeSearchOffset));
+                String innerScheme = innerUri.getScheme();
+                // Substitute the scheme to allow for proper display of end of inner origin.
+                if (!TextUtils.isEmpty(innerScheme)) {
+                    scheme = innerScheme;
                 }
+            }
+            if (ACCEPTED_SCHEMES.contains(scheme)) {
+                pathSearchOffset = findFirstIndexAfterSchemeSeparator(
+                        displayText, displayTextStr.indexOf(scheme) + scheme.length());
             }
         }
         int pathOffset = -1;
@@ -102,8 +93,8 @@ public class UrlBarData {
         // If the '/' is the last character and the beginning of the path, then just drop
         // the path entirely.
         if (pathOffset == displayText.length() - 1) {
-            String prePathText = displayTextStr.substring(0, pathOffset);
-            return create(url, prePathText, 0, prePathText.length(), editingText);
+            return create(
+                    url, displayTextStr.subSequence(0, pathOffset), 0, pathOffset, editingText);
         }
 
         return create(url, displayText, 0, pathOffset, editingText);
@@ -112,6 +103,15 @@ public class UrlBarData {
     public static UrlBarData create(@Nullable String url, CharSequence displayText,
             int originStartIndex, int originEndIndex, @Nullable String editingText) {
         return new UrlBarData(url, displayText, originStartIndex, originEndIndex, editingText);
+    }
+
+    private static int findFirstIndexAfterSchemeSeparator(
+            CharSequence input, int searchStartIndex) {
+        for (int index = searchStartIndex; index < input.length(); index++) {
+            char c = input.charAt(index);
+            if (c != ':' && c != '/') return index;
+        }
+        return input.length();
     }
 
     /**

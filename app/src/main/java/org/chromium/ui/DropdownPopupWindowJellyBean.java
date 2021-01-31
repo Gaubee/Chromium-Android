@@ -20,7 +20,6 @@ import android.widget.ListPopupWindow;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
-import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.Log;
 
 import java.lang.reflect.Method;
@@ -37,10 +36,10 @@ class DropdownPopupWindowJellyBean implements DropdownPopupWindowInterface {
     private final Context mContext;
     private boolean mRtl;
     private int mInitialSelection = -1;
-    private OnLayoutChangeListener mLayoutChangeListener;
+    private final OnLayoutChangeListener mLayoutChangeListener;
     private PopupWindow.OnDismissListener mOnDismissListener;
     private CharSequence mDescription;
-    private ListPopupWindow mListPopupWindow;
+    private final ListPopupWindow mListPopupWindow;
     private View mFooterView;
     ListAdapter mAdapter;
 
@@ -128,8 +127,8 @@ class DropdownPopupWindowJellyBean implements DropdownPopupWindowInterface {
         boolean wasShowing = mListPopupWindow.isShowing();
         mListPopupWindow.show();
         mListPopupWindow.getListView().setDividerHeight(0);
-        ApiCompatibilityUtils.setLayoutDirection(mListPopupWindow.getListView(),
-                mRtl ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
+        int layoutDirection = mRtl ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR;
+        mListPopupWindow.getListView().setLayoutDirection(layoutDirection);
         if (!wasShowing) {
             mListPopupWindow.getListView().setContentDescription(mDescription);
             mListPopupWindow.getListView().sendAccessibilityEvent(
@@ -172,8 +171,8 @@ class DropdownPopupWindowJellyBean implements DropdownPopupWindowInterface {
         // See http://crbug.com/400601
         try {
             Method setForceIgnoreOutsideTouch = ListPopupWindow.class.getMethod(
-                    "setForceIgnoreOutsideTouch", new Class[] {boolean.class});
-            setForceIgnoreOutsideTouch.invoke(mListPopupWindow, new Object[] {true});
+                    "setForceIgnoreOutsideTouch", boolean.class);
+            setForceIgnoreOutsideTouch.invoke(mListPopupWindow, true);
         } catch (Exception e) {
             Log.e(TAG, "ListPopupWindow.setForceIgnoreOutsideTouch not found", e);
         }

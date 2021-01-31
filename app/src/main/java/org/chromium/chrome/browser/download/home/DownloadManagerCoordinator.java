@@ -15,7 +15,7 @@ public interface DownloadManagerCoordinator {
      * An obsever to be notified of internal state changes that should be represented as a URL
      * change externally.
      */
-    public interface Observer {
+    interface Observer {
         /** Called when the url representing the internal state of the coordinator has changed. */
         void onUrlChanged(String url);
     }
@@ -34,12 +34,6 @@ public interface DownloadManagerCoordinator {
 
     /** To be called to push the url containing internal state to the coordinator. */
     void updateForUrl(String url);
-
-    /**
-     * To be called to automatically show the prefetched content section of the download manager.
-     * TODO(dtrainor): This should be deprecated in place of {@link #updateForUrl(String)}.
-     */
-    void showPrefetchSection();
 
     /** Adds {@code observer} to be notified of url state changes. */
     void addObserver(Observer observer);

@@ -5,6 +5,7 @@
 package org.chromium.chrome.browser.tabmodel;
 
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tab.TabCreationState;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * This can safely be constructed before native libraries have been initialized as this will
  * register to observe the underlying TabModels as they are created lazily.
  */
-public class TabModelSelectorTabModelObserver extends EmptyTabModelObserver {
+public class TabModelSelectorTabModelObserver implements TabModelObserver {
     private final TabModelSelector mTabModelSelector;
 
     private TabModelSelectorObserver mSelectorObserver;
@@ -36,8 +37,9 @@ public class TabModelSelectorTabModelObserver extends EmptyTabModelObserver {
         if (tabModels.isEmpty()) {
             mSelectorObserver = new EmptyTabModelSelectorObserver() {
                 @Override
-                public void onNewTabCreated(Tab tab) {
-                    assert false : "onChange should have happened and unregistered this listener.";
+                public void onNewTabCreated(Tab tab, @TabCreationState int creationState) {
+                    throw new IllegalStateException(
+                            "onChange should have happened and unregistered this listener.");
                 }
 
                 @Override
@@ -66,8 +68,7 @@ public class TabModelSelectorTabModelObserver extends EmptyTabModelObserver {
     /**
      * Notifies that the registration of the observers has been completed.
      */
-    protected void onRegistrationComplete() {
-    }
+    protected void onRegistrationComplete() {}
 
     /**
      * Destroys the observer and removes itself as a listener for Tab updates.

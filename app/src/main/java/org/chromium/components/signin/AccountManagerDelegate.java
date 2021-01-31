@@ -9,10 +9,11 @@ import android.accounts.AccountManager;
 import android.accounts.AuthenticatorDescription;
 import android.app.Activity;
 import android.content.Intent;
-import android.support.annotation.AnyThread;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
+
+import androidx.annotation.AnyThread;
+import androidx.annotation.MainThread;
+import android.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 
 import org.chromium.base.Callback;
 
@@ -52,13 +53,13 @@ public interface AccountManagerDelegate {
      *
      * @param account The {@link Account} for which the auth token is requested.
      * @param authTokenScope The scope of the authToken being requested.
-     * @return The auth token fetched from the authenticator.
+     * @return The access token data fetched from the authenticator.
      * @throws AuthException Indicates a failure in fetching the auth token perhaps due to a
      * transient error or when user intervention is required (like confirming the credentials)
      * which is expressed as an {@link Intent} to the handler.
      */
     @WorkerThread
-    String getAuthToken(Account account, String authTokenScope) throws AuthException;
+    AccessTokenData getAuthToken(Account account, String authTokenScope) throws AuthException;
 
     /**
      * @param authToken The auth token to invalidate.
@@ -110,4 +111,22 @@ public interface AccountManagerDelegate {
     default ProfileDataSource getProfileDataSource() {
         return null;
     }
+
+    /**
+     * Returns the Gaia id for the account associated with the given email address.
+     * If an account with the given email address is not installed on the device
+     * then null is returned.
+     *
+     * This method will throw IllegalStateException if called on the main thread.
+     *
+     * @param accountEmail The email address of a Google account.
+     */
+    @WorkerThread
+    @Nullable
+    String getAccountGaiaId(String accountEmail);
+
+    /**
+     * Checks whether Google Play services is available.
+     */
+    boolean isGooglePlayServicesAvailable();
 }

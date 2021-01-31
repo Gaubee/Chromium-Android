@@ -4,15 +4,14 @@
 
 package org.chromium.chrome.browser.tab;
 
-import android.content.Context;
 import android.util.Pair;
-import android.view.ContextMenu;
+
+import android.annotation.Nullable;
 
 import org.chromium.base.ObserverList.RewindableIterator;
-import org.chromium.chrome.browser.contextmenu.ContextMenuHelper;
-import org.chromium.chrome.browser.contextmenu.ContextMenuItem;
-import org.chromium.chrome.browser.contextmenu.ContextMenuParams;
+import org.chromium.chrome.browser.contextmenu.ChipDelegate;
 import org.chromium.chrome.browser.contextmenu.ContextMenuPopulator;
+import org.chromium.ui.modelutil.MVCListAdapter.ModelList;
 
 import java.util.List;
 
@@ -20,8 +19,9 @@ import java.util.List;
  * A simple wrapper around a {@link ContextMenuPopulator} to handle observer notification.
  */
 public class TabContextMenuPopulator implements ContextMenuPopulator {
+    @Nullable
     private final ContextMenuPopulator mPopulator;
-    private final Tab mTab;
+    private final TabImpl mTab;
 
     /**
      * Constructs an instance of a {@link ContextMenuPopulator} and delegate calls to
@@ -31,28 +31,41 @@ public class TabContextMenuPopulator implements ContextMenuPopulator {
      */
     public TabContextMenuPopulator(ContextMenuPopulator populator, Tab tab) {
         mPopulator = populator;
-        mTab = tab;
+        mTab = (TabImpl) tab;
     }
 
     @Override
-    public void onDestroy() {
-        mPopulator.onDestroy();
-    }
-
-    @Override
-    public List<Pair<Integer, List<ContextMenuItem>>> buildContextMenu(
-            ContextMenu menu, Context context, ContextMenuParams params) {
-        List<Pair<Integer, List<ContextMenuItem>>> itemGroups =
-                mPopulator.buildContextMenu(menu, context, params);
+    public List<Pair<Integer, ModelList>> buildContextMenu() {
+        List<Pair<Integer, ModelList>> itemGroups = mPopulator.buildContextMenu();
         RewindableIterator<TabObserver> observers = mTab.getTabObservers();
         while (observers.hasNext()) {
-            observers.next().onContextMenuShown(mTab, menu);
+            observers.next().onContextMenuShown(mTab);
         }
         return itemGroups;
     }
 
     @Override
-    public boolean onItemSelected(ContextMenuHelper helper, ContextMenuParams params, int itemId) {
-        return mPopulator.onItemSelected(helper, params, itemId);
+    public boolean onItemSelected(int itemId) {
+        return mPopulator.onItemSelected(itemId);
+    }
+
+    @Override
+    public void onMenuClosed() {
+        mPopulator.onMenuClosed();
+    }
+
+    @Override
+    public boolean isIncognito() {
+        return mPopulator.isIncognito();
+    }
+
+    @Override
+    public String getPageTitle() {
+        return mPopulator.getPageTitle();
+    }
+
+    @Override
+    public @Nullable ChipDelegate getChipDelegate() {
+        return mPopulator.getChipDelegate();
     }
 }

@@ -8,12 +8,13 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.content.Context;
-import android.support.annotation.IntDef;
 
-import org.chromium.chrome.browser.compositor.animation.CompositorAnimationHandler;
-import org.chromium.chrome.browser.compositor.animation.CompositorAnimator;
+import android.annotation.IntDef;
+
 import org.chromium.chrome.browser.compositor.layouts.components.LayoutTab;
 import org.chromium.chrome.browser.compositor.layouts.phone.StackLayoutBase;
+import org.chromium.chrome.browser.layouts.animation.CompositorAnimationHandler;
+import org.chromium.chrome.browser.layouts.animation.CompositorAnimator;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -278,11 +279,7 @@ public class NonOverlappingStack extends Stack {
         int centeredTab = getCenteredTabIndex();
         for (int i = 0; i < mStackTabs.length; i++) {
             LayoutTab layoutTab = mStackTabs[i].getLayoutTab();
-            if (i < centeredTab - 1 || i > centeredTab + 2) {
-                layoutTab.setVisible(false);
-            } else {
-                layoutTab.setVisible(true);
-            }
+            layoutTab.setVisible(i >= centeredTab - 1 && i <= centeredTab + 2);
         }
     }
 

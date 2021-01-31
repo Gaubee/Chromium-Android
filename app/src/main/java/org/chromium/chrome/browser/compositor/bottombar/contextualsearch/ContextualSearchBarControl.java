@@ -9,16 +9,20 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import org.chromium.base.ApiCompatibilityUtils;
-import org.chromium.base.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.compositor.animation.CompositorAnimator;
 import org.chromium.chrome.browser.compositor.bottombar.OverlayPanelAnimation;
+import org.chromium.chrome.browser.contextualsearch.QuickActionCategory;
+import org.chromium.chrome.browser.contextualsearch.ResolvedSearchTerm.CardTag;
+import org.chromium.chrome.browser.layouts.animation.CompositorAnimator;
 import org.chromium.ui.base.LocalizationUtils;
 import org.chromium.ui.resources.dynamics.DynamicResourceLoader;
 
 /**
  * Controls the Search Bar in the Contextual Search Panel.
+ * This class holds instances of its subcomponents such as the main text, caption, icon
+ * and interaction controls such as the close box.
  */
 public class ContextualSearchBarControl {
     /** Full opacity -- fully visible. */
@@ -26,9 +30,6 @@ public class ContextualSearchBarControl {
 
     /** Transparent opacity -- completely transparent (not visible). */
     private static final float TRANSPARENT_OPACITY = 0.0f;
-
-    /** The opacity of the divider line when using the generic UX. */
-    private static final float DIVIDER_LINE_OPACITY_GENERIC = FULL_OPACITY;
 
     /**
      * The panel used to get information about the panel layout.
@@ -56,9 +57,18 @@ public class ContextualSearchBarControl {
     private final ContextualSearchQuickActionControl mQuickActionControl;
 
     /**
+     * The {@link ContextualSearchCardIconControl} used to control icons for non-action Cards
+     * returned by the server.
+     */
+    private final ContextualSearchCardIconControl mCardIconControl;
+
+    /** The width of our icon, including padding, in pixels. */
+    private final float mPaddedIconWidthPx;
+
+    /**
      * The {@link ContextualSearchImageControl} for the panel.
      */
-    private ContextualSearchImageControl mImageControl;
+    private final ContextualSearchImageControl mImageControl;
 
     /**
      * The opacity of the Bar's Search Context.
@@ -75,26 +85,6 @@ public class ContextualSearchBarControl {
     // Dimensions used for laying out the search bar.
     private final float mTextLayerMinHeight;
     private final float mTermCaptionSpacing;
-
-    /**
-     * The visibility percentage for the divider line ranging from 0.f to 1.f.
-     */
-    private float mDividerLineVisibilityPercentage;
-
-    /**
-     * The width of the divider line in px.
-     */
-    private final float mDividerLineWidth;
-
-    /**
-     * The height of the divider line in px.
-     */
-    private final float mDividerLineHeight;
-
-    /**
-     * The divider line color.
-     */
-    private final int mDividerLineColor;
 
     /**
      * The width of the end button in px.
@@ -119,9 +109,6 @@ public class ContextualSearchBarControl {
     /** The animator that controls the text opacity. */
     private CompositorAnimator mTextOpacityAnimation;
 
-    /** The animator that controls the divider line visibility. */
-    private CompositorAnimator mDividerLineVisibilityAnimation;
-
     /** The animator that controls touch highlighting. */
     private CompositorAnimator mTouchHighlightAnimation;
 
@@ -141,24 +128,21 @@ public class ContextualSearchBarControl {
         mImageControl = new ContextualSearchImageControl(panel);
         mContextControl = new ContextualSearchContextControl(panel, context, container, loader);
         mSearchTermControl = new ContextualSearchTermControl(panel, context, container, loader);
-        mCaptionControl = new ContextualSearchCaptionControl(panel, context, container, loader,
-                mCanPromoteToNewTab);
+        mCaptionControl = new ContextualSearchCaptionControl(
+                panel, context, container, loader, mCanPromoteToNewTab);
         mQuickActionControl = new ContextualSearchQuickActionControl(context, loader);
+        mCardIconControl = new ContextualSearchCardIconControl(context, loader);
 
         mTextLayerMinHeight = context.getResources().getDimension(
                 R.dimen.contextual_search_text_layer_min_height);
         mTermCaptionSpacing = context.getResources().getDimension(
                 R.dimen.contextual_search_term_caption_spacing);
 
-        // Divider line values.
-        mDividerLineWidth = context.getResources().getDimension(
-                R.dimen.contextual_search_divider_line_width);
-        mDividerLineHeight = context.getResources().getDimension(
-                R.dimen.contextual_search_divider_line_height);
-        mDividerLineColor = ApiCompatibilityUtils.getColor(context.getResources(),
-                R.color.light_grey);
-        mEndButtonWidth = context.getResources().getDimension(
-                R.dimen.contextual_search_end_button_width);
+        // Icon attributes.
+        mPaddedIconWidthPx =
+                context.getResources().getDimension(R.dimen.contextual_search_padded_button_width);
+        mEndButtonWidth = mPaddedIconWidthPx
+                + context.getResources().getDimension(R.dimen.overlay_panel_button_padding);
         mDpToPx = context.getResources().getDisplayMetrics().density;
     }
 
@@ -192,6 +176,7 @@ public class ContextualSearchBarControl {
         mSearchTermControl.destroy();
         mCaptionControl.destroy();
         mQuickActionControl.destroy();
+        mCardIconControl.destroy();
     }
 
     /**
@@ -218,13 +203,10 @@ public class ContextualSearchBarControl {
     public void onUpdateFromPeekToExpand(float percentage) {
         mExpandedPercent = percentage;
 
-        // If there is a quick action, the divider line's appearance was animated when the quick
-        // action was set.
-        if (!getQuickActionControl().hasQuickAction()) {
-            mDividerLineVisibilityPercentage = percentage;
-        }
         getImageControl().onUpdateFromPeekToExpand(percentage);
         mCaptionControl.onUpdateFromPeekToExpand(percentage);
+        mSearchTermControl.onUpdateFromPeekToExpand(percentage);
+        mContextControl.onUpdateFromPeekToExpand(percentage);
     }
 
     /**
@@ -238,7 +220,20 @@ public class ContextualSearchBarControl {
         mQuickActionControl.reset();
         mContextControl.setContextDetails(selection, end);
         resetSearchBarContextOpacity();
-        animateDividerLine(false);
+    }
+
+    /**
+     * Updates the Bar to display a dictionary definition card.
+     * @param searchTerm The string that represents the search term to display.
+     * @param cardTagEnum Which kind of card is being shown in this update.
+     */
+    void updateForDictionaryDefinition(String searchTerm, @CardTag int cardTagEnum) {
+        if (!mCardIconControl.didUpdateControlsForDefinition(
+                    mContextControl, mImageControl, searchTerm, cardTagEnum)) {
+            // Can't style, just update with the text to display.
+            setSearchTerm(searchTerm);
+            animateSearchTermResolution();
+        }
     }
 
     /**
@@ -251,10 +246,6 @@ public class ContextualSearchBarControl {
         mQuickActionControl.reset();
         mSearchTermControl.setSearchTerm(searchTerm);
         resetSearchBarTermOpacity();
-
-        // If the panel is expanded, the divider line should not be hidden. This may happen if the
-        // panel is opened before the search term is resolved.
-        if (mExpandedPercent == TRANSPARENT_OPACITY) animateDividerLine(false);
     }
 
     /**
@@ -332,16 +323,15 @@ public class ContextualSearchBarControl {
      * @param toolbarBackgroundColor The current toolbar background color. This may be used for
      *                               icon tinting.
      */
-    public void setQuickAction(
-            String quickActionUri, int quickActionCategory, int toolbarBackgroundColor) {
+    public void setQuickAction(String quickActionUri, @QuickActionCategory int quickActionCategory,
+            int toolbarBackgroundColor) {
         mQuickActionControl.setQuickAction(
                 quickActionUri, quickActionCategory, toolbarBackgroundColor);
         if (mQuickActionControl.hasQuickAction()) {
             // TODO(twellington): should the quick action caption be stored separately from the
             // regular caption?
             mCaptionControl.setCaption(mQuickActionControl.getCaption());
-            mImageControl.setQuickActionIconResourceId(mQuickActionControl.getIconResId());
-            animateDividerLine(true);
+            mImageControl.setCardIconResourceId(mQuickActionControl.getIconResId());
         }
     }
 
@@ -378,66 +368,6 @@ public class ContextualSearchBarControl {
     }
 
     // ============================================================================================
-    // Divider Line
-    // ============================================================================================
-    /**
-     * @return The visibility percentage for the divider line ranging from 0.f to 1.f.
-     */
-    public float getDividerLineVisibilityPercentage() {
-        return mContextualSearchPanel.useGenericSheetUx() ? DIVIDER_LINE_OPACITY_GENERIC
-                                                          : mDividerLineVisibilityPercentage;
-    }
-
-    /**
-     * @return The width of the divider line in px.
-     */
-    public float getDividerLineWidth() {
-        return mDividerLineWidth;
-    }
-
-    /**
-     * @return The height of the divider line in px.
-     */
-    public float getDividerLineHeight() {
-        return mDividerLineHeight;
-    }
-
-    /**
-     * @return The divider line color.
-     */
-    public int getDividerLineColor() {
-        return mDividerLineColor;
-    }
-
-    /**
-     * @return The x-offset for the divider line relative to the x-position of the Bar in px.
-     */
-    public float getDividerLineXOffset() {
-        if (LocalizationUtils.isLayoutRtl()) {
-            return mEndButtonWidth;
-        } else {
-            return mContextualSearchPanel.getContentViewWidthPx() - mEndButtonWidth
-                    - getDividerLineWidth();
-        }
-    }
-
-    /**
-     * Animates the appearance or disappearance of the divider line.
-     * @param visible Whether the divider line should be made visible.
-     */
-    private void animateDividerLine(boolean visible) {
-        float endValue = visible ? FULL_OPACITY : TRANSPARENT_OPACITY;
-        if (mDividerLineVisibilityPercentage == endValue) return;
-        if (mDividerLineVisibilityAnimation != null) mDividerLineVisibilityAnimation.cancel();
-        mDividerLineVisibilityAnimation = CompositorAnimator.ofFloat(
-                mContextualSearchPanel.getAnimationHandler(), mDividerLineVisibilityPercentage,
-                endValue, OverlayPanelAnimation.BASE_ANIMATION_DURATION_MS, null);
-        mDividerLineVisibilityAnimation.addUpdateListener(
-                animator -> mDividerLineVisibilityPercentage = animator.getAnimatedValue());
-        mDividerLineVisibilityAnimation.start();
-    }
-
-    // ============================================================================================
     // Touch Highlight
     // ============================================================================================
 
@@ -446,15 +376,11 @@ public class ContextualSearchBarControl {
      */
     private boolean mTouchHighlightVisible;
 
-    /**
-     * Whether the touch that triggered showing the touch highlight was on the end Bar button.
-     */
-    private boolean mWasTouchOnEndButton;
+    /** Where the touch highlight should start, in pixels. */
+    private float mTouchHighlightXOffsetPx;
 
-    /**
-     * Whether the divider line was visible when the touch highlight started showing.
-     */
-    private boolean mWasDividerVisibleOnTouch;
+    /** The width of the touch highlight, in pixels. */
+    private float mTouchHighlightWidthPx;
 
     /**
      * @return Whether the touch highlight is visible.
@@ -467,53 +393,68 @@ public class ContextualSearchBarControl {
      * @return The x-offset of the touch highlight in pixels.
      */
     public float getTouchHighlightXOffsetPx() {
-        if (mWasDividerVisibleOnTouch
-                && ((mWasTouchOnEndButton && !LocalizationUtils.isLayoutRtl())
-                || (!mWasTouchOnEndButton && LocalizationUtils.isLayoutRtl()))) {
-            // If the touch was on the end button in LTR, offset the touch highlight so that it
-            // starts at the beginning of the end button.
-            // If the touch was not on the end button in RTL, offset the touch highlight so that it
-            // starts after the end button.
-            return getDividerLineXOffset() + getDividerLineWidth();
-        }
-
-        return 0;
+        return mTouchHighlightXOffsetPx;
     }
 
     /**
      * @return The width of the touch highlight in pixels.
      */
     public float getTouchHighlightWidthPx() {
-        if (mWasDividerVisibleOnTouch) {
-            // The touch was on the end button so the touch highlight should cover the end button.
-            if (mWasTouchOnEndButton) return mEndButtonWidth;
-
-            // The touch was not on the end button so the touch highlight should cover everything
-            // except the end button.
-            return mContextualSearchPanel.getContentViewWidthPx() - mEndButtonWidth
-                    - getDividerLineWidth();
-        }
-
-        // If the divider line wasn't visible when the Bar was touched, the touch highlight covers
-        // the entire Bar.
-        return mContextualSearchPanel.getContentViewWidthPx();
+        return mTouchHighlightWidthPx;
     }
 
     /**
      * Should be called when the Bar is clicked.
-     * @param x The x-position of the click in px.
+     * @param xDps The x-position of the click in DPs.
      */
-    public void onSearchBarClick(float x) {
-        showTouchHighlight(x);
+    public void onSearchBarClick(float xDps) {
+        showTouchHighlight(xDps * mDpToPx);
     }
 
     /**
      * Should be called when an onShowPress() event occurs on the Bar.
-     * See {@link GestureDetector.SimpleOnGestureListener#onShowPress()}.
-     * @param x The x-position of the touch in px.
+     * See {@code GestureDetector.SimpleOnGestureListener#onShowPress()}.
+     * @param xDps The x-position of the touch in DPs.
      */
-    public void onShowPress(float x) {
-        showTouchHighlight(x);
+    public void onShowPress(float xDps) {
+        showTouchHighlight(xDps * mDpToPx);
+    }
+
+    /**
+     * Classifies the give x position in pixels and computes the highlight offset and width.
+     * @param xPx The x-coordinate of a touch location, in pixels.
+     */
+    private void classifyTouchLocation(float xPx) {
+        // There are 3 cases:
+        // 1) The whole Bar (without any icons)
+        // 2) The Bar minus icon (when the icon is present)
+        // 3) The icon
+        int panelWidth = mContextualSearchPanel.getContentViewWidthPx();
+        if (mContextualSearchPanel.isPeeking()) {
+            // Case 1 - whole Bar.
+            mTouchHighlightXOffsetPx = 0;
+            mTouchHighlightWidthPx = panelWidth;
+        } else {
+            // The open-tab-icon is on the right (on the left in RTL).
+            boolean isRtl = LocalizationUtils.isLayoutRtl();
+            float paddedIconWithMarginWidth =
+                    (mContextualSearchPanel.getBarMarginSide()
+                            + mContextualSearchPanel.getOpenTabIconDimension()
+                            + mContextualSearchPanel.getButtonPaddingDps())
+                    * mDpToPx;
+            float contentWidth = panelWidth - paddedIconWithMarginWidth;
+            // Adjust the touch point to panel coordinates.
+            xPx -= mContextualSearchPanel.getOffsetX() * mDpToPx;
+            if (isRtl && xPx > paddedIconWithMarginWidth || !isRtl && xPx < contentWidth) {
+                // Case 2 - Bar minus icon.
+                mTouchHighlightXOffsetPx = isRtl ? paddedIconWithMarginWidth : 0;
+                mTouchHighlightWidthPx = contentWidth;
+            } else {
+                // Case 3 - the icon.
+                mTouchHighlightXOffsetPx = isRtl ? 0 : contentWidth;
+                mTouchHighlightWidthPx = paddedIconWithMarginWidth;
+            }
+        }
     }
 
     /**
@@ -523,20 +464,17 @@ public class ContextualSearchBarControl {
     private void showTouchHighlight(float x) {
         if (mTouchHighlightVisible) return;
 
-        mWasTouchOnEndButton = isTouchOnEndButton(x);
-
         // If the panel is expanded or maximized and the panel content cannot be promoted to a new
-        // tab, then tapping anywhere besides the end button does nothing. In this case, the touch
+        // tab, then tapping anywhere besides the end buttons does nothing. In this case, the touch
         // highlight should not be shown.
-        if (!mWasTouchOnEndButton && !mContextualSearchPanel.isPeeking() && !mCanPromoteToNewTab)
-            return;
+        if (!mContextualSearchPanel.isPeeking() && !mCanPromoteToNewTab) return;
 
-        mWasDividerVisibleOnTouch = getDividerLineVisibilityPercentage() > TRANSPARENT_OPACITY;
+        classifyTouchLocation(x);
         mTouchHighlightVisible = true;
 
         // The touch highlight animation is used to ensure the touch highlight is visible for at
         // least OverlayPanelAnimation.BASE_ANIMATION_DURATION_MS.
-        // TODO(twellington): Add a material ripple to this animation.
+        // TODO(donnd): Add a material ripple to this animation.
         if (mTouchHighlightAnimation == null) {
             mTouchHighlightAnimation =
                     new CompositorAnimator(mContextualSearchPanel.getAnimationHandler());
@@ -550,18 +488,6 @@ public class ContextualSearchBarControl {
         }
         mTouchHighlightAnimation.cancel();
         mTouchHighlightAnimation.start();
-    }
-
-    /**
-     * @param x The x-position of the touch in px.
-     * @return Whether the touch occurred on the search Bar's end button.
-     */
-    private boolean isTouchOnEndButton(float x) {
-        if (getDividerLineVisibilityPercentage() == TRANSPARENT_OPACITY) return false;
-
-        float xPx = x * mDpToPx;
-        if (LocalizationUtils.isLayoutRtl()) return xPx <= getDividerLineXOffset();
-        return xPx > getDividerLineXOffset();
     }
 
     // ============================================================================================

@@ -6,30 +6,28 @@ import javax.annotation.Generated;
 import org.chromium.chrome.browser.customtabs.CustomTabsConnection;
 
 @Generated(
-  value = "dagger.internal.codegen.ComponentProcessor",
-  comments = "https://google.github.io/dagger"
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
 )
-public final class AppHooksModule_ProvideCustomTabsConnectionFactory
-    implements Factory<CustomTabsConnection> {
-  private static final AppHooksModule_ProvideCustomTabsConnectionFactory INSTANCE =
-      new AppHooksModule_ProvideCustomTabsConnectionFactory();
-
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes"
+})
+public final class AppHooksModule_ProvideCustomTabsConnectionFactory implements Factory<CustomTabsConnection> {
   @Override
   public CustomTabsConnection get() {
-    return provideInstance();
-  }
-
-  public static CustomTabsConnection provideInstance() {
-    return proxyProvideCustomTabsConnection();
+    return provideCustomTabsConnection();
   }
 
   public static AppHooksModule_ProvideCustomTabsConnectionFactory create() {
-    return INSTANCE;
+    return InstanceHolder.INSTANCE;
   }
 
-  public static CustomTabsConnection proxyProvideCustomTabsConnection() {
-    return Preconditions.checkNotNull(
-        AppHooksModule.provideCustomTabsConnection(),
-        "Cannot return null from a non-@Nullable @Provides method");
+  public static CustomTabsConnection provideCustomTabsConnection() {
+    return Preconditions.checkNotNullFromProvides(AppHooksModule.provideCustomTabsConnection());
+  }
+
+  private static final class InstanceHolder {
+    private static final AppHooksModule_ProvideCustomTabsConnectionFactory INSTANCE = new AppHooksModule_ProvideCustomTabsConnectionFactory();
   }
 }

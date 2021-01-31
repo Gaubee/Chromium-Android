@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,33 +10,37 @@
 
 package org.chromium.chrome.browser.webapps;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @IntDef({
     WebApkUpdateReason.NONE, WebApkUpdateReason.OLD_SHELL_APK,
-    WebApkUpdateReason.PRIMARY_ICON_HASH_DIFFERS, WebApkUpdateReason.BADGE_ICON_HASH_DIFFERS,
-    WebApkUpdateReason.SCOPE_DIFFERS, WebApkUpdateReason.START_URL_DIFFERS,
-    WebApkUpdateReason.SHORT_NAME_DIFFERS, WebApkUpdateReason.NAME_DIFFERS,
-    WebApkUpdateReason.BACKGROUND_COLOR_DIFFERS, WebApkUpdateReason.THEME_COLOR_DIFFERS,
-    WebApkUpdateReason.ORIENTATION_DIFFERS, WebApkUpdateReason.DISPLAY_MODE_DIFFERS,
-    WebApkUpdateReason.WEB_SHARE_TARGET_DIFFERS
+    WebApkUpdateReason.PRIMARY_ICON_HASH_DIFFERS, WebApkUpdateReason.PRIMARY_ICON_MASKABLE_DIFFERS,
+    WebApkUpdateReason.SPLASH_ICON_HASH_DIFFERS, WebApkUpdateReason.SCOPE_DIFFERS,
+    WebApkUpdateReason.START_URL_DIFFERS, WebApkUpdateReason.SHORT_NAME_DIFFERS,
+    WebApkUpdateReason.NAME_DIFFERS, WebApkUpdateReason.BACKGROUND_COLOR_DIFFERS,
+    WebApkUpdateReason.THEME_COLOR_DIFFERS, WebApkUpdateReason.ORIENTATION_DIFFERS,
+    WebApkUpdateReason.DISPLAY_MODE_DIFFERS, WebApkUpdateReason.WEB_SHARE_TARGET_DIFFERS,
+    WebApkUpdateReason.MANUALLY_TRIGGERED, WebApkUpdateReason.SHORTCUTS_DIFFER
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface WebApkUpdateReason {
   int NONE = 0;
   int OLD_SHELL_APK = 1;
   int PRIMARY_ICON_HASH_DIFFERS = 2;
-  int BADGE_ICON_HASH_DIFFERS = 3;
-  int SCOPE_DIFFERS = 4;
-  int START_URL_DIFFERS = 5;
-  int SHORT_NAME_DIFFERS = 6;
-  int NAME_DIFFERS = 7;
-  int BACKGROUND_COLOR_DIFFERS = 8;
-  int THEME_COLOR_DIFFERS = 9;
-  int ORIENTATION_DIFFERS = 10;
-  int DISPLAY_MODE_DIFFERS = 11;
-  int WEB_SHARE_TARGET_DIFFERS = 12;
+  int PRIMARY_ICON_MASKABLE_DIFFERS = 3;
+  int SPLASH_ICON_HASH_DIFFERS = 4;
+  int SCOPE_DIFFERS = 5;
+  int START_URL_DIFFERS = 6;
+  int SHORT_NAME_DIFFERS = 7;
+  int NAME_DIFFERS = 8;
+  int BACKGROUND_COLOR_DIFFERS = 9;
+  int THEME_COLOR_DIFFERS = 10;
+  int ORIENTATION_DIFFERS = 11;
+  int DISPLAY_MODE_DIFFERS = 12;
+  int WEB_SHARE_TARGET_DIFFERS = 13;
+  int MANUALLY_TRIGGERED = 14;
+  int SHORTCUTS_DIFFER = 15;
 }

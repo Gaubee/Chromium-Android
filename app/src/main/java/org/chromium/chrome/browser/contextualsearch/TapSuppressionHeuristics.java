@@ -4,10 +4,11 @@
 
 package org.chromium.chrome.browser.contextualsearch;
 
-import android.support.annotation.Nullable;
+import android.annotation.Nullable;
 
 /**
- * A set of {@link ContextualSearchHeuristic}s that support experimentation and logging.
+ * A set of {@link ContextualSearchHeuristic}s that support experimentation and logging
+ * and can be used as signals to drive an ML tap suppression model.
  */
 public class TapSuppressionHeuristics extends ContextualSearchHeuristics {
     private CtrSuppression mCtrSuppression;

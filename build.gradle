@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:4.1.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -26,12 +26,12 @@ task clean(type: Delete) {
 
 ext {
     versionCode = 17
-    versionName = "73.0.3683.93"
+    versionName = "90.1"
 
     // third_party/android_sdk/README.chromium
-    compileSdkVersion = 28
-    buildToolsVersion = "28.0.3"
-    minSdkVersion = 19
+    compileSdkVersion = 30
+    buildToolsVersion = "30.0.2"
+    minSdkVersion = 21
     targetSdkVersion = 28
 
     // tools/android/roll/update_support_library.py
@@ -42,7 +42,7 @@ ext {
     // third_party/gvr-android-sdk/README.chromium
     googleVRVersion = "1.140.0"
 
-    espressoVersion = "2.2.2"
-    runnerVersion = "1.0.1"
-    junitVersion = "4.12"
+    espressoVersion = "3.0.2"
+    runnerVersion = "1.0.2"
+    junitVersion = "4.13.1"
 }

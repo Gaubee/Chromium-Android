@@ -6,6 +6,7 @@ package org.chromium.chrome.browser.autofill_assistant.header;
 
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
 
 @JNINamespace("autofill_assistant")
 class AssistantHeaderDelegate {
@@ -22,13 +23,8 @@ class AssistantHeaderDelegate {
 
     void onFeedbackButtonClicked() {
         if (mNativeAssistantHeaderDelegate != 0) {
-            nativeOnFeedbackButtonClicked(mNativeAssistantHeaderDelegate);
-        }
-    }
-
-    void onCloseButtonClicked() {
-        if (mNativeAssistantHeaderDelegate != 0) {
-            nativeOnCloseButtonClicked(mNativeAssistantHeaderDelegate);
+            AssistantHeaderDelegateJni.get().onFeedbackButtonClicked(
+                    mNativeAssistantHeaderDelegate, AssistantHeaderDelegate.this);
         }
     }
 
@@ -37,6 +33,9 @@ class AssistantHeaderDelegate {
         mNativeAssistantHeaderDelegate = 0;
     }
 
-    private native void nativeOnFeedbackButtonClicked(long nativeAssistantHeaderDelegate);
-    private native void nativeOnCloseButtonClicked(long nativeAssistantHeaderDelegate);
+    @NativeMethods
+    interface Natives {
+        void onFeedbackButtonClicked(
+                long nativeAssistantHeaderDelegate, AssistantHeaderDelegate caller);
+    }
 }

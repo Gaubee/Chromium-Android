@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,14 +10,14 @@
 
 package org.chromium.components.download;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @IntDef({
     DownloadTaskType.DOWNLOAD_TASK, DownloadTaskType.CLEANUP_TASK,
-    DownloadTaskType.DOWNLOAD_AUTO_RESUMPTION_TASK
+    DownloadTaskType.DOWNLOAD_AUTO_RESUMPTION_TASK, DownloadTaskType.DOWNLOAD_LATER_TASK
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface DownloadTaskType {
@@ -33,4 +33,8 @@ public @interface DownloadTaskType {
    * Task to invoke the download auto-resumption handler.
    */
   int DOWNLOAD_AUTO_RESUMPTION_TASK = 2;
+  /**
+   * Task to start user scheduled downloads.
+   */
+  int DOWNLOAD_LATER_TASK = 3;
 }

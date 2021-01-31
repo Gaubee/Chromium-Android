@@ -5,14 +5,15 @@
 package org.chromium.chrome.browser.payments.ui;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.text.Layout;
 import android.text.TextPaint;
 import android.view.View;
 import android.widget.TextView;
 
+import android.annotation.Nullable;
+
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.widget.prefeditor.EditableOption;
+import org.chromium.components.autofill.EditableOption;
 
 /**
  * Utility functions for PaymentRequestSection.

@@ -4,6 +4,7 @@
 
 package org.chromium.chrome.browser;
 
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.content_public.browser.WebContents;
 
@@ -19,17 +20,23 @@ import dagger.Reusable;
 public class WebContentsFactory {
     @Inject
     public WebContentsFactory() {}
+
     /**
      * A factory method to build a {@link WebContents} object.
-     * @param incognito       Whether or not the {@link WebContents} should be built with an
-     *                        off-the-record profile or not.
+     * @param profile         The profile with which the {@link WebContents} should be built.
      * @param initiallyHidden Whether or not the {@link WebContents} should be initially hidden.
      * @return                A newly created {@link WebContents} object.
      */
-    // TODO(pshmakov): remove static for unit-testability.
-    public static WebContents createWebContents(boolean incognito, boolean initiallyHidden) {
-        return nativeCreateWebContents(
-                Profile.getLastUsedProfile(), incognito, initiallyHidden, false);
+    // TODO(https://crbug.com/1099138): Remove static for unit-testability.
+    public static WebContents createWebContents(Profile profile, boolean initiallyHidden) {
+        return WebContentsFactoryJni.get().createWebContents(profile, initiallyHidden, false);
+    }
+
+    // TODO(https://crbug.com/1033955): Remove after check discard error is fixed.
+    private static WebContents createWebContents(
+            Profile profile, boolean initiallyHidden, boolean initializeRenderer) {
+        return WebContentsFactoryJni.get().createWebContents(
+                profile, initiallyHidden, initializeRenderer);
     }
 
     /**
@@ -37,17 +44,17 @@ public class WebContentsFactory {
      *
      * Also creates and initializes the renderer.
      *
-     * @param incognito       Whether or not the {@link WebContents} should be built with an
-     *                        off-the-record profile or not.
+     * @param profile         The profile to be used by the WebContents.
      * @param initiallyHidden Whether or not the {@link WebContents} should be initially hidden.
      * @return                A newly created {@link WebContents} object.
      */
-    public WebContents createWebContentsWithWarmRenderer(
-            boolean incognito, boolean initiallyHidden) {
-        return nativeCreateWebContents(
-                Profile.getLastUsedProfile(), incognito, initiallyHidden, true);
+    public WebContents createWebContentsWithWarmRenderer(Profile profile, boolean initiallyHidden) {
+        return createWebContents(profile, initiallyHidden, true);
     }
 
-    private static native WebContents nativeCreateWebContents(Profile profile, boolean incognito,
-            boolean initiallyHidden, boolean initializeRenderer);
+    @NativeMethods
+    interface Natives {
+        WebContents createWebContents(
+                Profile profile, boolean initiallyHidden, boolean initializeRenderer);
+    }
 }

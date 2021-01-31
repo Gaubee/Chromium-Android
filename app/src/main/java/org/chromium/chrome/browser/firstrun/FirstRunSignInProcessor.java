@@ -4,21 +4,29 @@
 
 package org.chromium.chrome.browser.firstrun;
 
+import android.accounts.Account;
 import android.app.Activity;
-import android.app.Fragment;
-import android.os.Bundle;
 import android.text.TextUtils;
 
-import org.chromium.base.ContextUtils;
-import org.chromium.base.VisibleForTesting;
-import org.chromium.chrome.browser.ChromeFeatureList;
-import org.chromium.chrome.browser.preferences.PreferencesLauncher;
-import org.chromium.chrome.browser.preferences.SyncAndServicesPreferences;
-import org.chromium.chrome.browser.signin.AccountManagementFragment;
-import org.chromium.chrome.browser.signin.SigninManager;
-import org.chromium.chrome.browser.signin.SigninManager.SignInCallback;
-import org.chromium.chrome.browser.signin.UnifiedConsentServiceBridge;
-import org.chromium.chrome.browser.util.FeatureUtilities;
+import androidx.annotation.VisibleForTesting;
+
+import org.chromium.chrome.browser.SyncFirstSetupCompleteSource;
+import org.chromium.chrome.browser.flags.ChromeFeatureList;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
+import org.chromium.chrome.browser.profiles.Profile;
+import org.chromium.chrome.browser.settings.SettingsLauncherImpl;
+import org.chromium.chrome.browser.signin.services.IdentityServicesProvider;
+import org.chromium.chrome.browser.signin.services.SigninManager;
+import org.chromium.chrome.browser.signin.services.SigninManager.SignInCallback;
+import org.chromium.chrome.browser.signin.services.UnifiedConsentServiceBridge;
+import org.chromium.chrome.browser.sync.ProfileSyncService;
+import org.chromium.chrome.browser.sync.settings.ManageSyncSettings;
+import org.chromium.chrome.browser.sync.settings.SyncAndServicesSettings;
+import org.chromium.components.browser_ui.settings.SettingsLauncher;
+import org.chromium.components.signin.AccountManagerFacadeProvider;
+import org.chromium.components.signin.AccountUtils;
+import org.chromium.components.signin.metrics.SigninAccessPoint;
 
 /**
  * A helper to perform all necessary steps for the automatic FRE sign in.
@@ -34,15 +42,6 @@ import org.chromium.chrome.browser.util.FeatureUtilities;
  * FirstRunSignInProcessor.start(activity).
  */
 public final class FirstRunSignInProcessor {
-    /**
-     * SharedPreferences preference names to keep the state of the First Run Experience.
-     */
-    private static final String FIRST_RUN_FLOW_SIGNIN_COMPLETE = "first_run_signin_complete";
-
-    // Needed by ChromeBackupAgent
-    public static final String FIRST_RUN_FLOW_SIGNIN_SETUP = "first_run_signin_setup";
-    public static final String FIRST_RUN_FLOW_SIGNIN_ACCOUNT_NAME =
-            "first_run_signin_account_name";
 
     /**
      * Initiates the automatic sign-in process in background.
@@ -50,7 +49,8 @@ public final class FirstRunSignInProcessor {
      * @param activity The context for the FRE parameters processor.
      */
     public static void start(final Activity activity) {
-        SigninManager signinManager = SigninManager.get();
+        SigninManager signinManager = IdentityServicesProvider.get().getSigninManager(
+                Profile.getLastUsedRegularProfile());
         signinManager.onFirstRunCheckDone();
 
         // Skip signin if the first run flow is not complete. Examples of cases where the user
@@ -66,49 +66,58 @@ public final class FirstRunSignInProcessor {
             return;
         }
         final String accountName = getFirstRunFlowSignInAccountName();
-        if (!FeatureUtilities.canAllowSync(activity) || !signinManager.isSignInAllowed()
+        if (!FirstRunUtils.canAllowSync() || !signinManager.isSignInAllowed()
                 || TextUtils.isEmpty(accountName)) {
             setFirstRunFlowSignInComplete(true);
             return;
         }
 
-        final boolean setUp = getFirstRunFlowSignInSetup();
-        signinManager.signIn(accountName, activity, new SignInCallback() {
-            @Override
-            public void onSignInComplete() {
-                if (ChromeFeatureList.isEnabled(ChromeFeatureList.UNIFIED_CONSENT)) {
-                    UnifiedConsentServiceBridge.enableGoogleServices();
-                }
-                // Show sync settings if user pressed the "Settings" button.
-                if (setUp) {
-                    openSignInSettings(activity);
-                }
-                setFirstRunFlowSignInComplete(true);
-            }
+        // TODO(https://crbug.com/795292): Move this to SigninFirstRunFragment.
+        Account account = AccountUtils.findAccountByName(
+                AccountManagerFacadeProvider.getInstance().tryGetGoogleAccounts(), accountName);
+        if (account == null) {
+            setFirstRunFlowSignInComplete(true);
+            return;
+        }
 
-            @Override
-            public void onSignInAborted() {
-                // Set FRE as complete even if signin fails because the user has already seen and
-                // accepted the terms of service.
-                setFirstRunFlowSignInComplete(true);
-            }
-        });
+        final boolean setUp = getFirstRunFlowSignInSetup();
+        signinManager.signinAndEnableSync(
+                SigninAccessPoint.START_PAGE, account, new SignInCallback() {
+                    @Override
+                    public void onSignInComplete() {
+                        UnifiedConsentServiceBridge.setUrlKeyedAnonymizedDataCollectionEnabled(
+                                Profile.getLastUsedRegularProfile(), true);
+                        // Show sync settings if user pressed the "Settings" button.
+                        if (setUp) {
+                            openSignInSettings(activity);
+                        } else {
+                            ProfileSyncService.get().setFirstSetupComplete(
+                                    SyncFirstSetupCompleteSource.BASIC_FLOW);
+                        }
+                        setFirstRunFlowSignInComplete(true);
+                    }
+
+                    @Override
+                    public void onSignInAborted() {
+                        // Set FRE as complete even if signin fails because the user has already
+                        // seen and accepted the terms of service.
+                        setFirstRunFlowSignInComplete(true);
+                    }
+                });
     }
 
     /**
      * Opens sign in settings as requested in the FRE sign-in dialog.
      */
     private static void openSignInSettings(Activity activity) {
-        final Class<? extends Fragment> fragment;
-        final Bundle arguments;
-        if (ChromeFeatureList.isEnabled(ChromeFeatureList.UNIFIED_CONSENT)) {
-            fragment = SyncAndServicesPreferences.class;
-            arguments = SyncAndServicesPreferences.createArguments(true);
+        SettingsLauncher settingsLauncher = new SettingsLauncherImpl();
+        if (ChromeFeatureList.isEnabled(ChromeFeatureList.MOBILE_IDENTITY_CONSISTENCY)) {
+            settingsLauncher.launchSettingsActivity(
+                    activity, ManageSyncSettings.class, ManageSyncSettings.createArguments(true));
         } else {
-            fragment = AccountManagementFragment.class;
-            arguments = null;
+            settingsLauncher.launchSettingsActivity(activity, SyncAndServicesSettings.class,
+                    SyncAndServicesSettings.createArguments(true));
         }
-        PreferencesLauncher.launchSettingsPage(activity, fragment, arguments);
     }
 
     /**
@@ -116,8 +125,8 @@ public final class FirstRunSignInProcessor {
      */
     @VisibleForTesting
     public static boolean getFirstRunFlowSignInComplete() {
-        return ContextUtils.getAppSharedPreferences()
-                .getBoolean(FIRST_RUN_FLOW_SIGNIN_COMPLETE, false);
+        return SharedPreferencesManager.getInstance().readBoolean(
+                ChromePreferenceKeys.FIRST_RUN_FLOW_SIGNIN_COMPLETE, false);
     }
 
     /**
@@ -126,18 +135,16 @@ public final class FirstRunSignInProcessor {
      */
     @VisibleForTesting
     public static void setFirstRunFlowSignInComplete(boolean isComplete) {
-        ContextUtils.getAppSharedPreferences()
-                .edit()
-                .putBoolean(FIRST_RUN_FLOW_SIGNIN_COMPLETE, isComplete)
-                .apply();
+        SharedPreferencesManager.getInstance().writeBoolean(
+                ChromePreferenceKeys.FIRST_RUN_FLOW_SIGNIN_COMPLETE, isComplete);
     }
 
     /**
      * @return The account name selected during the First Run Experience, or null if none.
      */
     private static String getFirstRunFlowSignInAccountName() {
-        return ContextUtils.getAppSharedPreferences()
-                .getString(FIRST_RUN_FLOW_SIGNIN_ACCOUNT_NAME, null);
+        return SharedPreferencesManager.getInstance().readString(
+                ChromePreferenceKeys.FIRST_RUN_FLOW_SIGNIN_ACCOUNT_NAME, null);
     }
 
     /**
@@ -145,18 +152,16 @@ public final class FirstRunSignInProcessor {
      * @param accountName The account name, or null.
      */
     private static void setFirstRunFlowSignInAccountName(String accountName) {
-        ContextUtils.getAppSharedPreferences()
-                .edit()
-                .putString(FIRST_RUN_FLOW_SIGNIN_ACCOUNT_NAME, accountName)
-                .apply();
+        SharedPreferencesManager.getInstance().writeString(
+                ChromePreferenceKeys.FIRST_RUN_FLOW_SIGNIN_ACCOUNT_NAME, accountName);
     }
 
     /**
      * @return Whether the user selected to see the settings once signed in after FRE.
      */
     private static boolean getFirstRunFlowSignInSetup() {
-        return ContextUtils.getAppSharedPreferences().getBoolean(
-                FIRST_RUN_FLOW_SIGNIN_SETUP, false);
+        return SharedPreferencesManager.getInstance().readBoolean(
+                ChromePreferenceKeys.FIRST_RUN_FLOW_SIGNIN_SETUP, false);
     }
 
     /**
@@ -164,10 +169,8 @@ public final class FirstRunSignInProcessor {
      * @param isComplete Whether the user selected to see the settings once signed in.
      */
     private static void setFirstRunFlowSignInSetup(boolean isComplete) {
-        ContextUtils.getAppSharedPreferences()
-                .edit()
-                .putBoolean(FIRST_RUN_FLOW_SIGNIN_SETUP, isComplete)
-                .apply();
+        SharedPreferencesManager.getInstance().writeBoolean(
+                ChromePreferenceKeys.FIRST_RUN_FLOW_SIGNIN_SETUP, isComplete);
     }
 
     /**
@@ -186,7 +189,8 @@ public final class FirstRunSignInProcessor {
      * Allows the user to sign-in if there are no pending FRE sign-in requests.
      */
     public static void updateSigninManagerFirstRunCheckDone() {
-        SigninManager manager = SigninManager.get();
+        SigninManager manager = IdentityServicesProvider.get().getSigninManager(
+                Profile.getLastUsedRegularProfile());
         if (manager.isSignInAllowed()) return;
         if (!FirstRunStatus.getFirstRunFlowComplete()) return;
         if (!getFirstRunFlowSignInComplete()) return;

@@ -4,12 +4,12 @@
 
 package org.chromium.chrome.browser.rlz;
 
-import android.content.SharedPreferences;
-
-import org.chromium.base.ContextUtils;
 import org.chromium.base.ThreadUtils;
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.chrome.browser.AppHooks;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 import org.chromium.chrome.browser.tab.Tab;
 
 /**
@@ -17,7 +17,6 @@ import org.chromium.chrome.browser.tab.Tab;
  */
 @JNINamespace("chrome::android")
 public class RevenueStats {
-    private static final String PREF_RLZ_NOTIFIED = "rlz_first_search_notified";
 
     private static RevenueStats sInstance;
 
@@ -42,35 +41,35 @@ public class RevenueStats {
      * Returns whether the RLZ provider has been notified that the first search has occurred.
      */
     protected static boolean getRlzNotified() {
-        return ContextUtils.getAppSharedPreferences().getBoolean(
-                PREF_RLZ_NOTIFIED, false);
+        return SharedPreferencesManager.getInstance().readBoolean(
+                ChromePreferenceKeys.RLZ_NOTIFIED, false);
     }
 
     /**
-     * Stores whether the RLZ provider has been notified that the first search has occurred as
-     * shared preference.
+     * Stores that the RLZ provider has been notified that the first search has occurred.
      */
-    protected static void setRlzNotified(boolean notified) {
-        SharedPreferences.Editor sharedPreferencesEditor =
-                ContextUtils.getAppSharedPreferences().edit();
-        sharedPreferencesEditor.putBoolean(PREF_RLZ_NOTIFIED, notified);
-        sharedPreferencesEditor.apply();
+    protected static void markRlzNotified() {
+        SharedPreferencesManager.getInstance().writeBoolean(
+                ChromePreferenceKeys.RLZ_NOTIFIED, true);
     }
 
     /**
      * Sets search client id.
      */
     protected static void setSearchClient(String client) {
-        nativeSetSearchClient(client);
+        RevenueStatsJni.get().setSearchClient(client);
     }
 
     /**
      * Sets rlz value.
      */
     protected static void setRlzParameterValue(String rlz) {
-        nativeSetRlzParameterValue(rlz);
+        RevenueStatsJni.get().setRlzParameterValue(rlz);
     }
 
-    private static native void nativeSetSearchClient(String client);
-    private static native void nativeSetRlzParameterValue(String rlz);
+    @NativeMethods
+    interface Natives {
+        void setSearchClient(String client);
+        void setRlzParameterValue(String rlz);
+    }
 }

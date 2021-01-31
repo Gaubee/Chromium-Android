@@ -4,6 +4,7 @@
 
 package org.chromium.chrome.browser.omnibox;
 
+import android.text.TextWatcher;
 import android.view.ActionMode;
 
 import org.chromium.base.Callback;
@@ -11,7 +12,6 @@ import org.chromium.chrome.browser.WindowDelegate;
 import org.chromium.chrome.browser.omnibox.UrlBar.ScrollType;
 import org.chromium.chrome.browser.omnibox.UrlBar.UrlBarDelegate;
 import org.chromium.chrome.browser.omnibox.UrlBar.UrlBarTextContextMenuDelegate;
-import org.chromium.chrome.browser.omnibox.UrlBar.UrlDirectionListener;
 import org.chromium.chrome.browser.omnibox.UrlBar.UrlTextChangeListener;
 import org.chromium.chrome.browser.omnibox.UrlBarCoordinator.SelectionState;
 import org.chromium.ui.modelutil.PropertyKey;
@@ -31,6 +31,9 @@ class UrlBarProperties {
         /** Text to be shown. */
         public final CharSequence text;
 
+        /** Text for Autofill services. */
+        public final CharSequence textForAutofillServices;
+
         /** Specifies how the text should be scrolled in the unfocused state. */
         public final @ScrollType int scrollType;
 
@@ -40,9 +43,10 @@ class UrlBarProperties {
         /** Specifies how the text should be selected in the focused state. */
         public final @SelectionState int selectionState;
 
-        public UrlBarTextState(CharSequence text, @ScrollType int scrollType, int scrollToIndex,
-                @SelectionState int selectionState) {
+        public UrlBarTextState(CharSequence text, CharSequence textForAutofillServices,
+                @ScrollType int scrollType, int scrollToIndex, @SelectionState int selectionState) {
             this.text = text;
+            this.textForAutofillServices = textForAutofillServices;
             this.scrollType = scrollType;
             this.scrollToIndex = scrollToIndex;
             this.selectionState = selectionState;
@@ -108,11 +112,15 @@ class UrlBarProperties {
             new WritableObjectPropertyKey<>();
 
     /** The listener to be notified of URL direction changes. */
-    public static final WritableObjectPropertyKey<UrlDirectionListener> URL_DIRECTION_LISTENER =
+    public static final WritableObjectPropertyKey<Callback<Integer>> URL_DIRECTION_LISTENER =
             new WritableObjectPropertyKey<>();
 
-    /** The callback to be notified on text changes. */
+    /** The callback to be notified on url text changes. @see UrlTextChangeListener. */
     public static final WritableObjectPropertyKey<UrlTextChangeListener> URL_TEXT_CHANGE_LISTENER =
+            new WritableObjectPropertyKey<>();
+
+    /** The callback to be notified on text changes. @see TextWatcher. */
+    public static final WritableObjectPropertyKey<TextWatcher> TEXT_CHANGED_LISTENER =
             new WritableObjectPropertyKey<>();
 
     /** Specifies whether dark text colors should be used in the view. */
@@ -126,5 +134,5 @@ class UrlBarProperties {
     public static final PropertyKey[] ALL_KEYS = new PropertyKey[] {ACTION_MODE_CALLBACK,
             ALLOW_FOCUS, AUTOCOMPLETE_TEXT, DELEGATE, FOCUS_CHANGE_CALLBACK, SHOW_CURSOR,
             TEXT_CONTEXT_MENU_DELEGATE, TEXT_STATE, URL_DIRECTION_LISTENER,
-            URL_TEXT_CHANGE_LISTENER, USE_DARK_TEXT_COLORS, WINDOW_DELEGATE};
+            URL_TEXT_CHANGE_LISTENER, TEXT_CHANGED_LISTENER, USE_DARK_TEXT_COLORS, WINDOW_DELEGATE};
 }

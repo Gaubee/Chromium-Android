@@ -6,9 +6,12 @@ package org.chromium.chrome.browser.contextualsearch;
 
 import android.text.TextUtils;
 
+import org.chromium.chrome.browser.contextualsearch.ContextualSearchFieldTrial.ContextualSearchSwitch;
+
 /**
- * Implements the policy that a Tap relatively far away from the middle of a word should be
- * ignored.  When a Tap is close to the middle of the word tapped it's treated normally.
+ * Implements a {@link ContextualSearchHeuristic} that a Tap relatively far away from the middle of
+ * a word should be ignored.  When a Tap is close to the middle of the word tapped it's treated
+ * normally.
  */
 class TapWordEdgeSuppression extends ContextualSearchHeuristic {
     private static final int INVALID_OFFSET = ContextualSearchContext.INVALID_OFFSET;
@@ -25,7 +28,8 @@ class TapWordEdgeSuppression extends ContextualSearchHeuristic {
      *        out what part of the word has been tapped.
      */
     TapWordEdgeSuppression(ContextualSearchContext contextualSearchContext) {
-        mIsSuppressionEnabled = ContextualSearchFieldTrial.isWordEdgeSuppressionEnabled();
+        mIsSuppressionEnabled = ContextualSearchFieldTrial.getSwitch(
+                ContextualSearchSwitch.IS_WORD_EDGE_SUPPRESSION_ENABLED);
         mIsConditionSatisfied = isTapNearWordEdge(contextualSearchContext);
     }
 
@@ -74,8 +78,6 @@ class TapWordEdgeSuppression extends ContextualSearchHeuristic {
         boolean isInStartEdge = (double) tapOffset / wordTapped.length() < MIN_WORD_START_RATIO;
         boolean isInEndEdge = (double) (wordTapped.length() - tapOffset) / wordTapped.length()
                 < MIN_WORD_END_RATIO;
-        if (wordTapped.length() >= MIN_WORD_LENGTH && (isInStartEdge || isInEndEdge)) return true;
-
-        return false;
+        return wordTapped.length() >= MIN_WORD_LENGTH && (isInStartEdge || isInEndEdge);
     }
 }

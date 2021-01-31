@@ -27,7 +27,7 @@ import android.print.PrintDocumentInfo;
 public class PrintDocumentAdapterWrapper extends PrintDocumentAdapter {
     private PdfGenerator mPdfGenerator;
 
-    public static interface PdfGenerator {
+    public interface PdfGenerator {
         void onStart();
         void onLayout(
                 PrintAttributes oldAttributes,
@@ -43,20 +43,20 @@ public class PrintDocumentAdapterWrapper extends PrintDocumentAdapter {
         void onFinish();
     }
 
-    public static interface LayoutResultCallbackWrapper {
+    public interface LayoutResultCallbackWrapper {
         void onLayoutFinished(PrintDocumentInfo info, boolean changed);
         void onLayoutFailed(CharSequence error);
         void onLayoutCancelled();
     }
 
-    public static interface WriteResultCallbackWrapper {
+    public interface WriteResultCallbackWrapper {
         void onWriteFinished(PageRange[] pages);
         void onWriteFailed(CharSequence error);
         void onWriteCancelled();
     }
 
     public static class LayoutResultCallbackWrapperImpl implements LayoutResultCallbackWrapper {
-        private LayoutResultCallback mCallback;
+        private final LayoutResultCallback mCallback;
         public LayoutResultCallbackWrapperImpl(LayoutResultCallback callback) {
             assert callback != null;
             mCallback = callback;
@@ -79,7 +79,7 @@ public class PrintDocumentAdapterWrapper extends PrintDocumentAdapter {
     }
 
     public static class WriteResultCallbackWrapperImpl implements WriteResultCallbackWrapper {
-        private WriteResultCallback mCallback;
+        private final WriteResultCallback mCallback;
         public WriteResultCallbackWrapperImpl(WriteResultCallback callback) {
             assert callback != null;
             mCallback = callback;

@@ -11,7 +11,7 @@ import static org.chromium.chrome.browser.download.DownloadNotificationService.A
 import static org.chromium.chrome.browser.download.DownloadNotificationService.ACTION_DOWNLOAD_PAUSE;
 import static org.chromium.chrome.browser.download.DownloadNotificationService.ACTION_DOWNLOAD_RESUME;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import org.chromium.base.library_loader.LibraryLoader;
 import org.chromium.base.metrics.RecordHistogram;
@@ -49,7 +49,7 @@ public final class DownloadNotificationUmaHelper {
         int NUM_ENTRIES = 3;
     }
 
-    private static List<String> sInteractions = Arrays.asList(
+    private static final List<String> sInteractions = Arrays.asList(
             ACTION_NOTIFICATION_CLICKED, // Opening a download where LegacyHelpers.isLegacyDownload.
             ACTION_DOWNLOAD_OPEN, // Opening a download that is not a legacy download.
             ACTION_DOWNLOAD_CANCEL, ACTION_DOWNLOAD_PAUSE, ACTION_DOWNLOAD_RESUME);
@@ -91,21 +91,6 @@ public final class DownloadNotificationUmaHelper {
         int NUM_ENTRIES = 7;
     }
 
-    // Values for the histograms MobileDownload.Background.*. Keep in sync with
-    // MobileDownloadBackgroundDownloadEvent in enums.xml.
-    @IntDef({UmaBackgroundDownload.STARTED, UmaBackgroundDownload.COMPLETED,
-            UmaBackgroundDownload.CANCELLED, UmaBackgroundDownload.FAILED,
-            UmaBackgroundDownload.INTERRUPTED})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface UmaBackgroundDownload {
-        int STARTED = 0;
-        int COMPLETED = 1;
-        int CANCELLED = 2;
-        int FAILED = 3;
-        int INTERRUPTED = 4;
-        int NUM_ENTRIES = 5;
-    }
-
     /**
      * Records an instance where a user interacts with a notification (clicks on, pauses, etc).
      * @param action Notification interaction that was taken (ie. pause, resume).
@@ -123,18 +108,11 @@ public final class DownloadNotificationUmaHelper {
      * understand the frequency of unexpected stops (low memory, task removed, etc).
      * @param stopType Type of the foreground stop that is being recorded ({@link ServiceStopped}).
      */
-    static void recordServiceStoppedHistogram(
-            @ServiceStopped int stopType, boolean withForeground) {
+    static void recordServiceStoppedHistogram(@ServiceStopped int stopType) {
         if (!LibraryLoader.getInstance().isInitialized()) return;
-        if (withForeground) {
             RecordHistogram.recordEnumeratedHistogram(
                     "Android.DownloadManager.ServiceStopped.DownloadForeground", stopType,
                     ServiceStopped.NUM_ENTRIES);
-        } else {
-            RecordHistogram.recordEnumeratedHistogram(
-                    "Android.DownloadManager.ServiceStopped.DownloadNotification", stopType,
-                    ServiceStopped.NUM_ENTRIES);
-        }
     }
 
     /**
@@ -147,35 +125,6 @@ public final class DownloadNotificationUmaHelper {
         RecordHistogram.recordEnumeratedHistogram(
                 "Android.DownloadManager.ForegroundServiceLifecycle", lifecycleStep,
                 ForegroundLifecycle.NUM_ENTRIES);
-    }
-
-    /**
-     * Record the number of existing notifications when a new notification is being launched (more
-     * specifically the number of existing shared preference entries when a new shared preference
-     * entry is being recorded).
-     * @param count The number of existing notifications.
-     * @param withForeground Whether this is with foreground enabled or not.
-     */
-    static void recordExistingNotificationsCountHistogram(int count, boolean withForeground) {
-        if (!LibraryLoader.getInstance().isInitialized()) return;
-        if (withForeground) {
-            RecordHistogram.recordCountHistogram(
-                    "Android.DownloadManager.NotificationsCount.ForegroundEnabled", count);
-        } else {
-            RecordHistogram.recordCountHistogram(
-                    "Android.DownloadManager.NotificationsCount.ForegroundDisabled", count);
-        }
-    }
-
-    /**
-     * Record an instance when a notification is being launched for the first time or relaunched due
-     * to the need to dissociate the notification from the foreground (only on API < 24).
-     * @param launchType Whether it is a launch or a relaunch ({@link LaunchType}).
-     */
-    static void recordNotificationFlickerCountHistogram(@LaunchType int launchType) {
-        if (!LibraryLoader.getInstance().isInitialized()) return;
-        RecordHistogram.recordEnumeratedHistogram(
-                "Android.DownloadManager.NotificationLaunch", launchType, LaunchType.NUM_ENTRIES);
     }
 
     /**
@@ -204,14 +153,5 @@ public final class DownloadNotificationUmaHelper {
     static void recordDownloadResumptionHistogram(@UmaDownloadResumption int type) {
         RecordHistogram.recordEnumeratedHistogram(
                 "MobileDownload.DownloadResumption", type, UmaDownloadResumption.NUM_ENTRIES);
-    }
-
-    /**
-     * Helper method to record the background download resumption UMA.
-     * @param type UMA type to be recorded.
-     */
-    static void recordBackgroundDownloadHistogram(@UmaBackgroundDownload int type) {
-        RecordHistogram.recordEnumeratedHistogram(
-                "MobileDownload.Background", type, UmaBackgroundDownload.NUM_ENTRIES);
     }
 }

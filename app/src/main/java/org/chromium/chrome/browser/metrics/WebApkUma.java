@@ -4,27 +4,30 @@
 
 package org.chromium.chrome.browser.metrics;
 
-import android.Manifest;
 import android.content.ContentResolver;
-import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.provider.Settings;
-import android.support.annotation.IntDef;
-import android.text.TextUtils;
+
+import android.annotation.IntDef;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.base.task.AsyncTask;
-import org.chromium.chrome.browser.util.ConversionUtils;
-import org.chromium.chrome.browser.webapps.WebApkInfo;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
+import org.chromium.chrome.browser.webapps.WebApkDistributor;
+import org.chromium.chrome.browser.webapps.WebApkUkmRecorder;
+import org.chromium.chrome.browser.webapps.WebappDataStorage;
+import org.chromium.chrome.browser.webapps.WebappIntentUtils;
+import org.chromium.chrome.browser.webapps.WebappRegistry;
+import org.chromium.components.browser_ui.util.ConversionUtils;
 
 import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Centralizes UMA data collection for WebAPKs. NOTE: Histogram names and values are defined in
@@ -92,26 +95,14 @@ public class WebApkUma {
         int NUM_ENTRIES = 16;
     }
 
-    // This enum is used to back UMA histograms, and should therefore be treated as append-only.
-    @IntDef({Permission.OTHER, Permission.LOCATION, Permission.MICROPHONE, Permission.CAMERA,
-            Permission.STORAGE})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface Permission {
-        int OTHER = 0;
-        int LOCATION = 1;
-        int MICROPHONE = 2;
-        int CAMERA = 3;
-        int STORAGE = 4;
-        int NUM_ENTRIES = 5;
-    }
-
-    public static final String HISTOGRAM_UPDATE_REQUEST_SENT =
-            "WebApk.Update.RequestSent";
+    public static final String HISTOGRAM_UPDATE_REQUEST_SENT = "WebApk.Update.RequestSent";
 
     public static final String HISTOGRAM_UPDATE_REQUEST_QUEUED = "WebApk.Update.RequestQueued";
 
     private static final String HISTOGRAM_LAUNCH_TO_SPLASHSCREEN_VISIBLE =
             "WebApk.Startup.Cold.ShellLaunchToSplashscreenVisible";
+    private static final String HISTOGRAM_NEW_STYLE_LAUNCH_TO_SPLASHSCREEN_VISIBLE =
+            "WebApk.Startup.Cold.NewStyle.ShellLaunchToSplashscreenVisible";
     private static final String HISTOGRAM_LAUNCH_TO_SPLASHSCREEN_HIDDEN =
             "WebApk.Startup.Cold.ShellLaunchToSplashscreenHidden";
 
@@ -122,6 +113,51 @@ public class WebApkUma {
 
     private static final long WEBAPK_EXTRA_INSTALLATION_SPACE_BYTES =
             100 * (long) ConversionUtils.BYTES_PER_MEGABYTE; // 100 MB
+
+    /** Makes recordings that were deferred in order to not load native. */
+    public static void recordDeferredUma() {
+        SharedPreferencesManager preferencesManager = SharedPreferencesManager.getInstance();
+        Set<String> uninstalledPackages =
+                preferencesManager.readStringSet(ChromePreferenceKeys.WEBAPK_UNINSTALLED_PACKAGES);
+        if (uninstalledPackages.isEmpty()) return;
+
+        long fallbackUninstallTimestamp = System.currentTimeMillis();
+        WebappRegistry.warmUpSharedPrefs();
+        for (String uninstalledPackage : uninstalledPackages) {
+            RecordHistogram.recordBooleanHistogram("WebApk.Uninstall.Browser", true);
+
+            String webApkId = WebappIntentUtils.getIdForWebApkPackage(uninstalledPackage);
+            WebappDataStorage webappDataStorage =
+                    WebappRegistry.getInstance().getWebappDataStorage(webApkId);
+            if (webappDataStorage != null) {
+                long uninstallTimestamp = webappDataStorage.getWebApkUninstallTimestamp();
+                if (uninstallTimestamp == 0) {
+                    uninstallTimestamp = fallbackUninstallTimestamp;
+                }
+                WebApkUkmRecorder.recordWebApkUninstall(webappDataStorage.getWebApkManifestUrl(),
+                        WebApkDistributor.BROWSER, webappDataStorage.getWebApkVersionCode(),
+                        webappDataStorage.getLaunchCount(),
+                        uninstallTimestamp - webappDataStorage.getWebApkInstallTimestamp());
+            }
+        }
+        preferencesManager.writeStringSet(
+                ChromePreferenceKeys.WEBAPK_UNINSTALLED_PACKAGES, new HashSet<String>());
+
+        // TODO(http://crbug.com/1000312): Clear WebappDataStorage for uninstalled WebAPK.
+    }
+
+    /** Sets WebAPK uninstall to be recorded next time that native is loaded. */
+    public static void deferRecordWebApkUninstalled(String packageName) {
+        SharedPreferencesManager.getInstance().addToStringSet(
+                ChromePreferenceKeys.WEBAPK_UNINSTALLED_PACKAGES, packageName);
+        String webApkId = WebappIntentUtils.getIdForWebApkPackage(packageName);
+        WebappRegistry.warmUpSharedPrefsForId(webApkId);
+        WebappDataStorage webappDataStorage =
+                WebappRegistry.getInstance().getWebappDataStorage(webApkId);
+        if (webappDataStorage != null) {
+            webappDataStorage.setWebApkUninstallTimestamp();
+        }
+    }
 
     /**
      * Records the time point when a request to update a WebAPK is sent to the WebAPK Server.
@@ -143,21 +179,30 @@ public class WebApkUma {
     }
 
     /**
-     * Records duration between starting of the WebAPK shell until the splashscreen is shown.
+     * Records duration between starting the WebAPK shell until the splashscreen is shown.
      * @param durationMs duration in milliseconds
      */
-    public static void recordShellApkLaunchToSplashscreenVisible(long durationMs) {
+    public static void recordShellApkLaunchToSplashVisible(long durationMs) {
         RecordHistogram.recordMediumTimesHistogram(
-                HISTOGRAM_LAUNCH_TO_SPLASHSCREEN_VISIBLE, durationMs, TimeUnit.MILLISECONDS);
+                HISTOGRAM_LAUNCH_TO_SPLASHSCREEN_VISIBLE, durationMs);
+    }
+
+    /**
+     * Records duration between starting the WebAPK shell until the shell displays the
+     * splashscreen for new-style WebAPKs.
+     */
+    public static void recordNewStyleShellApkLaunchToSplashVisible(long durationMs) {
+        RecordHistogram.recordMediumTimesHistogram(
+                HISTOGRAM_NEW_STYLE_LAUNCH_TO_SPLASHSCREEN_VISIBLE, durationMs);
     }
 
     /**
      * Records duration between starting of the WebAPK shell until the splashscreen is hidden.
      * @param durationMs duration in milliseconds
      */
-    public static void recordShellApkLaunchToSplashscreenHidden(long durationMs) {
+    public static void recordShellApkLaunchToSplashHidden(long durationMs) {
         RecordHistogram.recordMediumTimesHistogram(
-                HISTOGRAM_LAUNCH_TO_SPLASHSCREEN_HIDDEN, durationMs, TimeUnit.MILLISECONDS);
+                HISTOGRAM_LAUNCH_TO_SPLASHSCREEN_HIDDEN, durationMs);
     }
 
     /** Records whether a WebAPK has permission to display notifications. */
@@ -194,85 +239,29 @@ public class WebApkUma {
 
     /** Records the duration of a WebAPK session (from launch/foreground to background). */
     public static void recordWebApkSessionDuration(
-            @WebApkInfo.WebApkDistributor int distributor, long duration) {
+            @WebApkDistributor int distributor, long duration) {
         RecordHistogram.recordLongTimesHistogram(
                 "WebApk.Session.TotalDuration2." + getWebApkDistributorUmaSuffix(distributor),
-                duration, TimeUnit.MILLISECONDS);
+                duration);
     }
 
     /** Records the current Shell APK version. */
     public static void recordShellApkVersion(
-            int shellApkVersion, @WebApkInfo.WebApkDistributor int distributor) {
+            int shellApkVersion, @WebApkDistributor int distributor) {
         RecordHistogram.recordSparseHistogram(
                 "WebApk.ShellApkVersion2." + getWebApkDistributorUmaSuffix(distributor),
                 shellApkVersion);
     }
 
-    private static String getWebApkDistributorUmaSuffix(
-            @WebApkInfo.WebApkDistributor int distributor) {
+    private static String getWebApkDistributorUmaSuffix(@WebApkDistributor int distributor) {
         switch (distributor) {
-            case WebApkInfo.WebApkDistributor.BROWSER:
+            case WebApkDistributor.BROWSER:
                 return "Browser";
-            case WebApkInfo.WebApkDistributor.DEVICE_POLICY:
+            case WebApkDistributor.DEVICE_POLICY:
                 return "DevicePolicy";
             default:
                 return "Other";
         }
-    }
-
-    /**
-     * Records the requests of Android runtime permissions which haven't been granted to Chrome when
-     * Chrome is running in WebAPK runtime.
-     */
-    public static void recordAndroidRuntimePermissionPromptInWebApk(final String[] permissions) {
-        recordPermissionUma("WebApk.Permission.ChromeWithoutPermission", permissions);
-    }
-
-    /**
-     * Records the amount of requests that WekAPK runtime permissions access is deined because
-     * Chrome does not have that permission.
-     */
-    public static void recordAndroidRuntimePermissionDeniedInWebApk(final String[] permissions) {
-        recordPermissionUma("WebApk.Permission.ChromePermissionDenied2", permissions);
-    }
-
-    private static void recordPermissionUma(String permissionUmaName, final String[] permissions) {
-        Set<Integer> permissionGroups = new HashSet<Integer>();
-        for (String permission : permissions) {
-            permissionGroups.add(getPermissionGroup(permission));
-        }
-        for (@Permission Integer permission : permissionGroups) {
-            RecordHistogram.recordEnumeratedHistogram(
-                    permissionUmaName, permission, Permission.NUM_ENTRIES);
-        }
-    }
-
-    private static @Permission int getPermissionGroup(String permission) {
-        if (TextUtils.equals(permission, Manifest.permission.ACCESS_COARSE_LOCATION)
-                || TextUtils.equals(permission, Manifest.permission.ACCESS_FINE_LOCATION)) {
-            return Permission.LOCATION;
-        }
-        if (TextUtils.equals(permission, Manifest.permission.RECORD_AUDIO)) {
-            return Permission.MICROPHONE;
-        }
-        if (TextUtils.equals(permission, Manifest.permission.CAMERA)) {
-            return Permission.CAMERA;
-        }
-        if (TextUtils.equals(permission, Manifest.permission.READ_EXTERNAL_STORAGE)
-                || TextUtils.equals(permission, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            return Permission.STORAGE;
-        }
-        return Permission.OTHER;
-    }
-
-    /**
-     * Recorded when a WebAPK is launched from the homescreen. Records the time elapsed since the
-     * previous WebAPK launch. Not recorded the first time that a WebAPK is launched.
-     */
-    public static void recordLaunchInterval(long intervalMs) {
-        RecordHistogram.recordCustomCountHistogram("WebApk.LaunchInterval2",
-                (int) TimeUnit.MILLISECONDS.toMinutes(intervalMs), 30,
-                (int) TimeUnit.DAYS.toMinutes(90), 50);
     }
 
     /** Records to UMA the count of old "WebAPK update request" files. */
@@ -288,6 +277,15 @@ public class WebApkUma {
     /** Records the network error code caught when a WebAPK is launched. */
     public static void recordNetworkErrorWhenLaunch(int errorCode) {
         RecordHistogram.recordSparseHistogram("WebApk.Launch.NetworkError", -errorCode);
+    }
+
+    /**
+     * Records whether a WebAPK navigation is within the WebAPK's scope.
+     * @param isChildTab Whether {@link Tab#getParentId()} is non-empty.
+     * @param isNavigationInScope
+     */
+    public static void recordNavigation(boolean isNavigationInScope) {
+        RecordHistogram.recordBooleanHistogram("WebApk.Navigation.InScope", isNavigationInScope);
     }
 
     /**
@@ -308,16 +306,12 @@ public class WebApkUma {
             protected void onPostExecute(Void result) {
                 logSpaceUsageUMAOnDataAvailable(mAvailableSpaceInByte, mCacheSizeInByte);
             }
-        }
-                .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     private static void logSpaceUsageUMAOnDataAvailable(long spaceSize, long cacheSize) {
         RecordHistogram.recordSparseHistogram(
                 "WebApk.Install.AvailableSpace.Fail", roundByteToMb(spaceSize));
-
-        RecordHistogram.recordSparseHistogram(
-                "WebApk.Install.ChromeCacheSize.Fail", roundByteToMb(cacheSize));
 
         RecordHistogram.recordSparseHistogram("WebApk.Install.AvailableSpaceAfterFreeUpCache.Fail",
                 roundByteToMb(spaceSize + cacheSize));
@@ -347,29 +341,13 @@ public class WebApkUma {
      * @return The available space that can be used to install WebAPK. Negative value means there is
      * less free space available than the system's minimum by the given amount.
      */
-    @SuppressWarnings("deprecation")
     public static long getAvailableSpaceAboveLowSpaceLimit() {
-        long partitionAvailableBytes;
-        long partitionTotalBytes;
         StatFs partitionStats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            partitionAvailableBytes = partitionStats.getAvailableBytes();
-            partitionTotalBytes = partitionStats.getTotalBytes();
-        } else {
-            // these APIs were deprecated in API level 18.
-            long blockSize = partitionStats.getBlockSize();
-            partitionAvailableBytes = blockSize * (long) partitionStats.getAvailableBlocks();
-            partitionTotalBytes = blockSize * (long) partitionStats.getBlockCount();
-        }
+        long partitionAvailableBytes = partitionStats.getAvailableBytes();
+        long partitionTotalBytes = partitionStats.getTotalBytes();
         long minimumFreeBytes = getLowSpaceLimitBytes(partitionTotalBytes);
 
-        long webApkExtraSpaceBytes = 0;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // Extra installation space is only allowed >= Android L
-            webApkExtraSpaceBytes = WEBAPK_EXTRA_INSTALLATION_SPACE_BYTES;
-        }
-
+        long webApkExtraSpaceBytes = WEBAPK_EXTRA_INSTALLATION_SPACE_BYTES;
         return partitionAvailableBytes - minimumFreeBytes + webApkExtraSpaceBytes;
     }
 
@@ -398,17 +376,10 @@ public class WebApkUma {
         long minFreeBytes = 0;
 
         // Retrieve platform-appropriate values first
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            minFreePercent = Settings.Global.getInt(
-                    resolver, sysStorageThresholdPercentage, defaultThresholdPercentage);
-            minFreeBytes = Settings.Global.getLong(
-                    resolver, sysStorageThresholdMaxBytes, defaultThresholdMaxBytes);
-        } else {
-            minFreePercent = Settings.Secure.getInt(
-                    resolver, sysStorageThresholdPercentage, defaultThresholdPercentage);
-            minFreeBytes = Settings.Secure.getLong(
-                    resolver, sysStorageThresholdMaxBytes, defaultThresholdMaxBytes);
-        }
+        minFreePercent = Settings.Global.getInt(
+                resolver, sysStorageThresholdPercentage, defaultThresholdPercentage);
+        minFreeBytes = Settings.Global.getLong(
+                resolver, sysStorageThresholdMaxBytes, defaultThresholdMaxBytes);
 
         long minFreePercentInBytes = (partitionTotalBytes * minFreePercent) / 100;
 

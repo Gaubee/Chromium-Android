@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.components.offline_items_collection;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -18,7 +18,7 @@ import java.lang.annotation.RetentionPolicy;
 @IntDef({
     OfflineItemState.IN_PROGRESS, OfflineItemState.PENDING, OfflineItemState.COMPLETE,
     OfflineItemState.CANCELLED, OfflineItemState.INTERRUPTED, OfflineItemState.FAILED,
-    OfflineItemState.PAUSED, OfflineItemState.MAX_DOWNLOAD_STATE
+    OfflineItemState.PAUSED
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface OfflineItemState {
@@ -32,5 +32,5 @@ public @interface OfflineItemState {
   /**
    * downloads resumption.
    */
-  int MAX_DOWNLOAD_STATE = 7;
+  int NUM_ENTRIES = 7;
 }

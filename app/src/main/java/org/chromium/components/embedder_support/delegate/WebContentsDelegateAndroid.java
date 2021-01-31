@@ -8,8 +8,10 @@ import android.view.KeyEvent;
 
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.blink.mojom.DisplayMode;
 import org.chromium.content_public.browser.WebContents;
 import org.chromium.content_public.common.ResourceRequestBody;
+import org.chromium.url.GURL;
 
 /**
  * Java peer of the native class of the same name.
@@ -25,21 +27,14 @@ public class WebContentsDelegateAndroid {
     // Equivalent of WebCore::WebConsoleMessage::LevelError.
     public static final int LOG_LEVEL_ERROR = 3;
 
-    // The most recent load progress callback received from WebContents, as a percentage.
-    // Initialize to 100 to indicate that we're not in a loading state.
-    private int mMostRecentProgress = 100;
-
-    public int getMostRecentProgress() {
-        return mMostRecentProgress;
-    }
-
     /**
+     * @param url
      * @param disposition         The new tab disposition, defined in
      *                            //ui/base/mojo/window_open_disposition.mojom.
      * @param isRendererInitiated Whether or not the renderer initiated this action.
      */
     @CalledByNative
-    public void openNewTab(String url, String extraHeaders, ResourceRequestBody postData,
+    public void openNewTab(GURL url, String extraHeaders, ResourceRequestBody postData,
             int disposition, boolean isRendererInitiated) {}
 
     @CalledByNative
@@ -57,18 +52,6 @@ public class WebContentsDelegateAndroid {
     @CalledByNative
     public void visibleSSLStateChanged() {}
 
-    @SuppressWarnings("unused")
-    @CalledByNative
-    private final void notifyLoadProgressChanged(double progress) {
-        mMostRecentProgress = (int) (100.0 * progress);
-        onLoadProgressChanged(mMostRecentProgress);
-    }
-
-    /**
-     * @param progress The load progress [0, 100] for the current web contents.
-     */
-    public void onLoadProgressChanged(int progress) {}
-
     /**
      * Signaled when the renderer has been deemed to be unresponsive.
      */
@@ -83,16 +66,16 @@ public class WebContentsDelegateAndroid {
 
     @CalledByNative
     public void webContentsCreated(WebContents sourceWebContents, long openerRenderProcessId,
-            long openerRenderFrameId, String frameName, String targetUrl,
+            long openerRenderFrameId, String frameName, GURL targetUrl,
             WebContents newWebContents) {}
 
     @CalledByNative
-    public boolean shouldCreateWebContents(String targetUrl) {
+    public boolean shouldCreateWebContents(GURL targetUrl) {
         return true;
     }
 
     @CalledByNative
-    public void onUpdateUrl(String url) {}
+    public void onUpdateUrl(GURL url) {}
 
     @CalledByNative
     public boolean takeFocus(boolean reverse) {
@@ -131,6 +114,9 @@ public class WebContentsDelegateAndroid {
     public void enterFullscreenModeForTab(boolean prefersNavigationBar) {}
 
     @CalledByNative
+    public void fullscreenStateChangedForTab(boolean prefersNavigationBar) {}
+
+    @CalledByNative
     public void exitFullscreenModeForTab() {}
 
     @CalledByNative
@@ -144,7 +130,7 @@ public class WebContentsDelegateAndroid {
      * @return true to prevent the resource from being loaded.
      */
     @CalledByNative
-    public boolean shouldBlockMediaRequest(String url) {
+    public boolean shouldBlockMediaRequest(GURL url) {
         return false;
     }
 
@@ -157,6 +143,14 @@ public class WebContentsDelegateAndroid {
     }
 
     /**
+     * @return The minimum visible height the top controls can have in DIP.
+     */
+    @CalledByNative
+    public int getTopControlsMinHeight() {
+        return 0;
+    }
+
+    /**
      * @return The height of the bottom controls in DIP.
      */
     @CalledByNative
@@ -165,10 +159,37 @@ public class WebContentsDelegateAndroid {
     }
 
     /**
-     * @return Whether or not the browser controls resize Blink's view size.
+     * @return The minimum visible height the bottom controls can have in DIP.
      */
     @CalledByNative
-    public boolean controlsResizeView() {
+    public int getBottomControlsMinHeight() {
+        return 0;
+    }
+
+    /**
+     * @return Whether or not the browser controls height changes should be animated.
+     */
+    @CalledByNative
+    public boolean shouldAnimateBrowserControlsHeightChanges() {
         return false;
+    }
+
+    /**
+     * Check and return the {@link DisplayMode} value.
+     *
+     * @return The {@link DisplayMode} value.
+     */
+    @CalledByNative
+    protected final int getDisplayModeChecked() {
+        int displayMode = getDisplayMode();
+        assert DisplayMode.isKnownValue(displayMode);
+        return displayMode;
+    }
+
+    /**
+     * @return The {@link DisplayMode} value.
+     */
+    public int getDisplayMode() {
+        return DisplayMode.UNDEFINED;
     }
 }

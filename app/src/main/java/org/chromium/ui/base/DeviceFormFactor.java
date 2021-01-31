@@ -5,14 +5,16 @@
 package org.chromium.ui.base;
 
 import android.content.Context;
-import android.support.annotation.UiThread;
+
+import androidx.annotation.UiThread;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.ThreadUtils;
 import org.chromium.base.annotations.CalledByNative;
-import org.chromium.ui.R;
+//import org.chromium.ui.R;
 import org.chromium.ui.display.DisplayAndroid;
 import org.chromium.ui.display.DisplayUtil;
+import org.chromium.base.R;
 
 /**
  * UI utilities for accessing form factor information.

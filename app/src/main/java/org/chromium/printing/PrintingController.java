@@ -42,7 +42,7 @@ public interface PrintingController {
     /**
      * @return If the controller is busy.
      */
-    public boolean isBusy();
+    boolean isBusy();
 
     /**
      * Initiates the printing process for the Android API.

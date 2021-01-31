@@ -4,19 +4,26 @@
 
 package org.chromium.chrome.browser.firstrun;
 
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.SwitchCompat;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.fragment.app.Fragment;
 
 import org.chromium.chrome.R;
+import org.chromium.chrome.browser.datareduction.DataReductionPromoUtils;
 import org.chromium.chrome.browser.net.spdyproxy.DataReductionProxySettings;
-import org.chromium.chrome.browser.preferences.datareduction.DataReductionBrandingResourceProvider;
-import org.chromium.chrome.browser.preferences.datareduction.DataReductionPromoUtils;
+import org.chromium.ui.text.NoUnderlineClickableSpan;
+import org.chromium.ui.text.SpanApplier;
+import org.chromium.ui.text.SpanApplier.SpanInfo;
 
 /**
  * The First Run Experience fragment that allows the user to opt in to Data Saver.
@@ -33,15 +40,15 @@ public class DataReductionProxyFirstRunFragment extends Fragment implements Firs
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(DataReductionBrandingResourceProvider.getFirstRunLayout(
-                                        R.layout.fre_data_reduction_proxy),
-                container, false);
+        return inflater.inflate(R.layout.fre_data_reduction_proxy_lite_mode, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        final TextView promoSummaryTextView =
+                (TextView) view.findViewById(R.id.data_reduction_promo_summary_text);
         final SwitchCompat enableDataSaverSwitch = (SwitchCompat) view
                 .findViewById(R.id.enable_data_saver_switch);
         Button nextButton = (Button) view.findViewById(R.id.next_button);
@@ -52,16 +59,26 @@ public class DataReductionProxyFirstRunFragment extends Fragment implements Firs
                 DataReductionProxySettings.getInstance().setDataReductionProxyEnabled(
                         v.getContext(), enableDataSaverSwitch.isChecked());
                 if (enableDataSaverSwitch.isChecked()) {
-                    enableDataSaverSwitch.setText(
-                            DataReductionBrandingResourceProvider.getDataSaverBrandedString(
-                                    R.string.data_reduction_enabled_switch));
+                    enableDataSaverSwitch.setText(R.string.data_reduction_enabled_switch_lite_mode);
                 } else {
                     enableDataSaverSwitch.setText(
-                            DataReductionBrandingResourceProvider.getDataSaverBrandedString(
-                                    R.string.data_reduction_disabled_switch));
+                            R.string.data_reduction_disabled_switch_lite_mode);
                 }
             }
         });
+
+        // Setup Promo Text Learn More Link
+        Resources resources = getResources();
+        NoUnderlineClickableSpan clickablePromoLearnMoreSpan =
+                new NoUnderlineClickableSpan(resources, (view1) -> {
+                    if (!isAdded()) return;
+                    getPageDelegate().showInfoPage(R.string.data_reduction_promo_learn_more_url);
+                });
+
+        promoSummaryTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        promoSummaryTextView.setText(
+                SpanApplier.applySpans(getString(R.string.data_reduction_promo_summary_lite_mode),
+                        new SpanInfo("<link>", "</link>", clickablePromoLearnMoreSpan)));
 
         nextButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -73,6 +90,15 @@ public class DataReductionProxyFirstRunFragment extends Fragment implements Firs
         enableDataSaverSwitch.setChecked(true);
         DataReductionProxySettings.getInstance().setDataReductionProxyEnabled(
                 view.getContext(), enableDataSaverSwitch.isChecked());
+    }
+
+    @Override
+    public void setInitialA11yFocus() {
+        // Ignore calls before view is created.
+        if (getView() == null) return;
+
+        final View title = getView().findViewById(R.id.title);
+        title.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
     }
 
     @Override

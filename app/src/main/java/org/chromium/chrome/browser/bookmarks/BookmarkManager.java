@@ -4,33 +4,37 @@
 
 package org.chromium.chrome.browser.bookmarks;
 
-import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.ComponentName;
 import android.content.Context;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.view.accessibility.AccessibilityManager;
+
+import androidx.annotation.VisibleForTesting;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.ObserverList;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.base.metrics.RecordUserAction;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.bookmarks.BookmarkBridge.BookmarkItem;
 import org.chromium.chrome.browser.bookmarks.BookmarkBridge.BookmarkModelObserver;
-import org.chromium.chrome.browser.favicon.LargeIconBridge;
-import org.chromium.chrome.browser.native_page.BasicNativePage;
 import org.chromium.chrome.browser.partnerbookmarks.PartnerBookmarksReader;
 import org.chromium.chrome.browser.profiles.Profile;
-import org.chromium.chrome.browser.snackbar.SnackbarManager;
-import org.chromium.chrome.browser.util.ConversionUtils;
-import org.chromium.chrome.browser.widget.selection.SelectableListLayout;
-import org.chromium.chrome.browser.widget.selection.SelectableListToolbar.SearchDelegate;
-import org.chromium.chrome.browser.widget.selection.SelectionDelegate;
+import org.chromium.chrome.browser.ui.messages.snackbar.SnackbarManager;
+import org.chromium.chrome.browser.ui.native_page.BasicNativePage;
 import org.chromium.components.bookmarks.BookmarkId;
+import org.chromium.components.browser_ui.util.ConversionUtils;
+import org.chromium.components.browser_ui.widget.dragreorder.DragStateDelegate;
+import org.chromium.components.browser_ui.widget.selectable_list.SelectableListLayout;
+import org.chromium.components.browser_ui.widget.selectable_list.SelectableListToolbar.SearchDelegate;
+import org.chromium.components.browser_ui.widget.selectable_list.SelectionDelegate;
+import org.chromium.components.favicon.LargeIconBridge;
+import org.chromium.url.GURL;
 
 import java.util.Stack;
 
@@ -39,39 +43,40 @@ import java.util.Stack;
  * views and shared logics between tablet and phone. For tablet/phone specific logics, see
  * {@link BookmarkActivity} (phone) and {@link BookmarkPage} (tablet).
  */
-public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
-                                        PartnerBookmarksReader.FaviconUpdateObserver {
+public class BookmarkManager
+        implements BookmarkDelegate, SearchDelegate, PartnerBookmarksReader.FaviconUpdateObserver {
     private static final int FAVICON_MAX_CACHE_SIZE_BYTES =
             10 * ConversionUtils.BYTES_PER_MEGABYTE; // 10MB
 
-    /**
-     * This shared preference used to be used to save a list of recent searches. That feature
-     * has been removed, so this string is now used solely to clear the shared preference.
-     */
-    private static final String PREF_SEARCH_HISTORY = "bookmark_search_history";
-
     private static boolean sPreventLoadingForTesting;
 
-    private Activity mActivity;
-    private ViewGroup mMainView;
+    private final Context mContext;
+    private final ComponentName mOpenBookmarkComponentName;
+    private final ViewGroup mMainView;
     private BookmarkModel mBookmarkModel;
     private BookmarkUndoController mUndoController;
     private final ObserverList<BookmarkUIObserver> mUIObservers = new ObserverList<>();
     private BasicNativePage mNativePage;
-    private SelectableListLayout<BookmarkId> mSelectableListLayout;
-    private RecyclerView mRecyclerView;
-    private TextView mEmptyView;
-    private BookmarkItemsAdapter mAdapter;
-    private BookmarkActionBar mToolbar;
-    private SelectionDelegate<BookmarkId> mSelectionDelegate;
+    private final SelectableListLayout<BookmarkId> mSelectableListLayout;
+    private final RecyclerView mRecyclerView;
+    private final BookmarkActionBar mToolbar;
+    private final SelectionDelegate<BookmarkId> mSelectionDelegate;
     private final Stack<BookmarkUIState> mStateStack = new Stack<>();
     private LargeIconBridge mLargeIconBridge;
     private boolean mFaviconsNeedRefresh;
     private String mInitialUrl;
-    private boolean mIsDialogUi;
+    private final boolean mIsDialogUi;
     private boolean mIsDestroyed;
 
+    private final BookmarkItemsAdapter mAdapter;
+    private final BookmarkDragStateDelegate mDragStateDelegate;
+    private final AdapterDataObserver mAdapterDataObserver;
+
     private final BookmarkModelObserver mBookmarkModelObserver = new BookmarkModelObserver() {
+        @Override
+        public void bookmarkNodeChildrenReordered(BookmarkItem node) {
+            mAdapter.refresh();
+        }
 
         @Override
         public void bookmarkNodeRemoved(BookmarkItem parent, int oldIndex, BookmarkItem node,
@@ -87,7 +92,6 @@ public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
                     openFolder(parent.getId());
                 }
             }
-            mSelectionDelegate.clearSelection();
 
             // This is necessary as long as we rely on RecyclerView.ItemDecorations to apply padding
             // at the bottom of the bookmarks list to avoid the bottom navigation menu. This ensures
@@ -97,82 +101,143 @@ public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
         }
 
         @Override
-        public void bookmarkNodeMoved(BookmarkItem oldParent, int oldIndex, BookmarkItem newParent,
-                int newIndex) {
-            mSelectionDelegate.clearSelection();
-        }
-
-        @Override
         public void bookmarkModelChanged() {
             // If the folder no longer exists in folder mode, we need to fall back. Relying on the
             // default behavior by setting the folder mode again.
             if (getCurrentState() == BookmarkUIState.STATE_FOLDER) {
                 setState(mStateStack.peek());
             }
-            mSelectionDelegate.clearSelection();
         }
     };
 
     /**
+     * Keeps track of whether drag is enabled / active for bookmark lists.
+     */
+    class BookmarkDragStateDelegate implements DragStateDelegate {
+        private BookmarkDelegate mBookmarkDelegate;
+        private SelectionDelegate<BookmarkId> mSelectionDelegate;
+        private AccessibilityManager mA11yManager;
+        private AccessibilityManager.AccessibilityStateChangeListener mA11yChangeListener;
+        private boolean mA11yEnabled;
+
+        void onBookmarkDelegateInitialized(BookmarkDelegate delegate) {
+            mBookmarkDelegate = delegate;
+
+            mSelectionDelegate = delegate.getSelectionDelegate();
+
+            mA11yManager =
+                    (AccessibilityManager) getSelectableListLayout().getContext().getSystemService(
+                            Context.ACCESSIBILITY_SERVICE);
+            mA11yEnabled = mA11yManager.isEnabled();
+            mA11yChangeListener = enabled -> mA11yEnabled = enabled;
+            mA11yManager.addAccessibilityStateChangeListener(mA11yChangeListener);
+        }
+
+        // DragStateDelegate implementation
+        @Override
+        public boolean getDragEnabled() {
+            return !mA11yEnabled
+                    && mBookmarkDelegate.getCurrentState() == BookmarkUIState.STATE_FOLDER;
+        }
+
+        @Override
+        public boolean getDragActive() {
+            return getDragEnabled() && mSelectionDelegate.isSelectionEnabled();
+        }
+
+        @VisibleForTesting
+        @Override
+        public void setA11yStateForTesting(boolean a11yEnabled) {
+            if (mA11yManager != null) {
+                mA11yManager.removeAccessibilityStateChangeListener(mA11yChangeListener);
+            }
+            mA11yChangeListener = null;
+            mA11yManager = null;
+            mA11yEnabled = a11yEnabled;
+        }
+    }
+
+    /**
      * Creates an instance of {@link BookmarkManager}. It also initializes resources,
      * bookmark models and jni bridges.
-     * @param activity The activity context to use.
+     * @param context The current {@link Context} used to obtain resources or inflate views.
+     * @param openBookmarkComponentName The component to use when opening a bookmark.
      * @param isDialogUi Whether the main bookmarks UI will be shown in a dialog, not a NativePage.
      * @param snackbarManager The {@link SnackbarManager} used to display snackbars.
      */
-    public BookmarkManager(Activity activity, boolean isDialogUi, SnackbarManager snackbarManager) {
-        mActivity = activity;
+    public BookmarkManager(Context context, ComponentName openBookmarkComponentName,
+            boolean isDialogUi, SnackbarManager snackbarManager) {
+        mContext = context;
+        mOpenBookmarkComponentName = openBookmarkComponentName;
         mIsDialogUi = isDialogUi;
-
-        PartnerBookmarksReader.addFaviconUpdateObserver(this);
 
         mSelectionDelegate = new SelectionDelegate<BookmarkId>() {
             @Override
             public boolean toggleSelectionForItem(BookmarkId bookmark) {
-                if (!mBookmarkModel.getBookmarkById(bookmark).isEditable()) return false;
+                if (mBookmarkModel.getBookmarkById(bookmark) != null
+                        && !mBookmarkModel.getBookmarkById(bookmark).isEditable()) {
+                    return false;
+                }
                 return super.toggleSelectionForItem(bookmark);
             }
         };
 
+        mDragStateDelegate = new BookmarkDragStateDelegate();
+
         mBookmarkModel = new BookmarkModel();
-        mMainView = (ViewGroup) mActivity.getLayoutInflater().inflate(R.layout.bookmark_main, null);
+        mMainView = (ViewGroup) LayoutInflater.from(mContext).inflate(R.layout.bookmark_main, null);
 
         @SuppressWarnings("unchecked")
         SelectableListLayout<BookmarkId> selectableList =
                 mMainView.findViewById(R.id.selectable_list);
         mSelectableListLayout = selectableList;
-        mEmptyView = mSelectableListLayout.initializeEmptyView(
-                VectorDrawableCompat.create(
-                        mActivity.getResources(), R.drawable.bookmark_big, mActivity.getTheme()),
+        mSelectableListLayout.initializeEmptyView(
                 R.string.bookmarks_folder_empty, R.string.bookmark_no_result);
 
-        mAdapter = new BookmarkItemsAdapter(activity);
+        mAdapter = new BookmarkItemsAdapter(mContext);
 
-        mRecyclerView = mSelectableListLayout.initializeRecyclerView(mAdapter);
+        mAdapterDataObserver = new AdapterDataObserver() {
+            @Override
+            public void onItemRangeRemoved(int positionStart, int itemCount) {
+                syncAdapterAndSelectionDelegate();
+            }
+
+            @Override
+            public void onChanged() {
+                syncAdapterAndSelectionDelegate();
+            }
+        };
+        mAdapter.registerAdapterDataObserver(mAdapterDataObserver);
+        mRecyclerView = mSelectableListLayout.initializeRecyclerView(
+                (RecyclerView.Adapter<RecyclerView.ViewHolder>) mAdapter);
 
         mToolbar = (BookmarkActionBar) mSelectableListLayout.initializeToolbar(
-                R.layout.bookmark_action_bar, mSelectionDelegate, 0, null, R.id.normal_menu_group,
+                R.layout.bookmark_action_bar, mSelectionDelegate, 0, R.id.normal_menu_group,
                 R.id.selection_mode_menu_group, null, true, isDialogUi);
         mToolbar.initializeSearchView(
                 this, R.string.bookmark_action_bar_search, R.id.search_menu_id);
 
         mSelectableListLayout.configureWideDisplayStyle();
 
-        mUndoController = new BookmarkUndoController(activity, mBookmarkModel, snackbarManager);
+        mUndoController = new BookmarkUndoController(mContext, mBookmarkModel, snackbarManager);
         mBookmarkModel.addObserver(mBookmarkModelObserver);
         initializeToLoadingState();
         if (!sPreventLoadingForTesting) {
             Runnable modelLoadedRunnable = () -> {
+                mDragStateDelegate.onBookmarkDelegateInitialized(BookmarkManager.this);
                 mAdapter.onBookmarkDelegateInitialized(BookmarkManager.this);
                 mToolbar.onBookmarkDelegateInitialized(BookmarkManager.this);
+                mAdapter.addDragListener(mToolbar);
+
                 if (!TextUtils.isEmpty(mInitialUrl)) {
                     setState(BookmarkUIState.createStateFromUrl(mInitialUrl, mBookmarkModel));
                 }
+                PartnerBookmarksReader.addFaviconUpdateObserver(this);
             };
             mBookmarkModel.finishLoadingBookmarkModel(modelLoadedRunnable);
         }
 
-        mLargeIconBridge = new LargeIconBridge(Profile.getLastUsedProfile().getOriginalProfile());
+        mLargeIconBridge = new LargeIconBridge(Profile.getLastUsedRegularProfile());
         ActivityManager activityManager = ((ActivityManager) ContextUtils
                 .getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE));
         int maxSize =
@@ -184,15 +249,11 @@ public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
         if (!isDialogUi) {
             RecordUserAction.record("MobileBookmarkManagerPageOpen");
         }
-
-        // TODO(twellington): Remove this when Chrome version 59 is a distant memory and users
-        // are unlikely to have the old PREF_SEARCH_HISTORY in shared preferences.
-        ContextUtils.getAppSharedPreferences().edit().remove(PREF_SEARCH_HISTORY).apply();
     }
 
     @Override
     public void onUpdateFavicon(String url) {
-        mLargeIconBridge.clearFavicon(url);
+        mLargeIconBridge.clearFavicon(new GURL(url));
         mFaviconsNeedRefresh = true;
     }
 
@@ -208,8 +269,9 @@ public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
      * Destroys and cleans up itself. This must be called after done using this class.
      */
     public void onDestroyed() {
+        mAdapter.unregisterAdapterDataObserver(mAdapterDataObserver);
         mIsDestroyed = true;
-
+        RecordUserAction.record("MobileBookmarkManagerClose");
         mSelectableListLayout.onDestroyed();
 
         for (BookmarkUIObserver observer : mUIObservers) {
@@ -343,18 +405,45 @@ public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
         if (state.mState == BookmarkUIState.STATE_FOLDER) {
             // Loading and searching states may be pushed to the stack but should never be stored in
             // preferences.
-            BookmarkUtils.setLastUsedUrl(mActivity, state.mUrl);
+            BookmarkUtils.setLastUsedUrl(mContext, state.mUrl);
             // If a loading state is replaced by another loading state, do not notify this change.
             if (mNativePage != null) {
                 mNativePage.onStateChange(state.mUrl, false);
             }
         }
 
-        mSelectionDelegate.clearSelection();
-
         for (BookmarkUIObserver observer : mUIObservers) {
             notifyStateChange(observer);
         }
+    }
+
+    // TODO(lazzzis): This method can be moved to adapter after bookmark reordering launches.
+    /**
+     * Some bookmarks may be moved to another folder or removed in another devices. However, it may
+     * still be stored by {@link #mSelectionDelegate}, which causes incorrect selection counting.
+     */
+    private void syncAdapterAndSelectionDelegate() {
+        for (BookmarkId node : mSelectionDelegate.getSelectedItemsAsList()) {
+            if (mSelectionDelegate.isItemSelected(node)
+                    && mAdapter.getPositionForBookmark(node) == -1) {
+                mSelectionDelegate.toggleSelectionForItem(node);
+            }
+        }
+    }
+
+    @Override
+    public void moveDownOne(BookmarkId bookmarkId) {
+        mAdapter.moveDownOne(bookmarkId);
+    }
+
+    @Override
+    public void moveUpOne(BookmarkId bookmarkId) {
+        mAdapter.moveUpOne(bookmarkId);
+    }
+
+    @Override
+    public void onBookmarkItemMenuOpened() {
+        mToolbar.hideKeyboard();
     }
 
     // BookmarkDelegate implementations.
@@ -366,8 +455,8 @@ public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
 
     @Override
     public void openFolder(BookmarkId folder) {
+        RecordUserAction.record("MobileBookmarkManagerOpenFolder");
         if (mToolbar.isSearching()) mToolbar.hideSearchView();
-
         setState(BookmarkUIState.createFolderState(folder, mBookmarkModel));
         mRecyclerView.scrollToPosition(0);
     }
@@ -404,11 +493,10 @@ public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
     }
 
     @Override
-    public void openBookmark(BookmarkId bookmark, int launchLocation) {
-        mSelectionDelegate.clearSelection();
+    public void openBookmark(BookmarkId bookmark) {
         if (BookmarkUtils.openBookmark(
-                    mBookmarkModel, mActivity, bookmark, launchLocation)) {
-            BookmarkUtils.finishActivityOnPhone(mActivity);
+                    mContext, mOpenBookmarkComponentName, mBookmarkModel, bookmark)) {
+            BookmarkUtils.finishActivityOnPhone(mContext);
         }
     }
 
@@ -450,6 +538,11 @@ public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
         return mLargeIconBridge;
     }
 
+    @Override
+    public DragStateDelegate getDragStateDelegate() {
+        return mDragStateDelegate;
+    }
+
     // SearchDelegate overrides
 
     @Override
@@ -468,6 +561,11 @@ public class BookmarkManager implements BookmarkDelegate, SearchDelegate,
         // the BookmarkItemsAdapter, will be notified of the change and the list of bookmarks will
         // be updated.
         setState(mStateStack.pop());
+    }
+
+    @Override
+    public void highlightBookmark(BookmarkId bookmarkId) {
+        mAdapter.highlightBookmark(bookmarkId);
     }
 
     // Testing methods

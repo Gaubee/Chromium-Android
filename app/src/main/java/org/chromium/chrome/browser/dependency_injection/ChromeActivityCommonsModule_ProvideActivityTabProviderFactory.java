@@ -6,11 +6,14 @@ import javax.annotation.Generated;
 import org.chromium.chrome.browser.ActivityTabProvider;
 
 @Generated(
-  value = "dagger.internal.codegen.ComponentProcessor",
-  comments = "https://google.github.io/dagger"
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
 )
-public final class ChromeActivityCommonsModule_ProvideActivityTabProviderFactory
-    implements Factory<ActivityTabProvider> {
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes"
+})
+public final class ChromeActivityCommonsModule_ProvideActivityTabProviderFactory implements Factory<ActivityTabProvider> {
   private final ChromeActivityCommonsModule module;
 
   public ChromeActivityCommonsModule_ProvideActivityTabProviderFactory(
@@ -20,11 +23,7 @@ public final class ChromeActivityCommonsModule_ProvideActivityTabProviderFactory
 
   @Override
   public ActivityTabProvider get() {
-    return provideInstance(module);
-  }
-
-  public static ActivityTabProvider provideInstance(ChromeActivityCommonsModule module) {
-    return proxyProvideActivityTabProvider(module);
+    return provideActivityTabProvider(module);
   }
 
   public static ChromeActivityCommonsModule_ProvideActivityTabProviderFactory create(
@@ -32,10 +31,8 @@ public final class ChromeActivityCommonsModule_ProvideActivityTabProviderFactory
     return new ChromeActivityCommonsModule_ProvideActivityTabProviderFactory(module);
   }
 
-  public static ActivityTabProvider proxyProvideActivityTabProvider(
+  public static ActivityTabProvider provideActivityTabProvider(
       ChromeActivityCommonsModule instance) {
-    return Preconditions.checkNotNull(
-        instance.provideActivityTabProvider(),
-        "Cannot return null from a non-@Nullable @Provides method");
+    return Preconditions.checkNotNullFromProvides(instance.provideActivityTabProvider());
   }
 }

@@ -11,13 +11,16 @@ import android.widget.TextView;
 
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.compositor.bottombar.OverlayPanel;
-import org.chromium.chrome.browser.compositor.bottombar.OverlayPanelInflater;
+import org.chromium.chrome.browser.compositor.bottombar.OverlayPanelRepaddingTextView;
 import org.chromium.ui.resources.dynamics.DynamicResourceLoader;
 
 /**
- * Controls the Search Context View that is used as a dynamic resource.
+ * Controls the Search Context View that shows the primary text at the top of the Bar using
+ * two-part styling. Typically this is used to display the selection in black and the following
+ * context in grey text.
+ * This is used as a dynamic resource within the {@link ContextualSearchBarControl}.
  */
-public class ContextualSearchContextControl extends OverlayPanelInflater {
+public class ContextualSearchContextControl extends OverlayPanelRepaddingTextView {
     /**
      * The selected text View.
      */
@@ -39,7 +42,8 @@ public class ContextualSearchContextControl extends OverlayPanelInflater {
                                           ViewGroup container,
                                           DynamicResourceLoader resourceLoader) {
         super(panel, R.layout.contextual_search_context_view, R.id.contextual_search_context_view,
-                context, container, resourceLoader);
+                context, container, resourceLoader, R.dimen.contextual_search_end_padding,
+                R.dimen.contextual_search_padded_button_width);
     }
 
     /**

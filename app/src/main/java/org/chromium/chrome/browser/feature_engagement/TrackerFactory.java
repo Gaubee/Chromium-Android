@@ -4,9 +4,10 @@
 
 package org.chromium.chrome.browser.feature_engagement;
 
-import android.support.annotation.Nullable;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
-import org.chromium.base.VisibleForTesting;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.components.feature_engagement.Tracker;
 
@@ -29,7 +30,17 @@ public final class TrackerFactory {
     public static Tracker getTrackerForProfile(Profile profile) {
         if (sTestTracker != null) return sTestTracker;
 
-        return nativeGetTrackerForProfile(profile);
+        return TrackerFactoryJni.get().getTrackerForProfile(profile);
+    }
+
+    /**
+     * Sets up a testing factory in C++ and pass it a Tracker object for wrapping and proxying of
+     * calls back up to Java.
+     * @param The {@link profile} the current profile object.
+     * @param The {@link Tracker} the test tracker for C++ to wrap.
+     */
+    public static void setTestingFactory(Profile profile, Tracker testTracker) {
+        TrackerFactoryJni.get().setTestingFactory(profile, testTracker);
     }
 
     /**
@@ -44,5 +55,9 @@ public final class TrackerFactory {
         sTestTracker = testTracker;
     }
 
-    private static native Tracker nativeGetTrackerForProfile(Profile profile);
+    @NativeMethods
+    interface Natives {
+        Tracker getTrackerForProfile(Profile profile);
+        void setTestingFactory(Profile profile, Tracker testTracker);
+    }
 }

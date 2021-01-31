@@ -5,11 +5,10 @@
 package org.chromium.ui.widget;
 
 import android.graphics.Rect;
-import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import org.chromium.base.ApiCompatibilityUtils;
+import androidx.core.view.ViewCompat;
 
 /**
  * Provides a {@Rect} for the location of a {@View} in its window, see
@@ -43,6 +42,15 @@ public class ViewRectProvider extends RectProvider
      */
     public void setInsetPx(int left, int top, int right, int bottom) {
         mInsetRect.set(left, top, right, bottom);
+        refreshRectBounds();
+    }
+
+    /**
+     * Specifies the inset values in pixels that determine how to shrink the {@link View} bounds
+     * when creating the {@link Rect}.
+     */
+    public void setInsetPx(Rect insetRect) {
+        mInsetRect.set(insetRect);
         refreshRectBounds();
     }
 
@@ -132,7 +140,7 @@ public class ViewRectProvider extends RectProvider
 
         // Account for the padding.
         if (!mIncludePadding) {
-            boolean isRtl = ApiCompatibilityUtils.isLayoutRtl(mView);
+            boolean isRtl = mView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
             mRect.left +=
                     isRtl ? ViewCompat.getPaddingEnd(mView) : ViewCompat.getPaddingStart(mView);
             mRect.right -=

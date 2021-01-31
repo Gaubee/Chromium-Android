@@ -3,12 +3,12 @@
 // found in the LICENSE file.
 package org.chromium.chrome.browser.download;
 
-import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
+import android.annotation.Nullable;
 
-import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
 import org.chromium.base.ThreadUtils;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,11 +19,14 @@ import java.util.Set;
  */
 public final class DownloadForegroundServiceObservers {
     private static final String TAG = "DownloadFgServiceObs";
-    private static final String KEY_FOREGROUND_SERVICE_OBSERVERS = "ForegroundServiceObservers";
 
     /**
      * An Observer interfaces that allows other classes to know when this service is shutting down.
-     * There is a requirement for any implementations to have a public, no-param constructor.
+     * Implementing classes must be marked as @UsedByReflection in order to prevent the class name
+     * from being obfuscated.
+     * Implementing classes must also have a public parameterless constructor that is marked as
+     * @UsedByReflection.
+     * Implementing classes may never be renamed, as class names are persisted between app updates.
      */
     public interface Observer {
         /**
@@ -59,8 +62,8 @@ public final class DownloadForegroundServiceObservers {
         observers = new HashSet<>(observers);
         observers.add(observerClassName);
 
-        SharedPreferences prefs = ContextUtils.getAppSharedPreferences();
-        prefs.edit().putStringSet(KEY_FOREGROUND_SERVICE_OBSERVERS, observers).apply();
+        SharedPreferencesManager.getInstance().writeStringSet(
+                ChromePreferenceKeys.DOWNLOAD_FOREGROUND_SERVICE_OBSERVERS, observers);
     }
 
     /**
@@ -84,8 +87,8 @@ public final class DownloadForegroundServiceObservers {
             return;
         }
 
-        SharedPreferences prefs = ContextUtils.getAppSharedPreferences();
-        prefs.edit().putStringSet(KEY_FOREGROUND_SERVICE_OBSERVERS, observers).apply();
+        SharedPreferencesManager.getInstance().writeStringSet(
+                ChromePreferenceKeys.DOWNLOAD_FOREGROUND_SERVICE_OBSERVERS, observers);
     }
 
     static void alertObserversServiceRestarted(int pinnedNotificationId) {
@@ -119,41 +122,22 @@ public final class DownloadForegroundServiceObservers {
     }
 
     private static Set<String> getAllObservers() {
-        SharedPreferences prefs = ContextUtils.getAppSharedPreferences();
-        return prefs.getStringSet(KEY_FOREGROUND_SERVICE_OBSERVERS, new HashSet<String>(1));
+        return SharedPreferencesManager.getInstance().readStringSet(
+                ChromePreferenceKeys.DOWNLOAD_FOREGROUND_SERVICE_OBSERVERS);
     }
 
     private static void removeAllObservers() {
-        ContextUtils.getAppSharedPreferences()
-                .edit()
-                .remove(KEY_FOREGROUND_SERVICE_OBSERVERS)
-                .apply();
+        SharedPreferencesManager.getInstance().removeKey(
+                ChromePreferenceKeys.DOWNLOAD_FOREGROUND_SERVICE_OBSERVERS);
     }
 
     @Nullable
     private static Observer getObserverFromClassName(String observerClassName) {
-        if (observerClassName == null) return null;
-
-        Class<?> observerClass;
         try {
-            observerClass = Class.forName(observerClassName);
-        } catch (ClassNotFoundException e) {
-            Log.w(TAG, "Unable to find observer class with name " + observerClassName);
-            return null;
-        }
-
-        if (!Observer.class.isAssignableFrom(observerClass)) {
-            Log.w(TAG, "Class " + observerClass + " is not an observer");
-            return null;
-        }
-
-        try {
+            Class<?> observerClass = Class.forName(observerClassName);
             return (Observer) observerClass.newInstance();
-        } catch (InstantiationException e) {
-            Log.w(TAG, "Unable to instantiate class (InstExc) " + observerClass);
-            return null;
-        } catch (IllegalAccessException e) {
-            Log.w(TAG, "Unable to instantiate class (IllAccExc) " + observerClass);
+        } catch (Throwable e) {
+            Log.w(TAG, "getObserverFromClassName(): %s", observerClassName, e);
             return null;
         }
     }

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright 2019 The Chromium Authors. All rights reserved.
+
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file.
+-->
+
+<resources >
+    <item type="id" name="primary_tasks_surface_view" />
+    <item type="id" name="secondary_tasks_surface_view" />
+    <item type="id" name="start_surface_explore_view" />
+
+
+<!-- chrome/android/features/tab_ui/java/res/values/ids.xml -->
+
+    <!-- Tab reordering actions for accessibility support-->
+    <item type="id" name="move_tab_left" />
+    <item type="id" name="move_tab_right" />
+    <item type="id" name="move_tab_up" />
+    <item type="id" name="move_tab_down" />
+
+
+<!-- chrome/android/feed/core/java/res/values/ids.xml -->
+
+  <!-- Id to use for content which encapsulates a single card. -->
+  <item type="id" name="feed_content_card" />
+  <!-- Id to use for root RecyclerView used in Stream. -->
+  <item type="id" name="feed_stream_recycler_view" />
+  <!-- Tag id for storing the contentId of the content on a view for view reporting. -->
+  <item type="id" name="tag_view_actions_content_id" />
+
+
+<!-- chrome/android/java/res/values/ids.xml -->
+
+    <item name="background_drawable" type="id"/>
+    <item name="bookmark_page" type="id"/>
+    <item name="foreground_drawable" type="id"/>
+    <item name="fre_pager" type="id"/>
+    <item name="refine_view_id" type="id"/>
+    <item name="tabswitcher_multiple_drawable" type="id"/>
+    <item name="tabswitcher_single_drawable" type="id"/>
+    <item name="custom_tab_bottom_bar_wrapper" type="id"/>
+    <item name="default_search_engine_dialog_options" type="id"/>
+
+    <!-- Tab Actions -->
+    <item type="id" name="close_tab" />
+    <item type="id" name="ungroup_tab" />
+    <item type="id" name="share_tab_group" />
+    <item type="id" name="edit_group_name" />
+
+    <!-- Media playback notification -->
+    <item type="id" name="media_playback_notification" />
+
+    <!-- Remote Playback API notification -->
+    <item type="id" name="remote_playback_notification" />
+
+    <!-- Presentation API notification -->
+    <item type="id" name="presentation_notification" />
+
+    <!-- Sync UI constants -->
+    <item type="id" name="passphrase_type_list" />
+
+    <!-- Keyboard shortcuts -->
+    <item type="id" name="print_id" />
+    <item type="id" name="focus_url_bar" />
+    <item type="id" name="show_menu" />
+    <item type="id" name="open_recently_closed_tab" />
+
+    <!-- Editor dialog -->
+    <item type="id" name="editor_dialog_done_button" />
+
+    <!-- Password update prompt -->
+    <item type="id" name="password_infobar_accounts_spinner" />
+
+    <!-- Context Menu Ids -->
+    <!-- Custom Tab Group -->
+    <item type="id" name="contextmenu_open_in_new_chrome_tab" />
+    <item type="id" name="contextmenu_open_in_chrome_incognito_tab" />
+    <item type="id" name="contextmenu_open_in_browser_id" />
+
+    <!-- Link Group -->
+    <item type="id" name="contextmenu_open_in_new_tab" />
+    <item type="id" name="contextmenu_open_in_incognito_tab" />
+    <item type="id" name="contextmenu_open_in_other_window" />
+    <item type="id" name="contextmenu_open_in_ephemeral_tab" />
+    <item type="id" name="contextmenu_copy_link_address" />
+    <item type="id" name="contextmenu_copy_link_text" />
+    <item type="id" name="contextmenu_save_link_as" />
+    <item type="id" name="contextmenu_share_link" />
+    <item type="id" name="contextmenu_direct_share_link" />
+    <item type="id" name="contextmenu_read_later" />
+
+    <!--Image Group -->
+    <item type="id" name="contextmenu_load_original_image" />
+    <item type="id" name="contextmenu_save_image" />
+    <item type="id" name="contextmenu_open_image" />
+    <item type="id" name="contextmenu_open_image_in_new_tab" />
+    <item type="id" name="contextmenu_open_image_in_ephemeral_tab" />
+    <item type="id" name="contextmenu_copy_image" />
+    <item type="id" name="contextmenu_search_by_image" />
+    <item type="id" name="contextmenu_search_with_google_lens" />
+    <item type="id" name="contextmenu_share_image" />
+    <item type="id" name="contextmenu_direct_share_image" />
+    <item type="id" name="contextmenu_shop_similar_products" />
+    <item type="id" name="contextmenu_shop_image_with_google_lens" />
+    <item type="id" name="contextmenu_search_similar_products" />
+
+    <!-- Message Group -->
+    <item type="id" name="contextmenu_call" />
+    <item type="id" name="contextmenu_send_message" />
+    <item type="id" name="contextmenu_add_to_contacts" />
+    <item type="id" name="contextmenu_copy" />
+
+    <!-- Other Group -->
+    <item type="id" name="contextmenu_save_video" />
+
+    <!-- Menu item IDs for FullscreenActivities -->
+    <item type="id" name="contextmenu_open_in_chrome" />
+
+    <!-- VR constants -->
+    <item type="id" name="vr_overlay_view" />
+
+    <!-- Tags -->
+    <item type="id" name="highlight_color" />
+    <item type="id" name="context_menu_delegate" />
+
+    <!-- NTP-->
+    <item type="id" name="ntp_feed_header_menu_item_activity" />
+    <item type="id" name="ntp_feed_header_menu_item_interest" />
+    <item type="id" name="ntp_feed_header_menu_item_learn" />
+    <item type="id" name="ntp_feed_header_menu_item_toggle_switch" />
+
+    <!-- Enhanced Protection Promo -->
+    <item type="id" name="enhanced_protection_promo" />
+
+    <!-- Custom Tabs -->
+    <item type="id" name="view_id_tag_key" />
+
+
+<!-- chrome/browser/ui/android/appmenu/internal/java/res/values/ids.xml -->
+
+    <!-- App menu item custom tags -->
+    <item type="id" name="menu_item_enter_anim_id" />
+    <item type="id" name="menu_item_background_drawable_position" />
+    <item type="id" name="menu_item_view_type" />
+
+
+<!-- components/browser_ui/modaldialog/android/test/java/res/values/ids.xml -->
+
+    <!-- Test view ids -->
+    <item type="id" name="test_view_one" />
+    <item type="id" name="test_view_two" />
+
+
+<!-- components/browser_ui/settings/android/java/res/values/ids.xml -->
+
+    <!-- Menu items IDs in Settings -->
+    <item type="id" name="menu_id_general_help" />
+    <item type="id" name="menu_id_targeted_help" />
+
+
+<!-- components/browser_ui/site_settings/android/java/res/values/ids.xml -->
+
+    <item type="id" name="menu_id_site_settings_help" />
+
+
+<!-- components/browser_ui/widget/android/java/res/values/ids.xml -->
+
+    <!-- DualControlLayout button ids -->
+    <item type="id" name="button_primary" />
+    <item type="id" name="button_secondary" />
+
+    <!-- ViewHighlighter tags -->
+    <item type="id" name="highlight_state" />
+
+
+<!-- components/infobars/android/res/values/ids.xml -->
+
+    <!-- InfoBar constants -->
+    <item type="id" name="infobar_icon" />
+    <item type="id" name="infobar_close_button" />
+    <item type="id" name="infobar_message" />
+
+
+<!-- components/page_info/android/java/res/values/ids.xml -->
+
+    <item name="page_info_click_callback" type="id" />
+
+<!-- components/payments/content/android/java/res/values/ids.xml -->
+
+    <!-- PaymentRequest -->
+    <item type="id" name="payments_section" />
+    <item type="id" name="payments_left_summary_label" />
+    <item type="id" name="payments_first_radio_button" />
+    <item type="id" name="payments_add_option_button" />
+    <item type="id" name="payments_edit_cancel_button" />
+    <item type="id" name="payments_edit_checkbox" />
+    <item type="id" name="payments_description_label" />
+    <item type="id" name="payments_warning_label" />
+
+
+<!-- components/subresource_filter/android/java/res/values/ids.xml -->
+
+    <item type="id" name="subresource_filter_infobar_toggle" />
+
+
+<!-- ui/android/java/res/values/ids.xml -->
+
+    <!-- Dropdown Popup Window -->
+    <item type="id" name="dropdown_popup_window" />
+
+    <!-- Model Utils -->
+    <item type="id" name="view_model" />
+    <item type="id" name="view_type" />
+    <item type="id" name="view_mcp" />
+
+    <!-- Widgets -->
+    <item type="id" name="chip_cancel_btn" />
+
+<!-- weblayer/public/java/res/values/ids.xml -->
+
+    <item type="id" name="weblayer_media_session_notification" />
+    <item type="id" name="weblayer_presentation_api_notification" />
+    <item type="id" name="weblayer_remote_playback_api_notification" />
+
+</resources>

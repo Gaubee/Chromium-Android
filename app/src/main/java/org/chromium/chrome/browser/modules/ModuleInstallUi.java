@@ -8,8 +8,9 @@ import android.content.Context;
 
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.infobar.InfoBarIdentifier;
-import org.chromium.chrome.browser.infobar.SimpleConfirmInfoBarBuilder;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tab.TabUtils;
+import org.chromium.chrome.browser.ui.messages.infobar.SimpleConfirmInfoBarBuilder;
 import org.chromium.ui.widget.Toast;
 
 /**
@@ -24,14 +25,12 @@ public class ModuleInstallUi {
 
     /** Listener for when the user interacts with the install failure UI. */
     public interface FailureUiListener {
-        /** Called if the user wishes to retry installing the module. */
-        void onRetry();
-
         /**
-         * Called if the failure UI has been dismissed and the user does not want to retry
-         * installing the module.
+         * Called when the user makes a decision to handle the failure, either to retry installing
+         * the module or to cancel installing the module by dismissing the UI.
+         * @param retry Whether user decides to retry installing the module.
          */
-        void onCancel();
+        void onFailureUiResponse(boolean retry);
     }
 
     /*
@@ -49,7 +48,7 @@ public class ModuleInstallUi {
 
     /** Show UI indicating the start of a module install. */
     public void showInstallStartUi() {
-        Context context = mTab.getActivity();
+        Context context = TabUtils.getActivity(mTab);
         if (context == null) {
             // Tab is detached. Don't show UI.
             return;
@@ -68,7 +67,7 @@ public class ModuleInstallUi {
             mInstallStartToast = null;
         }
 
-        Context context = mTab.getActivity();
+        Context context = TabUtils.getActivity(mTab);
         if (context == null) {
             // Tab is detached. Don't show UI.
             return;
@@ -86,27 +85,23 @@ public class ModuleInstallUi {
             mInstallStartToast = null;
         }
 
-        Context context = mTab.getActivity();
+        Context context = TabUtils.getActivity(mTab);
         if (context == null) {
             // Tab is detached. Cancel.
-            if (mFailureUiListener != null) mFailureUiListener.onCancel();
+            if (mFailureUiListener != null) mFailureUiListener.onFailureUiResponse(false);
             return;
         }
 
         SimpleConfirmInfoBarBuilder.Listener listener = new SimpleConfirmInfoBarBuilder.Listener() {
             @Override
             public void onInfoBarDismissed() {
-                if (mFailureUiListener != null) mFailureUiListener.onCancel();
+                if (mFailureUiListener != null) mFailureUiListener.onFailureUiResponse(false);
             }
 
             @Override
             public boolean onInfoBarButtonClicked(boolean isPrimary) {
                 if (mFailureUiListener != null) {
-                    if (isPrimary) {
-                        mFailureUiListener.onRetry();
-                    } else {
-                        mFailureUiListener.onCancel();
-                    }
+                    mFailureUiListener.onFailureUiResponse(isPrimary);
                 }
                 return false;
             }
@@ -119,8 +114,8 @@ public class ModuleInstallUi {
 
         String text = String.format(context.getString(R.string.module_install_failure_text),
                 context.getResources().getString(mModuleTitleStringId));
-        SimpleConfirmInfoBarBuilder.create(mTab, listener,
-                InfoBarIdentifier.MODULE_INSTALL_FAILURE_INFOBAR_ANDROID,
+        SimpleConfirmInfoBarBuilder.create(mTab.getWebContents(), listener,
+                InfoBarIdentifier.MODULE_INSTALL_FAILURE_INFOBAR_ANDROID, context,
                 R.drawable.ic_error_outline_googblue_24dp, text,
                 context.getString(R.string.try_again), context.getString(R.string.cancel),
                 /* linkText = */ null, /* autoExpire = */ true);

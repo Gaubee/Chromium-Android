@@ -23,7 +23,7 @@ public interface ViewEventSink {
      * implementing container view.
      */
     @SuppressWarnings("javadoc")
-    public interface InternalAccessDelegate {
+    interface InternalAccessDelegate {
         /**
          * @see View#onKeyUp(keyCode, KeyEvent)
          */
@@ -48,7 +48,7 @@ public interface ViewEventSink {
     /**
      * @return {@link ViewEventSink} instance for a given {@link WebContents}.
      */
-    public static ViewEventSink from(WebContents webContents) {
+    static ViewEventSink from(WebContents webContents) {
         return ViewEventSinkImpl.from(webContents);
     }
 

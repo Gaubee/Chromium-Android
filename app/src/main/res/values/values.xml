@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011 The Chromium Authors. All rights reserved.
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file. -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation,UnusedResources" >
+
+    <!-- Full Screen Constants -->
+    <!-- These constants were chosen empirically for their visually pleasant behavior.
+         Contact tedchoc@chromium.org or dtrainor@chromium.org for questions about
+         changing these values. -->
+    <item name="top_controls_show_threshold" format="float" type="dimen">0.5</item>
+    <item name="top_controls_hide_threshold" format="float" type="dimen">0.5</item>
+
+    <!-- The number of thumbnails that the thumbnail cache can hold. -->
+    <integer name="default_thumbnail_cache_size">5</integer>
+    <!-- The number of approximation thumbnails that the approximation cache can hold. -->
+    <integer name="default_approximation_thumbnail_cache_size">32</integer>
+    <!-- The maximum size of the write queue in the thumbnail cache. -->
+    <integer name="default_write_queue_size">5</integer>
+    <!-- The maximum size of the compression queue in the thumbnail cache. -->
+    <integer name="default_compression_queue_size">5</integer>
+    <!-- Compositor Tab Title Text -->
+    <bool name="compositor_tab_title_fake_bold_text">true</bool>
+
+    <!-- TabSwitcher - Maximum amount to tilt tabs in over scroll in degrees. -->
+    <integer name="over_scroll_angle">15</integer>
+
+    <!-- Toolbar/AppMenu - Drawable level on reload image button -->
+    <integer name="reload_button_level_reload">0</integer>
+    <integer name="reload_button_level_stop">1</integer>
+
+    <!-- Download InfoBar animation. -->
+    <integer name="download_infobar_sweep_up_delay">500</integer>
+    <integer name="download_infobar_sweep_down_delay">800</integer>
+    <integer name="download_infobar_fill_in_delay">1200</integer>
+    <integer name="download_infobar_fill_out_delay">200</integer>
+    <integer name="download_infobar_bar_start_offset">800</integer>
+    <integer name="download_infobar_bar_fill_in_delay">400</integer>
+    <integer name="download_infobar_bar_fill_out_delay">200</integer>
+
+
+    <!-- chrome/android/java/res_base/values/values.xml -->
+
+    <string translatable="false" name="manage_space_activity">org.chromium.chrome.browser.site_settings.ManageSpaceActivity</string>
+
+
+    <!-- chrome/android/java/res_vr/values/values.xml -->
+
+
+    <!-- Copy of GVR gvr_vr_mode_component resource, added here because DFMs cannot add
+    manifest flags. -->
+    <string name="gvr_vr_mode_component" translatable="false"
+        description="Google VR component name used for enabling VR mode">
+        com.google.vr.vrcore/com.google.vr.vrcore.common.VrCoreListenerService</string>
+
+    <!-- components/browser_ui/styles/android/java/res/values/values.xml -->
+
+    <!-- Bottom navigation bar styling. -->
+    <bool name="window_light_navigation_bar">true</bool>
+
+    <!-- Status bar icon styling. -->
+    <bool name="window_light_status_bar">true</bool>
+
+
+    <!-- components/browser_ui/widget/android/java/res/values/values.xml -->
+
+    <!-- Menu Animation Constants -->
+    <item type="fraction" format="fraction" name="menu_animation_pivot_x">95%</item>
+
+    <!-- Drag-Reorderable List Item -->
+    <!-- Used for 90% = 230/255 alpha -->
+    <integer name="list_item_dragged_alpha">230</integer>
+
+    <!-- Modern List Item -->
+    <integer name="list_item_level_default">0</integer>
+    <integer name="list_item_level_selected">1</integer>
+    <integer name="list_item_level_incognito">2</integer>
+
+
+    <!-- ui/android/java/res/values/values.xml -->
+
+    <!-- Whether the device is a phone, tablet or large tablet. Used to determine which resources
+         the OS loaded. -->
+    <integer name="min_screen_width_bucket">1</integer>
+
+    <!--  Expand more  -->
+    <integer name="expand_more_horizontal_rotation_degree">270</integer>
+
+
+    <!-- weblayer/browser/java/res_test/values/values.xml -->
+
+    <attr name="testBasicColor" format="color"/>
+    <attr name="testAttrColor" format="color"/>
+
+    <style name="TestStyle">
+        <item name="testBasicColor">#010101</item>
+        <item name="testAttrColor">?attr/testBasicColor</item>
+    </style>
+
+
+    <!-- weblayer/public/java/res/values/values.xml -->
+
+    <!-- Status and navigation bar icon styling. -->
+    <bool name="weblayer_window_light_status_bar">true</bool>
+    <bool name="weblayer_window_light_navigation_bar">true</bool>
+
+
+
+
+    <!-- third_party/android_data_chart/java/res/values/values.xml -->
+
+    <item type="id" name="compressed_series" />
+    <item type="id" name="original_series" />
+</resources>

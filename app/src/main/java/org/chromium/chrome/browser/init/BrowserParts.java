@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.init;
 
+import android.annotation.Nullable;
+
 /**
  * Interface that any {@link AsyncInitializationActivity} can use to interact with this delegate
  * during start up. Functions called by
@@ -54,6 +56,15 @@ public interface BrowserParts {
 
     /**
      * Called during {@link ChromeBrowserInitializer#handlePostNativeStartup(BrowserParts)}.
+     * Carry out remaining activity specific tasks for initialization, sub-classes may call
+     * finishNativeInitialization asynchronously.
+     */
+    default void startNativeInitialization() {
+        finishNativeInitialization();
+    }
+
+    /**
+     * Called during {@link ChromeBrowserInitializer#handlePostNativeStartup(BrowserParts)}.
      * Carry out remaining activity specific tasks for initialization
      */
     void finishNativeInitialization();
@@ -61,18 +72,15 @@ public interface BrowserParts {
     /**
      * Called during {@link ChromeBrowserInitializer#handlePostNativeStartup(BrowserParts)} if
      * there was an error during startup.
+     * @param failureCause The Exception from the original failure.
      */
-    void onStartupFailure();
+    void onStartupFailure(@Nullable Exception failureCause);
 
     /**
-     * @return Whether the activity this delegate represents has been destoyed.
+     * @return Whether the activity this delegate represents has been destroyed or is in the
+     *         process of finishing.
      */
-    boolean isActivityDestroyed();
-
-    /**
-     * @return Whether the activity is marked itself to be closed.
-     */
-    boolean isActivityFinishing();
+    boolean isActivityFinishingOrDestroyed();
 
     /**
      * @return Whether GPU process needs to be started during the startup.
@@ -80,10 +88,10 @@ public interface BrowserParts {
     boolean shouldStartGpuProcess();
 
     /**
-     * @return Whether only ServiceManager should be launched during the startup, without running
+     * @return Whether a minimal browser should be launched during the startup, without running
      *         remaining parts of the Chrome.
      */
-    default boolean startServiceManagerOnly() {
+    default boolean startMinimalBrowser() {
         return false;
     }
 }

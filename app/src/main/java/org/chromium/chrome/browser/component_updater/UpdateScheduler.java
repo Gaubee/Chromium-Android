@@ -6,16 +6,15 @@ package org.chromium.chrome.browser.component_updater;
 
 import android.os.Build;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
-
 import org.chromium.base.ContextUtils;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.components.background_task_scheduler.BackgroundTask.TaskFinishedCallback;
 import org.chromium.components.background_task_scheduler.BackgroundTaskSchedulerFactory;
 import org.chromium.components.background_task_scheduler.TaskIds;
 import org.chromium.components.background_task_scheduler.TaskInfo;
+import org.chromium.gms.ChromiumPlayServicesAvailability;
 
 /** Java-side implementation of the component update scheduler using the BackgroundTaskScheduler. */
 @JNINamespace("component_updater")
@@ -36,9 +35,8 @@ public class UpdateScheduler {
     @CalledByNative
     /* package */ static boolean isAvailable() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                || GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(
-                           ContextUtils.getApplicationContext())
-                == ConnectionResult.SUCCESS;
+                || ChromiumPlayServicesAvailability.isGooglePlayServicesAvailable(
+                        ContextUtils.getApplicationContext());
     }
 
     /* package */ void onStartTaskBeforeNativeLoaded(TaskFinishedCallback callback) {
@@ -47,12 +45,12 @@ public class UpdateScheduler {
 
     /* package */ void onStartTaskWithNative() {
         assert mNativeScheduler != 0;
-        nativeOnStartTask(mNativeScheduler);
+        UpdateSchedulerJni.get().onStartTask(mNativeScheduler, UpdateScheduler.this);
     }
 
     /* package */ void onStopTask() {
         if (mNativeScheduler != 0) {
-            nativeOnStopTask(mNativeScheduler);
+            UpdateSchedulerJni.get().onStopTask(mNativeScheduler, UpdateScheduler.this);
         }
         mTaskFinishedCallback = null;
         scheduleInternal(mDelayMs);
@@ -69,10 +67,10 @@ public class UpdateScheduler {
         // update tasks would be cancelled.
         if (mTaskFinishedCallback != null) return;
 
-        TaskInfo taskInfo = TaskInfo.createOneOffTask(TaskIds.COMPONENT_UPDATE_JOB_ID,
-                                            UpdateTask.class, delayMs, Integer.MAX_VALUE)
+        TaskInfo taskInfo = TaskInfo.createOneOffTask(TaskIds.COMPONENT_UPDATE_JOB_ID, delayMs,
+                                            Integer.MAX_VALUE)
                                     .setUpdateCurrent(true)
-                                    .setRequiredNetworkType(TaskInfo.NETWORK_TYPE_UNMETERED)
+                                    .setRequiredNetworkType(TaskInfo.NetworkType.UNMETERED)
                                     .setIsPersisted(true)
                                     .build();
         BackgroundTaskSchedulerFactory.getScheduler().schedule(
@@ -106,6 +104,9 @@ public class UpdateScheduler {
                 ContextUtils.getApplicationContext(), TaskIds.COMPONENT_UPDATE_JOB_ID);
     }
 
-    private native void nativeOnStartTask(long nativeBackgroundTaskUpdateScheduler);
-    private native void nativeOnStopTask(long nativeBackgroundTaskUpdateScheduler);
+    @NativeMethods
+    interface Natives {
+        void onStartTask(long nativeBackgroundTaskUpdateScheduler, UpdateScheduler caller);
+        void onStopTask(long nativeBackgroundTaskUpdateScheduler, UpdateScheduler caller);
+    }
 }

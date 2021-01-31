@@ -9,7 +9,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
-import org.chromium.base.task.AsyncTask;
+import org.chromium.base.task.PostTask;
+import org.chromium.base.task.TaskTraits;
+import org.chromium.chrome.browser.autofill_assistant.AutofillAssistantModuleEntryProvider;
+import org.chromium.chrome.browser.base.DexFixer;
 import org.chromium.chrome.browser.notifications.channels.ChannelsUpdater;
 import org.chromium.chrome.browser.vr.VrModuleProvider;
 
@@ -31,24 +34,19 @@ public final class PackageReplacedBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         if (!Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) return;
-        updateChannelsIfNecessary();
         VrModuleProvider.maybeRequestModuleIfDaydreamReady();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) return;
-        UpgradeIntentService.startMigrationIfNecessary(context);
-    }
-
-    private void updateChannelsIfNecessary() {
-        if (!ChannelsUpdater.getInstance().shouldUpdateChannels()) return;
+        AutofillAssistantModuleEntryProvider.maybeInstallDeferred();
 
         final PendingResult result = goAsync();
-        new AsyncTask<Void>() {
-            @Override
-            protected Void doInBackground() {
+        PostTask.postTask(TaskTraits.BEST_EFFORT_MAY_BLOCK, () -> {
+            if (ChannelsUpdater.getInstance().shouldUpdateChannels()) {
                 ChannelsUpdater.getInstance().updateChannels();
-                result.finish();
-                return null;
             }
-        }
-                .executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                DexFixer.fixDexInBackground();
+            }
+            result.finish();
+        });
     }
 }

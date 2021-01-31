@@ -5,43 +5,32 @@
 package org.chromium.chrome.browser.browserservices;
 
 import android.os.SystemClock;
-import android.support.annotation.IntDef;
 
-import org.chromium.base.metrics.CachedMetrics;
 import org.chromium.base.metrics.RecordHistogram;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.util.concurrent.TimeUnit;
+import org.chromium.chrome.browser.browserservices.verification.OriginVerifier;
 
 /**
  * Class to contain metrics recording constants and behaviour for Browser Services.
  */
 public class BrowserServicesMetrics {
-    @Retention(RetentionPolicy.SOURCE)
-    @IntDef({VerificationResult.ONLINE_SUCCESS, VerificationResult.ONLINE_FAILURE,
-            VerificationResult.OFFLINE_SUCCESS, VerificationResult.OFFLINE_FAILURE,
-            VerificationResult.HTTPS_FAILURE, VerificationResult.REQUEST_FAILURE,
-            VerificationResult.CACHED_SUCCESS})
-    public @interface VerificationResult {
-        // Don't reuse values or reorder values. If you add something new, change NUM_ENTRIES as
-        // well.
-        int ONLINE_SUCCESS = 0;
-        int ONLINE_FAILURE = 1;
-        int OFFLINE_SUCCESS = 2;
-        int OFFLINE_FAILURE = 3;
-        int HTTPS_FAILURE = 4;
-        int REQUEST_FAILURE = 5;
-        int CACHED_SUCCESS = 6;
-        int NUM_ENTRIES = 7;
-    }
+    /** Implementation of {@link OriginVerifier.MetricsListener}. */
+    public static class OriginVerifierMetricsListener implements OriginVerifier.MetricsListener {
+        @Override
+        public void recordVerificationResult(@OriginVerifier.VerificationResult int result) {
+            RecordHistogram.recordEnumeratedHistogram("BrowserServices.VerificationResult", result,
+                    OriginVerifier.VerificationResult.NUM_ENTRIES);
+        }
 
-    /**
-     * Records the verification result for Trusted Web Activity verification.
-     */
-    public static void recordVerificationResult(@VerificationResult int result) {
-        RecordHistogram.recordEnumeratedHistogram(
-                "BrowserServices.VerificationResult", result, VerificationResult.NUM_ENTRIES);
+        @Override
+        public void recordVerificationTime(long duration, boolean online) {
+            if (online) {
+                RecordHistogram.recordTimesHistogram(
+                        "BrowserServices.VerificationTime.Online", duration);
+            } else {
+                RecordHistogram.recordTimesHistogram(
+                        "BrowserServices.VerificationTime.Offline", duration);
+            }
+        }
     }
 
     /**
@@ -62,6 +51,14 @@ public class BrowserServicesMetrics {
     }
 
     /**
+     * Returns a {@link TimingMetric} that records the amount of time taken to check if a package
+     * handles a Browsable intent.
+     */
+    public static TimingMetric getBrowsableIntentResolutionTimingContext() {
+        return new TimingMetric("BrowserServices.BrowsableIntentCheck");
+    }
+
+    /**
      * A class to be used with a try-with-resources to record the elapsed time within the try block.
      */
     public static class TimingMetric implements AutoCloseable {
@@ -72,16 +69,14 @@ public class BrowserServicesMetrics {
             return SystemClock.uptimeMillis();
         }
 
-        public TimingMetric(String metric) {
+        private TimingMetric(String metric) {
             mMetric = metric;
             mStart = now();
         }
 
         @Override
         public void close() {
-            // Use {@link CachedMetrics} so this can be called before native is loaded.
-            new CachedMetrics.MediumTimesHistogramSample(mMetric, TimeUnit.MILLISECONDS)
-                    .record(now() - mStart);
+            RecordHistogram.recordMediumTimesHistogram(mMetric, now() - mStart);
         }
     }
 

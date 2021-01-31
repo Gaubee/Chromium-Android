@@ -5,23 +5,25 @@
 package org.chromium.chrome.browser.bookmarks;
 
 import android.content.Context;
-import android.support.v7.widget.Toolbar.OnMenuItemClickListener;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View.OnClickListener;
 
+import androidx.appcompat.widget.Toolbar.OnMenuItemClickListener;
+
+import org.chromium.base.metrics.RecordHistogram;
+import org.chromium.base.metrics.RecordUserAction;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.ChromeFeatureList;
 import org.chromium.chrome.browser.bookmarks.BookmarkBridge.BookmarkItem;
-import org.chromium.chrome.browser.bookmarks.BookmarkBridge.BookmarkModelObserver;
-import org.chromium.chrome.browser.preferences.PrefServiceBridge;
-import org.chromium.chrome.browser.tabmodel.TabLaunchType;
+import org.chromium.chrome.browser.incognito.IncognitoUtils;
+import org.chromium.chrome.browser.tab.TabLaunchType;
 import org.chromium.chrome.browser.tabmodel.document.TabDelegate;
-import org.chromium.chrome.browser.widget.selection.SelectableListToolbar;
-import org.chromium.chrome.browser.widget.selection.SelectionDelegate;
 import org.chromium.components.bookmarks.BookmarkId;
 import org.chromium.components.bookmarks.BookmarkType;
+import org.chromium.components.browser_ui.widget.dragreorder.DragReorderableListAdapter;
+import org.chromium.components.browser_ui.widget.selectable_list.SelectableListToolbar;
+import org.chromium.components.browser_ui.widget.selectable_list.SelectionDelegate;
 import org.chromium.content_public.browser.LoadUrlParams;
 
 import java.util.List;
@@ -31,16 +33,10 @@ import java.util.List;
  * associated with the current context.
  */
 public class BookmarkActionBar extends SelectableListToolbar<BookmarkId>
-        implements BookmarkUIObserver, OnMenuItemClickListener, OnClickListener {
+        implements BookmarkUIObserver, OnMenuItemClickListener, OnClickListener,
+                   DragReorderableListAdapter.DragListener {
     private BookmarkItem mCurrentFolder;
     private BookmarkDelegate mDelegate;
-
-    private BookmarkModelObserver mBookmarkModelObserver = new BookmarkModelObserver() {
-        @Override
-        public void bookmarkModelChanged() {
-            onSelectionStateChange(mDelegate.getSelectionDelegate().getSelectedItemsAsList());
-        }
-    };
 
     public BookmarkActionBar(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -56,9 +52,7 @@ public class BookmarkActionBar extends SelectableListToolbar<BookmarkId>
 
         getMenu()
                 .findItem(R.id.selection_open_in_incognito_tab_id)
-                .setTitle(ChromeFeatureList.isEnabled(ChromeFeatureList.INCOGNITO_STRINGS)
-                                ? R.string.contextmenu_open_in_private_tab
-                                : R.string.contextmenu_open_in_incognito_tab);
+                .setTitle(R.string.contextmenu_open_in_incognito_tab);
 
         // Wait to enable the selection mode group until the BookmarkDelegate is set. The
         // SelectionDelegate is retrieved from the BookmarkDelegate.
@@ -107,18 +101,26 @@ public class BookmarkActionBar extends SelectableListToolbar<BookmarkId>
             if (list.size() >= 1) {
                 BookmarkFolderSelectActivity.startFolderSelectActivity(getContext(),
                         list.toArray(new BookmarkId[list.size()]));
+                RecordUserAction.record("MobileBookmarkManagerMoveToFolderBulk");
             }
             return true;
         } else if (menuItem.getItemId() == R.id.selection_mode_delete_menu_id) {
             mDelegate.getModel().deleteBookmarks(
                     selectionDelegate.getSelectedItems().toArray(new BookmarkId[0]));
+            RecordUserAction.record("MobileBookmarkManagerDeleteBulk");
             return true;
         } else if (menuItem.getItemId() == R.id.selection_open_in_new_tab_id) {
+            RecordUserAction.record("MobileBookmarkManagerEntryOpenedInNewTab");
+            RecordHistogram.recordCount1000Histogram(
+                    "Bookmarks.Count.OpenInNewTab", mSelectionDelegate.getSelectedItems().size());
             openBookmarksInNewTabs(selectionDelegate.getSelectedItemsAsList(),
                     new TabDelegate(false), mDelegate.getModel());
             selectionDelegate.clearSelection();
             return true;
         } else if (menuItem.getItemId() == R.id.selection_open_in_incognito_tab_id) {
+            RecordUserAction.record("MobileBookmarkManagerEntryOpenedInIncognito");
+            RecordHistogram.recordCount1000Histogram("Bookmarks.Count.OpenInIncognito",
+                    mSelectionDelegate.getSelectedItems().size());
             openBookmarksInNewTabs(selectionDelegate.getSelectedItemsAsList(),
                     new TabDelegate(true), mDelegate.getModel());
             selectionDelegate.clearSelection();
@@ -154,7 +156,6 @@ public class BookmarkActionBar extends SelectableListToolbar<BookmarkId>
         mDelegate = delegate;
         mDelegate.addUIObserver(this);
         if (!delegate.isDialogUi()) getMenu().removeItem(R.id.close_menu_id);
-        delegate.getModel().addObserver(mBookmarkModelObserver);
 
         getMenu().setGroupEnabled(R.id.selection_mode_menu_group, true);
     }
@@ -166,7 +167,6 @@ public class BookmarkActionBar extends SelectableListToolbar<BookmarkId>
         if (mDelegate == null) return;
 
         mDelegate.removeUIObserver(this);
-        mDelegate.getModel().removeObserver(mBookmarkModelObserver);
     }
 
     @Override
@@ -208,8 +208,9 @@ public class BookmarkActionBar extends SelectableListToolbar<BookmarkId>
             // Editing a bookmark action on multiple selected items doesn't make sense. So disable.
             getMenu().findItem(R.id.selection_mode_edit_menu_id).setVisible(
                     selectedBookmarks.size() == 1);
-            getMenu().findItem(R.id.selection_open_in_incognito_tab_id)
-                    .setVisible(PrefServiceBridge.getInstance().isIncognitoModeEnabled());
+            getMenu()
+                    .findItem(R.id.selection_open_in_incognito_tab_id)
+                    .setVisible(IncognitoUtils.isIncognitoModeEnabled());
             // It does not make sense to open a folder in new tab.
             for (BookmarkId bookmark : selectedBookmarks) {
                 BookmarkItem item = mDelegate.getModel().getBookmarkById(bookmark);
@@ -227,6 +228,15 @@ public class BookmarkActionBar extends SelectableListToolbar<BookmarkId>
                     break;
                 }
             }
+
+            // Disable edit, move buttons, if the selection includes a reading list item.
+            for (BookmarkId bookmark : selectedBookmarks) {
+                if (bookmark.getType() == BookmarkType.READING_LIST) {
+                    getMenu().findItem(R.id.selection_mode_move_menu_id).setVisible(false);
+                    getMenu().findItem(R.id.selection_mode_edit_menu_id).setVisible(false);
+                    break;
+                }
+            }
         } else {
             mDelegate.notifyStateChange(this);
         }
@@ -238,5 +248,19 @@ public class BookmarkActionBar extends SelectableListToolbar<BookmarkId>
             tabDelegate.createNewTab(new LoadUrlParams(model.getBookmarkById(id).getUrl()),
                     TabLaunchType.FROM_LONGPRESS_BACKGROUND, null);
         }
+    }
+
+    // DragListener implementation.
+
+    /**
+     * Called when there is a drag in the bookmarks list.
+     *
+     * @param drag Whether drag is currently on.
+     */
+    @Override
+    public void onDragStateChange(boolean drag) {
+        getMenu().setGroupEnabled(R.id.selection_mode_menu_group, !drag);
+        setNavigationOnClickListener(drag ? null : this);
+        setOnMenuItemClickListener(drag ? null : this);
     }
 }

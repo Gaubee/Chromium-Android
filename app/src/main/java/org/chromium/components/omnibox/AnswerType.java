@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.components.omnibox;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -19,7 +19,7 @@ import java.lang.annotation.RetentionPolicy;
     AnswerType.INVALID, AnswerType.DICTIONARY, AnswerType.FINANCE, AnswerType.KNOWLEDGE_GRAPH,
     AnswerType.LOCAL, AnswerType.SPORTS, AnswerType.SUNRISE, AnswerType.TRANSLATION,
     AnswerType.WEATHER, AnswerType.WHEN_IS, AnswerType.CURRENCY, AnswerType.LOCAL_TIME,
-    AnswerType.PLAY_INSTALL
+    AnswerType.PLAY_INSTALL, AnswerType.TOTAL_COUNT
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface AnswerType {
@@ -36,4 +36,10 @@ public @interface AnswerType {
   int CURRENCY = 10;
   int LOCAL_TIME = 11;
   int PLAY_INSTALL = 12;
+  /**
+   * Last value - tracks total number of different answer types. Deliberately not assigning a value
+   * to this enum to prevent errors where a new enum values are added above and compiler accepts the
+   * overlapping enums.
+   */
+  int TOTAL_COUNT = 13;
 }

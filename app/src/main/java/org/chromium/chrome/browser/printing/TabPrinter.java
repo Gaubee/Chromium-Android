@@ -8,8 +8,12 @@ import android.text.TextUtils;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
+import org.chromium.base.annotations.CalledByNative;
+import org.chromium.base.annotations.JNINamespace;
+import org.chromium.base.annotations.NativeMethods;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.content_public.browser.WebContents;
 import org.chromium.printing.Printable;
 
 import java.lang.ref.WeakReference;
@@ -20,16 +24,24 @@ import java.lang.ref.WeakReference;
  * This class doesn't have any lifetime expectations with regards to Tab, since we keep a weak
  * reference.
  */
+@JNINamespace("printing")
 public class TabPrinter implements Printable {
     private static final String TAG = "printing";
 
     private final WeakReference<Tab> mTab;
     private final String mDefaultTitle;
+    private final String mErrorMessage;
+
+    @CalledByNative
+    private static TabPrinter getPrintable(Tab tab) {
+        return new TabPrinter(tab);
+    }
 
     public TabPrinter(Tab tab) {
         mTab = new WeakReference<Tab>(tab);
-        mDefaultTitle = ContextUtils.getApplicationContext().getResources().getString(
-                R.string.menu_print);
+        mDefaultTitle = ContextUtils.getApplicationContext().getString(R.string.menu_print);
+        mErrorMessage =
+                ContextUtils.getApplicationContext().getString(R.string.error_printing_failed);
     }
 
     @Override
@@ -37,18 +49,18 @@ public class TabPrinter implements Printable {
         if (!canPrint()) return false;
         Tab tab = mTab.get();
         assert tab != null && tab.isInitialized();
-        return tab.print(renderProcessId, renderFrameId);
+        return TabPrinterJni.get().print(tab.getWebContents(), renderProcessId, renderFrameId);
     }
 
     @Override
     public String getTitle() {
         Tab tab = mTab.get();
-        if (tab == null) return mDefaultTitle;
+        if (tab == null || !tab.isInitialized()) return mDefaultTitle;
 
         String title = tab.getTitle();
         if (!TextUtils.isEmpty(title)) return title;
 
-        String url = tab.getUrl();
+        String url = tab.getUrlString();
         if (!TextUtils.isEmpty(url)) return url;
 
         return mDefaultTitle;
@@ -58,10 +70,20 @@ public class TabPrinter implements Printable {
     public boolean canPrint() {
         Tab tab = mTab.get();
         if (tab == null || !tab.isInitialized()) {
-            // tab.isInitialized() will be false if tab is in destroy process.
+            // Tab.isInitialized() will be false if tab is in destroy process.
             Log.d(TAG, "Tab is not avaliable for printing.");
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String getErrorMessage() {
+        return mErrorMessage;
+    }
+
+    @NativeMethods
+    interface Natives {
+        boolean print(WebContents webContents, int renderProcessId, int renderFrameId);
     }
 }

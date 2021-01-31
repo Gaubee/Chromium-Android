@@ -91,7 +91,7 @@ public class SwipeRefreshLayout extends ViewGroup {
     private OnResetListener mResetListener;
     private boolean mRefreshing = false;
     private float mTotalDragDistance = -1;
-    private int mMediumAnimationDuration;
+    private final int mMediumAnimationDuration;
     private int mCurrentTargetOffsetTop;
     // Whether or not the starting offset has been determined.
     private boolean mOriginalOffsetCalculated = false;
@@ -143,7 +143,7 @@ public class SwipeRefreshLayout extends ViewGroup {
     // Whether the client has set a custom starting position;
     private boolean mUsingCustomStart;
 
-    private Animation.AnimationListener mRefreshListener = new Animation.AnimationListener() {
+    private final Animation.AnimationListener mRefreshListener = new Animation.AnimationListener() {
         @Override
         public void onAnimationStart(Animation animation) {
         }
@@ -173,7 +173,7 @@ public class SwipeRefreshLayout extends ViewGroup {
     // Chrome-specific additions.
     private float mTotalMotionY;
     // Minimum number of pull updates necessary to trigger a refresh.
-    private static int MIN_PULLS_TO_ACTIVATE = 3;
+    private static final int MIN_PULLS_TO_ACTIVATE = 3;
     // Multiplier for the default top offset relative to the size of the progress spinner.
     private static final float DEFAULT_OFFSET_TOP_MULTIPLIER = 1.05f;
 
@@ -805,7 +805,7 @@ public class SwipeRefreshLayout extends ViewGroup {
      * triggers a refresh should implement this interface.
      */
     public interface OnRefreshListener {
-        public void onRefresh();
+        void onRefresh();
     }
 
     /**
@@ -813,6 +813,6 @@ public class SwipeRefreshLayout extends ViewGroup {
      * implement this interface.
      */
     public interface OnResetListener {
-        public void onReset();
+        void onReset();
     }
 }

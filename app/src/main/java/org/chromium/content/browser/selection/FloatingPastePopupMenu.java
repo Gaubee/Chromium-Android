@@ -27,7 +27,7 @@ public class FloatingPastePopupMenu implements PastePopupMenu {
 
     private ActionMode mActionMode;
     private Rect mSelectionRect;
-    private ActionMode.Callback mExternalCallback;
+    private final ActionMode.Callback mExternalCallback;
 
     public FloatingPastePopupMenu(Context context, View parent, PastePopupMenuDelegate delegate,
             ActionMode.Callback externalCallback) {
@@ -138,5 +138,5 @@ public class FloatingPastePopupMenu implements PastePopupMenu {
         public void onGetContentRect(ActionMode mode, View view, Rect outRect) {
             outRect.set(mSelectionRect);
         }
-    };
+    }
 }

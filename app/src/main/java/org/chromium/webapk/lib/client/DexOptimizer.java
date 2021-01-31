@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
  * Note: This class is copied (mostly) verbatim from DexOptUtils in GMSCore.
  */
 public class DexOptimizer {
-    private static final String TAG = "cr_DexOptimzer";
+    private static final String TAG = "DexOptimzer";
 
     private static final String DEX_SUFFIX = ".dex";
     private static final String ODEX_SUFFIX = ".odex";
@@ -101,10 +101,8 @@ public class DexOptimizer {
             if (currentApiVersion >= Build.VERSION_CODES.M) {
                 return new File(
                         dexPath.getParentFile(), "oat/" + VMRuntime.getCurrentInstructionSet());
-            } else if (currentApiVersion >= Build.VERSION_CODES.LOLLIPOP) {
-                return new File(dexPath.getParentFile(), VMRuntime.getCurrentInstructionSet());
             } else {
-                return dexPath.getParentFile();
+                return new File(dexPath.getParentFile(), VMRuntime.getCurrentInstructionSet());
             }
         } catch (NoSuchMethodException e) {
             return null;
@@ -171,7 +169,7 @@ public class DexOptimizer {
      *   client's file space.
      */
     private static class VMRuntime {
-        @SuppressLint("NewApi")
+        @SuppressLint({"DiscouragedPrivateApi", "NewApi"})
         @SuppressWarnings("unchecked")
         public static String getCurrentInstructionSet() throws NoSuchMethodException {
             Method getCurrentInstructionSetMethod;

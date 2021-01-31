@@ -4,7 +4,7 @@
 
 package org.chromium.ui.modelutil;
 
-import android.support.annotation.Nullable;
+import android.annotation.Nullable;
 
 import org.chromium.ui.ViewProvider;
 

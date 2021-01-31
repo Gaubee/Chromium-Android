@@ -4,26 +4,30 @@
 
 package org.chromium.chrome.browser;
 
-import android.support.annotation.CallSuper;
+import androidx.annotation.CallSuper;
+import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.ObserverList;
 import org.chromium.base.ObserverList.RewindableIterator;
+import org.chromium.base.supplier.Supplier;
 import org.chromium.chrome.browser.compositor.layouts.Layout;
-import org.chromium.chrome.browser.compositor.layouts.LayoutManager;
+import org.chromium.chrome.browser.compositor.layouts.LayoutManagerImpl;
 import org.chromium.chrome.browser.compositor.layouts.SceneChangeObserver;
 import org.chromium.chrome.browser.compositor.layouts.StaticLayout;
 import org.chromium.chrome.browser.compositor.layouts.phone.SimpleAnimationLayout;
 import org.chromium.chrome.browser.tab.EmptyTabObserver;
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tab.TabSelectionType;
+import org.chromium.chrome.browser.tabmodel.EmptyTabModelSelectorObserver;
 import org.chromium.chrome.browser.tabmodel.TabModel;
 import org.chromium.chrome.browser.tabmodel.TabModelSelector;
+import org.chromium.chrome.browser.tabmodel.TabModelSelectorObserver;
 import org.chromium.chrome.browser.tabmodel.TabModelSelectorTabModelObserver;
-import org.chromium.chrome.browser.tabmodel.TabSelectionType;
 
 /**
  * A class that provides the current {@link Tab} for various states of the browser's activity.
  */
-public class ActivityTabProvider {
+public class ActivityTabProvider implements Supplier<Tab> {
     /** An interface to track the visible tab for the activity. */
     public interface ActivityTabObserver {
         /**
@@ -40,7 +44,7 @@ public class ActivityTabProvider {
     }
 
     /** An {@link ActivityTabObserver} that can be used to explicitly watch non-hint events. */
-    public static abstract class HintlessActivityTabObserver implements ActivityTabObserver {
+    public abstract static class HintlessActivityTabObserver implements ActivityTabObserver {
         @Override
         public final void onActivityTabChanged(Tab tab, boolean hint) {
             // Only pass the event through if it isn't a hint.
@@ -69,17 +73,33 @@ public class ActivityTabProvider {
         private Tab mTab;
 
         /**
-         * Create a new {@link TabObserver} that only observes the activity tab.
+         * Create a new {@link TabObserver} that only observes the activity tab. It doesn't trigger
+         * for the initial tab being attached to after creation.
          * @param tabProvider An {@link ActivityTabProvider} to get the activity tab.
          */
         public ActivityTabTabObserver(ActivityTabProvider tabProvider) {
+            this(tabProvider, false);
+        }
+
+        /**
+         * Create a new {@link TabObserver} that only observes the activity tab. This constructor
+         * allows the option of triggering for the initial tab being attached to after creation.
+         * @param tabProvider An {@link ActivityTabProvider} to get the activity tab.
+         * @param shouldTrigger Whether the observer should be triggered for the initial tab after
+         * creation.
+         */
+        public ActivityTabTabObserver(ActivityTabProvider tabProvider, boolean shouldTrigger) {
             mTabProvider = tabProvider;
             mActivityTabObserver = (tab, hint) -> {
                 updateObservedTab(tab);
-                onObservingDifferentTab(tab);
+                onObservingDifferentTab(tab, hint);
             };
-            mTabProvider.addObserver(mActivityTabObserver);
-            updateObservedTab(mTabProvider.getActivityTab());
+            if (shouldTrigger) {
+                mTabProvider.addObserverAndTrigger(mActivityTabObserver);
+            } else {
+                mTabProvider.addObserver(mActivityTabObserver);
+            }
+            updateObservedTab(mTabProvider.get());
         }
 
         /**
@@ -93,11 +113,14 @@ public class ActivityTabProvider {
         }
 
         /**
-         * A notification that the observer has switched to observing a different tab. This will not
-         * be called for the initial tab being attached to after creation.
+         * A notification that the observer has switched to observing a different tab. This can be
+         * called a first time with the {@code hint} parameter set to true, indicating that a new
+         * tab is going to be selected.
          * @param tab The tab that the observer is now observing. This can be null.
+         * @param hint Whether the change event is a hint that a tab change is likely. If true, the
+         *             provided tab may still be frozen and is not yet selected.
          */
-        protected void onObservingDifferentTab(Tab tab) {}
+        protected void onObservingDifferentTab(Tab tab, boolean hint) {}
 
         /**
          * Clean up any state held by this observer.
@@ -124,17 +147,20 @@ public class ActivityTabProvider {
     /** The {@link Tab} that is considered to be the activity's tab. */
     private Tab mActivityTab;
 
-    /** A handle to the {@link LayoutManager} to get the active layout. */
-    private LayoutManager mLayoutManager;
+    /** A handle to the {@link LayoutManagerImpl} to get the active layout. */
+    private LayoutManagerImpl mLayoutManager;
 
-    /** The observer watching scene changes in the {@link LayoutManager}. */
-    private SceneChangeObserver mSceneChangeObserver;
+    /** The observer watching scene changes in the {@link LayoutManagerImpl}. */
+    private final SceneChangeObserver mSceneChangeObserver;
 
     /** A handle to the {@link TabModelSelector}. */
     private TabModelSelector mTabModelSelector;
 
     /** An observer for watching tab creation and switching events. */
     private TabModelSelectorTabModelObserver mTabModelObserver;
+
+    /** An observer for watching tab model switching event. */
+    private TabModelSelectorObserver mTabModelSelectorObserver;
 
     /** The last tab ID that was hinted. This is reset when the activity tab actually changes. */
     private int mLastHintedTabId;
@@ -174,7 +200,8 @@ public class ActivityTabProvider {
     /**
      * @return The activity's current tab.
      */
-    public Tab getActivityTab() {
+    @Override
+    public Tab get() {
         return mActivityTab;
     }
 
@@ -193,15 +220,27 @@ public class ActivityTabProvider {
             @Override
             public void willCloseTab(Tab tab, boolean animate) {
                 // If this is the last tab to close, make sure a signal is sent to the observers.
-                if (mTabModelSelector.getTotalTabCount() <= 1) triggerActivityTabChangeEvent(null);
+                if (mTabModelSelector.getCurrentModel().getCount() <= 1) {
+                    triggerActivityTabChangeEvent(null);
+                }
             }
         };
+
+        mTabModelSelectorObserver = new EmptyTabModelSelectorObserver() {
+            @Override
+            public void onTabModelSelected(TabModel newModel, TabModel oldModel) {
+                // Send a signal with null tab if a new model has no tab. Other cases
+                // are taken care of by TabModelSelectorTabModelObserver#didSelectTab.
+                if (newModel.getCount() == 0) triggerActivityTabChangeEvent(null);
+            }
+        };
+        mTabModelSelector.addObserver(mTabModelSelectorObserver);
     }
 
     /**
-     * @param layoutManager A {@link LayoutManager} for watching for scene changes.
+     * @param layoutManager A {@link LayoutManagerImpl} for watching for scene changes.
      */
-    public void setLayoutManager(LayoutManager layoutManager) {
+    public void setLayoutManager(LayoutManagerImpl layoutManager) {
         assert mLayoutManager == null;
         mLayoutManager = layoutManager;
         mLayoutManager.addSceneChangeObserver(mSceneChangeObserver);
@@ -235,8 +274,12 @@ public class ActivityTabProvider {
      * extremely specific cases where the observer would trigger an event from the constructor of
      * the implementing class (see {@link ActivityTabTabObserver}).
      * @param observer The observer to be added.
+     *
+     * TODO(fgorski): Find a different way to mock this in tests for {@link LoadProgressMediator}.
      */
-    private void addObserver(ActivityTabObserver observer) {
+    @VisibleForTesting
+    @Deprecated
+    public void addObserver(ActivityTabObserver observer) {
         mObservers.addObserver(observer);
     }
 
@@ -263,6 +306,10 @@ public class ActivityTabProvider {
         if (mLayoutManager != null) mLayoutManager.removeSceneChangeObserver(mSceneChangeObserver);
         mLayoutManager = null;
         if (mTabModelObserver != null) mTabModelObserver.destroy();
+        if (mTabModelSelectorObserver != null) {
+            mTabModelSelector.removeObserver(mTabModelSelectorObserver);
+            mTabModelSelectorObserver = null;
+        }
         mTabModelSelector = null;
     }
 }

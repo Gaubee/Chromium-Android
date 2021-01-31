@@ -6,6 +6,8 @@ package org.chromium.chrome.browser.firstrun;
 
 import android.os.Bundle;
 
+import org.chromium.base.supplier.OneshotSupplier;
+
 /**
  * Defines the host interface for First Run Experience pages.
  */
@@ -32,6 +34,16 @@ public interface FirstRunPageDelegate {
      * All results will be packaged and sent over to the main activity.
      */
     void completeFirstRunExperience();
+
+    /**
+     * Exit the First Run Experience without marking the flow complete. This will finish the first
+     * run activity and start the main activity without setting any of the preferences tracking
+     * whether first run has been completed.
+     *
+     * Exposing this function is intended for use in scenarios where FRE is partially or completely
+     * skipped. (e.g. in accordance with Enterprise polices)
+     */
+    void exitFirstRun();
 
     /**
      * Notifies that the user refused to sign in (e.g. "NO, THANKS").
@@ -63,4 +75,10 @@ public interface FirstRunPageDelegate {
      * @param url Resource id for the URL of the web page.
      */
     void showInfoPage(int url);
+
+    /**
+     * The supplier that supplies whether reading policy value is necessary.
+     * See {@link PolicyLoadListener} for details.
+     */
+    OneshotSupplier<Boolean> getPolicyLoadListener();
 }

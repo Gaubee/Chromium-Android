@@ -18,5 +18,5 @@ public interface UrlFocusChangeListener {
      * A notification that animations for focusing or unfocusing the input field has finished.
      * @param hasFocus Whether the URL field has gained focus.
      */
-    default void onUrlAnimationFinished(boolean hasFocus) {};
+    default void onUrlAnimationFinished(boolean hasFocus) {}
 }

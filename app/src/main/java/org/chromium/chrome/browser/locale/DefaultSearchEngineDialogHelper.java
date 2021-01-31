@@ -4,16 +4,17 @@
 
 package org.chromium.chrome.browser.locale;
 
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
+import android.annotation.Nullable;
+
 import org.chromium.chrome.browser.locale.LocaleManager.SearchEnginePromoType;
-import org.chromium.chrome.browser.search_engines.TemplateUrl;
-import org.chromium.chrome.browser.widget.RadioButtonLayout;
+import org.chromium.components.browser_ui.widget.RadioButtonLayout;
+import org.chromium.components.search_engines.TemplateUrl;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -138,7 +139,7 @@ public class DefaultSearchEngineDialogHelper implements OnCheckedChangeListener,
 
         mConfirmedKeyword = mCurrentlySelectedKeyword;
 
-        mDelegate.onUserSeachEngineChoice(mSearchEngineKeywords, mConfirmedKeyword.toString());
+        mDelegate.onUserSeachEngineChoice(mSearchEngineKeywords, mConfirmedKeyword);
         mFinishRunnable.run();
     }
 

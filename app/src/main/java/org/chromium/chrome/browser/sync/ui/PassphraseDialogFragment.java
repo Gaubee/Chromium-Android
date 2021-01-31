@@ -5,8 +5,6 @@
 package org.chromium.chrome.browser.sync.ui;
 
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -15,8 +13,6 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.customtabs.CustomTabsIntent;
-import android.support.v7.app.AlertDialog;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
@@ -29,14 +25,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.ContextUtils;
+import org.chromium.base.IntentUtils;
 import org.chromium.base.Log;
-import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.ChromeStringConstants;
+import org.chromium.chrome.browser.feedback.HelpAndFeedbackLauncherImpl;
+import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.sync.ProfileSyncService;
-import org.chromium.chrome.browser.util.IntentUtils;
 import org.chromium.components.sync.PassphraseType;
 import org.chromium.ui.text.SpanApplier;
 import org.chromium.ui.text.SpanApplier.SpanInfo;
@@ -84,13 +86,6 @@ public class PassphraseDialogFragment extends DialogFragment implements OnClickL
         return dialog;
     }
 
-    private void recordPassphraseDialogDismissal(int result) {
-        RecordHistogram.recordEnumeratedHistogram(
-                "Sync.PassphraseDialogDismissed",
-                result,
-                PASSPHRASE_DIALOG_LIMIT);
-    }
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -98,6 +93,7 @@ public class PassphraseDialogFragment extends DialogFragment implements OnClickL
 
         TextView promptText = (TextView) v.findViewById(R.id.prompt_text);
         promptText.setText(getPromptText());
+        promptText.setMovementMethod(LinkMovementMethod.getInstance());
 
         TextView resetText = (TextView) v.findViewById(R.id.reset_text);
         resetText.setText(getResetText());
@@ -127,19 +123,21 @@ public class PassphraseDialogFragment extends DialogFragment implements OnClickL
                 ApiCompatibilityUtils.getColor(getResources(), R.color.input_underline_error_color),
                 PorterDuff.Mode.SRC_IN);
 
-        final AlertDialog d = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme)
-                .setView(v)
-                .setPositiveButton(R.string.submit, new Dialog.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface d, int which) {
-                        // We override the onclick. This is a hack to not dismiss the dialog after
-                        // click of OK and instead dismiss it after confirming the passphrase
-                        // is correct.
-                    }
-                })
-                 .setNegativeButton(R.string.cancel, this)
-                 .setTitle(R.string.sign_in_google_account)
-                 .create();
+        final AlertDialog d =
+                new AlertDialog.Builder(getActivity(), R.style.Theme_Chromium_AlertDialog)
+                        .setView(v)
+                        .setPositiveButton(R.string.submit,
+                                new Dialog.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface d, int which) {
+                                        // We override the onclick. This is a hack to not dismiss
+                                        // the dialog after click of OK and instead dismiss it after
+                                        // confirming the passphrase is correct.
+                                    }
+                                })
+                        .setNegativeButton(R.string.cancel, this)
+                        .setTitle(R.string.sign_in_google_account)
+                        .create();
 
         d.getDelegate().setHandleNativeActionModesEnabled(false);
         d.setOnShowListener(new DialogInterface.OnShowListener() {
@@ -170,25 +168,44 @@ public class PassphraseDialogFragment extends DialogFragment implements OnClickL
         super.onResume();
     }
 
-    private String getPromptText() {
+    private SpannableString applyInProductHelpSpan(
+            String stringWithLearnMoreTag, String helpContext) {
+        return SpanApplier.applySpans(stringWithLearnMoreTag,
+                new SpanInfo("<learnmore>", "</learnmore>", new ClickableSpan() {
+                    @Override
+                    public void onClick(View view) {
+                        HelpAndFeedbackLauncherImpl.getInstance().show(getActivity(), helpContext,
+                                Profile.getLastUsedRegularProfile(), null);
+                    }
+                }));
+    }
+
+    private SpannableString getPromptText() {
         ProfileSyncService pss = ProfileSyncService.get();
         String accountName = pss.getCurrentSignedInAccountText() + "\n\n";
-        PassphraseType passphraseType = pss.getPassphraseType();
+        @PassphraseType
+        int passphraseType = pss.getPassphraseType();
         if (pss.hasExplicitPassphraseTime()) {
+            String syncPassphraseHelpContext =
+                    getString(R.string.help_context_change_sync_passphrase);
             switch (passphraseType) {
-                case FROZEN_IMPLICIT_PASSPHRASE:
-                    return accountName + pss.getSyncEnterGooglePassphraseBodyWithDateText();
-                case CUSTOM_PASSPHRASE:
-                    return accountName + pss.getSyncEnterCustomPassphraseBodyWithDateText();
-                case IMPLICIT_PASSPHRASE: // Falling through intentionally.
-                case KEYSTORE_PASSPHRASE: // Falling through intentionally.
+                case PassphraseType.FROZEN_IMPLICIT_PASSPHRASE:
+                    return applyInProductHelpSpan(
+                            accountName + pss.getSyncEnterGooglePassphraseBodyWithDateText(),
+                            syncPassphraseHelpContext);
+                case PassphraseType.CUSTOM_PASSPHRASE:
+                    return applyInProductHelpSpan(
+                            accountName + pss.getSyncEnterCustomPassphraseBodyWithDateText(),
+                            syncPassphraseHelpContext);
+                case PassphraseType.IMPLICIT_PASSPHRASE: // Falling through intentionally.
+                case PassphraseType.KEYSTORE_PASSPHRASE: // Falling through intentionally.
+                case PassphraseType.TRUSTED_VAULT_PASSPHRASE: // Falling through intentionally.
                 default:
                     Log.w(TAG, "Found incorrect passphrase type " + passphraseType
                                     + ". Falling back to default string.");
-                    return accountName + pss.getSyncEnterCustomPassphraseBodyText();
             }
         }
-        return accountName + pss.getSyncEnterCustomPassphraseBodyText();
+        return new SpannableString(accountName + pss.getSyncEnterCustomPassphraseBodyText());
     }
 
     private SpannableString getResetText() {
@@ -198,7 +215,6 @@ public class PassphraseDialogFragment extends DialogFragment implements OnClickL
                 new SpanInfo("<resetlink>", "</resetlink>", new ClickableSpan() {
                     @Override
                     public void onClick(View view) {
-                        recordPassphraseDialogDismissal(PASSPHRASE_DIALOG_RESET_LINK);
                         Uri syncDashboardUrl = Uri.parse(ChromeStringConstants.SYNC_DASHBOARD_URL);
                         Intent intent = new Intent(Intent.ACTION_VIEW, syncDashboardUrl);
                         intent.setPackage(ContextUtils.getApplicationContext().getPackageName());
@@ -224,7 +240,6 @@ public class PassphraseDialogFragment extends DialogFragment implements OnClickL
         int cancelReason = isIncorrectPassphraseVisible()
                 ? PASSPHRASE_DIALOG_ERROR
                 : PASSPHRASE_DIALOG_CANCEL;
-        recordPassphraseDialogDismissal(cancelReason);
         getListener().onPassphraseCanceled();
     }
 
@@ -234,9 +249,7 @@ public class PassphraseDialogFragment extends DialogFragment implements OnClickL
 
         String passphrase = mPassphraseEditText.getText().toString();
         boolean success = getListener().onPassphraseEntered(passphrase);
-        if (success) {
-            recordPassphraseDialogDismissal(PASSPHRASE_DIALOG_OK);
-        } else {
+        if (!success) {
             invalidPassphrase();
         }
     }

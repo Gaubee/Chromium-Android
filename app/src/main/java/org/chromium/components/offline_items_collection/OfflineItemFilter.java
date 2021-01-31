@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,26 +10,22 @@
 
 package org.chromium.components.offline_items_collection;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @IntDef({
-    OfflineItemFilter.FILTER_PAGE, OfflineItemFilter.FILTER_VIDEO, OfflineItemFilter.FILTER_AUDIO,
-    OfflineItemFilter.FILTER_IMAGE, OfflineItemFilter.FILTER_DOCUMENT,
-    OfflineItemFilter.FILTER_OTHER, OfflineItemFilter.FILTER_BOUNDARY
+    OfflineItemFilter.PAGE, OfflineItemFilter.VIDEO, OfflineItemFilter.AUDIO,
+    OfflineItemFilter.IMAGE, OfflineItemFilter.DOCUMENT, OfflineItemFilter.OTHER
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface OfflineItemFilter {
-  int FILTER_PAGE = 0;
-  int FILTER_VIDEO = 1;
-  int FILTER_AUDIO = 2;
-  int FILTER_IMAGE = 3;
-  int FILTER_DOCUMENT = 4;
-  int FILTER_OTHER = 5;
-  /**
-   * Maximum value.
-   */
-  int FILTER_BOUNDARY = 6;
+  int PAGE = 0;
+  int VIDEO = 1;
+  int AUDIO = 2;
+  int IMAGE = 3;
+  int DOCUMENT = 4;
+  int OTHER = 5;
+  int NUM_ENTRIES = 6;
 }

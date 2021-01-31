@@ -6,10 +6,11 @@ package org.chromium.chrome.browser.download;
 
 import android.os.Handler;
 import android.os.SystemClock;
-import android.support.annotation.IntDef;
+
+import android.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.ContextUtils;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.components.offline_items_collection.ContentId;
 import org.chromium.components.offline_items_collection.PendingState;
 
@@ -124,6 +125,8 @@ public class SystemDownloadNotifier implements DownloadNotifier {
     @Override
     public void notifyDownloadSuccessful(DownloadInfo info, long systemDownloadId,
             boolean canResolve, boolean isSupportedMimeType) {
+        if (info.getOfflineItemSchedule() != null) return;
+
         NotificationInfo notificationInfo =
                 new NotificationInfo(NotificationType.SUCCEEDED, info, NotificationPriority.HIGH);
         notificationInfo.mSystemDownloadId = systemDownloadId;
@@ -134,6 +137,8 @@ public class SystemDownloadNotifier implements DownloadNotifier {
 
     @Override
     public void notifyDownloadFailed(DownloadInfo info) {
+        if (info.getOfflineItemSchedule() != null) return;
+
         NotificationInfo notificationInfo =
                 new NotificationInfo(NotificationType.FAILED, info, NotificationPriority.HIGH);
         addPendingNotification(notificationInfo);
@@ -142,6 +147,8 @@ public class SystemDownloadNotifier implements DownloadNotifier {
     @Override
     public void notifyDownloadProgress(
             DownloadInfo info, long startTime, boolean canDownloadWhileMetered) {
+        if (info.getOfflineItemSchedule() != null) return;
+
         NotificationInfo notificationInfo =
                 new NotificationInfo(NotificationType.PROGRESS, info, NotificationPriority.LOW);
         notificationInfo.mStartTime = startTime;
@@ -151,6 +158,8 @@ public class SystemDownloadNotifier implements DownloadNotifier {
 
     @Override
     public void notifyDownloadPaused(DownloadInfo info) {
+        if (info.getOfflineItemSchedule() != null) return;
+
         NotificationInfo notificationInfo =
                 new NotificationInfo(NotificationType.PAUSED, info, NotificationPriority.HIGH);
         addPendingNotification(notificationInfo);
@@ -159,6 +168,8 @@ public class SystemDownloadNotifier implements DownloadNotifier {
     @Override
     public void notifyDownloadInterrupted(
             DownloadInfo info, boolean isAutoResumable, @PendingState int pendingState) {
+        if (info.getOfflineItemSchedule() != null) return;
+
         NotificationInfo notificationInfo =
                 new NotificationInfo(NotificationType.INTERRUPTED, info, NotificationPriority.HIGH);
         notificationInfo.mIsAutoResumable = isAutoResumable;

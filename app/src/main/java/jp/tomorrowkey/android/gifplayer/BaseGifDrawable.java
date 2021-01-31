@@ -103,15 +103,15 @@ public class BaseGifDrawable extends Drawable implements Runnable, Animatable,
     // dimensions.
     private int mFrameStep;
 
-    private byte[] mBlock = new byte[256];
+    private final byte[] mBlock = new byte[256];
     private int mDisposalMethod = DISPOSAL_METHOD_BACKGROUND;
     private boolean mTransparency;
     private int mTransparentColorIndex;
 
     // LZW decoder working arrays
-    private short[] mPrefix = new short[MAX_STACK_SIZE];
-    private byte[] mSuffix = new byte[MAX_STACK_SIZE];
-    private byte[] mPixelStack = new byte[MAX_STACK_SIZE + 1];
+    private final short[] mPrefix = new short[MAX_STACK_SIZE];
+    private final byte[] mSuffix = new byte[MAX_STACK_SIZE];
+    private final byte[] mPixelStack = new byte[MAX_STACK_SIZE + 1];
     private byte[] mPixels;
 
     private boolean mBackupSaved;

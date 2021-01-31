@@ -15,14 +15,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.chromium.base.ThreadUtils;
+import org.chromium.base.IntentUtils;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.preferences.PreferencesLauncher;
-import org.chromium.chrome.browser.signin.AccountSigninActivity.AccessPoint;
-import org.chromium.chrome.browser.sync.ui.SyncCustomizationFragment;
-import org.chromium.chrome.browser.util.IntentUtils;
-import org.chromium.components.sync.AndroidSyncSettings;
-import org.chromium.components.sync.AndroidSyncSettings.AndroidSyncSettingsObserver;
+import org.chromium.chrome.browser.settings.SettingsLauncherImpl;
+import org.chromium.chrome.browser.signin.ui.SigninActivityLauncher.AccessPoint;
+import org.chromium.chrome.browser.sync.ProfileSyncService;
+import org.chromium.chrome.browser.sync.settings.SyncAndServicesSettings;
+import org.chromium.components.browser_ui.settings.SettingsLauncher;
+import org.chromium.components.signin.metrics.SigninAccessPoint;
 
 /**
  * A View that shows the user the next step they must complete to start syncing their data (eg.
@@ -30,7 +30,8 @@ import org.chromium.components.sync.AndroidSyncSettings.AndroidSyncSettingsObser
  * If inflated manually, {@link SyncPromoView#init(int)} must be called before
  * attaching this View to a ViewGroup.
  */
-public class SyncPromoView extends LinearLayout implements AndroidSyncSettingsObserver {
+public class SyncPromoView
+        extends LinearLayout implements ProfileSyncService.SyncStateChangedListener {
     private @AccessPoint int mAccessPoint;
     private boolean mInitialized;
 
@@ -57,6 +58,9 @@ public class SyncPromoView extends LinearLayout implements AndroidSyncSettingsOb
      */
     public SyncPromoView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        // This promo is about enabling sync, so no sense in showing it if
+        // syncing isn't possible.
+        assert ProfileSyncService.get() != null;
     }
 
     @Override
@@ -92,9 +96,9 @@ public class SyncPromoView extends LinearLayout implements AndroidSyncSettingsOb
 
     private void update() {
         ViewState viewState;
-        if (!AndroidSyncSettings.get().isMasterSyncEnabled()) {
+        if (!ProfileSyncService.get().isSyncAllowedByPlatform()) {
             viewState = getStateForEnableAndroidSync();
-        } else if (!AndroidSyncSettings.get().isChromeSyncEnabled()) {
+        } else if (!ProfileSyncService.get().isSyncRequested()) {
             viewState = getStateForEnableChromeSync();
         } else {
             viewState = getStateForStartUsing();
@@ -141,6 +145,8 @@ public class SyncPromoView extends LinearLayout implements AndroidSyncSettingsOb
         private final int mTextResource;
         private final OnClickListener mOnClickListener;
 
+        // TODO(crbug.com/1107904): Once Chrome is decoupled from auto-sync,
+        // |onClickListener| can be inlined.
         public ButtonPresent(int textResource, OnClickListener onClickListener) {
             mTextResource = textResource;
             mOnClickListener = onClickListener;
@@ -172,9 +178,11 @@ public class SyncPromoView extends LinearLayout implements AndroidSyncSettingsOb
                 ? R.string.bookmarks_sync_promo_enable_sync
                 : R.string.recent_tabs_sync_promo_enable_chrome_sync;
 
-        ButtonState positiveButton = new ButtonPresent(R.string.enable_sync_button,
-                view -> PreferencesLauncher.launchSettingsPage(
-                        getContext(), SyncCustomizationFragment.class));
+        ButtonState positiveButton = new ButtonPresent(R.string.enable_sync_button, view -> {
+            SettingsLauncher settingsLauncher = new SettingsLauncherImpl();
+            settingsLauncher.launchSettingsActivity(getContext(), SyncAndServicesSettings.class,
+                    SyncAndServicesSettings.createArguments(false));
+        });
 
         return new ViewState(descId, positiveButton);
     }
@@ -193,20 +201,19 @@ public class SyncPromoView extends LinearLayout implements AndroidSyncSettingsOb
         assert mInitialized : "init(...) must be called on SyncPromoView before use.";
 
         super.onAttachedToWindow();
-        AndroidSyncSettings.get().registerObserver(this);
+        ProfileSyncService.get().addSyncStateChangedListener(this);
         update();
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        AndroidSyncSettings.get().unregisterObserver(this);
+        ProfileSyncService.get().removeSyncStateChangedListener(this);
     }
 
-    // AndroidSyncStateObserver
+    // ProfileSyncService.SyncStateChangedListener
     @Override
-    public void androidSyncSettingsChanged() {
-        // AndroidSyncSettings calls this method from non-UI threads.
-        ThreadUtils.runOnUiThread(this::update);
+    public void syncStateChanged() {
+        update();
     }
 }

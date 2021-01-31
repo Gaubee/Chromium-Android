@@ -4,6 +4,7 @@
 
 package org.chromium.base.process_launcher;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -14,7 +15,11 @@ import android.os.Handler;
 import android.os.Process;
 import android.os.UserHandle;
 
+import org.chromium.base.BuildConfig;
+import org.chromium.base.compat.ApiHelperForQ;
+
 import java.lang.reflect.Method;
+import java.util.concurrent.Executor;
 
 /**
  * Class of static helper methods to call Context.bindService variants.
@@ -22,18 +27,33 @@ import java.lang.reflect.Method;
 final class BindService {
     private static Method sBindServiceAsUserMethod;
 
+    static boolean supportVariableConnections() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+                && !BuildConfig.IS_INCREMENTAL_INSTALL;
+    }
+
     // Note that handler is not guaranteed to be used, and client still need to correctly handle
     // callbacks on the UI thread.
     static boolean doBindService(Context context, Intent intent, ServiceConnection connection,
-            int flags, Handler handler) {
+            int flags, Handler handler, Executor executor, String instanceName) {
+        if (supportVariableConnections() && instanceName != null) {
+            return ApiHelperForQ.bindIsolatedService(
+                    context, intent, flags, instanceName, executor, connection);
+        }
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             return bindServiceByCall(context, intent, connection, flags);
         }
 
         try {
             return bindServiceByReflection(context, intent, connection, flags, handler);
-        } catch (ReflectiveOperationException e) {
-            return bindServiceByCall(context, intent, connection, flags);
+        } catch (ReflectiveOperationException reflectionException) {
+            try {
+                return bindServiceByCall(context, intent, connection, flags);
+            } catch (RuntimeException runtimeException) {
+                // Include the reflectionException in crash reports.
+                throw new RuntimeException(runtimeException.getMessage(), reflectionException);
+            }
         }
     }
 
@@ -43,6 +63,7 @@ final class BindService {
     }
 
     @TargetApi(Build.VERSION_CODES.N)
+    @SuppressLint("DiscouragedPrivateApi")
     private static boolean bindServiceByReflection(Context context, Intent intent,
             ServiceConnection connection, int flags, Handler handler)
             throws ReflectiveOperationException {

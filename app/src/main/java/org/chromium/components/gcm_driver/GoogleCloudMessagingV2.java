@@ -11,7 +11,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
-import android.support.annotation.Nullable;
+
+import android.annotation.Nullable;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.PackageUtils;

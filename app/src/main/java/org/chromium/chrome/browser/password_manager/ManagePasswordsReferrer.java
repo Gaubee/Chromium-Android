@@ -1,5 +1,5 @@
 
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2021 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -10,7 +10,7 @@
 
 package org.chromium.chrome.browser.password_manager;
 
-import android.support.annotation.IntDef;
+import android.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -20,6 +20,7 @@ import java.lang.annotation.RetentionPolicy;
     ManagePasswordsReferrer.PASSWORD_CONTEXT_MENU, ManagePasswordsReferrer.PASSWORD_DROPDOWN,
     ManagePasswordsReferrer.PASSWORD_GENERATION_CONFIRMATION,
     ManagePasswordsReferrer.PROFILE_CHOOSER, ManagePasswordsReferrer.PASSWORDS_ACCESSORY_SHEET,
+    ManagePasswordsReferrer.TOUCH_TO_FILL, ManagePasswordsReferrer.SAFE_STATE_BUBBLE,
     ManagePasswordsReferrer.MAX_VALUE
 })
 @Retention(RetentionPolicy.SOURCE)
@@ -51,8 +52,16 @@ public @interface ManagePasswordsReferrer {
   int PROFILE_CHOOSER = 5;
   /**
    * Corresponds to the passwords accessory sheet on Android, triggered by tapping on the key icon
-   * above in the keyboard accessory bar. Only used on Android
+   * above in the keyboard accessory bar. Only used on Android.
    */
   int PASSWORDS_ACCESSORY_SHEET = 6;
-  int MAX_VALUE = PASSWORDS_ACCESSORY_SHEET;
+  /**
+   * Corresponds to the touch to fill bottom sheet that replaces the dropdown. Only used on Android.
+   */
+  int TOUCH_TO_FILL = 7;
+  /**
+   * The bubble notifying the user that the last compromised password was updated.
+   */
+  int SAFE_STATE_BUBBLE = 8;
+  int MAX_VALUE = SAFE_STATE_BUBBLE;
 }

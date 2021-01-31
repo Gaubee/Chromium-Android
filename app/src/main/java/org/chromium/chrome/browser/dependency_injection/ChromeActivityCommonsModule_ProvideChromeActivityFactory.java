@@ -3,14 +3,17 @@ package org.chromium.chrome.browser.dependency_injection;
 import dagger.internal.Factory;
 import dagger.internal.Preconditions;
 import javax.annotation.Generated;
-import org.chromium.chrome.browser.ChromeActivity;
+import org.chromium.chrome.browser.app.ChromeActivity;
 
 @Generated(
-  value = "dagger.internal.codegen.ComponentProcessor",
-  comments = "https://google.github.io/dagger"
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
 )
-public final class ChromeActivityCommonsModule_ProvideChromeActivityFactory
-    implements Factory<ChromeActivity> {
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes"
+})
+public final class ChromeActivityCommonsModule_ProvideChromeActivityFactory implements Factory<ChromeActivity<?>> {
   private final ChromeActivityCommonsModule module;
 
   public ChromeActivityCommonsModule_ProvideChromeActivityFactory(
@@ -19,12 +22,8 @@ public final class ChromeActivityCommonsModule_ProvideChromeActivityFactory
   }
 
   @Override
-  public ChromeActivity get() {
-    return provideInstance(module);
-  }
-
-  public static ChromeActivity provideInstance(ChromeActivityCommonsModule module) {
-    return proxyProvideChromeActivity(module);
+  public ChromeActivity<?> get() {
+    return provideChromeActivity(module);
   }
 
   public static ChromeActivityCommonsModule_ProvideChromeActivityFactory create(
@@ -32,9 +31,7 @@ public final class ChromeActivityCommonsModule_ProvideChromeActivityFactory
     return new ChromeActivityCommonsModule_ProvideChromeActivityFactory(module);
   }
 
-  public static ChromeActivity proxyProvideChromeActivity(ChromeActivityCommonsModule instance) {
-    return Preconditions.checkNotNull(
-        instance.provideChromeActivity(),
-        "Cannot return null from a non-@Nullable @Provides method");
+  public static ChromeActivity<?> provideChromeActivity(ChromeActivityCommonsModule instance) {
+    return Preconditions.checkNotNullFromProvides(instance.provideChromeActivity());
   }
 }

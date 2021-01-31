@@ -12,13 +12,13 @@ import android.content.IntentFilter;
 import android.net.http.X509TrustManagerExtensions;
 import android.os.Build;
 import android.security.KeyChain;
-import android.util.Log;
 import android.util.Pair;
 
 import org.chromium.base.ContextUtils;
+import org.chromium.base.Log;
 import org.chromium.base.annotations.JNINamespace;
 import org.chromium.base.annotations.MainDex;
-import org.chromium.base.metrics.RecordHistogram;
+import org.chromium.base.annotations.NativeMethods;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -99,10 +99,10 @@ public class X509Util {
      * X509TrustManagerExtensions to support platforms before the latter was
      * added.
      */
-    private static interface X509TrustManagerImplementation {
-        public List<X509Certificate> checkServerTrusted(X509Certificate[] chain,
-                                                        String authType,
-                                                        String host) throws CertificateException;
+    private interface X509TrustManagerImplementation {
+        List<X509Certificate> checkServerTrusted(X509Certificate[] chain,
+                                                 String authType,
+                                                 String host) throws CertificateException;
     }
 
     private static final class X509TrustManagerIceCreamSandwich implements
@@ -117,8 +117,15 @@ public class X509Util {
         public List<X509Certificate> checkServerTrusted(X509Certificate[] chain,
                                                         String authType,
                                                         String host) throws CertificateException {
-            mTrustManager.checkServerTrusted(chain, authType);
-            return Collections.<X509Certificate>emptyList();
+            try {
+                mTrustManager.checkServerTrusted(chain, authType);
+            } catch (RuntimeException e) {
+                // https://crbug.com/937354: X509TrustManager can unexpectedly throw runtime
+                // exceptions.
+                Log.e(TAG, "X509TrustManager unexpectedly threw: %s", e);
+                throw new CertificateException(e);
+            }
+            return Collections.emptyList();
         }
     }
 
@@ -134,8 +141,15 @@ public class X509Util {
         @SuppressLint("NewApi")
         public List<X509Certificate> checkServerTrusted(
                 X509Certificate[] chain, String authType, String host) throws CertificateException {
-            // API Level 17: android.net.http.X509TrustManagerExtensions#checkServerTrusted
-            return mTrustManagerExtensions.checkServerTrusted(chain, authType, host);
+            try {
+                // API Level 17: android.net.http.X509TrustManagerExtensions#checkServerTrusted
+                return mTrustManagerExtensions.checkServerTrusted(chain, authType, host);
+            } catch (RuntimeException e) {
+                // https://crbug.com/937354: checkServerTrusted() can unexpectedly throw runtime
+                // exceptions, most often within conscrypt while parsing certificates.
+                Log.e(TAG, "checkServerTrusted() unexpectedly threw: %s", e);
+                throw new CertificateException(e);
+            }
         }
     }
 
@@ -200,12 +214,6 @@ public class X509Util {
     private static final Object sLock = new Object();
 
     /**
-     * Allow disabling recording histograms for the certificate changes. Java unit tests do not load
-     * native libraries which prevent this from succeeding.
-     */
-    private static boolean sDisableNativeCodeForTest;
-
-    /**
      * Ensures that the trust managers and certificate factory are initialized.
      */
     private static void ensureInitialized() throws CertificateException,
@@ -244,13 +252,6 @@ public class X509Util {
             } catch (KeyStoreException e) {
                 // Could not load AndroidCAStore. Continue anyway; isKnownRoot will always
                 // return false.
-            }
-            if (!sDisableNativeCodeForTest
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                // Only record the histogram for 4.2 and up. Before 4.2, the platform doesn't
-                // return the certificate chain anyway.
-                RecordHistogram.recordBooleanHistogram(
-                        "Net.FoundSystemTrustRootsAndroid", sSystemKeyStore != null);
             }
             sLoadedSystemKeyStore = true;
         }
@@ -296,7 +297,17 @@ public class X509Util {
         TrustManagerFactory tmf = TrustManagerFactory.getInstance(algorithm);
         tmf.init(keyStore);
 
-        for (TrustManager tm : tmf.getTrustManagers()) {
+        TrustManager[] trustManagers = null;
+        try {
+            trustManagers = tmf.getTrustManagers();
+        } catch (RuntimeException e) {
+            // https://crbug.com/937354: getTrustManagers() can unexpectedly throw runtime
+            // exceptions, most often while processing the network security config XML file.
+            Log.e(TAG, "TrustManagerFactory.getTrustManagers() unexpectedly threw: %s", e);
+            throw new KeyStoreException(e);
+        }
+
+        for (TrustManager tm : trustManagers) {
             if (tm instanceof X509TrustManager) {
                 try {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -334,7 +345,7 @@ public class X509Util {
             sSystemTrustAnchorCache = null;
             ensureInitializedLocked();
         }
-        nativeNotifyKeyChainChanged();
+        X509UtilJni.get().notifyKeyChainChanged();
     }
 
     /**
@@ -353,7 +364,7 @@ public class X509Util {
         X509Certificate rootCert = createCertificateFromBytes(rootCertBytes);
         synchronized (sLock) {
             sTestKeyStore.setCertificateEntry(
-                    "root_cert_" + Integer.toString(sTestKeyStore.size()), rootCert);
+                    "root_cert_" + sTestKeyStore.size(), rootCert);
             reloadTestTrustManager();
         }
     }
@@ -562,11 +573,11 @@ public class X509Util {
         }
     }
 
-    public static void setDisableNativeCodeForTest(boolean disabled) {
-        sDisableNativeCodeForTest = disabled;
+    @NativeMethods
+    interface Natives {
+        /**
+         * Notify the native net::CertDatabase instance that the system database has been updated.
+         */
+        void notifyKeyChainChanged();
     }
-    /**
-     * Notify the native net::CertDatabase instance that the system database has been updated.
-     */
-    private static native void nativeNotifyKeyChainChanged();
 }

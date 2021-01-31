@@ -7,15 +7,14 @@ package org.chromium.chrome.browser.toolbar;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
-import org.chromium.chrome.R;
+import org.chromium.components.browser_ui.widget.listmenu.ListMenuButton;
 
 /**
  * The Button used for switching tabs. Currently this class is only being used for the bottom
  * toolbar tab switcher button.
  */
-public class TabSwitcherButtonView extends ImageView {
+public class TabSwitcherButtonView extends ListMenuButton {
     /**
      * A drawable for the tab switcher icon.
      */
@@ -38,7 +37,6 @@ public class TabSwitcherButtonView extends ImageView {
      * @param numberOfTabs The number of open tabs.
      */
     public void updateTabCountVisuals(int numberOfTabs) {
-        setEnabled(numberOfTabs >= 1);
         setContentDescription(getResources().getQuantityString(
                 R.plurals.accessibility_toolbar_btn_tabswitcher_toggle, numberOfTabs,
                 numberOfTabs));

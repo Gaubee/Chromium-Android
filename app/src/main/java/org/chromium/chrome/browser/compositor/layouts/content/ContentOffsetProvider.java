@@ -13,5 +13,5 @@ public interface ContentOffsetProvider {
      * @return How far to translate any Android overlay views to recreate the correct content data
      *         in px.
      */
-    public float getOverlayTranslateY();
+    float getOverlayTranslateY();
 }

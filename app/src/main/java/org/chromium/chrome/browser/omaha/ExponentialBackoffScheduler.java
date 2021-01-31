@@ -10,8 +10,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import androidx.annotation.VisibleForTesting;
+
 import org.chromium.base.Log;
-import org.chromium.base.VisibleForTesting;
 
 import java.util.Date;
 import java.util.Random;
@@ -37,10 +38,14 @@ import javax.annotation.concurrent.NotThreadSafe;
  */
 @NotThreadSafe
 public class ExponentialBackoffScheduler {
+    // TODO(crbug.com/1131415): remove and use OmahaBase.TAG when OmahaBase.java is modularized.
+    // Used in various org.chromium.chrome.browser.omaha files.
+    static final String TAG = "omaha";
+
     private static final String PREFERENCE_DELAY = "delay";
     private static final String PREFERENCE_FAILED_ATTEMPTS = "backoffFailedAttempts";
 
-    private static Random sRandom = new Random();
+    private static final Random sRandom = new Random();
 
     private static final int MAX_EXPONENT = 10;
 
@@ -56,8 +61,8 @@ public class ExponentialBackoffScheduler {
      * @param baseMilliseconds Used to calculate random backoff times.
      * @param maxMilliseconds The absolute maximum delay allowed.
      */
-    public ExponentialBackoffScheduler(String packageName, Context context, long baseMilliseconds,
-            long maxMilliseconds) {
+    public ExponentialBackoffScheduler(
+            String packageName, Context context, long baseMilliseconds, long maxMilliseconds) {
         mPreferencePackage = packageName;
         mContext = context;
         mBaseMilliseconds = baseMilliseconds;
@@ -109,16 +114,12 @@ public class ExponentialBackoffScheduler {
     public void increaseFailedAttempts() {
         SharedPreferences preferences = getSharedPreferences();
         int numFailedAttempts = getNumFailedAttempts() + 1;
-        preferences.edit()
-            .putInt(PREFERENCE_FAILED_ATTEMPTS, numFailedAttempts)
-            .apply();
+        preferences.edit().putInt(PREFERENCE_FAILED_ATTEMPTS, numFailedAttempts).apply();
     }
 
     public void resetFailedAttempts() {
         SharedPreferences preferences = getSharedPreferences();
-        preferences.edit()
-            .putInt(PREFERENCE_FAILED_ATTEMPTS, 0)
-            .apply();
+        preferences.edit().putInt(PREFERENCE_FAILED_ATTEMPTS, 0).apply();
     }
 
     /**
@@ -142,12 +143,12 @@ public class ExponentialBackoffScheduler {
      */
     @VisibleForTesting
     protected void setAlarm(AlarmManager am, long timestamp, PendingIntent retryPIntent) {
-        Log.d(OmahaBase.TAG,
+        Log.d(TAG,
                 "now(" + new Date(getCurrentTime()) + ") refiringAt(" + new Date(timestamp) + ")");
         try {
             am.set(AlarmManager.RTC, timestamp, retryPIntent);
         } catch (SecurityException e) {
-            Log.e(OmahaBase.TAG, "Failed to set backoff alarm.");
+            Log.e(TAG, "Failed to set backoff alarm.");
         }
     }
 

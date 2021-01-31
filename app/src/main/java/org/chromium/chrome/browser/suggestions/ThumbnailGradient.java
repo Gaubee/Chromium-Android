@@ -9,8 +9,10 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.SystemClock;
-import android.support.annotation.IntDef;
+
+import android.annotation.IntDef;
 
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.metrics.RecordHistogram;
@@ -19,7 +21,6 @@ import org.chromium.ui.base.LocalizationUtils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.util.concurrent.TimeUnit;
 
 /**
  * When suggestions cards are displayed on a white background, thumbnails with white backgrounds
@@ -71,8 +72,8 @@ public class ThumbnailGradient {
         // We want to keep an eye on how long this takes.
         long time = SystemClock.elapsedRealtime();
         boolean lightImage = hasLightCorner(bitmap, direction);
-        RecordHistogram.recordTimesHistogram("Thumbnails.Gradient.ImageDetectionTime",
-                SystemClock.elapsedRealtime() - time, TimeUnit.MILLISECONDS);
+        RecordHistogram.recordTimesHistogram(
+                "Thumbnails.Gradient.ImageDetectionTime", SystemClock.elapsedRealtime() - time);
 
         RecordHistogram.recordBooleanHistogram(
                 "Thumbnails.Gradient.ImageRequiresGradient", lightImage);
@@ -83,7 +84,7 @@ public class ThumbnailGradient {
                             ? R.drawable.thumbnail_gradient_top_left
                             : R.drawable.thumbnail_gradient_top_right);
 
-            return ApiCompatibilityUtils.createLayerDrawable(
+            return new LayerDrawable(
                     new Drawable[] {new BitmapDrawable(resources, bitmap), gradient});
         }
 

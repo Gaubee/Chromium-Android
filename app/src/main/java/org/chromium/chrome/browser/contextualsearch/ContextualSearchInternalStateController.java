@@ -4,12 +4,13 @@
 
 package org.chromium.chrome.browser.contextualsearch;
 
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
+import android.annotation.IntDef;
+import android.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.Log;
-import org.chromium.base.VisibleForTesting;
 import org.chromium.chrome.browser.compositor.bottombar.OverlayPanel.StateChangeReason;
+import org.chromium.chrome.browser.contextualsearch.ContextualSearchSelectionController.SelectionType;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -19,7 +20,7 @@ import java.lang.annotation.RetentionPolicy;
  * <p>
  * This class keeps track of the current internal state of the {@code ContextualSearchManager} and
  * helps it to transition between states and return to the idle state when work has been
- * interrupted.
+ * interrupted or complete.
  * <p>
  * Usage: Call {@link #reset(StateChangeReason)} to reset to the {@code IDLE} state, which hides
  * the UI.<br>
@@ -44,6 +45,9 @@ class ContextualSearchInternalStateController {
     private final ContextualSearchPolicy mPolicy;
     private final ContextualSearchInternalStateHandler mStateHandler;
 
+    // The type of selection that triggered this state-change sequence;
+    private @SelectionType int mSelectionType;
+
     /**
      * The current internal state of the {@code ContextualSearchManager}.
      * States can be "start states" which can be passed to #enter(), or "transitional states" which
@@ -51,14 +55,25 @@ class ContextualSearchInternalStateController {
      * "resting states" which do not transition into any next state, or a combination of the
      * above.
      */
-    @IntDef({InternalState.UNDEFINED, InternalState.IDLE, InternalState.LONG_PRESS_RECOGNIZED,
-            InternalState.SHOWING_LONGPRESS_SEARCH, InternalState.SELECTION_CLEARED_RECOGNIZED,
-            InternalState.WAITING_FOR_POSSIBLE_TAP_NEAR_PREVIOUS, InternalState.TAP_RECOGNIZED,
+    @IntDef({
+            InternalState.UNDEFINED,
+            InternalState.IDLE,
+            InternalState.LONG_PRESS_RECOGNIZED,
+            InternalState.SHOWING_LITERAL_SEARCH,
+            InternalState.SELECTION_CLEARED_RECOGNIZED,
+            InternalState.WAITING_FOR_POSSIBLE_TAP_NEAR_PREVIOUS,
+            InternalState.TAP_RECOGNIZED,
             InternalState.WAITING_FOR_POSSIBLE_TAP_ON_TAP_SELECTION,
-            InternalState.TAP_GESTURE_COMMIT, InternalState.GATHERING_SURROUNDINGS,
-            InternalState.DECIDING_SUPPRESSION, InternalState.START_SHOWING_TAP_UI,
-            InternalState.SHOW_FULL_TAP_UI, InternalState.RESOLVING,
-            InternalState.SHOWING_TAP_SEARCH})
+            InternalState.TAP_GESTURE_COMMIT,
+            InternalState.GATHERING_SURROUNDINGS,
+            InternalState.DECIDING_SUPPRESSION,
+            InternalState.START_SHOWING_TAP_UI,
+            InternalState.SHOW_RESOLVING_UI,
+            InternalState.RESOLVING,
+            InternalState.SHOWING_TAP_SEARCH,
+            InternalState.RESOLVING_LONG_PRESS_RECOGNIZED,
+            InternalState.SHOWING_RESOLVED_LONG_PRESS_SEARCH,
+    })
     @Retention(RetentionPolicy.SOURCE)
     public @interface InternalState {
         /**
@@ -71,13 +86,13 @@ class ContextualSearchInternalStateController {
          */
         int IDLE = 1;
         /**
-         * This starts a transition that leads to the SHOWING_LONGPRESS_SEARCH resting state.
+         * This starts a transition that leads to the SHOWING_LITERAL_SEARCH resting state.
          */
         int LONG_PRESS_RECOGNIZED = 2;
         /**
-         * Resting state when showing the panel in response to a Long-press gesture.
+         * Resting state when showing the panel in response to a literal non-resolving search.
          */
-        int SHOWING_LONGPRESS_SEARCH = 3;
+        int SHOWING_LITERAL_SEARCH = 3;
         /**
          * This is a start state when the selection is cleared typically due to a tap on the base
          * page. If the previous state wasn't IDLE then it could be a tap near a previous Tap.
@@ -121,7 +136,7 @@ class ContextualSearchInternalStateController {
         /**
          * Show the full Tap UI. Currently this means showing the Overlay Panel.
          */
-        int SHOW_FULL_TAP_UI = 12;
+        int SHOW_RESOLVING_UI = 12;
         /**
          * Resolving the Search Term using the surrounding text and additional context.
          * Currently this makes a server request, which could take a long time.
@@ -131,6 +146,15 @@ class ContextualSearchInternalStateController {
          * Resting state when showing the panel in response to a Tap gesture.
          */
         int SHOWING_TAP_SEARCH = 14;
+        /**
+         * This starts resolving transition that leads to the SHOWING_LITERAL_SEARCH resting
+         * state.
+         */
+        int RESOLVING_LONG_PRESS_RECOGNIZED = 15;
+        /**
+         * Resting state when showing the panel in response to a longpress gesture that resolved.
+         */
+        int SHOWING_RESOLVED_LONG_PRESS_SEARCH = 16;
     }
 
     // The current state of this instance.
@@ -175,21 +199,37 @@ class ContextualSearchInternalStateController {
      * @param reason The reason for the reset.
      */
     void reset(@Nullable @StateChangeReason Integer reason) {
+        mSelectionType = SelectionType.UNDETERMINED;
         transitionTo(InternalState.IDLE, reason);
     }
 
     /**
      * Enters the given starting state immediately.
+     * Note: This will synchronously complete the given state and process all subsequent
+     * non-asynchronous states before returning.  See https://crbug.com/1099383.
      * @param state The new starting {@link InternalState} we're now in.
      */
     void enter(@InternalState int state) {
         assert state == InternalState.UNDEFINED || state == InternalState.IDLE
                 || state == InternalState.LONG_PRESS_RECOGNIZED
+                || state == InternalState.RESOLVING_LONG_PRESS_RECOGNIZED
                 || state == InternalState.TAP_RECOGNIZED
                 || state == InternalState.SELECTION_CLEARED_RECOGNIZED;
         mPreviousState = mState;
         mState = state;
-
+        switch (state) {
+            case InternalState.LONG_PRESS_RECOGNIZED:
+                mSelectionType = SelectionType.LONG_PRESS;
+                break;
+            case InternalState.RESOLVING_LONG_PRESS_RECOGNIZED:
+                mSelectionType = SelectionType.RESOLVING_LONG_PRESS;
+                break;
+            case InternalState.TAP_RECOGNIZED:
+                mSelectionType = SelectionType.TAP;
+                break;
+            default:
+                mSelectionType = SelectionType.UNDETERMINED;
+        }
         notifyStartingWorkOn(mState);
         notifyFinishedWorkOn(mState);
     }
@@ -211,7 +251,8 @@ class ContextualSearchInternalStateController {
     }
 
     /**
-     * Confirms that work has been finished on the given state.
+     * Confirms that work has been finished on the given state, and will process all subsequent
+     * non-asynchronous states before returning.  See https://crbug.com/1099383.
      * This should be called by every operation that waits for some kind of completion when it
      * completes.  The operation's start must be flagged using {@link #notifyStartingWorkOn}.
      * @param state The {@link InternalState} that we've finished working on.
@@ -270,8 +311,8 @@ class ContextualSearchInternalStateController {
                 assert reason != null;
                 mStateHandler.hideContextualSearchUi(reason);
                 break;
-            case InternalState.SHOWING_LONGPRESS_SEARCH:
-                mStateHandler.showContextualSearchLongpressUi();
+            case InternalState.SHOWING_LITERAL_SEARCH:
+                mStateHandler.showContextualSearchLiteralSearchUi();
                 break;
             case InternalState.WAITING_FOR_POSSIBLE_TAP_NEAR_PREVIOUS:
                 mStateHandler.waitForPossibleTapNearPrevious();
@@ -291,16 +332,18 @@ class ContextualSearchInternalStateController {
             case InternalState.START_SHOWING_TAP_UI:
                 mStateHandler.startShowingTapUi();
                 break;
-            case InternalState.SHOW_FULL_TAP_UI:
-                mStateHandler.showContextualSearchTapUi();
+            case InternalState.SHOW_RESOLVING_UI:
+                mStateHandler.showContextualSearchResolvingUi();
                 break;
             case InternalState.RESOLVING:
                 mStateHandler.resolveSearchTerm();
                 break;
             case InternalState.SHOWING_TAP_SEARCH:
                 break;
+            case InternalState.SHOWING_RESOLVED_LONG_PRESS_SEARCH:
+                break;
             default:
-                Log.w(TAG, "Warning: unexpected startWorkingOn " + String.valueOf(state));
+                Log.w(TAG, "Warning: unexpected startWorkingOn " + state);
                 break;
         }
     }
@@ -318,7 +361,7 @@ class ContextualSearchInternalStateController {
         assert mDidStartWork;
 
         if (mState == InternalState.IDLE || mState == InternalState.UNDEFINED) {
-            Log.w(TAG, "Warning, the " + String.valueOf(state) + " state was aborted.");
+            Log.w(TAG, "Warning, the " + state + " state was aborted.");
             return;
         }
 
@@ -326,7 +369,7 @@ class ContextualSearchInternalStateController {
             case InternalState.LONG_PRESS_RECOGNIZED:
                 transitionTo(InternalState.GATHERING_SURROUNDINGS);
                 break;
-            case InternalState.SHOWING_LONGPRESS_SEARCH:
+            case InternalState.SHOWING_LITERAL_SEARCH:
                 break;
             case InternalState.SELECTION_CLEARED_RECOGNIZED:
                 if (mPreviousState != InternalState.UNDEFINED
@@ -356,25 +399,39 @@ class ContextualSearchInternalStateController {
                 break;
             case InternalState.GATHERING_SURROUNDINGS:
                 // We gather surroundings for both Tap and Long-press in order to notify icing.
-                transitionTo(mPreviousState == InternalState.LONG_PRESS_RECOGNIZED
-                                ? InternalState.SHOWING_LONGPRESS_SEARCH
-                                : InternalState.DECIDING_SUPPRESSION);
+                if (mSelectionType == SelectionType.LONG_PRESS) {
+                    transitionTo(InternalState.SHOWING_LITERAL_SEARCH);
+                } else if (mSelectionType == SelectionType.RESOLVING_LONG_PRESS) {
+                    transitionTo(InternalState.SHOW_RESOLVING_UI);
+                } else {
+                    transitionTo(InternalState.DECIDING_SUPPRESSION);
+                }
                 break;
             case InternalState.DECIDING_SUPPRESSION:
                 transitionTo(InternalState.START_SHOWING_TAP_UI);
                 break;
             case InternalState.START_SHOWING_TAP_UI:
-                transitionTo(InternalState.SHOW_FULL_TAP_UI);
+                transitionTo(mPolicy.isLiteralSearchTapEnabled()
+                                ? InternalState.SHOWING_LITERAL_SEARCH
+                                : InternalState.SHOW_RESOLVING_UI);
                 break;
-            case InternalState.SHOW_FULL_TAP_UI:
-                transitionTo(mPolicy.shouldPreviousTapResolve() ? InternalState.RESOLVING
-                                                                : InternalState.SHOWING_TAP_SEARCH);
+            case InternalState.SHOW_RESOLVING_UI:
+                transitionTo(mPolicy.shouldPreviousGestureResolve()
+                                ? InternalState.RESOLVING
+                                : InternalState.SHOWING_TAP_SEARCH);
                 break;
             case InternalState.RESOLVING:
-                transitionTo(InternalState.SHOWING_TAP_SEARCH);
+                transitionTo(mSelectionType == SelectionType.TAP
+                                ? InternalState.SHOWING_TAP_SEARCH
+                                : InternalState.SHOWING_RESOLVED_LONG_PRESS_SEARCH);
+                break;
+            case InternalState.RESOLVING_LONG_PRESS_RECOGNIZED:
+                transitionTo(InternalState.GATHERING_SURROUNDINGS);
+                break;
+            case InternalState.SHOWING_RESOLVED_LONG_PRESS_SEARCH:
                 break;
             default:
-                Log.e(TAG, "The state " + String.valueOf(state) + " is not transitional!");
+                Log.e(TAG, "The state " + state + " is not transitional!");
                 assert false;
         }
     }

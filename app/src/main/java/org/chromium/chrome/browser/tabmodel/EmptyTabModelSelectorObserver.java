@@ -5,24 +5,21 @@
 package org.chromium.chrome.browser.tabmodel;
 
 import org.chromium.chrome.browser.tab.Tab;
+import org.chromium.chrome.browser.tab.TabCreationState;
 
 /**
  * Empty implementation of the tab model selector observer.
  */
 public class EmptyTabModelSelectorObserver implements TabModelSelectorObserver {
     @Override
-    public void onChange() {
-    }
+    public void onChange() {}
 
     @Override
-    public void onNewTabCreated(Tab tab) {
-    }
+    public void onNewTabCreated(Tab tab, @TabCreationState int creationState) {}
 
     @Override
-    public void onTabModelSelected(TabModel newModel, TabModel oldModel) {
-    }
+    public void onTabModelSelected(TabModel newModel, TabModel oldModel) {}
 
     @Override
-    public void onTabStateInitialized() {
-    }
+    public void onTabStateInitialized() {}
 }

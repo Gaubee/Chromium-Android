@@ -5,12 +5,14 @@
 package org.chromium.chrome.browser.contextualsearch;
 
 import org.chromium.base.annotations.CalledByNative;
-import org.chromium.chrome.browser.preferences.ChromePreferenceManager;
+import org.chromium.base.annotations.NativeMethods;
+import org.chromium.chrome.browser.preferences.ChromePreferenceKeys;
+import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 
 /**
- * Provides a ContextualSearchHeuristic for CTR Recording, logging, and eventually suppression.
+ * Provides a ContextualSearchHeuristic for click-through rate Recording, logging, and eventually
+ * suppression.
  * Records impressions and CTR when the Bar is dismissed.
- * TODO(donnd): add suppression logic.
  * Logs "impressions" and "CTR" per user in UMA for the previous week and 28-day period.
  * An impression is a view of our UX (the Bar) and CTR is the "click-through rate" (user opens of
  * the Bar).
@@ -20,20 +22,18 @@ import org.chromium.chrome.browser.preferences.ChromePreferenceManager;
 public class CtrSuppression extends ContextualSearchHeuristic {
     private long mNativePointer;
 
-    private static Integer sCurrentWeekNumberCache;
-
-    private final ChromePreferenceManager mPreferenceManager;
+    private final SharedPreferencesManager mPreferenceManager;
 
     /**
      * Constructs an object that tracks impressions and clicks per user to produce CTR and
      * impression metrics.
      */
     CtrSuppression() {
-        mPreferenceManager = ChromePreferenceManager.getInstance();
+        mPreferenceManager = SharedPreferencesManager.getInstance();
 
         // This needs to be done last in this constructor because the native code may call
         // into this object.
-        mNativePointer = nativeInit();
+        mNativePointer = CtrSuppressionJni.get().init(CtrSuppression.this);
     }
 
     /**
@@ -42,7 +42,7 @@ public class CtrSuppression extends ContextualSearchHeuristic {
      */
     public void destroy() {
         if (mNativePointer != 0L) {
-            nativeDestroy(mNativePointer);
+            CtrSuppressionJni.get().destroy(mNativePointer, CtrSuppression.this);
         }
     }
 
@@ -60,17 +60,24 @@ public class CtrSuppression extends ContextualSearchHeuristic {
         // Since the CTR for previous time periods never changes, we only need to write to the UMA
         // log when we may have moved to a new week, or we have new persistent data.
         // We cache the current week in persistent storage so we can tell when it changes.
-        boolean didWeekChange = didWeekChange(nativeGetCurrentWeekNumber(mNativePointer));
+        boolean didWeekChange = didWeekChange(
+                CtrSuppressionJni.get().getCurrentWeekNumber(mNativePointer, CtrSuppression.this));
         if (didWeekChange) {
-            if (nativeHasPreviousWeekData(mNativePointer)) {
-                int previousWeekImpressions = nativeGetPreviousWeekImpressions(mNativePointer);
-                int previousWeekCtr = (int) (100 * nativeGetPreviousWeekCtr(mNativePointer));
+            if (CtrSuppressionJni.get().hasPreviousWeekData(mNativePointer, CtrSuppression.this)) {
+                int previousWeekImpressions = CtrSuppressionJni.get().getPreviousWeekImpressions(
+                        mNativePointer, CtrSuppression.this);
+                int previousWeekCtr = (int) (100
+                        * CtrSuppressionJni.get().getPreviousWeekCtr(
+                                mNativePointer, CtrSuppression.this));
                 ContextualSearchUma.logPreviousWeekCtr(previousWeekImpressions, previousWeekCtr);
             }
 
-            if (nativeHasPrevious28DayData(mNativePointer)) {
-                int previous28DayImpressions = nativeGetPrevious28DayImpressions(mNativePointer);
-                int previous28DayCtr = (int) (100 * nativeGetPrevious28DayCtr(mNativePointer));
+            if (CtrSuppressionJni.get().hasPrevious28DayData(mNativePointer, CtrSuppression.this)) {
+                int previous28DayImpressions = CtrSuppressionJni.get().getPrevious28DayImpressions(
+                        mNativePointer, CtrSuppression.this);
+                int previous28DayCtr = (int) (100
+                        * CtrSuppressionJni.get().getPrevious28DayCtr(
+                                mNativePointer, CtrSuppression.this));
                 ContextualSearchUma.logPrevious28DayCtr(previous28DayImpressions, previous28DayCtr);
             }
         }
@@ -79,15 +86,19 @@ public class CtrSuppression extends ContextualSearchHeuristic {
     @Override
     protected void logResultsSeen(boolean wasSearchContentViewSeen, boolean wasActivatedByTap) {
         if (wasActivatedByTap) {
-            nativeRecordImpression(mNativePointer, wasSearchContentViewSeen);
+            CtrSuppressionJni.get().recordImpression(
+                    mNativePointer, CtrSuppression.this, wasSearchContentViewSeen);
         }
     }
 
     @Override
     protected void logRankerTapSuppression(ContextualSearchInteractionRecorder recorder) {
-        if (nativeHasPreviousWeekData(mNativePointer)) {
-            int previousWeekImpressions = nativeGetPreviousWeekImpressions(mNativePointer);
-            int previousWeekCtr = (int) (100 * nativeGetPreviousWeekCtr(mNativePointer));
+        if (CtrSuppressionJni.get().hasPreviousWeekData(mNativePointer, CtrSuppression.this)) {
+            int previousWeekImpressions = CtrSuppressionJni.get().getPreviousWeekImpressions(
+                    mNativePointer, CtrSuppression.this);
+            int previousWeekCtr = (int) (100
+                    * CtrSuppressionJni.get().getPreviousWeekCtr(
+                            mNativePointer, CtrSuppression.this));
             recorder.logFeature(
                     ContextualSearchInteractionRecorder.Feature.PREVIOUS_WEEK_IMPRESSIONS_COUNT,
                     previousWeekImpressions);
@@ -96,9 +107,12 @@ public class CtrSuppression extends ContextualSearchHeuristic {
                     previousWeekCtr);
         }
 
-        if (nativeHasPrevious28DayData(mNativePointer)) {
-            int previous28DayImpressions = nativeGetPrevious28DayImpressions(mNativePointer);
-            int previous28DayCtr = (int) (100 * nativeGetPrevious28DayCtr(mNativePointer));
+        if (CtrSuppressionJni.get().hasPrevious28DayData(mNativePointer, CtrSuppression.this)) {
+            int previous28DayImpressions = CtrSuppressionJni.get().getPrevious28DayImpressions(
+                    mNativePointer, CtrSuppression.this);
+            int previous28DayCtr = (int) (100
+                    * CtrSuppressionJni.get().getPrevious28DayCtr(
+                            mNativePointer, CtrSuppression.this));
             recorder.logFeature(
                     ContextualSearchInteractionRecorder.Feature.PREVIOUS_28DAY_IMPRESSIONS_COUNT,
                     previous28DayImpressions);
@@ -108,18 +122,66 @@ public class CtrSuppression extends ContextualSearchHeuristic {
         }
     }
 
+    /** @return the CTR from the previous 28 days, or 0 if no data. */
+    int getPrevious28DayCtr() {
+        if (!CtrSuppressionJni.get().hasPrevious28DayData(mNativePointer, CtrSuppression.this)) {
+            return 0;
+        }
+        return (int) (100
+                * CtrSuppressionJni.get().getPrevious28DayCtr(mNativePointer, CtrSuppression.this));
+    }
+
     // ============================================================================================
     // Device integer storage.
     // ============================================================================================
 
     @CalledByNative
-    void writeInt(String key, int value) {
-        mPreferenceManager.writeInt(key, value);
+    void writeClicks(int weekRemainder, int value) {
+        mPreferenceManager.writeInt(getKeyForClicksWeek(weekRemainder), value);
     }
 
     @CalledByNative
-    int readInt(String key) {
-        return mPreferenceManager.readInt(key);
+    void writeImpressions(int weekRemainder, int value) {
+        mPreferenceManager.writeInt(getKeyForImpressionsWeek(weekRemainder), value);
+    }
+
+    @CalledByNative
+    void writeOldestWeek(int value) {
+        mPreferenceManager.writeInt(ChromePreferenceKeys.CONTEXTUAL_SEARCH_OLDEST_WEEK, value);
+    }
+
+    @CalledByNative
+    void writeNewestWeek(int value) {
+        mPreferenceManager.writeInt(ChromePreferenceKeys.CONTEXTUAL_SEARCH_NEWEST_WEEK, value);
+    }
+
+    @CalledByNative
+    int readClicks(int weekRemainder) {
+        return mPreferenceManager.readInt(getKeyForClicksWeek(weekRemainder));
+    }
+
+    @CalledByNative
+    int readImpressions(int weekRemainder) {
+        return mPreferenceManager.readInt(getKeyForImpressionsWeek(weekRemainder));
+    }
+
+    @CalledByNative
+    int readOldestWeek() {
+        return mPreferenceManager.readInt(ChromePreferenceKeys.CONTEXTUAL_SEARCH_OLDEST_WEEK);
+    }
+
+    @CalledByNative
+    int readNewestWeek() {
+        return mPreferenceManager.readInt(ChromePreferenceKeys.CONTEXTUAL_SEARCH_NEWEST_WEEK);
+    }
+
+    private String getKeyForClicksWeek(int weekRemainder) {
+        return ChromePreferenceKeys.CONTEXTUAL_SEARCH_CLICKS_WEEK_PREFIX.createKey(weekRemainder);
+    }
+
+    private String getKeyForImpressionsWeek(int weekRemainder) {
+        return ChromePreferenceKeys.CONTEXTUAL_SEARCH_IMPRESSIONS_WEEK_PREFIX.createKey(
+                weekRemainder);
     }
 
     // ============================================================================================
@@ -133,10 +195,12 @@ public class CtrSuppression extends ContextualSearchHeuristic {
      *         or we have never checked.
      */
     private boolean didWeekChange(int currentWeekNumber) {
-        if (mPreferenceManager.getContextualSearchCurrentWeekNumber() == currentWeekNumber) {
+        if (mPreferenceManager.readInt(ChromePreferenceKeys.CONTEXTUAL_SEARCH_CURRENT_WEEK_NUMBER)
+                == currentWeekNumber) {
             return false;
         } else {
-            mPreferenceManager.setContextualSearchCurrentWeekNumber(currentWeekNumber);
+            mPreferenceManager.writeInt(
+                    ChromePreferenceKeys.CONTEXTUAL_SEARCH_CURRENT_WEEK_NUMBER, currentWeekNumber);
             return true;
         }
     }
@@ -154,15 +218,19 @@ public class CtrSuppression extends ContextualSearchHeuristic {
     // ============================================================================================
     // Native methods.
     // ============================================================================================
-    private native long nativeInit();
-    private native void nativeDestroy(long nativeCtrSuppression);
 
-    private native void nativeRecordImpression(long nativeCtrSuppression, boolean wasSeen);
-    private native int nativeGetCurrentWeekNumber(long nativeCtrSuppression);
-    private native boolean nativeHasPreviousWeekData(long nativeCtrSuppression);
-    private native int nativeGetPreviousWeekImpressions(long nativeCtrSuppression);
-    private native float nativeGetPreviousWeekCtr(long nativeCtrSuppression);
-    private native boolean nativeHasPrevious28DayData(long nativeCtrSuppression);
-    private native int nativeGetPrevious28DayImpressions(long nativeCtrSuppression);
-    private native float nativeGetPrevious28DayCtr(long nativeCtrSuppression);
+    @NativeMethods
+    interface Natives {
+        long init(CtrSuppression caller);
+
+        void destroy(long nativeCtrSuppression, CtrSuppression caller);
+        void recordImpression(long nativeCtrSuppression, CtrSuppression caller, boolean wasSeen);
+        int getCurrentWeekNumber(long nativeCtrSuppression, CtrSuppression caller);
+        boolean hasPreviousWeekData(long nativeCtrSuppression, CtrSuppression caller);
+        int getPreviousWeekImpressions(long nativeCtrSuppression, CtrSuppression caller);
+        float getPreviousWeekCtr(long nativeCtrSuppression, CtrSuppression caller);
+        boolean hasPrevious28DayData(long nativeCtrSuppression, CtrSuppression caller);
+        int getPrevious28DayImpressions(long nativeCtrSuppression, CtrSuppression caller);
+        float getPrevious28DayCtr(long nativeCtrSuppression, CtrSuppression caller);
+    }
 }

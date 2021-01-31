@@ -6,9 +6,13 @@ import dagger.internal.Preconditions;
 import javax.annotation.Generated;
 
 @Generated(
-  value = "dagger.internal.codegen.ComponentProcessor",
-  comments = "https://google.github.io/dagger"
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
 )
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes"
+})
 public final class ChromeActivityCommonsModule_ProvideContextFactory implements Factory<Context> {
   private final ChromeActivityCommonsModule module;
 
@@ -18,11 +22,7 @@ public final class ChromeActivityCommonsModule_ProvideContextFactory implements 
 
   @Override
   public Context get() {
-    return provideInstance(module);
-  }
-
-  public static Context provideInstance(ChromeActivityCommonsModule module) {
-    return proxyProvideContext(module);
+    return provideContext(module);
   }
 
   public static ChromeActivityCommonsModule_ProvideContextFactory create(
@@ -30,8 +30,7 @@ public final class ChromeActivityCommonsModule_ProvideContextFactory implements 
     return new ChromeActivityCommonsModule_ProvideContextFactory(module);
   }
 
-  public static Context proxyProvideContext(ChromeActivityCommonsModule instance) {
-    return Preconditions.checkNotNull(
-        instance.provideContext(), "Cannot return null from a non-@Nullable @Provides method");
+  public static Context provideContext(ChromeActivityCommonsModule instance) {
+    return Preconditions.checkNotNullFromProvides(instance.provideContext());
   }
 }

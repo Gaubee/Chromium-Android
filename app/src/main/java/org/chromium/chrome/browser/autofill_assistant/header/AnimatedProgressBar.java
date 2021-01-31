@@ -6,12 +6,11 @@ package org.chromium.chrome.browser.autofill_assistant.header;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
 import android.view.View;
 
-import org.chromium.chrome.browser.compositor.animation.CompositorAnimator;
-import org.chromium.chrome.browser.widget.MaterialProgressBar;
+import org.chromium.components.browser_ui.widget.MaterialProgressBar;
+import org.chromium.components.browser_ui.widget.animation.Interpolators;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -23,21 +22,16 @@ import java.util.Queue;
 class AnimatedProgressBar {
     // The number of ms the progress bar would take to go from 0 to 100%.
     private static final int PROGRESS_BAR_SPEED_MS = 3_000;
-    private static final int PROGRESS_BAR_PULSING_DURATION_MS = 1_000;
 
     private final MaterialProgressBar mProgressBar;
-    private final int mNormalColor;
-    private final int mPulsedColor;
 
     private boolean mIsRunningProgressAnimation;
     private int mLastProgress;
-    private Queue<ValueAnimator> mPendingIncreaseAnimations = new ArrayDeque<>();
-    private ValueAnimator mPulseAnimation;
+    private final Queue<ValueAnimator> mPendingIncreaseAnimations = new ArrayDeque<>();
+    private int mProgressBarSpeedMs = PROGRESS_BAR_SPEED_MS;
 
-    AnimatedProgressBar(MaterialProgressBar progressBar, int normalColor, int pulsedColor) {
+    AnimatedProgressBar(MaterialProgressBar progressBar) {
         mProgressBar = progressBar;
-        mNormalColor = normalColor;
-        mPulsedColor = pulsedColor;
     }
 
     public void show() {
@@ -49,62 +43,42 @@ class AnimatedProgressBar {
     }
 
     /**
-     * Set the progress to {@code progress} if it is higher than the current progress, or do nothing
-     * if it is not (hence it is OK to call this method with the same value multiple times).
+     * Set the progress to {@code progress}. The transition to the new progress value is
+     * animated.
      */
-    public void maybeIncreaseProgress(int progress) {
-        if (progress > mLastProgress) {
-            ValueAnimator progressAnimation = ValueAnimator.ofInt(mLastProgress, progress);
-            progressAnimation.setDuration(PROGRESS_BAR_SPEED_MS * (progress - mLastProgress) / 100);
-            progressAnimation.setInterpolator(CompositorAnimator.ACCELERATE_INTERPOLATOR);
-            progressAnimation.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    if (mPendingIncreaseAnimations.isEmpty()) {
-                        mIsRunningProgressAnimation = false;
-                    } else {
-                        mIsRunningProgressAnimation = true;
-                        mPendingIncreaseAnimations.poll().start();
-                    }
+    public void setProgress(int progress) {
+        if (progress == mLastProgress) {
+            return;
+        }
+        ValueAnimator progressAnimation = ValueAnimator.ofInt(mLastProgress, progress);
+        progressAnimation.setDuration(
+                mProgressBarSpeedMs * Math.abs(progress - mLastProgress) / 100);
+        progressAnimation.setInterpolator(Interpolators.ACCELERATE_INTERPOLATOR);
+        progressAnimation.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (mPendingIncreaseAnimations.isEmpty()) {
+                    mIsRunningProgressAnimation = false;
+                } else {
+                    mIsRunningProgressAnimation = true;
+                    mPendingIncreaseAnimations.poll().start();
                 }
-            });
-            progressAnimation.addUpdateListener(
-                    animation -> mProgressBar.setProgress((int) animation.getAnimatedValue()));
-            mLastProgress = progress;
-
-            if (mIsRunningProgressAnimation) {
-                mPendingIncreaseAnimations.offer(progressAnimation);
-            } else {
-                mIsRunningProgressAnimation = true;
-                progressAnimation.start();
             }
+        });
+        progressAnimation.addUpdateListener(
+                animation -> mProgressBar.setProgress((int) animation.getAnimatedValue()));
+        mLastProgress = progress;
+
+        if (mIsRunningProgressAnimation) {
+            mPendingIncreaseAnimations.offer(progressAnimation);
+        } else {
+            mIsRunningProgressAnimation = true;
+            progressAnimation.start();
         }
     }
 
-    public void enablePulsing() {
-        if (mPulseAnimation == null) {
-            mPulseAnimation = ValueAnimator.ofInt(mNormalColor, mPulsedColor);
-            mPulseAnimation.setDuration(PROGRESS_BAR_PULSING_DURATION_MS);
-            mPulseAnimation.setEvaluator(new ArgbEvaluator());
-            mPulseAnimation.setRepeatCount(ValueAnimator.INFINITE);
-            mPulseAnimation.setRepeatMode(ValueAnimator.REVERSE);
-            mPulseAnimation.setInterpolator(CompositorAnimator.ACCELERATE_INTERPOLATOR);
-            mPulseAnimation.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationCancel(Animator animation) {
-                    mProgressBar.setProgressColor(mNormalColor);
-                }
-            });
-            mPulseAnimation.addUpdateListener(
-                    animation -> mProgressBar.setProgressColor((int) animation.getAnimatedValue()));
-            mPulseAnimation.start();
-        }
-    }
-
-    public void disablePulsing() {
-        if (mPulseAnimation != null) {
-            mPulseAnimation.cancel();
-            mPulseAnimation = null;
-        }
+    /** Intended for integration tests only. */
+    void disableAnimations(boolean disable) {
+        mProgressBarSpeedMs = disable ? 0 : PROGRESS_BAR_SPEED_MS;
     }
 }

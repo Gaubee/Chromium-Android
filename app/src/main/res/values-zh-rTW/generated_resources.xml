@@ -9,10 +9,10 @@
 <string name="sync_confirmation_personalize_services_title">"享有個人化的 Google 服務"</string>
 <string name="sync_confirmation_personalize_services_body">"Google 可能會使用您的瀏覽記錄，為您提供個人化的搜尋服務、廣告內容和其他各項 Google 服務"</string>
 <string name="sync_confirmation_personalize_services_body_child_account">"Google 可能會使用您的瀏覽記錄，為您提供個人化的搜尋服務和其他各項 Google 服務。"</string>
-<string name="external_app_leave_incognito_warning">"這個網站即將與外部應用程式分享資訊，分享時會自動退出無痕模式。"</string>
-<string name="external_app_leave_incognito_warning_title">"要退出無痕模式嗎？"</string>
-<string name="external_app_leave_incognito_stay">"不離開"</string>
-<string name="external_app_leave_incognito_leave">"離開"</string>
+<!-- <string name="external_app_leave_incognito_warning">"這個網站即將與外部應用程式分享資訊，分享時會自動退出無痕模式。"</string> -->
+<!-- <string name="external_app_leave_incognito_warning_title">"要退出無痕模式嗎？"</string> -->
+<!-- <string name="external_app_leave_incognito_stay">"不離開"</string> -->
+<!-- <string name="external_app_leave_incognito_leave">"離開"</string> -->
 <!-- <string name="external_app_restricted_access_error">"Chrome 無法存取要求的資源。"</string> -->
 <string name="blocked_ads_prompt_title">"已封鎖廣告"</string>
 <string name="video_call_notification_text_2">"正在存取視訊輸入"</string>

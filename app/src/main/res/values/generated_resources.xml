@@ -9,10 +9,10 @@
 <string name="sync_confirmation_personalize_services_title">"Personalize Google services"</string>
 <string name="sync_confirmation_personalize_services_body">"Google may use your browsing history to personalize Search, ads, and other Google services"</string>
 <string name="sync_confirmation_personalize_services_body_child_account">"Google may use your browsing history to personalize Search and other Google services"</string>
-<string name="external_app_leave_incognito_warning">"This site is about to share information with an app outside of incognito mode."</string>
-<string name="external_app_leave_incognito_warning_title">"Leave incognito mode?"</string>
-<string name="external_app_leave_incognito_stay">"Stay"</string>
-<string name="external_app_leave_incognito_leave">"Leave"</string>
+<!-- <string name="external_app_leave_incognito_warning">"This site is about to share information with an app outside of incognito mode."</string> -->
+<!-- <string name="external_app_leave_incognito_warning_title">"Leave incognito mode?"</string> -->
+<!-- <string name="external_app_leave_incognito_stay">"Stay"</string> -->
+<!-- <string name="external_app_leave_incognito_leave">"Leave"</string> -->
 <!-- <string name="external_app_restricted_access_error">"Chrome does not have access to the requested resource."</string> -->
 <string name="blocked_ads_prompt_title">"Ads blocked"</string>
 <string name="video_call_notification_text_2">"Accessing video input"</string>

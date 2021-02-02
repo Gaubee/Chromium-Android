@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.autofill.prefeditor;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Pair;

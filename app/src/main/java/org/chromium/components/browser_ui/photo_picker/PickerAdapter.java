@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.photo_picker;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.privacy_sandbox;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

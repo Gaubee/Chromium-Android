@@ -4,6 +4,8 @@
 
 package org.chromium.components.autofill;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;

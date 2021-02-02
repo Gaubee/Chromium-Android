@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.continuous_search;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.view.View;
 import android.widget.TextView;
 

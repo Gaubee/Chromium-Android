@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.omnibox.suggestions.editurl;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.graphics.drawable.Drawable;
 import android.view.View;
 

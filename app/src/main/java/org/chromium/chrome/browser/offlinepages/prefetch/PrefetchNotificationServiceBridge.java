@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.offlinepages.prefetch;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 
 import org.chromium.base.ContextUtils;

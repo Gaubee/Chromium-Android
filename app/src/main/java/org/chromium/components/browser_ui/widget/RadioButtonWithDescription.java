@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.widget;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;

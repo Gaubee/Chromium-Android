@@ -4,6 +4,8 @@
 
 package org.chromium.content.browser.selection;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;

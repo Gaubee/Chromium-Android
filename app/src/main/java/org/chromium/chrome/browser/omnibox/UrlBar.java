@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.omnibox;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;

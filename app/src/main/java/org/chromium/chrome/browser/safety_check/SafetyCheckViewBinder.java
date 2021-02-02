@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.safety_check;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.view.View;
 

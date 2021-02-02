@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.signin.ui;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;

@@ -4,6 +4,8 @@
 
 package org.chromium.weblayer_private;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.PendingIntent;

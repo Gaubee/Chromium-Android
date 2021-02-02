@@ -4,6 +4,8 @@
 
 package org.chromium.components.translate;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.util.AttributeSet;

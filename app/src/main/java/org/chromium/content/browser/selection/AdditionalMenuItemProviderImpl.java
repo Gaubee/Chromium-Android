@@ -4,6 +4,8 @@
 
 package org.chromium.content.browser.selection;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.annotation.TargetApi;
 import android.app.PendingIntent;
 import android.app.RemoteAction;

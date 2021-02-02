@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.customtabs;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Activity;
 import android.view.ViewGroup;
 

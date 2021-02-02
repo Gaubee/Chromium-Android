@@ -4,6 +4,8 @@
 
 package org.chromium.components.page_info;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;

@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.util;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.DownloadManager;
 import android.content.Context;
 import android.net.Uri;

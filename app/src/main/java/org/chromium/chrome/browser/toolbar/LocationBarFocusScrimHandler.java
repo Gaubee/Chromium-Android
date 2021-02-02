@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.toolbar;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;

@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 package org.chromium.components.page_info;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.password_check;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;

@@ -4,6 +4,8 @@
 
 package org.chromium.components.page_info;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Typeface;

@@ -4,6 +4,8 @@
 
 package org.chromium.weblayer_private;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;

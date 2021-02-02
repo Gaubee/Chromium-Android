@@ -4,6 +4,8 @@
 
 package org.chromium.components.omnibox;
 
+import org.bnqkl.bfchromiun.R;
+
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 

@@ -4,6 +4,8 @@
 
 package org.chromium.ui;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Notification;

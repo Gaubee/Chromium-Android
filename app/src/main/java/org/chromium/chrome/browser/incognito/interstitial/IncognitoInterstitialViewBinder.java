@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.incognito.interstitial;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.TextView;

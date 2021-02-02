@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 package org.chromium.components.page_info;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Dialog;
 import android.os.Bundle;
 import android.text.format.Formatter;

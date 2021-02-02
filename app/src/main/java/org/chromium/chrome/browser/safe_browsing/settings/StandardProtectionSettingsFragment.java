@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.safe_browsing.settings;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.os.Bundle;
 
 import androidx.annotation.VisibleForTesting;

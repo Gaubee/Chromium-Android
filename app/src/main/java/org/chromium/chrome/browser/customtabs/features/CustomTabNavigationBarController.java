@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.customtabs.features;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.res.Resources;
 import android.os.Build;
 import android.view.Window;

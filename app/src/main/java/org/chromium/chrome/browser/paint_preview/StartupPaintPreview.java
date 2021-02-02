@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.paint_preview;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.res.Resources;
 import android.os.Handler;
 

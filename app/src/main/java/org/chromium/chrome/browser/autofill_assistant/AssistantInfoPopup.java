@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.autofill_assistant;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 
 import android.annotation.Nullable;

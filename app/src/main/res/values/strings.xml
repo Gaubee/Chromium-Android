@@ -1876,16 +1876,16 @@
     <string name="page_info_lite_mode_https_image_compression">page_info_lite_mode_https_image_compression</string>
     <string name="page_info_permissions_title">page_info_permissions_title</string>
     <string name="back">back</string>
-    <string name="password_check_credential_row_change_button_caption">password_check_credential_row_change_button_caption</string>
-    <string name="password_check_credential_row_change_button_hint">password_check_credential_row_change_button_hint</string>
-    <string name="password_check_credential_row_script_button_explanation">password_check_credential_row_script_button_explanation</string>
-    <string name="password_check_credential_row_change_manually_button_caption">password_check_credential_row_change_manually_button_caption</string>
+    <!-- <string name="password_check_credential_row_change_button_caption">password_check_credential_row_change_button_caption</string> -->
+    <!-- <string name="password_check_credential_row_change_button_hint">password_check_credential_row_change_button_hint</string> -->
+    <!-- <string name="password_check_credential_row_script_button_explanation">password_check_credential_row_script_button_explanation</string> -->
+    <!-- <string name="password_check_credential_row_change_manually_button_caption">password_check_credential_row_change_manually_button_caption</string> -->
     <!-- <string name="password_entry_viewer_username_title">password_entry_viewer_username_title</string> -->
     <!-- <string name="password_entry_viewer_site_title">password_entry_viewer_site_title</string> -->
     <!-- <string name="password_entry_viewer_password">password_entry_viewer_password</string> -->
     <!-- <string name="password_entry_viewer_hide_stored_password">password_entry_viewer_hide_stored_password</string> -->
     <!-- <string name="password_entry_viewer_view_stored_password">password_entry_viewer_view_stored_password</string> -->
-    <string name="accessibility_password_check_restart_button">accessibility_password_check_restart_button</string>
+    <!-- <string name="accessibility_password_check_restart_button">accessibility_password_check_restart_button</string> -->
     <!-- <string name="password_entry_viewer_copy_stored_password">password_entry_viewer_copy_stored_password</string> -->
     <!-- <string name="password_entry_viewer_title">password_entry_viewer_title</string> -->
 <!-- FIX-MISS -->

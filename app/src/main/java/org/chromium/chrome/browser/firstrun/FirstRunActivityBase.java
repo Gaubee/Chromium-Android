@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.firstrun;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.app.PendingIntent.CanceledException;

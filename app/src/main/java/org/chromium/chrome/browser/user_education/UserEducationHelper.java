@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.user_education;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Activity;
 import android.os.Handler;
 import android.view.View;

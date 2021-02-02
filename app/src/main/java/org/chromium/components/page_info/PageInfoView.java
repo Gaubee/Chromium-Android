@@ -4,6 +4,8 @@
 
 package org.chromium.components.page_info;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;

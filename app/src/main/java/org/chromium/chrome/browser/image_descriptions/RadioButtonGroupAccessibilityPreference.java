@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.image_descriptions;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RadioGroup;

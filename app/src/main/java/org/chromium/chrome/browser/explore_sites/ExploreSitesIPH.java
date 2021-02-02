@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.explore_sites;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;

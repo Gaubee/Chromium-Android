@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.photo_picker;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.SystemClock;

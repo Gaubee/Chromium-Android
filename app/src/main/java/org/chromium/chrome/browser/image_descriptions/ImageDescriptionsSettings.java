@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.image_descriptions;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.os.Bundle;
 
 import android.annotation.Nullable;

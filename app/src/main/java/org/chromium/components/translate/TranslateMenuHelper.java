@@ -4,6 +4,8 @@
 
 package org.chromium.components.translate;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;

@@ -4,6 +4,8 @@
 
 package org.chromium.components.external_intents;
 
+import org.bnqkl.bfchromiun.R;
+
 import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.ContextUtils;

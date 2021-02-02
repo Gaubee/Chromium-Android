@@ -4,6 +4,8 @@
 
 package org.chromium.base.annotations;
 
+import org.bnqkl.bfchromiun.R;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

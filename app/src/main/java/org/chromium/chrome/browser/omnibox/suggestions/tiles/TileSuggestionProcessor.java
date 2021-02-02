@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.omnibox.suggestions.tiles;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 
 import org.chromium.base.Callback;

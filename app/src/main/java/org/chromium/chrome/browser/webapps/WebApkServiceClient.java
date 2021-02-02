@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.webapps;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.annotation.TargetApi;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;

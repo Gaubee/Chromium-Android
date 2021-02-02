@@ -4,6 +4,8 @@
 
 package org.chromium.weblayer_private;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;

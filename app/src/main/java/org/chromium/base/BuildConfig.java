@@ -1,5 +1,7 @@
 package org.chromium.base;
 
+import org.bnqkl.bfchromiun.R;
+
 public class BuildConfig {
     public static final boolean IS_MULTIDEX_ENABLED = false;
     public static final boolean DCHECK_IS_ON = false;

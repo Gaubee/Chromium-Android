@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.keyboard_accessory;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.view.View;
 import android.view.ViewStub;
 

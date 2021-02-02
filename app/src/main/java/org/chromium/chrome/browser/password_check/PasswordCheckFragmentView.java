@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.password_check;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;

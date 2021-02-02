@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.incognito.interstitial;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Activity;
 
 import androidx.annotation.MainThread;

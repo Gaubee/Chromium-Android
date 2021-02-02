@@ -4,6 +4,8 @@
 
 package org.chromium.ui.base;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Activity;
 import android.view.View;
 

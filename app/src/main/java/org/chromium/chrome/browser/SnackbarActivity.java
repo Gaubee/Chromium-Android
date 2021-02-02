@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.view.WindowManager;

@@ -4,6 +4,8 @@
 
 package org.chromium.components.paintpreview.player;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;

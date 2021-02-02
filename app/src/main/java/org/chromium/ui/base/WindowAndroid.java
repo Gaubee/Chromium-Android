@@ -4,6 +4,8 @@
 
 package org.chromium.ui.base;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;

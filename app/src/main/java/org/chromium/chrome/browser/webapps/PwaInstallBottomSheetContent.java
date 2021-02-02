@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.webapps;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.view.View;
 
 import android.annotation.Nullable;

@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.site_settings;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;

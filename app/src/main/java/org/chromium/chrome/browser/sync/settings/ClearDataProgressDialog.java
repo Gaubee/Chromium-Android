@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.sync.settings;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;

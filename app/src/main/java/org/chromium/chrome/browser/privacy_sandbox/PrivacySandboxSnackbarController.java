@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.privacy_sandbox;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 
 import org.chromium.base.ThreadUtils;

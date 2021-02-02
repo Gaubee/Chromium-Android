@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.settings;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;

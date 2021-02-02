@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.widget;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;

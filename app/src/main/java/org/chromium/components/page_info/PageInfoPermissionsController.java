@@ -4,6 +4,8 @@
 
 package org.chromium.components.page_info;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;

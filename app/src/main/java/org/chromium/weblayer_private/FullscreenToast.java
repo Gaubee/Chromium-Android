@@ -4,6 +4,8 @@
 
 package org.chromium.weblayer_private;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.view.Gravity;
 import android.view.View;
 

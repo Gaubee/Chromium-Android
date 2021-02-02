@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.media;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;

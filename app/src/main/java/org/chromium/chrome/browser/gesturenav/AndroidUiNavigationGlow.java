@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.gesturenav;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.view.View;

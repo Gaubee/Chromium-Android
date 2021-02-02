@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 package org.chromium.android_webview.services;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;

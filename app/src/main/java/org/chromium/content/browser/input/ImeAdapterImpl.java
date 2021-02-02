@@ -4,6 +4,8 @@
 
 package org.chromium.content.browser.input;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;

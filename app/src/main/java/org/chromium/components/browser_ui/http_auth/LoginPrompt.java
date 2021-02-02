@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.http_auth;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;

@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.site_settings;
 
+import org.bnqkl.bfchromiun.R;
+
 import static org.chromium.components.browser_ui.settings.SearchUtils.handleSearchNavigation;
 
 import android.content.Context;

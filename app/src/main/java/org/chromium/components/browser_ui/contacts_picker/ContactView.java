@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.contacts_picker;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;

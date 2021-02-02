@@ -4,6 +4,8 @@
 
 package org.chromium.ui.resources;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;

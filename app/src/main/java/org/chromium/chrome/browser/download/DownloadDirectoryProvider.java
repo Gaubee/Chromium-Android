@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.download;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;

@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.settings;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.PorterDuff;

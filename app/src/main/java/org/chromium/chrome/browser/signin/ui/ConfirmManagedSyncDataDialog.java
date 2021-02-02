@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.signin.ui;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;

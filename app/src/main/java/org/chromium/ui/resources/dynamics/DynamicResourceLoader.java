@@ -4,6 +4,8 @@
 
 package org.chromium.ui.resources.dynamics;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.util.SparseArray;
 
 import org.chromium.ui.resources.ResourceLoader;

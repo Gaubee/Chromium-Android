@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.modaldialog;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;

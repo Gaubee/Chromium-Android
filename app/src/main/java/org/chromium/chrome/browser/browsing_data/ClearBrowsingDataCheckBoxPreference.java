@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.browsing_data;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.text.SpannableString;
 import android.text.Spanned;

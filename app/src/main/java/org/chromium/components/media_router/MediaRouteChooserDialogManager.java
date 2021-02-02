@@ -4,6 +4,8 @@
 
 package org.chromium.components.media_router;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;

@@ -4,6 +4,8 @@
 
 package org.chromium.content.browser.accessibility;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

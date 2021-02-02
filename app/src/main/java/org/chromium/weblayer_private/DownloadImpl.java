@@ -4,6 +4,8 @@
 
 package org.chromium.weblayer_private;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;

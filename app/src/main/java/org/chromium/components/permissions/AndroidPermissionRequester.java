@@ -4,6 +4,8 @@
 
 package org.chromium.components.permissions;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.util.SparseArray;

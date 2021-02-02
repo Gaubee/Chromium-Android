@@ -4,6 +4,8 @@
 
 package org.chromium.components.browser_ui.share;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.PendingIntent;

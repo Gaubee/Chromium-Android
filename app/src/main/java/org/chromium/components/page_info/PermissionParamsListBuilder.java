@@ -4,6 +4,8 @@
 
 package org.chromium.components.page_info;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;

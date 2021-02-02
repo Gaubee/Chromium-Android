@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.webapps;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;

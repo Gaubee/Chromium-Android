@@ -18,6 +18,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import org.chromium.base.annotations.RemovableInRelease;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Implementation of BitmapDrawable that allows to tint the color of the drawable for all

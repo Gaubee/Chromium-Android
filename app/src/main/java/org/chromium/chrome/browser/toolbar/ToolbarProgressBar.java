@@ -31,7 +31,7 @@ import org.chromium.components.browser_ui.widget.ClipDrawableProgressBar;
 import org.chromium.ui.UiUtils;
 import org.chromium.ui.interpolators.BakedBezierInterpolator;
 import org.chromium.ui.util.ColorUtils;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Progress bar for use in the Toolbar view. If no progress updates are received for 5 seconds, an
  * indeterminate animation will begin playing and the animation will move across the screen smoothly

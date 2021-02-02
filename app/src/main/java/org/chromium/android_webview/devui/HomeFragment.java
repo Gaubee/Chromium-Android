@@ -23,7 +23,7 @@ import org.chromium.ui.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Dev UI main fragment.
  * It shows a summary about WebView package and the device.

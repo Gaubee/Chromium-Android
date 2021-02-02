@@ -21,7 +21,7 @@ import org.chromium.base.TraceEvent;
 import org.chromium.base.supplier.ObservableSupplier;
 import org.chromium.base.supplier.Supplier;
 import org.chromium.ui.widget.ChromeImageButton;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * The home button.
  * TODO(crbug.com/1056422): Fix the visibility bug on NTP.

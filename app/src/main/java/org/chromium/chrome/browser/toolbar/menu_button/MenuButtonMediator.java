@@ -196,7 +196,7 @@ class MenuButtonMediator implements AppMenuObserver {
             return;
         }
         mAppMenuPropertiesDelegate.loadingStateChanged(isLoading);
-        mAppMenuHandler.menuItemContentChanged(org.chromium.chrome.R.id.icon_row_menu_id);
+        mAppMenuHandler.menuItemContentChanged(org.bnqkl.bfchromiun.R.id.icon_row_menu_id);
     }
 
     ObservableSupplier<AppMenuButtonHelper> getMenuButtonHelperSupplier() {
@@ -264,7 +264,7 @@ class MenuButtonMediator implements AppMenuObserver {
         } else {
             mPropertyModel.set(MenuButtonProperties.CONTENT_DESCRIPTION,
                     mResources.getString(
-                            org.chromium.chrome.R.string.accessibility_toolbar_btn_menu));
+                            org.bnqkl.bfchromiun.R.string.accessibility_toolbar_btn_menu));
         }
     }
 

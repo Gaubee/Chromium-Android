@@ -37,11 +37,11 @@ public class PrefetchNotificationServiceBridge {
         Context context = ContextUtils.getApplicationContext();
         String title = String.format(
                 context.getString(
-                        org.chromium.chrome.R.string.offline_pages_prefetch_notification_title),
-                context.getString(org.chromium.chrome.R.string.app_name));
+                        org.bnqkl.bfchromiun.R.string.offline_pages_prefetch_notification_title),
+                context.getString(org.bnqkl.bfchromiun.R.string.app_name));
         String text = String.format(
                 context.getString(
-                        org.chromium.chrome.R.string.offline_pages_prefetch_notification_text),
+                        org.bnqkl.bfchromiun.R.string.offline_pages_prefetch_notification_text),
                 origin);
         PrefetchNotificationServiceBridgeJni.get().schedule(title, text);
     }

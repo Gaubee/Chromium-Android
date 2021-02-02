@@ -28,7 +28,7 @@ import org.chromium.base.metrics.RecordHistogram;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Dev UI main activity.
  * It shows persistent errors and helps to navigate to WebView developer tools.

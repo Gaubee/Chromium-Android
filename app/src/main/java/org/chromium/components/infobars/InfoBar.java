@@ -18,7 +18,7 @@ import org.chromium.base.annotations.NativeMethods;
 import org.chromium.chrome.browser.infobar.ActionType;
 import org.chromium.chrome.browser.infobar.InfoBarIdentifier;
 import org.chromium.ui.modelutil.PropertyModel;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * The base class for all InfoBar classes.
  * Note that infobars expire by default when a new navigation occurs.

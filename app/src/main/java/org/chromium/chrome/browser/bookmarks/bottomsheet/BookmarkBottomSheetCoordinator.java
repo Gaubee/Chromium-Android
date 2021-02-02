@@ -84,9 +84,9 @@ public class BookmarkBottomSheetCoordinator {
 
         // Load bookmark model data into recycler view.
         View contentView = LayoutInflater.from(mContext).inflate(
-                org.chromium.chrome.R.layout.bookmark_bottom_sheet, /*root=*/null);
+                org.bnqkl.bfchromiun.R.layout.bookmark_bottom_sheet, /*root=*/null);
         RecyclerView sheetItemListView =
-                contentView.findViewById(org.chromium.chrome.R.id.sheet_item_list);
+                contentView.findViewById(org.bnqkl.bfchromiun.R.id.sheet_item_list);
         SimpleRecyclerViewAdapter adapter = new SimpleRecyclerViewAdapter(loadTopLevelFolders());
         adapter.registerType(ItemType.FOLDER_ROW,
                 new LayoutViewBuilder(R.layout.bookmark_bottom_sheet_folder_row),

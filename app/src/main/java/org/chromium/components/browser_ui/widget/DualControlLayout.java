@@ -20,6 +20,7 @@ import org.chromium.ui.widget.ButtonCompat;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Automatically lays out one or two Views, placing them on the same row if possible and stacking

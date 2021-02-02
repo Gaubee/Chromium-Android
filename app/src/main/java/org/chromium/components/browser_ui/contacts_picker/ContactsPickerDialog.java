@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import org.chromium.content_public.browser.ContactsPickerListener;
 import org.chromium.ui.base.WindowAndroid;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * UI for the contacts picker that shows on the Android platform as a result of

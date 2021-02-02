@@ -17,6 +17,7 @@ import org.chromium.components.embedder_support.util.UrlConstants;
 import org.chromium.components.security_state.ConnectionSecurityLevel;
 
 import java.util.Locale;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A helper class that emphasizes the various components of a URL. Useful in the

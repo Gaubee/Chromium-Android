@@ -31,7 +31,7 @@ public class CustomTabNavigationBarController {
         Integer navigationBarDividerColor = intentDataProvider.getNavigationBarDividerColor();
 
         int lightBackgroundDividerColor = ApiCompatibilityUtils.getColor(
-                resources, org.chromium.chrome.R.color.black_alpha_12);
+                resources, org.bnqkl.bfchromiun.R.color.black_alpha_12);
 
         boolean needsDarkButtons = navigationBarColor != null
                 && !ColorUtils.shouldUseLightForegroundOnBackground(navigationBarColor);

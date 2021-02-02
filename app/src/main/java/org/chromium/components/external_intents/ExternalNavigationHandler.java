@@ -67,7 +67,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Logic related to the URL overriding/intercepting functionality.
  * This feature supports conversion of certain navigations to Android Intents allowing

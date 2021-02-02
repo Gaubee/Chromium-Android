@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.widget.LinearLayout;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A LinearLayout that can be constrained to a maximum size or percentage of the screen size.

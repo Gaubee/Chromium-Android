@@ -17,6 +17,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 
 import org.chromium.base.ApiCompatibilityUtils;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Generic builder for promo dialogs.

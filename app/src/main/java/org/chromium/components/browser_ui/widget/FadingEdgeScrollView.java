@@ -17,6 +17,7 @@ import org.chromium.base.ApiCompatibilityUtils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * An extension of the ScrollView that supports edge boundaries coming in.

@@ -27,7 +27,7 @@ import org.chromium.content_public.browser.WebContents;
 import org.chromium.url.GURL;
 
 import java.util.List;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * This is a helper class to use favicon_service.cc's functionality.
  *

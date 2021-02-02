@@ -31,6 +31,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * The view that shows the positions of the find in page matches and allows scrubbing

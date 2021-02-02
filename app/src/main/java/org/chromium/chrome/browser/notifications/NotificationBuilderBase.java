@@ -475,8 +475,8 @@ public abstract class NotificationBuilderBase {
                 NotificationWrapperBuilderFactory
                         .createNotificationWrapperBuilder(false /* preferCompat */, mChannelId)
                         .setContentText(context.getString(
-                                org.chromium.chrome.R.string.notification_hidden_text))
-                        .setSmallIcon(org.chromium.chrome.R.drawable.ic_chrome);
+                                org.bnqkl.bfchromiun.R.string.notification_hidden_text))
+                        .setSmallIcon(org.bnqkl.bfchromiun.R.drawable.ic_chrome);
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             // On N, 'subtext' displays at the top of the notification and this looks better.

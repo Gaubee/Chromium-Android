@@ -30,7 +30,7 @@ public class AssistantLoginSection extends AssistantCollectUserDataSection<Assis
     AssistantLoginSection(Context context, ViewGroup parent) {
         super(context, parent, R.layout.autofill_assistant_login, R.layout.autofill_assistant_login,
                 context.getResources().getDimensionPixelSize(
-                        org.chromium.chrome.autofill_assistant.R.dimen
+                        org.bnqkl.bfchromiun.R.dimen
                                 .autofill_assistant_payment_request_title_padding),
                 /*titleAddButton=*/null, /*listAddButton=*/null);
     }

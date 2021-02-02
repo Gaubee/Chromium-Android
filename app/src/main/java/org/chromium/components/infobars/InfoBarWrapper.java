@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Layout that holds an infobar's contents and provides a background color and a top shadow.

@@ -39,6 +39,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A class for keeping track of common data associated with showing contact details in

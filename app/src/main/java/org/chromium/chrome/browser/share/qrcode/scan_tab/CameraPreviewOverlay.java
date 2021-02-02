@@ -52,10 +52,10 @@ public class CameraPreviewOverlay extends View {
         mTextPaint.setAntiAlias(true);
         mTextPaint.setColor(getResources().getColor(android.R.color.white));
         mTextPaint.setTextSize(
-                getResources().getDimensionPixelSize(org.chromium.chrome.R.dimen.text_size_large));
+                getResources().getDimensionPixelSize(org.bnqkl.bfchromiun.R.dimen.text_size_large));
 
         String textString = getResources().getString(
-                org.chromium.chrome.R.string.qr_code_camera_framing_rect_description);
+                org.bnqkl.bfchromiun.R.string.qr_code_camera_framing_rect_description);
         mTextLayout = new StaticLayout(textString, mTextPaint, mFramingRect.width(),
                 Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
     }

@@ -21,7 +21,7 @@ import org.chromium.chrome.browser.layouts.scene_layer.SceneOverlayLayer;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.content_public.browser.WebContents;
 import org.chromium.ui.resources.ResourceManager;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * A SceneLayer to render layers for ContextualSearchLayout.
  */
@@ -132,7 +132,7 @@ public class ContextualSearchSceneLayer extends SceneOverlayLayer {
         WebContents panelWebContents = panel.getWebContents();
 
         int roundedBarTopResourceId =
-                org.chromium.components.browser_ui.styles.R.drawable.top_round;
+                org.bnqkl.bfchromiun.R.drawable.top_round;
         int separatorLineColor = panel.getSeparatorLineColor();
         // The top_round resource includes the shadow so we only need a side shadow.
         int panelShadowResourceId = R.drawable.overlay_side_shadow;

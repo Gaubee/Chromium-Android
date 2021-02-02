@@ -24,7 +24,7 @@ import androidx.annotation.StringRes;
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.Callback;
 import org.chromium.ui.text.NoUnderlineClickableSpan;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Lays out controls along a line, sandwiched between an (optional) icon and close button.
  * This should only be used by the {@link InfoBar} class, and is created when the InfoBar subclass

@@ -40,9 +40,9 @@ public class PlayerSwipeRefreshHandler implements OverscrollHandler {
                 new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         // Use the same colors as {@link org.chromium.chrome.browser.SwipeRefreshHandler}.
         mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(
-                org.chromium.ui.R.color.default_bg_color_elev_2);
+                org.bnqkl.bfchromiun.R.color.default_bg_color_elev_2);
         mSwipeRefreshLayout.setColorSchemeResources(
-                org.chromium.ui.R.color.default_control_color_active);
+                org.bnqkl.bfchromiun.R.color.default_control_color_active);
         mSwipeRefreshLayout.setEnabled(true);
 
         mSwipeRefreshLayout.setOnRefreshListener(() -> {

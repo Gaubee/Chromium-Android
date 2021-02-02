@@ -27,6 +27,7 @@ import org.chromium.ui.modaldialog.ModalDialogProperties;
 import org.chromium.ui.modelutil.PropertyKey;
 import org.chromium.ui.modelutil.PropertyModel;
 import org.chromium.ui.modelutil.PropertyModelChangeProcessor;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A base class for presenting a single tab modal dialog.
@@ -198,7 +199,7 @@ public abstract class TabModalPresenter extends ModalDialogManager.Presenter {
         FrameLayout.LayoutParams params =
                 new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
-        mDialogView.setBackgroundResource(org.chromium.ui.R.drawable.popup_bg_tinted);
+        mDialogView.setBackgroundResource(org.bnqkl.bfchromiun.R.drawable.popup_bg_tinted);
         mDialogContainer.addView(mDialogView, params);
         mDialogContainer.setAlpha(0f);
         mDialogContainer.setVisibility(View.VISIBLE);

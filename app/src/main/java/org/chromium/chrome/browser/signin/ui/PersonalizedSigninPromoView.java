@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.chromium.ui.widget.ButtonCompat;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Container view for personalized signin promos.

@@ -52,7 +52,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * A fragment to toggle experimental WebView flags/features.
  */

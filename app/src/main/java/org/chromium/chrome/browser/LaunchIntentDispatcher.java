@@ -439,7 +439,7 @@ public class LaunchIntentDispatcher implements IntentHandler.IntentHandlerDelega
         } catch (SecurityException ex) {
             if (isContentScheme) {
                 Toast.makeText(mActivity,
-                             org.chromium.chrome.R.string.external_app_restricted_access_error,
+                             org.bnqkl.bfchromiun.R.string.external_app_restricted_access_error,
                              Toast.LENGTH_LONG)
                         .show();
             } else {

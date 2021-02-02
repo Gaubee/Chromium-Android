@@ -313,7 +313,7 @@ public class MultiInstanceManager
 
     @Override
     public boolean handleMenuOrKeyboardAction(int id, boolean fromMenu) {
-        if (id == org.chromium.chrome.R.id.move_to_other_window_menu_id) {
+        if (id == org.bnqkl.bfchromiun.R.id.move_to_other_window_menu_id) {
             Tab currentTab = mTabModelSelectorSupplier.get() == null
                     ? null
                     : mTabModelSelectorSupplier.get().getCurrentTab();

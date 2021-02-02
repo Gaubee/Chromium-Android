@@ -62,7 +62,7 @@ import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.WeakHashMap;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * An adapter class that forwards the callbacks from {@link ContentViewClient}
  * to the appropriate {@link WebViewClient} or {@link WebChromeClient}.
@@ -1010,7 +1010,7 @@ class WebViewContentsClientAdapter extends SharedWebViewContentsClientAdapter {
                 // on a gray background.
                 Bitmap poster = BitmapFactory.decodeResource(
                         mContext.getResources(),
-                        org.chromium.android_webview.R.drawable.ic_play_circle_outline_black_48dp);
+                        org.bnqkl.bfchromiun.R.drawable.ic_play_circle_outline_black_48dp);
                 result = Bitmap.createBitmap(
                         poster.getWidth(), poster.getHeight(), poster.getConfig());
                 result.eraseColor(Color.GRAY);

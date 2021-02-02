@@ -5,7 +5,7 @@
 package org.chromium.components.autofill;
 
 import org.chromium.ui.DropdownItemBase;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Autofill suggestion container used to store information needed for each Autofill popup entry.
  */

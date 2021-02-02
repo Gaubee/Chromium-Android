@@ -21,6 +21,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+import org.bnqkl.bfchromiun.R;
+
 /**
  * The Autofill suggestion popup that lists relevant suggestions.
  */

@@ -16,6 +16,7 @@ import org.chromium.components.browser_ui.widget.selectable_list.SelectionDelega
 import org.chromium.ui.widget.ButtonCompat;
 
 import java.util.List;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Handles toolbar functionality for the {@ContactsPickerDialog}.

@@ -18,6 +18,7 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.view.ViewCompat;
 
 import org.chromium.base.ApiCompatibilityUtils;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Material-styled horizontal progress bar

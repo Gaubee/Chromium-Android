@@ -55,7 +55,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * A fragment to show a list of recent WebView crashes.
  */

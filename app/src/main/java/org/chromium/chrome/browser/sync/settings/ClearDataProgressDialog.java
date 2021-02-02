@@ -27,8 +27,8 @@ public class ClearDataProgressDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         setCancelable(false);
         ProgressDialog dialog = new ProgressDialog(getActivity());
-        dialog.setTitle(getString(org.chromium.chrome.R.string.wiping_profile_data_title));
-        dialog.setMessage(getString(org.chromium.chrome.R.string.wiping_profile_data_message));
+        dialog.setTitle(getString(org.bnqkl.bfchromiun.R.string.wiping_profile_data_title));
+        dialog.setMessage(getString(org.bnqkl.bfchromiun.R.string.wiping_profile_data_message));
         dialog.setIndeterminate(true);
         return dialog;
     }

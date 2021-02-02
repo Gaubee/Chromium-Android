@@ -33,9 +33,9 @@ public class TabSuggestionMessageCardViewModel {
         String descriptionTextTemplate = getDescriptionTextTemplate(context, data.getActionType());
         String descriptionText = String.format(Locale.getDefault(), "%d", data.getSize());
         String actionText =
-                context.getString(org.chromium.chrome.tab_ui.R.string.tab_suggestion_review_button);
+                context.getString(org.bnqkl.bfchromiun.R.string.tab_suggestion_review_button);
         String dismissButtonContextDescription = context.getString(
-                org.chromium.chrome.tab_ui.R.string.accessibility_tab_suggestion_dismiss_button);
+                org.bnqkl.bfchromiun.R.string.accessibility_tab_suggestion_dismiss_button);
 
         return new PropertyModel.Builder(MessageCardViewProperties.ALL_KEYS)
                 .with(MessageCardViewProperties.MESSAGE_TYPE,
@@ -64,10 +64,10 @@ public class TabSuggestionMessageCardViewModel {
         switch (suggestionActionType) {
             case TabSuggestion.TabSuggestionAction.GROUP:
                 return context.getString(
-                        org.chromium.chrome.tab_ui.R.string.tab_suggestion_group_tabs_message);
+                        org.bnqkl.bfchromiun.R.string.tab_suggestion_group_tabs_message);
             case TabSuggestion.TabSuggestionAction.CLOSE:
                 return context.getString(
-                        org.chromium.chrome.tab_ui.R.string.tab_suggestion_close_stale_message);
+                        org.bnqkl.bfchromiun.R.string.tab_suggestion_close_stale_message);
             default:
                 assert false : "Invalid TabSuggestionAction";
                 return "";

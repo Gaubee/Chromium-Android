@@ -50,11 +50,11 @@ public class ExploreSitesIPH {
         if (activity.isActivityFinishingOrDestroyed()) return;
 
         final String contentString =
-                tileView.getContext().getString(org.chromium.chrome.R.string.explore_sites_iph);
+                tileView.getContext().getString(org.bnqkl.bfchromiun.R.string.explore_sites_iph);
         assert (contentString.length() > 0);
 
         final String accessibilityString = tileView.getContext().getString(
-                org.chromium.chrome.R.string.explore_sites_iph_accessibility);
+                org.bnqkl.bfchromiun.R.string.explore_sites_iph_accessibility);
         assert (accessibilityString.length() > 0);
 
         final Tracker tracker = TrackerFactory.getTrackerForProfile(profile);
@@ -66,7 +66,7 @@ public class ExploreSitesIPH {
                 new TextBubble(tileView.getContext(), tileView, contentString, accessibilityString,
                         true, rectProvider, ChromeAccessibilityUtil.get().isAccessibilityEnabled());
         textBubble.setDismissOnTouchInteraction(true);
-        View foregroundView = tileView.findViewById(org.chromium.chrome.R.id.tile_view_highlight);
+        View foregroundView = tileView.findViewById(org.bnqkl.bfchromiun.R.id.tile_view_highlight);
         if (foregroundView == null) return;
 
         PulseDrawable pulseDrawable = PulseDrawable.createCustomCircle(

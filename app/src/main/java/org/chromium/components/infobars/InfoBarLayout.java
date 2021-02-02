@@ -36,7 +36,7 @@ import org.chromium.ui.widget.ChromeImageView;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Layout that arranges an infobar's views.
  *

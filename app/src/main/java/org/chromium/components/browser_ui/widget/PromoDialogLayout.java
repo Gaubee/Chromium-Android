@@ -18,6 +18,7 @@ import androidx.core.view.ViewCompat;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import org.chromium.components.browser_ui.widget.PromoDialog.DialogParams;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Lays out a promo dialog that is shown when Clank starts up.

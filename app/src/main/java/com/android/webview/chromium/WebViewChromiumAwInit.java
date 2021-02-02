@@ -51,11 +51,12 @@ import org.chromium.base.TraceEvent;
 import org.chromium.base.library_loader.LibraryLoader;
 import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.base.metrics.ScopedSysTraceEvent;
+import org.chromium.base.natives.GEN_JNI;
 import org.chromium.base.task.PostTask;
 import org.chromium.content_public.browser.UiThreadTaskTraits;
 import org.chromium.net.NetworkChangeNotifier;
 import org.chromium.ui.base.ResourceBundle;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Class controlling the Chromium initialization for WebView.
  * We hold on to most static objects used by WebView here.
@@ -240,8 +241,7 @@ public class WebViewChromiumAwInit {
     private void setUpResources(int packageId, Context context) {
         try (ScopedSysTraceEvent e =
                         ScopedSysTraceEvent.scoped("WebViewChromiumAwInit.setUpResources")) {
-//            R.onResourcesLoaded(packageId);
-            org.chromium.base.R.onResourcesLoaded(packageId);
+//            org.bnqkl.bfchromiun.R.onResourcesLoaded(packageId);
 
             AwResource.setResources(context.getResources());
             AwResource.setConfigKeySystemUuidMapping(android.R.array.config_keySystemUuidMapping);

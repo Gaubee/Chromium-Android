@@ -20,6 +20,7 @@ import org.chromium.chrome.browser.tabmodel.IncognitoStateProvider.IncognitoStat
 import org.chromium.ui.base.DeviceFormFactor;
 import org.chromium.ui.widget.ChromeImageButton;
 import org.chromium.ui.widget.Toast;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Button for creating new tabs.

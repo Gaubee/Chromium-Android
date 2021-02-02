@@ -25,6 +25,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A data adapter for the Contacts Picker.

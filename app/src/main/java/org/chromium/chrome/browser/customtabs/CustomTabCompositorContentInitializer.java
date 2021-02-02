@@ -83,8 +83,8 @@ public class CustomTabCompositorContentInitializer implements NativeInitObserver
         // clang-format on
 
         mCompositorViewHolderInitializer.initializeCompositorContent(layoutDriver,
-                mActivity.findViewById(org.chromium.chrome.R.id.url_bar), contentContainer,
-                mActivity.findViewById(org.chromium.chrome.R.id.control_container));
+                mActivity.findViewById(org.bnqkl.bfchromiun.R.id.url_bar), contentContainer,
+                mActivity.findViewById(org.bnqkl.bfchromiun.R.id.control_container));
 
         for (Callback<LayoutManagerImpl> listener : mListeners) {
             listener.onResult(layoutDriver);

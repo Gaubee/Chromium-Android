@@ -77,7 +77,7 @@ public class OmniboxQueryTileCoordinator {
         LayoutInflater inflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         ViewGroup suggestionView = (ViewGroup) inflater.inflate(
-                org.chromium.chrome.R.layout.omnibox_query_tiles_suggestion, null);
+                org.bnqkl.bfchromiun.R.layout.omnibox_query_tiles_suggestion, null);
 
         View tilesView = getTileCoordinator().getView();
         if (tilesView.getParent() != null) UiUtils.removeViewFromParent(tilesView);
@@ -128,7 +128,7 @@ public class OmniboxQueryTileCoordinator {
     private void getVisuals(ImageTile tile, Callback<List<Bitmap>> callback) {
         if (mTileWidth == null) {
             mTileWidth = mContext.getResources().getDimensionPixelSize(
-                    org.chromium.chrome.R.dimen.tile_ideal_width);
+                    org.bnqkl.bfchromiun.R.dimen.tile_ideal_width);
         }
 
         QueryTile queryTile = (QueryTile) tile;

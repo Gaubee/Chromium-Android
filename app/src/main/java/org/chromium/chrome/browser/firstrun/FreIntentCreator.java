@@ -191,6 +191,6 @@ public class FreIntentCreator {
         TypedArray a = caller.obtainStyledAttributes(new int[] {android.R.attr.windowBackground});
         int backgroundResourceId = a.getResourceId(0 /* index */, 0);
         a.recycle();
-        return (backgroundResourceId == org.chromium.chrome.R.drawable.window_background);
+        return (backgroundResourceId == org.bnqkl.bfchromiun.R.drawable.window_background);
     }
 }

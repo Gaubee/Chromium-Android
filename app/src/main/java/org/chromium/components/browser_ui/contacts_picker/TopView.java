@@ -17,6 +17,7 @@ import org.chromium.ui.text.SpanApplier;
 import org.chromium.ui.widget.ChipView;
 
 import java.text.NumberFormat;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A container class for the Disclaimer and Select All functionality (and both associated labels).

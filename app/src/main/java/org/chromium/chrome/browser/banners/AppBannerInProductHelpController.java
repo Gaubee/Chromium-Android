@@ -19,6 +19,7 @@ import org.chromium.chrome.browser.user_education.IPHCommandBuilder;
 import org.chromium.chrome.browser.user_education.UserEducationHelper;
 import org.chromium.components.feature_engagement.FeatureConstants;
 import org.chromium.components.feature_engagement.Tracker;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * This class is responsible for managing the in-product help for the PWA app banners.

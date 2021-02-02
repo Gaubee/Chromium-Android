@@ -16,6 +16,7 @@ import org.chromium.payments.mojom.PaymentAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A class to keep track of the metadata associated with a contact.

@@ -32,7 +32,7 @@ public class TileSuggestionProcessor implements SuggestionProcessor {
             Context context, Callback<List<QueryTile>> queryTileSuggestionCallback) {
         mQueryTileSuggestionCallback = queryTileSuggestionCallback;
         mMinViewHeight = context.getResources().getDimensionPixelSize(
-                org.chromium.chrome.R.dimen.omnibox_suggestion_comfortable_height);
+                org.bnqkl.bfchromiun.R.dimen.omnibox_suggestion_comfortable_height);
     }
 
     @Override

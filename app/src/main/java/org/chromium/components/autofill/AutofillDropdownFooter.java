@@ -16,7 +16,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import org.chromium.ui.DropdownItem;
 
 import java.util.List;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Renders the footer items in the Autofill dropdown, as provided by a List of DropdownItem objects.
  */

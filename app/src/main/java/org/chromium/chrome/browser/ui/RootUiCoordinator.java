@@ -109,7 +109,7 @@ import org.chromium.ui.vr.VrModeObserver;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * The root UI coordinator. This class will eventually be responsible for inflating and managing
  * lifecycle of the main UI components.
@@ -809,7 +809,7 @@ public class RootUiCoordinator
         // TODO(1093999): Componentize SnackbarManager so BottomSheetController can own this.
         Callback<View> sheetInitializedCallback = (view) -> {
             mBottomSheetSnackbarManager = new SnackbarManager(mActivity,
-                    view.findViewById(org.chromium.components.browser_ui.bottomsheet.R.id
+                    view.findViewById(org.bnqkl.bfchromiun.R.id
                                               .bottom_sheet_snackbar_container),
                     mActivity.getWindowAndroid());
         };

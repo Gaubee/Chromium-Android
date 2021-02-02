@@ -49,7 +49,7 @@ class AssistantFormSelectionInput extends AssistantFormInput {
         ViewGroup root = (ViewGroup) inflater.inflate(
                 R.layout.autofill_assistant_form_selection_input, parent,
                 /* attachToRoot= */ false);
-        TextView label = root.findViewById(org.chromium.chrome.autofill_assistant.R.id.label);
+        TextView label = root.findViewById(org.bnqkl.bfchromiun.R.id.label);
         if (mLabel.isEmpty()) {
             label.setVisibility(View.GONE);
         } else {

@@ -16,6 +16,7 @@ import org.chromium.chrome.browser.tab.Tab;
 import org.chromium.content_public.browser.LoadUrlParams;
 import org.chromium.ui.modelutil.MVCListAdapter.ModelList;
 import org.chromium.ui.modelutil.SimpleRecyclerViewAdapter;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Entry point for the UI component of Continuous Search Navigation.

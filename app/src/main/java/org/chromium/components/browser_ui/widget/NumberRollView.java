@@ -17,6 +17,7 @@ import androidx.annotation.VisibleForTesting;
 import org.chromium.ui.interpolators.BakedBezierInterpolator;
 
 import java.text.NumberFormat;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * View that shows an integer number. It provides a smooth roll animation on changing the

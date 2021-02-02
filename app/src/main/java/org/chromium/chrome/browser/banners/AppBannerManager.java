@@ -17,6 +17,7 @@ import org.chromium.base.annotations.JNINamespace;
 import org.chromium.base.annotations.NativeMethods;
 import org.chromium.components.webapps.WebappsUtils;
 import org.chromium.content_public.browser.WebContents;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Manages an AppBannerInfoBar for a WebContents.

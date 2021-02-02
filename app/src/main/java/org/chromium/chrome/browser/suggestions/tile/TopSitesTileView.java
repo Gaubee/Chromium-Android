@@ -26,18 +26,18 @@ public class TopSitesTileView extends SuggestionsTileView {
         if (tile.getType() == TileVisualType.ICON_REAL) {
             // Grouped icons have extra large size.
             params.width = resources.getDimensionPixelOffset(
-                    org.chromium.chrome.R.dimen.tile_view_icon_size);
+                    org.bnqkl.bfchromiun.R.dimen.tile_view_icon_size);
             params.height = resources.getDimensionPixelSize(
-                    org.chromium.chrome.R.dimen.tile_view_icon_size);
+                    org.bnqkl.bfchromiun.R.dimen.tile_view_icon_size);
             params.topMargin = resources.getDimensionPixelSize(
-                    org.chromium.chrome.R.dimen.tile_view_icon_background_margin_top_modern);
+                    org.bnqkl.bfchromiun.R.dimen.tile_view_icon_background_margin_top_modern);
         } else {
             params.width = resources.getDimensionPixelSize(
-                    org.chromium.chrome.R.dimen.tile_view_icon_size_modern);
+                    org.bnqkl.bfchromiun.R.dimen.tile_view_icon_size_modern);
             params.height = resources.getDimensionPixelSize(
-                    org.chromium.chrome.R.dimen.tile_view_icon_size_modern);
+                    org.bnqkl.bfchromiun.R.dimen.tile_view_icon_size_modern);
             params.topMargin = resources.getDimensionPixelSize(
-                    org.chromium.chrome.R.dimen.tile_view_icon_margin_top_modern);
+                    org.bnqkl.bfchromiun.R.dimen.tile_view_icon_margin_top_modern);
         }
         mIconView.setLayoutParams(params);
     }

@@ -40,6 +40,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.bnqkl.bfchromiun.R;
+
 /**
  * Fetches and caches Google Account profile images and full names for the accounts on the device.
  * ProfileDataCache doesn't observe account list changes by itself, so account list

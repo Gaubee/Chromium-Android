@@ -99,7 +99,7 @@ public class WebApkServiceClient {
                     if (webApkTargetsAtLeastO(webApkPackage)) {
                         notificationBuilder.setChannelId(CHANNEL_ID_WEBAPKS);
                         channelName = ContextUtils.getApplicationContext().getString(
-                                org.chromium.chrome.R.string.webapk_notification_channel_name);
+                                org.bnqkl.bfchromiun.R.string.webapk_notification_channel_name);
                     }
                     NotificationMetadata metadata = new NotificationMetadata(
                             NotificationUmaTracker.SystemNotificationType.WEBAPK, platformTag,

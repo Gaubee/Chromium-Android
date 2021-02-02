@@ -83,7 +83,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * This class is the delegate to which WebViewProxy forwards all API calls.
  *
@@ -290,7 +290,7 @@ class WebViewChromium implements WebViewProvider, WebViewProvider.ScrollDelegate
                     Log.w(TAG, msg);
                     TextView warningLabel = new TextView(mContext);
                     warningLabel.setText(mContext.getString(
-                            org.chromium.android_webview.R.string.private_browsing_warning));
+                            org.bnqkl.bfchromiun.R.string.private_browsing_warning));
                     mWebView.addView(warningLabel);
                 }
             }

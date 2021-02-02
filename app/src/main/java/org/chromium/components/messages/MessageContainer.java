@@ -13,7 +13,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 
 import org.chromium.ui.base.ViewUtils;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Container holding messages.
  */

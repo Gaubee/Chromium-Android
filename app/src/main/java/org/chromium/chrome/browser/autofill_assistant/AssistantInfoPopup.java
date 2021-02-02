@@ -51,7 +51,7 @@ public class AssistantInfoPopup {
     public void show(Context context) {
         AlertDialog.Builder builder = new UiUtils
                                               .CompatibleAlertDialogBuilder(context,
-                                                      org.chromium.chrome.autofill_assistant.R.style
+                                                      org.bnqkl.bfchromiun.R.style
                                                               .Theme_Chromium_AlertDialog)
                                               .setTitle(mTitle)
                                               .setMessage(mText);

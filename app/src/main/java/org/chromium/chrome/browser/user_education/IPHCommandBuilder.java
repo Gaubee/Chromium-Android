@@ -12,7 +12,7 @@ import androidx.annotation.StringRes;
 
 import org.chromium.components.browser_ui.widget.textbubble.TextBubble;
 import org.chromium.ui.widget.ViewRectProvider;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Builder for (@see IPHCommand.java). Use this instead of constructing an IPHCommand directly.
  */

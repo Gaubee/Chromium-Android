@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.IdRes;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * Shows a text message at the top of a Layout to show error messages.
  */

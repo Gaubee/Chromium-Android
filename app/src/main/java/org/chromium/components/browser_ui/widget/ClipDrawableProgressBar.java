@@ -17,7 +17,7 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.view.ViewCompat;
 
 import org.chromium.base.ApiCompatibilityUtils;
-
+import org.bnqkl.bfchromiun.R;
 /**
  * An alternative progress bar implemented using ClipDrawable for simplicity and performance.
  */

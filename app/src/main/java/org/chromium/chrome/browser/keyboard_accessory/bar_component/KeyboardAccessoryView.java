@@ -23,7 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.tabs.TabLayout;
 
 import org.chromium.chrome.browser.flags.ChromeFeatureList;
-import org.chromium.chrome.browser.keyboard_accessory.R;
+//import org.chromium.chrome.browser.keyboard_accessory.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * The Accessory sitting above the keyboard and below the content area. It is used for autofill

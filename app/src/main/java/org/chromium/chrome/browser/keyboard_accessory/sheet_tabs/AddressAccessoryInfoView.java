@@ -8,7 +8,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
-import org.chromium.chrome.browser.keyboard_accessory.R;
+//import org.chromium.chrome.browser.keyboard_accessory.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.ui.widget.ChipView;
 
 /**

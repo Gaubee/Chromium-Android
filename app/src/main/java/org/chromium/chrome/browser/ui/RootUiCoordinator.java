@@ -29,8 +29,6 @@ import org.chromium.base.supplier.OneshotSupplierImpl;
 import org.chromium.base.supplier.Supplier;
 // import org.chromium.chrome.R;
 import org.bnqkl.bfchromiun.R;
-// import org.bnqkl.bfchromiun.R;
-import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.ActivityTabProvider;
 import org.chromium.chrome.browser.ChromeActionModeHandler;
 import org.chromium.chrome.browser.app.ChromeActivity;

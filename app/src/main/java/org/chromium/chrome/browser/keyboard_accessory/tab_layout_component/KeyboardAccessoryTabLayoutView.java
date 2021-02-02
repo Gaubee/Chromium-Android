@@ -15,7 +15,8 @@ import androidx.annotation.StringRes;
 import com.google.android.material.tabs.TabLayout;
 
 import org.chromium.base.ApiCompatibilityUtils;
-import org.chromium.chrome.browser.keyboard_accessory.R;
+//import org.chromium.chrome.browser.keyboard_accessory.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A {@link TabLayout} containing the tabs in the keyboard accessory.

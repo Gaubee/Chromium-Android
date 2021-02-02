@@ -13,8 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
-import org.chromium.chrome.R;
-
+//import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
 /**
  * Base view for fre_tosanduma.xml. This view may change child view placement when changing screen
  * dimensions (e.g. on rotation).

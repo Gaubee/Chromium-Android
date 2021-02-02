@@ -2685,6 +2685,16 @@
     <string name="qr_code_error_too_long">qr_code_error_too_long</string>
     <string name="qr_code_filename_prefix">qr_code_filename_prefix</string>
     <string name="ntp_article_suggestions_section_empty">ntp_article_suggestions_section_empty</string>
+    <string name="iph_keyboard_accessory_fill_with_chrome">iph_keyboard_accessory_fill_with_chrome</string>
+    <string name="iph_keyboard_accessory_swipe_for_more">iph_keyboard_accessory_swipe_for_more</string>
+    <string name="address_accessory_sheet_title">address_accessory_sheet_title</string>
+    <string name="address_accessory_sheet_toggle">address_accessory_sheet_toggle</string>
+    <string name="address_accessory_sheet_opened">address_accessory_sheet_opened</string>
+    <string name="credit_card_accessory_sheet_toggle">credit_card_accessory_sheet_toggle</string>
+    <string name="credit_card_accessory_sheet_opened">credit_card_accessory_sheet_opened</string>
+    <string name="password_accessory_sheet_toggle">password_accessory_sheet_toggle</string>
+    <string name="password_accessory_sheet_opened">password_accessory_sheet_opened</string>
+    <string name="signin_account_picker_general_error_button">signin_account_picker_general_error_button</string>
 
     <plurals name="accessibility_toolbar_btn_tabswitcher_toggle">
         accessibility_toolbar_btn_tabswitcher_toggle

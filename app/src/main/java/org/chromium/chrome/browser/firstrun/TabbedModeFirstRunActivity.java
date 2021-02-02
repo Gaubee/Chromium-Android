@@ -15,7 +15,8 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.AnyRes;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * FirstRunActivity variant that fills the whole screen, but displays the content

@@ -18,7 +18,8 @@ import android.widget.TextView;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
-import org.chromium.chrome.R;
+//import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.datareduction.DataReductionPromoUtils;
 import org.chromium.chrome.browser.net.spdyproxy.DataReductionProxySettings;
 import org.chromium.ui.text.NoUnderlineClickableSpan;

@@ -13,7 +13,8 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
-import org.chromium.chrome.browser.keyboard_accessory.R;
+//import org.chromium.chrome.browser.keyboard_accessory.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.ui.widget.ChipView;
 
 /**

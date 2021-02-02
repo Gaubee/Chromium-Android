@@ -12,7 +12,10 @@ import androidx.annotation.DrawableRes;
 
 import org.chromium.base.CommandLine;
 import org.chromium.base.ThreadUtils;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.about_settings.AboutSettingsBridge;
 import org.chromium.chrome.browser.datareduction.DataReductionPromoUtils;
 import org.chromium.chrome.browser.omaha.VersionNumberGetter;

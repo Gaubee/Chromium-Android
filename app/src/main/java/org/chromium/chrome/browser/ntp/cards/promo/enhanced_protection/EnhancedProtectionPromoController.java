@@ -13,7 +13,10 @@ import android.view.View;
 import android.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.ntp.cards.promo.enhanced_protection.EnhancedProtectionPromoUtils.EnhancedProtectionPromoAction;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.safe_browsing.metrics.SettingsAccessPoint;

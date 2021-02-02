@@ -18,7 +18,10 @@ import androidx.appcompat.content.res.AppCompatResources;
 import com.google.android.material.tabs.TabLayout;
 
 import org.chromium.base.ApiCompatibilityUtils;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.accessibility_tab_switcher.AccessibilityTabModelAdapter.AccessibilityTabModelAdapterListener;
 import org.chromium.chrome.browser.tab.Tab;
 import org.chromium.chrome.browser.tab.TabCreationState;

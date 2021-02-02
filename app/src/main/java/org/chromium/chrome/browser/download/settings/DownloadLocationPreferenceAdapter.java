@@ -18,7 +18,10 @@ import android.annotation.Nullable;
 import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.chrome.browser.download.DirectoryOption;
 import org.chromium.chrome.browser.download.DownloadDialogBridge;
-import org.chromium.chrome.browser.download.R;
+// import org.chromium.chrome.browser.download.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.download.StringUtils;
 
 /**

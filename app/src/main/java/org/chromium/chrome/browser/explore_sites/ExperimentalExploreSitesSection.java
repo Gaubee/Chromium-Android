@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.native_page.NativePageNavigationDelegate;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.content_public.browser.LoadUrlParams;

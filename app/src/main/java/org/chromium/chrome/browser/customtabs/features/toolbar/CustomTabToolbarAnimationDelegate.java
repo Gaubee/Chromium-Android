@@ -14,7 +14,10 @@ import android.widget.TextView;
 
 import androidx.annotation.DimenRes;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.components.omnibox.SecurityButtonAnimationDelegate;
 import org.chromium.ui.interpolators.BakedBezierInterpolator;
 

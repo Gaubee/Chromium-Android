@@ -4,7 +4,10 @@
 
 package org.chromium.chrome.browser.payments;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.payments.mojom.PaymentShippingType;
 
 /** Container for custom shipping strings. */

@@ -22,7 +22,10 @@ import android.widget.TextView;
 import android.annotation.Nullable;
 
 import org.chromium.chrome.browser.download.DownloadLaterPromptStatus;
-import org.chromium.chrome.browser.download.R;
+// import org.chromium.chrome.browser.download.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.components.browser_ui.widget.RadioButtonWithDescription;
 import org.chromium.ui.modelutil.PropertyKey;
 import org.chromium.ui.modelutil.PropertyModel;

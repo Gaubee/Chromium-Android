@@ -11,7 +11,10 @@ import android.widget.ImageView;
 
 import androidx.appcompat.content.res.AppCompatResources;
 
-import org.chromium.chrome.autofill_assistant.poodle.R;
+// import org.chromium.chrome.autofill_assistant.poodle.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Represents a poodle that can be animated. This default implementation is a static poodle, the

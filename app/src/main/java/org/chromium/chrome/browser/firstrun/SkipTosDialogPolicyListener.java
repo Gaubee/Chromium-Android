@@ -7,7 +7,7 @@ package org.chromium.chrome.browser.firstrun;
 import android.os.SystemClock;
 import android.text.TextUtils;
 
-import android.annotation.Nullable;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.Callback;

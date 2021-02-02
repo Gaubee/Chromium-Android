@@ -19,7 +19,10 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import androidx.annotation.ColorInt;
 import androidx.core.graphics.drawable.DrawableCompat;
 
-import org.chromium.components.browser_ui.widget.R;
+// import org.chromium.components.browser_ui.widget.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A {@link Drawable} that is a bubble with an arrow pointing out of either the top or bottom.

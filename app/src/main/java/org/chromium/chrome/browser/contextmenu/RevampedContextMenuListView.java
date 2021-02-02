@@ -9,7 +9,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A custom ListView to be able to set width and height using the contents. Width and height are

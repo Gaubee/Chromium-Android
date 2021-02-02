@@ -32,7 +32,8 @@ import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.content.res.AppCompatResources;
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.annotations.UsedByReflection;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.tab.EmptyTabObserver;
 import org.chromium.chrome.browser.tab.Tab;
 import org.chromium.chrome.browser.tab.TabFavicon;
@@ -383,7 +384,7 @@ public class AccessibilityTabModelListItem extends FrameLayout implements OnClic
             }
         } else if (v == mUndoButton) {
             // Kill the close action.
-            String undoButtonOnClickAnnouncement = mUndoButton.getContext().getString(
+            @SuppressLint({"StringFormatInvalid", "LocalSuppress"}) String undoButtonOnClickAnnouncement = mUndoButton.getContext().getString(
                     R.string.accessibility_undo_closed_tab_announcement_message, mTab.getTitle());
             mUndoButton.announceForAccessibility(undoButtonOnClickAnnouncement);
             mHandler.removeCallbacks(mCloseRunnable);

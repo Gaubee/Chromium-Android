@@ -4,7 +4,10 @@
 
 package org.chromium.chrome.browser.explore_sites;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /** CategoryCardViewHolderFactory for Dense Title Bottom variation. */
 public class CategoryCardViewHolderFactoryDenseTitleBottom extends CategoryCardViewHolderFactory {

@@ -29,7 +29,10 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import org.chromium.third_party.android.media.R;
+// import org.chromium.third_party.android.media.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 import java.util.Formatter;
 import java.util.Locale;

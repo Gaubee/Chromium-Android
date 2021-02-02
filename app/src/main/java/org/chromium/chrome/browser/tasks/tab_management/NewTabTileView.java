@@ -13,7 +13,10 @@ import android.widget.RelativeLayout;
 import androidx.core.view.ViewCompat;
 
 import org.chromium.base.ApiCompatibilityUtils;
-import org.chromium.chrome.tab_ui.R;
+// import org.chromium.chrome.tab_ui.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * The view used by NewTabTile component.

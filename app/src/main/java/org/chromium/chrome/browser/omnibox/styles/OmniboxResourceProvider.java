@@ -11,7 +11,10 @@ import android.util.TypedValue;
 import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.night_mode.NightModeUtils;
 
 /** Provides resources specific to Omnibox. */

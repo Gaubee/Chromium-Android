@@ -11,7 +11,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.chromium.chrome.tab_ui.R;
+// import org.chromium.chrome.tab_ui.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /** View of the tab on the single tab tab switcher. */
 class SingleTabView extends LinearLayout {

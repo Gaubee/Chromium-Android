@@ -20,7 +20,10 @@ import org.chromium.base.ApplicationStatus;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
 import org.chromium.base.metrics.RecordUserAction;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.AppHooks;
 import org.chromium.chrome.browser.SwipeRefreshHandler;
 import org.chromium.chrome.browser.app.ChromeActivity;
@@ -395,17 +398,18 @@ public class ActivityTabWebContentsDelegateAndroid extends TabWebContentsDelegat
                 });
 
         Resources resources = mActivity.getResources();
+        PropertyModel.Builder builder = new PropertyModel.Builder(ModalDialogProperties.ALL_KEYS);
+        builder.with(ModalDialogProperties.CONTROLLER, dialogController);
+        builder.with(ModalDialogProperties.TITLE, resources,
+                R.string.http_post_warning_title);
+        builder.with(ModalDialogProperties.MESSAGE, resources, R.string.http_post_warning);
+        builder.with(ModalDialogProperties.POSITIVE_BUTTON_TEXT, resources,
+                R.string.http_post_warning_resend);
+        builder.with(ModalDialogProperties.NEGATIVE_BUTTON_TEXT, resources,
+                R.string.cancel);
+        builder.with(ModalDialogProperties.CANCEL_ON_TOUCH_OUTSIDE, true);
         PropertyModel dialogModel =
-                new PropertyModel.Builder(ModalDialogProperties.ALL_KEYS)
-                        .with(ModalDialogProperties.CONTROLLER, dialogController)
-                        .with(ModalDialogProperties.TITLE, resources,
-                                R.string.http_post_warning_title)
-                        .with(ModalDialogProperties.MESSAGE, resources, R.string.http_post_warning)
-                        .with(ModalDialogProperties.POSITIVE_BUTTON_TEXT, resources,
-                                R.string.http_post_warning_resend)
-                        .with(ModalDialogProperties.NEGATIVE_BUTTON_TEXT, resources,
-                                R.string.cancel)
-                        .with(ModalDialogProperties.CANCEL_ON_TOUCH_OUTSIDE, true)
+                builder
                         .build();
 
         modalDialogManager.showDialog(dialogModel, ModalDialogManager.ModalDialogType.TAB, true);

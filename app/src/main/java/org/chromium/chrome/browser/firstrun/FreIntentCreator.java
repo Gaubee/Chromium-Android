@@ -14,7 +14,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 
-import android.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import org.chromium.base.ApplicationStatus;
 import org.chromium.chrome.browser.AppHooks;
@@ -41,7 +41,7 @@ public class FreIntentCreator {
      */
     public Intent create(Context caller, Intent fromIntent, boolean requiresBroadcast,
             boolean preferLightweightFre) {
-//        @Nullable
+        @Nullable
         BrowserServicesIntentDataProvider webApkIntentDataProvider =
                 WebappLauncherActivity.maybeSlowlyGenerateWebApkIntentDataProviderFromIntent(
                         fromIntent);

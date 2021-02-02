@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 package org.chromium.ui.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -23,7 +24,10 @@ import androidx.annotation.StyleRes;
 import androidx.core.view.ViewCompat;
 
 import org.chromium.base.ApiCompatibilityUtils;
-import org.chromium.ui.R;
+// import org.chromium.ui.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * The view responsible for displaying a material chip. The chip has the following components :
@@ -239,6 +243,7 @@ public class ChipView extends LinearLayout {
      * {@link ChipView#addRemoveIcon()} must be called prior to this method.
      * @param listener The listener to be invoked on click events.
      */
+    @SuppressLint("StringFormatInvalid")
     public void setRemoveIconClickListener(OnClickListener listener) {
         mEndIconWrapper.setOnClickListener(listener);
         String chipText = mPrimaryText.getText().toString();

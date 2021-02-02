@@ -28,7 +28,10 @@ import org.chromium.components.embedder_support.application.ClassLoaderContextWr
 import org.chromium.weblayer_private.FragmentHostingRemoteFragmentImpl;
 import org.chromium.weblayer_private.ProfileImpl;
 import org.chromium.weblayer_private.ProfileManager;
-import org.chromium.weblayer_private.R;
+// import org.chromium.weblayer_private.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.weblayer_private.interfaces.IRemoteFragment;
 import org.chromium.weblayer_private.interfaces.IRemoteFragmentClient;
 import org.chromium.weblayer_private.interfaces.ISettingsFragment;

@@ -17,7 +17,10 @@ import android.widget.FrameLayout;
 import androidx.annotation.VisibleForTesting;
 import androidx.recyclerview.widget.RecyclerView.LayoutParams;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.feed.library.api.host.config.Configuration;
 import org.chromium.chrome.browser.feed.library.api.host.stream.CardConfiguration;
 import org.chromium.chrome.browser.feed.library.common.ui.LayoutUtils;

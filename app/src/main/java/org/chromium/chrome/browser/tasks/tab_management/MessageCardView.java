@@ -12,7 +12,10 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 import org.chromium.base.ApiCompatibilityUtils;
-import org.chromium.chrome.tab_ui.R;
+// import org.chromium.chrome.tab_ui.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.components.browser_ui.widget.text.TemplatePreservingTextView;
 import org.chromium.ui.widget.ButtonCompat;
 import org.chromium.ui.widget.ChromeImageView;

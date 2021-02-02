@@ -11,7 +11,10 @@ import static org.chromium.chrome.browser.tasks.tab_management.TabListModel.Card
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-import org.chromium.chrome.tab_ui.R;
+// import org.chromium.chrome.tab_ui.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.ui.modelutil.PropertyModel;
 
 /**

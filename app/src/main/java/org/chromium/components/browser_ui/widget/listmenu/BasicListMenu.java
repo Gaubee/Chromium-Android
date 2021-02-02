@@ -17,7 +17,10 @@ import android.annotation.IntDef;
 import android.annotation.NonNull;
 import androidx.annotation.StringRes;
 
-import org.chromium.components.browser_ui.widget.R;
+// import org.chromium.components.browser_ui.widget.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.ui.UiUtils;
 import org.chromium.ui.modelutil.LayoutViewBuilder;
 import org.chromium.ui.modelutil.MVCListAdapter.ListItem;

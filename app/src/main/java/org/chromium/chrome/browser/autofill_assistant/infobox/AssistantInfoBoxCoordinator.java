@@ -7,7 +7,10 @@ package org.chromium.chrome.browser.autofill_assistant.infobox;
 import android.content.Context;
 import android.view.View;
 
-import org.chromium.chrome.autofill_assistant.R;
+// import org.chromium.chrome.autofill_assistant.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.autofill_assistant.AutofillAssistantUiController;
 import org.chromium.chrome.browser.autofill_assistant.LayoutUtils;
 import org.chromium.chrome.browser.autofill_assistant.infobox.AssistantInfoBoxViewBinder.ViewHolder;

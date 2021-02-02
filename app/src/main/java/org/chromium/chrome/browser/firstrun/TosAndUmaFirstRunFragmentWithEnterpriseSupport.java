@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
 
-import android.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.Log;
@@ -65,7 +65,7 @@ public class TosAndUmaFirstRunFragmentWithEnterpriseSupport
                     ? "MobileFre.CctTos.EnterprisePolicyCheckSpeed2.SlowerThanInflation"
                     : "MobileFre.CctTos.EnterprisePolicyCheckSpeed2.FasterThanInflation";
         }
-    }
+    };
 
     private boolean mViewCreated;
     private View mBottomGroup;

@@ -15,6 +15,7 @@ import static org.chromium.chrome.browser.dependency_injection.ChromeCommonQuali
 import static org.chromium.chrome.browser.notifications.NotificationConstants.NOTIFICATION_ID_TWA_DISCLOSURE_INITIAL;
 import static org.chromium.chrome.browser.notifications.NotificationConstants.NOTIFICATION_ID_TWA_DISCLOSURE_SUBSEQUENT;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.content.Context;
 import android.content.res.Resources;
@@ -22,7 +23,10 @@ import android.content.res.Resources;
 import android.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.browserservices.ui.TrustedWebActivityModel;
 import org.chromium.chrome.browser.browserservices.ui.trustedwebactivity.DisclosureAcceptanceBroadcastReceiver;
 import org.chromium.chrome.browser.lifecycle.ActivityLifecycleDispatcher;
@@ -109,7 +113,7 @@ public class DisclosureNotification
         String title = mResources.getString(R.string.twa_running_in_chrome);
         String scopeForDisplay =
                 UrlFormatter.formatUrlForDisplayOmitSchemeOmitTrivialSubdomains(scope);
-        String text = mResources.getString(R.string.twa_running_in_chrome_v2, scopeForDisplay);
+        @SuppressLint({"StringFormatInvalid", "LocalSuppress"}) String text = mResources.getString(R.string.twa_running_in_chrome_v2, scopeForDisplay);
 
         // We're using setStyle, which can't be handled by compat mode.
         boolean preferCompat = false;

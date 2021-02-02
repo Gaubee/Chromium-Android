@@ -10,7 +10,10 @@ import android.content.res.Resources;
 import android.view.View;
 
 import org.chromium.base.CommandLine;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.customtabs.CustomTabActivity;
 import org.chromium.chrome.browser.net.spdyproxy.DataReductionProxySettings;
 import org.chromium.components.browser_ui.widget.PromoDialog;

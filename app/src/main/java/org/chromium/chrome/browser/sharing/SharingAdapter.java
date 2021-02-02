@@ -15,7 +15,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.content.res.AppCompatResources;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.sharing.SharingServiceProxy.DeviceInfo;
 import org.chromium.components.sync.protocol.SharingSpecificFields;
 import org.chromium.ui.widget.ChromeImageView;

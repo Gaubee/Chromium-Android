@@ -10,7 +10,10 @@ import android.text.TextUtils;
 import android.annotation.IntDef;
 
 import org.chromium.base.ApiCompatibilityUtils;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.flags.ChromeFeatureList;
 import org.chromium.chrome.browser.util.ChromeAccessibilityUtil;
 import org.chromium.components.browser_ui.widget.displaystyle.UiConfig;

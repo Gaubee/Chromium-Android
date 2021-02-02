@@ -8,7 +8,10 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import org.chromium.base.metrics.RecordHistogram;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.datareduction.settings.DataReductionPreferenceFragment;
 import org.chromium.chrome.browser.infobar.InfoBarIdentifier;
 import org.chromium.chrome.browser.settings.SettingsLauncherImpl;

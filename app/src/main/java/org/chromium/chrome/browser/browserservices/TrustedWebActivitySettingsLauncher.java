@@ -10,7 +10,10 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import org.chromium.base.Log;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.settings.SettingsLauncherImpl;
 import org.chromium.chrome.browser.webapps.ChromeWebApkHost;
 import org.chromium.components.browser_ui.settings.SettingsLauncher;

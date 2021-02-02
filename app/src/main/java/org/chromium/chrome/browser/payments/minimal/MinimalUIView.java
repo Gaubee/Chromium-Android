@@ -13,7 +13,10 @@ import android.widget.TextView;
 
 import android.annotation.Nullable;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.components.browser_ui.bottomsheet.BottomSheetContent;
 
 /** Payment minimal UI. */

@@ -17,7 +17,10 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.widget.TextViewCompat;
 
 import org.chromium.base.task.PostTask;
-import org.chromium.components.permissions.R;
+// import org.chromium.components.permissions.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.content_public.browser.UiThreadTaskTraits;
 import org.chromium.ui.base.WindowAndroid;
 import org.chromium.ui.modaldialog.DialogDismissalCause;

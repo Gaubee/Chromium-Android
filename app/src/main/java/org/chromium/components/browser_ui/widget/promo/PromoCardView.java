@@ -12,7 +12,10 @@ import android.widget.TextView;
 
 import android.annotation.Nullable;
 
-import org.chromium.components.browser_ui.widget.R;
+// import org.chromium.components.browser_ui.widget.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.ui.widget.ButtonCompat;
 
 /**

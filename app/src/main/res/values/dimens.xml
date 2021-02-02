@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2019 The Chromium Authors. All rights reserved.
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright 2019 The Chromium Authors. All rights reserved.
      Use of this source code is governed by a BSD-style license that can be
      found in the LICENSE file. -->
 
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources" >
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
     <!-- Autofill keyboard accessory dimensions -->
     <dimen name="keyboard_accessory_bar_item_height">36dp</dimen>
     <dimen name="keyboard_accessory_bar_item_padding">8dp</dimen>
@@ -33,7 +32,7 @@
     <dimen name="all_passwords_bottom_sheet_search_view_padding">24dp</dimen>
 
 
-<!-- chrome/android/features/start_surface/internal/java/res/values/dimens.xml -->
+    <!-- chrome/android/features/start_surface/internal/java/res/values/dimens.xml -->
 
     <dimen name="ss_bottom_bar_height">64dp</dimen>
     <dimen name="tasks_surface_body_top_margin">16dp</dimen>
@@ -41,7 +40,7 @@
     <dimen name="tab_switcher_title_top_margin">16dp</dimen>
 
 
-<!-- chrome/android/features/tab_ui/java/res/values/dimens.xml -->
+    <!-- chrome/android/features/tab_ui/java/res/values/dimens.xml -->
 
     <dimen name="tab_grid_favicon_size">32dp</dimen>
     <dimen name="tab_list_selected_inset">7dp</dimen>
@@ -83,17 +82,17 @@
     <dimen name="tasks_view_items_vertical_spacing">8dp</dimen>
 
 
-<!-- chrome/android/feed/core/java/res/values/dimens.xml -->
+    <!-- chrome/android/feed/core/java/res/values/dimens.xml -->
 
-  <dimen name="button_compat_radius">4dp</dimen>
-  <!-- Card dimensions. -->
-  <dimen name="feed_suggestion_card_action_min_height">48dp</dimen>
-  <!-- No content dimensions. -->
-  <dimen name="no_content_padding">16dp</dimen>
-  <dimen name="no_content_text_padding">8dp</dimen>
+    <dimen name="button_compat_radius">4dp</dimen>
+    <!-- Card dimensions. -->
+    <dimen name="feed_suggestion_card_action_min_height">48dp</dimen>
+    <!-- No content dimensions. -->
+    <dimen name="no_content_padding">16dp</dimen>
+    <dimen name="no_content_text_padding">8dp</dimen>
 
 
-<!-- chrome/android/java/res/values/dimens.xml -->
+    <!-- chrome/android/java/res/values/dimens.xml -->
 
     <!-- Accessibility tab switcher -->
     <dimen name="accessibility_tab_height">65dp</dimen>
@@ -121,7 +120,7 @@
     <dimen name="toolbar_swipe_commit_distance">90dp</dimen>
     <!-- TabSwitcher - Maximum amount to slide the tabs down or right in over scroll. -->
     <dimen name="over_scroll_slide">10dp</dimen>
-     <!-- TabSwitcher - The size of the close button on each tab. -->
+    <!-- TabSwitcher - The size of the close button on each tab. -->
     <dimen name="tab_switcher_close_button_size">20dp</dimen>
 
     <!-- TabSwitcher -->
@@ -168,7 +167,7 @@
         @dimen/overlay_panel_caption_spacing
     </dimen>
     <dimen name="contextual_search_padded_button_width">
-      @dimen/overlay_panel_padded_button_width
+        @dimen/overlay_panel_padded_button_width
     </dimen>
     <!-- Padding at the end of the Bar. -->
     <dimen name="contextual_search_end_padding">7dp</dimen>
@@ -377,7 +376,7 @@
     <dimen name="tile_view_icon_size">48dp</dimen>
     <dimen name="tile_view_icon_size_modern">24dp</dimen>
     <!-- TODO(crbug.com/900912): Fix and remove lint ignore -->
-    <dimen tools:ignore="PxUsage" name="tile_view_icon_min_size">24px</dimen>
+    <dimen name="tile_view_icon_min_size" tools:ignore="PxUsage">24px</dimen>
     <dimen name="tile_view_icon_corner_radius">4dp</dimen>
     <dimen name="tile_view_icon_text_size">20dp</dimen>
     <dimen name="tile_view_monogram_size_modern">26dp</dimen>
@@ -548,10 +547,10 @@
     <dimen name="revamped_context_menu_header_monogram_size">26dp</dimen>
 
     <!-- Defaults for TabbedModeFirstRunActivity values. -->
-    <item type="dimen" name="dialog_fixed_width_major">100%</item>
-    <item type="dimen" name="dialog_fixed_width_minor">100%</item>
-    <item type="dimen" name="dialog_fixed_height_major">100%</item>
-    <item type="dimen" name="dialog_fixed_height_minor">100%</item>
+    <item name="dialog_fixed_width_major" type="dimen">100%</item>
+    <item name="dialog_fixed_width_minor" type="dimen">100%</item>
+    <item name="dialog_fixed_height_major" type="dimen">100%</item>
+    <item name="dialog_fixed_height_minor" type="dimen">100%</item>
 
     <!-- Navigation history popup dimensions -->
     <dimen name="navigation_popup_width">312dp</dimen>
@@ -613,7 +612,7 @@
     <dimen name="sharing_hub_3p_icon_padding_top">20dp</dimen>
 
 
-<!-- chrome/android/webapk/shell_apk/res/values/dimens.xml -->
+    <!-- chrome/android/webapk/shell_apk/res/values/dimens.xml -->
 
     <!-- Common text sizes -->
     <dimen name="headline_size_medium">20sp</dimen>
@@ -627,56 +626,56 @@
     <dimen name="list_column_padding">16dp</dimen>
 
 
-<!-- chrome/browser/password_check/android/internal/java/res/values/dimens.xml -->
+    <!-- chrome/browser/password_check/android/internal/java/res/values/dimens.xml -->
 
-  <dimen name="check_status_text_margin">16dp</dimen>
-  <dimen name="check_status_description_margin_top">2dp</dimen>
-  <dimen name="check_status_icon_margin_horizontal">16dp</dimen>
-  <dimen name="check_status_icon_size">24dp</dimen>
-  <dimen name="check_status_illustration_height">120dp</dimen>
-  <dimen name="check_status_illustration_width">360dp</dimen>
-  <dimen name="check_status_restart_button_clickable_surface_size">48dp</dimen>
-  <dimen name="check_status_restart_button_margin_end">4dp</dimen>
-  <dimen name="check_status_subtitle_margin">16dp</dimen>
+    <dimen name="check_status_text_margin">16dp</dimen>
+    <dimen name="check_status_description_margin_top">2dp</dimen>
+    <dimen name="check_status_icon_margin_horizontal">16dp</dimen>
+    <dimen name="check_status_icon_size">24dp</dimen>
+    <dimen name="check_status_illustration_height">120dp</dimen>
+    <dimen name="check_status_illustration_width">360dp</dimen>
+    <dimen name="check_status_restart_button_clickable_surface_size">48dp</dimen>
+    <dimen name="check_status_restart_button_margin_end">4dp</dimen>
+    <dimen name="check_status_subtitle_margin">16dp</dimen>
 
-  <!-- Margin for the header message, it depends on the status -->
-  <dimen name="check_status_message_error_margin_vertical">24dp</dimen>
-  <dimen name="check_status_message_idle_margin_vertical">27dp</dimen>
-  <dimen name="check_status_message_running_margin_vertical">36dp</dimen>
+    <!-- Margin for the header message, it depends on the status -->
+    <dimen name="check_status_message_error_margin_vertical">24dp</dimen>
+    <dimen name="check_status_message_idle_margin_vertical">27dp</dimen>
+    <dimen name="check_status_message_running_margin_vertical">36dp</dimen>
 
-  <dimen name="compromised_credential_row_button_icon_padding">8dp</dimen>
-  <dimen name="compromised_credential_row_button_text_margin_top">8dp</dimen>
-  <dimen name="compromised_credential_row_button_icon_start_padding">12dp</dimen>
-  <dimen name="compromised_credential_row_button_icon_end_padding">16dp</dimen>
-  <dimen name="compromised_credential_row_button_margin_top">16dp</dimen>
-  <dimen name="compromised_credential_row_icon_margin_start_end">16dp</dimen>
-  <dimen name="compromised_credential_row_icon_margin_top">20dp</dimen>
-  <dimen name="compromised_credential_row_icon_size">36dp</dimen>
-  <dimen name="compromised_credential_row_more_padding_end">8dp</dimen>
-  <dimen name="compromised_credential_row_more_padding_start">16dp</dimen>
-  <dimen name="compromised_credential_row_more_size">48dp</dimen>
-  <dimen name="compromised_credential_row_padding_bottom">16dp</dimen>
-  <dimen name="compromised_credential_row_padding_top">12dp</dimen>
-  <dimen name="compromised_credential_row_reason_margin_top">2dp</dimen>
+    <dimen name="compromised_credential_row_button_icon_padding">8dp</dimen>
+    <dimen name="compromised_credential_row_button_text_margin_top">8dp</dimen>
+    <dimen name="compromised_credential_row_button_icon_start_padding">12dp</dimen>
+    <dimen name="compromised_credential_row_button_icon_end_padding">16dp</dimen>
+    <dimen name="compromised_credential_row_button_margin_top">16dp</dimen>
+    <dimen name="compromised_credential_row_icon_margin_start_end">16dp</dimen>
+    <dimen name="compromised_credential_row_icon_margin_top">20dp</dimen>
+    <dimen name="compromised_credential_row_icon_size">36dp</dimen>
+    <dimen name="compromised_credential_row_more_padding_end">8dp</dimen>
+    <dimen name="compromised_credential_row_more_padding_start">16dp</dimen>
+    <dimen name="compromised_credential_row_more_size">48dp</dimen>
+    <dimen name="compromised_credential_row_padding_bottom">16dp</dimen>
+    <dimen name="compromised_credential_row_padding_top">12dp</dimen>
+    <dimen name="compromised_credential_row_reason_margin_top">2dp</dimen>
 
-  <dimen name="view_dialog_copy_button_clickable_surface_size">48dp</dimen>
-  <dimen name="view_dialog_copy_button_margin_end">4dp</dimen>
-  <dimen name="view_dialog_compromised_password_margin">24dp</dimen>
-
-
-<!-- chrome/browser/privacy_sandbox/android/java/res/values/dimens.xml -->
-
-  <dimen name="privacy_sandbox_illustration_height">120dp</dimen>
-  <dimen name="privacy_sandbox_illustration_width">360dp</dimen>
+    <dimen name="view_dialog_copy_button_clickable_surface_size">48dp</dimen>
+    <dimen name="view_dialog_copy_button_margin_end">4dp</dimen>
+    <dimen name="view_dialog_compromised_password_margin">24dp</dimen>
 
 
-<!-- chrome/browser/safety_check/android/java/res/values/dimens.xml -->
+    <!-- chrome/browser/privacy_sandbox/android/java/res/values/dimens.xml -->
+
+    <dimen name="privacy_sandbox_illustration_height">120dp</dimen>
+    <dimen name="privacy_sandbox_illustration_width">360dp</dimen>
+
+
+    <!-- chrome/browser/safety_check/android/java/res/values/dimens.xml -->
 
     <dimen name="safety_check_button_margin">16dp</dimen>
     <dimen name="safety_check_status_icon_size">24dp</dimen>
 
 
-<!-- chrome/browser/share/android/java/res/values/dimens.xml -->
+    <!-- chrome/browser/share/android/java/res/values/dimens.xml -->
 
     <!-- QR code camera preview overlay dimensions -->
     <dimen name="overlay_rect_size">250dp</dimen>
@@ -694,7 +693,7 @@
     <dimen name="y_offset">230dp</dimen>
 
 
-<!-- chrome/browser/signin/services/android/java/res/values/dimens.xml -->
+    <!-- chrome/browser/signin/services/android/java/res/values/dimens.xml -->
 
     <!-- User Picture Dimensions -->
     <dimen name="user_picture_size">40dp</dimen>
@@ -704,14 +703,14 @@
     <dimen name="badge_size">20dp</dimen>
 
 
-<!-- chrome/browser/signin/ui/android/java/res/values/dimens.xml -->
+    <!-- chrome/browser/signin/ui/android/java/res/values/dimens.xml -->
 
     <!-- Signin promo dimensions -->
     <dimen name="signin_promo_account_image_size">48dp</dimen>
     <dimen name="signin_promo_cold_state_image_size">24dp</dimen>
 
 
-<!-- chrome/browser/touch_to_fill/android/internal/java/res/values/dimens.xml -->
+    <!-- chrome/browser/touch_to_fill/android/internal/java/res/values/dimens.xml -->
 
     <dimen name="touch_to_fill_favicon_size">24dp</dimen>
     <dimen name="touch_to_fill_sheet_margin">16dp</dimen>
@@ -744,7 +743,7 @@
     <dimen name="touch_to_fill_sheet_bottom_padding_button">8dp</dimen>
 
 
-<!-- chrome/browser/ui/android/appmenu/internal/java/res/values/dimens.xml -->
+    <!-- chrome/browser/ui/android/appmenu/internal/java/res/values/dimens.xml -->
 
     <!-- The amount to fade the edges of the menu to indicate more content is available
          via scrolling. -->
@@ -755,7 +754,7 @@
     <dimen name="auto_scroll_full_velocity">500dp</dimen>
 
 
-<!-- chrome/browser/ui/android/favicon/java/res/values/dimens.xml -->
+    <!-- chrome/browser/ui/android/favicon/java/res/values/dimens.xml -->
 
     <dimen name="default_favicon_size">16dp</dimen>
     <dimen name="default_favicon_corner_radius">3dp</dimen>
@@ -768,7 +767,7 @@
     <dimen name="circular_monogram_text_size">14dp</dimen>
 
 
-<!-- chrome/browser/ui/android/toolbar/java/res/values/dimens.xml -->
+    <!-- chrome/browser/ui/android/toolbar/java/res/values/dimens.xml -->
 
     <dimen name="toolbar_tab_count_text_size_1_digit">12dp</dimen>
     <dimen name="toolbar_tab_count_text_size_2_digit">10dp</dimen>
@@ -780,7 +779,7 @@
     <dimen name="bottom_controls_height">@dimen/min_touch_target_size</dimen>
 
 
-<!-- chrome/browser/ui/messages/android/java/res/values/dimens.xml -->
+    <!-- chrome/browser/ui/messages/android/java/res/values/dimens.xml -->
 
     <!-- Snackbars -->
     <dimen name="snackbar_min_height">48dp</dimen>
@@ -789,17 +788,17 @@
     <dimen name="snackbar_shadow_height">8dp</dimen>
 
 
-<!-- chrome/browser/user_education/java/res/values/dimens.xml -->
+    <!-- chrome/browser/user_education/java/res/values/dimens.xml -->
 
     <dimen name="iph_text_bubble_menu_anchor_y_inset">14dp</dimen>
 
 
-<!-- chrome/browser/webapps/android/java/res/values/dimens.xml -->
+    <!-- chrome/browser/webapps/android/java/res/values/dimens.xml -->
 
     <dimen name="webapk_screenshot_margin">20dp</dimen>
 
 
-<!-- components/autofill/android/java/res/values/dimens.xml -->
+    <!-- components/autofill/android/java/res/values/dimens.xml -->
 
     <!-- Dimens for legacy UI
          TODO(crbug.com/874077): Remove once refresh UI is fully rolled out. -->
@@ -850,7 +849,7 @@
     <dimen name="editable_option_section_logo_vertical_padding">13dp</dimen>
 
 
-<!-- components/browser_ui/android/bottomsheet/java/res/values/dimens.xml -->
+    <!-- components/browser_ui/android/bottomsheet/java/res/values/dimens.xml -->
 
     <dimen name="bottom_sheet_min_full_half_distance">140dp</dimen>
     <dimen name="bottom_sheet_peek_height">56dp</dimen>
@@ -858,13 +857,12 @@
     <dimen name="bottom_sheet_shadow_top_offset">10dp</dimen>
 
 
-
-<!-- components/browser_ui/contacts_picker/android/java/res/values/dimens.xml -->
+    <!-- components/browser_ui/contacts_picker/android/java/res/values/dimens.xml -->
 
     <dimen name="contact_picker_icon_size">36dp</dimen>
 
 
-<!-- components/browser_ui/modaldialog/android/java/res/values/dimens.xml -->
+    <!-- components/browser_ui/modaldialog/android/java/res/values/dimens.xml -->
 
     <dimen name="modal_dialog_control_vertical_padding">2dp</dimen>
     <dimen name="modal_dialog_control_horizontal_padding">8dp</dimen>
@@ -872,7 +870,7 @@
     <dimen name="modal_dialog_control_horizontal_padding_filled">16dp</dimen>
 
 
-<!-- components/browser_ui/photo_picker/android/java/res/values/dimens.xml -->
+    <!-- components/browser_ui/photo_picker/android/java/res/values/dimens.xml -->
 
     <!-- Photo Picker dimensions -->
     <dimen name="photo_picker_label_gap">10dp</dimen>
@@ -886,7 +884,7 @@
     <dimen name="photo_picker_video_duration_offset">16dp</dimen>
 
 
-<!-- components/browser_ui/styles/android/java/res/values/dimens.xml -->
+    <!-- components/browser_ui/styles/android/java/res/values/dimens.xml -->
 
     <!-- Standard width for overflow menu in Chrome. -->
     <dimen name="menu_width">258dp</dimen>
@@ -902,7 +900,7 @@
     <dimen name="toolbar_shadow_height">8dp</dimen>
 
 
-<!-- components/browser_ui/widget/android/java/res/values/dimens.xml -->
+    <!-- components/browser_ui/widget/android/java/res/values/dimens.xml -->
 
     <!-- Miscellaneous -->
     <dimen name="action_bar_shadow_height">10dp</dimen>
@@ -930,8 +928,9 @@
     <!-- RadioButtonWithDescriptionAndAuxButton -->
     <dimen name="radio_button_with_description_and_aux_button_spacing">10dp</dimen>
     <!-- The total width of expand_arrow_with_separator.xml, not used on WebView. -->
-    <dimen name="radio_button_with_description_and_aux_button_aux_button_length"
-        tools:ignore="UnusedResources">61dp</dimen>
+    <dimen name="radio_button_with_description_and_aux_button_aux_button_length" tools:ignore="UnusedResources">
+        61dp
+    </dimen>
 
     <dimen name="list_menu_width">180dp</dimen>
 
@@ -996,22 +995,21 @@
     <dimen name="swipe_vertical_drag_threshold">5dp</dimen>
     <dimen name="swipe_horizontal_drag_threshold">10dp</dimen>
 
-  <!-- Query tile dimensions -->
-  <dimen name="tile_ideal_width">80dp</dimen>
+    <!-- Query tile dimensions -->
+    <dimen name="tile_ideal_width">80dp</dimen>
 
-  <!-- Query tile container dimensions -->
-  <dimen name="tile_grid_inter_tile_padding">12dp</dimen>
+    <!-- Query tile container dimensions -->
+    <dimen name="tile_grid_inter_tile_padding">12dp</dimen>
 
 
-
-<!-- components/cronet/android/sample/res/values/dimens.xml -->
+    <!-- components/cronet/android/sample/res/values/dimens.xml -->
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
 
-<!-- components/embedder_support/android/java/res/values/dimens.xml -->
+    <!-- components/embedder_support/android/java/res/values/dimens.xml -->
 
     <!--
          14.5 = Seekbar thumb width - border width, but it depends on the width
@@ -1021,20 +1019,20 @@
     <dimen name="color_button_height">60dp</dimen>
 
 
-<!-- components/find_in_page/android/java/res/values/dimens.xml -->
+    <!-- components/find_in_page/android/java/res/values/dimens.xml -->
 
     <dimen name="find_result_bar_touch_width">68dp</dimen>
     <dimen name="find_result_bar_draw_width">46dp</dimen>
     <dimen name="find_result_bar_separator_width">1dp</dimen>
     <!-- TODO(crbug.com/900912): Fix and remove lint ignore -->
-    <dimen tools:ignore="PxUsage" name="find_result_bar_result_min_height">8px</dimen>
-    <dimen tools:ignore="PxUsage" name="find_result_bar_active_min_height">16px</dimen>
-    <dimen tools:ignore="PxUsage" name="find_result_bar_vertical_padding">8px</dimen>
-    <dimen tools:ignore="PxUsage" name="find_result_bar_min_gap_between_stacks">3px</dimen>
-    <dimen tools:ignore="PxUsage" name="find_result_bar_stacked_result_height">3px</dimen>
+    <dimen name="find_result_bar_result_min_height" tools:ignore="PxUsage">8px</dimen>
+    <dimen name="find_result_bar_active_min_height" tools:ignore="PxUsage">16px</dimen>
+    <dimen name="find_result_bar_vertical_padding" tools:ignore="PxUsage">8px</dimen>
+    <dimen name="find_result_bar_min_gap_between_stacks" tools:ignore="PxUsage">3px</dimen>
+    <dimen name="find_result_bar_stacked_result_height" tools:ignore="PxUsage">3px</dimen>
 
 
-<!-- components/infobars/android/res/values/dimens.xml -->
+    <!-- components/infobars/android/res/values/dimens.xml -->
 
     <!-- Infobar dimensions -->
     <!-- Maximum width of an infobar. -->
@@ -1075,7 +1073,7 @@
     <dimen name="infobar_margin_above_button_row">32dp</dimen>
 
 
-<!-- components/messages/android/java/res/values/dimens.xml -->
+    <!-- components/messages/android/java/res/values/dimens.xml -->
 
 
     <dimen name="message_banner_height">64dp</dimen>
@@ -1096,7 +1094,7 @@
     <dimen name="message_max_width">380dp</dimen>
 
 
-<!-- components/page_info/android/java/res/values/dimens.xml -->
+    <!-- components/page_info/android/java/res/values/dimens.xml -->
 
     <dimen name="page_info_favicon_size">16dp</dimen>
 
@@ -1111,7 +1109,7 @@
     <dimen name="page_info_popup_button_padding_sides">8dp</dimen>
     <dimen name="page_info_popup_permission_icon_size">24dp</dimen>
 
-<!-- components/payments/content/android/java/res/values/dimens.xml -->
+    <!-- components/payments/content/android/java/res/values/dimens.xml -->
 
     <!-- Payments UI
          * payments_section_checking_spacing:
@@ -1147,13 +1145,13 @@
     <dimen name="payment_minimal_ui_toolbar_icon_size">36dp</dimen>
 
 
-<!-- components/translate/content/android/java/res/values/dimens.xml -->
+    <!-- components/translate/content/android/java/res/values/dimens.xml -->
 
     <dimen name="infobar_translate_menu_width">260dp</dimen>
     <dimen name="translate_toast_y_offset">24dp</dimen>
 
 
-<!-- components/webapps/browser/android/java/res/values/dimens.xml -->
+    <!-- components/webapps/browser/android/java/res/values/dimens.xml -->
 
     <!-- Web app dimensions
          There are two possible layouts for splash screens, which is chosen based on whether an
@@ -1173,7 +1171,7 @@
     <dimen name="webapk_monochrome_icon_size">24dp</dimen>
 
 
-<!-- content/public/android/java/res/values/dimens.xml -->
+    <!-- content/public/android/java/res/values/dimens.xml -->
 
     <!-- Link Preview dimensions -->
     <dimen name="text_edit_suggestion_item_layout_height">48dp</dimen>
@@ -1181,7 +1179,7 @@
     <dimen name="text_suggestion_popup_vertical_margin">20dp</dimen>
 
 
-<!-- remoting/android/java/res/values/dimens.xml -->
+    <!-- remoting/android/java/res/values/dimens.xml -->
 
     <dimen name="toolbar_content_inset_start">72dp</dimen>
     <dimen name="feedback_animation_radius_tiny">8dp</dimen>
@@ -1189,7 +1187,7 @@
     <dimen name="feedback_animation_radius_large">55dp</dimen>
 
 
-<!-- ui/android/java/res/values/dimens.xml -->
+    <!-- ui/android/java/res/values/dimens.xml -->
 
     <!-- Common text sizes -->
     <dimen name="headline_size">22sp</dimen>
@@ -1270,11 +1268,11 @@
     <dimen name="config_min_scaling_span" tools:ignore="InOrMmUsage">12.0mm</dimen>
 
 
-<!-- weblayer/browser/java/res/values/dimens.xml -->
+    <!-- weblayer/browser/java/res/values/dimens.xml -->
 
     <dimen name="security_status_icon_size">18dp</dimen>
     <dimen name="url_text_edge_padding">5dp</dimen>
-  
+
     <!-- Dimensions for compact translate infobar. -->
     <dimen name="weblayer_infobar_translate_fade_edge_length">18dp</dimen>
 
@@ -1282,4 +1280,9 @@
     <dimen name="weblayer_tab_indicator_radius">3dp</dimen>
     <dimen name="weblayer_tab_indicator_padding">2dp</dimen>
 
+    <dimen name="more_button_padding">8dp</dimen>
+    <dimen name="feed_more_button_container_top_margins">-20dp</dimen>
+    <!-- The Material spec specifies that the width of a menu must be a multiple of 56dp. -->
+    <!-- TODO(crbug.com/1039415): Not feed-specific. Try to unify with the rest of Chrome -->
+    <dimen name="menu_width_multiple">56dp</dimen>
 </resources>

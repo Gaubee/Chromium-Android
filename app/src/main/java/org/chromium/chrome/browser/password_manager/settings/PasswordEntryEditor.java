@@ -18,7 +18,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.textfield.TextInputLayout;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.ui.widget.Toast;
 
 /**

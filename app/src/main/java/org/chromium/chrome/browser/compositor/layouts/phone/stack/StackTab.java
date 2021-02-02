@@ -7,7 +7,10 @@ package org.chromium.chrome.browser.compositor.layouts.phone.stack;
 import android.content.Context;
 import android.content.res.Resources;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.compositor.layouts.Layout.Orientation;
 import org.chromium.chrome.browser.compositor.layouts.components.LayoutTab;
 import org.chromium.chrome.browser.layouts.animation.FloatProperty;

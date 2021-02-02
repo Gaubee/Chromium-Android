@@ -7,7 +7,10 @@ package org.chromium.chrome.browser.feed.v2;
 import android.app.Activity;
 
 import org.chromium.base.supplier.Supplier;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.feed.FeedSurfaceCoordinator;
 import org.chromium.chrome.browser.feed.FeedV1ActionOptions;
 import org.chromium.chrome.browser.feed.shared.stream.Stream;

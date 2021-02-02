@@ -8,7 +8,10 @@ import static org.chromium.chrome.browser.tasks.TrendyTermsProperties.TRENDY_TER
 import static org.chromium.chrome.browser.tasks.TrendyTermsProperties.TRENDY_TERM_ICON_ON_CLICK_LISTENER;
 import static org.chromium.chrome.browser.tasks.TrendyTermsProperties.TRENDY_TERM_STRING;
 
-import org.chromium.chrome.tab_ui.R;
+// import org.chromium.chrome.tab_ui.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.ui.modelutil.PropertyKey;
 import org.chromium.ui.modelutil.PropertyModel;
 import org.chromium.ui.widget.ChipView;

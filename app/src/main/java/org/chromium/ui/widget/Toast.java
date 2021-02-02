@@ -20,7 +20,10 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.chromium.base.SysUtils;
-import org.chromium.ui.R;
+// import org.chromium.ui.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * Toast wrapper, makes sure toasts are not HW accelerated on low-end devices and presented

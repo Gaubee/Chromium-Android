@@ -11,7 +11,10 @@ import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.browser.ui.messages.snackbar.SnackbarManager.SnackbarController;
-import org.chromium.chrome.ui.messages.R;
+// import org.chromium.chrome.ui.messages.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

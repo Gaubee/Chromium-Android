@@ -18,7 +18,10 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.widget.TextViewCompat;
 
 import org.chromium.base.Consumer;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.feed.library.common.ui.LayoutUtils;
 import org.chromium.chrome.browser.feed.library.piet.AdapterFactory.AdapterKeySupplier;
 import org.chromium.chrome.browser.feed.library.piet.DebugLogger.MessageType;

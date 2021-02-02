@@ -7,7 +7,10 @@ package org.chromium.chrome.browser.offlinepages.indicator;
 import android.app.Activity;
 import android.os.Handler;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.download.OfflineContentAvailabilityStatusProvider;
 import org.chromium.chrome.browser.feature_engagement.TrackerFactory;
 import org.chromium.chrome.browser.status_indicator.StatusIndicatorCoordinator;

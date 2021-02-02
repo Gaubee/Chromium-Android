@@ -236,9 +236,12 @@ public abstract class FirstRunFlowSequencer  {
             // the app's lifetime.
             return false;
         }
-        return !preferLightweightFre
-                || (!FirstRunStatus.shouldSkipWelcomePage()
-                && !FirstRunStatus.getLightweightFirstRunFlowComplete());
+        if (preferLightweightFre
+                && (FirstRunStatus.shouldSkipWelcomePage()
+                        || FirstRunStatus.getLightweightFirstRunFlowComplete())) {
+            return false;
+        }
+        return true;
     }
 
     /**

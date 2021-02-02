@@ -23,5 +23,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
+-printconfiguration .full-r8-config.txt
 -dontwarn sun.misc.**
+-keep class J.N
+-keepclasseswithmembernames class * {
+    native <methods>;
+}

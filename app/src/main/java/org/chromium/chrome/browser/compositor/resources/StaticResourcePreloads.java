@@ -6,7 +6,10 @@ package org.chromium.chrome.browser.compositor.resources;
 
 import android.content.Context;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.ui.base.DeviceFormFactor;
 
 /**

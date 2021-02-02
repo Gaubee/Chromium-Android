@@ -16,7 +16,10 @@ import android.view.ViewGroup;
 import android.annotation.Nullable;
 
 import org.chromium.base.metrics.RecordHistogram;
-import org.chromium.components.browser_ui.styles.R;
+// import org.chromium.components.browser_ui.styles.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.components.embedder_support.application.ClassLoaderContextWrapperFactory;
 import org.chromium.weblayer_private.interfaces.BrowserFragmentArgs;
 import org.chromium.weblayer_private.interfaces.IBrowser;

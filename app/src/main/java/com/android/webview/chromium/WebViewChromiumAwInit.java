@@ -31,7 +31,8 @@ import org.chromium.android_webview.AwThreadUtils;
 import org.chromium.android_webview.AwTracingController;
 import org.chromium.android_webview.HttpAuthDatabase;
 import org.chromium.android_webview.ProductConfig;
-import org.chromium.android_webview.R;
+// import org.chromium.android_webview.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.android_webview.WebViewChromiumRunQueue;
 import org.chromium.android_webview.common.AwResource;
 import org.chromium.android_webview.common.AwSwitches;
@@ -239,7 +240,8 @@ public class WebViewChromiumAwInit {
     private void setUpResources(int packageId, Context context) {
         try (ScopedSysTraceEvent e =
                         ScopedSysTraceEvent.scoped("WebViewChromiumAwInit.setUpResources")) {
-            R.onResourcesLoaded(packageId);
+//            R.onResourcesLoaded(packageId);
+            org.chromium.base.R.onResourcesLoaded(packageId);
 
             AwResource.setResources(context.getResources());
             AwResource.setConfigKeySystemUuidMapping(android.R.array.config_keySystemUuidMapping);

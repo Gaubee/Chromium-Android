@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.chromium.chrome.autofill_assistant.R;
+// import org.chromium.chrome.autofill_assistant.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * A coordinator responsible for suggesting chips to the user. If there is one chip to display, it

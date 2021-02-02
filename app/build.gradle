@@ -3,6 +3,14 @@ apply plugin: 'idea'
 apply from: "$rootDir/gradle/android-lint.gradle"
 
 android {
+    signingConfigs {
+        bnqkl {
+            storeFile file('C:\\Users\\Gaubee\\.key-store\\bnqkl.gaubee.jks')
+            storePassword '111111'
+            keyAlias 'bnqkl'
+            keyPassword '111111'
+        }
+    }
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
@@ -22,6 +30,8 @@ android {
             abiFilters "arm64-v8a"
 //            , "armeabi-v7a"
         }
+        applicationIdSuffix 'debug'
+        signingConfig signingConfigs.bnqkl
     }
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
@@ -34,9 +44,16 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            multiDexKeepFile file('multidex-config.txt')
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+//            minifyEnabled true
+//            shrinkResources true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     dexOptions {
@@ -63,17 +80,20 @@ android {
         ignoreWarnings true
         disable 'MissingTranslation'
     }
+    applicationVariants.all { variant ->
+        variant.getRuntimeConfiguration().exclude group: 'com.google.protobuf', module: 'protobuf-lite'
+    }
 }
 
 idea {
     module {
-        // downloadJavadoc = true
         downloadSources = true
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation group: 'com.google.protobuf', name: 'protobuf-java', version: '3.14.0'
     implementation "androidx.annotation:annotation:1.2.0-beta01"
     implementation "androidx.concurrent:concurrent-futures:1.1.0"
     implementation "androidx.browser:browser:1.3.0"
@@ -107,7 +127,6 @@ dependencies {
     implementation "androidx.test:core:1.3.0"
     implementation "androidx.test:monitor:1.3.0"
     implementation 'androidx.collection:collection:1.1.0'
-//    implementation "androidx.test:runner:1.3.0"
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestUtil 'androidx.test:orchestrator:1.1.0'
     implementation 'androidx.test:rules:1.1.0'
@@ -117,62 +136,36 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation "androidx.viewpager:viewpager:1.0.0"
     implementation "androidx.webkit:webkit:1.4.0"
-//    implementation 'com.android.support:preference-v14:28.0.0'
-////    def lifecycle_version = "2.2.0"
-////    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-////    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-//    implementation "androidx.loader:loader:1.1.0"
-//
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:gridlayout-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:mediarouter-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:support-v13:$rootProject.ext.supportLibraryVersion"
-//    implementation group: 'com.google.common', name: 'google-collect', version: '1.0-rc1'
     implementation group: 'com.google.guava', name: 'guava', version: '30.1-android'
     implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
-
-//    implementation "com.google.android.gms:play-services-basement:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-tasks:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-base:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-auth-base:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-auth-api-phone:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-auth:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-cast:16.0.1"
-//    implementation "com.google.android.gms:play-services-cast-framework:16.0.1"
-//    implementation "com.google.android.gms:play-services-iid:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-instantapps:16.0.0"
-//    implementation "com.google.android.gms:play-services-gcm:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-location:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-vision:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-vision-common:$rootProject.ext.gmsVersion"
-//    implementation "com.google.android.gms:play-services-fido:$rootProject.ext.gmsVersion"
-//    implementation "com.google.vr:sdk-base:$rootProject.ext.googleVRVersion"
-//    implementation "com.google.ar:core:1.6.0"
-//    implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
-//    implementation 'com.android.support:multidex:1.0.3'
-//    implementation 'com.google.code.findbugs:jsr305:3.0.2'
-//    implementation 'com.google.protobuf:protobuf-lite:3.0.1'
-//    implementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-//    implementation 'com.google.dagger:dagger:2.19'
-//    implementation 'javax.annotation:javax.annotation-api:1.3.2'
-////    implementation project(':components:autofill')
-////    implementation project(':components:embedder_support')
-////    implementation project(':content')
-////    implementation project(':data_chart')
-////    implementation project(':download')
-////    implementation project(':media')
-////    implementation project(':ui')
-////    implementation project(':customtabs')
-////    implementation project(':splash')
-////    implementation project(':feed')
-////    implementation project(':autofill_assistant')
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     implementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
-
+    implementation group: 'com.google.dagger', name: 'dagger', version: '2.31.2'
+//    implementation 'com.google.android.gms:play-services:12.0.1'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+    implementation 'com.google.android.gms:play-services-cast:19.0.0'
+    implementation('com.google.android.gms:play-services-cast-framework:19.0.0'){
+        exclude group: 'com.google.protobuf', module: 'protobuf-lite'
+//        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    }
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation group: 'com.google.auto.service', name: 'auto-service', version: '1.0-rc7'
+//    implementation 'com.google.android.play:core:1.9.1'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:17.5.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone-license:12.0.1'
+    implementation 'com.google.android.gms:play-services-fido:18.1.0'
+    implementation 'com.google.android.gms:play-services-fido-license:12.0.1'
+    implementation 'com.google.android.gms:play-services-location:17.1.0'
+    implementation 'com.google.android.gms:play-services-location-license:12.0.1'
 }
-tasks.withType(JavaCompile) {
-    options.compilerArgs << '-Xlint:unchecked'
-    options.deprecation = true
-}
+//tasks.withType(JavaCompile) {
+//    options.compilerArgs << '-Xlint:unchecked'
+//    options.deprecation = true
+//}

@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /** Preference with fixed icon size for Android payment apps. */
 public class AndroidPaymentAppPreference extends Preference {

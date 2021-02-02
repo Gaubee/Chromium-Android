@@ -13,7 +13,10 @@ import android.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 
 import org.chromium.base.TraceEvent;
-import org.chromium.chrome.browser.toolbar.R;
+// import org.chromium.chrome.browser.toolbar.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.toolbar.TabCountProvider;
 import org.chromium.chrome.browser.toolbar.TabSwitcherDrawable;
 import org.chromium.components.browser_ui.widget.highlight.PulseDrawable;

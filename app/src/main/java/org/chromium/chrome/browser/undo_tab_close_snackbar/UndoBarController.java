@@ -4,6 +4,7 @@
 
 package org.chromium.chrome.browser.undo_tab_close_snackbar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import android.annotation.Nullable;
@@ -11,7 +12,10 @@ import android.annotation.Nullable;
 import org.chromium.base.CallbackController;
 import org.chromium.base.supplier.OneshotSupplier;
 import org.chromium.base.supplier.Supplier;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.compositor.layouts.OverviewModeBehavior;
 import org.chromium.chrome.browser.device.DeviceClassManager;
 import org.chromium.chrome.browser.tab.Tab;
@@ -202,6 +206,7 @@ public class UndoBarController implements SnackbarManager.SnackbarController {
                                 getUndoneAccessibilityAnnouncement(content, true)));
     }
 
+    @SuppressLint("StringFormatInvalid")
     private String getUndoneAccessibilityAnnouncement(String content, boolean isMultiple) {
         return isMultiple
                 ? mContext.getString(

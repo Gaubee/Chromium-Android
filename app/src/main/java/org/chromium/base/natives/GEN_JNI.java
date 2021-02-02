@@ -1,12 +1,16 @@
 package org.chromium.base.natives;
 
+import org.chromium.base.annotations.MainDex;
+
 import java.lang.Class;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Throwable;
 import javax.annotation.Generated;
 
+
 @Generated("org.chromium.jni_generator.JniProcessor")
+@MainDex
 public final class GEN_JNI {
 
     public static final boolean TESTING_ENABLED = false;

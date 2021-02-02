@@ -4,13 +4,16 @@
 
 package org.chromium.chrome.browser;
 
+import android.annotation.Nullable;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.appcompat.app.*;
 
-import android.annotation.Nullable;
+import androidx.multidex.MultiDex;
 
+import org.chromium.base.Log;
+import org.chromium.base.SysUtils;
 import org.chromium.base.annotations.MainDex;
 import org.chromium.base.library_loader.LibraryLoader;
 import org.chromium.chrome.browser.background_task_scheduler.ChromeBackgroundTaskFactory;
@@ -32,22 +35,35 @@ import org.chromium.components.version_info.Channel;
 import org.chromium.components.version_info.VersionConstants;
 import org.chromium.url.GURL;
 
+// import org.bnqkl.bfchromiun.R;
+
 /**
  * Basic application functionality that should be shared among all browser applications that use
  * chrome layer.
- *
+ * <p>
  * Note: All application logic should be added to {@link ChromeApplicationImpl}, which will be
  * called from the superclass. See {@link SplitCompatApplication} for more info.
  */
 public class ChromeApplication extends SplitCompatApplication {
-    /** Lock on creation of sComponent. */
+    /**
+     * Lock on creation of sComponent.
+     */
     private static final Object sLock = new Object();
     @Nullable
     private static volatile ChromeAppComponent sComponent;
 
-    /** Chrome application logic. */
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
+
+    /**
+     * Chrome application logic.
+     */
     public static class ChromeApplicationImpl extends Impl {
-        public ChromeApplicationImpl() {}
+        public ChromeApplicationImpl() {
+        }
 
         @Override
         public void onCreate() {
@@ -59,7 +75,6 @@ public class ChromeApplication extends SplitCompatApplication {
                     new Thread(() -> LibraryLoader.getInstance().ensureMainDexInitialized())
                             .start();
                 }
-
                 // Initializes the support for dynamic feature modules (browser only).
                 ModuleUtil.initApplication();
 
@@ -73,6 +88,7 @@ public class ChromeApplication extends SplitCompatApplication {
 
                 AppHooks.get().getChimeDelegate().initialize();
             }
+            Log.d("SysUtils.isCurrentlyLowMemory", String.valueOf(SysUtils.isCurrentlyLowMemory()));
         }
 
         @MainDex
@@ -104,7 +120,8 @@ public class ChromeApplication extends SplitCompatApplication {
                 }
 
                 @Override
-                public void onDenied() {}
+                public void onDenied() {
+                }
             });
         }
 
@@ -128,6 +145,7 @@ public class ChromeApplication extends SplitCompatApplication {
 
     /**
      * Determines whether the given memory signal is considered severe.
+     *
      * @param level The type of signal as defined in {@link android.content.ComponentCallbacks2}.
      */
     public static boolean isSevereMemorySignal(int level) {
@@ -137,7 +155,9 @@ public class ChromeApplication extends SplitCompatApplication {
                 || level >= TRIM_MEMORY_MODERATE;
     }
 
-    /** Returns the application-scoped component. */
+    /**
+     * Returns the application-scoped component.
+     */
     public static ChromeAppComponent getComponent() {
         if (sComponent == null) {
             synchronized (sLock) {

@@ -10,7 +10,10 @@ import android.widget.ListView;
 
 import androidx.preference.PreferenceDialogFragmentCompat;
 
-import org.chromium.chrome.browser.download.R;
+// import org.chromium.chrome.browser.download.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * The dialog used to display the download directory preference choices.

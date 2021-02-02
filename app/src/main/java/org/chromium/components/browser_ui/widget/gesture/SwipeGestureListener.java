@@ -14,7 +14,10 @@ import android.annotation.IntDef;
 import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.ThreadUtils;
-import org.chromium.components.browser_ui.widget.R;
+// import org.chromium.components.browser_ui.widget.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

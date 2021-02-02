@@ -25,7 +25,10 @@ import android.text.format.DateUtils;
 import android.util.AttributeSet;
 import android.view.View;
 
-import org.chromium.third_party.android.R;
+// import org.chromium.third_party.android.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 import java.util.Arrays;
 import java.util.Calendar;

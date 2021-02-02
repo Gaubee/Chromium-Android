@@ -21,7 +21,10 @@ import androidx.annotation.VisibleForTesting;
 
 import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.base.metrics.RecordUserAction;
-import org.chromium.chrome.browser.ui.appmenu.internal.R;
+// import org.chromium.chrome.browser.ui.appmenu.internal.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

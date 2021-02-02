@@ -29,7 +29,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import org.chromium.third_party.android.R;
+// import org.chromium.third_party.android.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 
 /**
  * {@link NetworkStatsHistory} series to render inside a {@link ChartView},

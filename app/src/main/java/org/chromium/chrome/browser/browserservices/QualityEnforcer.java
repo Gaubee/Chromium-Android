@@ -4,6 +4,7 @@
 
 package org.chromium.chrome.browser.browserservices;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -16,7 +17,10 @@ import androidx.browser.customtabs.CustomTabsSessionToken;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Promise;
 import org.chromium.base.annotations.NativeMethods;
-import org.chromium.chrome.R;
+// import org.chromium.chrome.R;
+import org.bnqkl.bfchromiun.R;
+// import org.bnqkl.bfchromiun.R;
+import org.bnqkl.bfchromiun.R;
 import org.chromium.chrome.browser.browserservices.ui.controller.Verifier;
 import org.chromium.chrome.browser.browserservices.ui.controller.trustedwebactivity.ClientPackageNameProvider;
 import org.chromium.chrome.browser.customtabs.CustomTabsConnection;
@@ -33,6 +37,8 @@ import org.chromium.ui.widget.Toast;
 import org.chromium.url.GURL;
 
 import javax.inject.Inject;
+
+import static org.chromium.base.ContextUtils.getApplicationContext;
 
 /**
  * This class enforces a quality bar on the websites shown inside Trusted Web Activities. For
@@ -162,7 +168,7 @@ public class QualityEnforcer {
     }
 
     private void showErrorToast(String message) {
-        Context context = ContextUtils.getApplicationContext();
+        Context context = getApplicationContext();
         PackageManager pm = context.getPackageManager();
         // Only shows the toast when the TWA client app does not have installer info, i.e. install
         // via adb instead of a store.
@@ -185,18 +191,19 @@ public class QualityEnforcer {
     }
 
     /* Get the localized string for toast message. */
+    @SuppressLint("StringFormatInvalid")
     private String getToastMessage(
             @QualityEnforcementViolationType int type, String url, int httpStatusCode) {
         switch (type) {
             case QualityEnforcementViolationType.HTTP_ERROR404:
             case QualityEnforcementViolationType.HTTP_ERROR5XX:
-                return ContextUtils.getApplicationContext().getString(
+                return getApplicationContext().getString(
                         R.string.twa_quality_enforcement_violation_error, httpStatusCode, url);
             case QualityEnforcementViolationType.UNAVAILABLE_OFFLINE:
-                return ContextUtils.getApplicationContext().getString(
+                return getApplicationContext().getString(
                         R.string.twa_quality_enforcement_violation_offline, url);
             case QualityEnforcementViolationType.DIGITAL_ASSET_LINK:
-                return ContextUtils.getApplicationContext().getString(
+                return getApplicationContext().getString(
                         R.string.twa_quality_enforcement_violation_asset_link, url);
             default:
                 return "";
@@ -226,7 +233,7 @@ public class QualityEnforcer {
         // TODO(crbug.com/1136153) Need to figure out why the client package name can be null.
         if (mClientPackageNameProvider.get() == null) return false;
 
-        return ContextUtils.getApplicationContext().getPackageManager().getInstallerPackageName(
+        return getApplicationContext().getPackageManager().getInstallerPackageName(
                        mClientPackageNameProvider.get())
                 != null;
     }

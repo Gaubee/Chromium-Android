@@ -27,8 +27,8 @@ import org.chromium.weblayer_private.interfaces.StrictModeWorkaround;
 @JNINamespace("weblayer")
 public final class NavigationControllerImpl extends INavigationController.Stub {
     private final TabImpl mTab;
-    private final long mNativeNavigationController;
-    private final INavigationControllerClient mNavigationControllerClient;
+    private long mNativeNavigationController;
+    private INavigationControllerClient mNavigationControllerClient;
 
     // Conversion between native TimeTicks and SystemClock.uptimeMillis().
     private long mNativeTickOffsetUs;
@@ -46,9 +46,11 @@ public final class NavigationControllerImpl extends INavigationController.Stub {
     @Override
     public void navigate(String uri, NavigateParams params) {
         StrictModeWorkaround.apply();
-        assert WebLayerFactoryImpl.getClientMajorVersion() >= 83 || params == null;
+        if (WebLayerFactoryImpl.getClientMajorVersion() < 83) {
+            assert params == null;
+        }
         NavigationControllerImplJni.get().navigate(mNativeNavigationController, uri,
-                params != null && params.mShouldReplaceCurrentEntry, false, false, false,
+                params == null ? false : params.mShouldReplaceCurrentEntry, false, false, false,
                 null);
     }
 

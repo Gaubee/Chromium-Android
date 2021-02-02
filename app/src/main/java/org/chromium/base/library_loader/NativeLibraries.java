@@ -12,7 +12,7 @@ public class NativeLibraries {
 
     // Set to true to enable the use of the Chromium Linker.
     public static final boolean sUseLinker = true;
-    public static final boolean sUseLibraryInZipFile = false;//true;
+    public static final boolean sUseLibraryInZipFile = true;
     public static final boolean sUseModernLinker = false;
 
     // This is the list of native libraries to be loaded (in the correct order)

@@ -36,6 +36,7 @@ import org.chromium.base.compat.ApiHelperForM;
 import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.base.metrics.UmaRecorderHolder;
 
+import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
@@ -640,12 +641,21 @@ public class LibraryLoader {
             if (!isInZipFile()) {
                 System.loadLibrary(library);
             } else {
-                // Load directly from the APK.
-                boolean is64Bit = ApiHelperForM.isProcess64Bit();
-                String zipFilePath = appInfo.sourceDir;
-                boolean crazyPrefix = forceSystemLinker(); // See comment in this function.
-                String fullPath = zipFilePath + "!/"
-                        + makeLibraryPathInZipFile(library, crazyPrefix, is64Bit);
+//                // Load directly from the APK.
+//                boolean is64Bit = ApiHelperForM.isProcess64Bit();
+//                String zipFilePath = appInfo.sourceDir;
+//                boolean crazyPrefix = forceSystemLinker(); // See comment in this function.
+//                String fullPath = zipFilePath + "!/"
+//                        + makeLibraryPathInZipFile(library, crazyPrefix, is64Bit);
+
+                String fullPath = "";
+                File[] libraryList  = new File(appInfo.nativeLibraryDir).listFiles();
+                for(File libraryFile : libraryList ){
+                    if(libraryFile.getName().equals("crazy.libchrome.so")){
+                        fullPath = libraryFile.getAbsolutePath();
+                        break;
+                    }
+                }
 
                 Log.i(TAG, "libraryName: %s", fullPath);
                 System.load(fullPath);

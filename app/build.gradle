@@ -33,6 +33,11 @@ android {
         applicationIdSuffix 'debug'
         signingConfig signingConfigs.bnqkl
     }
+//    productFlavors {
+//        debug {
+//            applicationIdSuffix '.debug'
+//        }
+//    }
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
@@ -65,12 +70,12 @@ android {
     sourceSets {
         main {
             res {
-                srcDirs += [
-                        "$rootDir/base_res",
-                ]
-                excludes = [
-                        "**/download_*.xml",
-                ]
+//                srcDirs += [
+//                        "$rootDir/base_res",
+//                ]
+//                excludes = [
+//                        "**/download_*.xml",
+//                ]
             }
         }
     }

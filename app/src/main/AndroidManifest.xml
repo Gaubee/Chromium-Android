@@ -544,7 +544,7 @@ by a child template that "extends" this file.
             android:launchMode="singleTask"
             android:resizeableActivity="true"
             android:supportsPictureInPicture="true"
-            android:taskAffinity="org.chromium.chrome.stable.ChromeTabbedActivity2"
+            android:taskAffinity="${applicationId}.ChromeTabbedActivity2"
 
             android:theme="@style/Theme.Chromium.TabbedMode"
             android:windowSoftInputMode="adjustResize"
@@ -654,7 +654,7 @@ by a child template that "extends" this file.
             android:theme="@android:style/Theme.NoDisplay"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
-                <action android:name="org.chromium.chrome.stable.ADDBOOKMARK" />
+                <action android:name="${applicationId}.ADDBOOKMARK" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -1060,7 +1060,7 @@ by a child template that "extends" this file.
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="org.chromium.chrome.stable" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
         <!-- GcmTaskService for registration for Invalidations. Not actually implemented anymore. -->

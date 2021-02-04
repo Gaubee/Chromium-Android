@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -53,6 +54,9 @@ public class MinidumpLogcatPrepender {
         try {
             reader = new BufferedReader(new FileReader(minidumpFile));
             return reader.readLine();
+        } catch (FileNotFoundException err){
+//            minidumpFile.createNewFile();
+            return "";
         } finally {
             if (reader != null) {
                 reader.close();

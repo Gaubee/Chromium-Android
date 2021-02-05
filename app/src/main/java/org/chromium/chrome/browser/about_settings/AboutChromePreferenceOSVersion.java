@@ -4,6 +4,8 @@
 
 package org.chromium.chrome.browser.about_settings;
 
+import org.bnqkl.bfchromiun.R;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

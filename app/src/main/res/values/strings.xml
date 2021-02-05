@@ -690,10 +690,8 @@
     <string name="app_banner_view_native_app_accessibility">"View app %1$s on the Play Store.  Rating: %2$.1f."</string>
     <!-- <string name="app_banner_view_native_app_install_accessibility">Get the app from the Google Play Store: %s</string> -->
     <string name="app_banner_view_web_app_accessibility">%1$s, web app. %2$s</string>
-<!--    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>-->
-    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
-
-  <!-- <string name="application_version_title">Application version</string> -->
+    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <!-- <string name="application_version_title">Application version</string> -->
     <string name="autofill_address_summary_separator">", "</string>
     <string name="autofill_card_unmask_expiration_date_separator">/</string>
     <string name="autofill_card_unmask_prompt_error_try_again_cvc">Check your CVC and try again</string>
@@ -770,8 +768,7 @@
     <!-- <string name="bottom_sheet_accessibility_description">Navigation panel. Swipe down to close.</string> -->
     <string name="bottom_sheet_accessibility_toolbar">Address bar. Swipe up to see downloads, bookmarks, and history.</string>
     <string name="bottom_sheet_app_menu_iph">Where are downloads, bookmarks, and history?</string>
-<!--    <string name="bottom_sheet_behavior">android.support.design.widget.BottomSheetBehavior</string>-->
-    <string name="bottom_sheet_behavior">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
+    <string name="bottom_sheet_behavior">android.support.design.widget.BottomSheetBehavior</string>
     <string name="bottom_sheet_bookmarks_tab">Bookmarks tab selected</string>
     <string name="bottom_sheet_closed">Navigation panel closed</string>
     <string name="bottom_sheet_downloads_tab">Downloads tab selected</string>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome traži dozvolu da pristupi kameri da bi napravio 3D mapu okruženja."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome traži dozvolu da pristupi kameri za ovaj sajt."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome traži dozvolu da pristupi mikrofonu za ovaj sajt."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome traži dozvolu da pristupi kameri i mikrofonu za ovaj sajt."</string>
+<string name="infobar_missing_location_permission_text">"Chrome traži pristup vašoj lokaciji da biste je delili sa ovim sajtom."</string>
+<string name="infobar_update_permissions_button_text">"Nastavite"</string>
+<string name="nfc_disabled_on_device_message">"Da biste nastavili, uključite NFC u Android podešavanjima"</string>
+<string name="nfc_prompt_turn_on">"Uključi"</string>
+<string name="overlay_detected_dialog_title">"Ovaj sajt ne može da vam traži dozvolu"</string>
+<string name="overlay_detected_dialog_message">"Zatvorite oblačiće ili preklopne elemente iz drugih aplikacija. Zatim probajte ponovo."</string>
+</resources>

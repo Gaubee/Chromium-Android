@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome የዙሪያዎ 3ል ካርታ መፍጠር እንዲችል ካሜራዎን የመድረስ ፈቃድ ያስፈልገዋል"</string>
+<string name="infobar_missing_camera_permission_text">"Chrome ለዚህ ጣቢያ የእርስዎን ካሜራ ለመድረስ ፈቃድ ይፈልጋል።"</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome ለዚህ ጣቢያ የእርስዎን ማይክራፎን ለመድረስ ፈቃድ ይፈልጋል።"</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome ለዚህ ጣቢያ የእርስዎን ካሜራ እና ማይክራፎን ለመድረስ ፈቃድ ይፈልጋል።"</string>
+<string name="infobar_missing_location_permission_text">"Chrome አካባቢዎን ለዚህ ጣቢያ ለማጋራት የአካባቢዎ መዳረሻ ይፈልጋል።"</string>
+<string name="infobar_update_permissions_button_text">"ቀጥል"</string>
+<string name="nfc_disabled_on_device_message">"ለመቀጤል በAndroid ቅንብሮች ላይ NFCን ያብሩ"</string>
+<string name="nfc_prompt_turn_on">"አብራ"</string>
+<string name="overlay_detected_dialog_title">"ይህ ጣቢያ የእርስዎን ፈቃድ መጠየቅ አይችልም"</string>
+<string name="overlay_detected_dialog_message">"ከሌሎች መተግበሪያዎች የሚመጡ ማናቸውንም አረፋዎች ወይም ተደራቢዎች ይዝጉ። ከዚያም እንደገና ይሞክሩ።"</string>
+</resources>

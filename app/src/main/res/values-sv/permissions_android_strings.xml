@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Du behöver ge Chrome behörighet att använda kameran om du vill skapa en 3D-karta över dina omgivningar."</string>
+<string name="infobar_missing_camera_permission_text">"Du behöver ge Chrome behörighet att använda kameran på den här webbplatsen."</string>
+<string name="infobar_missing_microphone_permission_text">"Du behöver ge Chrome behörighet att använda mikrofonen på den här webbplatsen."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Du behöver ge Chrome behörighet att använda kameran och mikrofonen på den här webbplatsen."</string>
+<string name="infobar_missing_location_permission_text">"Du behöver ge Chrome åtkomstbehörighet till din plats om den ska kunna delas med webbplatsen."</string>
+<string name="infobar_update_permissions_button_text">"Fortsätt"</string>
+<string name="nfc_disabled_on_device_message">"Fortsätt genom att aktivera NFC i Android-inställningarna"</string>
+<string name="nfc_prompt_turn_on">"Aktivera"</string>
+<string name="overlay_detected_dialog_title">"Den här webbplatsen får inte begära tillstånd"</string>
+<string name="overlay_detected_dialog_message">"Stäng alla bubblor eller överlägg från andra appar. Försök sedan igen."</string>
+</resources>

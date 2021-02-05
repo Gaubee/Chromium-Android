@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome потрібен дозвіл на використання камери, щоб створити 3D-карту вашого оточення."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome потрібні дозволи, щоб використовувати камеру на цьому сайті."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome потрібні дозволи, щоб використовувати мікрофон на цьому сайті."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome потрібні дозволи, щоб використовувати камеру та мікрофон на цьому сайті."</string>
+<string name="infobar_missing_location_permission_text">"Chrome потрібен доступ до місцезнаходження, щоб повідомляти ваші геодані цьому сайту."</string>
+<string name="infobar_update_permissions_button_text">"Продовжити"</string>
+<string name="nfc_disabled_on_device_message">"Щоб продовжити, увімкніть NFC в налаштуваннях Android"</string>
+<string name="nfc_prompt_turn_on">"Увімкнути"</string>
+<string name="overlay_detected_dialog_title">"Цей сайт не може запитувати у вас дозвіл"</string>
+<string name="overlay_detected_dialog_message">"Закрийте спливаючі чати або накладання з інших додатків. Потім повторіть спробу."</string>
+</resources>

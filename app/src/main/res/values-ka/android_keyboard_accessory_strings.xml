@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"შეხებისას შესავსები ავტორიზაციის მონაცემების სია."</string>
+<string name="all_passwords_bottom_sheet_half_height">"შეხებისას შესავსები ავტორიზაციის მონაცემების სია გახსნილია ნახევარ სიმაღლეზე."</string>
+<string name="all_passwords_bottom_sheet_full_height">"შეხებისას შესავსები ავტორიზაციის მონაცემების სია გახსნილია სრულ სიმაღლეზე."</string>
+<string name="all_passwords_bottom_sheet_closed">"შეხებისას შესავსები ავტორიზაციის მონაცემების სია დახურულია."</string>
+<string name="all_passwords_bottom_sheet_title">"პაროლები"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"ძიება"</string>
+<string name="all_passwords_bottom_sheet_no_password">"პაროლის გარეშე"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"თუ %s-ს ენდობით, შეგიძლიათ სხვა საიტისთვის შენახული პაროლის გამოყენება."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"შეეცადეთ, თითოეული საიტისთვის უნიკალური პაროლი გამოიყენოთ."</string>
+<string name="autofill_keyboard_accessory_content_description">"პაროლები ხელმისაწვდომია"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"ავტომატური შევსების შემოთავაზებები ხელმისაწვდომია კლავიატურის ზემოთ"</string>
+<string name="keyboard_accessory_sheet_hide">"კლავიატურის ჩვენება"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome-ის ავტომატური შევსების შემოთავაზების გამოყენება"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"გადაფურცლეთ სხვა შემოთავაზებების სანახავად"</string>
+<string name="password_generation_accessory_button">"ძლიერი პაროლის შემოთავაზება"</string>
+<string name="password_generation_accessory_button_short">"პაროლის შემოთავაზება"</string>
+<string name="password_accessory_sheet_toggle">"პაროლების ჩვენება"</string>
+<string name="password_accessory_sheet_opened">"ნაჩვენებია შენახული პაროლები და პაროლების ვარიანტები"</string>
+<string name="address_accessory_sheet_title">"მისამართები"</string>
+<string name="address_accessory_sheet_toggle">"მისამართების ჩვენება"</string>
+<string name="address_accessory_sheet_opened">"ნაჩვენებია შენახული მისამართები"</string>
+<string name="credit_card_accessory_sheet_toggle">"გადახდის მეთოდების ჩვენება"</string>
+<string name="credit_card_accessory_sheet_opened">"ნაჩვენებია გადახდის შენახული მეთოდები"</string>
+</resources>

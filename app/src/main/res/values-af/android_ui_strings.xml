@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Kon nie die vorige handeling voltooi nie, weens min geheue"</string>
+<string name="opening_file_error">"Kon nie die gekose lêer oopmaak nie"</string>
+<string name="copy_to_clipboard_failure_message">"Kon nie na die knipbord kopieer nie"</string>
+<string name="link_copied">"Skakel gekopieer"</string>
+<string name="chip_remove_icon_content_description">"Verwyder \"%1$s\""</string>
+</resources>

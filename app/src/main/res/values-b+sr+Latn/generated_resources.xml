@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome uslovi korišćenja usluge se menjaju 31. marta."</string>
+<string name="tos_notification_body_text">"Pregledajte nove uslove"</string>
+<string name="tos_notification_ack_button_text">"Važi"</string>
+<string name="tos_notification_review_button_text">"Pregledaj"</string>
+<string name="managed">"Ovim upravlja organizacija"</string>
+<string name="search_or_type_web_address">"Pretražite ili unesite veb-adresu"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Želite li da uklonite predlog iz privremene memorije?"</string>
+<string name="options_homepage_title">"Početna stranica"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Nije pronađen nijedan uređaj u blizini."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Dozvoli"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Blokiraj"</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Listi yfir innskráningarupplýsingar sem eru færðar inn við snertingu."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Listi yfir innskráningarupplýsingar sem eru færðar inn við snertingu opinn í hálfri hæð."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Listi yfir innskráningarupplýsingar sem eru færðar inn við snertingu opinn í fullri hæð."</string>
+<string name="all_passwords_bottom_sheet_closed">"Listi yfir innskráningarupplýsingar sem eru færðar inn við snertingu er lokaður."</string>
+<string name="all_passwords_bottom_sheet_title">"Aðgangsorð"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Leita"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Ekkert aðgangsorð"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Ef þú treystir %s geturðu notað vistað aðgangsorð fyrir annað vefsvæði."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Reyndu að nota einkvæmt aðgangsorð á hverju vefsvæði."</string>
+<string name="autofill_keyboard_accessory_content_description">"Tiltæk aðgangsorð"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Tillögur um sjálfvirka útfyllingu eru fyrir ofan lyklaborðið"</string>
+<string name="keyboard_accessory_sheet_hide">"Sýna lyklaborð"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Nota tillögu fyrir sjálfvirka útfyllingu í Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Strjúktu til að sjá fleiri tillögur"</string>
+<string name="password_generation_accessory_button">"Leggja til traust aðgangsorð"</string>
+<string name="password_generation_accessory_button_short">"Leggja til aðgangsorð"</string>
+<string name="password_accessory_sheet_toggle">"Sýna aðgangsorð"</string>
+<string name="password_accessory_sheet_opened">"Sýnir vistuð aðgangsorð og valkosti fyrir aðgangsorð"</string>
+<string name="address_accessory_sheet_title">"Heimilisföng"</string>
+<string name="address_accessory_sheet_toggle">"Sýna heimilisföng"</string>
+<string name="address_accessory_sheet_opened">"Sýnir vistuð heimilisföng"</string>
+<string name="credit_card_accessory_sheet_toggle">"Sýna greiðslumáta"</string>
+<string name="credit_card_accessory_sheet_opened">"Sýnir vistaða greiðslumáta"</string>
+</resources>

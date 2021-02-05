@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Još"</string>
+<string name="color_picker_hue">"Nijansa"</string>
+<string name="color_picker_saturation">"Zasićenost boja"</string>
+<string name="color_picker_value">"Vrednost"</string>
+<string name="color_picker_button_set">"Postavi"</string>
+<string name="color_picker_button_cancel">"Otkaži"</string>
+<string name="color_picker_dialog_title">"Izaberite boju"</string>
+<string name="color_picker_button_red">"Crvena"</string>
+<string name="color_picker_button_cyan">"Plavozelena"</string>
+<string name="color_picker_button_blue">"Plava"</string>
+<string name="color_picker_button_green">"Zelena"</string>
+<string name="color_picker_button_magenta">"Ciklama"</string>
+<string name="color_picker_button_yellow">"Žuta"</string>
+<string name="color_picker_button_black">"Crna"</string>
+<string name="color_picker_button_white">"Bela"</string>
+</resources>

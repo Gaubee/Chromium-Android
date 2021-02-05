@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"Çin UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Viza"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-az/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Təsdiq edin"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Kartı yadda saxlayın"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Bu ad Sizin Google Hesabınızdandır."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"CVC kodunuzu yoxlayın və yenidən cəhd edin"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Bitmə tarixini yoxlayın və yenidən cəhd edin"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Bitmə tarixi və CVC nömrəsini yoxlayın və yenidən cəhd edin"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Bitmə ayını yoxlayın və yenidən cəhd edin"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Bitmə ilini yoxlayın və yenidən cəhd edin"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Bu kartın kopyasını bu cihazda saxlayın"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Qeyd edildiyi halda Chromium kartınızın kopyasını bu cihazda saxlayacaq ki, forma doldurmaq daha sürətli olsun."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Bundan sonra kartları təsdiqləmək üçün ekran kilidi istifadə edin"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Kart təsdiqlənir…"</string>
+<string name="autofill_card_unmask_verification_success">"Kartınız təsdiqləndi"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Kartı yeniləyin"</string>
+<string name="autofill_wallet_management_link_text">"Düzəliş edin"</string>
+<string name="autofill_from_google_account_long">"Google Pay\'dən"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"Kopyanı təmizləyin"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"Çin UnionPay"</string>
+<string name="autofill_cc_visa">"Viza"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Yeni kartı skan edin"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Telefon nömrələri, e-poçt ünvanları və çatdırılma ünvanı kimi məlumat daxildir"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Ödəniş formalarına yadda saxladığınız ödəniş metodunu daxil edir"</string>
+<string name="autofill_addresses_settings_title">"Ünvanlar və s."</string>
+<string name="autofill_payment_methods">"Ödəniş üsulları"</string>
+<string name="autofill_enable_profiles_toggle_label">"Ünvanları yadda saxlayın və doldurun"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Ödəniş üsullarını yadda saxlayın və doldurun"</string>
+<string name="enable_credit_card_fido_auth_label">"Ekran kilidi"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Kartları daha sürətli təsdiqləmək üçün ekran kilidi istifadə edin"</string>
+<!-- <string name="http_post_warning_title">"Formanın yenidən təqdim edilməsini təsdiq edin"</string> -->
+<!-- <string name="http_post_warning">"Baxdığınız səhifə daxil etdiyiniz məlumatı işlədir. Həmin səhifəyə qayıtmaq, etdiyiniz istənilən əməlin təkrarlanmasına səbəb ola bilər. Davam edirsiniz?"</string> -->
+<!-- <string name="http_post_warning_resend">"Davam edin"</string> -->
+<!-- <string name="login_dialog_title">"Giriş"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Giriş"</string> -->
+<!-- <string name="login_dialog_username_field">"İstifadəçi adı"</string> -->
+<!-- <string name="login_dialog_password_field">"Parol"</string> -->
+<string name="sad_tab_title">"Yapon xalq musiqisi dinləmisiniz?"</string>
+<string name="sad_tab_message">"Bu veb səhifəni göstərərkən xəta baş verdi."</string>
+<string name="sad_tab_reload_label">"Yenidən yükləyin"</string>
+<string name="sad_tab_send_feedback_label">"Geri Əlaqə Göndərin"</string>
+<string name="sad_tab_reload_title">"Bu səhifəni açmaq olmur"</string>
+<string name="sad_tab_reload_try">"Aşağıdakı məsləhətləri sınayın:"</string>
+<string name="sad_tab_reload_incognito">"Yeni Gizli tabda səhifə açın"</string>
+<string name="sad_tab_reload_restart_browser">"Chromium\'u yenidən başladın"</string>
+<string name="sad_tab_reload_restart_device">"Cihazınızı yenidən başladın"</string>
+<string name="sad_tab_reload_learn_more">"Ətraflı məlumat"</string>
+<string name="new_tab_otr_title">"Gizli rejimə keçdiniz"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Fəaliyyətiniz &lt;em&gt;görünə bilər&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;Daxil olduğunuz veb saytlara 
+          &lt;li&gt;Şirkət və ya məktəbinizə
+          &lt;li&gt;İnternet xidmət provayderinə        
+         &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Bu ayar Kuki ayarlarında idarə edilir."</string>
+<string name="new_tab_otr_third_party_cookie">"Üçüncü tərəf kukiləri blok edin"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Aktiv edildiyi zaman saytlar vebdə sizi izləyən kukilərdən istifadə edə bilmir. Bəzi saytlardakı funksiyalar dayandırıla bilər."</string>
+<string name="ntp_article_suggestions_section_header">"Sizin üçün məqalələr"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google tərəfindən təkliflər"</string>
+<string name="ntp_article_suggestions_section_empty">"Təklif edilən məqalələriniz burada görünür"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Sayt intruziv və ya aldadıcı reklamlar göstərir"</string> -->
+<string name="payments_method_of_payment_label">"Ödəniş üsulu"</string>
+<string name="payments_contact_details_label">"Kontakt məlumatı"</string>
+<string name="payments_add_contact_details_label">"Kontakt məlumatı əlavə edin"</string>
+<string name="payments_edit_contact_details_label">"Kontakt məlumatını redaktə edin"</string>
+<string name="payments_add_billing_address">"Və faktura ünvanı"</string>
+<string name="payments_add_name_on_card">"Kart üzərindəki adı daxil edin"</string>
+<string name="payments_add_valid_card_number">"Düzgün kart nömrəsi əlavə edin"</string>
+<string name="payments_add_more_information">"Ətraflı məlumat əlavə edin"</string>
+<string name="payments_edit_card">"Kartı redaktə edin"</string>
+<string name="payments_add_phone_number">"Telefon nömrəsi əlavə edin"</string>
+<string name="payments_add_recipient">"Ad əlavə edin"</string>
+<string name="payments_add_valid_address">"Etibarlı ünvan əlavə edin"</string>
+<string name="payments_add_email">"E-poçt ünvanı əlavə edin"</string>
+<string name="payments_add_name">"Ad əlavə edin"</string>
+<string name="payments_order_summary_label">"Sifariş xülasəsi"</string>
+<string name="payment_request_payment_method_section_name">"Ödəniş"</string>
+<string name="payment_account_balance">"Hesab balansı"</string>
+<string name="payments_shipping_summary_label">"Göndəriş"</string>
+<string name="payments_shipping_address_label">"Göndərmə ünvanı"</string>
+<string name="payments_shipping_option_label">"Göndərmə üsulu"</string>
+<string name="payments_delivery_summary_label">"Çatdırılma"</string>
+<string name="payments_delivery_address_label">"Çatdırılma ünvanı"</string>
+<string name="payments_delivery_option_label">"Çatdırılma üsulu"</string>
+<string name="payments_pickup_summary_label">"Götürmə"</string>
+<string name="payments_pickup_address_label">"Götürmə ünvanı"</string>
+<string name="payments_pickup_option_label">"Götürmə üsulu"</string>
+<string name="payments_edit_button">"Düzəliş edin"</string>
+<string name="payments_pay_button">"Ödəniş"</string>
+<string name="payments_continue_button">"Davam edin"</string>
+<string name="payments_add_contact">"Kontakt məlumatı əlavə edin"</string>
+<string name="payments_add_card">"Kart əlavə edin"</string>
+<string name="payments_add_address">"Ünvan əlavə edin"</string>
+<string name="payments_edit_address">"Ünvana düzəliş edin"</string>
+<string name="payments_name_field_in_contact_details">"Ad"</string>
+<string name="payments_save_card_to_device_checkbox">"Bu kartı bu cihaza yazın"</string>
+<string name="payments_accepted_cards_label">"Qəbul olunmuş kartlar"</string>
+<string name="payments_credit_card_expiration_date_abbr">"%1$s/%2$s tarixində bitir"</string>
+<string name="payments_loading_message">"Yüklənir"</string>
+<string name="payments_processing_message">"Prosesdən keçirilir…"</string>
+<string name="payments_checking_option">"Yoxlanılır…"</string>
+<string name="payments_updated_label">"Güncəlləşib"</string>
+<string name="payment_complete_message">"Ödəmə tamamlandı"</string>
+<string name="payments_error_message">"Sifariş hazırlanarkən xəta baş verdi. Yenidən cəhd edin."</string>
+<string name="payments_card_and_address_settings">"BEGIN_LINKAyarlarEND_LINK bölməsindən kart və ünvanları idarə edə bilərsiniz."</string>
+<string name="payments_card_and_address_settings_signed_in">"Kart və ünvanlar Google Chrome və Google Hesabındandır (%1$s). Onları BEGIN_LINKAyarlarEND_LINK bölməsindən idarə edə bilərsiniz."</string>
+<string name="payment_touch_sensor_to_pay">"Ödəniş etmək üçün sensora toxunun"</string>
+<string name="payment_fingerprint_not_recognized">"Tanınmır"</string>
+<string name="payments_card_and_address_settings_signed_out">"Kart və ünvanlar Chrome\'dandır. Onları BEGIN_LINKAyarlarEND_LINK bölməsindən idarə edə bilərsiniz."</string>
+<string name="settings_can_make_payment_toggle_label">"Saytlara ödəniş üsullarını yadda saxlayıb-saxlamadığınızı yoxlamaq icazəsi verin"</string>
+<string name="payments_required_field_message">"* Sahə tələb olunur"</string>
+<string name="payments_phone_invalid_validation_message">"Düzgün telefon nömrəsi daxil edin"</string>
+<string name="payments_email_invalid_validation_message">"Düzgün e-poçt ünvanı daxil edin"</string>
+<string name="payments_card_number_invalid_validation_message">"Düzgün kart nömrəsi daxil edin"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Düzgün bitmə tarixi daxil edin"</string>
+<string name="payments_invalid_address">"Düzgün ünvan daxil edin"</string>
+<string name="payments_billing_address_required">"Faktura ünvanı tələb olunur"</string>
+<string name="payments_name_on_card_required">"Kart sahibinin adı tələb olunur"</string>
+<string name="payments_more_information_required">"Ətraflı məlumat tələb olunur"</string>
+<string name="payments_phone_number_required">"Telefon nömrəsi tələb olunur"</string>
+<string name="payments_recipient_required">"Ad tələb olunur"</string>
+<string name="payments_email_required">"E-poçt ünvanı tələb olunur"</string>
+<string name="payments_name_required">"Ad tələb olunur"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Tələb olunan sahə"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Göndərmə üsulları və tələblərinə baxın, ünvan seçin"</string>
+<string name="payments_unsupported_shipping_address">"Bu ünvana göndərmək mümkün deyil. Başqa ünvan seçin."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Çatdırılma üsulları və tələblərinə baxın, ünvan seçin"</string>
+<string name="payments_unsupported_delivery_address">"Bu ünvana çatdırmaq mümkün deyil. Başqa ünvan seçin."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Götürmə üsulları və tələblərinə baxın, ünvan seçin"</string>
+<string name="payments_unsupported_pickup_address">"Bu ünvandan götürmək mümkün deyil. Başqa ünvan seçin."</string>
+<string name="payments_android_app_error">"Ödəniş tətbiqini açmaq mümkün deyil"</string>
+<string name="external_payment_app_leave_incognito_warning">"Xarici tətbiqlə ödəniş etmək üçün gizli rejimdən çıxırsınız. Davam edilsin?"</string>
+<string name="payment_handler_sheet_description">"Ödəniş səhifəsi"</string>
+<string name="payment_handler_sheet_opened_half">"Ödəniş səhifəsi yarım açıqdır"</string>
+<string name="payment_handler_sheet_opened_full">"Ödəniş səhifəsi açıqdır"</string>
+<string name="payment_handler_sheet_closed">"Ödəniş səhifəsi bağlıdır"</string>
+<string name="blocked_ads_prompt_title">"Reklamlar blok edildi"</string>
+<!-- <string name="translate_infobar_error">"Bu səhifə tərcümə edilə bilmir. Niyəsini bilmirik."</string> -->
+<!-- <string name="translate_button">"Tərcümə et"</string> -->
+<!-- <string name="translate_never_translate_site">"Bu saytı heç vaxt tərcümə etməyin"</string> -->
+<string name="translate_dont_offer_site">"Bu saytın tərcümə edilməsini təklif etməyin"</string>
+<!-- <string name="translate_option_always_translate">"Səhifələri həmişə %1$s dilinə tərcümə edin"</string> -->
+<!-- <string name="translate_option_never_translate">"Heç vaxt %1$s dilində olan səhifələri tərcümə etməyin"</string> -->
+<string name="translate_dont_offer_lang">"%1$s dilində səhifələrin tərcümə edilməsini təklif etməyin"</string>
+<!-- <string name="translate_option_more_language">"Digər dillər"</string> -->
+<!-- <string name="translate_option_not_source_language">"Səhifə %1$s dilində deyil?"</string> -->
+<string name="translate_snackbar_always_translate">"Bundan sonra %1$s dilində olan səhifələr %2$s dilinə tərcümə ediləcək"</string>
+<string name="translate_snackbar_language_never">"%1$s dilində olan səhifələr tərcümə edilməyəcək"</string>
+<string name="translate_snackbar_site_never">"Bu sayt tərcümə edilməyəcək"</string>
+<string name="translate_snackbar_cancel">"Ləğv edin"</string>
+<string name="clear">"Silin"</string>
+<string name="show_content">"Göstərin"</string>
+<string name="hide_content">"Gizlədin"</string>
+<string name="choose">"Seçin"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-az/components_strings.xml -->
+
+<string name="http_post_warning_title">"Formanın yenidən təqdim edilməsini təsdiq edin"</string>
+<string name="http_post_warning">"Baxdığınız səhifə daxil etdiyiniz məlumatı işlədir. Həmin səhifəyə qayıtmaq, etdiyiniz istənilən əməlin təkrarlanmasına səbəb ola bilər. Davam edirsiniz?"</string>
+<string name="http_post_warning_resend">"Davam edin"</string>
+<string name="login_dialog_title">"Giriş"</string>
+<string name="login_dialog_ok_button_label">"Giriş"</string>
+<string name="login_dialog_username_field">"İstifadəçi adı"</string>
+<string name="login_dialog_password_field">"Parol"</string>
+<string name="page_info_permission_ads_subtitle">"Sayt intruziv və ya aldadıcı reklamlar göstərir"</string>
+<string name="translate_infobar_error">"Bu səhifə tərcümə edilə bilmir. Niyəsini bilmirik."</string>
+<string name="translate_button">"Tərcümə et"</string>
+<string name="translate_never_translate_site">"Bu saytı heç vaxt tərcümə etməyin"</string>
+<string name="translate_option_always_translate">"Səhifələri həmişə %1$s dilinə tərcümə edin"</string>
+<string name="translate_option_never_translate">"Heç vaxt %1$s dilində olan səhifələri tərcümə etməyin"</string>
+<string name="translate_option_more_language">"Digər dillər"</string>
+<string name="translate_option_not_source_language">"Səhifə %1$s dilində deyil?"</string>
+</resources>

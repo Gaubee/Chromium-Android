@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Ég samþykki"</string>
+<string name="autofill_assistant_init_title">"Prófaðu Google hjálpara\ní Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Leigðu bíl\ní örfáum skrefum"</string>
+<string name="autofill_assistant_init_message_password_change">"Leyfðu Google hjálparanum að aðstoða þig við að\nskipta um aðgangsorð"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Kauptu bíómiða\ní örfáum skrefum"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Pantaðu mat\ní örfáum skrefum"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Innritaðu þig í flugið\ní örfáum skrefum"</string>
+<string name="autofill_assistant_init_message_voice_search">"Prófa raddaðgerðir\ná vefsvæðum"</string>
+<string name="autofill_assistant_init_message_shopping">"Hraðafgreiðsla\nmeð nokkrum smellum"</string>
+<string name="autofill_assistant_init_message">"Google hjálparinn sparar þér tíma með því að aðstoða þig við að gera hluti á vefnum eins og að leita og ganga frá kaupum."</string>
+<string name="autofill_assistant_init_message_short">"Google hjálparinn í Chrome getur lokið aðgerðum á ýmsum vefsíðum fyrir þig"</string>
+<string name="autofill_assistant_google_terms_description">"Google fær vefslóðir og innihald vefsvæða þar sem þú notar hjálparann, auk upplýsinga sem þú sendir með hjálparanum, til að hjálpa þér að ljúka við verkefni. Þessar upplýsingar gætu verið vistaðar á Google reikningnum þínum. Þú getur slökkt á hjálparanum í stillingum Chrome. &lt;link&gt;Frekari upplýsingar&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Ég get ekki aðstoðað meira, haltu áfram upp á eigin spýtur."</string>
+<string name="autofill_assistant_payment_information_missing">"Upplýsingar vantar"</string>
+<string name="autofill_assistant_view_original_image_desc">"Viltu opna ytri tengil?"</string>
+<string name="autofill_assistant_view_original_image_view">"Yfirlit"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Hætta við"</string>
+<string name="autofill_assistant_sheet_content_description">"Google hjálpari í Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Google hjálpari í Chrome opnaður í hálfri hæð."</string>
+<string name="autofill_assistant_sheet_full_height">"Google hjálpari opnaður í fullri hæð."</string>
+<string name="autofill_assistant_sheet_closed">"Google hjálpara í Chrome lokað."</string>
+<string name="autofill_assistant_send_feedback">"Senda ábendingu"</string>
+<string name="autofill_assistant_increase_value">"Auka gildi"</string>
+<string name="autofill_assistant_decrease_value">"Minnka gildi"</string>
+<string name="autofill_assistant_overflow_options">"Kjörstillingar"</string>
+</resources>

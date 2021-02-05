@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Elfogadom"</string>
+<string name="autofill_assistant_init_title">"Próbálja ki a Google Segédet\na Chrome-ban"</string>
+<string name="autofill_assistant_init_message_rent_car">"Autót bérelhet\ncsupán néhány koppintással"</string>
+<string name="autofill_assistant_init_message_password_change">"A Google Segéd segíthet\na jelszó módosításában"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Mozijegyek\ncsupán néhány koppintással"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Ételt rendelhet\ncsupán néhány koppintással"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Bejelentkezhet repülőjáratára\ncsupán néhány koppintással"</string>
+<string name="autofill_assistant_init_message_voice_search">"Használjon hangműveleteket\na webhelyeken"</string>
+<string name="autofill_assistant_init_message_shopping">"Gyors fizetés\ncsupán néhány koppintással"</string>
+<string name="autofill_assistant_init_message">"A Google Segéd időt takarít meg Önnek azáltal, hogy segít bizonyos műveletek (pl. keresés és fizetés) elvégzésében az interneten."</string>
+<string name="autofill_assistant_init_message_short">"A „Google Segéd a Chrome-ban” elvégezhet bizonyos műveleteket Önnek a különböző webhelyeken"</string>
+<string name="autofill_assistant_google_terms_description">"Annak érdekében, hogy segíteni tudjon a feladatok elvégzésében, a Google megkapja azoknak a webhelyeknek az URL-jeit és tartalmait, amelyeken Ön használta Segédjét, valamint megkapja a Segéden keresztül elküldött információkat. Ezek az információk megmaradhatnak az Ön Google-fiókjában. A Segédet a Chrome beállításai között kapcsolhatja ki. &lt;link&gt;További információ&lt;/link&gt;."</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Sajnos nem tudok többet segíteni. Kérjük, folytassa egyedül."</string>
+<string name="autofill_assistant_payment_information_missing">"Hiányzó információ"</string>
+<string name="autofill_assistant_view_original_image_desc">"Megnyitja a külső linket?"</string>
+<string name="autofill_assistant_view_original_image_view">"Nézet"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Mégse"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Segéd a Chrome-ban."</string>
+<string name="autofill_assistant_sheet_half_height">"A Google Segéd félmagasságban van megnyitva a Chrome-ban."</string>
+<string name="autofill_assistant_sheet_full_height">"A Google Segéd teljes magasságban van megnyitva a Chrome-ban."</string>
+<string name="autofill_assistant_sheet_closed">"A Google Segéd be van zárva a Chrome-ban."</string>
+<string name="autofill_assistant_send_feedback">"Visszajelzés küldése"</string>
+<string name="autofill_assistant_increase_value">"Érték növelése"</string>
+<string name="autofill_assistant_decrease_value">"Érték csökkentése"</string>
+<string name="autofill_assistant_overflow_options">"Beállítások"</string>
+</resources>

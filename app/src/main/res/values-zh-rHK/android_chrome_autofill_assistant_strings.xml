@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"我同意"</string>
+<string name="autofill_assistant_init_title">"在 Chrome 中試用\nGoogle 助理"</string>
+<string name="autofill_assistant_init_message_rent_car">"要租車？\n輕按幾下即可"</string>
+<string name="autofill_assistant_init_message_password_change">"讓「Google 助理」助您\n變更密碼"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"要購買電影門票？\n輕按幾下即可"</string>
+<string name="autofill_assistant_init_message_food_ordering">"要訂餐？\n輕按幾下即可"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"要辦理登機手續？\n輕按幾下即可"</string>
+<string name="autofill_assistant_init_message_voice_search">"在網站上\n試用語音操作"</string>
+<string name="autofill_assistant_init_message_shopping">"要快速結帳？\n輕按幾下即可"</string>
+<string name="autofill_assistant_init_message">"「Google 助理」可助您完成網站操作 (如搜尋或結帳)，為您節省寶貴時間。"</string>
+<string name="autofill_assistant_init_message_short">"Chrome 的「Google 助理」可助您完成各網站的操作"</string>
+<string name="autofill_assistant_google_terms_description">"為協助您完成工作，系統會將您使用「Google 助理」的網站網址和內容，以及您透過「Google 助理」提交的資料傳送給 Google。此資料可能會儲存在您的 Google 帳戶中。您可在 Chrome 設定中關閉「Google 助理」。&lt;link&gt;瞭解詳情&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"很抱歉，我無法提供協助，請自行繼續。"</string>
+<string name="autofill_assistant_payment_information_missing">"缺少資料"</string>
+<string name="autofill_assistant_view_original_image_desc">"要開啟外部連結嗎？"</string>
+<string name="autofill_assistant_view_original_image_view">"檢視"</string>
+<string name="autofill_assistant_view_original_image_cancel">"取消"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome 的「Google 助理」。"</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome 嘅「Google 助理」宜家顯示喺畫面下半部。"</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome 嘅「Google 助理」宜家顯示喺成個畫面。"</string>
+<string name="autofill_assistant_sheet_closed">"閂咗 Chrome 嘅「Google 助理」"</string>
+<string name="autofill_assistant_send_feedback">"提供意見反映"</string>
+<string name="autofill_assistant_increase_value">"提升值"</string>
+<string name="autofill_assistant_decrease_value">"調低值"</string>
+<string name="autofill_assistant_overflow_options">"偏好設定"</string>
+</resources>

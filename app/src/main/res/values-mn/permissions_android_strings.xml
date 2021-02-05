@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Орчин тойрны тань 3D газрын зургийг үүсгэхийн тулд таны камерт хандах зөвшөөрөл Chrome-д шаардлагатай."</string>
+<string name="infobar_missing_camera_permission_text">"Энэ сайтыг ашиглахын тулд Chrome-д таны камерт хандах зөвшөөрөл шаардлагатай байна."</string>
+<string name="infobar_missing_microphone_permission_text">"Энэ сайтыг ашиглахын тулд Chrome-д таны микрофонд хандах зөвшөөрөл шаардлагатай байна."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Энэ сайтыг ашиглахын тулд Chrome-д таны камер, микрофонд хандах зөвшөөрөл шаардлагатай байна."</string>
+<string name="infobar_missing_location_permission_text">"Энэ сайтад таны байршлыг хуваалцахын тулд Chrome-д таны байршилд хандах зөвшөөрөл шаардлагатай байна."</string>
+<string name="infobar_update_permissions_button_text">"Цааш"</string>
+<string name="nfc_disabled_on_device_message">"Үргэлжлүүлэхийн тулд Android-н тохиргоо хэсэгт NFC-г асаана уу"</string>
+<string name="nfc_prompt_turn_on">"Асаах"</string>
+<string name="overlay_detected_dialog_title">"Энэ сайт танаас зөвшөөрөл хүсэх боломжгүй"</string>
+<string name="overlay_detected_dialog_message">"Бусад аппын аливаа бөмбөлөг эсвэл давхарлалтыг хаана уу. Дараа нь дахин оролдоно уу."</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Η λίστα με τα διαπιστευτήρια για συμπλήρωση μέσω αφής."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Η λίστα με τα διαπιστευτήρια για συμπλήρωση μέσω αφής είναι ανοιχτή στο κάτω μισό της οθόνης."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Η λίστα με τα διαπιστευτήρια για συμπλήρωση μέσω αφής είναι ανοιχτή σε όλη την οθόνη."</string>
+<string name="all_passwords_bottom_sheet_closed">"Η λίστα με τα διαπιστευτήρια για συμπλήρωση μέσω αφής είναι κλειστή."</string>
+<string name="all_passwords_bottom_sheet_title">"Κωδ. πρόσβασης"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Αναζήτηση"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Κανένας κωδικός πρόσβασης"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Εάν εμπιστεύεστε την προέλευση %s, μπορείτε να χρησιμοποιήσετε έναν αποθηκευμένο κωδικό πρόσβασης για άλλον ιστότοπο."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Προσπαθήστε να χρησιμοποιείτε έναν μοναδικό κωδικό πρόσβασης για κάθε ιστότοπο."</string>
+<string name="autofill_keyboard_accessory_content_description">"Υπάρχουν διαθέσιμοι κωδικοί πρόσβασης"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Υπάρχουν διαθέσιμες προτάσεις αυτόματης συμπλήρωσης πάνω από το πληκτρολόγιο."</string>
+<string name="keyboard_accessory_sheet_hide">"Εμφάνιση πληκτρολογίου"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Χρησιμοποιήστε την πρόταση αυτόματης συμπλήρωσης του Chrome."</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Σύρετε για να δείτε περισσότερες προτάσεις"</string>
+<string name="password_generation_accessory_button">"Πρόταση ισχυρού κωδικού πρόσβασης"</string>
+<string name="password_generation_accessory_button_short">"Πρόταση κωδικού πρόσβασης"</string>
+<string name="password_accessory_sheet_toggle">"Εμφάνιση κωδικών πρόσβασης"</string>
+<string name="password_accessory_sheet_opened">"Εμφάνιση αποθηκευμένων κωδικών πρόσβασης και επιλογών κωδικού πρόσβασης"</string>
+<string name="address_accessory_sheet_title">"Διευθύνσεις"</string>
+<string name="address_accessory_sheet_toggle">"Εμφάνιση διευθύνσεων"</string>
+<string name="address_accessory_sheet_opened">"Εμφάνιση αποθηκευμένων διευθύνσεων"</string>
+<string name="credit_card_accessory_sheet_toggle">"Εμφάνιση τρόπων πληρωμής"</string>
+<string name="credit_card_accessory_sheet_opened">"Εμφάνιση αποθηκευμένων τρόπων πληρωμής"</string>
+</resources>

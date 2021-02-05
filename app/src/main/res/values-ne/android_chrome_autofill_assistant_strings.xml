@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"म सहमत गर्छु"</string>
+<string name="autofill_assistant_init_title">"Chrome मा Google सहायक\nप्रयोग गरी हेर्नुहोस्"</string>
+<string name="autofill_assistant_init_message_rent_car">"केही पटक ट्याप गरेकै भरमा\nकार भाडामा लिनुहोस्"</string>
+<string name="autofill_assistant_init_message_password_change">"Google सहायकलाई तपाईंको पासवर्ड परिवर्तन गर्न सघाउन दिनुहोस्"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"केही पटक ट्याप गरेकै भरमा\nचलचित्रका टिकटहरू खरिद गर्नुहोस्"</string>
+<string name="autofill_assistant_init_message_food_ordering">"केही पटक ट्याप गरेकै भरमा\nखाना अर्डर गर्नुहोस्"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"केही पटक ट्याप गरेकै भरमा\nआफ्नो उडानमा चेक इन गर्नुहोस्"</string>
+<string name="autofill_assistant_init_message_voice_search">"वेबसाइटहरूमा voice actions\nचलाई हेर्नुहोस्"</string>
+<string name="autofill_assistant_init_message_shopping">"केही पटक ट्याप गरेकै भरमा द्रुत रूपमा चेकआउट गर्नुहोस्"</string>
+<string name="autofill_assistant_init_message">"Google सहायकले तपाईंलाई वेबमा खोज तथा चेकआउट जस्ता कारबाहीहरू सम्पन्न गर्न मद्दत गरेर तपाईंको समयको बचत गर्छ।"</string>
+<string name="autofill_assistant_init_message_short">"Chrome मा रहेको Google सहायकले सबै वेबसाइटहरूमा तपाईंले अह्राएअनुसार काम गर्न सक्छ"</string>
+<string name="autofill_assistant_google_terms_description">"तपाईंलाई काम सम्पन्न गर्न मद्दत गर्न Google ले तपाईंले सहायक प्रयोग गर्ने साइटका URL र सामग्रीहरूका साथै तपाईंले सहायकमार्फत पेस गर्न जानकारी प्राप्त गर्ने छ। यो जानकारी तपाईंको Google खातामा भण्डारण गरिन सक्छ। तपाईं Chrome का सेटिङहरूमा गई सहायक निष्क्रिय पार्न सक्नुहुन्छ। &lt;link&gt;थप जान्नुहोस्&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"माफ गर्नुहोस्, म मद्दत गर्न सक्दिन, कृपया अब आफैँ अघि बढ्नुहोस्।"</string>
+<string name="autofill_assistant_payment_information_missing">"जानकारी छुटेको छ"</string>
+<string name="autofill_assistant_view_original_image_desc">"बाह्य लिंक खोल्ने हो?"</string>
+<string name="autofill_assistant_view_original_image_view">"हेर्नुहोस्"</string>
+<string name="autofill_assistant_view_original_image_cancel">"रद्द गर्नुहोस्"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome को Google सहायक।"</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome मा आधा उचाइमा खोलिएको Google सहायक।"</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome मा पूर्ण उचाइमा खोलिएको Google सहायक।"</string>
+<string name="autofill_assistant_sheet_closed">"Chrome को Google सहायक बन्द भयो।"</string>
+<string name="autofill_assistant_send_feedback">"पृष्ठपोषण पठाउनुहोस्"</string>
+<string name="autofill_assistant_increase_value">"मान बढाउनुहोस्"</string>
+<string name="autofill_assistant_decrease_value">"मान घटाउनुहोस्"</string>
+<string name="autofill_assistant_overflow_options">"प्राथमिकताहरू"</string>
+</resources>

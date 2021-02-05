@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Endelea kutumia akaunti"</string>
+<string name="touch_to_fill_sheet_title">"Chagua akaunti"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Orodha ya vitambulisho vya kujaza kwa kugusa."</string>
+<string name="touch_to_fill_sheet_half_height">"Orodha ya vitambulisho vya kujaza kwa kugusa imefunguliwa kwenye nusu ya skrini."</string>
+<string name="touch_to_fill_sheet_full_height">"Orodha ya vitambulisho vya kujaza kwa kugusa imefunguliwa kwenye skrini nzima."</string>
+<string name="touch_to_fill_sheet_closed">"Orodha ya vitambulisho vya kujaza kwa kugusa imefungwa."</string>
+<string name="manage_passwords">"Dhibiti manenosiri"</string>
+<string name="touch_to_fill_continue">"Endelea"</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="actionbar_share">"Сподели"</string>
+<string name="actionbar_web_search">"Веб-пребарување"</string>
+<string name="actionbar_textselection_title">"Избор на текст"</string>
+<string name="add_to_dictionary">"Додај во речник"</string>
+<string name="delete_suggestion_text">"Избриши"</string>
+<string name="profiler_started_toast">"Се стартуваше профилерот"</string>
+<string name="profiler_stopped_toast">"Профилерот заврши. Резултатите се во %1$s."</string>
+<string name="profiler_no_storage_toast">"Не може да стартува профилер затоа што не е подготвена надворешната меморија"</string>
+<string name="profiler_error_toast">"Не успеа да се стартува профилерот"</string>
+<string name="accessibility_date_picker_month">"Месец"</string>
+<string name="accessibility_date_picker_year">"Година"</string>
+<string name="date_picker_dialog_set">"Постави"</string>
+<string name="month_picker_dialog_title">"Постави месец"</string>
+<string name="accessibility_date_picker_week">"Седмица"</string>
+<string name="week_picker_dialog_title">"Постави седмица"</string>
+<string name="time_picker_dialog_am">"претпладне"</string>
+<string name="time_picker_dialog_pm">"попладне"</string>
+<string name="time_picker_dialog_title">"Постави време"</string>
+<string name="accessibility_time_picker_hour">"Час"</string>
+<string name="accessibility_time_picker_minute">"Минута"</string>
+<string name="accessibility_time_picker_second">"Секунда"</string>
+<string name="accessibility_time_picker_milli">"Милисекунда"</string>
+<string name="accessibility_time_picker_ampm">"претпладне/попладне"</string>
+<string name="time_picker_dialog_hour_minute_separator">":"</string>
+<string name="time_picker_dialog_minute_second_separator">":"</string>
+<string name="time_picker_dialog_second_subsecond_separator">"."</string>
+<string name="date_time_picker_dialog_title">"Постави датум и време"</string>
+<string name="accessibility_datetime_picker_date">"Датум"</string>
+<string name="accessibility_datetime_picker_time">"Време"</string>
+<string name="date_picker_dialog_other_button_label">"Друго"</string>
+<string name="date_picker_dialog_title">"Постави датум"</string>
+<string name="date_picker_dialog_clear">"Исчисти"</string>
+<string name="speech_recognition_service_not_found">"Не може да се најде софтверот на Google „Од текст во говор“"</string>
+</resources>

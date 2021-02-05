@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Продолжете со сметката"</string>
+<string name="touch_to_fill_sheet_title">"Изберете сметка"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Список со акредитиви што се пополнуваат со допир."</string>
+<string name="touch_to_fill_sheet_half_height">"Списокот со акредитиви што се пополнуваат со допир е отворен на половина екран."</string>
+<string name="touch_to_fill_sheet_full_height">"Списокот со акредитиви што се пополнуваат со допир е отворен на цел екран."</string>
+<string name="touch_to_fill_sheet_closed">"Списокот со акредитиви што се пополнуваат со допир е затворен."</string>
+<string name="manage_passwords">"Управувај со лозинки"</string>
+<string name="touch_to_fill_continue">"Продолжи"</string>
+</resources>

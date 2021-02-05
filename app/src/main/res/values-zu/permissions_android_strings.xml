@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"I-Chrome idinga imvume yokufinyelela kwikhamera yakho ukudala imephu engu-3D yendawo yakho ekuzungezile."</string>
+<string name="infobar_missing_camera_permission_text">"I-Chrome idinga imvume yokufinyelela ikhamera yakho kuleli sayithi."</string>
+<string name="infobar_missing_microphone_permission_text">"I-Chrome idinga ukufinyelela imakrofoni yakho yaleli sayithi."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"I-Chrome idinga ukufinyelela ikhamera yakho nemakrofoni yaleli sayithi."</string>
+<string name="infobar_missing_location_permission_text">"I-Chrome idinga ukufinyelela endaweni yakho ukwabelana ngendawo yakho naleli sayithi."</string>
+<string name="infobar_update_permissions_button_text">"Qhubeka"</string>
+<string name="nfc_disabled_on_device_message">"Ukuze uqhubeke, vula i-NFC kuzilungiselelo ze-Android"</string>
+<string name="nfc_prompt_turn_on">"Vula"</string>
+<string name="overlay_detected_dialog_title">"Leli sayithi alikwazi ukucela imvume yakho"</string>
+<string name="overlay_detected_dialog_message">"Vala noma imaphi amabhamuza noma ukumboza okuvela kwezinye izinhlelo zokusebenza. Bese, uyazama futhi."</string>
+</resources>

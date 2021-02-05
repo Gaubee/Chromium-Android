@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Արագ համեմատեք էջերը՝ խումբ կազմելով: Սկսելու համար հպեք և պահեք հղումը:"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Հպեք՝ այլ ներդիրի անցնելու համար"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Ձեր ներդիրները խմբավորվում են այստեղ"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Էկրանի ներքևի հատվածում գտնվող ներդիրների խմբում կարող եք անցնել մի ներդիրից մյուսը"</string>
+<string name="undo_bar_group_tabs_message">"%1$s ներդիր խմբավորվեց"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d ներդիր"</item>
+  <item quantity="other">"%1$d ներդիր"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Ավելացնել նոր ներդիր խմբում"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Թաքցնել լիաէկրան ցանցը"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Ցուցադրել խմբի ներդիրները լիաէկրան ցանցի ռեժիմում"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Փակել ներդիրների հատվածը"</string>
+<string name="tabswitcher_create_group">"Ստեղծել խումբ"</string>
+<string name="accessibility_tab_switcher">"Ներդիրների փոխանջատիչ"</string>
+<string name="accessibility_close_tab_group_button">"Փակել %1$s ներդիրից բաղկացած խումբը"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Փակել %2$s ներդիրից բաղկացած «%1$s» խումբը"</string>
+<string name="tab_selection_editor_group">"Խումբ"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Ընտրեք ներդիրներ"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Խմբավորել ընտրված %1$d ներդիրը"</item>
+  <item quantity="other">"Խմբավորել ընտրված %1$d ներդիրները"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Թաքցնել մի քանի ներդիրի ընտրության ռեժիմը"</string>
+<string name="accessibility_tab_selection_editor">"Մի քանի ներդիրի ընտրության ռեժիմ"</string>
+<string name="tab_grid_dialog_remove_from_group">"Հեռացնել խմբից"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Հեռացնել ներդիները խմբից"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Ջնջել"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Ուղարկել խումբը"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Փոփոխել խմբի անունը"</string>
+<string name="accessibility_expand_tab_group">"Ծավալել %1$s ներդիրից բաղկացած խումբը։"</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Ծավալել %2$s ներդիրից բաղկացած «%1$s» խումբը։"</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Հեռացնել ընտրված %1$d ներդիրը խմբից։"</item>
+  <item quantity="other">"Հեռացնել ընտրված %1$d ներդիրները խմբից։"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Ծալել %1$d ներդիր։"</item>
+  <item quantity="other">"Ծալել %1$d ներդիրից բաղկացած խումբը։"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Ծալել %1$d ներդիր։"</item>
+  <item quantity="other">"Ծալել %2$d ներդիրից բաղկացած «%1$s» խումբը։"</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Ներդիրների խումբը ծավալվեց"</string>
+<string name="iph_drag_and_drop_introduction">"Քաշեք ներդիրները՝ դրանք խմբավորելու համար"</string>
+<string name="iph_drag_and_drop_show_me">"Ցույց տալ"</string>
+<string name="iph_drag_and_drop_title">"Աշխատանքի կազմակերպում"</string>
+<string name="iph_drag_and_drop_content">"Ներդիրները խմբավորելու համար հպեք ներդիրին և պահեք։ Ապա այն քաշեք մյուս ներդիրի վրա։"</string>
+<string name="tab_switcher_carousel_title">"Շարունակել դիտարկումը"</string>
+<string name="tab_switcher_carousel_view_all">"Դիտել բոլորը"</string>
+<string name="tab_suggestion_review_button">"Դիտել"</string>
+<string name="tab_suggestion_close_tab_action_button">"Փակել"</string>
+<string name="tab_suggestion_close_stale_message">"Ձեր ներդիրներից %1$s-ը վերջերս չեն օգտագործվել։ Փակե՞լ դրանք։"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s ներդիր նմանություն ունեն։ Խմբավորե՞լ դրանք։"</string>
+<string name="accessibility_tab_suggestion_review_button">"Դիտել հուշումները։"</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Ձեր ներդիրներից %1$s-ը վաղուց չեք օգտագործել։ Փակե՞լ դրանք։"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Հուշում․ %1$s ներդիր նմանություն ունեն։ Խմբավորե՞լ դրանք։"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Փակել հուշումները։"</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Փակել ընտրված %1$d ներդիրը"</item>
+  <item quantity="other">"Փակել ընտրված %1$d ներդիրները"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Տեղափոխել ներդիրը ձախ"</string>
+<string name="accessibility_tab_movement_right">"Տեղափոխել ներդիրն աջ"</string>
+<string name="accessibility_tab_movement_up">"Տեղափոխել ներդիրը վերև"</string>
+<string name="accessibility_tab_movement_down">"Տեղափոխել ներդիրը ներքև"</string>
+<string name="undo_tab_strip_closure_message">"Ներդիրների հատվածը փակված է"</string>
+<string name="tab_strip_info_bar_question">"Այլևս ցույց չտա՞լ ներդիրների հատվածը։"</string>
+<string name="tab_strip_info_bar_no_reshow">"Այլևս ցույց չտալ"</string>
+<string name="tab_strip_info_bar_reshow">"Ցույց տալ ավելի ուշ"</string>
+<string name="price_drop_spotted_title">"Հայտնաբերվել է գնի իջեցում"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Ցույց տալ"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

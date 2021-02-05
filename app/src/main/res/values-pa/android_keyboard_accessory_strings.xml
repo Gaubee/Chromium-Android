@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"ਸਪਰਸ਼ ਕਰਕੇ ਭਰੇ ਜਾਣ ਵਾਲੇ ਕ੍ਰੀਡੈਂਸ਼ੀਅਲਾਂ ਦੀ ਸੂਚੀ"</string>
+<string name="all_passwords_bottom_sheet_half_height">"ਸਪਰਸ਼ ਕਰਕੇ ਭਰੇ ਜਾਣ ਵਾਲੇ ਕ੍ਰੀਡੈਂਸ਼ੀਅਲਾਂ ਦੀ ਸੂਚੀ ਅੱਧੀ ਉਚਾਈ ਤੱਕ ਖੁੱਲ੍ਹੀ ਹੋਈ ਹੈ।"</string>
+<string name="all_passwords_bottom_sheet_full_height">"ਸਪਰਸ਼ ਕਰਕੇ ਭਰੇ ਜਾਣ ਵਾਲੇ ਕ੍ਰੀਡੈਂਸ਼ੀਅਲਾਂ ਦੀ ਸੂਚੀ ਪੂਰੀ ਉਚਾਈ ਤੱਕ ਖੁੱਲ੍ਹੀ ਹੋਈ ਹੈ।"</string>
+<string name="all_passwords_bottom_sheet_closed">"ਸਪਰਸ਼ ਕਰਕੇ ਭਰੇ ਜਾਣ ਵਾਲੇ ਕ੍ਰੀਡੈਂਸ਼ੀਅਲਾਂ ਦੀ ਸੂਚੀ ਬੰਦ ਹੈ।"</string>
+<string name="all_passwords_bottom_sheet_title">"ਪਾਸਵਰਡ"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"ਖੋਜੋ"</string>
+<string name="all_passwords_bottom_sheet_no_password">"ਕੋਈ ਪਾਸਵਰਡ ਨਹੀਂ"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"ਜੇ ਤੁਹਾਨੂੰ %s \'ਤੇ ਭਰੋਸਾ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਕਿਸੇ ਹੋਰ ਸਾਈਟ ਲਈ ਰੱਖਿਅਤ ਕੀਤਾ ਪਾਸਵਰਡ ਵਰਤ ਸਕਦੇ ਹੋ।"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"ਹਰੇਕ ਸਾਈਟ ਲਈ ਇੱਕ ਵਿਲੱਖਣ ਪਾਸਵਰਡ ਵਰਤ ਕੇ ਦੇਖੋ।"</string>
+<string name="autofill_keyboard_accessory_content_description">"ਪਾਸਵਰਡ ਉਪਲਬਧ ਹਨ"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"ਆਟੋਫਿਲ ਸੁਝਾਅ ਕੀ-ਬੋਰਡ ਉੱਪਰ ਉਪਲਬਧ ਹਨ"</string>
+<string name="keyboard_accessory_sheet_hide">"ਕੀ-ਬੋਰਡ ਦਿਖਾਓ"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome ਆਟੋਫਿਲ ਸੁਝਾਅ ਵਰਤੋ"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"ਹੋਰ ਸੁਝਾਅ ਦੇਖਣ ਲਈ ਸਵਾਈਪ ਕਰੋ"</string>
+<string name="password_generation_accessory_button">"ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਸੁਝਾਓ"</string>
+<string name="password_generation_accessory_button_short">"ਪਾਸਵਰਡ ਸੁਝਾਓ"</string>
+<string name="password_accessory_sheet_toggle">"ਪਾਸਵਰਡ ਦਿਖਾਓ"</string>
+<string name="password_accessory_sheet_opened">"ਰੱਖਿਅਤ ਕੀਤੇ ਪਾਸਵਰਡ ਅਤੇ ਪਾਸਵਰਡ ਵਿਕਲਪਾਂ ਨੂੰ ਦਿਖਾ ਰਿਹਾ ਹੈ"</string>
+<string name="address_accessory_sheet_title">"ਪਤੇ"</string>
+<string name="address_accessory_sheet_toggle">"ਪਤੇ ਦਿਖਾਓ"</string>
+<string name="address_accessory_sheet_opened">"ਰੱਖਿਅਤ ਪਤੇ ਦਿਖਾਏ ਜਾ ਰਹੇ ਹਨ"</string>
+<string name="credit_card_accessory_sheet_toggle">"ਭੁਗਤਾਨ ਵਿਧੀਆਂ ਦਿਖਾਓ"</string>
+<string name="credit_card_accessory_sheet_opened">"ਰੱਖਿਅਤ ਕੀਤੀਆਂ ਭੁਗਤਾਨ ਵਿਧੀਆਂ ਦਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ ਹਨ"</string>
+</resources>

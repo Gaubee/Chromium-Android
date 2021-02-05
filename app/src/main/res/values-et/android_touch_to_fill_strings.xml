@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Jätkake selle kontoga"</string>
+<string name="touch_to_fill_sheet_title">"Konto valimine"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Loend mandaatidest, mis tuleb puudutusega täita."</string>
+<string name="touch_to_fill_sheet_half_height">"Loend mandaatidest, mis tuleb puudutusega täita, on avatud poolele kõrgusele."</string>
+<string name="touch_to_fill_sheet_full_height">"Loend mandaatidest, mis tuleb puudutusega täita, on avatud täiskõrgusele."</string>
+<string name="touch_to_fill_sheet_closed">"Loend mandaatidest, mis tuleb puudutusega täita, on suletud."</string>
+<string name="manage_passwords">"Paroolide haldamine"</string>
+<string name="touch_to_fill_continue">"Jätka"</string>
+</resources>

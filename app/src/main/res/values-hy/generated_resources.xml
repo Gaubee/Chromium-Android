@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome-ի օգտագործման պայմանները կթարմացվեն մարտի 31-ին"</string>
+<string name="tos_notification_body_text">"Ծանոթացեք նոր պայմաններին"</string>
+<string name="tos_notification_ack_button_text">"Պատրաստ է"</string>
+<string name="tos_notification_review_button_text">"Դիտել"</string>
+<string name="managed">"Կառավարվում է ձեր կազմակերպության կողմից"</string>
+<string name="search_or_type_web_address">"Որոնեք կամ մուտքագրեք վեբ հասցեն"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Հեռացնե՞լ առաջարկը սեղմատախտակից:"</string>
+<string name="options_homepage_title">"Գլխավոր էջ"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Մոտակա սարքեր չեն գտնվել:"</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Թույլ տալ"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Արգելափակել"</string>
+</resources>

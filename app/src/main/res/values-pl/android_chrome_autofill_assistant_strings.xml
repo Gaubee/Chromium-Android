@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Zgadzam się"</string>
+<string name="autofill_assistant_init_title">"Wypróbuj Asystenta Google\nw Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Wypożyczaj samochody\nkilkoma kliknięciami"</string>
+<string name="autofill_assistant_init_message_password_change">"Pozwól, by Asystent Google pomógł Ci\nzmienić hasło"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Kupuj bilety do kina\nkilkoma kliknięciami"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Zamawiaj jedzenie\nkilkoma kliknięciami"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Dokonuj odpraw na loty\nkilkoma kliknięciami"</string>
+<string name="autofill_assistant_init_message_voice_search">"Używaj komend głosowych\nna stronach internetowych"</string>
+<string name="autofill_assistant_init_message_shopping">"Szybkie płatności\nkilkoma kliknięciami"</string>
+<string name="autofill_assistant_init_message">"Asystent Google oszczędza Twój czas, pomagając Ci robić różne rzeczy (np. szukać i płacić) w internecie."</string>
+<string name="autofill_assistant_init_message_short">"Asystent Google w Chrome może wykonywać za Ciebie działania na różnych stronach internetowych"</string>
+<string name="autofill_assistant_google_terms_description">"Aby pomóc Ci w wykonywaniu zadań, Google będzie otrzymywać adresy URL i zawartość stron, na których używasz Asystenta, a także informacje, które przekazujesz za pomocą Asystenta. Te informacje mogą być przechowywane na Twoim koncie Google. Możesz wyłączyć Asystenta w ustawieniach Chrome. &lt;link&gt;Więcej informacji&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Nie jestem w stanie Ci pomóc. Kontynuuj samodzielnie."</string>
+<string name="autofill_assistant_payment_information_missing">"Brak informacji"</string>
+<string name="autofill_assistant_view_original_image_desc">"Otworzyć link zewnętrzny?"</string>
+<string name="autofill_assistant_view_original_image_view">"Widok"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Anuluj"</string>
+<string name="autofill_assistant_sheet_content_description">"Asystent Google w Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Asystent Google w Chrome otwarty na pół wysokości."</string>
+<string name="autofill_assistant_sheet_full_height">"Asystent Google w Chrome otwarty na pełną wysokość."</string>
+<string name="autofill_assistant_sheet_closed">"Zamknięto Asystenta Google w Chrome."</string>
+<string name="autofill_assistant_send_feedback">"Prześlij opinię"</string>
+<string name="autofill_assistant_increase_value">"Zwiększ wartość"</string>
+<string name="autofill_assistant_decrease_value">"Zmniejsz wartość"</string>
+<string name="autofill_assistant_overflow_options">"Ustawienia"</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Forma un grupo para comparar las páginas rápidamente. Para comenzar, mantén presionado un vínculo."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Presiona para ver otra pestaña"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Tus pestañas se agrupan aquí"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Alterna entre las pestañas que aparecen en el grupo de pestañas cerca de la parte inferior de la pantalla"</string>
+<string name="undo_bar_group_tabs_message">"Se agruparon %1$s pestañas"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d pestaña"</item>
+  <item quantity="other">"%1$d pestañas"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Agrega una pestaña nueva al grupo"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Oculta la cuadrícula de pantalla completa"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Muestra las pestañas del grupo en la cuadrícula de pantalla completa"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Cierra la barra de pestañas"</string>
+<string name="tabswitcher_create_group">"Crear grupo"</string>
+<string name="accessibility_tab_switcher">"Alternador de pestañas"</string>
+<string name="accessibility_close_tab_group_button">"Cerrar el grupo de pestañas, el cual tiene %1$s pestañas"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Cerrar el grupo %1$s, el cual tiene %2$s pestañas"</string>
+<string name="tab_selection_editor_group">"Agrupar"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Seleccionar pestañas"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Agrupar %1$d pestaña seleccionada"</item>
+  <item quantity="other">"Agrupar %1$d pestañas seleccionadas"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Ocultar el modo de selección múltiple"</string>
+<string name="accessibility_tab_selection_editor">"Modo de selección múltiple"</string>
+<string name="tab_grid_dialog_remove_from_group">"Quitar del grupo"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Quitar pestañas del grupo"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Quitar"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Compartir grupo"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Editar nombre de grupo"</string>
+<string name="accessibility_expand_tab_group">"Expandir el grupo de pestañas, el cual tiene %1$s pestañas"</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Expande el grupo de pestañas %1$s con %2$s pestañas."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Quitar %1$d pestaña seleccionada del grupo"</item>
+  <item quantity="other">"Quita %1$d pestañas seleccionadas del grupo."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Contraer %1$d pestaña"</item>
+  <item quantity="other">"Contraer el grupo de pestañas, el cual tiene %1$d pestañas"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Contraer %1$d pestaña"</item>
+  <item quantity="other">"Contraer el grupo de pestañas %1$s, el cual tiene %2$d pestañas"</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Se expandió el grupo de pestañas"</string>
+<string name="iph_drag_and_drop_introduction">"Arrastra las pestañas para agruparlas"</string>
+<string name="iph_drag_and_drop_show_me">"Mostrarme"</string>
+<string name="iph_drag_and_drop_title">"Organízate"</string>
+<string name="iph_drag_and_drop_content">"Para agrupar pestañas, mantén presionada una y arrástrala hasta otra."</string>
+<string name="tab_switcher_carousel_title">"Seguir explorando"</string>
+<string name="tab_switcher_carousel_view_all">"Ver todos"</string>
+<string name="tab_suggestion_review_button">"Revisar"</string>
+<string name="tab_suggestion_close_tab_action_button">"Cerrar"</string>
+<string name="tab_suggestion_close_stale_message">"Últimamente no usaste %1$s de tus pestañas. ¿Quieres cerrarlas?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s pestañas parecen estar relacionadas. ¿Deseas agruparlas?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Revisa las sugerencias."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Sugerencia: Últimamente no usaste %1$s de tus pestañas. ¿Quieres cerrarlas?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Sugerencia: %1$s pestañas parecen estar relacionadas. ¿Deseas agruparlas?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Descarta las sugerencias."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Cierra %1$d pestaña seleccionada"</item>
+  <item quantity="other">"Cierra %1$d pestañas seleccionadas"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Mover la pestaña a la izquierda"</string>
+<string name="accessibility_tab_movement_right">"Mover la pestaña a la derecha"</string>
+<string name="accessibility_tab_movement_up">"Mover la pestaña hacia arriba"</string>
+<string name="accessibility_tab_movement_down">"Mover la pestaña hacia abajo"</string>
+<string name="undo_tab_strip_closure_message">"Se cerró la barra de pestañas"</string>
+<string name="tab_strip_info_bar_question">"¿No quieres volver a ver la barra de pestañas?"</string>
+<string name="tab_strip_info_bar_no_reshow">"No volver a mostrar"</string>
+<string name="tab_strip_info_bar_reshow">"Mostrar más tarde"</string>
+<string name="price_drop_spotted_title">"Se detectó un descuento"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Mostrarme"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

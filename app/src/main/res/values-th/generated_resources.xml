@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"ข้อกำหนดในการให้บริการของ Chrome จะมีการเปลี่ยนแปลงในวันที่ 31 มีนาคม"</string>
+<string name="tos_notification_body_text">"โปรดอ่านข้อกำหนดใหม่"</string>
+<string name="tos_notification_ack_button_text">"สำเร็จ"</string>
+<string name="tos_notification_review_button_text">"ดู"</string>
+<string name="managed">"จัดการโดยองค์กร"</string>
+<string name="search_or_type_web_address">"ค้นหาหรือพิมพ์ที่อยู่เว็บ"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"นำคำแนะนำออกจากคลิปบอร์ดไหม"</string>
+<string name="options_homepage_title">"หน้าแรก"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"ไม่พบอุปกรณ์ที่อยู่ใกล้เคียง"</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"อนุญาต"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"บล็อก"</string>
+</resources>

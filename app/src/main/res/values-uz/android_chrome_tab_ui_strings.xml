@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Sahifalarni guruhlab, tezkor solishtiring. Boshlash uchun havolani uzoq bosib turing."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Boshqa varaqni ochish uchun bosing"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Varaqlaringiz shu guruhda jamlanadi"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Ekranning quyi qismidagi varaqlar guruhidagi varaqlarni almashtirish"</string>
+<string name="undo_bar_group_tabs_message">"%1$s ta varaq guruhlandi"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d ta varaq"</item>
+  <item quantity="other">"%1$d ta varaq"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Guruhga yangi varaq kiritish"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Butun ekranga chiqarilgan jadval shaklini yopish"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Guruh varaqlarini butun ekranga jadval shaklida chiqarish"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Varaqlar panelini yopish"</string>
+<string name="tabswitcher_create_group">"Guruh yaratish"</string>
+<string name="accessibility_tab_switcher">"Varaq almashtirgich"</string>
+<string name="accessibility_close_tab_group_button">"%1$s varaqli guruhni yopish"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"%2$s varaqli %1$s guruhini yopish"</string>
+<string name="tab_selection_editor_group">"Guruh"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Varaqlarni tanlang"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Belgilangan %1$d ta varaqni guruhlash"</item>
+  <item quantity="other">"Belgilangan %1$d ta varaqni guruhlash"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Bir nechta variant tanlanadigan rejimni yopish"</string>
+<string name="accessibility_tab_selection_editor">"Bir nechta elementni tanlash rejimi"</string>
+<string name="tab_grid_dialog_remove_from_group">"Guruhdan chiqarish"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Varaqlarni guruhdan olib tashlash"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Olib tashlash"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Guruhni ulashish"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Guruh nomini tahrirlash"</string>
+<string name="accessibility_expand_tab_group">"%1$s varaqli guruhni yoyish."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"%2$s varaqli %1$s guruhini yoyish."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Tanlangan %1$d ta varaqni guruhdan olib tashlash."</item>
+  <item quantity="other">"Tanlangan %1$d ta varaqni guruhdan olib tashlash."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d ta varaqni yigʻish."</item>
+  <item quantity="other">"%1$d varaqli guruhni yigʻish."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d ta varaqni yigʻish."</item>
+  <item quantity="other">"%2$d varaqli %1$s guruhini yigʻish."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Varaqlar guruhi yoyildi"</string>
+<string name="iph_drag_and_drop_introduction">"Varaqlarni guruhlash uchun bir-birining ustiga torting"</string>
+<string name="iph_drag_and_drop_show_me">"Ko‘rsatish"</string>
+<string name="iph_drag_and_drop_title">"Ishni tashkillash"</string>
+<string name="iph_drag_and_drop_content">"Varaqlarni guruhlash uchun: bitta varaqni bosib ushlang, keyin uni boshqa varaqning ustiga tortib tashlang."</string>
+<string name="tab_switcher_carousel_title">"Saytlarni kezishda davom etish"</string>
+<string name="tab_switcher_carousel_view_all">"Hammasi"</string>
+<string name="tab_suggestion_review_button">"Tekshirish"</string>
+<string name="tab_suggestion_close_tab_action_button">"Yopish"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s ta varaq oxirgi vaqtlarda ishlatilmayapti. Ular yopilsinmi?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s ta aloqador varaq bor. Ular guruhlansinmi?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Batafsil."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Bildirgi: %1$s ta varaq oxirgi vaqtlarda ishlatilmayapti. Ular yopilsinmi?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Taklif: %1$s ta varaq aloqador. Ular guruhlansinmi?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Bildirgilarni yopish"</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Tanlangan %1$d ta varaqni yopish"</item>
+  <item quantity="other">"Tanlangan %1$d ta varaqni yopish"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Varaqni chapga siljitish"</string>
+<string name="accessibility_tab_movement_right">"Varaqni oʻngga siljitish"</string>
+<string name="accessibility_tab_movement_up">"Varaqni tepaga surish"</string>
+<string name="accessibility_tab_movement_down">"Varaqni pastga tushirish"</string>
+<string name="undo_tab_strip_closure_message">"Darchalar paneli yopildi"</string>
+<string name="tab_strip_info_bar_question">"Darchalar paneli boshqa chiqmasinmi?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Boshqa ko‘rsatilmasin"</string>
+<string name="tab_strip_info_bar_reshow">"Keyinroq koʻrsatish"</string>
+<string name="price_drop_spotted_title">"Narx pasayishi aniqlandi"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Ko‘rsatish"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

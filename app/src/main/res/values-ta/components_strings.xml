@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"சீனா UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-ta/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"உறுதிப்படுத்து"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"கார்டைச் சேமி"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"இந்தப் பெயர் உங்கள் ‘Google கணக்கிலிருந்து’ பெறப்பட்டது"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"CVCஐச் சோதித்து, மீண்டும் முயற்சிக்கவும்"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"காலாவதித் தேதியைச் சரிபார்த்து, மீண்டும் முயலவும்"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"காலாவதியாகும் நேரத்தையும், CVCஐயும் சரிபார்த்து, மீண்டும் முயற்சிக்கவும்"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"காலாவதி மாதத்தைச் சரிபார்த்து, மீண்டும் முயலவும்"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"காலாவதி ஆண்டைச் சரிபார்த்து, மீண்டும் முயலவும்"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"இந்தக் கார்டின் பிரதியை சாதனத்தில் சேமி"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"இது தேர்ந்தெடுக்கப்பட்டால், விரைவாகப் படிவத்தை நிரப்ப, உங்கள் கார்டின் நகலை Chromium இந்தச் சாதனத்தில் சேமிக்கும்."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"இனி கார்டுகளை உறுதிப்படுத்த திரைப் பூட்டைப் பயன்படுத்து"</string>
+<string name="autofill_card_unmask_verification_in_progress">"கார்டை உறுதிசெய்கிறது…"</string>
+<string name="autofill_card_unmask_verification_success">"கார்டு உறுதிசெய்யப்பட்டது"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"கார்டை மாற்றவும்"</string>
+<string name="autofill_wallet_management_link_text">"திருத்து"</string>
+<string name="autofill_from_google_account_long">"Google Pay இலிருந்து"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"நகலை அழி"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"சீனா UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"புதிய கார்டை ஸ்கேன்செய்"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"இதில் ஃபோன் எண்கள், மின்னஞ்சல் முகவரிகள், ஷிப்பிங் முகவரிகள் போன்ற தகவல்கள் உள்ளடங்கும்"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"கட்டணப் படிவங்களில் உங்கள் சேமிக்கப்பட்ட கட்டண முறைகளை நிரப்பும்"</string>
+<string name="autofill_addresses_settings_title">"முகவரிகள் மற்றும் பல"</string>
+<string name="autofill_payment_methods">"பேமெண்ட் முறைகள்"</string>
+<string name="autofill_enable_profiles_toggle_label">"முகவரிகளைச் சேமித்துத் தானாக நிரப்பு"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"கட்டண முறைகளைச் சேமித்துத் தானாக நிரப்பு"</string>
+<string name="enable_credit_card_fido_auth_label">"திரைப் பூட்டு"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"கார்டுகளை மேலும் விரைவாக உறுதிசெய்ய திரைப் பூட்டைப் பயன்படுத்துங்கள்"</string>
+<!-- <string name="http_post_warning_title">"படிவ மறுசமர்ப்பிப்பை உறுதிசெய்க"</string> -->
+<!-- <string name="http_post_warning">"நீங்கள் தேடும் பக்கமானது நீங்கள் உள்ளிட்ட தகவலைப் பயன்படுத்தியது. மீண்டும் அந்த பக்கத்திற்கு திரும்பினால், நீங்கள் செய்த ஏதேனும் செயலை மீண்டும் செய்ய வேண்டியிருக்கலாம். தொடர விரும்புகிறீர்களா?"</string> -->
+<!-- <string name="http_post_warning_resend">"தொடர்க"</string> -->
+<!-- <string name="login_dialog_title">"உள்நுழைக"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"உள்நுழைக"</string> -->
+<!-- <string name="login_dialog_username_field">"பயனர்பெயர்"</string> -->
+<!-- <string name="login_dialog_password_field">"கடவுச்சொல்"</string> -->
+<string name="sad_tab_title">"அச்சச்சோ!"</string>
+<string name="sad_tab_message">"இந்த இணையப்பக்கத்தைக் காட்டும்போது ஏதோ தவறு ஏற்பட்டது."</string>
+<string name="sad_tab_reload_label">"மீண்டும் ஏற்று"</string>
+<string name="sad_tab_send_feedback_label">"கருத்துத் தெரிவிக்கவும்"</string>
+<string name="sad_tab_reload_title">"பக்கத்தைத் திறக்க முடியவில்லை"</string>
+<string name="sad_tab_reload_try">"பின்வரும் உதவிக் குறிப்புகளைச் செய்து பார்க்கவும்:"</string>
+<string name="sad_tab_reload_incognito">"புதிய மறைநிலைத் தாவலில் பக்கத்தைத் திறக்கவும்"</string>
+<string name="sad_tab_reload_restart_browser">"Chromiumஐ மீண்டும் தொடங்கவும்"</string>
+<string name="sad_tab_reload_restart_device">"உங்கள் சாதனத்தை மீண்டும் தொடங்கவும்"</string>
+<string name="sad_tab_reload_learn_more">"மேலும் அறிக"</string>
+<string name="new_tab_otr_title">"மறைநிலைக்குச் சென்றுவிட்டீர்கள்"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"இருப்பினும், பின்வரும் தரப்பினர் உங்கள் செயல்பாட்டைப் &lt;em&gt;பார்க்க முடியும்&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;நீங்கள் பார்வையிடும் இணையதளங்கள்
+          &lt;li&gt;உங்கள் நிறுவனம் அல்லது பள்ளி
+          &lt;li&gt;உங்கள் இணையச் சேவை வழங்குநர்
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"குக்கீகள் அமைப்புகளில் இந்த அமைப்பு கட்டுப்படுத்தப்படுகிறது."</string>
+<string name="new_tab_otr_third_party_cookie">"மூன்றாம் தரப்புக் குக்கீகளைத் தடு"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"இது இயக்கப்பட்டிருக்கும்போது உங்கள் இணைய நடவடிக்கைகளைக் கண்காணிக்கும் குக்கீகளைத் தளங்களால் பயன்படுத்த முடியாது. சில வலைதளங்களிலுள்ள அம்சங்கள் சிதைவடையக்கூடும்."</string>
+<string name="ntp_article_suggestions_section_header">"உங்களுக்கான செய்திக் கட்டுரைகள்"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google வழங்கும் பரிந்துரைகள்"</string>
+<string name="ntp_article_suggestions_section_empty">"நீங்கள் பரிந்துரைத்த கட்டுரைகள் இங்கே தோன்றும்"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"குறுக்கிடும் அல்லது தவறாக வழிநடத்தும் விளம்பரங்களை தளம் காண்பிக்கிறது"</string> -->
+<string name="payments_method_of_payment_label">"கட்டண முறை"</string>
+<string name="payments_contact_details_label">"தொடர்புத் தகவல்"</string>
+<string name="payments_add_contact_details_label">"தொடர்புத் தகவலைச் சேர்"</string>
+<string name="payments_edit_contact_details_label">"தொடர்புத் தகவலை மாற்று"</string>
+<string name="payments_add_billing_address">"பில்லிங் முகவரியைச் சேர்க்கவும்"</string>
+<string name="payments_add_name_on_card">"கார்டிலுள்ள பெயரைச் சேர்க்கவும்"</string>
+<string name="payments_add_valid_card_number">"சரியான கார்டு எண்ணைச் சேர்க்கவும்"</string>
+<string name="payments_add_more_information">"மேலும் தகவலைச் சேர்க்கவும்"</string>
+<string name="payments_edit_card">"கார்டைத் திருத்தவும்"</string>
+<string name="payments_add_phone_number">"ஃபோன் எண்ணைச் சேர்"</string>
+<string name="payments_add_recipient">"பெயரைச் சேர்"</string>
+<string name="payments_add_valid_address">"சரியான முகவரியைச் சேர்க்கவும்"</string>
+<string name="payments_add_email">"மின்னஞ்சலைச் சேர்"</string>
+<string name="payments_add_name">"பெயரைச் சேர்"</string>
+<string name="payments_order_summary_label">"ஆர்டர் பற்றிய சுருக்கவிவரம்"</string>
+<string name="payment_request_payment_method_section_name">"கட்டண முறை"</string>
+<string name="payment_account_balance">"அக்கவுண்ட் பேலன்ஸ்"</string>
+<string name="payments_shipping_summary_label">"ஷிப்பிங்"</string>
+<string name="payments_shipping_address_label">"ஷிப்பிங் முகவரி"</string>
+<string name="payments_shipping_option_label">"ஷிப்பிங் முறை"</string>
+<string name="payments_delivery_summary_label">"டெலிவரி"</string>
+<string name="payments_delivery_address_label">"டெலிவரி முகவரி"</string>
+<string name="payments_delivery_option_label">"டெலிவரி முறை"</string>
+<string name="payments_pickup_summary_label">"பிக்கப்"</string>
+<string name="payments_pickup_address_label">"பிக்கப் முகவரி"</string>
+<string name="payments_pickup_option_label">"பிக்அப் முறை"</string>
+<string name="payments_edit_button">"திருத்து"</string>
+<string name="payments_pay_button">"பணம் செலுத்துக"</string>
+<string name="payments_continue_button">"தொடர்க"</string>
+<string name="payments_add_contact">"தொடர்புத் தகவலைச் சேர்"</string>
+<string name="payments_add_card">"கார்டைச் சேர்"</string>
+<string name="payments_add_address">"முகவரியைச் சேர்"</string>
+<string name="payments_edit_address">"முகவரியைத் திருத்து"</string>
+<string name="payments_name_field_in_contact_details">"பெயர்"</string>
+<string name="payments_save_card_to_device_checkbox">"இந்தச் சாதனத்தில் கார்டைச் சேமி"</string>
+<string name="payments_accepted_cards_label">"ஏற்கப்படும் கார்டுகள்"</string>
+<string name="payments_credit_card_expiration_date_abbr">"காலாவதி: %1$s/%2$s"</string>
+<string name="payments_loading_message">"ஏற்றுகிறது"</string>
+<string name="payments_processing_message">"செயல்படுத்துகிறது"</string>
+<string name="payments_checking_option">"சரிபார்க்கிறது"</string>
+<string name="payments_updated_label">"புதுப்பிக்கப்பட்டது"</string>
+<string name="payment_complete_message">"பேமெண்ட் நிறைவடைந்தது"</string>
+<string name="payments_error_message">"ஆர்டரைச் செயல்படுத்துவதில் பிழை ஏற்பட்டது. பிறகு முயலவும்."</string>
+<string name="payments_card_and_address_settings">"BEGIN_LINKஅமைப்புகளில்END_LINK கார்டுகளையும் முகவரிகளையும் நிர்வகிக்கலாம்."</string>
+<string name="payments_card_and_address_settings_signed_in">"கார்டுகளும் முகவரிகளும் Chromeமிலிருந்தும் %1$s எனும் உங்கள் Google கணக்கிலிருந்தும் பெறப்பட்டவையாகும். BEGIN_LINKஅமைப்புகளில்END_LINK அவற்றை நிர்வகிக்கலாம்."</string>
+<string name="payment_touch_sensor_to_pay">"பேமெண்ட் செய்ய சென்சாரைத் தொடவும்"</string>
+<string name="payment_fingerprint_not_recognized">"அடையாளங்காண முடியவில்லை"</string>
+<string name="payments_card_and_address_settings_signed_out">"கார்டுகளும் முகவரிகளும் Chrome இலிருந்து பெறப்பட்டவையாகும். BEGIN_LINKஅமைப்புகளில்END_LINK அவற்றை நிர்வகிக்கலாம்."</string>
+<string name="settings_can_make_payment_toggle_label">"சேமித்துள்ள உங்கள் கட்டண முறைகளைப் பார்க்க தளங்களை அனுமதிக்கவும்"</string>
+<string name="payments_required_field_message">"* அவசியமான புலம்"</string>
+<string name="payments_phone_invalid_validation_message">"சரியான ஃபோன் எண்ணை உள்ளிடவும்"</string>
+<string name="payments_email_invalid_validation_message">"சரியான மின்னஞ்சல் முகவரியை உள்ளிடவும்"</string>
+<string name="payments_card_number_invalid_validation_message">"சரியான கார்டு எண்ணை உள்ளிடவும்"</string>
+<string name="payments_card_expiration_invalid_validation_message">"சரியான காலாவதித் தேதியை உள்ளிடவும்"</string>
+<string name="payments_invalid_address">"சரியான முகவரியை உள்ளிடவும்"</string>
+<string name="payments_billing_address_required">"பில்லிங் முகவரி தேவை"</string>
+<string name="payments_name_on_card_required">"கார்டு உரிமையாளரின் பெயர் தேவை"</string>
+<string name="payments_more_information_required">"கூடுதல் தகவல் தேவை"</string>
+<string name="payments_phone_number_required">"ஃபோன் எண் தேவை"</string>
+<string name="payments_recipient_required">"பெயர் தேவை"</string>
+<string name="payments_email_required">"மின்னஞ்சல் தேவை"</string>
+<string name="payments_name_required">"பெயர் தேவை"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"அவசியமானவை"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"ஷிப்பிங் முறைகளையும் தேவைகளையும் பார்க்க, முகவரியைத் தேர்ந்தெடுக்கவும்"</string>
+<string name="payments_unsupported_shipping_address">"இந்த முகவரிக்கு அனுப்ப முடியாது. வேறு முகவரியைத் தேர்ந்தெடுக்கவும்."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"டெலிவரி முறைகளையும் தேவைகளையும் பார்க்க, முகவரியைத் தேர்ந்தெடுக்கவும்"</string>
+<string name="payments_unsupported_delivery_address">"இந்த முகவரிக்கு டெலிவரி செய்ய முடியாது. வேறு முகவரியைத் தேர்ந்தெடுக்கவும்."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"பிக்அப் முறைகளையும் தேவைகளையும் பார்க்க, முகவரியைத் தேர்ந்தெடுக்கவும்"</string>
+<string name="payments_unsupported_pickup_address">"இந்த முகவரியிலிருந்து பிக்அப் செய்ய முடியாது. வேறு முகவரியைத் தேர்ந்தெடுக்கவும்."</string>
+<string name="payments_android_app_error">"பேமெண்ட் பயன்பாட்டைத் திறக்க முடியவில்லை"</string>
+<string name="external_payment_app_leave_incognito_warning">"வெளிப்புற ஆப்ஸின் மூலம் பணத்தை செலுத்த, மறைநிலையிலிருந்து வெளியேறுகிறீர்கள். தொடரவா?"</string>
+<string name="payment_handler_sheet_description">"பேமெண்ட் ஹேண்ட்லர் ஷீட்"</string>
+<string name="payment_handler_sheet_opened_half">"பேமெண்ட் ஹேண்ட்லர் ஷீட் பாதியளவு திறந்துள்ளது"</string>
+<string name="payment_handler_sheet_opened_full">"பேமெண்ட் ஹேண்ட்லர் ஷீட் திறந்துள்ளது"</string>
+<string name="payment_handler_sheet_closed">"பேமெண்ட் ஹேண்ட்லர் ஷீட் மூடியுள்ளது"</string>
+<string name="blocked_ads_prompt_title">"விளம்பரங்கள் தடுக்கப்பட்டன"</string>
+<!-- <string name="translate_infobar_error">"அச்சச்சோ. இந்தப் பக்கத்தை மொழிபெயர்க்க முடியாது."</string> -->
+<!-- <string name="translate_button">"மொழிபெயர்"</string> -->
+<!-- <string name="translate_never_translate_site">"இந்த தளத்தை எப்போதும் மொழிபெயர்க்க வேண்டாம்"</string> -->
+<string name="translate_dont_offer_site">"இந்தத் தளத்தை மொழிபெயர்க்க அனுமதிக்காதே"</string>
+<!-- <string name="translate_option_always_translate">"%1$s மொழியில் உள்ள பக்கங்களை எப்போதும் மொழிபெயர்"</string> -->
+<!-- <string name="translate_option_never_translate">"%1$s மொழியில் உள்ள பக்கங்களை ஒருபோதும் மொழிபெயர்க்காதே"</string> -->
+<string name="translate_dont_offer_lang">"பக்கங்களை %1$s மொழியில் மொழிபெயர்க்க அனுமதிக்காதே"</string>
+<!-- <string name="translate_option_more_language">"மேலும் மொழிகள்"</string> -->
+<!-- <string name="translate_option_not_source_language">"%1$s மொழியில் பக்கம் இல்லையா?"</string> -->
+<string name="translate_snackbar_always_translate">"இனி %1$s மொழியில் உள்ள பக்கங்கள் %2$s மொழிக்கு மொழிபெயர்க்கப்படும்"</string>
+<string name="translate_snackbar_language_never">"%1$s மொழியில் உள்ள பக்கங்கள் மொழிபெயர்க்கப்படாது"</string>
+<string name="translate_snackbar_site_never">"இந்தத் தளம் மொழிபெயர்க்கப்படாது"</string>
+<string name="translate_snackbar_cancel">"ரத்து செய்"</string>
+<string name="clear">"அழி"</string>
+<string name="show_content">"காண்பி"</string>
+<string name="hide_content">"மறை"</string>
+<string name="choose">"தேர்வுசெய்"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-ta/components_strings.xml -->
+
+<string name="http_post_warning_title">"படிவ மறுசமர்ப்பிப்பை உறுதிசெய்க"</string>
+<string name="http_post_warning">"நீங்கள் தேடும் பக்கமானது நீங்கள் உள்ளிட்ட தகவலைப் பயன்படுத்தியது. மீண்டும் அந்த பக்கத்திற்கு திரும்பினால், நீங்கள் செய்த ஏதேனும் செயலை மீண்டும் செய்ய வேண்டியிருக்கலாம். தொடர விரும்புகிறீர்களா?"</string>
+<string name="http_post_warning_resend">"தொடர்க"</string>
+<string name="login_dialog_title">"உள்நுழைக"</string>
+<string name="login_dialog_ok_button_label">"உள்நுழைக"</string>
+<string name="login_dialog_username_field">"பயனர்பெயர்"</string>
+<string name="login_dialog_password_field">"கடவுச்சொல்"</string>
+<string name="page_info_permission_ads_subtitle">"குறுக்கிடும் அல்லது தவறாக வழிநடத்தும் விளம்பரங்களை தளம் காண்பிக்கிறது"</string>
+<string name="translate_infobar_error">"அச்சச்சோ. இந்தப் பக்கத்தை மொழிபெயர்க்க முடியாது."</string>
+<string name="translate_button">"மொழிபெயர்"</string>
+<string name="translate_never_translate_site">"இந்த தளத்தை எப்போதும் மொழிபெயர்க்க வேண்டாம்"</string>
+<string name="translate_option_always_translate">"%1$s மொழியில் உள்ள பக்கங்களை எப்போதும் மொழிபெயர்"</string>
+<string name="translate_option_never_translate">"%1$s மொழியில் உள்ள பக்கங்களை ஒருபோதும் மொழிபெயர்க்காதே"</string>
+<string name="translate_option_more_language">"மேலும் மொழிகள்"</string>
+<string name="translate_option_not_source_language">"%1$s மொழியில் பக்கம் இல்லையா?"</string>
+</resources>

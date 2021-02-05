@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Список со акредитиви што се пополнуваат со допир."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Списокот со акредитиви што се пополнуваат со допир е отворен на половина екран."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Списокот со акредитиви што се пополнуваат со допир е отворен на цел екран."</string>
+<string name="all_passwords_bottom_sheet_closed">"Списокот со акредитиви што се пополнуваат со допир е затворен."</string>
+<string name="all_passwords_bottom_sheet_title">"Лозинки"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Барај"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Нема лозинка"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Ако имате доверба во %s, може да користите зачувана лозинка од друг сајт."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Добро би било да користите единствена лозинка за секој сајт."</string>
+<string name="autofill_keyboard_accessory_content_description">"Достапни лозинки"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Предлозите за автоматско пополнување се прикажуваат над тастатурата"</string>
+<string name="keyboard_accessory_sheet_hide">"Прикажи тастатура"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Користете го предлогот за автоматско пополнување на Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Повлечете за да видите повеќе предлози"</string>
+<string name="password_generation_accessory_button">"Предложи силна лозинка"</string>
+<string name="password_generation_accessory_button_short">"Предложи лозинка"</string>
+<string name="password_accessory_sheet_toggle">"Прикажи ги лозинките"</string>
+<string name="password_accessory_sheet_opened">"Се прикажуваат зачуваните лозинки и опциите за лозинки"</string>
+<string name="address_accessory_sheet_title">"Адреси"</string>
+<string name="address_accessory_sheet_toggle">"Прикажи ги адресите"</string>
+<string name="address_accessory_sheet_opened">"Се прикажуваат зачувани адреси"</string>
+<string name="credit_card_accessory_sheet_toggle">"Прикажете ги начините на плаќање"</string>
+<string name="credit_card_accessory_sheet_opened">"Се прикажуваат зачуваните начини на плаќање"</string>
+</resources>

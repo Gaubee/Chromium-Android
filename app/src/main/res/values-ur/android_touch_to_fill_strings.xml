@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"اکاؤنٹ کے ساتھ جاری رکھیں"</string>
+<string name="touch_to_fill_sheet_title">"اکاؤنٹ منتخب کریں"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"ٹچ پر پُر کی جانے والی اسناد کی فہرست۔"</string>
+<string name="touch_to_fill_sheet_half_height">"ٹچ پر پُر کی جانے والی اسناد کی فہرست نصف اونچائی پر کھلی ہوئی ہے۔"</string>
+<string name="touch_to_fill_sheet_full_height">"ٹچ پر پُر کی جانے والی اسناد کی فہرست مکمل اونچائی پر کھلی ہوئی ہے۔"</string>
+<string name="touch_to_fill_sheet_closed">"ٹچ پر پُر کی جانے والی اسناد کی فہرست بند ہے۔"</string>
+<string name="manage_passwords">"پاس ورڈز کا نظم کریں"</string>
+<string name="touch_to_fill_continue">"جاری رکھیں"</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Vergelyk bladsye vinnig deur \'n groep te maak. Raak en hou \'n skakel om te begin."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Tik om nog \'n oortjie te sien"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Jou oortjies word hier saamgegroepeer"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Wissel tussen oortjies in jou oortjiegroep naby die onderkant van die skerm"</string>
+<string name="undo_bar_group_tabs_message">"%1$s oortjies gegroepeer"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d oortjie"</item>
+  <item quantity="other">"%1$d oortjies"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Voeg nuwe oortjie by groep"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Versteek volskermrooster"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Wys groep se oortjies in volskermrooster"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Maak oortjiestrook toe"</string>
+<string name="tabswitcher_create_group">"Skep groep"</string>
+<string name="accessibility_tab_switcher">"Oortjiewisselaar"</string>
+<string name="accessibility_close_tab_group_button">"Maak oortjiegroep met %1$s oortjies toe"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Maak %1$s-groep met %2$s oortjies toe"</string>
+<string name="tab_selection_editor_group">"Groep"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Kies oortjies"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Groepeer %1$d geselekteerde oortjie"</item>
+  <item quantity="other">"Groepeer %1$d geselekteerde oortjies"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Versteek multikeusemodus"</string>
+<string name="accessibility_tab_selection_editor">"Multikeusemodus"</string>
+<string name="tab_grid_dialog_remove_from_group">"Verwyder uit groep"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Verwyder oortjies uit groep"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Verwyder"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Deel groep"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Wysig groep se naam"</string>
+<string name="accessibility_expand_tab_group">"Vou oortjiegroep met %1$s oortjies uit."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Vou %1$s-oortjiegroep met %2$s oortjies uit."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Verwyder %1$d geselekteerde oortjie uit die groep."</item>
+  <item quantity="other">"Verwyder %1$d geselekteerde oortjies uit die groep."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Vou %1$d oortjie in."</item>
+  <item quantity="other">"Vou oortjiegroep met %1$d oortjies in."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Vou %1$d oortjie in."</item>
+  <item quantity="other">"Vou %1$s-oortjiegroep met %2$d oortjies in."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Oortjiegroep is uitgevou"</string>
+<string name="iph_drag_and_drop_introduction">"Sleep oortjies om hulle te groepeer"</string>
+<string name="iph_drag_and_drop_show_me">"Wys my"</string>
+<string name="iph_drag_and_drop_title">"Raak georganiseerd"</string>
+<string name="iph_drag_and_drop_content">"Raak en hou \'n oortjie om oortjies te groepeer. Sleep dit dan op \'n ander oortjie."</string>
+<string name="tab_switcher_carousel_title">"Hou aan blaai"</string>
+<string name="tab_switcher_carousel_view_all">"Bekyk alles"</string>
+<string name="tab_suggestion_review_button">"Gaan na"</string>
+<string name="tab_suggestion_close_tab_action_button">"Maak toe"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s van jou oortjies is nie onlangs gebruik nie. Maak hulle toe?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s oortjies lyk of hulle verwant is. Groepeer hulle?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Gaan die voorstelle na."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Voorstel: %1$s van jou oortjies is nie onlangs gebruik nie. Maak hulle toe?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Voorstel: %1$s oortjies lyk of hulle verwant is. Groepeer hulle?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Maak die voorstelle toe."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Maak %1$d gekose oortjie toe"</item>
+  <item quantity="other">"Maak %1$d gekose oortjies toe"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Skuif oortjie na links"</string>
+<string name="accessibility_tab_movement_right">"Skuif oortjie na regs"</string>
+<string name="accessibility_tab_movement_up">"Skuif oortjie op"</string>
+<string name="accessibility_tab_movement_down">"Skuif oortjie ondertoe"</string>
+<string name="undo_tab_strip_closure_message">"Oortjiestrook is toegemaak"</string>
+<string name="tab_strip_info_bar_question">"Moenie weer hierdie oortjiestrook wys nie?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Moenie weer wys nie"</string>
+<string name="tab_strip_info_bar_reshow">"Wys later"</string>
+<string name="price_drop_spotted_title">"Prysdaling is opgemerk"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Wys my"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

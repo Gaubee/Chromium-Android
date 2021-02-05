@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"លក្ខខណ្ឌប្រើប្រាស់របស់​ Chrome នឹងផ្លាស់ប្ដូរនៅថ្ងៃទី 31 ខែមីនា"</string>
+<string name="tos_notification_body_text">"សូម​ពិនិត្យមើល​លក្ខខណ្ឌ​ថ្មី"</string>
+<string name="tos_notification_ack_button_text">"យល់ហើយ"</string>
+<string name="tos_notification_review_button_text">"ពិនិត្យមើល"</string>
+<string name="managed">"គ្រប់គ្រងដោយ​ស្ថាប័ន​របស់អ្នក"</string>
+<string name="search_or_type_web_address">"ស្វែងរក ឬវាយ​បញ្ចូល​អាសយដ្ឋានទំព័រ"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"លុប​ការណែនាំ​ចេញពី​ឃ្លីបបត?"</string>
+<string name="options_homepage_title">"ទំព័រដើម"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"រក​មិនឃើញ​ឧបករណ៍​ដែលនៅជិត​ទេ។"</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"អនុញ្ញាត"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"ទប់ស្កាត់"</string>
+</resources>

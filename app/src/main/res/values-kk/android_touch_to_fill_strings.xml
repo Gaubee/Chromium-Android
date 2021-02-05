@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Есептік жазбамен кіру"</string>
+<string name="touch_to_fill_sheet_title">"Есептік жазба таңдау"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Түрту арқылы толтырылатын тіркелу деректері тізімі."</string>
+<string name="touch_to_fill_sheet_half_height">"Түрту арқылы толтырылатын тіркелу деректерінің тізімі жарты экранға ашылған."</string>
+<string name="touch_to_fill_sheet_full_height">"Түрту арқылы толтырылатын тіркелу деректері тізімі толық экранға ашылған."</string>
+<string name="touch_to_fill_sheet_closed">"Түрту арқылы толтырылатын тіркелу деректерінің тізімі жабық."</string>
+<string name="manage_passwords">"Құпия сөздерді басқару"</string>
+<string name="touch_to_fill_continue">"Жалғастыру"</string>
+</resources>

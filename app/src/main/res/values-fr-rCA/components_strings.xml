@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Découvrir"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-fr-rCA/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Confirmer"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Enregistrer la carte"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Ce nom provient de votre compte Google"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"Veuillez vérifier votre CVC et réessayer"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Vérifiez la date d\'expiration et réessayez"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Vérifiez votre CVC et la date d\'expiration, puis réessayez."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Vérifiez le mois d\'expiration et réessayez"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Vérifiez l\'année d\'expiration et réessayez"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Conserver une copie de cette carte sur cet appareil"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Chromium conservera une copie de votre carte sur cet appareil pour vous permettre de remplir plus rapidement vos formulaires, lorsque l\'option est cochée."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Utiliser le verrouillage d\'écran pour confirmer les cartes à partir de maintenant"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Confirmation de la carte en cours…"</string>
+<string name="autofill_card_unmask_verification_success">"Votre carte est confirmée"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Mettre à jour la carte"</string>
+<string name="autofill_wallet_management_link_text">"Modifier"</string>
+<string name="autofill_from_google_account_long">"De Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"Effacer la copie"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Découvrir"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Numériser la nouvelle carte"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Inclut des données telles que des numéros de téléphone, des adresses de courriel et des adresses de livraison"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Remplit les formulaires de facturation avec les renseignements de vos modes de paiement enregistrés"</string>
+<string name="autofill_addresses_settings_title">"Adresses et plus"</string>
+<string name="autofill_payment_methods">"Modes de paiement"</string>
+<string name="autofill_enable_profiles_toggle_label">"Enregistrer et remplir les adresses"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Enregistrer et remplir les modes de paiement"</string>
+<string name="enable_credit_card_fido_auth_label">"Verrouillage de l\'écran"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Utiliser le verrouillage d\'écran pour vérifier les cartes plus rapidement"</string>
+<!-- <string name="http_post_warning_title">"Confirmer le nouvel envoi du formulaire"</string> -->
+<!-- <string name="http_post_warning">"La page que vous recherchez a utilisé de l\'information que vous avez envoyée. Si vous revenez sur cette page, chaque action précédemment effectuée sera peut-être répétée. Souhaitez-vous continuer?"</string> -->
+<!-- <string name="http_post_warning_resend">"Continuer"</string> -->
+<!-- <string name="login_dialog_title">"Connexion"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Connexion"</string> -->
+<!-- <string name="login_dialog_username_field">"Nom d\'utilisateur"</string> -->
+<!-- <string name="login_dialog_password_field">"Mot de passe"</string> -->
+<string name="sad_tab_title">"Aïe aïe aïe!"</string>
+<string name="sad_tab_message">"Une erreur s\'est produite lors de l\'affichage de cette page Web."</string>
+<string name="sad_tab_reload_label">"Actualiser"</string>
+<string name="sad_tab_send_feedback_label">"Envoyer des commentaires"</string>
+<string name="sad_tab_reload_title">"Impossible d\'ouvrir cette page"</string>
+<string name="sad_tab_reload_try">"Essayez les conseils suivants :"</string>
+<string name="sad_tab_reload_incognito">"Ouvrir la page dans un nouvel onglet de navigation privée"</string>
+<string name="sad_tab_reload_restart_browser">"Redémarrer Chromium"</string>
+<string name="sad_tab_reload_restart_device">"Redémarrer l\'appareil"</string>
+<string name="sad_tab_reload_learn_more">"En savoir plus"</string>
+<string name="new_tab_otr_title">"Vous êtes passé en mode de navigation privée"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Votre activité &lt;em&gt;peut encore être visible&lt;/em&gt; pour :
+        &lt;ul&gt;
+          &lt;li&gt;les sites Web que vous consultez;
+          &lt;li&gt;votre employeur ou votre établissement scolaire;
+          &lt;li&gt;votre fournisseur d\'accès Internet.
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Ce paramètre est géré dans les paramètres des témoins."</string>
+<string name="new_tab_otr_third_party_cookie">"Bloquer les témoins de tiers"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Lorsque ce mode est activé, les sites ne peuvent pas utiliser de témoins qui font le suivi de votre activité sur le Web. Les fonctionnalités pourraient ne pas fonctionner sur certains sites."</string>
+<string name="ntp_article_suggestions_section_header">"Articles pour vous"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Suggestions de Google"</string>
+<string name="ntp_article_suggestions_section_empty">"Les articles que vous avez suggérés s\'afficheront ici"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Site diffusant des annonces intrusives ou trompeuses"</string> -->
+<string name="payments_method_of_payment_label">"Mode de paiement"</string>
+<string name="payments_contact_details_label">"Coordonnées"</string>
+<string name="payments_add_contact_details_label">"Ajouter des coordonnées"</string>
+<string name="payments_edit_contact_details_label">"Modifier les coordonnées"</string>
+<string name="payments_add_billing_address">"Ajouter l\'adresse de facturation"</string>
+<string name="payments_add_name_on_card">"Ajouter le nom sur la carte"</string>
+<string name="payments_add_valid_card_number">"Ajouter un numéro de carte valide"</string>
+<string name="payments_add_more_information">"Ajouter plus de renseignements"</string>
+<string name="payments_edit_card">"Modifier la carte"</string>
+<string name="payments_add_phone_number">"Ajouter un numéro de téléphone"</string>
+<string name="payments_add_recipient">"Ajouter un nom"</string>
+<string name="payments_add_valid_address">"Ajouter une adresse valide"</string>
+<string name="payments_add_email">"Ajouter une adresse de courriel"</string>
+<string name="payments_add_name">"Ajouter un nom"</string>
+<string name="payments_order_summary_label">"Résumé de la commande"</string>
+<string name="payment_request_payment_method_section_name">"Paiement"</string>
+<string name="payment_account_balance">"Solde du compte"</string>
+<string name="payments_shipping_summary_label">"Livraison"</string>
+<string name="payments_shipping_address_label">"Adresse d\'expédition"</string>
+<string name="payments_shipping_option_label">"Mode de livraison"</string>
+<string name="payments_delivery_summary_label">"Livraison"</string>
+<string name="payments_delivery_address_label">"Adresse de livraison"</string>
+<string name="payments_delivery_option_label">"Mode de livraison rapide"</string>
+<string name="payments_pickup_summary_label">"Ramassage"</string>
+<string name="payments_pickup_address_label">"Adresse de ramassage"</string>
+<string name="payments_pickup_option_label">"Mode de ramassage"</string>
+<string name="payments_edit_button">"Modifier"</string>
+<string name="payments_pay_button">"Paiement"</string>
+<string name="payments_continue_button">"Continuer"</string>
+<string name="payments_add_contact">"Ajouter des coordonnées"</string>
+<string name="payments_add_card">"Ajouter une carte"</string>
+<string name="payments_add_address">"Ajouter une adresse"</string>
+<string name="payments_edit_address">"Modifier l\'adresse"</string>
+<string name="payments_name_field_in_contact_details">"Nom"</string>
+<string name="payments_save_card_to_device_checkbox">"Enregistrer cette carte sur cet appareil"</string>
+<string name="payments_accepted_cards_label">"Cartes acceptées"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Date d\'expiration : %1$s/%2$s"</string>
+<string name="payments_loading_message">"Chargement en cours"</string>
+<string name="payments_processing_message">"Traitement en cours"</string>
+<string name="payments_checking_option">"Vérification en cours…"</string>
+<string name="payments_updated_label">"Mis à jour"</string>
+<string name="payment_complete_message">"Paiement effectué"</string>
+<string name="payments_error_message">"Une erreur s\'est produite lors du traitement de votre commande. Veuillez réessayer."</string>
+<string name="payments_card_and_address_settings">"Vous pouvez gérer les cartes et les adresses dans les BEGIN_LINKparamètresEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"Les cartes et les adresses proviennent de Chrome et de votre compte Google (%1$s). Vous pouvez les gérer dans BEGIN_LINKParamètresEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"Touchez le capteur pour payer"</string>
+<string name="payment_fingerprint_not_recognized">"Doigt non reconnu"</string>
+<string name="payments_card_and_address_settings_signed_out">"Les cartes et les adresses proviennent de Chrome. Vous pouvez les gérer dans BEGIN_LINKParamètresEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"Autoriser les sites à vérifier si des modes de paiement sont enregistrés"</string>
+<string name="payments_required_field_message">"* Ce champ est obligatoire"</string>
+<string name="payments_phone_invalid_validation_message">"Entrez un numéro de téléphone valide"</string>
+<string name="payments_email_invalid_validation_message">"Entrez une adresse de courriel valide"</string>
+<string name="payments_card_number_invalid_validation_message">"Entrez un numéro de carte valide"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Entrez une date d\'expiration valide"</string>
+<string name="payments_invalid_address">"Entrez une adresse valide"</string>
+<string name="payments_billing_address_required">"Adresse de facturation requise"</string>
+<string name="payments_name_on_card_required">"Nom du titulaire de la carte obligatoire"</string>
+<string name="payments_more_information_required">"Plus de renseignements nécessaires"</string>
+<string name="payments_phone_number_required">"Un numéro de téléphone est requis"</string>
+<string name="payments_recipient_required">"Vous devez indiquer un nom"</string>
+<string name="payments_email_required">"Adresse de courriel obligatoire"</string>
+<string name="payments_name_required">"Vous devez indiquer un nom"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Champ obligatoire"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Pour voir les exigences et les modes de livraison, sélectionnez une adresse"</string>
+<string name="payments_unsupported_shipping_address">"Impossible d\'effectuer une livraison à cette adresse. Sélectionnez une autre adresse."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Pour voir les exigences et les modes de livraison, sélectionnez une adresse"</string>
+<string name="payments_unsupported_delivery_address">"Impossible d\'effectuer une livraison à cette adresse. Sélectionnez une autre adresse."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Pour voir les exigences et les modes de ramassage, sélectionnez une adresse"</string>
+<string name="payments_unsupported_pickup_address">"Impossible d\'effectuer un ramassage à partir de cette adresse. Sélectionnez une autre adresse."</string>
+<string name="payments_android_app_error">"Impossible d\'ouvrir l\'application de paiement"</string>
+<string name="external_payment_app_leave_incognito_warning">"Vous devez quitter le mode de navigation privée pour effectuer un paiement par l\'intermédiaire d\'une application externe. Continuer?"</string>
+<string name="payment_handler_sheet_description">"Feuille du module de traitement du paiement"</string>
+<string name="payment_handler_sheet_opened_half">"La feuille du module de traitement du paiement est ouverte à moitié"</string>
+<string name="payment_handler_sheet_opened_full">"La feuille du module de traitement du paiement est ouverte"</string>
+<string name="payment_handler_sheet_closed">"La feuille du module de traitement du paiement est fermée"</string>
+<string name="blocked_ads_prompt_title">"Annonces bloquées"</string>
+<!-- <string name="translate_infobar_error">"Oups… Impossible de traduire cette page."</string> -->
+<!-- <string name="translate_button">"Traduire"</string> -->
+<!-- <string name="translate_never_translate_site">"Ne jamais traduire ce site"</string> -->
+<string name="translate_dont_offer_site">"Ne pas proposer de traduire ce site"</string>
+<!-- <string name="translate_option_always_translate">"Toujours traduire les pages en %1$s"</string> -->
+<!-- <string name="translate_option_never_translate">"Ne jamais traduire les pages en %1$s"</string> -->
+<string name="translate_dont_offer_lang">"Ne pas proposer de traduire les pages en %1$s"</string>
+<!-- <string name="translate_option_more_language">"Plus de langues"</string> -->
+<!-- <string name="translate_option_not_source_language">"Cette page n\'est pas en %1$s?"</string> -->
+<string name="translate_snackbar_always_translate">"Les pages en %1$s seront désormais traduites en %2$s"</string>
+<string name="translate_snackbar_language_never">"Les pages en %1$s ne seront pas traduites"</string>
+<string name="translate_snackbar_site_never">"Ce site ne sera pas traduit"</string>
+<string name="translate_snackbar_cancel">"Annuler"</string>
+<string name="clear">"Effacer"</string>
+<string name="show_content">"Afficher"</string>
+<string name="hide_content">"Masquer"</string>
+<string name="choose">"Choisir"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-fr-rCA/components_strings.xml -->
+
+<string name="http_post_warning_title">"Confirmer le nouvel envoi du formulaire"</string>
+<string name="http_post_warning">"La page que vous recherchez a utilisé de l\'information que vous avez envoyée. Si vous revenez sur cette page, chaque action précédemment effectuée sera peut-être répétée. Souhaitez-vous continuer?"</string>
+<string name="http_post_warning_resend">"Continuer"</string>
+<string name="login_dialog_title">"Connexion"</string>
+<string name="login_dialog_ok_button_label">"Connexion"</string>
+<string name="login_dialog_username_field">"Nom d\'utilisateur"</string>
+<string name="login_dialog_password_field">"Mot de passe"</string>
+<string name="page_info_permission_ads_subtitle">"Site diffusant des annonces intrusives ou trompeuses"</string>
+<string name="translate_infobar_error">"Oups… Impossible de traduire cette page."</string>
+<string name="translate_button">"Traduire"</string>
+<string name="translate_never_translate_site">"Ne jamais traduire ce site"</string>
+<string name="translate_option_always_translate">"Toujours traduire les pages en %1$s"</string>
+<string name="translate_option_never_translate">"Ne jamais traduire les pages en %1$s"</string>
+<string name="translate_option_more_language">"Plus de langues"</string>
+<string name="translate_option_not_source_language">"Cette page n\'est pas en %1$s?"</string>
+</resources>

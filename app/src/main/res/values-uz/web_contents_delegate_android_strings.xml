@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Yana"</string>
+<string name="color_picker_hue">"Tus"</string>
+<string name="color_picker_saturation">"To‘liqlik"</string>
+<string name="color_picker_value">"Qiymat"</string>
+<string name="color_picker_button_set">"O‘rnatish"</string>
+<string name="color_picker_button_cancel">"Bekor qilish"</string>
+<string name="color_picker_dialog_title">"Rangni tanlang"</string>
+<string name="color_picker_button_red">"Qizil"</string>
+<string name="color_picker_button_cyan">"Havorang"</string>
+<string name="color_picker_button_blue">"Ko‘k"</string>
+<string name="color_picker_button_green">"Yashil"</string>
+<string name="color_picker_button_magenta">"Siyohrang"</string>
+<string name="color_picker_button_yellow">"Sariq"</string>
+<string name="color_picker_button_black">"Qora"</string>
+<string name="color_picker_button_white">"Oq"</string>
+</resources>

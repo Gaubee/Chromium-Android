@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"न्यून मेमोरीको कारण अघिल्लो कार्य पूरा गर्न सकिएन"</string>
+<string name="opening_file_error">"चयन गरिएका फाइल खोल्न असफल भयो"</string>
+<string name="copy_to_clipboard_failure_message">"क्लिपबोर्डमा प्रतिलिपि गर्न असफल भयो"</string>
+<string name="link_copied">"लिंक प्रतिलिपि गरियो"</string>
+<string name="chip_remove_icon_content_description">"\'%1$s\' हटाउनुहोस्"</string>
+</resources>

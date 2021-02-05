@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"รายการข้อมูลเข้าสู่ระบบที่จะกรอกเมื่อแตะ"</string>
+<string name="all_passwords_bottom_sheet_half_height">"รายการข้อมูลเข้าสู่ระบบที่จะกรอกเมื่อแตะเปิดอยู่ที่ระดับความสูงครึ่งหนึ่งของหน้าจอ"</string>
+<string name="all_passwords_bottom_sheet_full_height">"รายการข้อมูลเข้าสู่ระบบที่จะกรอกเมื่อแตะเปิดอยู่ที่ระดับความสูงเต็มหน้าจอ"</string>
+<string name="all_passwords_bottom_sheet_closed">"รายการข้อมูลเข้าสู่ระบบที่จะกรอกเมื่อแตะปิดอยู่"</string>
+<string name="all_passwords_bottom_sheet_title">"รหัสผ่าน"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"ค้นหา"</string>
+<string name="all_passwords_bottom_sheet_no_password">"ไม่มีรหัสผ่าน"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"หากคุณเชื่อถือ %s ก็ใช้รหัสผ่านที่บันทึกไว้กับเว็บไซต์อื่นได้"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"ขอแนะนำให้ใช้รหัสผ่านที่ไม่ซ้ำกันสำหรับทุกเว็บไซต์"</string>
+<string name="autofill_keyboard_accessory_content_description">"รหัสผ่านที่มีอยู่"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"คำแนะนำในการป้อนข้อความอัตโนมัติแสดงอยู่เหนือแป้นพิมพ์"</string>
+<string name="keyboard_accessory_sheet_hide">"แสดงแป้นพิมพ์"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"ใช้คำแนะนำการป้อนข้อความอัตโนมัติใน Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"เลื่อนเพื่อดูคำแนะนำเพิ่มเติม"</string>
+<string name="password_generation_accessory_button">"แนะนำรหัสผ่านที่รัดกุม"</string>
+<string name="password_generation_accessory_button_short">"แนะนำรหัสผ่าน"</string>
+<string name="password_accessory_sheet_toggle">"แสดงรหัสผ่าน"</string>
+<string name="password_accessory_sheet_opened">"กำลังแสดงรหัสผ่านที่บันทึกไว้และตัวเลือกรหัสผ่าน"</string>
+<string name="address_accessory_sheet_title">"ที่อยู่"</string>
+<string name="address_accessory_sheet_toggle">"แสดงที่อยู่"</string>
+<string name="address_accessory_sheet_opened">"กำลังแสดงที่อยู่ที่บันทึกไว้"</string>
+<string name="credit_card_accessory_sheet_toggle">"แสดงวิธีการชำระเงิน"</string>
+<string name="credit_card_accessory_sheet_opened">"กำลังแสดงวิธีการชำระเงินที่บันทึกไว้"</string>
+</resources>

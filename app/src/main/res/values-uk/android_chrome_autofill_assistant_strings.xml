@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Приймаю"</string>
+<string name="autofill_assistant_init_title">"Спробуйте скористатися Google Асистентом\nу Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Орендуйте автомобіль\nу кілька дотиків"</string>
+<string name="autofill_assistant_init_message_password_change">"Google Асистент може допомогти вам\nзмінити пароль"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Купуйте квитки в кіно\nв кілька дотиків"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Замовляйте їжу\nв кілька дотиків"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Реєструйтеся на авіарейси\nв кілька дотиків"</string>
+<string name="autofill_assistant_init_message_voice_search">"Випробуйте голосові команди\nна веб-сайтах"</string>
+<string name="autofill_assistant_init_message_shopping">"Швидка оплата\nв кілька дотиків"</string>
+<string name="autofill_assistant_init_message">"Google Асистент заощаджує ваш час, допомагаючи виконувати дії в Інтернеті, такі як пошук і оплата."</string>
+<string name="autofill_assistant_init_message_short">"Google Асистент може завершувати дії на різних веб-сайтах у Chrome"</string>
+<string name="autofill_assistant_google_terms_description">"Щоб допомагати вам виконувати завдання, Google отримуватиме URL-адреси та вміст веб-сайтів, на яких ви користуєтесь Асистентом, а також інформацію, яку надсилаєте через нього. Ці дані можуть зберігатись у вашому обліковому записі Google. Ви можете вимкнути Асистента в налаштуваннях Chrome. &lt;link&gt;Докладніше&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"На жаль, я не можу допомогти. Продовжуйте самостійно."</string>
+<string name="autofill_assistant_payment_information_missing">"Немає інформації"</string>
+<string name="autofill_assistant_view_original_image_desc">"Відкрити зовнішнє посилання?"</string>
+<string name="autofill_assistant_view_original_image_view">"Перегляд"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Скасувати"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Асистент у Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Google Асистент відкрито в Chrome на половину висоти."</string>
+<string name="autofill_assistant_sheet_full_height">"Google Асистент відкрито в Chrome на повну висоту."</string>
+<string name="autofill_assistant_sheet_closed">"Google Асистент у Chrome закрито."</string>
+<string name="autofill_assistant_send_feedback">"Надіслати відгук"</string>
+<string name="autofill_assistant_increase_value">"Збільшити значення"</string>
+<string name="autofill_assistant_decrease_value">"Знизити значення"</string>
+<string name="autofill_assistant_overflow_options">"Налаштування"</string>
+</resources>

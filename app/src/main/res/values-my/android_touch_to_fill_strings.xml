@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"အကောင့်ဖြင့် ရှေ့ဆက်ခြင်း"</string>
+<string name="touch_to_fill_sheet_title">"အကောင့်တစ်ခု ရွေးပါ"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"ထိလိုက်သည့်အခါ ဖြည့်ရန်အတွက် အထောက်အထားများ၏ စာရင်း"</string>
+<string name="touch_to_fill_sheet_half_height">"ထိလိုက်သည့်အခါ ဖြည့်ရန်အတွက် အထောက်အထားများ၏ စာရင်းကို မြင်ကွင်းတစ်ဝက်ဖြင့်ထားသည်။"</string>
+<string name="touch_to_fill_sheet_full_height">"ထိလိုက်သည့်အခါ ဖြည့်ရန်အတွက် အထောက်အထားများ၏ စာရင်းကို မြင်ကွင်းအပြည့်ဖြင့်ထားသည်။"</string>
+<string name="touch_to_fill_sheet_closed">"ထိတွေ့သည့်အခါ ဖြည့်ရန် အထောက်အထားစာရင်းကို ပိတ်ထားသည်။"</string>
+<string name="manage_passwords">"စကားဝှက်များကို စီမံကွပ်ကဲရန်"</string>
+<string name="touch_to_fill_continue">"ဆက်လုပ်ရန်"</string>
+</resources>

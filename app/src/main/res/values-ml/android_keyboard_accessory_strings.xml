@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"ടച്ച് ചെയ്യുമ്പോൾ പൂരിപ്പിക്കേണ്ട ക്രെഡൻ‍ഷ്യലുകളുടെ ലിസ്‌റ്റ്."</string>
+<string name="all_passwords_bottom_sheet_half_height">"ടച്ച് ചെയ്യുമ്പോൾ പൂരിപ്പിക്കേണ്ട ക്രെഡൻഷ്യലുകളുടെ ലിസ്റ്റ് പകുതി ഉയരത്തിൽ തുറന്നിരിക്കുന്നു."</string>
+<string name="all_passwords_bottom_sheet_full_height">"ടച്ച് ചെയ്യുമ്പോൾ പൂരിപ്പിക്കേണ്ട ക്രെഡൻഷ്യലുകളുടെ ലിസ്റ്റ് പൂർണ്ണ ഉയരത്തിൽ തുറന്നിരിക്കുന്നു."</string>
+<string name="all_passwords_bottom_sheet_closed">"ടച്ച് ചെയ്യുമ്പോൾ പൂരിപ്പിക്കേണ്ട ക്രെഡൻഷ്യലുകളുടെ ലിസ്റ്റ് അടച്ചിരിക്കുന്നു."</string>
+<string name="all_passwords_bottom_sheet_title">"പാസ്‌വേഡുകള്‍"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Search"</string>
+<string name="all_passwords_bottom_sheet_no_password">"പാസ്‌വേഡ് ഇല്ല"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%s -നെ വിശ്വസിക്കുന്നുവെങ്കിൽ, സംരക്ഷിച്ച പാസ്‌വേഡ് മറ്റൊരു സൈറ്റിനായി നിങ്ങൾക്ക് ഉപയോഗിക്കാം."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"ഓരോ സൈറ്റിനും വ്യത്യസ്തമായ പാസ്‌വേഡ് ഉപയോഗിക്കാൻ ശ്രമിക്കുക."</string>
+<string name="autofill_keyboard_accessory_content_description">"പാസ്‌വേഡുകള്‍ ലഭ്യമാണ്‌"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"കീബോർഡിന് മുകളിൽ സ്വയമേവ പൂരിപ്പിക്കൽ നിർദ്ദേശങ്ങൾ ലഭ്യമാണ്"</string>
+<string name="keyboard_accessory_sheet_hide">"കീബോര്‍‌ഡ് കാണിക്കുക"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome ഓട്ടോഫിൽ നിർദ്ദേശം ഉപയോഗിക്കുക"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"കൂടുതൽ നിർദ്ദേശങ്ങൾ കാണാൻ സ്വൈപ്പ് ചെയ്യുക"</string>
+<string name="password_generation_accessory_button">"ശക്തമായ പാസ്‌വേഡ് നിർദ്ദേശിക്കുക"</string>
+<string name="password_generation_accessory_button_short">"പാസ്‌വേഡ് നിർദ്ദേശിക്കുക"</string>
+<string name="password_accessory_sheet_toggle">"പാസ്‌വേ‌ഡുകൾ കാണിക്കുക"</string>
+<string name="password_accessory_sheet_opened">"സംരക്ഷിച്ച പാസ്‌വേഡുകളും പാസ്‌വേഡ് ഓപ്‌ഷനുകളും കാണിക്കുന്നു"</string>
+<string name="address_accessory_sheet_title">"വിലാസങ്ങള്‍‌"</string>
+<string name="address_accessory_sheet_toggle">"വിലാസങ്ങൾ കാണിക്കുക"</string>
+<string name="address_accessory_sheet_opened">"സംരക്ഷിച്ച വിലാസങ്ങൾ കാണിക്കുന്നു"</string>
+<string name="credit_card_accessory_sheet_toggle">"പേയ്‌മെന്റ് രീതികൾ കാണിക്കുക"</string>
+<string name="credit_card_accessory_sheet_opened">"സംരക്ഷിച്ച പേയ്‌മെന്റ് രീതികൾ കാണിക്കുന്നു"</string>
+</resources>

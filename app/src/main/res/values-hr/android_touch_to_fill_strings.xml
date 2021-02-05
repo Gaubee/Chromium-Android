@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Nastavite uz račun"</string>
+<string name="touch_to_fill_sheet_title">"Odabir računa"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Popis vjerodajnica za unos dodirom."</string>
+<string name="touch_to_fill_sheet_half_height">"Popis vjerodajnica za unos dodirom otvoren je na pola visine."</string>
+<string name="touch_to_fill_sheet_full_height">"Popis vjerodajnica za unos dodirom otvoren je preko cijelog zaslona."</string>
+<string name="touch_to_fill_sheet_closed">"Popis vjerodajnica za unos dodirom zatvoren je."</string>
+<string name="manage_passwords">"Upravljanje zaporkama"</string>
+<string name="touch_to_fill_continue">"Nastavi"</string>
+</resources>

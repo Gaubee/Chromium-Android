@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Sunt de acord"</string>
+<string name="autofill_assistant_init_title">"Încearcă Asistentul Google\nîn Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Închiriază o mașină\ncu doar câteva atingeri"</string>
+<string name="autofill_assistant_init_message_password_change">"Schimbă parola cu ajutorul\nAsistentului Google"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Cumpără bilete la film\ncu doar câteva atingeri"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Comandă mâncare\ncu doar câteva atingeri"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Fă check-in pentru zbor\ncu doar câteva atingeri"</string>
+<string name="autofill_assistant_init_message_voice_search">"Încearcă acțiunile vocale\npe site-uri"</string>
+<string name="autofill_assistant_init_message_shopping">"Finalizare rapidă a achiziției\ncu doar câteva atingeri"</string>
+<string name="autofill_assistant_init_message">"Cu Asistentul Google economisești timp la finalizarea acțiunilor pe web, cum ar fi căutarea și finalizarea achizițiilor."</string>
+<string name="autofill_assistant_init_message_short">"În Chrome, Asistentul Google poate să realizeze pentru tine acțiuni pe site-uri"</string>
+<string name="autofill_assistant_google_terms_description">"Pentru a te ajuta să finalizezi sarcini, Google va primi adresele URL și conținutul site-urilor în care folosești Asistentul, precum și informațiile pe care le trimiți cu ajutorul Asistentului. Aceste informații pot fi stocate în contul tău Google. Poți să dezactivezi Asistentul din setările Chrome. &lt;link&gt;Află mai multe&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Nu te mai pot ajuta. Continuă personal."</string>
+<string name="autofill_assistant_payment_information_missing">"Informații lipsă"</string>
+<string name="autofill_assistant_view_original_image_desc">"Deschizi linkul extern?"</string>
+<string name="autofill_assistant_view_original_image_view">"Afișează"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Anulează"</string>
+<string name="autofill_assistant_sheet_content_description">"Asistentul Google în Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Asistentul Google în Chrome a fost deschis la jumătate din înălțime."</string>
+<string name="autofill_assistant_sheet_full_height">"Asistentul Google în Chrome este deschis la înălțimea completă."</string>
+<string name="autofill_assistant_sheet_closed">"Asistentul Google în Chrome este închis."</string>
+<string name="autofill_assistant_send_feedback">"Trimite feedback"</string>
+<string name="autofill_assistant_increase_value">"Mărește valoarea"</string>
+<string name="autofill_assistant_decrease_value">"Redu valoarea"</string>
+<string name="autofill_assistant_overflow_options">"Preferințe"</string>
+</resources>

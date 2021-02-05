@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Lanjutkan dengan akun"</string>
+<string name="touch_to_fill_sheet_title">"Pilih akun"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Daftar kredensial yang terisi dengan gestur sentuhan."</string>
+<string name="touch_to_fill_sheet_half_height">"Daftar kredensial yang terisi dengan gestur sentuhan sedang terbuka setengah."</string>
+<string name="touch_to_fill_sheet_full_height">"Daftar kredensial yang terisi dengan gestur sentuhan sedang terbuka sepenuhnya."</string>
+<string name="touch_to_fill_sheet_closed">"Daftar kredensial yang terisi dengan gestur sentuhan sedang tertutup."</string>
+<string name="manage_passwords">"Kelola sandi"</string>
+<string name="touch_to_fill_continue">"Lanjutkan"</string>
+</resources>

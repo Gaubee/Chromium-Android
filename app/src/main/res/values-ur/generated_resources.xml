@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"‏Chrome کی سروس کی شرائط 31 مارچ کو بدل رہی ہیں"</string>
+<string name="tos_notification_body_text">"براہ کرم نئی شرائط کا جائزہ لیں"</string>
+<string name="tos_notification_ack_button_text">"سمجھ آ گئی"</string>
+<string name="tos_notification_review_button_text">"جائزہ لیں"</string>
+<string name="managed">"آپ کی تنظیم کے زیر نظم"</string>
+<string name="search_or_type_web_address">"ویب پتہ تلاش کریں یا ٹائپ کریں"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"کلپ بورڈ سے تجویز ہٹائیں؟"</string>
+<string name="options_homepage_title">"ہوم صفحہ"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"کوئی قریبی آلہ نہیں ملا۔"</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"اجازت دیں"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"مسدود کریں"</string>
+</resources>

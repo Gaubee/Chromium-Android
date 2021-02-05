@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Продължете с профил"</string>
+<string name="touch_to_fill_sheet_title">"Изберете профил"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Списък с идентификационни данни, които да бъдат попълнени при докосване."</string>
+<string name="touch_to_fill_sheet_half_height">"Списъкът с идентификационни данни, които да бъдат попълнени при докосване, е отворен на половината височина."</string>
+<string name="touch_to_fill_sheet_full_height">"Списъкът с идентификационни данни, които да бъдат попълнени при докосване, е отворен на пълната височина."</string>
+<string name="touch_to_fill_sheet_closed">"Списъкът с идентификационни данни, които да бъдат попълнени при докосване, е затворен."</string>
+<string name="manage_passwords">"Управление на паролите"</string>
+<string name="touch_to_fill_continue">"Напред"</string>
+</resources>

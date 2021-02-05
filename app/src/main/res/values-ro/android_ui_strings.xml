@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Operația anterioară nu se poate finaliza, din cauza memoriei insuficiente"</string>
+<string name="opening_file_error">"Fișier. select. nu s-a deschis"</string>
+<string name="copy_to_clipboard_failure_message">"Nu s-a copiat în clipboard"</string>
+<string name="link_copied">"Linkul a fost copiat"</string>
+<string name="chip_remove_icon_content_description">"Elimină „%1$s”"</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"„Chrome“ reikia leidimo naudoti fotoaparatą jūsų aplinkos 3D žemėlapiui kurti."</string>
+<string name="infobar_missing_camera_permission_text">"„Chrome“ reikia leidimo, kad galėtų naudoti jūsų fotoaparatą šioje svetainėje."</string>
+<string name="infobar_missing_microphone_permission_text">"„Chrome“ reikia leidimo, kad galėtų naudoti jūsų mikrofoną šioje svetainėje."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"„Chrome“ reikia leidimo, kad galėtų naudoti jūsų fotoaparatą ir mikrofoną šioje svetainėje."</string>
+<string name="infobar_missing_location_permission_text">"„Chrome“ reikia leidimo, kad galėtų naudoti jūsų vietovės informaciją ir bendrinti ją su šia svetaine."</string>
+<string name="infobar_update_permissions_button_text">"Tęskite"</string>
+<string name="nfc_disabled_on_device_message">"Jei norite tęsti, „Android“ nustatymuose įjunkite ALR"</string>
+<string name="nfc_prompt_turn_on">"Įjungti"</string>
+<string name="overlay_detected_dialog_title">"Šioje svetainėje negalima prašyti jūsų leidimo"</string>
+<string name="overlay_detected_dialog_message">"Uždarykite visus debesėlius ar kitų programų perdangas. Tada bandykite dar kartą."</string>
+</resources>

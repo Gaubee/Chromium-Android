@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Sammenlign hurtigt sider ved at oprette en gruppe. Hold et link nede for at starte."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Tryk for at se en anden fane"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Dine faner er grupperet sammen her"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Skift mellem faner i din fanegruppe nederst på skærmen"</string>
+<string name="undo_bar_group_tabs_message">"%1$s faner blev grupperet"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d fane"</item>
+  <item quantity="other">"%1$d faner"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Føj en ny fane til gruppen"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Skjul fuldskærmsgitter"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Vis gruppens faner i et fuldskærmsgitter"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Luk fanelinje"</string>
+<string name="tabswitcher_create_group">"Opret gruppe"</string>
+<string name="accessibility_tab_switcher">"Faneskift"</string>
+<string name="accessibility_close_tab_group_button">"Luk fanegruppe med %1$s faner"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Luk gruppen %1$s med %2$s faner"</string>
+<string name="tab_selection_editor_group">"Gruppe"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Vælg faner"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Gruppér %1$d valgt fane"</item>
+  <item quantity="other">"Gruppér de %1$d valgte faner"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Skjul tilstanden Valg af flere"</string>
+<string name="accessibility_tab_selection_editor">"Tilstanden Valg af flere"</string>
+<string name="tab_grid_dialog_remove_from_group">"Fjern fra gruppe"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Fjern faner fra gruppe"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Fjern"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Del gruppe"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Rediger gruppenavn"</string>
+<string name="accessibility_expand_tab_group">"Udvid fanegruppen med %1$s faner."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Udvid fanegruppen %1$s med %2$s faner."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Fjern %1$d valgt fane fra gruppen."</item>
+  <item quantity="other">"Fjern %1$d valgte faner fra gruppen."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Skjul %1$d fane."</item>
+  <item quantity="other">"Skjul fanegruppe med %1$d faner."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Skjul %1$d fane."</item>
+  <item quantity="other">"Skjul fanegruppen %1$s med %2$d faner."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Fanegruppen blev udvidet"</string>
+<string name="iph_drag_and_drop_introduction">"Træk og slip faner for at gruppere dem"</string>
+<string name="iph_drag_and_drop_show_me">"Lad mig se"</string>
+<string name="iph_drag_and_drop_title">"Bliv velorganiseret"</string>
+<string name="iph_drag_and_drop_content">"Du kan gruppere faner ved at holde en fane nede. Træk den derefter oven på en anden fane."</string>
+<string name="tab_switcher_carousel_title">"Fortsæt med at gennemse"</string>
+<string name="tab_switcher_carousel_view_all">"Se alle"</string>
+<string name="tab_suggestion_review_button">"Gennemgå"</string>
+<string name="tab_suggestion_close_tab_action_button">"Luk"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s af dine faner er ikke blevet brugt for nylig. Vil du lukke dem?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s faner ser ud til at være relateret. Vil du gruppere dem?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Gennemgå forslagene."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Forslag: %1$s af dine faner er ikke blevet brugt for nylig. Vil du lukke dem?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Forslag: %1$s faner ser ud til at være relateret. Vil du gruppere dem?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Afvis forslagene."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Luk %1$d valgt fane"</item>
+  <item quantity="other">"Luk de %1$d valgte faner"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Flyt fane til venstre"</string>
+<string name="accessibility_tab_movement_right">"Flyt fane til højre"</string>
+<string name="accessibility_tab_movement_up">"Flyt fane op"</string>
+<string name="accessibility_tab_movement_down">"Flyt fane ned"</string>
+<string name="undo_tab_strip_closure_message">"Fanelinjen er lukket"</string>
+<string name="tab_strip_info_bar_question">"Vil du skjule denne fanelinje permanent?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Vis ikke igen"</string>
+<string name="tab_strip_info_bar_reshow">"Vis senere"</string>
+<string name="price_drop_spotted_title">"Der er registreret prisfald"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Lad mig se"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

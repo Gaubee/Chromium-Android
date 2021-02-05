@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"موافقم"</string>
+<string name="autofill_assistant_init_title">"‏«دستیار Google» را در‏\n‏Chrome امتحان کنید"</string>
+<string name="autofill_assistant_init_message_rent_car">"‏فقط با چند ضربه‏\nخودرو اجاره کنید"</string>
+<string name="autofill_assistant_init_message_password_change">"‏به «دستیار Google» اجازه دهید در\nتغییر گذرواژه به شما کمک کند"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"‏فقط با چند ضربه\nبلیط سینما بخرید"</string>
+<string name="autofill_assistant_init_message_food_ordering">"‏فقط با چند ضربه‏\nغذا سفارش دهید"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"‏فقط با چند ضربه\n برای پروازتان اعلام حضور کنید"</string>
+<string name="autofill_assistant_init_message_voice_search">"‏از کنش‌های گفتاری در‏\nوب‌سایت‌ها استفاده کنید"</string>
+<string name="autofill_assistant_init_message_shopping">"‏فقط با چند ضربه\nسریع تسویه‌حساب کنید"</string>
+<string name="autofill_assistant_init_message">"‏«دستیار Google» با کمک به شما برای تکمیل کنش‌ها در وب (مثلاً جستجو و تسویه‌حساب)، در زمانتان صرفه‌جویی می‌کند."</string>
+<string name="autofill_assistant_init_message_short">"‏«دستیار Google» در Chrome می‌تواند کنش‌هایی را در وب‌سایت‌ها برایتان انجام دهد"</string>
+<string name="autofill_assistant_google_terms_description">"‏برای کمک به انجام کارها، Google نشانی‌های وب و محتوای سایت‌هایی را که در آن‌ها از «دستیار» استفاده می‌کنید، و همچنین اطلاعاتی را که ازطریق «دستیار» ارسال می‌کنید دریافت خواهد کرد. ممکن است این اطلاعات در «حساب Google» شما ذخیره شود. می‌توانید «دستیار» را در «تنظیمات Chrome» خاموش کنید. &lt;link&gt;بیشتر بدانید&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"متأسفم، نمی‌توانم کمک کنم، لطفاً خودتان ادامه دهید."</string>
+<string name="autofill_assistant_payment_information_missing">"اطلاعات از دست می‌رود"</string>
+<string name="autofill_assistant_view_original_image_desc">"پیوند خارجی باز شود؟"</string>
+<string name="autofill_assistant_view_original_image_view">"نما"</string>
+<string name="autofill_assistant_view_original_image_cancel">"لغو"</string>
+<string name="autofill_assistant_sheet_content_description">"‏«دستیار Google» در Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"‏«دستیار Google» به‌صورت نیمه در Chrome باز شد."</string>
+<string name="autofill_assistant_sheet_full_height">"‏«دستیار Google» به‌صورت کامل در Chrome باز شد."</string>
+<string name="autofill_assistant_sheet_closed">"‏«دستیار Google» در Chrome بسته شد."</string>
+<string name="autofill_assistant_send_feedback">"ارسال بازخورد"</string>
+<string name="autofill_assistant_increase_value">"افزایش مقدار"</string>
+<string name="autofill_assistant_decrease_value">"کاهش مقدار"</string>
+<string name="autofill_assistant_overflow_options">"اولویت‌ها"</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"ລາຍການຂໍ້ມູນປະຈຳຕົວທີ່ຕ້ອງຕື່ມເມື່ອແຕະ."</string>
+<string name="all_passwords_bottom_sheet_half_height">"ລາຍການຂໍ້ມູນປະຈຳຕົວທີ່ຈະຕື່ມເມື່ອແຕະເປີດຢູ່ລະດັບລວງສູງເຄິ່ງຈໍ."</string>
+<string name="all_passwords_bottom_sheet_full_height">"ລາຍການຂໍ້ມູນປະຈຳຕົວທີ່ຈະຕື່ມເມື່ອແຕະເປີດຢູ່ລະດັບລວງສູງເຕັມຈໍ."</string>
+<string name="all_passwords_bottom_sheet_closed">"ລາຍການຂໍ້ມູນປະຈຳຕົວທີ່ຕ້ອງຕື່ມເມື່ອແຕະປິດຢູ່."</string>
+<string name="all_passwords_bottom_sheet_title">"ລະ​ຫັດ​ຜ່ານ"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"ຊອກຫາ"</string>
+<string name="all_passwords_bottom_sheet_no_password">"ບໍ່ມີລະຫັດຜ່ານ"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"ຖ້າທ່ານເຊື່ອຖື %s, ທ່ານສາມາດໃຊ້ລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ສຳລັບເວັບໄຊອື່ນໄດ້."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"ພະຍາຍາມໃຊ້ລະຫັດຜ່ານສະເພາະສຳລັບທຸກໆເວັບໄຊ."</string>
+<string name="autofill_keyboard_accessory_content_description">"ມີລະຫັດຜ່ານ"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"ມີການແນະນຳການຕື່ມໃສ່ອັດຕະໂນມັດຢູ່ເທິງແປ້ນພິມ"</string>
+<string name="keyboard_accessory_sheet_hide">"ສະແດງແປ້ນພິມ"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"ໃຊ້ການແນະນຳການຕື່ມຂໍ້ມູນອັດຕະໂນມັດຂອງ Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"ປັດເພື່ອເບິ່ງການແນະນຳເພີ່ມເຕີມ"</string>
+<string name="password_generation_accessory_button">"ແນະນຳລະຫັດຜ່ານທີ່ຄາດເດົາໄດ້ຍາກ"</string>
+<string name="password_generation_accessory_button_short">"ແນະນຳລະຫັດຜ່ານ"</string>
+<string name="password_accessory_sheet_toggle">"ສະແດງລະຫັດຜ່ານ"</string>
+<string name="password_accessory_sheet_opened">"ກຳລັງສະແດງລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ ແລະ ຕົວເລືອກລະຫັດຜ່ານ"</string>
+<string name="address_accessory_sheet_title">"ທີ່​ຢູ່"</string>
+<string name="address_accessory_sheet_toggle">"ສະແດງທີ່ຢູ່"</string>
+<string name="address_accessory_sheet_opened">"ກຳລັງສະແດງທີ່ຢູ່ທີ່ບັນທຶກໄວ້"</string>
+<string name="credit_card_accessory_sheet_toggle">"ສະແດງວິທີການຈ່າຍເງິນ"</string>
+<string name="credit_card_accessory_sheet_opened">"ກຳລັງສະແດງວິທີການຈ່າຍເງິນທີ່ບັນທຶກໄວ້"</string>
+</resources>

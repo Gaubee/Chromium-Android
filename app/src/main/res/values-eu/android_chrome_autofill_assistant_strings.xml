@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Ados nago"</string>
+<string name="autofill_assistant_init_title">"Erabili Google-ren Laguntzailea\nChrome-n"</string>
+<string name="autofill_assistant_init_message_rent_car">"Alokatu auto bat\nsakatze gutxi batzuekin"</string>
+<string name="autofill_assistant_init_message_password_change">"Utzi Google-ren Laguntzailea eginbideari\npasahitza aldatzen"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Erosi zinemarako sarrerak\nsakatze gutxi batzuekin"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Eskatu janaria\nsakatze gutxi batzuekin"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Osatu fakturazio-prozesua\nsakatze gutxi batzuekin"</string>
+<string name="autofill_assistant_init_message_voice_search">"Probatu ahozko ekintzak\nwebguneetan"</string>
+<string name="autofill_assistant_init_message_shopping">"Ordaindu\nsakatze gutxi batzuekin"</string>
+<string name="autofill_assistant_init_message">"Google-ren Laguntzailea eginbideari esker, denbora aurreztuko duzu webguneko ekintzak bizkorrago eginda, hala nola bilaketak eta ordainketak."</string>
+<string name="autofill_assistant_init_message_short">"Webguneetan ekintzak egin ditzake Chrome-ko Google-ren Laguntzailea eginbideak"</string>
+<string name="autofill_assistant_google_terms_description">"Zereginak osatzen laguntzeko, Laguntzailea eginbidearen bidez erabiltzen dituzun webguneen URLak eta edukia jasoko ditu Google-k, baita Laguntzailea erabilita bidaltzen duzun informazioa ere. Baliteke informazio hori Google-n duzun kontuan gordetzea. Laguntzailea desaktibatzeko, joan Chrome-ren ezarpenetara. &lt;link&gt;Lortu informazio gehiago&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Barkatu, ezin dizut lagundu. Egin aurrera zeuk bakarrik."</string>
+<string name="autofill_assistant_payment_information_missing">"Informazioa falta da"</string>
+<string name="autofill_assistant_view_original_image_desc">"Kanpoko esteka ireki nahi duzu?"</string>
+<string name="autofill_assistant_view_original_image_view">"Ikusi"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Utzi"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome-ko Google-ren Laguntzailea."</string>
+<string name="autofill_assistant_sheet_half_height">"Altuera erdian ireki da Chrome-ko Google-ren Laguntzailea."</string>
+<string name="autofill_assistant_sheet_full_height">"Altuera osoan ireki da Chrome-ko Google-ren Laguntzailea."</string>
+<string name="autofill_assistant_sheet_closed">"Itxi da Chrome-ko Google-ren Laguntzailea."</string>
+<string name="autofill_assistant_send_feedback">"Bidali oharrak"</string>
+<string name="autofill_assistant_increase_value">"Handitu balioa"</string>
+<string name="autofill_assistant_decrease_value">"Txikitu balioa"</string>
+<string name="autofill_assistant_overflow_options">"Hobespenak"</string>
+</resources>

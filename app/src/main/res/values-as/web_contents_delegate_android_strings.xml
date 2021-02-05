@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"অধিক"</string>
+<string name="color_picker_hue">"হুই"</string>
+<string name="color_picker_saturation">"সংপৃক্তি"</string>
+<string name="color_picker_value">"মান"</string>
+<string name="color_picker_button_set">"ছেট কৰক"</string>
+<string name="color_picker_button_cancel">"বাতিল কৰক"</string>
+<string name="color_picker_dialog_title">"ৰং বাছনি কৰক"</string>
+<string name="color_picker_button_red">"ৰঙা"</string>
+<string name="color_picker_button_cyan">"চাইয়ান"</string>
+<string name="color_picker_button_blue">"নীলা"</string>
+<string name="color_picker_button_green">"সেউজীয়া ৰং"</string>
+<string name="color_picker_button_magenta">"মেজেণ্টা"</string>
+<string name="color_picker_button_yellow">"হালধীয়া"</string>
+<string name="color_picker_button_black">"ক\'লা"</string>
+<string name="color_picker_button_white">"বগা"</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Nõustun"</string>
+<string name="autofill_assistant_init_title">"Proovige Chrome\'is \nGoogle\'i assistenti"</string>
+<string name="autofill_assistant_init_message_rent_car">"Rentige auto \nvaid mõne puudutusega"</string>
+<string name="autofill_assistant_init_message_password_change">"Lubage Google\'i assistendil aidata\nparooli muuta"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Ostke kinopileteid \nvaid mõne puudutusega"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Tellige toitu \nvaid mõne puudutusega"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Registreeruge lennule \nvaid mõne puudutusega"</string>
+<string name="autofill_assistant_init_message_voice_search">"Proovige veebisaitidel \nhäältoiminguid"</string>
+<string name="autofill_assistant_init_message_shopping">"Kiire maksmine\nvaid mõne puudutusega"</string>
+<string name="autofill_assistant_init_message">"Google\'i assistent säästab teie aega, võimaldades teil veebis toiminguid teha (nt otsida ja kassas maksta)."</string>
+<string name="autofill_assistant_init_message_short">"Google\'i assistent Chrome\'is saab veebisaitidel teie eest toiminguid teha"</string>
+<string name="autofill_assistant_google_terms_description">"Selleks et aidata teil toiminguid teha, saadetakse Google\'ile nende saitide URL-id ja sisu, millel assistenti kasutate, ning teave, mille assistendi kaudu esitate. See teave võidakse salvestada teie Google\'i kontole. Assistendi saab Chrome\'i seadetes välja lülitada. &lt;link&gt;Lisateave&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Kahjuks ma ei saa aidata, jätkake iseseisvalt."</string>
+<string name="autofill_assistant_payment_information_missing">"Teave on puudu"</string>
+<string name="autofill_assistant_view_original_image_desc">"Kas avada väline link?"</string>
+<string name="autofill_assistant_view_original_image_view">"Kuva"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Tühista"</string>
+<string name="autofill_assistant_sheet_content_description">"Google\'i assistent Chrome\'is."</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome\'i jaoks mõeldud Google\'i assistent avanes poole kõrgusega."</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome\'i jaoks mõeldud Google\'i assistent avanes täiskõrgusega."</string>
+<string name="autofill_assistant_sheet_closed">"Chrome\'ile mõeldud Google\'i assistent on suletud."</string>
+<string name="autofill_assistant_send_feedback">"Tagasiside saatmine"</string>
+<string name="autofill_assistant_increase_value">"Väärtuse suurendamine"</string>
+<string name="autofill_assistant_decrease_value">"Väärtuse vähendamine"</string>
+<string name="autofill_assistant_overflow_options">"Eelistused"</string>
+</resources>

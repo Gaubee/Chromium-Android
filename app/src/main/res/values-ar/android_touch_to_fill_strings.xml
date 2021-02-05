@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"المتابعة باستخدام حساب"</string>
+<string name="touch_to_fill_sheet_title">"اختيار حساب"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"قائمة ببيانات الاعتماد التي يتم ملؤها باللمس"</string>
+<string name="touch_to_fill_sheet_half_height">"تم فتح قائمة بيانات الاعتماد التي يتم ملؤها باللمس على طول النصف السفلي من الشاشة."</string>
+<string name="touch_to_fill_sheet_full_height">"تم فتح قائمة بيانات الاعتماد التي يجب ملؤها باللمس على طول الشاشة."</string>
+<string name="touch_to_fill_sheet_closed">"تم إغلاق قائمة بيانات الاعتماد التي يتم ملؤها باللمس."</string>
+<string name="manage_passwords">"إدارة كلمات المرور"</string>
+<string name="touch_to_fill_continue">"متابعة"</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"ປຽບທຽບໜ້າຕ່າງໆໄດ້ຢ່າງວ່ອງໄວໂດຍການສ້າງກຸ່ມ. ເພື່ອເລີ່ມຕົ້ນ, ກະລຸນາແຕະລິ້ງຄ້າງໄວ້."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"ແຕະເພື່ອເບິ່ງແຖບອື່ນ"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"ແຖບຂອງທ່ານຖືກຈັດເປັນກຸ່ມຮວມກັນຢູ່ບ່ອນນີ້"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"ປ່ຽນໄປມາລະຫວ່າງແຖບຕ່າງໆໃນກຸ່ມແຖບຂອງທ່ານຢູ່ໃກ້ລຸ່ມສຸດຂອງໜ້າຈໍ"</string>
+<string name="undo_bar_group_tabs_message">"ຈັດກຸ່ມ %1$s ແຖບແລ້ວ"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d ແຖບ"</item>
+  <item quantity="other">"%1$d ແຖບ"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"ເພີ່ມແຖບໃໝ່ໃສ່ກຸ່ມ"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"ເຊື່ອງຕາໜ່າງແບບເຕັມຈໍ"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"ສະແດງແຖບຂອງກຸ່ມໃນຕາໜ່າງແບບເຕັມຈໍ"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"ປິດລາຍແຖບ"</string>
+<string name="tabswitcher_create_group">"ສ້າງກຸ່ມ"</string>
+<string name="accessibility_tab_switcher">"ຕົວປ່ຽນແຖບ"</string>
+<string name="accessibility_close_tab_group_button">"ປິດກຸ່ມແຖບທີ່ມີ %1$s ແຖບ"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"ປິດກຸ່ມ %1$s ທີ່ມີ %2$s ແຖບ"</string>
+<string name="tab_selection_editor_group">"ກຸ່ມ"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"ເລືອກແຖບ"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"ຈັດກຸ່ມແຖບທີ່ເລືອກ %1$d ແຖບ"</item>
+  <item quantity="other">"ຈັດກຸ່ມແຖບທີ່ເລືອກ %1$d ແຖບ"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"ເຊື່ອງໂໝດເລືອກຫຼາຍລາຍການ"</string>
+<string name="accessibility_tab_selection_editor">"ໂໝດເລືອກຫຼາຍລາຍການ"</string>
+<string name="tab_grid_dialog_remove_from_group">"ລຶບອອກຈາກກຸ່ມ"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"ລຶບແຖບອອກຈາກກຸ່ມ"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"ລຶບອອກ"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"ແບ່ງປັນກຸ່ມ"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"ແກ້ໄຂຊື່ກຸ່ມ"</string>
+<string name="accessibility_expand_tab_group">"ຂະຫຍາຍກຸ່ມແຖບທີ່ມີ %1$s ແຖບ."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"ຂະຫຍາຍກຸ່ມແຖບ %1$s ດ້ວຍແຖບ %2$s."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"ລຶບ %1$d ແຖບທີ່ເລືອກອອກຈາກກຸ່ມ."</item>
+  <item quantity="other">"ລຶບ %1$d ແຖບທີ່ເລືອກອອກຈາກກຸ່ມ."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"ຫຍໍ້ %1$d ແຖບລົງ."</item>
+  <item quantity="other">"ຫຍໍ້ກຸ່ມແຖບທີ່ມີ %1$d ແຖບແລ້ວ."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"ຫຍໍ້ %1$d ແຖບລົງ."</item>
+  <item quantity="other">"ຫຍໍ້ກຸ່ມແຖບ %1$s ທີ່ມີ %2$d ແຖບລົງ."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"ຂະຫຍາຍກຸ່ມແຖບແລ້ວ"</string>
+<string name="iph_drag_and_drop_introduction">"ລາກແຖບເພື່ອຈັດກຸ່ມພວກມັນ"</string>
+<string name="iph_drag_and_drop_show_me">"ສະ​ແດງຂ້ອຍ"</string>
+<string name="iph_drag_and_drop_title">"ຈັດໃຫ້ເປັນລະບຽບ"</string>
+<string name="iph_drag_and_drop_content">"ເພື່ອຈັດກຸ່ມແຖບ, ແຕະແຖບໃດໜຶ່ງຄ້າງໄວ້. ຈາກນັ້ນ, ລາກມັນໄປໃສ່ແຖບອື່ນ."</string>
+<string name="tab_switcher_carousel_title">"ສືບຕໍ່ທ່ອງເວັບ"</string>
+<string name="tab_switcher_carousel_view_all">"ເບິ່ງທັງໝົດ"</string>
+<string name="tab_suggestion_review_button">"ກວດສອບ"</string>
+<string name="tab_suggestion_close_tab_action_button">"ປິດ"</string>
+<string name="tab_suggestion_close_stale_message">"ທ່ານບໍ່ໄດ້ໃຊ້ແຖບ %1$s ແຖບມາໄລຍະໜຶ່ງແລ້ວ. ປິດພວກມັນບໍ?"</string>
+<string name="tab_suggestion_group_tabs_message">"ເບິ່ງຄືວ່າມີ %1$s ແຖບກ່ຽວຂ້ອງກັນ. ຈັດກຸ່ມພວກມັນບໍ?"</string>
+<string name="accessibility_tab_suggestion_review_button">"ກວດເບິ່ງການແນະນຳ."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"ການແນະນຳ: ທ່ານບໍ່ໄດ້ໃຊ້ແຖບຂອງທ່ານ %1$s ແຖບມາໄລຍະໜຶ່ງແລ້ວ. ປິດພວກມັນບໍ?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"ຄຳແນະນຳ: ເບິ່ງຄືວ່າມີ %1$s ແຖບທີ່ກ່ຽວຂ້ອງກັນ. ຈັດກຸ່ມພວກມັນບໍ?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"ປິດການແນະນຳໄວ້."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"ປິດ %1$d ແຖບທີ່ເລືອກ"</item>
+  <item quantity="other">"ປິດ %1$d ແຖບທີ່ເລືອກ"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"ຍ້າຍແຖບໄປຊ້າຍ"</string>
+<string name="accessibility_tab_movement_right">"ຍ້າຍແຖບໄປເບື້ອງຂວາ"</string>
+<string name="accessibility_tab_movement_up">"ຍ້າຍແຖບຂຶ້ນເທິງ"</string>
+<string name="accessibility_tab_movement_down">"ຍ້າຍແຖບລົງ"</string>
+<string name="undo_tab_strip_closure_message">"ປິດລາຍແຖບແລ້ວ"</string>
+<string name="tab_strip_info_bar_question">"ຫ້າມສະແດງລາຍແຖບອີກບໍ?"</string>
+<string name="tab_strip_info_bar_no_reshow">"ຢ່າສະແດງອີກ"</string>
+<string name="tab_strip_info_bar_reshow">"ສະແດງໃນພາຍຫຼັງ"</string>
+<string name="price_drop_spotted_title">"ພົບເຫັນການຫຼຸດລາຄາ"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"ສະ​ແດງຂ້ອຍ"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome-ന്റെ സേവന നിബന്ധനകളിൽ മാർച്ച് 31-ന് മാറ്റം വരുന്നു"</string>
+<string name="tos_notification_body_text">"പുതിയ നിബന്ധനകൾ അവലോകനം ചെയ്യുക"</string>
+<string name="tos_notification_ack_button_text">"മനസ്സിലായി"</string>
+<string name="tos_notification_review_button_text">"അവലോകനം ചെയ്യുക"</string>
+<string name="managed">"നിങ്ങളുടെ സ്ഥാപനം മാനേജ് ചെയ്യുന്നത്"</string>
+<string name="search_or_type_web_address">"വെബ് വിലാസം തിരയൂ/ ടൈപ്പ് ചെയ്യൂ"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"ക്ലിപ്പ്ബോർഡിൽ നിന്ന് നിർദ്ദേശം നീക്കം ചെയ്യണോ?"</string>
+<string name="options_homepage_title">"ഹോംപേജ്"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"സമീപത്ത് ഉപകരണങ്ങളൊന്നും കണ്ടെത്തിയില്ല."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"അനുവദിക്കൂ"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"തടയുക"</string>
+</resources>

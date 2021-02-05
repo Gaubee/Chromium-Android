@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="actionbar_share">"Yabelana"</string>
+<string name="actionbar_web_search">"Usesho lwewebhu"</string>
+<string name="actionbar_textselection_title">"Ukukhetha umbhalo"</string>
+<string name="add_to_dictionary">"Faka kusichazamazwi"</string>
+<string name="delete_suggestion_text">"Susa"</string>
+<string name="profiler_started_toast">"Isiqalisi sokwenza iphrofayela"</string>
+<string name="profiler_stopped_toast">"Isenzi phrofayela siqediwe. Imiphumela iku-%1$s."</string>
+<string name="profiler_no_storage_toast">"Ayikwazi ukuqala isiphrofayela ngoba isitoreji sangaphandle asilungile"</string>
+<string name="profiler_error_toast">"Yehlulekile ukuqala isiphrofayela"</string>
+<string name="accessibility_date_picker_month">"Inyanga"</string>
+<string name="accessibility_date_picker_year">"Unyaka"</string>
+<string name="date_picker_dialog_set">"Setha"</string>
+<string name="month_picker_dialog_title">"Setha inyanga"</string>
+<string name="accessibility_date_picker_week">"Iviki"</string>
+<string name="week_picker_dialog_title">"Setha iviki"</string>
+<string name="time_picker_dialog_am">"AM"</string>
+<string name="time_picker_dialog_pm">"PM"</string>
+<string name="time_picker_dialog_title">"Setha isikhathi"</string>
+<string name="accessibility_time_picker_hour">"Ihora"</string>
+<string name="accessibility_time_picker_minute">"Iminithi"</string>
+<string name="accessibility_time_picker_second">"Isekhondi"</string>
+<string name="accessibility_time_picker_milli">"I-Millisecond"</string>
+<string name="accessibility_time_picker_ampm">"AM/PM"</string>
+<string name="time_picker_dialog_hour_minute_separator">":"</string>
+<string name="time_picker_dialog_minute_second_separator">":"</string>
+<string name="time_picker_dialog_second_subsecond_separator">"."</string>
+<string name="date_time_picker_dialog_title">"Setha idethi nesikhathi"</string>
+<string name="accessibility_datetime_picker_date">"Idethi"</string>
+<string name="accessibility_datetime_picker_time">"Isikhathi"</string>
+<string name="date_picker_dialog_other_button_label">"Okunye"</string>
+<string name="date_picker_dialog_title">"Setha idethi"</string>
+<string name="date_picker_dialog_clear">"Sula"</string>
+<string name="speech_recognition_service_not_found">"Injini yenkulumo ye-Google ayikwazi ukutholwa"</string>
+</resources>

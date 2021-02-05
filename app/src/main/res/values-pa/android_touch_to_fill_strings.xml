@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"ਖਾਤੇ ਨਾਲ ਜਾਰੀ ਰੱਖੋ"</string>
+<string name="touch_to_fill_sheet_title">"ਕੋਈ ਖਾਤਾ ਚੁਣੋ"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"ਸਪਰਸ਼ ਕਰਕੇ ਭਰੇ ਜਾਣ ਵਾਲੇ ਕ੍ਰੀਡੈਂਸ਼ੀਅਲਾਂ ਦੀ ਸੂਚੀ"</string>
+<string name="touch_to_fill_sheet_half_height">"ਸਪਰਸ਼ ਕਰਕੇ ਭਰੇ ਜਾਣ ਵਾਲੇ ਕ੍ਰੀਡੈਂਸ਼ੀਅਲਾਂ ਦੀ ਸੂਚੀ ਅੱਧੀ ਉਚਾਈ ਤੱਕ ਖੁੱਲ੍ਹੀ ਹੋਈ ਹੈ।"</string>
+<string name="touch_to_fill_sheet_full_height">"ਸਪਰਸ਼ ਕਰਕੇ ਭਰੇ ਜਾਣ ਵਾਲੇ ਕ੍ਰੀਡੈਂਸ਼ੀਅਲਾਂ ਦੀ ਸੂਚੀ ਪੂਰੀ ਉਚਾਈ ਤੱਕ ਖੁੱਲ੍ਹੀ ਹੋਈ ਹੈ।"</string>
+<string name="touch_to_fill_sheet_closed">"ਸਪਰਸ਼ ਕਰਕੇ ਭਰੇ ਜਾਣ ਵਾਲੇ ਕ੍ਰੀਡੈਂਸ਼ੀਅਲਾਂ ਦੀ ਸੂਚੀ ਬੰਦ ਹੈ।"</string>
+<string name="manage_passwords">"ਪਾਸਵਰਡ ਵਿਵਸਥਿਤ ਕਰੋ"</string>
+<string name="touch_to_fill_continue">"ਜਾਰੀ ਰੱਖੋ"</string>
+</resources>

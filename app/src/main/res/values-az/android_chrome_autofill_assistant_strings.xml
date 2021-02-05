@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Razıyam"</string>
+<string name="autofill_assistant_init_title">"Chrome\'da\nGoogle Assistenti sınayın"</string>
+<string name="autofill_assistant_init_message_rent_car">"Sadəcə bir neçə toxunuşla\navtomobil icarəyə götürün"</string>
+<string name="autofill_assistant_init_message_password_change">"Google Assistentin parolu dəyişməkdə\nsizə kömək etməsinə icazə verin"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Sadəcə bir neçə toxunuşla\nfilm biletləri alın"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Sadəcə bir neçə toxunuşla\nyemək sifariş edin"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Sadəcə bir neçə toxunuşla\nuçuş qeydiyyatından keçin"</string>
+<string name="autofill_assistant_init_message_voice_search">"Veb saytlarda\nsəs əməliyyatlarını sınayın"</string>
+<string name="autofill_assistant_init_message_shopping">"Sadəcə bir neçə toxunuşla\nsürətli ödəmə"</string>
+<string name="autofill_assistant_init_message">"Google Assistent vebdə axtarış və ödəniş kimi əməliyyatların icrasında yardım etməklə vaxta qənaət edir."</string>
+<string name="autofill_assistant_init_message_short">"Chrome\'da Google Assistent sizin üçün vebsaytlarda əməliyyatlar icra edə bilər"</string>
+<string name="autofill_assistant_google_terms_description">"Tapşırıqları tamamlamaqda sizə kömək etmək üçün Google Assistentdən istifadə etdiyiniz saytların URL və məzmunlarını, eləcə də Assistent vasitəsilə təqdim etdiyiniz məlumatları əldə edəcək. Bu məlumatlar Google hesabınızda saxlanıla bilər. Assistenti Chrome ayarlarında söndürə bilərsiniz. &lt;link&gt;Ətraflı məlumat&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Artıq kömək edə bilmirəm, özünüz davam edin."</string>
+<string name="autofill_assistant_payment_information_missing">"Əskik məlumat var"</string>
+<string name="autofill_assistant_view_original_image_desc">"Xarici link açılsın?"</string>
+<string name="autofill_assistant_view_original_image_view">"Görünüş"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Ləğv edin"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Assistent Chrome\'da."</string>
+<string name="autofill_assistant_sheet_half_height">"Google Assistent Chrome\'da yarı hündürlükdə açılıb."</string>
+<string name="autofill_assistant_sheet_full_height">"Google Assistent Chrome\'da tam hündürlükdə açıqdır."</string>
+<string name="autofill_assistant_sheet_closed">"Google Assistent Chrome\'da bağlıdır."</string>
+<string name="autofill_assistant_send_feedback">"Geri əlaqə göndərin"</string>
+<string name="autofill_assistant_increase_value">"Dəyəri çoxaldın"</string>
+<string name="autofill_assistant_decrease_value">"Dəyəri azaldın"</string>
+<string name="autofill_assistant_overflow_options">"Seçimlər"</string>
+</resources>

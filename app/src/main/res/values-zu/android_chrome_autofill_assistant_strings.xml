@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Ngiyavuma"</string>
+<string name="autofill_assistant_init_title">"Zama Umsizi we-Google \nku-Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Qasha imoto\nngokuthepha okumbalwa nje"</string>
+<string name="autofill_assistant_init_message_password_change">"Vumela Umsizi we-Google akusize \nushintshe iphasiwedi yakho"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Thenga amathikhithi we-movie\nngokuthepha okumbalwa nje"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Oda ukudla\nngokuthepha okumbalwa nje"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Ngena kwindiza yakho\nngokuthepha okumbalwa nje"</string>
+<string name="autofill_assistant_init_message_voice_search">"Zama ukulawula ngezwi\nkumawebhusayithi"</string>
+<string name="autofill_assistant_init_message_shopping">"Ukukhipha ngokushesha\nngokuthepha okumbalwa nje"</string>
+<string name="autofill_assistant_init_message">"Umsizi we-Google ukulondolozela isikhathi ngokukusiza ukuthi uqedele izenzo kuwebhu, njengosesho kanye nokuphuma."</string>
+<string name="autofill_assistant_init_message_short">"Umsizi we-Google ku-Chrome angakuqedelela izenzo kuwo wonke amawebhusayithi"</string>
+<string name="autofill_assistant_google_terms_description">"Ukukusiza uqedele imisebenzi, i-Google izothola ama-URL nokuqukethwe kwamasayithi osebenzisa kuwo umsizi, kanye nolwazi oluthumela ngomsizi. Lolu lwazi lungase lugcinwe ku-akhawunti yakho ye-Google. Ungavala umsizi kuzilungiselelo ze-Chrome. &lt;link&gt;Funda kabanzi&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Uxolo angikwazi ukukusiza, ngicela uqhubeke ngokwakho."</string>
+<string name="autofill_assistant_payment_information_missing">"Ulwazi alukho"</string>
+<string name="autofill_assistant_view_original_image_desc">"Vula isixhumanisi sangaphandle?"</string>
+<string name="autofill_assistant_view_original_image_view">"Buka"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Khansela"</string>
+<string name="autofill_assistant_sheet_content_description">"Umsizi we-Google ku-Chrome"</string>
+<string name="autofill_assistant_sheet_half_height">"Umsizi we-Google ku-Chrome uvulwe ngobude obuhhafu."</string>
+<string name="autofill_assistant_sheet_full_height">"Umsizi we-Google ku-Chrome uvulwe ngobude obugcwele."</string>
+<string name="autofill_assistant_sheet_closed">"Umsizi we-Google ku-Chrome uvaliwe."</string>
+<string name="autofill_assistant_send_feedback">"Thumela impendulo"</string>
+<string name="autofill_assistant_increase_value">"Khuphula inani"</string>
+<string name="autofill_assistant_decrease_value">"Yehlisa inani"</string>
+<string name="autofill_assistant_overflow_options">"Okuncamelayo"</string>
+</resources>

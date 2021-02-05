@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="private_browsing_warning">"ຟັງຄ໌ຊັນນີ້ບໍ່ຖືກຮອງຮັບຢູ່ໃນ Android ລຸ້ນນີ້."</string>
+<string name="license_activity_title">"ໃບ​ອະ​ນຸ​ຍາດ WebView ຂອງລະ​ບົບ"</string>
+</resources>

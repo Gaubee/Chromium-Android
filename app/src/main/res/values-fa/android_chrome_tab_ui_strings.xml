@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"با ایجاد گروه، صفحه‌ها را سریع مقایسه کنید. برای شروع، پیوندی را لمس کنید و نگه دارید."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"برای دیدن برگه دیگر ضربه بزنید"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"برگه‌هایتان اینجا باهم گروه‌بندی می‌شوند"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"جابه‌جایی بین برگه‌ها در گروه برگه شما واقع در نزدیک پایین صفحه‌نمایش"</string>
+<string name="undo_bar_group_tabs_message">"%1$s برگه گروه‌بندی شد"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d برگه"</item>
+  <item quantity="other">"%1$d برگه"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"افزودن برگه جدید به گروه"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"پنهان کردن شبکه تمام‌صفحه"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"نمایش برگه‌های گروه در شبکه تمام‌صفحه"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"بستن نوار برگه"</string>
+<string name="tabswitcher_create_group">"ایجاد گروه"</string>
+<string name="accessibility_tab_switcher">"تعویض‌کننده برگه"</string>
+<string name="accessibility_close_tab_group_button">"بستن گروه برگه با %1$s برگه"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"بستن گروه %1$s با %2$s برگه"</string>
+<string name="tab_selection_editor_group">"گروه"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"انتخاب برگه‌ها"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"گروه‌بندی %1$d برگه انتخابی"</item>
+  <item quantity="other">"گروه‌بندی %1$d برگه انتخابی"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"پنهان کردن حالت چندانتخابی"</string>
+<string name="accessibility_tab_selection_editor">"حالت چندانتخابی"</string>
+<string name="tab_grid_dialog_remove_from_group">"برداشتن از گروه"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"برداشتن برگه‌ها از گروه"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"حذف"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"هم‌رسانی گروه"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"ویرایش نام گروه"</string>
+<string name="accessibility_expand_tab_group">"گسترده کردن گروه برگه با %1$s برگه."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"گسترده کردن گروه برگه %1$s با %2$s برگه."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"برداشتن %1$d برگه انتخاب‌شده از گروه."</item>
+  <item quantity="other">"برداشتن %1$d برگه انتخاب‌شده از گروه."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"جمع کردن %1$d برگه."</item>
+  <item quantity="other">"جمع کردن گروه برگه با %1$d برگه."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"جمع کردن %1$d برگه."</item>
+  <item quantity="other">"جمع کردن گروه برگه %1$s با %2$d برگه."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"گروه برگه گسترده شد"</string>
+<string name="iph_drag_and_drop_introduction">"برای گروه‌بندی برگه‌ها، آن‌ها را بکشید"</string>
+<string name="iph_drag_and_drop_show_me">"نشانم داده شود"</string>
+<string name="iph_drag_and_drop_title">"سازمان‌دهی شوید"</string>
+<string name="iph_drag_and_drop_content">"برای ایجاد برگه‌های گروهی، برگه‌ای را لمس کنید و نگه‌دارید. سپس آن را به برگه‌ای دیگر بکشید."</string>
+<string name="tab_switcher_carousel_title">"ادامه مرور"</string>
+<string name="tab_switcher_carousel_view_all">"نمایش همه"</string>
+<string name="tab_suggestion_review_button">"مرور"</string>
+<string name="tab_suggestion_close_tab_action_button">"بستن"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s مورد از برگه‌هایتان اخیراً استفاده نشده‌اند. آن‌ها را می‌بندید؟"</string>
+<string name="tab_suggestion_group_tabs_message">"به نظر می‌رسد %1$s برگه مرتبط باشند. گروه‌بندی شوند؟"</string>
+<string name="accessibility_tab_suggestion_review_button">"پیشنهاد‌ها مرور شود."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"پیشنهاد: %1$s مورد از برگه‌هایتان اخیراً استفاده نشده‌اند. آن‌ها را می‌بندید؟"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"پیشنهاد: به نظر می‌رسد %1$s برگه مرتبط باشند. گروه‌بندی شوند؟"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"پیشنهادها رد شود."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"بستن %1$d برگه انتخابی"</item>
+  <item quantity="other">"بستن %1$d برگه انتخابی"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"انتقال برگه به راست"</string>
+<string name="accessibility_tab_movement_right">"انتقال برگه به چپ"</string>
+<string name="accessibility_tab_movement_up">"انتقال برگه به بالا"</string>
+<string name="accessibility_tab_movement_down">"انتقال برگه به پایین"</string>
+<string name="undo_tab_strip_closure_message">"نوار برگه بسته شد"</string>
+<string name="tab_strip_info_bar_question">"نوار برگه دیگر نشان داده نشود؟"</string>
+<string name="tab_strip_info_bar_no_reshow">"دیگر نشان داده نشود"</string>
+<string name="tab_strip_info_bar_reshow">"نمایش در فرصتی دیگر"</string>
+<string name="price_drop_spotted_title">"کاهش قیمت شناسایی شد"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"نشانم داده شود"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Kosketuksella täytettävien kirjautumistietojen lista"</string>
+<string name="all_passwords_bottom_sheet_half_height">"Kosketuksella täytettävien kirjautumistietojen lista avattu puolen näytön korkeudella."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Kosketuksella täytettävien kirjautumistietojen lista avattu koko näytön korkeudella."</string>
+<string name="all_passwords_bottom_sheet_closed">"Kosketuksella täytettävien kirjautumistietojen lista on suljettu."</string>
+<string name="all_passwords_bottom_sheet_title">"Salasanat"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Haku"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Ei salasanaa"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Jos %s on luotettava, voit käyttää tallennettua salasanaa toisella sivustolla."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Yritä käyttää jokaisella sivustolla yksilöllistä salasanaa."</string>
+<string name="autofill_keyboard_accessory_content_description">"Käytettävissä ovat salasanat"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Automaattisen täytön ehdotukset saatavilla näppäimistön yläpuolella"</string>
+<string name="keyboard_accessory_sheet_hide">"Näytä näppäimistö"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Käytä Chromen automaattisen täytön ehdotusta"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Pyyhkäise nähdäksesi lisää ehdotuksia"</string>
+<string name="password_generation_accessory_button">"Ehdota vahvaa salasanaa"</string>
+<string name="password_generation_accessory_button_short">"Ehdota salasanaa"</string>
+<string name="password_accessory_sheet_toggle">"Näytä salasanat"</string>
+<string name="password_accessory_sheet_opened">"Näytetään tallennetut salasanat ja salasana-asetukset"</string>
+<string name="address_accessory_sheet_title">"Osoitteet"</string>
+<string name="address_accessory_sheet_toggle">"Näytä osoitteet"</string>
+<string name="address_accessory_sheet_opened">"Näytetään tallennetut osoitteet"</string>
+<string name="credit_card_accessory_sheet_toggle">"Näytä maksutavat"</string>
+<string name="credit_card_accessory_sheet_opened">"Näytetään tallennetut maksutavat"</string>
+</resources>

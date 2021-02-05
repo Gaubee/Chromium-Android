@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Дараах бүртгэлээр үргэлжлүүлэх"</string>
+<string name="touch_to_fill_sheet_title">"Бүртгэл сонгох"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Хүрэхэд гүйцээж бөглөх мандат үнэмлэхийн жагсаалт."</string>
+<string name="touch_to_fill_sheet_half_height">"Хүрэхэд гүйцээж бөглөх мандат үнэмлэхийн жагсаалтыг хагас өндрөөр нээлээ."</string>
+<string name="touch_to_fill_sheet_full_height">"Хүрэхэд гүйцээж бөглөх мандат үнэмлэхийн жагсаалтыг бүтэн өндрөөр нээлээ."</string>
+<string name="touch_to_fill_sheet_closed">"Хүрэхэд гүйцээж бөглөх мандат үнэмлэхийн жагсаалт хаалттай байна."</string>
+<string name="manage_passwords">"Нууц үгийг удирдах"</string>
+<string name="touch_to_fill_continue">"Цааш"</string>
+</resources>

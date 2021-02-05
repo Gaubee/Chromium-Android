@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome atrofingiz 3D xaritasini yaratishi uchun unga kamera ruxsati zarur."</string>
+<string name="infobar_missing_camera_permission_text">"Bu sayt kamerangizdan foydalanishi uchun Chrome brauzeriga ruxsat berishingiz lozim."</string>
+<string name="infobar_missing_microphone_permission_text">"Bu sayt mikrofoningizdan foydalanishi uchun Chrome brauzeriga ruxsat berishingiz lozim."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Bu sayt kamera va mikrofoningizdan foydalanishi uchun Chrome brauzeriga ruxsat berishingiz lozim."</string>
+<string name="infobar_missing_location_permission_text">"Bu sayt manzilingizdan foydalanishi uchun Chrome brauzeriga ruxsat berishingiz lozim."</string>
+<string name="infobar_update_permissions_button_text">"Davom etish"</string>
+<string name="nfc_disabled_on_device_message">"Davom etish uchun Android sozlamalari orqali NFC funksiyasini yoqing"</string>
+<string name="nfc_prompt_turn_on">"Yoqish"</string>
+<string name="overlay_detected_dialog_title">"Bu sayt sizdan ruxsat soʻray olmaydi"</string>
+<string name="overlay_detected_dialog_message">"Har qanday pufakchalar va boshqa ilovalarning ustki ochilishini yopish Keyin qaytadan urining."</string>
+</resources>

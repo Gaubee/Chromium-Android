@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Bandingkan halaman dengan pantas dengan membuat kumpulan. Untuk bermula, sentuh &amp; tahan pautan."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Ketik untuk melihat tab lain"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Tab anda dikumpulkan bersama di sini"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Beralih antara tab dalam kumpulan tab anda berhampiran bahagian bawah skrin"</string>
+<string name="undo_bar_group_tabs_message">"%1$s tab dihimpunkan"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d tab"</item>
+  <item quantity="other">"%1$d tab"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Tambahkan tab baharu pada kumpulan"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Sembunyikan grid skrin penuh"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Tunjukkan tab kumpulan dalam grid skrin penuh"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Tutup jalur tab"</string>
+<string name="tabswitcher_create_group">"Buat kumpulan"</string>
+<string name="accessibility_tab_switcher">"Penukar Tab"</string>
+<string name="accessibility_close_tab_group_button">"Tutup kumpulan tab dengan %1$s tab"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Tutup kumpulan %1$s dengan %2$s tab"</string>
+<string name="tab_selection_editor_group">"Kumpulan"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Pilih tab"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Himpunkan %1$d tab yang dipilih"</item>
+  <item quantity="other">"Himpunkan %1$d tab yang dipilih"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Sembunyikan mod berbilang pilihan"</string>
+<string name="accessibility_tab_selection_editor">"Mod berbilang pilihan"</string>
+<string name="tab_grid_dialog_remove_from_group">"Alih keluar daripada kumpulan"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Alih keluar tab daripada kumpulan"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Alih keluar"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Kongsi kumpulan"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Edit nama kumpulan"</string>
+<string name="accessibility_expand_tab_group">"Kembangkan kumpulan tab dengan %1$s tab."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Kembangkan kumpulan tab %1$s dengan %2$s tab."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Alih keluar %1$d tab yang dipilih daripada kumpulan."</item>
+  <item quantity="other">"Alih keluar %1$d tab yang dipilih daripada kumpulan."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Runtuhkan %1$d tab."</item>
+  <item quantity="other">"Runtuhkan kumpulan tab dengan %1$d tab."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Runtuhkan %1$d tab."</item>
+  <item quantity="other">"Runtuhkan kumpulan tab %1$s dengan %2$d tab."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Kumpulan tab dikembangkan"</string>
+<string name="iph_drag_and_drop_introduction">"Seret tab untuk dihimpunkan"</string>
+<string name="iph_drag_and_drop_show_me">"Tunjukkan kepada saya"</string>
+<string name="iph_drag_and_drop_title">"Jadi teratur"</string>
+<string name="iph_drag_and_drop_content">"Untuk menghimpunkan tab, sentuh &amp; tahan tab. Kemudian, seret tab itu ke tab lain."</string>
+<string name="tab_switcher_carousel_title">"Teruskan penyemakan imbas"</string>
+<string name="tab_switcher_carousel_view_all">"Lihat semua"</string>
+<string name="tab_suggestion_review_button">"Semak"</string>
+<string name="tab_suggestion_close_tab_action_button">"Tutup"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s daripada tab anda sudah lama tidak digunakan. Tutup tab?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s tab kelihatan berkaitan. Himpunkan semua tab itu?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Semak cadangan."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Cadangan: %1$s daripada tab anda sudah lama tidak digunakan. Tutup tab?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Cadangan: %1$s tab kelihatan berkaitan. Himpunkan semua tab itu?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Tolak cadangan."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Tutup %1$d tab yang dipilih"</item>
+  <item quantity="other">"Tutup %1$d tab yang dipilih"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Alihkan tab ke kiri"</string>
+<string name="accessibility_tab_movement_right">"Alihkan tab ke kanan"</string>
+<string name="accessibility_tab_movement_up">"Alihkan tab ke atas"</string>
+<string name="accessibility_tab_movement_down">"Alihkan tab ke bawah"</string>
+<string name="undo_tab_strip_closure_message">"Jalur tab ditutup"</string>
+<string name="tab_strip_info_bar_question">"Jangan tunjukkan jalur tab lagi?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Jangan tunjukkan lagi"</string>
+<string name="tab_strip_info_bar_reshow">"Tunjukkan kemudian"</string>
+<string name="price_drop_spotted_title">"Penurunan harga dikesan"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Tunjukkan kepada saya"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

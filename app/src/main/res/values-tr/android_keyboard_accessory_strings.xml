@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Dokunarak doldurulacak kimlik bilgisi listesi."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Dokunarak doldurulacak kimlik bilgisi listesi ekranın yarısında açıldı."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Dokunarak doldurulacak kimlik bilgisi listesi tam ekranda açıldı."</string>
+<string name="all_passwords_bottom_sheet_closed">"Dokunarak doldurulacak kimlik bilgisi listesi kapatıldı."</string>
+<string name="all_passwords_bottom_sheet_title">"Şifreler"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Ara"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Şifre yok"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%s sitesine güveniyorsanız başka bir site için kaydedilmiş şifreyi kullanabilirsiniz."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Her site için benzersiz bir şifre kullanmaya çalışın."</string>
+<string name="autofill_keyboard_accessory_content_description">"Kullanılabilir şifreler"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Klavyenin üzerinde otomatik doldurma önerileri mevcut"</string>
+<string name="keyboard_accessory_sheet_hide">"Klavyeyi göster"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome otomatik doldurma önerisini kullan"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Diğer önerileri görmek için kaydırın"</string>
+<string name="password_generation_accessory_button">"Güçlü şifre öner"</string>
+<string name="password_generation_accessory_button_short">"Şifre öner"</string>
+<string name="password_accessory_sheet_toggle">"Şifreleri göster"</string>
+<string name="password_accessory_sheet_opened">"Kayıtlı şifreler ve şifre seçenekleri gösteriliyor"</string>
+<string name="address_accessory_sheet_title">"Adresler"</string>
+<string name="address_accessory_sheet_toggle">"Adresleri Göster"</string>
+<string name="address_accessory_sheet_opened">"Kayıtlı adresler gösteriliyor"</string>
+<string name="credit_card_accessory_sheet_toggle">"Ödeme yöntemlerini göster"</string>
+<string name="credit_card_accessory_sheet_opened">"Kayıtlı ödeme yöntemleri"</string>
+</resources>

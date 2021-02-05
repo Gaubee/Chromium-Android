@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"同意する"</string>
+<string name="autofill_assistant_init_title">"Chrome で\nGoogle アシスタントをお試しください"</string>
+<string name="autofill_assistant_init_message_rent_car">"数回のタップで\nレンタカーを予約できます"</string>
+<string name="autofill_assistant_init_message_password_change">"Google アシスタントが\nパスワードの変更をサポートします"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"数回のタップで\n映画のチケットを購入できます"</string>
+<string name="autofill_assistant_init_message_food_ordering">"数回のタップで\n料理を注文できます"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"数回のタップで\nフライトにチェックインできます"</string>
+<string name="autofill_assistant_init_message_voice_search">"ウェブサイトで\n音声操作を試してみましょう"</string>
+<string name="autofill_assistant_init_message_shopping">"数回のタップで\n購入手続きを完了"</string>
+<string name="autofill_assistant_init_message">"Google アシスタントを利用すると、検索や購入手続きといったウェブでの操作を時間をかけず簡単に完了できます"</string>
+<string name="autofill_assistant_init_message_short">"Chrome の Google アシスタントは、ユーザーに代わってウェブサイトでの操作を完了できます"</string>
+<string name="autofill_assistant_google_terms_description">"タスクを完了するため、アシスタントを使用したサイトの URL とコンテンツ、およびアシスタントで送信した情報が Google に送られます。この情報は、Google アカウントに保存される可能性があります。アシスタントは、Chrome の設定で無効にできます。&lt;link&gt;詳細&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"自動入力できません。残りの入力はご自身で行ってください。"</string>
+<string name="autofill_assistant_payment_information_missing">"情報が不足しています"</string>
+<string name="autofill_assistant_view_original_image_desc">"外部リンクを開きますか？"</string>
+<string name="autofill_assistant_view_original_image_view">"表示"</string>
+<string name="autofill_assistant_view_original_image_cancel">"キャンセル"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome の Google アシスタント。"</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome の Google アシスタントが画面の下半分に開いています。"</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome の Google アシスタントが画面全体に開いています。"</string>
+<string name="autofill_assistant_sheet_closed">"Chrome の Google アシスタントを終了しました。"</string>
+<string name="autofill_assistant_send_feedback">"フィードバックを送信"</string>
+<string name="autofill_assistant_increase_value">"値を大きくします"</string>
+<string name="autofill_assistant_decrease_value">"値を小さくします"</string>
+<string name="autofill_assistant_overflow_options">"設定"</string>
+</resources>

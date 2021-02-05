@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Berðu síður saman á fljótlegan hátt með því að búa til hóp. Haltu fingri á tengli til að byrja."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Ýttu til að sjá annan flipa"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Fliparnir þínir eru flokkaðir saman hér"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Flettu á milli flipa í flipahópnum neðarlega á skjánum"</string>
+<string name="undo_bar_group_tabs_message">"%1$s flipar sameinaðir."</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d flipi"</item>
+  <item quantity="other">"%1$d flipar"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Bæta nýjum flipa við hóp"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Hætta að sýna á öllum skjánum"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Sýna flipa hóps á öllum skjánum"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Loka fliparæmu"</string>
+<string name="tabswitcher_create_group">"Búa til hóp"</string>
+<string name="accessibility_tab_switcher">"Flipaval"</string>
+<string name="accessibility_close_tab_group_button">"Loka flipahópi með %1$s flipum"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Loka %1$s-hópi með %2$s flipum"</string>
+<string name="tab_selection_editor_group">"Hópur"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Velja flipa"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Setja %1$d valinn flipa í hóp"</item>
+  <item quantity="other">"Setja %1$d valda flipa í hóp"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Fela stillingu til að velja marga"</string>
+<string name="accessibility_tab_selection_editor">"Stilling til að velja marga"</string>
+<string name="tab_grid_dialog_remove_from_group">"Fjarlægja úr hópi"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Fjarlægja flipa úr hópi"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Fjarlægja"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Deila hópi"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Breyta heiti hóps"</string>
+<string name="accessibility_expand_tab_group">"Stækka flipahóp með %1$s flipum."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Stækka %1$s flipahóp með %2$s flipum."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Fjarlægja %1$d valinn flipa úr hópi."</item>
+  <item quantity="other">"Fjarlægja %1$d valda flipa úr hópi."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Draga saman %1$d flipa."</item>
+  <item quantity="other">"Draga saman flipahóp með %1$d flipum."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Draga saman %1$d flipa."</item>
+  <item quantity="other">"Draga saman %1$s-flipahóp með %2$d flipum."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Flipahópur stækkaður"</string>
+<string name="iph_drag_and_drop_introduction">"Dragðu flipa til að sameina þá"</string>
+<string name="iph_drag_and_drop_show_me">"Sýndu mér"</string>
+<string name="iph_drag_and_drop_title">"Skipulag"</string>
+<string name="iph_drag_and_drop_content">"Haltu fingri á flipa til að flokka hann. Dragðu hann svo ofan á annan flipa."</string>
+<string name="tab_switcher_carousel_title">"Halda áfram að fletta"</string>
+<string name="tab_switcher_carousel_view_all">"Sjá allt"</string>
+<string name="tab_suggestion_review_button">"Yfirfara"</string>
+<string name="tab_suggestion_close_tab_action_button">"Loka"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s af flipunum þínum hafa ekki verið notaðir nýlega. Viltu loka þeim?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s flipar virðast vera tengdir. Viltu setja þá í hóp?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Skoða tillögurnar."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Tillaga: %1$s af flipunum þínum hafa ekki verið notaðir nýlega. Viltu loka þeim?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Tillaga: %1$s flipar virðast vera tengdir. Viltu setja þá í hóp?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Hunsa tillögurnar."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Loka %1$d völdum flipa"</item>
+  <item quantity="other">"Loka %1$d völdum flipum"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Færa flipa til vinstri"</string>
+<string name="accessibility_tab_movement_right">"Færa flipa til hægri"</string>
+<string name="accessibility_tab_movement_up">"Færa flipa upp"</string>
+<string name="accessibility_tab_movement_down">"Færa flipa niður"</string>
+<string name="undo_tab_strip_closure_message">"Fliparæmu lokað"</string>
+<string name="tab_strip_info_bar_question">"Viltu ekki að fliparæman verði sýnd aftur?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Ekki sýna þetta aftur"</string>
+<string name="tab_strip_info_bar_reshow">"Sýna síðar"</string>
+<string name="price_drop_spotted_title">"Verðlækkun fannst"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Sýndu mér"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

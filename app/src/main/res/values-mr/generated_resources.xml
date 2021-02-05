@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome च्या सेवा अटी ३१ मार्च रोजी बदलणार आहेत"</string>
+<string name="tos_notification_body_text">"कृपया नवीन अटींचे पुनरावलोकन करा"</string>
+<string name="tos_notification_ack_button_text">"समजले"</string>
+<string name="tos_notification_review_button_text">"पुनरावलोकन करा"</string>
+<string name="managed">"तुमच्या संस्थेकडून व्यवस्थापित केलेले"</string>
+<string name="search_or_type_web_address">"वेब पत्ता शोधा किंवा टाइप करा"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"क्लिपबोर्डवरून सूचना काढून टाकायची आहे का?"</string>
+<string name="options_homepage_title">"होम पेज"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"कोणतीही जवळपासची डिव्हाइस आढळली नाहीत."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"परवानगी द्या"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"अवरोधित करा"</string>
+</resources>

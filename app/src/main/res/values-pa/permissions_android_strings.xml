@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome ਨੂੰ ਤੁਹਾਡੇ ਆਲੇ-ਦੁਆਲੇ ਦਾ 3D ਨਕਸ਼ਾ ਬਣਾਉਣ ਵਾਸਤੇ ਤੁਹਾਡੇ ਕੈਮਰੇ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਲਈ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਹੈ।"</string>
+<string name="infobar_missing_camera_permission_text">"Chrome ਨੂੰ ਇਸ ਸਾਈਟ ਵਾਸਤੇ ਤੁਹਾਡੇ ਕੈਮਰੇ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਲਈ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਹੈ।"</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome ਨੂੰ ਇਸ ਸਾਈਟ ਵਾਸਤੇ ਤੁਹਾਡੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਲਈ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਹੈ।"</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome ਨੂੰ ਇਸ ਸਾਈਟ ਵਾਸਤੇ ਤੁਹਾਡੇ ਕੈਮਰੇ ਅਤੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਲਈ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਹੈ।"</string>
+<string name="infobar_missing_location_permission_text">"Chrome ਨੂੰ ਇਸ ਸਾਈਟ ਨਾਲ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਕਰਨ ਵਾਸਤੇ ਤੁਹਾਡੇ ਟਿਕਾਣੇ \'ਤੇ ਪਹੁੰਚ ਕਰਨ ਦੀ ਲੋੜ ਹੈ।"</string>
+<string name="infobar_update_permissions_button_text">"ਜਾਰੀ ਰੱਖੋ"</string>
+<string name="nfc_disabled_on_device_message">"ਜਾਰੀ ਰੱਖਣ ਲਈ, Android ਸੈਟਿੰਗਾਂ ਵਿੱਚ NFC ਚਾਲੂ ਕਰੋ"</string>
+<string name="nfc_prompt_turn_on">"ਚਾਲੂ ਕਰੋ"</string>
+<string name="overlay_detected_dialog_title">"ਇਹ ਸਾਈਟ ਤੁਹਾਡੀ ਇਜਾਜ਼ਤ ਲਈ ਨਹੀਂ ਪੁੱਛ ਸਕਦੀ"</string>
+<string name="overlay_detected_dialog_message">"ਬਬਲ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਜਾਂ ਹੋਰ ਐਪਾਂ ਤੋਂ ਓਵਰਲੇਅ ਬੰਦ ਕਰੋ। ਫਿਰ, ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Згаджаюся"</string>
+<string name="autofill_assistant_init_title">"Паспрабуйце Памочніка Google\nу Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Афармленне пракату аўтамабіля\nў некалькі дотыкаў"</string>
+<string name="autofill_assistant_init_message_password_change">"Дазвольце Памочніку Google\nдапамагчы вам змяніць пароль"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Купля білетаў у кіно\nў некалькі дотыкаў"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Заказ ежы\nў некалькі дотыкаў"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Рэгістрацыя на рэйс\nу некалькі дотыкаў"</string>
+<string name="autofill_assistant_init_message_voice_search">"Паспрабуйце галасавое кіраванне\nна вэб-сайтах."</string>
+<string name="autofill_assistant_init_message_shopping">"Хуткае афармленне заказу\nў некалькі дотыкаў"</string>
+<string name="autofill_assistant_init_message">"Памочнік Google эканоміць ваш час, дапамагаючы выконваць дзеянні ў інтэрнэце, напрыклад пошук ці аплату."</string>
+<string name="autofill_assistant_init_message_short">"Памочнік Google у браўзеры Chrome можа завяршаць за вас дзеянні на розных вэб-сайтах"</string>
+<string name="autofill_assistant_google_terms_description">"Каб дапамагаць вам выконваць задачы, Google будзе збіраць URL-адрасы і змесціва сайтаў, на якіх вы выкарыстоўваеце Памочніка, а таксама інфармацыю, якую вы перадаяце праз яго. Гэта інфармацыя можа захоўвацца ва Уліковым запісе Google. Выключыць Памочніка можна ў наладах Chrome. &lt;link&gt;Даведацца больш&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"На жаль, дапамагчы не ўдалося. Працягвайце самастойна."</string>
+<string name="autofill_assistant_payment_information_missing">"Звесткі адсутнічаюць"</string>
+<string name="autofill_assistant_view_original_image_desc">"Адкрыць знешнюю спасылку?"</string>
+<string name="autofill_assistant_view_original_image_view">"Праглядзець"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Скасаваць"</string>
+<string name="autofill_assistant_sheet_content_description">"Памочнік Google у Chrome"</string>
+<string name="autofill_assistant_sheet_half_height">"Памочнік Google разгорнуты ў браўзеры Chrome напалову."</string>
+<string name="autofill_assistant_sheet_full_height">"Памочнік Google разгорнуты ў браўзеры Chrome поўнасцю."</string>
+<string name="autofill_assistant_sheet_closed">"Памочнік Google у браўзеры Chrome закрыты."</string>
+<string name="autofill_assistant_send_feedback">"Адправіць водгук"</string>
+<string name="autofill_assistant_increase_value">"Павялічыць значэнне"</string>
+<string name="autofill_assistant_decrease_value">"Паменшыць значэнне"</string>
+<string name="autofill_assistant_overflow_options">"Параметры"</string>
+</resources>

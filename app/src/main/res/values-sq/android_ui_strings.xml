@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Operacioni i mëparshëm nuk mund të përfundonte për shkak të nivelit të ulët të memories"</string>
+<string name="opening_file_error">"Dështoi në hapjen e skedarit të përzgjedhur"</string>
+<string name="copy_to_clipboard_failure_message">"Dështoi të kopjojë në kujtesën e fragmenteve"</string>
+<string name="link_copied">"Lidhja u kopjua"</string>
+<string name="chip_remove_icon_content_description">"Hiqe \"%1$s\""</string>
+</resources>

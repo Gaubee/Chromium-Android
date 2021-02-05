@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"ບໍ່​ສາ​ມາດດໍາ​ເນີນ​ງານ​​ຜ່ານມາໄດ້ສໍາເລັດ​​ເນື່ອງ​ມາ​ຈາກ​ຄວາມ​ຈໍາ​ຕ​ໍ່າ"</string>
+<string name="opening_file_error">"ເປີດໄຟລ໌ທີ່ເລືອກໄວ້ບໍ່ສໍາເລັດ"</string>
+<string name="copy_to_clipboard_failure_message">"ກັອບປີ້ໄປໃສ່ຄລິບບອດບໍ່ສໍາເລັດ"</string>
+<string name="link_copied">"ອັດ​ສຳ​ເນົາ​ລິ້ງ​ແລ້ວ"</string>
+<string name="chip_remove_icon_content_description">"ລຶບ \'%1$s\' ອອກ"</string>
+</resources>

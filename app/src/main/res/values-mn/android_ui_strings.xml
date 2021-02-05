@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Санах ой бага байгаа учраас өмнөх үйл ажиллагааг дуусгах боломжгүй байна."</string>
+<string name="opening_file_error">"Сонгогдсон файлыг нээж чадсангүй"</string>
+<string name="copy_to_clipboard_failure_message">"Түр хадгалах сан руу хуулах ажиллагаа амжилтгүй боллоо"</string>
+<string name="link_copied">"Холбоосыг хуулсан"</string>
+<string name="chip_remove_icon_content_description">"\'%1$s\'-г хасах"</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"የChrome አገልግሎት ውል ማርች 31 ላይ ይቀየራል"</string>
+<string name="tos_notification_body_text">"እባክዎ አዲሶቹን ደንቦች ይገምግሙ"</string>
+<string name="tos_notification_ack_button_text">"ገባኝ"</string>
+<string name="tos_notification_review_button_text">"ገምግም"</string>
+<string name="managed">"በእርስዎ ድርጅት የሚተዳደር"</string>
+<string name="search_or_type_web_address">"የድር አድራሻ ይፈልጉ ወይም ይተይቡ"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"የአስተያየት ጥቆማ ከቅንጥብ ሰሌዳ ይወገድ?"</string>
+<string name="options_homepage_title">"መነሻ ገጽ"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"በአቅራቢያ ያሉ ምንም መሣሪያዎች አልተገኙም።"</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"ፍቀድ"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"አግድ"</string>
+</resources>

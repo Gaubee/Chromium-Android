@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Sumasang-ayon ako"</string>
+<string name="autofill_assistant_init_title">"Subukan ang Google Assistant\nsa Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Magrenta ng kotse\nsa ilang pag-tap lang"</string>
+<string name="autofill_assistant_init_message_password_change">"Hayaan ang Google Assistant na tulungan kang\npalitan ang iyong password"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Bumili ng mga ticket ng pelikula\nsa ilang pag-tap lang"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Mag-order ng pagkain\nsa ilang pag-tap lang"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Mag-check in sa iyong flight \nsa ilang pag-tap lang"</string>
+<string name="autofill_assistant_init_message_voice_search">"Subukan ang mga voice action\nsa mga website"</string>
+<string name="autofill_assistant_init_message_shopping">"Mabilis na pag-checkout\nsa ilang pag-tap lang"</string>
+<string name="autofill_assistant_init_message">"Nakakatipid ka ng oras sa Google Assistant sa pamamagitan ng pagtulong nito sa iyong gumawa ng mga pagkilos sa web, gaya ng paghahanap at pag-checkout."</string>
+<string name="autofill_assistant_init_message_short">"Makakakumpleto ang Google Assistant sa Chrome ng mga pagkilos sa lahat ng website para sa iyo"</string>
+<string name="autofill_assistant_google_terms_description">"Para tulungan kang tapusin ang mga gawain, matatanggap ng Google ang mga URL at content ng mga site kung saan ka gumamit ng Assistant, gayundin ang impormasyong isinumite mo sa pamamagitan ng Assistant. Puwedeng i-store sa iyong Google account ang impormasyong ito. Puwede mong i-off ang Assistant sa mga setting ng Chrome. &lt;link&gt;Matuto pa&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Paumanhin, hindi ako makatulong. Magpatuloy nang mag-isa."</string>
+<string name="autofill_assistant_payment_information_missing">"May nawawalang impormasyon"</string>
+<string name="autofill_assistant_view_original_image_desc">"Buksan ang external na link?"</string>
+<string name="autofill_assistant_view_original_image_view">"View"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Kanselahin"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Assistant sa Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Nakabukas ang Google Assistant sa Chrome nang kalahati ang taas."</string>
+<string name="autofill_assistant_sheet_full_height">"Nakabukas ang Google Assistant sa Chrome nang buo ang taas."</string>
+<string name="autofill_assistant_sheet_closed">"Nakasara ang Google Assistant sa Chrome."</string>
+<string name="autofill_assistant_send_feedback">"Magpadala ng feedback"</string>
+<string name="autofill_assistant_increase_value">"Dagdagan ang value"</string>
+<string name="autofill_assistant_decrease_value">"Bawasan ang value"</string>
+<string name="autofill_assistant_overflow_options">"Mga Kagustuhan"</string>
+</resources>

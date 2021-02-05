@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Krahaso me shpejtësi faqet duke krijuar një grup. Për të filluar, prek dhe mbaj të shtypur një lidhje."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Trokit për të parë një skedë tjetër"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Skedat e tua grupohen së bashku këtu"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Kalo mes skedave në grupin e skedave pranë fundit të ekranit"</string>
+<string name="undo_bar_group_tabs_message">"%1$s skeda të grupuara"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d skedë"</item>
+  <item quantity="other">"%1$d skeda"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Shto skedë të re te grupi"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Fshih rrjetën me ekran të plotë"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Shfaq skedat e grupit në rrjetën me ekran të plotë"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Mbyll shiritin e skedave"</string>
+<string name="tabswitcher_create_group">"Krijo një grup"</string>
+<string name="accessibility_tab_switcher">"Ndërruesi i skedave"</string>
+<string name="accessibility_close_tab_group_button">"Mbyll grupin e skedave me %1$s skeda"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Mbyll grupin \"%1$s\" me %2$s skeda"</string>
+<string name="tab_selection_editor_group">"Grup"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Zgjidh skedat"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Grupo %1$d skedë të zgjedhur"</item>
+  <item quantity="other">"Grupo %1$d skeda të zgjedhura"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Fshih modalitetin e zgjedhjes së shumëfishtë"</string>
+<string name="accessibility_tab_selection_editor">"Modaliteti i zgjedhjes së shumëfishtë"</string>
+<string name="tab_grid_dialog_remove_from_group">"Hiq nga grupi"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Hiq skedat nga grupi"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Hiq"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Ndaj grupin"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Redakto emrin e grupit"</string>
+<string name="accessibility_expand_tab_group">"Zgjero grupin e skedave me %1$s skeda."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Zgjero grupin e skedës %1$s me %2$s skeda."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Hiq %1$d skedë të zgjedhur nga grupi."</item>
+  <item quantity="other">"Hiq %1$d skeda të zgjedhura nga grupi."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Palos %1$d skedë."</item>
+  <item quantity="other">"Palos grupin e skedave me %1$d skeda."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Palos %1$d skedë."</item>
+  <item quantity="other">"Palos grupin e skedave \"%1$s\" me %2$d skeda."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Grupi i skedave u zgjerua"</string>
+<string name="iph_drag_and_drop_introduction">"Zvarriti skedat për t\'i grupuar"</string>
+<string name="iph_drag_and_drop_show_me">"Ma trego"</string>
+<string name="iph_drag_and_drop_title">"Organizohu"</string>
+<string name="iph_drag_and_drop_content">"Për t\'i grupuar skedat, prek dhe mbaje të shtypur një skedë. Më pas zvarrite atë te një skedë tjetër."</string>
+<string name="tab_switcher_carousel_title">"Vazhdo shfletimin"</string>
+<string name="tab_switcher_carousel_view_all">"Shiko të gjitha"</string>
+<string name="tab_suggestion_review_button">"Rishiko"</string>
+<string name="tab_suggestion_close_tab_action_button">"Mbyll"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s nga skedat e tua nuk janë përdorur së fundi. Do t\'i mbyllësh ato?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s skeda duken të lidhura. Dëshiron t\'i gruposh?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Rishiko sugjerimet."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Sugjerim: %1$s nga skedat e tua nuk janë përdorur së fundi. Do t\'i mbyllësh ato?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Sugjerim: %1$s skeda duken të lidhura. Dëshiron t\'i gruposh?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Largo sugjerimet."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Mbyll %1$d skedë të zgjedhur"</item>
+  <item quantity="other">"Mbyll %1$d skeda të zgjedhura"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Lëviz skedën majtas"</string>
+<string name="accessibility_tab_movement_right">"Lëviz skedën djathtas"</string>
+<string name="accessibility_tab_movement_up">"Lëviz skedën lart"</string>
+<string name="accessibility_tab_movement_down">"Lëviz skedën poshtë"</string>
+<string name="undo_tab_strip_closure_message">"Shiriti i skedave i mbyllur"</string>
+<string name="tab_strip_info_bar_question">"Nuk do ta shfaqësh shiritin e skedave përsëri?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Mos e shfaq përsëri"</string>
+<string name="tab_strip_info_bar_reshow">"Shfaq më vonë"</string>
+<string name="price_drop_spotted_title">"U zbulua rënie çmimi"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Ma trego"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

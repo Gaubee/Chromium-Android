@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Touchରେ ପୂରଣ ହେବାକୁ ଥିବା କ୍ରେଡେନ୍‍ସିଆଲ୍‍ଗୁଡ଼ିକର ତାଲିକା।"</string>
+<string name="all_passwords_bottom_sheet_half_height">"ଅଧା ସ୍କ୍ରିନ୍‍‍ରେ ଖୋଲିଥିବା Touchରେ ପୂରଣ ହେବାକୁ ଥିବା କ୍ରେଡେନ୍‍ସିଆଲ୍‍ଗୁଡ଼ିକର ତାଲିକା।"</string>
+<string name="all_passwords_bottom_sheet_full_height">"ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍‍‍ରେ ଖୋଲିଥିବା Touchରେ ପୂରଣ ହେବାକୁ ଥିବା କ୍ରେଡେନ୍‍ସିଆଲ୍‍ଗୁଡ଼ିକର ତାଲିକା।"</string>
+<string name="all_passwords_bottom_sheet_closed">"Touchରେ ପୂରଣ ହେବାକୁ ଥିବା କ୍ରେଡେନ୍‍ସିଆଲ୍‍ଗୁଡ଼ିକର ତାଲିକାକୁ ବନ୍ଦ କରିଦିଆଯାଇଛି।"</string>
+<string name="all_passwords_bottom_sheet_title">"ପାସୱାର୍ଡଗୁଡିକ"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Search"</string>
+<string name="all_passwords_bottom_sheet_no_password">"କୌଣସି ପାସୱାର୍ଡ ନାହିଁ"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"ଯଦି ଆପଣ %sକୁ ବିଶ୍ୱାସ କରନ୍ତି, ତେବେ ଆପଣ ଅନ୍ୟ ଏକ ସାଇଟ୍ ପାଇଁ ସେଭ୍ କରାଯାଇଥିବା ପାସୱାର୍ଡକୁ ବ୍ୟବହାର କରିପାରିବେ।"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"ପ୍ରତ୍ୟେକ ସାଇଟ୍ ପାଇଁ ଏକ ସ୍ଵତନ୍ତ୍ର ପାସୱାର୍ଡ ବ୍ୟବହାର କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।"</string>
+<string name="autofill_keyboard_accessory_content_description">"ପାସ୍‍ୱାର୍ଡ ଉପଲବ୍ଧ ଅଛି"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"ସ୍ୱତଃପୂରଣ ପ୍ରସ୍ତାବଗୁଡ଼ିକ କୀବୋର୍ଡ ଉପରେ ଉପଲବ୍ଧ ଅଛି"</string>
+<string name="keyboard_accessory_sheet_hide">"କୀବୋର୍ଡ ଦେଖାନ୍ତୁ"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chromeର ସ୍ୱତଃପୂରଣ ପରାମର୍ଶ ବ୍ୟବହାର କରନ୍ତୁ"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"ଅଧିକ ପରାମର୍ଶ ଦେଖିବାକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ"</string>
+<string name="password_generation_accessory_button">"ଜଟିଳ ପାସ୍‌ୱର୍ଡ ପରାମର୍ଶ କରନ୍ତୁ"</string>
+<string name="password_generation_accessory_button_short">"ଏକ ପାସ୍‌ୱର୍ଡ କୁହନ୍ତୁ"</string>
+<string name="password_accessory_sheet_toggle">"ପାସ୍‌ୱର୍ଡଗୁଡ଼ିକ ଦେଖାନ୍ତୁ"</string>
+<string name="password_accessory_sheet_opened">"ସେଭ୍‍ ହୋ‍ଇଥିବା ପାସ୍‌ୱର୍ଡଗୁଡ଼ିକ ଏବଂ ପାସ୍‌ୱର୍ଡ ବିକଳ୍ପଗୁଡ଼ିକ"</string>
+<string name="address_accessory_sheet_title">"ଠିକଣାଗୁଡ଼ିକ"</string>
+<string name="address_accessory_sheet_toggle">"ଠିକଣାଗୁଡ଼ିକ ଦେଖାନ୍ତୁ"</string>
+<string name="address_accessory_sheet_opened">"ସେଭ୍ କରାଯାଇଥିବା ଠିକଣାଗୁଡ଼ିକ ଦେଖାଉଛି"</string>
+<string name="credit_card_accessory_sheet_toggle">"ପେମେଣ୍ଟ ପଦ୍ଧତି ଦେଖାନ୍ତୁ"</string>
+<string name="credit_card_accessory_sheet_opened">"ସେଭ୍ ଥିବା ପେମେଣ୍ଟ ପଦ୍ଧତିଗୁଡ଼ିକ ଦେଖାଯାଉଛି"</string>
+</resources>

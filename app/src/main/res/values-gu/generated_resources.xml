@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chromeની સેવાની શરતો 31મી માર્ચથી બદલાઈ રહી છે"</string>
+<string name="tos_notification_body_text">"કૃપા કરીને નવી શરતોને રિવ્યૂ કરો"</string>
+<string name="tos_notification_ack_button_text">"સમજાઈ ગયું"</string>
+<string name="tos_notification_review_button_text">"રિવ્યૂ કરો"</string>
+<string name="managed">"તમારી સંસ્થા દ્વારા મેનેજ કરેલ"</string>
+<string name="search_or_type_web_address">"વેબ ઍડ્રેસ શોધો અથવા લખો"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"શું ક્લિપબોર્ડમાંથી સૂચન કાઢી નાખીએ?"</string>
+<string name="options_homepage_title">"હોમપેજ"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"નજીકમાં કોઈ ડિવાઇસ ન મળ્યું."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"મંજૂરી આપો"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"અવરોધિત કરો"</string>
+</resources>

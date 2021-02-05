@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Saya setuju"</string>
+<string name="autofill_assistant_init_title">"Coba Asisten Google\ndi Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Sewa mobil\ncukup dengan beberapa kali ketuk"</string>
+<string name="autofill_assistant_init_message_password_change">"Izinkan Asisten Google membantu Anda\nmengubah sandi"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Beli tiket film\ncukup dengan beberapa kali ketuk"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Pesan makanan\ncukup dengan beberapa kali ketuk"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Check in ke penerbangan Anda\ncukup dengan beberapa kali ketuk"</string>
+<string name="autofill_assistant_init_message_voice_search">"Coba voice action\ndi situs"</string>
+<string name="autofill_assistant_init_message_shopping">"Checkout cepat\ncukup dengan beberapa kali ketuk"</string>
+<string name="autofill_assistant_init_message">"Asisten Google menghemat waktu Anda dengan membantu menyelesaikan tindakan di web, seperti penelusuran dan checkout."</string>
+<string name="autofill_assistant_init_message_short">"Asisten Google di Chrome dapat menyelesaikan tindakan di seluruh situs untuk Anda"</string>
+<string name="autofill_assistant_google_terms_description">"Untuk membantu Anda menyelesaikan tugas, Google akan menerima URL dan konten situs tempat Anda menggunakan Asisten, serta informasi yang Anda kirimkan melalui Asisten. Informasi ini mungkin disimpan di Akun Google Anda. Anda dapat menonaktifkan Asisten di setelan Chrome. &lt;link&gt;Pelajari lebih lanjut&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Maaf, saya tidak bisa membantu lagi. Silakan lanjutkan sendiri."</string>
+<string name="autofill_assistant_payment_information_missing">"Informasi tidak ada"</string>
+<string name="autofill_assistant_view_original_image_desc">"Buka link eksternal?"</string>
+<string name="autofill_assistant_view_original_image_view">"Lihat"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Batal"</string>
+<string name="autofill_assistant_sheet_content_description">"Asisten Google di Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Asisten Google di Chrome terbuka dengan ketinggian separuh."</string>
+<string name="autofill_assistant_sheet_full_height">"Asisten Google di Chrome terbuka dengan ketinggian penuh."</string>
+<string name="autofill_assistant_sheet_closed">"Asisten Google di Chrome ditutup."</string>
+<string name="autofill_assistant_send_feedback">"Kirim masukan"</string>
+<string name="autofill_assistant_increase_value">"Meningkatkan nilai"</string>
+<string name="autofill_assistant_decrease_value">"Menurunkan nilai"</string>
+<string name="autofill_assistant_overflow_options">"Preferensi"</string>
+</resources>

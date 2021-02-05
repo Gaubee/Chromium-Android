@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"បញ្ជី​ព័ត៌មាន​ផ្ទៀងផ្ទាត់ ដែលត្រូវ​បំពេញ​ដោយការប៉ះ។"</string>
+<string name="all_passwords_bottom_sheet_half_height">"​បញ្ជី​ព័ត៌មាន​ផ្ទៀងផ្ទាត់ ដែលត្រូវ​បំពេញដោយ​ការប៉ះត្រូវបានបើកពាក់កណ្ដាល​អេក្រង់។"</string>
+<string name="all_passwords_bottom_sheet_full_height">"បញ្ជី​ព័ត៌មាន​ផ្ទៀងផ្ទាត់ ដែលត្រូវ​បំពេញ​ដោយ​ការប៉ះ​ត្រូវបាន​បើក​ពេញ​អេក្រង់។"</string>
+<string name="all_passwords_bottom_sheet_closed">"បញ្ជី​ព័ត៌មាន​ផ្ទៀងផ្ទាត់ ដែលត្រូវ​បំពេញ​ដោយ​ការប៉ះ​ត្រូវបានបិទ។"</string>
+<string name="all_passwords_bottom_sheet_title">"ពាក្យសម្ងាត់"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"ស្វែងរក"</string>
+<string name="all_passwords_bottom_sheet_no_password">"គ្មានពាក្យសម្ងាត់ទេ"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"ប្រសិនបើ​អ្នក​ជឿទុកចិត្ត %s អ្នក​អាច​ប្រើ​ពាក្យសម្ងាត់​ដែលបានរក្សាទុក​សម្រាប់​គេហទំព័រ​ផ្សេងទៀត​បាន។"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"សូមព្យាយាម​ប្រើ​ពាក្យសម្ងាត់​ខុសប្លែកពីគេ​សម្រាប់​រាល់​គេហទំព័រ​។"</string>
+<string name="autofill_keyboard_accessory_content_description">"ពាក្យសម្ងាត់​ដែលអាចប្រើបាន"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"ការណែនាំ​អំពីការបំពេញដោយស្វ័យប្រវត្តិមាននៅផ្នែកខាងលើ​ក្ដារចុច​"</string>
+<string name="keyboard_accessory_sheet_hide">"បង្ហាញក្តារចុច"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"ប្រើការ​ណែនាំអំពីការបំពេញស្វ័យប្រវត្តិរបស់ Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"អូសដើម្បីមើល​ការណែនាំច្រើនទៀត"</string>
+<string name="password_generation_accessory_button">"ណែនាំ​ពាក្យ​សម្ងាត់​ខ្លាំង"</string>
+<string name="password_generation_accessory_button_short">"ណែនាំ​ពាក្យសម្ងាត់"</string>
+<string name="password_accessory_sheet_toggle">"បង្ហាញ​ពាក្យ​សម្ងាត់"</string>
+<string name="password_accessory_sheet_opened">"កំពុងបង្ហាញ​ពាក្យសម្ងាត់​ដែលបាន​រក្សាទុក និង​ជម្រើស​ពាក្យសម្ងាត់"</string>
+<string name="address_accessory_sheet_title">"អាសយដ្ឋាន"</string>
+<string name="address_accessory_sheet_toggle">"បង្ហាញ​អាសយដ្ឋាន"</string>
+<string name="address_accessory_sheet_opened">"កំពុងបង្ហាញ​អាសយដ្ឋាន​ដែលបាន​រក្សាទុក"</string>
+<string name="credit_card_accessory_sheet_toggle">"បង្ហាញវិធីបង់ប្រាក់"</string>
+<string name="credit_card_accessory_sheet_opened">"កំពុងបង្ហាញវិធី​បង់ប្រាក់​ដែលបានរក្សាទុក"</string>
+</resources>

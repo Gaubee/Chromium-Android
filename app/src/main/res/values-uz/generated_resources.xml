@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome xizmat shartlari 31-mart kuni yangilanadi."</string>
+<string name="tos_notification_body_text">"Yangi shartlar bilan tanishib chiqing"</string>
+<string name="tos_notification_ack_button_text">"Tushunarli"</string>
+<string name="tos_notification_review_button_text">"Tekshirish"</string>
+<string name="managed">"Tashkilotingiz tomonidan boshqariladi"</string>
+<string name="search_or_type_web_address">"Qidiring yoki sayt manzilini kiriting"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Klipbord taklifi olib tashlansinmi?"</string>
+<string name="options_homepage_title">"Bosh sahifa"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Yaqin-atrofda hech qanday qurilma topilmadi."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Ruxsat berish"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Taqiqlash"</string>
+</resources>

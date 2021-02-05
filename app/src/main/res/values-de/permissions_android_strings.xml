@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome benötigt Zugriff auf die Kamera, um eine 3D-Karte Ihrer Umgebung zu erstellen."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome benötigt für diese Website die Berechtigung, auf Ihre Kamera zuzugreifen."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome benötigt für diese Website die Berechtigung, auf Ihr Mikrofon zuzugreifen."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome benötigt für diese Website die Berechtigung, auf Ihre Kamera und Ihr Mikrofon zuzugreifen."</string>
+<string name="infobar_missing_location_permission_text">"Chrome benötigt Zugriff auf Ihren Standort, um ihn mit dieser Website zu teilen."</string>
+<string name="infobar_update_permissions_button_text">"Weiter"</string>
+<string name="nfc_disabled_on_device_message">"Aktivieren Sie zum Fortfahren NFC in den Android-Einstellungen"</string>
+<string name="nfc_prompt_turn_on">"Aktivieren"</string>
+<string name="overlay_detected_dialog_title">"Diese Website darf nicht nach Ihrer Berechtigung fragen"</string>
+<string name="overlay_detected_dialog_message">"Schließen Sie alle Infofelder und Einblendungen anderer Apps. Versuchen Sie es anschließend noch einmal."</string>
+</resources>

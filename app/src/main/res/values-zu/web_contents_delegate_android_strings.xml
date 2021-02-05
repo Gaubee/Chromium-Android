@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Okuningi"</string>
+<string name="color_picker_hue">"I-Hue"</string>
+<string name="color_picker_saturation">"Gcwalisa isikhala"</string>
+<string name="color_picker_value">"Inani"</string>
+<string name="color_picker_button_set">"Setha"</string>
+<string name="color_picker_button_cancel">"Khansela"</string>
+<string name="color_picker_dialog_title">"Khetha umbala"</string>
+<string name="color_picker_button_red">"Okubomvu"</string>
+<string name="color_picker_button_cyan">"I-Cyan"</string>
+<string name="color_picker_button_blue">"Okuluhlaza okwesibhakabhaka"</string>
+<string name="color_picker_button_green">"Okuluhlaza"</string>
+<string name="color_picker_button_magenta">"I-Magenta"</string>
+<string name="color_picker_button_yellow">"Okuliphuzi"</string>
+<string name="color_picker_button_black">"Mnyama"</string>
+<string name="color_picker_button_white">"Mhlophe"</string>
+</resources>

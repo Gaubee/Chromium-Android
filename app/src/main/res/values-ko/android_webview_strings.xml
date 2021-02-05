@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="private_browsing_warning">"사용 중인 Android 버전에서 지원하지 않는 기능입니다."</string>
+<string name="license_activity_title">"시스템 WebView 라이선스"</string>
+</resources>

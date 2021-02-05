@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"పేజీలను సమూహంగా వర్గీకరించడం ద్వారా వేగంగా సరిపోల్చండి. ప్రారంభించడానికి, లింక్‌ను తాకి &amp; అలాగే నొక్కి ఉంచండి."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"మరొక ట్యాబ్‌ను చూడటానికి నొక్కండి"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"మీ ట్యాబ్‌లు గ్రూప్ చేయబడి, ఇక్కడ ఉన్నాయి"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"స్క్రీన్ దిగువ భాగం దగ్గరలో ఉండే మీ ట్యాబ్ సమూహంలో కోరుకునే ట్యాబ్‌లకు మారండి"</string>
+<string name="undo_bar_group_tabs_message">"%1$s ట్యాబ్‌లు గ్రూప్ చేయబడ్డాయి"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d ట్యాబ్"</item>
+  <item quantity="other">"%1$d ట్యాబ్‌లు"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"సమూహానికి కొత్త ట్యాబ్‌ను జోడించు"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"పూర్తి స్క్రీన్ గ్రిడ్‌‌ను దాచిపెట్టు"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"సమూహంలోని ట్యాబ్‌లను పూర్తి స్క్రీన్ గ్రిడ్‌లో చూపు"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"ట్యాబ్‌ స్ట్రిప్‌ను మూసివేస్తుంది"</string>
+<string name="tabswitcher_create_group">"సమూహాన్ని సృష్టించు"</string>
+<string name="accessibility_tab_switcher">"ట్యాబ్ స్విచర్"</string>
+<string name="accessibility_close_tab_group_button">"%1$s ట్యాబ్‌లతో ఉన్న ట్యాబ్ గ్రూప్‌ను మూసివేయండి"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"%2$s ట్యాబ్‌లతో ఉన్న %1$s గ్రూప్‌ను మూసివేయండి"</string>
+<string name="tab_selection_editor_group">"గ్రూప్‌గా చేయి"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"ట్యాబ్‌లను ఎంచుకోండి"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"ఎంచుకున్న %1$d ట్యాబ్ గ్రూప్ చేయబడుతుంది"</item>
+  <item quantity="other">"ఎంచుకున్న %1$d ట్యాబ్‌లు గ్రూప్ చేయబడతాయి"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"బహుళ-ఎంపిక మోడ్‌ను దాచండి"</string>
+<string name="accessibility_tab_selection_editor">"బహుళ-ఎంపిక మోడ్"</string>
+<string name="tab_grid_dialog_remove_from_group">"గుంపు నుండి తీసివేయి"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"గ్రూప్ నుండి ట్యాబ్‌లు తీసివేయి"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"తీసివేయి"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"గ్రూప్‌ను షేర్ చేయండి"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"గ్రూప్ పేరును ఎడిట్ చేయండి"</string>
+<string name="accessibility_expand_tab_group">"%1$s ట్యాబ్‌లతో ట్యాబ్ గ్రూప్‌ను విస్తరించండి."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"%2$s ట్యాబ్‌లతో %1$s ట్యాబ్ గ్రూప్‌ను విస్తరించండి."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"గ్రూప్ నుండి %1$d ఎంచుకున్న ట్యాబ్‌ను తీసివేయండి."</item>
+  <item quantity="other">"గ్రూప్ నుండి %1$d ఎంచుకున్న ట్యాబ్‌లను తీసివేయండి."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d ట్యాబ్‌ను కుదించండి."</item>
+  <item quantity="other">"%1$d ట్యాబ్‌లతో ట్యాబ్ గ్రూప్‌ను కుదించండి."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d ట్యాబ్‌ను కుదించండి."</item>
+  <item quantity="other">"%2$d ట్యాబ్‌లతో ఉన్న %1$s ట్యాబ్ గ్రూప్‌ను కుదించండి."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"ట్యాబ్ గ్రూప్ విస్తరించబడింది"</string>
+<string name="iph_drag_and_drop_introduction">"గ్రూప్‌గా చేయడానికి ట్యాబ్‌లను లాగండి"</string>
+<string name="iph_drag_and_drop_show_me">"నాకు చూపించు"</string>
+<string name="iph_drag_and_drop_title">"అన్నింటిని క్రమ పద్దతిలో అమర్చండి"</string>
+<string name="iph_drag_and_drop_content">"ట్యాబ్‌లను సమూహంగా చేయడానికి, ట్యాబ్‌ను తాకి &amp; అలాగే నొక్కి ఉంచండి. ట్యాబ్‌ను మరొక ట్యాబ్‌ మీదకు లాగండి."</string>
+<string name="tab_switcher_carousel_title">"బ్రౌజింగ్‌ను కొనసాగించండి"</string>
+<string name="tab_switcher_carousel_view_all">"అన్నింటినీ చూడండి"</string>
+<string name="tab_suggestion_review_button">"సమీక్షించు"</string>
+<string name="tab_suggestion_close_tab_action_button">"మూసివేయి"</string>
+<string name="tab_suggestion_close_stale_message">"మీ %1$s ట్యాబ్‌లు ఇటీవల ఉపయోగించబడలేదు. వాటిని మూసివేయాలా?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s ట్యాబ్‌లు సంబంధించినవిగా అనిపిస్తున్నాయి. వాటిని గ్రూప్ చేయాలా?"</string>
+<string name="accessibility_tab_suggestion_review_button">"సూచనలను సమీక్షించండి."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"సూచన: మీ %1$s ట్యాబ్‌లను ఇటీవల ఉపయోగించలేదు. వాటిని మూసివేయాలా?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"సూచన: %1$s ట్యాబ్‌లు సంబంధించినవిగా అనిపిస్తున్నాయి. వాటిని గ్రూప్ చేయాలా?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"సూచనలను తీసివేయండి."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"ఎంపిక చేసిన %1$d ట్యాబ్‌ను మూసివేయి"</item>
+  <item quantity="other">"ఎంపిక చేసిన %1$d ట్యాబ్‌లను మూసివేయి"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"ట్యాబ్‌ను ఎడమకు తరలించు"</string>
+<string name="accessibility_tab_movement_right">"ట్యాబ్‌ను కుడి వైపునకు తరలించు"</string>
+<string name="accessibility_tab_movement_up">"ట్యాబ్‌ను పైక్ తరలించండి"</string>
+<string name="accessibility_tab_movement_down">"ట్యాబ్‌ని కిందికి తరలించు"</string>
+<string name="undo_tab_strip_closure_message">"మూసివేయబడిన ట్యాబ్‌ స్ట్రిప్"</string>
+<string name="tab_strip_info_bar_question">"ట్యాబ్‌ స్ట్రిప్‌ను మళ్లీ చూపవద్దా?"</string>
+<string name="tab_strip_info_bar_no_reshow">"మళ్లీ చూపవద్దు"</string>
+<string name="tab_strip_info_bar_reshow">"తర్వాత చూపించు"</string>
+<string name="price_drop_spotted_title">"ధర తగ్గింపు గుర్తించబడింది"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"నాకు చూపించు"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

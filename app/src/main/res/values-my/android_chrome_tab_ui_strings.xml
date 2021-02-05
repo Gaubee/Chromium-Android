@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"အဖွဲ့ဖွဲ့ခြင်းဖြင့် စာမျက်နှာများကို အမြန်နှိုင်းယှဉ်ပါ။ စတင်ရန် လင့်ခ်ကို ထိပြီး ဖိထားပါ။"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"နောက်တဘ်တစ်ခုကြည့်ရန် တို့ပါ"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"သင့်တဘ်များကို ဤနေရာတွင် အုပ်စုဖွဲ့ထားသည်"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"မျက်နှာပြင်အောက်ခြေနားရှိ သင်၏ တဘ်အုပ်စုအတွင်း တဘ်တစ်ခုမှတစ်ခုသို့ ပြောင်းပါ"</string>
+<string name="undo_bar_group_tabs_message">"တဘ် %1$s ခုကို အုပ်စုဖွဲ့ထားသည်"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"တဘ် %1$d ခု"</item>
+  <item quantity="other">"တဘ် %1$d ခု"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"တဘ်အသစ်ကို အုပ်စုသို့ ထည့်ရန်"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"မျက်နှာပြင်ပြည့် ဇယားကွက်ကို ဝှက်ရန်"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"မျက်နှာပြင်ပြည့် ဇယားကွက်အတွင်း အုပ်စု၏ တဘ်များကို ပြရန်"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"တဘ်ဘားတန်းကို ပိတ်ရန်"</string>
+<string name="tabswitcher_create_group">"အုပ်စုဖွဲ့ရန်"</string>
+<string name="accessibility_tab_switcher">"တဘ်ပြောင်းခလုတ်"</string>
+<string name="accessibility_close_tab_group_button">"တဘ် %1$s ခုပါသော တဘ်အုပ်စုကို ပိတ်ရန်"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"တဘ် %2$s ခုဖြင့် %1$s အုပ်စုကို ပိတ်ရန်"</string>
+<string name="tab_selection_editor_group">"အုပ်စု"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"တဘ်ရွေးရန်"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"ရွေးထားသောတဘ် %1$d ခုကို အုပ်စုဖွဲ့ရန်"</item>
+  <item quantity="other">"ရွေးထားသောတဘ် %1$d ခုကို အုပ်စုဖွဲ့ရန်"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"မျိုးစုံရွေးမုဒ်ကို ဝှက်ရန်"</string>
+<string name="accessibility_tab_selection_editor">"မျိုးစုံရွေးမုဒ်"</string>
+<string name="tab_grid_dialog_remove_from_group">"အဖွဲ့မှ ဖယ်ရှားပါ"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"အုပ်စုမှ တဘ်များကို ဖယ်ရှားရန်"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"ဖယ်ရှားရန်"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"အုပ်စုကို မျှဝေရန်"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"အဖွဲ့အမည်ကို တည်းဖြတ်ရန်"</string>
+<string name="accessibility_expand_tab_group">"တဘ် %1$s ခုဖြင့် တဘ်အုပ်စုကို ချဲ့ပါ။"</string>
+<string name="accessibility_expand_tab_group_with_group_name">"တဘ် %2$s ခုဖြင့် %1$s တဘ်အုပ်စုကို ချဲ့ပါ။"</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"ရွေးထားသော တဘ် %1$d ခုအား အုပ်စုမှ ဖယ်ရှားပါ။"</item>
+  <item quantity="other">"ရွေးထားသော တဘ် %1$d ခုအား အုပ်စုမှ ဖယ်ရှားပါ။"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d တဘ်ကို ခေါက်ပါ။"</item>
+  <item quantity="other">"တဘ် %1$d ခုဖြင့် တဘ်အုပ်စု လျှော့ပြပါ။"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d တဘ်ကို ခေါက်ပါ။"</item>
+  <item quantity="other">"တဘ် %2$d ခုဖြင့် အုပ်စုဖွဲ့ထားသည့် %1$s တဘ်ကို ပြန်ခေါက်ပါ။"</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"တဘ်အုပ်စုကို ချဲ့ထားသည်"</string>
+<string name="iph_drag_and_drop_introduction">"တဘ်များကို အုပ်စုဖွဲ့ရန် ၎င်းတို့ကို ဖိဆွဲပါ"</string>
+<string name="iph_drag_and_drop_show_me">"ပြရန်"</string>
+<string name="iph_drag_and_drop_title">"စုစုစည်းစည်းဖြစ်အောင် ပြုလုပ်ပါ"</string>
+<string name="iph_drag_and_drop_content">"တဘ်များကို အုပ်စုဖွဲ့ရန် တဘ်တစ်ခုကို တို့ထိ၍ ဖိထားပါ။ ထို့နောက် ၎င်းကို နောက်တဘ်တစ်ခုပေါ်သို့ ဖိဆွဲပါ။"</string>
+<string name="tab_switcher_carousel_title">"ဆက်တိုက် ရှာကြည့်ခြင်း"</string>
+<string name="tab_switcher_carousel_view_all">"အားလုံးကြည့်ရန်"</string>
+<string name="tab_suggestion_review_button">"ပြန်ကြည့်ရန်"</string>
+<string name="tab_suggestion_close_tab_action_button">"ပိတ်ရန်"</string>
+<string name="tab_suggestion_close_stale_message">"သင်၏တဘ် %1$s ခုကို နောက်ပိုင်းတွင် အသုံးပြုမထားပါ။ ၎င်းတို့ကို ပိတ်မလား။"</string>
+<string name="tab_suggestion_group_tabs_message">"တဘ် %1$s ခုက ဆက်စပ်ပုံပေါ်သည်။ ၎င်းတို့ကို အုပ်စုဖွဲ့မလား။"</string>
+<string name="accessibility_tab_suggestion_review_button">"အကြံပြုချက်များကို စစ်ဆေးရန်။"</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"အကြံပြုချက်- သင်၏တဘ် %1$s ခုကို အခုတစ်လော အသုံးပြုမထားပါ။ ၎င်းတို့ကို ပိတ်မလား။"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"အကြံပြုချက်- တဘ် %1$s ခုက ဆက်စပ်ပုံပေါ်သည်။ ၎င်းတို့ကို အုပ်စုဖွဲ့မလား။"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"အကြံပြုချက်များကို ပယ်ပါ။"</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"ရွေးထားသည့် တဘ် %1$d ခုကို ပိတ်ရန်"</item>
+  <item quantity="other">"ရွေးထားသည့် တဘ် %1$d ခုကို ပိတ်ရန်"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"တဘ်ကို ဘယ်ဘက်သို့ ရွှေ့ရန်"</string>
+<string name="accessibility_tab_movement_right">"တဘ်ကို ညာဘက်သို့ ရွှေ့ရန်"</string>
+<string name="accessibility_tab_movement_up">"တဘ်အပေါ်သို့ ရွှေ့ရန်"</string>
+<string name="accessibility_tab_movement_down">"တဘ်ကို အောက်သို့ ရွှေ့ရန်"</string>
+<string name="undo_tab_strip_closure_message">"တဘ်ဘားတန်း ပိတ်ထားသည်"</string>
+<string name="tab_strip_info_bar_question">"တဘ်ဘားတန်း ထပ်ပြရမလား။"</string>
+<string name="tab_strip_info_bar_no_reshow">"ထပ်မပြပါနှင့်"</string>
+<string name="tab_strip_info_bar_reshow">"နောက်မှ ပြရန်"</string>
+<string name="price_drop_spotted_title">"ဈေးကျသွားသည်ကို တွေ့သည်"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"ပြရန်"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

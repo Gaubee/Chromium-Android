@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="private_browsing_warning">"此版本的 Android 不支持该功能。"</string>
+<string name="license_activity_title">"系统 WebView 许可"</string>
+</resources>

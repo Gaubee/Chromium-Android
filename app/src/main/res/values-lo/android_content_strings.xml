@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="actionbar_share">"ແຊຣ໌"</string>
+<string name="actionbar_web_search">"ຄົ້ນຫາເວັບ"</string>
+<string name="actionbar_textselection_title">"​ການ​ເລືອກຂໍ້​ຄວາມ"</string>
+<string name="add_to_dictionary">"ເພີ່ມໃສ່ວັດຈະນານຸກົມ"</string>
+<string name="delete_suggestion_text">"ລຶບ"</string>
+<string name="profiler_started_toast">"ຕົວເລີ່ມໂປຣໄຟລ໌ເລີ່ມຕົ້ນແລ້ວ"</string>
+<string name="profiler_stopped_toast">"ຕົວສ້າງໂປຣໄຟລ໌ສໍາ​ເລັດ​ແລ້ວ​. ຜົນ​ໄດ້​ຮັບ​ແມ່ນ​ຢູ່​ໃນ %1$s."</string>
+<string name="profiler_no_storage_toast">"ບໍ່ສາມາດເລີ່ມຕົ້ນຕົວເຮັດໂປຣໄຟລ໌ໄດ້ ເພາະວ່າເຄື່ອງເກັບມ້ຽນຂໍ້ມູນທາງນອກບໍ່ພ້ອມ"</string>
+<string name="profiler_error_toast">"ເລີ່ມ​ຜູ້ສ້າງໂປຣໄຟລ໌ບໍ່ສໍາເລັດ"</string>
+<string name="accessibility_date_picker_month">"ເດືອນ"</string>
+<string name="accessibility_date_picker_year">"ປີ"</string>
+<string name="date_picker_dialog_set">"ຕັ້ງ"</string>
+<string name="month_picker_dialog_title">"ຕັ້ງເດືອນ"</string>
+<string name="accessibility_date_picker_week">"ອາທິດ"</string>
+<string name="week_picker_dialog_title">"ຕັ້ງອາ​ທິດ"</string>
+<string name="time_picker_dialog_am">"ໂມງເຊົ້າ"</string>
+<string name="time_picker_dialog_pm">"ໂມງແລງ"</string>
+<string name="time_picker_dialog_title">"ຕັ້ງເວລາ"</string>
+<string name="accessibility_time_picker_hour">"ຊົ່ວ​ໂມງ"</string>
+<string name="accessibility_time_picker_minute">"ນາ​ທີ"</string>
+<string name="accessibility_time_picker_second">"ວິ​ນາ​ທີ"</string>
+<string name="accessibility_time_picker_milli">"ມິລລິວິນາທີ"</string>
+<string name="accessibility_time_picker_ampm">"ໂມງເຊົ້າ/ໂມງແລງ"</string>
+<string name="time_picker_dialog_hour_minute_separator">":"</string>
+<string name="time_picker_dialog_minute_second_separator">":"</string>
+<string name="time_picker_dialog_second_subsecond_separator">"."</string>
+<string name="date_time_picker_dialog_title">"ຕັ້ງວັນທີ ແລະເວລາ"</string>
+<string name="accessibility_datetime_picker_date">"ວັນ​ທີ"</string>
+<string name="accessibility_datetime_picker_time">"ເວລາ"</string>
+<string name="date_picker_dialog_other_button_label">"ອື່ນໆ"</string>
+<string name="date_picker_dialog_title">"ຕັ້ງວັນ​ທີ​"</string>
+<string name="date_picker_dialog_clear">"ລຶບ"</string>
+<string name="speech_recognition_service_not_found">"ບໍ່ເຫັນເຄື່ອງມືອ່ານອອກສຽງຂອງ Google"</string>
+</resources>

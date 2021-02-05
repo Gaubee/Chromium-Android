@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Συνέχεια με τον λογαριασμό"</string>
+<string name="touch_to_fill_sheet_title">"Επιλέξτε λογαριασμό"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Η λίστα με τα διαπιστευτήρια για συμπλήρωση μέσω αφής."</string>
+<string name="touch_to_fill_sheet_half_height">"Η λίστα με τα διαπιστευτήρια για συμπλήρωση μέσω αφής είναι ανοιχτή στο κάτω μισό της οθόνης."</string>
+<string name="touch_to_fill_sheet_full_height">"Η λίστα με τα διαπιστευτήρια για συμπλήρωση μέσω αφής είναι ανοιχτή σε όλη την οθόνη."</string>
+<string name="touch_to_fill_sheet_closed">"Η λίστα με τα διαπιστευτήρια για συμπλήρωση μέσω αφής είναι κλειστή."</string>
+<string name="manage_passwords">"Διαχείριση κωδικών πρόσβασης"</string>
+<string name="touch_to_fill_continue">"Συνέχεια"</string>
+</resources>

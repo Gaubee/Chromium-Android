@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Pieskaroties aizpildāmo akreditācijas datu saraksts."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Pieskaroties aizpildāmo akreditācijas datu saraksts ir atvērts pusekrāna augstumā."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Pieskaroties aizpildāmo akreditācijas datu saraksts ir atvērts pilna ekrāna augstumā."</string>
+<string name="all_passwords_bottom_sheet_closed">"Pieskaroties aizpildāmo akreditācijas datu saraksts ir aizvērts."</string>
+<string name="all_passwords_bottom_sheet_title">"Paroles"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Meklēt"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Nav paroles"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Ja uzticaties vietnei %s, varat izmantot saglabāto paroli citā vietnē."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Mēģiniet izmantot unikālu paroli katrai vietnei."</string>
+<string name="autofill_keyboard_accessory_content_description">"Ir pieejamas paroles"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Virs tastatūras ir pieejami automātiskās aizpildes ieteikumi"</string>
+<string name="keyboard_accessory_sheet_hide">"Rādīt tastatūru"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Izmantojiet Chrome automātiskās aizpildes ieteikumu"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Velciet, lai skatītu citus ieteikumus"</string>
+<string name="password_generation_accessory_button">"Ieteikt drošu paroli"</string>
+<string name="password_generation_accessory_button_short">"Ieteikt paroli"</string>
+<string name="password_accessory_sheet_toggle">"Rādīt paroles"</string>
+<string name="password_accessory_sheet_opened">"Tiek rādītas saglabātās paroles un paroļu iespējas"</string>
+<string name="address_accessory_sheet_title">"Adreses"</string>
+<string name="address_accessory_sheet_toggle">"Rādīt adreses"</string>
+<string name="address_accessory_sheet_opened">"Tiek rādītas saglabātās adreses"</string>
+<string name="credit_card_accessory_sheet_toggle">"Rādīt maksājumu veidus"</string>
+<string name="credit_card_accessory_sheet_opened">"Tiek rādīti saglabātie maksājumu veidi"</string>
+</resources>

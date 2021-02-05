@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Llista de credencials que s\'emplenaran amb un toc."</string>
+<string name="all_passwords_bottom_sheet_half_height">"La llista de credencials que s\'emplenaran amb un toc s\'ha obert a mitja alçada."</string>
+<string name="all_passwords_bottom_sheet_full_height">"La llista de credencials que s\'emplenaran amb un toc s\'ha obert a alçada completa."</string>
+<string name="all_passwords_bottom_sheet_closed">"La llista de credencials que s\'emplenaran amb un toc està tancada."</string>
+<string name="all_passwords_bottom_sheet_title">"Contrasenyes"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Cerca"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Sense contrasenya"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Si confies en %s, pots utilitzar una contrasenya desada per a un altre lloc web."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Prova d\'utilitzar una contrasenya única per a cada lloc web."</string>
+<string name="autofill_keyboard_accessory_content_description">"Contrasenyes disponibles"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"A sobre del teclat hi ha suggeriments d\'Emplenament automàtic"</string>
+<string name="keyboard_accessory_sheet_hide">"Mostra el teclat"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Utilitza el suggeriment d\'Emplenament automàtic de Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Llisca per veure més suggeriments"</string>
+<string name="password_generation_accessory_button">"Suggereix una contrasenya segura"</string>
+<string name="password_generation_accessory_button_short">"Suggereix una contrasenya"</string>
+<string name="password_accessory_sheet_toggle">"Mostra les contrasenyes"</string>
+<string name="password_accessory_sheet_opened">"S\'estan mostrant les contrasenyes desades i les opcions de contrasenyes"</string>
+<string name="address_accessory_sheet_title">"Adreces"</string>
+<string name="address_accessory_sheet_toggle">"Mostra les adreces"</string>
+<string name="address_accessory_sheet_opened">"S\'estan mostrant les adreces desades"</string>
+<string name="credit_card_accessory_sheet_toggle">"Mostra les formes de pagament"</string>
+<string name="credit_card_accessory_sheet_opened">"S\'estan mostrant les formes de pagament desades"</string>
+</resources>

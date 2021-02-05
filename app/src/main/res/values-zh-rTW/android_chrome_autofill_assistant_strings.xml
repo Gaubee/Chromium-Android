@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"我同意"</string>
+<string name="autofill_assistant_init_title">"試用 Chrome 中的\n Google 助理"</string>
+<string name="autofill_assistant_init_message_rent_car">"只要輕觸幾下\n即可租車"</string>
+<string name="autofill_assistant_init_message_password_change">"讓 Google 助理協助你\n變更密碼"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"只要輕觸幾下\n即可購買電影票"</string>
+<string name="autofill_assistant_init_message_food_ordering">"只要輕觸幾下\n即可訂餐"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"只要輕觸幾下\n即可完成登機報到手續"</string>
+<string name="autofill_assistant_init_message_voice_search">"在網站上\n試用語音指令"</string>
+<string name="autofill_assistant_init_message_shopping">"只要輕觸幾下\n即可快速結帳"</string>
+<string name="autofill_assistant_init_message">"當你瀏覽網頁時，Google 助理可幫助你完成各項操作 (例如搜尋和結帳)，為你省下寶貴時間。"</string>
+<string name="autofill_assistant_init_message_short">"Chrome 版 Google 助理可協助你在不同的網站上完成動作"</string>
+<string name="autofill_assistant_google_terms_description">"為協助你完成工作，系統會將你使用 Google 助理時所在網站的網址與互動的內容，以及你透過 Google 助理提交的資訊，一併傳送給 Google。這類資訊可能會儲存在你的 Google 帳戶中。你可以在 Chrome 設定中關閉 Google 助理。&lt;link&gt;瞭解詳情&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"抱歉，目前無法提供協助，請自行填入資料。"</string>
+<string name="autofill_assistant_payment_information_missing">"缺少資訊"</string>
+<string name="autofill_assistant_view_original_image_desc">"要開啟外部連結嗎？"</string>
+<string name="autofill_assistant_view_original_image_view">"檢視"</string>
+<string name="autofill_assistant_view_original_image_cancel">"取消"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome 版 Google 助理。"</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome 版 Google 助理已開啟，顯示在畫面下半部。"</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome 版 Google 助理已開啟，顯示於整個畫面。"</string>
+<string name="autofill_assistant_sheet_closed">"已關閉 Chrome 版 Google 助理。"</string>
+<string name="autofill_assistant_send_feedback">"提供意見"</string>
+<string name="autofill_assistant_increase_value">"調升值"</string>
+<string name="autofill_assistant_decrease_value">"調降值"</string>
+<string name="autofill_assistant_overflow_options">"偏好設定"</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome ต้องการสิทธิ์เข้าถึงกล้องเพื่อสร้างแผนที่ 3 มิติของสิ่งที่อยู่รอบตัวคุณ"</string>
+<string name="infobar_missing_camera_permission_text">"Chrome ต้องการสิทธิ์เข้าถึงกล้องถ่ายรูปของคุณสำหรับไซต์นี้"</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome ต้องการสิทธิ์เข้าถึงไมโครโฟนของคุณสำหรับไซต์นี้"</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome ต้องการสิทธิ์เข้าถึงไมโครโฟนและกล้องถ่ายรูปของคุณสำหรับไซต์นี้"</string>
+<string name="infobar_missing_location_permission_text">"Chrome ต้องการสิทธิ์เข้าถึงตำแหน่งของคุณเพื่อแชร์ตำแหน่งกับไซต์นี้"</string>
+<string name="infobar_update_permissions_button_text">"ต่อไป"</string>
+<string name="nfc_disabled_on_device_message">"หากต้องการดำเนินการต่อ ให้เปิด NFC ในการตั้งค่าของ Android"</string>
+<string name="nfc_prompt_turn_on">"เปิด"</string>
+<string name="overlay_detected_dialog_title">"เว็บไซต์นี้ขอสิทธิ์จากคุณไม่ได้"</string>
+<string name="overlay_detected_dialog_message">"ปิดบับเบิลหรือการวางซ้อนทั้งหมดจากแอปอื่นๆ แล้วลองอีกครั้ง"</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Список учетных данных, которые можно ввести прикосновением."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Список учетных данных, которые можно ввести прикосновением, развернут на половину экрана."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Список учетных данных, которые можно ввести прикосновением, развернут на весь экран."</string>
+<string name="all_passwords_bottom_sheet_closed">"Список учетных данных, которые можно ввести прикосновением, закрыт."</string>
+<string name="all_passwords_bottom_sheet_title">"Пароли"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Поиск"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Без пароля"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Если вы доверяете сайту %s, то можете использовать для него сохраненный пароль из другого сервиса."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Для каждого сайта желательно использовать уникальный пароль."</string>
+<string name="autofill_keyboard_accessory_content_description">"Доступные варианты паролей"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Над клавиатурой доступны варианты заполнения"</string>
+<string name="keyboard_accessory_sheet_hide">"Показать клавиатуру"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Использовать вариант автозаполнения, предложенный Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Проведите по экрану, чтобы увидеть другие подсказки"</string>
+<string name="password_generation_accessory_button">"Сгенерировать надежный пароль"</string>
+<string name="password_generation_accessory_button_short">"Сгенерировать пароль"</string>
+<string name="password_accessory_sheet_toggle">"Показать пароли"</string>
+<string name="password_accessory_sheet_opened">"На экране показаны сохраненные пароли и настройки паролей"</string>
+<string name="address_accessory_sheet_title">"Адреса"</string>
+<string name="address_accessory_sheet_toggle">"Показать адреса"</string>
+<string name="address_accessory_sheet_opened">"Показаны сохраненные адреса"</string>
+<string name="credit_card_accessory_sheet_toggle">"Показать способы оплаты"</string>
+<string name="credit_card_accessory_sheet_opened">"Показаны сохраненные способы оплаты"</string>
+</resources>

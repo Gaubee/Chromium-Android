@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Умовы выкарыстання Chrome зменяцца 31 сакавіка"</string>
+<string name="tos_notification_body_text">"Азнаёмцеся з новымі ўмовамі"</string>
+<string name="tos_notification_ack_button_text">"Зразумела"</string>
+<string name="tos_notification_review_button_text">"Праглядзець"</string>
+<string name="managed">"Пад кіраваннем вашай арганізацыі"</string>
+<string name="search_or_type_web_address">"Увядзіце пошукавы запыт або вэб-адрас"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Выдаліць прапанову з буфера абмену?"</string>
+<string name="options_homepage_title">"Галоўная старонка"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Прылад паблізу не знойдзена."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Дазволіць"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Заблакіраваць"</string>
+</resources>

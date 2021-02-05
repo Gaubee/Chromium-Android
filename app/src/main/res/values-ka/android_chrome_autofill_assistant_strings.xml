@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"ვეთანხმები"</string>
+<string name="autofill_assistant_init_title">"ცადეთ Google ასისტენტი\nChrome-ში"</string>
+<string name="autofill_assistant_init_message_rent_car">"დაიქირავეთ მანქანა\nრამდენიმე შეხებით"</string>
+<string name="autofill_assistant_init_message_password_change">"დაიხმარეთ Google ასისტენტი\nპაროლის შეცვლაში"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"იყიდეთ კინოს ბილეთები\nრამდენიმე შეხებით"</string>
+<string name="autofill_assistant_init_message_food_ordering">"შეუკვეთეთ საჭმელი\nრამდენიმე შეხებით"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"გაიარეთ რეისზე რეგისტრაცია\nრამდენიმე შეხებით"</string>
+<string name="autofill_assistant_init_message_voice_search">"სცადეთ ხმოვანი მოქმედებები\nვებსაიტებზე"</string>
+<string name="autofill_assistant_init_message_shopping">"სწრაფი ანგარიშსწორება\nრამდენიმე შეხებით"</string>
+<string name="autofill_assistant_init_message">"Google ასისტენტი გეხმარებათ დროის დაზოგვაში და ვებში ისეთი ქმედებების შესრულებაში, როგორიცაა ძიება თუ ანგარიშსწორება."</string>
+<string name="autofill_assistant_init_message_short">"Google ასისტენტს Chrome-ში გახსნილ სხვადასხვა ვებსაიტზე შეუძლია გარკვეული მოქმედების შესრულება თქვენ ნაცვლად"</string>
+<string name="autofill_assistant_google_terms_description">"ამოცანების შესრულებაში დასახმარებლად Google მიიღებს იმ საიტების URL-ებსა და კონტენტს, რომლებზეც ასისტენტს იყენებთ, ასევე, თქვენ მიერ ასისტენტის მეშვეობით გადაგზავნილ ინფორმაციას. აღნიშნული ინფორმაცია შეიძლება შეინახოს თქვენს Google ანგარიშში. ასისტენტის გამორთვა შეგიძლიათ Chrome-ის პარამეტრებიდან. &lt;link&gt;შეიტყვეთ მეტი&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"სამწუხაროდ, ვერ დაგეხმარებით. გთხოვთ, დამოუკიდებლად გააგრძელოთ."</string>
+<string name="autofill_assistant_payment_information_missing">"აკლია ინფორმაცია"</string>
+<string name="autofill_assistant_view_original_image_desc">"გსურთ გარე ბმულის გახსნა?"</string>
+<string name="autofill_assistant_view_original_image_view">"გადახედვა"</string>
+<string name="autofill_assistant_view_original_image_cancel">"გაუქმება"</string>
+<string name="autofill_assistant_sheet_content_description">"Google ასისტენტი Chrome-ში."</string>
+<string name="autofill_assistant_sheet_half_height">"Google ასისტენტი Chrome-ში გახსნილია ნახევარ სიმაღლეზე."</string>
+<string name="autofill_assistant_sheet_full_height">"Google ასისტენტი Chrome-ში გახსნილია სრულ სიმაღლეზე."</string>
+<string name="autofill_assistant_sheet_closed">"Google ასისტენტი Chrome-ში დახურულია."</string>
+<string name="autofill_assistant_send_feedback">"შეფასების გაგზავნა"</string>
+<string name="autofill_assistant_increase_value">"მნიშვნელობის გაზრდა"</string>
+<string name="autofill_assistant_decrease_value">"მნიშვნელობის დაკლება"</string>
+<string name="autofill_assistant_overflow_options">"პარამეტრები"</string>
+</resources>

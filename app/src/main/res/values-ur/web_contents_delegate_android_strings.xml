@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"مزید"</string>
+<string name="color_picker_hue">"ہیو"</string>
+<string name="color_picker_saturation">"سیرابی"</string>
+<string name="color_picker_value">"قدر"</string>
+<string name="color_picker_button_set">"سیٹ کریں"</string>
+<string name="color_picker_button_cancel">"منسوخ کریں"</string>
+<string name="color_picker_dialog_title">"رنگ منتخب کریں"</string>
+<string name="color_picker_button_red">"سرخ"</string>
+<string name="color_picker_button_cyan">"سیان"</string>
+<string name="color_picker_button_blue">"نیلا"</string>
+<string name="color_picker_button_green">"سبز"</string>
+<string name="color_picker_button_magenta">"میجنٹا"</string>
+<string name="color_picker_button_yellow">"پیلا"</string>
+<string name="color_picker_button_black">"سیاہ"</string>
+<string name="color_picker_button_white">"سفید"</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"ස්පර්ශය මත පිරවිය යුතු අක්තපත්‍ර ලැයිස්තුව."</string>
+<string name="all_passwords_bottom_sheet_half_height">"ස්පර්ශය මත පිරවිය යුතු අක්තපත්‍ර ලැයිස්තුව අඩ උසින් විවෘත වී ඇත."</string>
+<string name="all_passwords_bottom_sheet_full_height">"ස්පර්ශය මත පිරවිය යුතු අක්තපත්‍ර ලැයිස්තුව පූර්ණ උසින් විවෘත වී ඇත."</string>
+<string name="all_passwords_bottom_sheet_closed">"ස්පර්ශය මත පිරවිය යුතු අක්තපත්‍ර ලැයිස්තුව වසා ඇත."</string>
+<string name="all_passwords_bottom_sheet_title">"මුරපද"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"සොයන්න"</string>
+<string name="all_passwords_bottom_sheet_no_password">"මුරපදයක් නැත"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"ඔබ %s විශ්වාස කරන්නේ නම්, ඔබට වෙනත් අඩවියකට සුරැකි මුරපදයක් භාවිත කළ හැකිය."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"සෑම අඩවියකටම අනන්‍ය මුරපදයක් භාවිත කිරීමට උත්සාහ කරන්න."</string>
+<string name="autofill_keyboard_accessory_content_description">"මුරපද තිබේ"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"ස්වයංපිරවුම් යෝජනා යතුරු පුවරුවට ඉහළින් ලැබේ"</string>
+<string name="keyboard_accessory_sheet_hide">"යතුරු පුවරුව පෙන්වන්න"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome ස්වයං පිරවුම් යෝජනාව භාවිත කරන්න"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"තව යෝජනා බැලීමට ස්වයිප් කරන්න"</string>
+<string name="password_generation_accessory_button">"ප්‍රබල මුරපදයක් යෝජනා කරන්න"</string>
+<string name="password_generation_accessory_button_short">"මුරපදය යෝජනා කරන්න"</string>
+<string name="password_accessory_sheet_toggle">"මුරපද පෙන්වන්න"</string>
+<string name="password_accessory_sheet_opened">"සුරැකි මුරපද සහ මුරපද විකල්ප පෙන්වීම"</string>
+<string name="address_accessory_sheet_title">"ලිපින"</string>
+<string name="address_accessory_sheet_toggle">"ලිපින පෙන්වන්න"</string>
+<string name="address_accessory_sheet_opened">"සුරැකි ලිපින පෙන්වීම"</string>
+<string name="credit_card_accessory_sheet_toggle">"ගෙවීමේ ක්‍රම පෙන්වන්න"</string>
+<string name="credit_card_accessory_sheet_opened">"සුරැකි ගෙවීම් ක්‍රම පෙන්වීම"</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome memerlukan kebenaran untuk mengakses kamera anda untuk membuat peta 3D persekitaran anda."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome memerlukan kebenaran untuk mengakses kamera anda bagi tapak ini."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome memerlukan kebenaran untuk mengakses mikrofon anda bagi tapak ini."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome memerlukan kebenaran untuk mengakses kamera dan mikrofon anda bagi tapak ini."</string>
+<string name="infobar_missing_location_permission_text">"Chrome memerlukan akses kepada lokasi anda untuk berkongsi lokasi dengan tapak ini."</string>
+<string name="infobar_update_permissions_button_text">"Teruskan"</string>
+<string name="nfc_disabled_on_device_message">"Hidupkan NFC dalam tetapan Android untuk meneruskan"</string>
+<string name="nfc_prompt_turn_on">"Hidupkan"</string>
+<string name="overlay_detected_dialog_title">"Tapak ini tidak boleh meminta kebenaran anda"</string>
+<string name="overlay_detected_dialog_message">"Tutup sebarang gelembung atau tindanan daripada apl lain. Kemudian cuba lagi."</string>
+</resources>

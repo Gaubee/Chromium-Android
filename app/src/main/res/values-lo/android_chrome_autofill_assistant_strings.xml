@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"ຂ້ອຍເຫັນ​ດີ"</string>
+<string name="autofill_assistant_init_title">"ລອງໃຊ້ຜູ້ຊ່ວຍ Google\nໃນ Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"ເຊົ່າລົດ\nໂດຍແຕະສອງສາມບາດເທົ່ານັ້ນ"</string>
+<string name="autofill_assistant_init_message_password_change">"ອະນຸຍາດໃຫ້ຜູ້ຊ່ວຍ Google ຊ່ວຍທ່ານ\nປ່ຽນລະຫັດຜ່ານຂອງທ່ານ"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"ຊື້ປີ້ໜັງ\nໂດຍແຕະສອງສາມບາດເທົ່ານັ້ນ"</string>
+<string name="autofill_assistant_init_message_food_ordering">"ສັ່ງອາຫານ\nໂດຍແຕະສອງສາມບາດເທົ່ານັ້ນ"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"ເຊັກອິນຖ້ຽວບິນຂອງທ່ານ\nໂດຍແຕະສອງສາມບາດເທົ່ານັ້ນ"</string>
+<string name="autofill_assistant_init_message_voice_search">"ລອງຄຳສັ່ງສຽງ\nໃນເວັບ"</string>
+<string name="autofill_assistant_init_message_shopping">"ຈ່າຍຄ່າສິນຄ້າໄດ້ຢ່າງວ່ອງໄວ\nໂດຍແຕະບໍ່ພໍເທົ່າໃດຄັ້ງ"</string>
+<string name="autofill_assistant_init_message">"ຜູ້ຊ່ວຍ Google ປະຢັດເວລາໃຫ້ທ່ານໂດຍການຊ່ວຍທ່ານເຮັດສຳເລັດຄຳສັ່ງຕ່າງໆໃນເວັບ ເຊັ່ນ: ຊອກຫາ ແລະ ຈ່າຍຄ່າສິນຄ້າ."</string>
+<string name="autofill_assistant_init_message_short">"ຜູ້ຊ່ວຍ Google ໃນ Chrome ສາມາດເຮັດຄຳສັ່ງຕ່າງໆໃຫ້ສຳເລັດໃນທົ່ວເວັບໄຊໃຫ້ທ່ານໄດ້"</string>
+<string name="autofill_assistant_google_terms_description">"ເພື່ອຊ່ວຍທ່ານເຮັດສຳເລັດໜ້າວຽກ, Google ຈະໄດ້ຮັບ URL ແລະ ເນື້ອຫາຂອງເວັບໄຊທີ່ທ່ານໃຊ້ຜູ້ຊ່ວຍ, ພ້ອມກັບຂໍ້ມູນທີ່ທ່ານສົ່ງຜ່ານຜູ້ຊ່ວຍ. ຂໍ້ມູນນີ້ອາດຈະຖືກເກັບໄວ້ໃນບັນຊີ Google ຂອງທ່ານ. ທ່ານສາມາດປິດຜູ້ຊ່ວຍໄດ້ໃນການຕັ້ງຄ່າ Chrome. &lt;link&gt;ສຶກສາເພີ່ມເຕີມ&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"ຂໍອະໄພ ເຮົາບໍ່ສາມາດຊ່ວຍໄດ້, ກະລຸນາສືບຕໍ່ດ້ວຍຕົວທ່ານເອງ."</string>
+<string name="autofill_assistant_payment_information_missing">"ຂໍ້ມູນຫາຍໄປ"</string>
+<string name="autofill_assistant_view_original_image_desc">"ເປີດລິ້ງພາຍນອກບໍ?"</string>
+<string name="autofill_assistant_view_original_image_view">"ເບິ່ງ"</string>
+<string name="autofill_assistant_view_original_image_cancel">"ຍົກ​ເລີກ​"</string>
+<string name="autofill_assistant_sheet_content_description">"ຜູ້ຊ່ວຍ Google ໃນ Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"ຜູ້ຊ່ວຍ Google ໃນ Chrome ເປີດຢູ່ໃນລະດັບຄວາມສູງເຄິ່ງໜຶ່ງແລ້ວ."</string>
+<string name="autofill_assistant_sheet_full_height">"ຜູ້ຊ່ວຍ Google ໃນ Chrome ເປີດຢູ່ໃນລະດັບຄວາມສູງເຕັມແລ້ວ."</string>
+<string name="autofill_assistant_sheet_closed">"ປິດຜູ້ຊ່ວຍ Google ໃນ Chrome ແລ້ວ."</string>
+<string name="autofill_assistant_send_feedback">"ສົ່ງ​ຄໍາ​ຄິດ​​ເຫັນ"</string>
+<string name="autofill_assistant_increase_value">"ເພີ່ມຄ່າຂຶ້ນ"</string>
+<string name="autofill_assistant_decrease_value">"ຫຼຸດຄ່າລົງ"</string>
+<string name="autofill_assistant_overflow_options">"ຄວາມມັກ"</string>
+</resources>

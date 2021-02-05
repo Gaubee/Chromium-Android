@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Ezagutu"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-eu/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Berretsi"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Gorde txartela"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Izen hori Google-ko kontukoa da"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"Begiratu CVC kodea eta saiatu berriro"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Egiaztatu iraungitze-data eta saiatu berriro"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Egiaztatu CVC kodea eta saiatu berriro"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Egiaztatu iraungitze-hilabetea eta saiatu berriro"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Egiaztatu iraungitze-urtea eta saiatu berriro"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Gorde gailu honetan txartelaren kopia bat"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Hautatuta badago, Chromium-ek txartelaren kopia bat gordeko du gailuan, inprimakiak bizkorrago betetzeko."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Oraindik aurrera, erabili pantailaren blokeoa txartelak berresteko"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Txartela berresten…"</string>
+<string name="autofill_card_unmask_verification_success">"Berretsi da txartela"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Eguneratu txartela"</string>
+<string name="autofill_wallet_management_link_text">"Editatu"</string>
+<string name="autofill_from_google_account_long">"Google Pay-tik dator"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"Garbitu kopia"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Ezagutu"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Eskaneatu beste txartel bat"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Informazio hau barne: telefono-zenbakiak, helbide elektronikoak eta bidalketa-helbideak"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Gordetako ordainketa-metodoak erabiliz beteko dira ordainketa-inprimakiak"</string>
+<string name="autofill_addresses_settings_title">"Helbideak eta beste"</string>
+<string name="autofill_payment_methods">"Ordainketa-metodoak"</string>
+<string name="autofill_enable_profiles_toggle_label">"Gorde eta bete helbideak"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Gorde eta bete ordainketa-metodoak"</string>
+<string name="enable_credit_card_fido_auth_label">"Pantailaren blokeoa"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Erabili pantailaren blokeoa txartelak bizkorrago berresteko"</string>
+<!-- <string name="http_post_warning_title">"Berretsi inprimakia berriro bidali nahi duzula"</string> -->
+<!-- <string name="http_post_warning">"Bilatzen ari zaren orriak idatzi duzun informazioa erabili du. Orrira itzultzen bazara, baliteke egin dituzun ekintzak errepikatzea. Jarraitu nahi duzu?"</string> -->
+<!-- <string name="http_post_warning_resend">"Jarraitu"</string> -->
+<!-- <string name="login_dialog_title">"Hasi saioa"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Hasi saioa"</string> -->
+<!-- <string name="login_dialog_username_field">"Erabiltzaile-izena"</string> -->
+<!-- <string name="login_dialog_password_field">"Pasahitza"</string> -->
+<string name="sad_tab_title">"Hutsegite bat izan da."</string>
+<string name="sad_tab_message">"Arazoren bat izan da web-orria bistaratzean."</string>
+<string name="sad_tab_reload_label">"Kargatu berriro"</string>
+<string name="sad_tab_send_feedback_label">"Bidali oharrak"</string>
+<string name="sad_tab_reload_title">"Ezin da ireki orri hau"</string>
+<string name="sad_tab_reload_try">"Saiatu hauek egiten:"</string>
+<string name="sad_tab_reload_incognito">"Ireki orria ezkutuko moduko fitxa berri batean"</string>
+<string name="sad_tab_reload_restart_browser">"Berrabiarazi Chromium"</string>
+<string name="sad_tab_reload_restart_device">"Berrabiarazi gailua"</string>
+<string name="sad_tab_reload_learn_more">"Lortu informazio gehiago"</string>
+<string name="new_tab_otr_title">"Ezkutuko moduan zaude"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Hauek jarduera &lt;em&gt;ikusteko gai izan litezke oraindik&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;Irekitzen dituzun webguneak
+          &lt;li&gt;Nagusia edo ikastetxea
+          &lt;li&gt;Interneteko zerbitzu-hornitzailea
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Cookieen ezarpenek kontrolatzen dute ezarpen hau."</string>
+<string name="new_tab_otr_third_party_cookie">"Blokeatu hirugarrenen cookieak"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Aktibatzen bada, webguneek ezingo dituzte erabili sarean jarraipena egiten dizuten cookieak. Baliteke webgune batzuetako eginbideek ez funtzionatzea."</string>
+<string name="ntp_article_suggestions_section_header">"Zuretzako artikuluak"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google-ren iradokizunak"</string>
+<string name="ntp_article_suggestions_section_empty">"Iradokitako artikuluak agertuko zaizkizu hemen"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Webguneak iragarki oztopatzaile edo iruzurrezkoak erakusten ditu"</string> -->
+<string name="payments_method_of_payment_label">"Ordainketa-metodoa"</string>
+<string name="payments_contact_details_label">"Harremanetarako informazioa"</string>
+<string name="payments_add_contact_details_label">"Gehitu harremanetarako informazioa"</string>
+<string name="payments_edit_contact_details_label">"Editatu harremanetarako informazioa"</string>
+<string name="payments_add_billing_address">"Gehitu fakturazio-helbidea"</string>
+<string name="payments_add_name_on_card">"Gehitu titularra"</string>
+<string name="payments_add_valid_card_number">"Zehaztu balio duen txartel-zenbaki bat"</string>
+<string name="payments_add_more_information">"Gehitu informazio gehiago"</string>
+<string name="payments_edit_card">"Editatu txartela"</string>
+<string name="payments_add_phone_number">"Gehitu telefono-zenbakia"</string>
+<string name="payments_add_recipient">"Gehitu izena"</string>
+<string name="payments_add_valid_address">"Gehitu balio duen helbide bat"</string>
+<string name="payments_add_email">"Gehitu helbide elektronikoa"</string>
+<string name="payments_add_name">"Gehitu izena"</string>
+<string name="payments_order_summary_label">"Eskaeraren laburpena"</string>
+<string name="payment_request_payment_method_section_name">"Ordainketa"</string>
+<string name="payment_account_balance">"Kontuaren saldoa"</string>
+<string name="payments_shipping_summary_label">"Bidalketa"</string>
+<string name="payments_shipping_address_label">"Bidaltzeko helbidea"</string>
+<string name="payments_shipping_option_label">"Bidalketa-metodoa"</string>
+<string name="payments_delivery_summary_label">"Entrega"</string>
+<string name="payments_delivery_address_label">"Entrega-helbidea"</string>
+<string name="payments_delivery_option_label">"Entrega-metodoa"</string>
+<string name="payments_pickup_summary_label">"Jasotzea"</string>
+<string name="payments_pickup_address_label">"Jasotzeko helbidea"</string>
+<string name="payments_pickup_option_label">"Jasotze-metodoa"</string>
+<string name="payments_edit_button">"Editatu"</string>
+<string name="payments_pay_button">"Ordaindu"</string>
+<string name="payments_continue_button">"Jarraitu"</string>
+<string name="payments_add_contact">"Gehitu harremanetarako informazioa"</string>
+<string name="payments_add_card">"Gehitu txartel bat"</string>
+<string name="payments_add_address">"Gehitu helbidea"</string>
+<string name="payments_edit_address">"Editatu helbidea"</string>
+<string name="payments_name_field_in_contact_details">"Izena"</string>
+<string name="payments_save_card_to_device_checkbox">"Gorde txartela gailu honetan"</string>
+<string name="payments_accepted_cards_label">"Onartzen diren txartelak"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Iraungitze-data: %1$s/%2$s"</string>
+<string name="payments_loading_message">"Kargatzen"</string>
+<string name="payments_processing_message">"Prozesatzen"</string>
+<string name="payments_checking_option">"Egiaztatzen"</string>
+<string name="payments_updated_label">"Eguneratuta"</string>
+<string name="payment_complete_message">"Egin da ordainketa"</string>
+<string name="payments_error_message">"Errore bat gertatu da eskaera prozesatzean. Saiatu berriro."</string>
+<string name="payments_card_and_address_settings">"BEGIN_LINKEzarpenakEND_LINK atalean kudea ditzakezu txartelak eta helbideak."</string>
+<string name="payments_card_and_address_settings_signed_in">"Chrome-tik eta zure Google-ko kontutik (%1$s) hartu dira txartelak eta helbideak. Kudeatu nahi badituzu, joan BEGIN_LINKEzarpenakEND_LINK atalera."</string>
+<string name="payment_touch_sensor_to_pay">"Ordaintzeko, sakatu sentsorea"</string>
+<string name="payment_fingerprint_not_recognized">"Ez da ezagutu"</string>
+<string name="payments_card_and_address_settings_signed_out">"Chrome-tik hartu dira txartelak eta helbideak. Kudeatu nahi badituzu, joan BEGIN_LINKEzarpenakEND_LINK atalera."</string>
+<string name="settings_can_make_payment_toggle_label">"Baimendu webguneei gordetako ordainketa-metodorik duzun egiaztatzea"</string>
+<string name="payments_required_field_message">"* Nahitaez bete behar da eremua"</string>
+<string name="payments_phone_invalid_validation_message">"Idatzi balio duen telefono-zenbaki bat"</string>
+<string name="payments_email_invalid_validation_message">"Idatzi balio duen helbide elektroniko bat"</string>
+<string name="payments_card_number_invalid_validation_message">"Idatzi balio duen txartel-zenbaki bat"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Idatzi balio duen iraungitze-data bat"</string>
+<string name="payments_invalid_address">"Idatzi balio duen helbide bat"</string>
+<string name="payments_billing_address_required">"Fakturazio-helbidea behar da"</string>
+<string name="payments_name_on_card_required">"Nahitaez adierazi behar da txartelaren titularraren izena"</string>
+<string name="payments_more_information_required">"Informazio gehiago behar da"</string>
+<string name="payments_phone_number_required">"Telefono-zenbakia behar da"</string>
+<string name="payments_recipient_required">"Nahitaez zehaztu behar duzu izena"</string>
+<string name="payments_email_required">"Nahitaez zehaztu behar duzu helbide elektronikoa"</string>
+<string name="payments_name_required">"Nahitaez zehaztu behar duzu izena"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Derrigorrezko eremua"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Bidalketa-metodoak eta -eskakizunak ikusteko, hautatu helbide bat"</string>
+<string name="payments_unsupported_shipping_address">"Ezin da entregatu helbide horretan. Hautatu beste helbide bat."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Entrega-metodoak eta -eskakizunak ikusteko, hautatu helbide bat"</string>
+<string name="payments_unsupported_delivery_address">"Ezin da entregatu helbide horretan. Hautatu beste helbide bat."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Jasotze-metodoak eta -eskakizunak ikusteko, hautatu helbide bat"</string>
+<string name="payments_unsupported_pickup_address">"Ezin da jaso helbide horretan. Hautatu beste helbide bat."</string>
+<string name="payments_android_app_error">"Ezin da ireki ordainketa-aplikazioa"</string>
+<string name="external_payment_app_leave_incognito_warning">"Ezkutuko modutik irtengo zara kanpoko aplikazio baten bidez ordaintzeko. Aurrera egin nahi duzu?"</string>
+<string name="payment_handler_sheet_description">"Ordainketa kudeatzeko orria"</string>
+<string name="payment_handler_sheet_opened_half">"Ordainketa kudeatzeko orria erdi irekita dago"</string>
+<string name="payment_handler_sheet_opened_full">"Ordainketa kudeatzeko orria irekita dago"</string>
+<string name="payment_handler_sheet_closed">"Ordainketa kudeatzeko orria itxita dago"</string>
+<string name="blocked_ads_prompt_title">"Blokeatu egin dira iragarkiak"</string>
+<!-- <string name="translate_infobar_error">"Ezin izan da orria itzuli."</string> -->
+<!-- <string name="translate_button">"Itzuli"</string> -->
+<!-- <string name="translate_never_translate_site">"Ez itzuli inoiz webgune hau"</string> -->
+<string name="translate_dont_offer_site">"Ez eskaini webgune hau itzultzea"</string>
+<!-- <string name="translate_option_always_translate">"Itzuli beti %1$s darabilten orriak"</string> -->
+<!-- <string name="translate_option_never_translate">"Ez itzuli inoiz %1$s darabilten orriak"</string> -->
+<string name="translate_dont_offer_lang">"Ez eskaini %1$s hizkuntzan dauden orriak itzultzea"</string>
+<!-- <string name="translate_option_more_language">"Hizkuntza gehiago"</string> -->
+<!-- <string name="translate_option_not_source_language">"Ez al da %1$s orriko hizkuntza?"</string> -->
+<string name="translate_snackbar_always_translate">"%1$s darabilten orriak %2$s hizkuntzara itzuliko dira"</string>
+<string name="translate_snackbar_language_never">"Ez dira itzuliko %1$s darabilten orriak"</string>
+<string name="translate_snackbar_site_never">"Webgune hau ez da itzuliko"</string>
+<string name="translate_snackbar_cancel">"Utzi"</string>
+<string name="clear">"Garbitu"</string>
+<string name="show_content">"Erakutsi"</string>
+<string name="hide_content">"Ezkutatu"</string>
+<string name="choose">"Aukeratu"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-eu/components_strings.xml -->
+
+<string name="http_post_warning_title">"Berretsi inprimakia berriro bidali nahi duzula"</string>
+<string name="http_post_warning">"Bilatzen ari zaren orriak idatzi duzun informazioa erabili du. Orrira itzultzen bazara, baliteke egin dituzun ekintzak errepikatzea. Jarraitu nahi duzu?"</string>
+<string name="http_post_warning_resend">"Jarraitu"</string>
+<string name="login_dialog_title">"Hasi saioa"</string>
+<string name="login_dialog_ok_button_label">"Hasi saioa"</string>
+<string name="login_dialog_username_field">"Erabiltzaile-izena"</string>
+<string name="login_dialog_password_field">"Pasahitza"</string>
+<string name="page_info_permission_ads_subtitle">"Webguneak iragarki oztopatzaile edo iruzurrezkoak erakusten ditu"</string>
+<string name="translate_infobar_error">"Ezin izan da orria itzuli."</string>
+<string name="translate_button">"Itzuli"</string>
+<string name="translate_never_translate_site">"Ez itzuli inoiz webgune hau"</string>
+<string name="translate_option_always_translate">"Itzuli beti %1$s darabilten orriak"</string>
+<string name="translate_option_never_translate">"Ez itzuli inoiz %1$s darabilten orriak"</string>
+<string name="translate_option_more_language">"Hizkuntza gehiago"</string>
+<string name="translate_option_not_source_language">"Ez al da %1$s orriko hizkuntza?"</string>
+</resources>

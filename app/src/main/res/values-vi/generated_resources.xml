@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Điều khoản dịch vụ của Chrome sẽ thay đổi từ ngày 31 tháng 3"</string>
+<string name="tos_notification_body_text">"Vui lòng xem các điều khoản mới này"</string>
+<string name="tos_notification_ack_button_text">"Bỏ qua"</string>
+<string name="tos_notification_review_button_text">"Xem"</string>
+<string name="managed">"Do tổ chức của bạn quản lý"</string>
+<string name="search_or_type_web_address">"Tìm kiếm hoặc nhập địa chỉ web"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Xóa nội dung đề xuất khỏi khay nhớ tạm?"</string>
+<string name="options_homepage_title">"Trang chủ"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Không tìm thấy thiết bị lân cận."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Cho phép"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Chặn"</string>
+</resources>

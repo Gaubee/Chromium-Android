@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"টাচ করে পূরণ করা যাবে এমন ক্রেডেনশিয়ালের তালিকা।"</string>
+<string name="all_passwords_bottom_sheet_half_height">"টাচ করে পূরণ করা যাবে এমন ক্রেডেনশিয়ালের তালিকা হাফ স্ক্রিন জুড়ে খুলেছে।"</string>
+<string name="all_passwords_bottom_sheet_full_height">"টাচ করে পূরণ করা যাবে এমন ক্রেডেনশিয়ালের তালিকা ফুল স্ক্রিন জুড়ে খুলেছে।"</string>
+<string name="all_passwords_bottom_sheet_closed">"টাচ করে পূরণ করা যাবে এমন ক্রেডেনশিয়ালের তালিকা বন্ধ রয়েছে।"</string>
+<string name="all_passwords_bottom_sheet_title">"পাসওয়ার্ড"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Search"</string>
+<string name="all_passwords_bottom_sheet_no_password">"পাসওয়ার্ড নেই"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%s-এর উপর ভরসা থাকলে, আপনি সেভ করা পাসওয়ার্ড অন্য সাইটে ব্যবহার করতে পারেন।"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"প্রতিটি সাইটের জন্য অনন্য পাসওয়ার্ড ব্যবহারের চেষ্টা করুন।"</string>
+<string name="autofill_keyboard_accessory_content_description">"পাসওয়ার্ড উপলভ্য"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"কীবোর্ডের ঠিক উপরে অটোমেটিক পূরণ হয়ে যাওয়ার সাজেশন পাবেন"</string>
+<string name="keyboard_accessory_sheet_hide">"কীবোর্ড দেখান"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome-এর \'অটোফিল সাজেশন\' ফিচার ব্যবহার করুন"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"আরও সাজেশন দেখতে সোয়াইপ করুন"</string>
+<string name="password_generation_accessory_button">"শক্তিশালী পাসওয়ার্ড সাজেস্ট করুন"</string>
+<string name="password_generation_accessory_button_short">"পাসওয়ার্ড সাজেস্ট করুন"</string>
+<string name="password_accessory_sheet_toggle">"পাসওয়ার্ড দেখান"</string>
+<string name="password_accessory_sheet_opened">"সেভ করা পাসওয়ার্ড এবং পাসওয়ার্ড বিকল্পগুলি দেখানো হচ্ছে"</string>
+<string name="address_accessory_sheet_title">"ঠিকানা"</string>
+<string name="address_accessory_sheet_toggle">"ঠিকানা দেখুন"</string>
+<string name="address_accessory_sheet_opened">"সেভ করে রাখা ঠিকানা দেখানো হচ্ছে"</string>
+<string name="credit_card_accessory_sheet_toggle">"পেমেন্টের পদ্ধতিগুলি দেখুন"</string>
+<string name="credit_card_accessory_sheet_opened">"সেভ করা পেমেন্টের পদ্ধতি দেখানো হচ্ছে"</string>
+</resources>

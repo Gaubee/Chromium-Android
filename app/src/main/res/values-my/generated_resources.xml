@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"မတ်လ ၃၁ ရက်နေ့တွင် Chrome ၏ \'ဝန်ဆောင်မှုစည်းမျဉ်းများ\' ပြောင်းပါတော့မည်"</string>
+<string name="tos_notification_body_text">"စည်းမျဉ်းအသစ်များကို ဖတ်ရှုပါ"</string>
+<string name="tos_notification_ack_button_text">"ရပါပြီ!"</string>
+<string name="tos_notification_review_button_text">"ပြန်ကြည့်ရန်"</string>
+<string name="managed">"သင်၏ \'အဖွဲ့အစည်း\' က စီမံခန့်ခွဲထားသည်"</string>
+<string name="search_or_type_web_address">"ဝဘ်လိပ်စာကို ရှာပါ သို့မဟုတ် ထည့်ပါ"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"ကလစ်ဘုတ်မှ အကြံပြုချက်ကို ဖယ်ရှားလိုပါသလား။"</string>
+<string name="options_homepage_title">"ပင်မစာမျက်နှာ"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"အနီးအနားတွင် ကိရိယာများ မရှိပါ။"</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"ခွင့်ပြုရန်"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"ပိတ်ဆို့ရန်"</string>
+</resources>

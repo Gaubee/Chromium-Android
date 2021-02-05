@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"தொட்டால் நிரப்பப்பட வேண்டிய அனுமதிச் சான்றுகளின் பட்டியல்."</string>
+<string name="all_passwords_bottom_sheet_half_height">"தொட்டால் நிரப்பப்பட வேண்டிய அனுமதிச் சான்றுகளின் பட்டியல் பாதித் திரையில் திறக்கப்பட்டுள்ளது."</string>
+<string name="all_passwords_bottom_sheet_full_height">"தொட்டால் நிரப்பப்பட வேண்டிய அனுமதிச் சான்றுகளின் பட்டியல் முழுத் திரையில் திறக்கப்பட்டுள்ளது."</string>
+<string name="all_passwords_bottom_sheet_closed">"தொட்டால் நிரப்பப்பட வேண்டிய அனுமதிச் சான்றுகளின் பட்டியல் மூடப்பட்டுள்ளது."</string>
+<string name="all_passwords_bottom_sheet_title">"கடவுச்சொற்கள்"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Search"</string>
+<string name="all_passwords_bottom_sheet_no_password">"கடவுச்சொல் இல்லை"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%s என்பது நம்பகமான தளம் என்று நீங்கள் கருதினால், சேமித்த ஒரு கடவுச்சொல்லை வேறொரு தளத்தில் பயன்படுத்தலாம்."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"ஒவ்வொரு தளத்திற்கும் தனித்துவமான கடவுச்சொல்லைப் பயன்படுத்த முயலவும்."</string>
+<string name="autofill_keyboard_accessory_content_description">"கடவுச்சொற்கள் உள்ளன"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"கீபோர்டுக்கு மேலே தன்னிரப்பிப் பரிந்துரைகள் உள்ளன"</string>
+<string name="keyboard_accessory_sheet_hide">"விசைப்பலகையைக் காட்டு"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chromeமின் தன்னிரப்பிப் பரிந்துரையைப் பயன்படுத்துங்கள்"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"மேலும் பரிந்துரைகளைப் பார்க்க ஸ்வைப் செய்யவும்"</string>
+<string name="password_generation_accessory_button">"வலுவான கடவுச்சொல்லைப் பரிந்துரை"</string>
+<string name="password_generation_accessory_button_short">"கடவுச்சொல்லைப் பரிந்துரை"</string>
+<string name="password_accessory_sheet_toggle">"கடவுச்சொற்களைக் காட்டும்"</string>
+<string name="password_accessory_sheet_opened">"சேமித்த கடவுச்சொற்களையும் கடவுச்சொல் விருப்பங்களையும் காண்பிக்கிறது"</string>
+<string name="address_accessory_sheet_title">"முகவரிகள்"</string>
+<string name="address_accessory_sheet_toggle">"முகவரிகளைக் காட்டும்"</string>
+<string name="address_accessory_sheet_opened">"சேமித்த முகவரிகளைக் காட்டுகிறது"</string>
+<string name="credit_card_accessory_sheet_toggle">"கட்டண முறைகளைக் காட்டும்"</string>
+<string name="credit_card_accessory_sheet_opened">"சேமித்துள்ள கட்டண முறைகளைக் காட்டுகிறது"</string>
+</resources>

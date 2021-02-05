@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome-ren Zerbitzu-baldintzak martxoaren 31n aldatuko dira"</string>
+<string name="tos_notification_body_text">"Irakurri baldintza berriak"</string>
+<string name="tos_notification_ack_button_text">"Ados"</string>
+<string name="tos_notification_review_button_text">"Berrikusi"</string>
+<string name="managed">"Erakundeak kudeatzen du"</string>
+<string name="search_or_type_web_address">"Bilatu edo idatzi webgunearen helbidea"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Iradokizuna arbeletik kendu nahi duzu?"</string>
+<string name="options_homepage_title">"Orri nagusia"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Ez da aurkitu gailurik inguruan."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Baimendu"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Blokeatu"</string>
+</resources>

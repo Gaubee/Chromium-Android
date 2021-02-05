@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Jeg accepterer"</string>
+<string name="autofill_assistant_init_title">"Prøv Google Assistent\ni Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Lej en bil\nmed nogle få tryk"</string>
+<string name="autofill_assistant_init_message_password_change">"Lad Google Assistent hjælpe dig\nmed at skifte adgangskode"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Køb biografbilletter\nmed nogle få tryk"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Bestil mad\nmed nogle få tryk"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Tjek ind på din flyafgang\nmed nogle få tryk"</string>
+<string name="autofill_assistant_init_message_voice_search">"Prøv stemmekommandoer\npå websites"</string>
+<string name="autofill_assistant_init_message_shopping">"Hurtig betaling\nmed nogle få tryk"</string>
+<string name="autofill_assistant_init_message">"Med Google Assistent sparer du tid, fordi du får hjælp til at udføre handlinger på nettet, f.eks. ved søgning og betaling."</string>
+<string name="autofill_assistant_init_message_short">"Google Assistent i Chrome kan udføre handlinger for dig på websites"</string>
+<string name="autofill_assistant_google_terms_description">"For at hjælpe dig med at udføre opgaver modtager Google webadresser for og indhold på websites, hvor du bruger Assistent, samt oplysninger du indsender via Assistent. Disse oplysninger gemmes muligvis på din Google-konto. Du kan deaktivere Assistent i indstillingerne for Chrome. &lt;link&gt;Få flere oplysninger&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Jeg kan desværre ikke hjælpe. Fortsæt på egen hånd."</string>
+<string name="autofill_assistant_payment_information_missing">"Der mangler oplysninger"</string>
+<string name="autofill_assistant_view_original_image_desc">"Vil du åbne et eksternt link?"</string>
+<string name="autofill_assistant_view_original_image_view">"Vis"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Annuller"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Assistent i Chrome"</string>
+<string name="autofill_assistant_sheet_half_height">"Google Assistent i Chrome er åbnet i halv højde."</string>
+<string name="autofill_assistant_sheet_full_height">"Google Assistent i Chrome er åbnet i fuld højde."</string>
+<string name="autofill_assistant_sheet_closed">"Google Assistent i Chrome er lukket."</string>
+<string name="autofill_assistant_send_feedback">"Send feedback"</string>
+<string name="autofill_assistant_increase_value">"Hæv værdien"</string>
+<string name="autofill_assistant_decrease_value">"Sænk værdien"</string>
+<string name="autofill_assistant_overflow_options">"Præferencer"</string>
+</resources>

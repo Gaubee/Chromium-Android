@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="leave">"छोड़ें"</string>
+<string name="suppress_js_modal_dialogs">"इस पेज को अतिरिक्त डॉयलॉग बनाने से रोकें"</string>
+</resources>

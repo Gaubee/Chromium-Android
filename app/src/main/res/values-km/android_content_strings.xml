@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="actionbar_share">"ចែករំលែក"</string>
+<string name="actionbar_web_search">"ស្វែងរកគេហទំព័រ"</string>
+<string name="actionbar_textselection_title">"ការជ្រើសរើសអត្ថបទ"</string>
+<string name="add_to_dictionary">"បញ្ចូល​ទៅ​វចនានុក្រម"</string>
+<string name="delete_suggestion_text">"លុប"</string>
+<string name="profiler_started_toast">"ម្ចាស់ទម្រង់បានចាប់ផ្តើម"</string>
+<string name="profiler_stopped_toast">"ទម្រង់បានបញ្ចប់។ លទ្ធផលនៅក្នុង %1$s។"</string>
+<string name="profiler_no_storage_toast">"មិនអាចចាប់ផ្តើមម្ចាស់ទម្រង់ទេ ពីព្រោះឧបករណ៍ផ្ទុកទិន្នន័យខាងក្រៅនឹងទាន់រួចរាល់ទេ"</string>
+<string name="profiler_error_toast">"បានបរាជ័យក្នុងការចាប់ផ្តើមម្ចាស់ទម្រង់"</string>
+<string name="accessibility_date_picker_month">"ខែ"</string>
+<string name="accessibility_date_picker_year">"ឆ្នាំ"</string>
+<string name="date_picker_dialog_set">"កំណត់"</string>
+<string name="month_picker_dialog_title">"កំណត់ខែ"</string>
+<string name="accessibility_date_picker_week">"សប្តាហ៍"</string>
+<string name="week_picker_dialog_title">"កំណត់សប្តាហ៍"</string>
+<string name="time_picker_dialog_am">"ព្រឹក"</string>
+<string name="time_picker_dialog_pm">"ល្ងាច"</string>
+<string name="time_picker_dialog_title">"កំណត់ពេលវេលា"</string>
+<string name="accessibility_time_picker_hour">"ម៉ោង"</string>
+<string name="accessibility_time_picker_minute">"នាទី"</string>
+<string name="accessibility_time_picker_second">"វិនាទី"</string>
+<string name="accessibility_time_picker_milli">"មីលីវិនាទី"</string>
+<string name="accessibility_time_picker_ampm">"ព្រឹក/ល្ងាច"</string>
+<string name="time_picker_dialog_hour_minute_separator">":"</string>
+<string name="time_picker_dialog_minute_second_separator">":"</string>
+<string name="time_picker_dialog_second_subsecond_separator">"."</string>
+<string name="date_time_picker_dialog_title">"កំណត់កាលបរិច្ឆេទ និងពេលវេលា"</string>
+<string name="accessibility_datetime_picker_date">"កាលបរិច្ឆេទ"</string>
+<string name="accessibility_datetime_picker_time">"ពេលវេលា"</string>
+<string name="date_picker_dialog_other_button_label">"ផ្សេងទៀត"</string>
+<string name="date_picker_dialog_title">"កំណត់កាលបរិច្ឆេទ"</string>
+<string name="date_picker_dialog_clear">"ជម្រះ"</string>
+<string name="speech_recognition_service_not_found">"រកមិនឃើញ​ម៉ាស៊ីនបំប្លែង​អត្ថបទ​​ទៅ​ជា​ការ​និយាយ​របស់ Google ​ទេ"</string>
+</resources>

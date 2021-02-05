@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="leave">"このページを離れる"</string>
+<string name="suppress_js_modal_dialogs">"このページで追加のダイアログが作成されないようにする"</string>
+</resources>

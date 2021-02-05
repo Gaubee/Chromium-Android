@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Ayikwazi ukuqedelela ukusebenza okudlule ngenxa yememori ephansi"</string>
+<string name="opening_file_error">"Yehlulekile ukuvula ifayela elikhethiwe"</string>
+<string name="copy_to_clipboard_failure_message">"Yehlulekile ukukopisheka kubhodi lokunamathisela"</string>
+<string name="link_copied">"Isixhumanisi sikopishiwe"</string>
+<string name="chip_remove_icon_content_description">"Susa i-\'%1$s\'"</string>
+</resources>

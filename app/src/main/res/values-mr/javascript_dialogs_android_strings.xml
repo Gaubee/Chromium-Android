@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="leave">"सोडा"</string>
+<string name="suppress_js_modal_dialogs">"या पृष्ठास अतिरिक्त संवाद तयार करण्यापासून प्रतिबंधित करा"</string>
+</resources>

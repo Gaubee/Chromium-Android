@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="leave">"나가기"</string>
+<string name="suppress_js_modal_dialogs">"이 페이지가 추가적인 대화를 생성하지 않도록 차단"</string>
+</resources>

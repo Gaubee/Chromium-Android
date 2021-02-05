@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"මම එකඟ වෙමි"</string>
+<string name="autofill_assistant_init_title">"Chrome තුළ\ninGoogle සහායක උත්සාහ කරන්න"</string>
+<string name="autofill_assistant_init_message_rent_car">"තට්ටු කිරීම් කිහිපයකින්\n මෝටර් රථයක් කුලියට ගන්න"</string>
+<string name="autofill_assistant_init_message_password_change">"Google සහායකට ඔබට ඔබගේ මුරපදය වෙනස් කිරීමට\nඋදව් වීමට ඉඩ දෙන්න"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"තට්ටු කිරීම් කිහිපයකින්\nචිත්‍රපටි ප්‍රවේශපත් මිල දී ගන්න"</string>
+<string name="autofill_assistant_init_message_food_ordering">"හුදු තට්ටු කිරීම් කිහිපයකින්\nආහාර ඇණවුම් කරන්න"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"තට්ටු කිරීම් කිහිපයකින්\nඔබේ ගුවන් යානයට ඇතුළු වන්න"</string>
+<string name="autofill_assistant_init_message_voice_search">"වෙබ් අඩවියේ\nහඬ ක්‍රියා උත්සාහ කරන්න"</string>
+<string name="autofill_assistant_init_message_shopping">"වේගවත් ගෙවීම\nහුදෙක් තට්ටු කිරීම් කිහිපයකින්"</string>
+<string name="autofill_assistant_init_message">"වෙබය මත සෙවීම සහ පිට වීම වැනි ක්‍රියා සම්පූර්ණ කිරීමට ඔබට උදවු කිරීමෙන් Google සහකරු ඔබට කාලය ඉතිරි කරයි."</string>
+<string name="autofill_assistant_init_message_short">"Chrome තුළ ඇති Google සහකරු ඔබ වෙනුවෙන් වෙබය පුරා කාර්ය ඉටු කළ හැක"</string>
+<string name="autofill_assistant_google_terms_description">"ඔබට කාර්ය භාර සම්පූර්ණ කිරීමට උදවු කිරීමට, Google විසින් URL සහ ඔබේ සහකරු භාවිත කරන වෙබ් අඩවිවල අන්තර්ගතය මෙන්ම ඔබ සහකරු හරහා ඉදිරිපත් කරන තොරතුරු ලබා ගැනේ. මෙම තොරතරු ඔබේ Google ගිණුම තුළ ගබඩා කරනු ලැබිය හැක. ඔබට Chrome සැකසීම් තුළ සහකරු අක්‍රිය කළ හැක. &lt;link&gt;තවත් දැන ගන්න&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"සමාවෙන්න, මට උදවු කළ නොහැක, ඔබම ඉදිරියට යන්න."</string>
+<string name="autofill_assistant_payment_information_missing">"තොරතුරු මඟ හැරී ඇත"</string>
+<string name="autofill_assistant_view_original_image_desc">"බාහිර සබැඳිය විවෘත කරන්නේද?"</string>
+<string name="autofill_assistant_view_original_image_view">"දසුන"</string>
+<string name="autofill_assistant_view_original_image_cancel">"අවලංගු කරන්න"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome තුළ Google සහකරු."</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome තුළ Google සහකරු අඩ උසෙන් විවෘත කරනු ලැබුවේ ය."</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome තුළ Google සහකරු සම්පූර්ණ උසෙන් විවෘත කරනු ලැබුවේ ය."</string>
+<string name="autofill_assistant_sheet_closed">"Chrome තුළ Google සහකරු වසා ඇත."</string>
+<string name="autofill_assistant_send_feedback">"අදහස් හා යෝජනා යවන්න"</string>
+<string name="autofill_assistant_increase_value">"අගය වැඩිකරන්න"</string>
+<string name="autofill_assistant_decrease_value">"අගය අඩු කරන්න"</string>
+<string name="autofill_assistant_overflow_options">"අභිරුචි"</string>
+</resources>

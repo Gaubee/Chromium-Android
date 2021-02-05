@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"На Chrome му треба дозвола за да пристапи до камерата и да создаде 3D-карта од вашето опкружување."</string>
+<string name="infobar_missing_camera_permission_text">"На Chrome му треба дозвола за да пристапи до камерата за сајтов."</string>
+<string name="infobar_missing_microphone_permission_text">"На Chrome му треба дозвола за да пристапи до микрофонот за сајтов."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"На Chrome му треба дозвола за да пристапи до камерата и микрофонот за сајтов."</string>
+<string name="infobar_missing_location_permission_text">"На Chrome му треба пристап до вашата локација за да ја сподели со сајтов."</string>
+<string name="infobar_update_permissions_button_text">"Продолжи"</string>
+<string name="nfc_disabled_on_device_message">"За да продолжите, вклучете ја NFC во поставките за Android"</string>
+<string name="nfc_prompt_turn_on">"Вклучи"</string>
+<string name="overlay_detected_dialog_title">"Сајтов не може да побара ваша дозвола"</string>
+<string name="overlay_detected_dialog_message">"Затворете ги балончињата или преклопувањата од другите апликации. Потоа обидете се повторно."</string>
+</resources>

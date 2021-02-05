@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome ətrafınızın 3D xəritəsini yaratmaq üçün kameranıza giriş icazəsi tələb edir."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome bu sayt üçün kameraya giriş icazəsi tələb edir."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome bu sayt üçün mikrofona giriş icazəsi tələb edir."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome bu sayt üçün kamera və mikrofona giriş icazəsi tələb edir."</string>
+<string name="infobar_missing_location_permission_text">"Chrome məkanı bu saytla paylaşmaq üçün məkana giriş tələb edir."</string>
+<string name="infobar_update_permissions_button_text">"Davam edin"</string>
+<string name="nfc_disabled_on_device_message">"Davam etmək üçün Android ayarlarında NFC\'ni yandırın"</string>
+<string name="nfc_prompt_turn_on">"Aktiv edin"</string>
+<string name="overlay_detected_dialog_title">"Bu sayt icazənizi istəyə bilməz"</string>
+<string name="overlay_detected_dialog_message">"Digər tətbiqlərdən olan istənilən qabarcıq və ya örtükləri bağlayın. Sonra yenidən cəhd edin."</string>
+</resources>

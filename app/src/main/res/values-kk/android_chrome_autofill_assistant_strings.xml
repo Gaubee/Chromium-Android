@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Мен келісемін"</string>
+<string name="autofill_assistant_init_title">"Chrome браузерінде\nGoogle Assistant пайдалану"</string>
+<string name="autofill_assistant_init_message_rent_car">"Бірнеше рет түртіп қана,\nкөлікті жалға алыңыз."</string>
+<string name="autofill_assistant_init_message_password_change">"Google Assistant-тің құпия сөзіңізді\nөзгертуге көмектесуіне рұқсат ету"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Бірнеше рет түртіп,\nбилеттерді сатып алыңыз."</string>
+<string name="autofill_assistant_init_message_food_ordering">"Бірнеше түймені басып,\nтамаққа тапсырыс беріңіз."</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Бірнеше рет түртіп қана\nрейске тіркеліңіз."</string>
+<string name="autofill_assistant_init_message_voice_search">"Веб-сайттарда дауыстық\nпәрмендер қолданып көріңіз."</string>
+<string name="autofill_assistant_init_message_shopping">"Бірнеше рет түртіп, жылдам төлеу"</string>
+<string name="autofill_assistant_init_message">"Google Assistant қажетті ақпаратты іздеу немесе тапсырыстарды рәсімдеу сияқты интернеттегі әрекеттеріңізді аяқтауға көмектесіп, уақытыңызды үнемдейді."</string>
+<string name="autofill_assistant_init_message_short">"Chrome браузерінде Google Assistant сіз үшін веб-сайттар арқылы әрекеттер орындай алады."</string>
+<string name="autofill_assistant_google_terms_description">"Жұмыстарыңызға көмектесу үшін Assistant қызметі қолданылған сайттардың URL мекенжайлары және мазмұны, сонымен қатар Assistant арқылы жіберілген ақпарат Google-ға жіберіледі. Бұл ақпарат Google есептік жазбасында сақталуы мүмкін. Assistant қызметін Chrome параметрлерінен өшіре аласыз. &lt;link&gt;Толығырақ&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Өкінішке орай, енді көмектесе алмаймын, әрі қарай өзіңіз жалғастырыңыз."</string>
+<string name="autofill_assistant_payment_information_missing">"Ақпарат жоқ"</string>
+<string name="autofill_assistant_view_original_image_desc">"Сыртқы сілтеме ашылсын ба?"</string>
+<string name="autofill_assistant_view_original_image_view">"Көрініс"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Бас тарту"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome браузеріндегі Google Assistant."</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome браузерінде Google Assistant жартылай ашылды."</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome браузерінде Google Assistant толық ашылды."</string>
+<string name="autofill_assistant_sheet_closed">"Chrome жүйесіндегі Google Assistant жабылды."</string>
+<string name="autofill_assistant_send_feedback">"Пікір жіберу"</string>
+<string name="autofill_assistant_increase_value">"Мәнді арттыру"</string>
+<string name="autofill_assistant_decrease_value">"Мәнді азайту"</string>
+<string name="autofill_assistant_overflow_options">"Параметрлер"</string>
+</resources>

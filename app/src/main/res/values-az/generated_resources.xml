@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome’un Xidmət Şərtləri 31 martda dəyişəcək"</string>
+<string name="tos_notification_body_text">"Yeni şərtləri nəzərdən keçirin"</string>
+<string name="tos_notification_ack_button_text">"Anladım"</string>
+<string name="tos_notification_review_button_text">"Nəzərdən keçirin"</string>
+<string name="managed">"Təşkilatınız tərəfindən idarə olunur"</string>
+<string name="search_or_type_web_address">"Veb ünvanı axtarın və yazın"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Təklif mübadilə buferindən silinsin?"</string>
+<string name="options_homepage_title">"Əsas Səhifə"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Yaxınlıqda heç bir cihaz tapılmadı."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"İcazə verin"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Bloklayın"</string>
+</resources>

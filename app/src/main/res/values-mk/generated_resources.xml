@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"„Условите за користење“ на Chrome се менуваат на 31 март"</string>
+<string name="tos_notification_body_text">"Прегледајте ги новите услови"</string>
+<string name="tos_notification_ack_button_text">"Сфатив"</string>
+<string name="tos_notification_review_button_text">"Прегледајте"</string>
+<string name="managed">"Управувано од вашата организација"</string>
+<string name="search_or_type_web_address">"Пребарувајте или внесете адреса"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Дали да се отстрани предлогот од привремената меморија?"</string>
+<string name="options_homepage_title">"Почетна страница"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Не се најдени уреди во близина."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Дозволи"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Блокирај"</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Daha çox"</string>
+<string name="color_picker_hue">"Rəng çaları"</string>
+<string name="color_picker_saturation">"Saturasiya"</string>
+<string name="color_picker_value">"Dəyər"</string>
+<string name="color_picker_button_set">"Ayarlayın"</string>
+<string name="color_picker_button_cancel">"Ləğv edin"</string>
+<string name="color_picker_dialog_title">"Rəng seçin"</string>
+<string name="color_picker_button_red">"Qırmızı"</string>
+<string name="color_picker_button_cyan">"Firuzəyi"</string>
+<string name="color_picker_button_blue">"Mavi"</string>
+<string name="color_picker_button_green">"Yaşıl"</string>
+<string name="color_picker_button_magenta">"Magenta"</string>
+<string name="color_picker_button_yellow">"Sarı"</string>
+<string name="color_picker_button_black">"Qara"</string>
+<string name="color_picker_button_white">"Ağ"</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome හට ඔබේ වටපිටාවේ ත්‍රිමාන සිතියමක් සෑදීමට ඔබේ කැමරාවට ප්‍රවේශ වීමට අවසර අවශ්‍යයි."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome හට මෙම අඩවිය සදහා ඔබේ කැමරාවට ප්‍රවේශ වීමට අවසර අවශ්‍යයි."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome හට මෙම අඩවිය සදහා ඔබේ මයික්‍රෆෝනයට ප්‍රවේශ වීමට අවසර අවශ්‍යයි."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome හට මෙම අඩවිය සදහා ඔබේ කැමරාවට සහ මයික්‍රෆෝනයට ප්‍රවේශ වීමට අවසර අවශ්‍යයි."</string>
+<string name="infobar_missing_location_permission_text">"Chrome හට මෙම අඩවිය සමඟ ඔබේ ස්ථානය බෙදා ගැනීමට ඔබේ ස්ථානයට ප්‍රවේශය අවශ්‍යයි."</string>
+<string name="infobar_update_permissions_button_text">"කරගෙන යන්න"</string>
+<string name="nfc_disabled_on_device_message">"ඉදිරියට යාමට Android සැකසීම් තුළ NFC සක්‍රීය කරන්න"</string>
+<string name="nfc_prompt_turn_on">"ක්‍රියාත්මක කරන්න"</string>
+<string name="overlay_detected_dialog_title">"මෙම අඩවියට ඔබගේ අවසරය ඉල්ලිය නොහැකිය"</string>
+<string name="overlay_detected_dialog_message">"වෙනත් යෙදුම් වෙතින් වන යම් බුබුළු හෝ උඩැතිරි වසන්න. අනතුරුව, නැවත උත්සාහ කරන්න."</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Эстутумда орун калбай калгандыктан, мурунку иш-аракеттерди бүтүрүү мүмкүн болбой жатат"</string>
+<string name="opening_file_error">"Тандалган файл ачылбай койду"</string>
+<string name="copy_to_clipboard_failure_message">"Буферге көчүрүлбөй калды"</string>
+<string name="link_copied">"Шилтеме көчүрүлдү"</string>
+<string name="chip_remove_icon_content_description">"\"%1$s\" өчүрүү"</string>
+</resources>

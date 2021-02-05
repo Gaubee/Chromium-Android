@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Persyaratan Layanan Chrome akan berubah pada 31 Maret"</string>
+<string name="tos_notification_body_text">"Harap tinjau persyaratan baru"</string>
+<string name="tos_notification_ack_button_text">"Mengerti"</string>
+<string name="tos_notification_review_button_text">"Tinjau"</string>
+<string name="managed">"Dikelola oleh organisasi"</string>
+<string name="search_or_type_web_address">"Telusuri atau ketik alamat web"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Hapus saran dari papan klip?"</string>
+<string name="options_homepage_title">"Beranda"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Tidak ditemukan perangkat di sekitar."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Izinkan"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Blokir"</string>
+</resources>

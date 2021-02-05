@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"३१ मार्चदेखि Chrome को सेवाका सर्तहरू परिवर्तन हुँदै छन्"</string>
+<string name="tos_notification_body_text">"कृपया नयाँ सर्तहरूको समीक्षा गर्नुहोस्"</string>
+<string name="tos_notification_ack_button_text">"भयो"</string>
+<string name="tos_notification_review_button_text">"समीक्षा गर्नुहोस्"</string>
+<string name="managed">"तपाईंको सङ्गठनले व्यवस्थापन गरेको"</string>
+<string name="search_or_type_web_address">"वेब ठेगाना खोज्नुहोस् वा टाइप गर्नुहोस्"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"क्लिपबोर्डको सुझाव हटाउने हो?"</string>
+<string name="options_homepage_title">"होमपेज"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"वरपर कुनै पनि यन्त्र भेटिएन।"</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"अनुमति दिनुहोस्"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"रोक्नुहोस्"</string>
+</resources>

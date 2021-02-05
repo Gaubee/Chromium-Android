@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome айланаңыздын 3D картасын түзүү үчүн камераңызды колдонушу керек."</string>
+<string name="infobar_missing_camera_permission_text">"Бул сайтта иштөө үчүн Chrome камераңызды колдонушу керек."</string>
+<string name="infobar_missing_microphone_permission_text">"Бул сайтта иштөө үчүн Chrome микрофонуңузду колдонушу керек."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Бул сайтта иштөө үчүн Chrome камераңызды жана микрофонуңузду колдонушу керек."</string>
+<string name="infobar_missing_location_permission_text">"Бул сайт менен бөлүшүү үчүн Chrome жайгашкан жериңиз тууралуу маалыматты алышы керек."</string>
+<string name="infobar_update_permissions_button_text">"Улантуу"</string>
+<string name="nfc_disabled_on_device_message">"Улантуу үчүн Android жөндөөлөрүнөн NFC\'ни күйгүзүңүз"</string>
+<string name="nfc_prompt_turn_on">"Күйгүзүү"</string>
+<string name="overlay_detected_dialog_title">"Бул сайт уруксат сурай албайт"</string>
+<string name="overlay_detected_dialog_message">"Колдонмолордогу калкып чыкма билдирмелерди же үстүнө коюулардын баарын жабыңыз. Андан кийин кайталап көрүңүз."</string>
+</resources>

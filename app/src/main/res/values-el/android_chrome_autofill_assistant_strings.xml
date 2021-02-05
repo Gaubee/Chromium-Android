@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Συμφωνώ"</string>
+<string name="autofill_assistant_init_title">"Δοκιμάστε τον Βοηθό Google\nστο Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Νοικιάστε ένα αυτοκίνητο\nμε λίγα μόνο πατήματα."</string>
+<string name="autofill_assistant_init_message_password_change">"Επιτρέψτε στον Βοηθό Google να σας βοηθήσει\nνα αλλάξετε τον κωδικό πρόσβασής σας."</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Αγοράστε εισιτήρια για τον κινηματογράφο\nμε λίγα μόνο πατήματα."</string>
+<string name="autofill_assistant_init_message_food_ordering">"Παραγγείλετε φαγητό\nμε λίγα μόνο πατήματα."</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Κάντε check-in για την πτήση σας\nμε λίγα μόνο πατήματα."</string>
+<string name="autofill_assistant_init_message_voice_search">"Δοκιμάστε τις φωνητικές ενέργειες\nσε ιστοτόπους"</string>
+<string name="autofill_assistant_init_message_shopping">"Γρήγορη ολοκλήρωση αγορών\nμε μερικά μόνο πατήματα."</string>
+<string name="autofill_assistant_init_message">"Ο Βοηθός Google σας εξοικονομεί χρόνο επειδή σας βοηθάει να ολοκληρώνετε ενέργειες στον ιστό, όπως είναι η αναζήτηση και η διαδικασία ολοκλήρωσης αγοράς."</string>
+<string name="autofill_assistant_init_message_short">"Ο Βοηθός Google στο Chrome μπορεί να εκτελέσει ενέργειες σε ιστοτόπους για εσάς."</string>
+<string name="autofill_assistant_google_terms_description">"Για να σας βοηθήσει να ολοκληρώνετε τις εργασίες σας, η Google θα λάβει τα URL και το περιεχόμενο των ιστοτόπων στους οποίους χρησιμοποιείτε τον Βοηθό, καθώς και τις πληροφορίες που υποβάλετε μέσω του Βοηθού. Αυτές οι πληροφορίες μπορεί να αποθηκεύονται στον Λογαριασμό σας Google. Μπορείτε να απενεργοποιήσετε τον Βοηθό στις ρυθμίσεις του Chrome. &lt;link&gt;Μάθετε περισσότερα&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Δυστυχώς, δεν μπορώ να σας βοηθήσω, θα πρέπει να συνεχίσετε μόνοι σας."</string>
+<string name="autofill_assistant_payment_information_missing">"Λείπουν πληροφορίες"</string>
+<string name="autofill_assistant_view_original_image_desc">"Άνοιγμα εξωτερικού συνδέσμου;"</string>
+<string name="autofill_assistant_view_original_image_view">"Προβολή"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Ακύρωση"</string>
+<string name="autofill_assistant_sheet_content_description">"Βοηθός Google στο Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Ο Βοηθός Google στο Chrome άνοιξε στο μισό ύψος."</string>
+<string name="autofill_assistant_sheet_full_height">"Ο Βοηθός Google στο Chrome άνοιξε στο πλήρες ύψος."</string>
+<string name="autofill_assistant_sheet_closed">"Ο Βοηθός Google στο Chrome έκλεισε."</string>
+<string name="autofill_assistant_send_feedback">"Αποστολή σχολίων"</string>
+<string name="autofill_assistant_increase_value">"Αύξηση αξίας"</string>
+<string name="autofill_assistant_decrease_value">"Μείωση αξίας"</string>
+<string name="autofill_assistant_overflow_options">"Προτιμήσεις"</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"ನಿಮ್ಮ ಸುತ್ತಮುತ್ತಲಿನ ಪರಿಸರದ 3D ನಕ್ಷೆಯನ್ನು ರಚಿಸುವುದಕ್ಕಾಗಿ ನಿಮ್ಮ ಕ್ಯಾಮರಾವನ್ನು ಪ್ರವೇಶಿಸಲು Chrome ಗೆ ಅನುಮತಿ ಬೇಕಾಗಿದೆ."</string>
+<string name="infobar_missing_camera_permission_text">"ಈ ಸೈಟ್‌ಗೆ ನಿಮ್ಮ ಕ್ಯಾಮರಾ ಪ್ರವೇಶಿಸಲು Chrome ಗೆ ಅನುಮತಿಸುವ ಅಗತ್ಯವಿದೆ."</string>
+<string name="infobar_missing_microphone_permission_text">"ಈ ಸೈಟ್‌ಗೆ ನಿಮ್ಮ ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶಿಸಲು Chrome ಗೆ ಅನುಮತಿಸುವ ಅಗತ್ಯವಿದೆ."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"ಈ ಸೈಟ್‌ಗೆ ನಿಮ್ಮ ಕ್ಯಾಮರಾ ಮತ್ತು ಮೈಕ್ರೊಫೋನ್ ಪ್ರವೇಶಿಸಲು Chrome ಗೆ ಅನುಮತಿಸುವ ಅಗತ್ಯವಿದೆ."</string>
+<string name="infobar_missing_location_permission_text">"ಈ ಸೈಟ್‌ ಮೂಲಕ ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಹಂಚಿಕೊಳ್ಳಲು Chrome ಗೆ ನಿಮ್ಮ ಸ್ಥಳದ ಪ್ರವೇಶ ಅಗತ್ಯವಿದೆ."</string>
+<string name="infobar_update_permissions_button_text">"ಮುಂದುವರೆಸಿ"</string>
+<string name="nfc_disabled_on_device_message">"ಮುಂದುವರಿಸಲು, Android ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ NFC ಆನ್ ಮಾಡಿ"</string>
+<string name="nfc_prompt_turn_on">"ಆನ್ ಮಾಡಿ"</string>
+<string name="overlay_detected_dialog_title">"ನಿಮ್ಮ ಅನುಮತಿಯನ್ನು ಕೇಳಲು ಈ ಸೈಟ್‌ಗೆ ಸಾಧ್ಯವಿಲ್ಲ"</string>
+<string name="overlay_detected_dialog_message">"ಇತರ ಆ್ಯಪ್‌ಗಳ ಯಾವುದೇ ಬಬಲ್ಸ್ ಅಥವಾ ಓವರ್‌ಲೇಗಳನ್ನು ಮುಚ್ಚಿ. ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ."</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Senarai bukti kelayakan untuk diisi apabila disentuh."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Senarai bukti kelayakan untuk diisi apabila disentuh, dibuka pada ketinggian separuh."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Senarai bukti kelayakan untuk diisi apabila disentuh, dibuka pada ketinggian penuh."</string>
+<string name="all_passwords_bottom_sheet_closed">"Senarai bukti kelayakan untuk diisi apabila disentuh telah ditutup."</string>
+<string name="all_passwords_bottom_sheet_title">"Kata laluan"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Carian"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Tiada kata laluan"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Jika anda mempercayai %s, anda boleh menggunakan kata laluan yang disimpan untuk tapak lain."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Cuba gunakan kata laluan yang unik untuk setiap tapak."</string>
+<string name="autofill_keyboard_accessory_content_description">"Kata laluan tersedia"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Autolengkap cadangan tersedia di atas papan kekunci"</string>
+<string name="keyboard_accessory_sheet_hide">"Tunjukkan papan kekunci"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Gunakan cadangan autolengkap Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Leret untuk melihat pelbagai lagi cadangan"</string>
+<string name="password_generation_accessory_button">"Cadangkan kata laluan yang kukuh"</string>
+<string name="password_generation_accessory_button_short">"Cadangkan kata laluan"</string>
+<string name="password_accessory_sheet_toggle">"Tunjukkan kata laluan"</string>
+<string name="password_accessory_sheet_opened">"Menunjukkan kata laluan yang disimpan dan pilihan kata laluan"</string>
+<string name="address_accessory_sheet_title">"Alamat"</string>
+<string name="address_accessory_sheet_toggle">"Tunjukkan Alamat"</string>
+<string name="address_accessory_sheet_opened">"Menunjukkan alamat yang disimpan"</string>
+<string name="credit_card_accessory_sheet_toggle">"Tunjukkan kaedah pembayaran"</string>
+<string name="credit_card_accessory_sheet_opened">"Menunjukkan kaedah pembayaran yang disimpan"</string>
+</resources>

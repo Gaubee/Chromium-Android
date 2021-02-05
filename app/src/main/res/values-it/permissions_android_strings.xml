@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome ha bisogno dell\'autorizzazione ad accedere alla fotocamera per creare una mappa 3D dell\'ambiente circostante."</string>
+<string name="infobar_missing_camera_permission_text">"Per questo sito Chrome ha bisogno dell\'autorizzazione ad accedere alla fotocamera."</string>
+<string name="infobar_missing_microphone_permission_text">"Per questo sito Chrome ha bisogno dell\'autorizzazione ad accedere al microfono."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Per questo sito Chrome ha bisogno dell\'autorizzazione ad accedere alla fotocamera e al microfono."</string>
+<string name="infobar_missing_location_permission_text">"Chrome deve poter accedere alla tua posizione per condividerla con questo sito."</string>
+<string name="infobar_update_permissions_button_text">"Continua"</string>
+<string name="nfc_disabled_on_device_message">"Per continuare, attiva NFC nelle impostazioni di Android"</string>
+<string name="nfc_prompt_turn_on">"Attiva"</string>
+<string name="overlay_detected_dialog_title">"Questo sito non può richiedere la tua autorizzazione"</string>
+<string name="overlay_detected_dialog_message">"Chiudi tutti i fumetti o gli overlay di altre app. Quindi riprova."</string>
+</resources>

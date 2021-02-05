@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"ฉันยอมรับ"</string>
+<string name="autofill_assistant_init_title">"ลองใช้ Google Assistant\nใน Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"เช่ารถ\nโดยแตะเพียงไม่กี่ครั้ง"</string>
+<string name="autofill_assistant_init_message_password_change">"ให้ Google Assistant ช่วยคุณ\nเปลี่ยนรหัสผ่าน"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"ซื้อบัตรชมภาพยนตร์\nโดยแตะเพียงไม่กี่ครั้ง"</string>
+<string name="autofill_assistant_init_message_food_ordering">"สั่งอาหาร\nโดยแตะเพียงไม่กี่ครั้ง"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"เช็คอินเที่ยวบิน\nโดยแตะเพียงไม่กี่ครั้ง"</string>
+<string name="autofill_assistant_init_message_voice_search">"ลองสั่งงานด้วยเสียง\nในเว็บไซต์"</string>
+<string name="autofill_assistant_init_message_shopping">"ชำระเงินได้อย่างรวดเร็ว\nโดยแตะเพียงไม่กี่ครั้ง"</string>
+<string name="autofill_assistant_init_message">"Google Assistant ทำให้คุณประหยัดเวลาได้โดยการช่วยคุณทำสิ่งต่างๆ ในเว็บให้เสร็จสิ้น เช่น การค้นหาและการชำระเงิน"</string>
+<string name="autofill_assistant_init_message_short">"Google Assistant ใน Chrome ดำเนินการต่างๆ ในเว็บไซต์ให้คุณได้"</string>
+<string name="autofill_assistant_google_terms_description">"Google จะได้รับ URL และเนื้อหาของเว็บไซต์ต่างๆ ที่คุณใช้งาน Assistant ด้วย รวมถึงข้อมูลที่คุณส่งผ่าน Assistant เพื่อช่วยทำงานที่ต้องการให้เสร็จสิ้น ข้อมูลนี้อาจถูกจัดเก็บในบัญชี Google คุณปิด Assistant ได้ในการตั้งค่า Chrome &lt;link&gt;ดูข้อมูลเพิ่มเติม&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"ขออภัย ฉันช่วยคุณไม่ได้ โปรดดำเนินการต่อด้วยตนเอง"</string>
+<string name="autofill_assistant_payment_information_missing">"ข้อมูลไม่ครบ"</string>
+<string name="autofill_assistant_view_original_image_desc">"เปิดลิงก์ภายนอกไหม"</string>
+<string name="autofill_assistant_view_original_image_view">"มุมมอง"</string>
+<string name="autofill_assistant_view_original_image_cancel">"ยกเลิก"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Assistant ใน Chrome"</string>
+<string name="autofill_assistant_sheet_half_height">"Google Assistant ใน Chrome เปิดอยู่ที่ระดับความสูงครึ่งหนึ่งของหน้าจอ"</string>
+<string name="autofill_assistant_sheet_full_height">"Google Assistant ใน Chrome เปิดอยู่ที่ระดับความสูงเต็มหน้าจอ"</string>
+<string name="autofill_assistant_sheet_closed">"Google Assistant ใน Chrome ปิดอยู่"</string>
+<string name="autofill_assistant_send_feedback">"ส่งความคิดเห็น"</string>
+<string name="autofill_assistant_increase_value">"เพิ่มค่า"</string>
+<string name="autofill_assistant_decrease_value">"ลดค่า"</string>
+<string name="autofill_assistant_overflow_options">"ค่ากำหนด"</string>
+</resources>

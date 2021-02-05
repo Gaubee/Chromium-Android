@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"O Chrome necessita de autorização de acesso à câmara para criar um mapa 3D do ambiente à sua volta."</string>
+<string name="infobar_missing_camera_permission_text">"O Chrome necessita de autorização de acesso à câmara para este site."</string>
+<string name="infobar_missing_microphone_permission_text">"O Chrome necessita de autorização de acesso ao microfone para este site."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"O Chrome necessita de autorização de acesso à câmara e ao microfone para este site."</string>
+<string name="infobar_missing_location_permission_text">"O Chrome precisa de acesso à sua localização para a partilhar com este site."</string>
+<string name="infobar_update_permissions_button_text">"Continuar"</string>
+<string name="nfc_disabled_on_device_message">"Para continuar, ative o NFC nas definições do Android."</string>
+<string name="nfc_prompt_turn_on">"Ativar"</string>
+<string name="overlay_detected_dialog_title">"Este site não pode pedir a sua autorização"</string>
+<string name="overlay_detected_dialog_message">"Feche todos os balões ou sobreposições de outras apps. Em seguida, tente novamente."</string>
+</resources>

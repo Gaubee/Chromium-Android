@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Slažem se"</string>
+<string name="autofill_assistant_init_title">"Isprobajte Google Asistenta\nna Chromeu"</string>
+<string name="autofill_assistant_init_message_rent_car">"Iznajmite automobil\nu svega nekoliko dodira"</string>
+<string name="autofill_assistant_init_message_password_change">"Dozvolite Google Asistentu da vam pomogne\nda promijenite lozinku"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Kupite karte za kino\nu svega nekoliko dodira"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Naručite hranu\nu samo nekoliko dodira"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Prijavite se na let\nu svega nekoliko dodira"</string>
+<string name="autofill_assistant_init_message_voice_search">"Isprobajte glasovne aktivnosti\nna web lokacijama"</string>
+<string name="autofill_assistant_init_message_shopping">"Brzo plaćanje\nu svega nekoliko dodira"</string>
+<string name="autofill_assistant_init_message">"Google Asistent vam štedi vrijeme pomažući vam da završavate radnje na webu, kao što su pretraživanje i plaćanje."</string>
+<string name="autofill_assistant_init_message_short">"Google Asistent u Chromeu može za vas završavati radnje na svim web lokacijama"</string>
+<string name="autofill_assistant_google_terms_description">"Radi lakšeg završavanja zadataka, Google će primati URL-ove i sadržaj web lokacija na kojima koristite Asistenta, kao i informacije koje pošaljete putem Asistenta. Ove informacije se mogu pohraniti na vaš Google račun. Možete isključiti Asistenta u postavkama Chromea. &lt;link&gt;Saznajte više&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Nažalost, ne mogu vam pomoći. Nastavite sami."</string>
+<string name="autofill_assistant_payment_information_missing">"Podaci nedostaju"</string>
+<string name="autofill_assistant_view_original_image_desc">"Otvoriti vanjski link?"</string>
+<string name="autofill_assistant_view_original_image_view">"Prikaz"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Otkaži"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Asistent u Chromeu."</string>
+<string name="autofill_assistant_sheet_half_height">"Google Asistent je na pola otvoren."</string>
+<string name="autofill_assistant_sheet_full_height">"Google Asistent u Chromeu otvoren je na cijelom ekranu."</string>
+<string name="autofill_assistant_sheet_closed">"Google Asistent u Chromeu je zatvoren."</string>
+<string name="autofill_assistant_send_feedback">"Pošaljite povratne informacije"</string>
+<string name="autofill_assistant_increase_value">"Povećavanje vrijednosti"</string>
+<string name="autofill_assistant_decrease_value">"Smanji vrijednost"</string>
+<string name="autofill_assistant_overflow_options">"Postavke"</string>
+</resources>

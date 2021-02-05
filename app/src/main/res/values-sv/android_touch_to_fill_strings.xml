@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Fortsätt med kontot"</string>
+<string name="touch_to_fill_sheet_title">"Välj ett konto"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Lista över användaruppgifter som ska fyllas i med ett tryck."</string>
+<string name="touch_to_fill_sheet_half_height">"Listan över användaruppgifter som ska fyllas i med ett tryck har öppnats över halva skärmen."</string>
+<string name="touch_to_fill_sheet_full_height">"Listan över användaruppgifter som ska fyllas i med ett tryck har öppnats över hela skärmen."</string>
+<string name="touch_to_fill_sheet_closed">"Listan över användaruppgifter som ska fyllas i med ett tryck är stängd."</string>
+<string name="manage_passwords">"Hantera lösenord"</string>
+<string name="touch_to_fill_continue">"Fortsätt"</string>
+</resources>

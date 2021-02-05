@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-uz/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Tasdiqlash"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Karta eslab qolinsin"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Bu nom Google hisobingizga biriktirilgan"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"CVC-kodni tekshiring va qayta urinib ko‘ring."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Kartangiz muddatini tekshiring va qaytadan urinib ko‘ring."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Kartangiz orqasidagi CVC-kod muddatini tekshiring va qaytadan urinib ko‘ring."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Kartangiz muddatining tugash oyini tekshiring va yana urinib ko‘ring."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Kartangiz muddatining tugash yilini tekshiring va yana urinib ko‘ring"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Karta ma’lumotlarini bu qurilmada saqlash"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Chromium shakllarni tezroq to‘ldirish uchun karta ma’lumotlarini ushbu qurilmaga saqlaydi."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Endi kartalar ekran qulfi orqali tasdiqlanadi"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Karta tasdiqlanmoqda…"</string>
+<string name="autofill_card_unmask_verification_success">"Kartangiz tasdiqlandi"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Kartani yangilash"</string>
+<string name="autofill_wallet_management_link_text">"O‘zgartirish"</string>
+<string name="autofill_from_google_account_long">"Google Pay xizmatidan"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"Nusxani o‘chirib tashlash"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Yangi kartani skanerlash"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Telefon raqamlari, epochta va eltib berish manzillari kabi ma’lumotlarni eslab qoladi"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Saqlangan toʻlov usullari maʼlumotlarini avtomatik tarzda toʻlov shakllariga kiritiladi"</string>
+<string name="autofill_addresses_settings_title">"Mazillar va boshqa ma’lumotlar"</string>
+<string name="autofill_payment_methods">"To‘lov usullari"</string>
+<string name="autofill_enable_profiles_toggle_label">"Manzillarni saqlash va avtomatik kiritish"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"To‘lov usullarini saqlash va avtomatik kiritish"</string>
+<string name="enable_credit_card_fido_auth_label">"Ekran qulfi"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Kartalarni tezda tasdiqlash uchun ekran qulfidan foydalaning"</string>
+<!-- <string name="http_post_warning_title">"Forma qayta jo‘natilishini tasdiqlang"</string> -->
+<!-- <string name="http_post_warning">"Siz qidirayotgan sahifada o‘zingiz kiritgan ma’lumotlardan foydalanilgan. Unga qaytib borsangiz, u yerda bajargan amallaringiz takrorlanishi mumkin. Davom etasizmi?"</string> -->
+<!-- <string name="http_post_warning_resend">"Davom etish"</string> -->
+<!-- <string name="login_dialog_title">"Kirish"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Kirish"</string> -->
+<!-- <string name="login_dialog_username_field">"Foydalanuvchi nomi"</string> -->
+<!-- <string name="login_dialog_password_field">"Parol"</string> -->
+<string name="sad_tab_title">"Ana xolos!"</string>
+<string name="sad_tab_message">"Veb-sahifani ochish vaqtida kutilmagan xatolik yuz berdi."</string>
+<string name="sad_tab_reload_label">"Qayta yuklash"</string>
+<string name="sad_tab_send_feedback_label">"Fikr-mulohaza"</string>
+<string name="sad_tab_reload_title">"Sahifani ochib bo‘lmadi"</string>
+<string name="sad_tab_reload_try">"Quyidagi amallarni bajarib ko‘ring:"</string>
+<string name="sad_tab_reload_incognito">"Sahifani yangi inkognito varaqda ochish"</string>
+<string name="sad_tab_reload_restart_browser">"Chromium’ni qayta ishga tushiring"</string>
+<string name="sad_tab_reload_restart_device">"Qurilmangizni qayta yuklang"</string>
+<string name="sad_tab_reload_learn_more">"Batafsil"</string>
+<string name="new_tab_otr_title">"Siz inkognito rejimiga o‘tdingiz"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Faoliyatingizni quyidagilar &lt;em&gt;kuzatishi mumkin&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;Siz tashrif buyurgan saytlar;
+          &lt;li&gt;Ishxonangiz yoki ta’lim muassasidagi tizim administratori;
+          &lt;li&gt;Internet provayderi.
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Bu sozlama Cookie sozlamalari orqali boshqariladi"</string>
+<string name="new_tab_otr_third_party_cookie">"Tashqi cookie-fayllarni bloklash."</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Yoqilsa, sizni internet boʻylab kuzatadigan cookie fayllardan saytlar foydalana olmaydi. Ayrim saytlardagi funksiyalar ishalamay qolishi mumkin."</string>
+<string name="ntp_article_suggestions_section_header">"Sizga atalgan maqolalar"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google tavsiyalari"</string>
+<string name="ntp_article_suggestions_section_empty">"Tavsiya etiladigan maqolalar shu yerda chiqadi"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Saytda yoqimsiz yoki befoyda reklamalar chiqadi"</string> -->
+<string name="payments_method_of_payment_label">"To‘lov usuli"</string>
+<string name="payments_contact_details_label">"Aloqa ma’lumoti"</string>
+<string name="payments_add_contact_details_label">"Aloqa ma’lumotini qo‘shish"</string>
+<string name="payments_edit_contact_details_label">"Aloqa ma’lumotini tahrirlash"</string>
+<string name="payments_add_billing_address">"To‘lov manzilini kiriting"</string>
+<string name="payments_add_name_on_card">"Karta egasining ismini kiriting"</string>
+<string name="payments_add_valid_card_number">"Karta raqamini xatosiz kiriting"</string>
+<string name="payments_add_more_information">"Batafsil qo‘shing"</string>
+<string name="payments_edit_card">"Karta ma’lumotlarini tahrirlash"</string>
+<string name="payments_add_phone_number">"Raqam qo‘shing"</string>
+<string name="payments_add_recipient">"Nom qo‘shish"</string>
+<string name="payments_add_valid_address">"To‘g‘ri manzilni kiriting"</string>
+<string name="payments_add_email">"Email manzilini kiriting"</string>
+<string name="payments_add_name">"Nom qo‘shish"</string>
+<string name="payments_order_summary_label">"Buyurtma ma’lumotlari"</string>
+<string name="payment_request_payment_method_section_name">"To‘lov"</string>
+<string name="payment_account_balance">"Hisob balansi"</string>
+<string name="payments_shipping_summary_label">"Yetkazib berish manzili"</string>
+<string name="payments_shipping_address_label">"Yetkazib berish manzili"</string>
+<string name="payments_shipping_option_label">"Yetkazib berish usuli"</string>
+<string name="payments_delivery_summary_label">"Yetkazib berish"</string>
+<string name="payments_delivery_address_label">"Yetkazib berish manzili"</string>
+<string name="payments_delivery_option_label">"Yetkazib berish usuli"</string>
+<string name="payments_pickup_summary_label">"Olib ketish"</string>
+<string name="payments_pickup_address_label">"Olib ketish manzili"</string>
+<string name="payments_pickup_option_label">"Olib ketish usuli"</string>
+<string name="payments_edit_button">"O‘zgartirish"</string>
+<string name="payments_pay_button">"To‘lash"</string>
+<string name="payments_continue_button">"Davom etish"</string>
+<string name="payments_add_contact">"Aloqa ma’lumotini qo‘shish"</string>
+<string name="payments_add_card">"Yangi karta qo‘shish"</string>
+<string name="payments_add_address">"Manzil kiritish"</string>
+<string name="payments_edit_address">"Manzilni o‘zgartirish"</string>
+<string name="payments_name_field_in_contact_details">"Nomi"</string>
+<string name="payments_save_card_to_device_checkbox">"Kartani bu qurilmaga saqlash"</string>
+<string name="payments_accepted_cards_label">"Qabul qilinadigan kartalar"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Amal qilish muddati: %1$s/%2$s"</string>
+<string name="payments_loading_message">"Yuklanmoqda"</string>
+<string name="payments_processing_message">"Amalga oshirilmoqda"</string>
+<string name="payments_checking_option">"Tekshirilmoqda"</string>
+<string name="payments_updated_label">"Yangilangan"</string>
+<string name="payment_complete_message">"Toʻlov bajarildi"</string>
+<string name="payments_error_message">"To‘lovni amalga oshirishda xatolik yuz berdi. Qayta urinib ko‘ring."</string>
+<string name="payments_card_and_address_settings">"Karta va manzillarni BEGIN_LINKSozlamalarEND_LINK orqali boshqarish mumkin."</string>
+<string name="payments_card_and_address_settings_signed_in">"Google hisobi (%1$s), Chrome brauzerida saqlangan karta va manzillar. Siz ularni BEGIN_LINKSozlamalarEND_LINK orqali boshqarishingiz mumkin."</string>
+<string name="payment_touch_sensor_to_pay">"Toʻlash uchun sensorga tegining"</string>
+<string name="payment_fingerprint_not_recognized">"Barmoq izi aniqlanmadi"</string>
+<string name="payments_card_and_address_settings_signed_out">"Chrome brauzerida saqlangan karta va manzillar. Siz ularni BEGIN_LINKSozlamalarEND_LINK orqali boshqarishingiz mumkin."</string>
+<string name="settings_can_make_payment_toggle_label">"Saytlarga saqlangan to‘lov usullari mavjudligini tekshirishga ruxsat berish"</string>
+<string name="payments_required_field_message">"* Bu maydoncha kiritilishi shart"</string>
+<string name="payments_phone_invalid_validation_message">"Telefon raqamini xatosiz kiriting"</string>
+<string name="payments_email_invalid_validation_message">"Email manzilini xatosiz kiriting"</string>
+<string name="payments_card_number_invalid_validation_message">"Karta raqamini xatosiz kiriting"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Amal qilish muddatini xatosiz kiriting"</string>
+<string name="payments_invalid_address">"Manzilni xatosiz kiriting"</string>
+<string name="payments_billing_address_required">"To‘lov manzilini kiriting"</string>
+<string name="payments_name_on_card_required">"Karta egasining ismini kiriting"</string>
+<string name="payments_more_information_required">"Yana ko‘proq ma’lumot so‘ralmoqda"</string>
+<string name="payments_phone_number_required">"Telefon raqami kiritilishi shart"</string>
+<string name="payments_recipient_required">"Nom kiriting"</string>
+<string name="payments_email_required">"E-pochtangizni kiriting"</string>
+<string name="payments_name_required">"Nom kiriting"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Kiritilishi shart"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Yetkazib berish usuli va talablari bilan tanishish uchun manzilni tanlang"</string>
+<string name="payments_unsupported_shipping_address">"Bu manzilga yetkazib bera olmaymiz. Boshqa manzilni tanlang."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Yetkazib berish usuli va talablari bilan tanishish uchun manzilni tanlang"</string>
+<string name="payments_unsupported_delivery_address">"Bu manzilga yetkazib bera olmaymiz. Boshqa manzilni tanlang."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Olib ketish usuli va talablari bilan tanishish uchun manzilni tanlang"</string>
+<string name="payments_unsupported_pickup_address">"Bu manzildan olib keta olmaymiz. Boshqa manzilni tanlang."</string>
+<string name="payments_android_app_error">"To‘lov ilovasi ochilmadi"</string>
+<string name="external_payment_app_leave_incognito_warning">"Tashqi ilova orqali to‘lash uchun inkognito rejimidan chiqib ketasiz. Davom ettirilsinmi?"</string>
+<string name="payment_handler_sheet_description">"Toʻlovni qayta ishlash vositasi"</string>
+<string name="payment_handler_sheet_opened_half">"Toʻlovlarni qayta ishlash vositasi yarim hajmda ochildi"</string>
+<string name="payment_handler_sheet_opened_full">"Toʻlovlarni qayta ishlash vositasi ochildi"</string>
+<string name="payment_handler_sheet_closed">"Toʻlovlarni qayta ishlash vositasi yopildi"</string>
+<string name="blocked_ads_prompt_title">"Reklamalar bloklandi"</string>
+<!-- <string name="translate_infobar_error">"Bu sahifani tarjima qilib bo‘lmadi."</string> -->
+<!-- <string name="translate_button">"Tarjima"</string> -->
+<!-- <string name="translate_never_translate_site">"Bu sayt hech qachon tarjima qilinmasin"</string> -->
+<string name="translate_dont_offer_site">"Bu saytni tarjima qilish taklif qilinmasin"</string>
+<!-- <string name="translate_option_always_translate">"%1$s tilidagi sahifalar doim tarjima qilinsin"</string> -->
+<!-- <string name="translate_option_never_translate">"%1$s tilidagi sahifalar hech qachon tarjima qilinmasin"</string> -->
+<string name="translate_dont_offer_lang">"%1$s tilidagi sahifalarni tarjima qilish taklif qilinmasin"</string>
+<!-- <string name="translate_option_more_language">"Boshqa tillar"</string> -->
+<!-- <string name="translate_option_not_source_language">"Sahifa %1$s tilida emasmi?"</string> -->
+<string name="translate_snackbar_always_translate">"%1$s tilidagi sahifalar hozirdan %2$s tiliga tarjima qilinadi"</string>
+<string name="translate_snackbar_language_never">"%1$s tilidagi sahifalar tarjima qilinmaydi"</string>
+<string name="translate_snackbar_site_never">"Bu sayt tarjima qilinmaydi"</string>
+<string name="translate_snackbar_cancel">"Bekor qilish"</string>
+<string name="clear">"Tozalash"</string>
+<string name="show_content">"Ko‘rsatish"</string>
+<string name="hide_content">"Berkitish"</string>
+<string name="choose">"Tanlang"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-uz/components_strings.xml -->
+
+<string name="http_post_warning_title">"Forma qayta jo‘natilishini tasdiqlang"</string>
+<string name="http_post_warning">"Siz qidirayotgan sahifada o‘zingiz kiritgan ma’lumotlardan foydalanilgan. Unga qaytib borsangiz, u yerda bajargan amallaringiz takrorlanishi mumkin. Davom etasizmi?"</string>
+<string name="http_post_warning_resend">"Davom etish"</string>
+<string name="login_dialog_title">"Kirish"</string>
+<string name="login_dialog_ok_button_label">"Kirish"</string>
+<string name="login_dialog_username_field">"Foydalanuvchi nomi"</string>
+<string name="login_dialog_password_field">"Parol"</string>
+<string name="page_info_permission_ads_subtitle">"Saytda yoqimsiz yoki befoyda reklamalar chiqadi"</string>
+<string name="translate_infobar_error">"Bu sahifani tarjima qilib bo‘lmadi."</string>
+<string name="translate_button">"Tarjima"</string>
+<string name="translate_never_translate_site">"Bu sayt hech qachon tarjima qilinmasin"</string>
+<string name="translate_option_always_translate">"%1$s tilidagi sahifalar doim tarjima qilinsin"</string>
+<string name="translate_option_never_translate">"%1$s tilidagi sahifalar hech qachon tarjima qilinmasin"</string>
+<string name="translate_option_more_language">"Boshqa tillar"</string>
+<string name="translate_option_not_source_language">"Sahifa %1$s tilida emasmi?"</string>
+</resources>

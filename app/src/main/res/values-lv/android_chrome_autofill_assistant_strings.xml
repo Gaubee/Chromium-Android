@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Piekrītu"</string>
+<string name="autofill_assistant_init_title">"Izmēģiniet Google asistentu\npārlūkā Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Nonomājiet automašīnu,\nveicot tikai dažus pieskārienus"</string>
+<string name="autofill_assistant_init_message_password_change">"Atļaujiet Google asistentam\npalīdzēt nomainīt paroli"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Pērciet kino biļetes,\nveicot tikai dažus pieskārienus"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Pasūtiet ēdienu,\nveicot tikai dažus pieskārienus"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Reģistrējieties lidojumam,\nveicot tikai dažus pieskārienus"</string>
+<string name="autofill_assistant_init_message_voice_search">"Izmēģiniet balss komandas\ntīmekļa vietnēs"</string>
+<string name="autofill_assistant_init_message_shopping">"Ātra norēķināšanās,\nveicot tikai dažus pieskārienus"</string>
+<string name="autofill_assistant_init_message">"Google asistents ietaupa jūsu laiku, palīdzot veikt darbības tīmeklī, piemēram, meklēšanu un izrakstīšanos."</string>
+<string name="autofill_assistant_init_message_short">"Google asistents pārlūkprogrammā Chrome var veikt darbības vietnēs jūsu vārdā."</string>
+<string name="autofill_assistant_google_terms_description">"Lai palīdzētu jums paveikt uzdevumus, Google saņems to vietņu vietrāžus URL un saturu, kurās izmantojat Asistentu, kā arī informāciju, ko iesniedzat, izmantojot Asistentu. Šī informācija var tikt glabāta jūsu Google kontā. Varat izslēgt Asistentu Chrome iestatījumos. &lt;link&gt;Uzziniet vairāk&lt;/link&gt;."</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Diemžēl nevaru palīdzēt. Lūdzu, turpiniet patstāvīgi."</string>
+<string name="autofill_assistant_payment_information_missing">"Trūkst informācijas"</string>
+<string name="autofill_assistant_view_original_image_desc">"Vai atvērt ārējo saiti?"</string>
+<string name="autofill_assistant_view_original_image_view">"Skatīt"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Atcelt"</string>
+<string name="autofill_assistant_sheet_content_description">"Google asistents pārlūkprogrammā Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Google asistents pārlūkprogrammā Chrome ir atvērts pusekrāna augstumā."</string>
+<string name="autofill_assistant_sheet_full_height">"Google asistents pārlūkprogrammā Chrome ir atvērts pilnā augstumā."</string>
+<string name="autofill_assistant_sheet_closed">"Google asistents pārlūkprogrammā Chrome ir aizvērts."</string>
+<string name="autofill_assistant_send_feedback">"Sūtīt atsauksmes"</string>
+<string name="autofill_assistant_increase_value">"Palielināt vērtību"</string>
+<string name="autofill_assistant_decrease_value">"Samazināt vērtību"</string>
+<string name="autofill_assistant_overflow_options">"Preferences"</string>
+</resources>

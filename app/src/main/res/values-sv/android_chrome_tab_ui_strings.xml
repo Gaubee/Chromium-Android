@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Jämför sidor snabbt genom att skapa en grupp. Börja med att trycka länge på en länk."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Tryck för att visa en annan flik"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Dina flikar samlas här"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Byt mellan flikarna i flikgruppen nära sidans nederkant"</string>
+<string name="undo_bar_group_tabs_message">"%1$s flikar har grupperats"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d flik"</item>
+  <item quantity="other">"%1$d flikar"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Lägg till ny flik i gruppen"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Dölj helskärmsrutnät"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Visa gruppens flikar i helskärmsrutnät"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Stäng flikhuvud"</string>
+<string name="tabswitcher_create_group">"Skapa grupp"</string>
+<string name="accessibility_tab_switcher">"Flikbyte"</string>
+<string name="accessibility_close_tab_group_button">"Stäng flikgruppen med %1$s flikar"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Stäng gruppen %1$s med %2$s flikar"</string>
+<string name="tab_selection_editor_group">"Grupp"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Välj flikar"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Lägg till %1$d vald flik i gruppen"</item>
+  <item quantity="other">"Lägg till %1$d valda flikar i gruppen"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Dölj flervalsläget"</string>
+<string name="accessibility_tab_selection_editor">"Flervalsläge"</string>
+<string name="tab_grid_dialog_remove_from_group">"Ta bort från gruppen"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Ta bort flikar från gruppen"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Ta bort"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Dela grupp"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Redigera gruppnamn"</string>
+<string name="accessibility_expand_tab_group">"Utöka flikgruppen med %1$s flikar."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Utöka flikgruppen %1$s med %2$s flikar."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Ta bort %1$d markerad flik från gruppen."</item>
+  <item quantity="other">"Ta bort %1$d markerade flikar från gruppen."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Komprimera %1$d flik."</item>
+  <item quantity="other">"Komprimera flikgruppen med %1$d flikar."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Komprimera %1$d flik."</item>
+  <item quantity="other">"Komprimera flikgruppen %1$s med %2$d flikar."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Flikgruppen har utökats"</string>
+<string name="iph_drag_and_drop_introduction">"Gruppera flikar genom att dra dem"</string>
+<string name="iph_drag_and_drop_show_me">"Visa mig"</string>
+<string name="iph_drag_and_drop_title">"Håll ordning"</string>
+<string name="iph_drag_and_drop_content">"Gruppera flikar genom att trycka länge på en flik. Dra sedan fliken ovanpå en annan flik."</string>
+<string name="tab_switcher_carousel_title">"Fortsätt surfa"</string>
+<string name="tab_switcher_carousel_view_all">"Visa alla"</string>
+<string name="tab_suggestion_review_button">"Granska"</string>
+<string name="tab_suggestion_close_tab_action_button">"Stäng"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s av flikarna har inte använts på länge. Vill du stänga dem?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s flikar verkar höra ihop. Vill du gruppera dem?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Granska förslagen."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Förslag: %1$s av flikarna har inte använts på länge. Vill du stänga dem?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Förslag: %1$s flikar verkar höra ihop. Vill du gruppera dem?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Ignorera förslagen."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Stäng %1$d vald flik"</item>
+  <item quantity="other">"Stäng %1$d valda flikar"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Flytta fliken åt vänster"</string>
+<string name="accessibility_tab_movement_right">"Flytta fliken åt höger"</string>
+<string name="accessibility_tab_movement_up">"Flytta fliken uppåt"</string>
+<string name="accessibility_tab_movement_down">"Flytta fliken nedåt"</string>
+<string name="undo_tab_strip_closure_message">"Flikhuvudet har stängts"</string>
+<string name="tab_strip_info_bar_question">"Vill du sluta visa flikhuvudet?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Visa inte igen"</string>
+<string name="tab_strip_info_bar_reshow">"Visa senare"</string>
+<string name="price_drop_spotted_title">"Prissänkning upptäcktes"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Visa mig"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

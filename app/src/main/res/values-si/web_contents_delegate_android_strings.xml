@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"වැඩිදුර"</string>
+<string name="color_picker_hue">"හියු"</string>
+<string name="color_picker_saturation">"සංතෘප්ත වීම"</string>
+<string name="color_picker_value">"අගය"</string>
+<string name="color_picker_button_set">"සකසන ලදි"</string>
+<string name="color_picker_button_cancel">"අවලංගු කරන්න"</string>
+<string name="color_picker_dialog_title">"වර්ණය තෝරන්න"</string>
+<string name="color_picker_button_red">"රතු"</string>
+<string name="color_picker_button_cyan">"සියන්"</string>
+<string name="color_picker_button_blue">"නිල්"</string>
+<string name="color_picker_button_green">"කොළ"</string>
+<string name="color_picker_button_magenta">"මැජෙන්ටා"</string>
+<string name="color_picker_button_yellow">"කහ"</string>
+<string name="color_picker_button_black">"කළු"</string>
+<string name="color_picker_button_white">"සුදු"</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Comparez rapidement des pages en créant un groupe. Pour commencer, maintenez le doigt sur un lien."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Touchez pour afficher un autre onglet"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Vos onglets sont regroupés ici"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Basculez entre les onglets dans votre groupe d\'onglets, près du bas de l\'écran"</string>
+<string name="undo_bar_group_tabs_message">"%1$s onglets groupés"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d onglet"</item>
+  <item quantity="other">"%1$d onglets"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Ajouter un onglet au groupe"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Masquer la grille plein écran"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Afficher les onglets du groupe dans une grille plein écran"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Fermer la bande d\'onglets"</string>
+<string name="tabswitcher_create_group">"Créer un groupe"</string>
+<string name="accessibility_tab_switcher">"Gestionnaire d\'onglets"</string>
+<string name="accessibility_close_tab_group_button">"Fermer le groupe d\'onglets qui contient %1$s onglets"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Fermer le groupe %1$s qui contient %2$s onglets"</string>
+<string name="tab_selection_editor_group">"Groupe"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Sélectionnez des onglets"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Regrouper %1$d onglet sélectionné"</item>
+  <item quantity="other">"Regrouper %1$d onglets sélectionnés"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Quitter le mode de sélection multiple"</string>
+<string name="accessibility_tab_selection_editor">"Mode de sélection multiple"</string>
+<string name="tab_grid_dialog_remove_from_group">"Supprimer du groupe"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Supprimer les onglets du groupe"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Supprimer"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Partager le groupe"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Modifier le nom du groupe"</string>
+<string name="accessibility_expand_tab_group">"Développer le groupe d\'onglets qui contient %1$s onglets."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Développer le groupe d\'onglets %1$s, qui contient %2$s onglets."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Retirer %1$d onglet sélectionné du groupe."</item>
+  <item quantity="other">"Retirer %1$d onglets sélectionnés du groupe."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Réduire %1$d onglet."</item>
+  <item quantity="other">"Réduire le groupe d\'onglets qui contient %1$d onglets."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Réduire %1$d onglet."</item>
+  <item quantity="other">"Réduire le groupe d\'onglets %1$s qui contient %2$d onglets."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Groupe d\'onglets développé"</string>
+<string name="iph_drag_and_drop_introduction">"Faites glisser les onglets pour les regrouper"</string>
+<string name="iph_drag_and_drop_show_me">"Démonstration"</string>
+<string name="iph_drag_and_drop_title">"Place à l\'organisation"</string>
+<string name="iph_drag_and_drop_content">"Pour regrouper des onglets, maintenez le doigt sur un onglet, puis faites-le glisser vers un autre."</string>
+<string name="tab_switcher_carousel_title">"Continuer la navigation"</string>
+<string name="tab_switcher_carousel_view_all">"Tout afficher"</string>
+<string name="tab_suggestion_review_button">"Examiner"</string>
+<string name="tab_suggestion_close_tab_action_button">"Fermer"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s de vos onglets n\'ont pas été utilisés récemment. Les fermer?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s onglets semblent liés. Voulez-vous les regrouper?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Examiner les suggestions."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Suggestion : %1$s de vos onglets n\'ont pas été utilisés récemment. Les fermer?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Suggestion : %1$s onglets semblent liés. Voulez-vous les regrouper?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Ignorer les suggestions."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Fermer %1$d onglet sélectionné"</item>
+  <item quantity="other">"Fermer %1$d onglets sélectionnés"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Déplacer l\'onglet vers la gauche"</string>
+<string name="accessibility_tab_movement_right">"Déplacer l\'onglet vers la droite"</string>
+<string name="accessibility_tab_movement_up">"Déplacer l\'onglet vers le haut"</string>
+<string name="accessibility_tab_movement_down">"Déplacer l\'onglet vers le bas"</string>
+<string name="undo_tab_strip_closure_message">"Bande d\'onglets fermée"</string>
+<string name="tab_strip_info_bar_question">"Ne plus afficher la bande d\'onglets?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Ne plus afficher"</string>
+<string name="tab_strip_info_bar_reshow">"Afficher plus tard"</string>
+<string name="price_drop_spotted_title">"Une baisse de prix a été détectée"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Démonstration"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

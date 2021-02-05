@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Lista akreditiva koji treba da se unesu na dodir."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Lista akreditiva koji treba da se unesu na dodir se otvorila do polovine ekrana."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Lista akreditiva koji treba da se unesu na dodir se otvorila na celom ekranu,"</string>
+<string name="all_passwords_bottom_sheet_closed">"Lista akreditiva koji treba da se unesu na dodir je zatvorena."</string>
+<string name="all_passwords_bottom_sheet_title">"Lozinke"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Pretraži"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Bez lozinke"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Ako veb-sajt %s smatrate pouzdanim, možete da koristite sačuvanu lozinku za drugi sajt."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Potrudite se da koristite jedinstvenu lozinku za svaki sajt."</string>
+<string name="autofill_keyboard_accessory_content_description">"Dostupne su lozinke"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Predlozi za automatsko popunjavanje su dostupni iznad tastature"</string>
+<string name="keyboard_accessory_sheet_hide">"Prikaži tastaturu"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Koristite predlog Chrome automatskog popunjavanja"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Prevucite da biste videli još predloga"</string>
+<string name="password_generation_accessory_button">"Predloži jaku lozinku"</string>
+<string name="password_generation_accessory_button_short">"Predloži lozinku"</string>
+<string name="password_accessory_sheet_toggle">"Prikazuj lozinke"</string>
+<string name="password_accessory_sheet_opened">"Prikazuju se sačuvane lozinke i opcije za lozinke"</string>
+<string name="address_accessory_sheet_title">"Adrese"</string>
+<string name="address_accessory_sheet_toggle">"Prikaži adrese"</string>
+<string name="address_accessory_sheet_opened">"Prikazuju se sačuvane adrese"</string>
+<string name="credit_card_accessory_sheet_toggle">"Prikaži načine plaćanja"</string>
+<string name="credit_card_accessory_sheet_opened">"Prikazuju se sačuvani načini plaćanja"</string>
+</resources>

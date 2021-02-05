@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"እስማማለሁ"</string>
+<string name="autofill_assistant_init_title">"በChrome ውስጥ\n Google ረዳትን ይሞክሩ"</string>
+<string name="autofill_assistant_init_message_rent_car">"በጥቂት መታ\nማድረጎች ብቻ መኪና ይከራዩ"</string>
+<string name="autofill_assistant_init_message_password_change">"Google ረዳት የይለፍ ቃልዎን\nእንዲቀይሩ ያግዘዎት"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"በጥቂት መታ ማድረጎች ብቻ\nየፊልም ቲኬቶችን ይግዙ"</string>
+<string name="autofill_assistant_init_message_food_ordering">"በጥቂት መታ ማድረጎች\nብቻ ምግብ ይዘዙ"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"በጥቂት መታ ማድረጎች ብቻ\nወደ በረራዎ ተመዝግበው ይግቡ"</string>
+<string name="autofill_assistant_init_message_voice_search">"በድር ጣቢያዎች ላይ\nየድምፅ እርምጃዎችን ይሞክሩ"</string>
+<string name="autofill_assistant_init_message_shopping">"በጥቂት መታ ማድረጎች ብቻ\nፈጣን ተመዝግቦ መውጣት"</string>
+<string name="autofill_assistant_init_message">"Google ረዳት እንደ ፍለጋ እና ተመዝግቦ መውጣት የመሳሰለ ድርጊትን በድር ላይ እንዲያጠናቅቁ በማገዝ የእርስዎን ጊዜ ይቆጥባል።"</string>
+<string name="autofill_assistant_init_message_short">"በChrome ውስጥ Google ረዳት በመላ ድር ጣቢያዎች ላይ ለእርስዎ እርምጃዎችን ማጠናቀቅ ይችላል"</string>
+<string name="autofill_assistant_google_terms_description">"ተግባራትን እንዲያጠናቅቁ ለማገዝ Google ረዳትን የሚጠቀሙባቸው የጣቢያዎች ዩአርኤሎች እና ይዘቶችና እንዲሁም በረዳት በኩል የሚያስገቡት መረጃን ይቀበላል። ይህ መረጃ በGoogle መለያዎ ላይ ሊከማች ይችላል። ረዳትን በChrome ቅንብሮች ላይ ማጥፋት ይችላሉ። &lt;link&gt;የበለጠ ለመረዳት&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"ከእንግዲህ ላግዝ አልችልም፣ እባክዎ በራስዎ ይቀጥሉ።"</string>
+<string name="autofill_assistant_payment_information_missing">"መረጃ ይጎድላል"</string>
+<string name="autofill_assistant_view_original_image_desc">"ውጫዊ አገናኝ ይከፈት?"</string>
+<string name="autofill_assistant_view_original_image_view">"አሳይ"</string>
+<string name="autofill_assistant_view_original_image_cancel">"ይቅር"</string>
+<string name="autofill_assistant_sheet_content_description">"በChrome ውስጥ Google ረዳት።"</string>
+<string name="autofill_assistant_sheet_half_height">"Google ረዳት በChrome ውስጥ ግማሽ ቁመት ላይ ተከፍቷል።"</string>
+<string name="autofill_assistant_sheet_full_height">"Google ረዳት በChrome ውስጥ ሙሉ ቁመት ላይ ተከፍቷል።"</string>
+<string name="autofill_assistant_sheet_closed">"Google ረዳት በChrome ውስጥ ተዘግቷል።"</string>
+<string name="autofill_assistant_send_feedback">"ግብረመልስ ላክ"</string>
+<string name="autofill_assistant_increase_value">"እሴትን ይጨምሩ"</string>
+<string name="autofill_assistant_decrease_value">"እሴትን ይቀንሱ"</string>
+<string name="autofill_assistant_overflow_options">"አማራጮች"</string>
+</resources>

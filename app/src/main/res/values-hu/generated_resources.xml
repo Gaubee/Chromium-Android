@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"A Chrome Általános Szerződési Feltételei március 31-én módosulnak"</string>
+<string name="tos_notification_body_text">"Kérjük, tekintse meg az új Feltételeket"</string>
+<string name="tos_notification_ack_button_text">"Sikerült"</string>
+<string name="tos_notification_review_button_text">"Áttekintés"</string>
+<string name="managed">"Az Ön szervezete kezeli"</string>
+<string name="search_or_type_web_address">"Keressen, vagy írjon be internetcímet"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Eltávolítja a javaslatot a vágólapról?"</string>
+<string name="options_homepage_title">"Kezdőlap"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Nem található közeli eszköz."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Engedélyezés"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Letiltás"</string>
+</resources>

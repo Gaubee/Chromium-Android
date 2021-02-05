@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Saya bersetuju"</string>
+<string name="autofill_assistant_init_title">"Cuba Google Assistant\ndalam Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Sewa kereta\ndengan hanya beberapa ketikan"</string>
+<string name="autofill_assistant_init_message_password_change">"Benarkan Google Assistant membantu anda\nmenukar kata laluan anda"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Beli tiket wayang\ndengan hanya beberapa ketikan"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Pesan makanan\ndengan hanya beberapa ketikan"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Daftar masuk ke penerbangan anda\ndengan hanya beberapa ketikan"</string>
+<string name="autofill_assistant_init_message_voice_search">"Cuba tindakan suara\npada tapak web"</string>
+<string name="autofill_assistant_init_message_shopping">"Pembayaran pantas\ndengan hanya beberapa ketikan"</string>
+<string name="autofill_assistant_init_message">"Google Assistant menjimatkan masa dengan membantu anda menyelesaikan tindakan di web, seperti carian dan pembayaran."</string>
+<string name="autofill_assistant_init_message_short">"Google Assistant dalam Chrome boleh melengkapkan tindakan merentas tapak web untuk anda"</string>
+<string name="autofill_assistant_google_terms_description">"Untuk membantu anda menyelesaikan tugasan, Google akan menerima URL dan kandungan tapak tempat anda menggunakan Assistant, serta maklumat yang anda serahkan melalui Assistant Maklumat ini mungkin disimpan dalam akaun Google anda. Anda boleh mematikan Assistant dalam tetapan Chrome. &lt;link&gt;Ketahui lebih lanjut&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Maaf, saya tidak dapat membantu. Sila teruskan sendiri."</string>
+<string name="autofill_assistant_payment_information_missing">"Tiada maklumat"</string>
+<string name="autofill_assistant_view_original_image_desc">"Buka pautan luar?"</string>
+<string name="autofill_assistant_view_original_image_view">"Lihat"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Batal"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Assistant dalam Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Google Assistant dalam Chrome dibuka pada ketinggian separuh."</string>
+<string name="autofill_assistant_sheet_full_height">"Google Assistant dalam Chrome dibuka pada ketinggian penuh."</string>
+<string name="autofill_assistant_sheet_closed">"Google Assistant dalam Chrome ditutup."</string>
+<string name="autofill_assistant_send_feedback">"Hantar maklum balas"</string>
+<string name="autofill_assistant_increase_value">"Tingkatkan nilai"</string>
+<string name="autofill_assistant_decrease_value">"Kurangkan nilai"</string>
+<string name="autofill_assistant_overflow_options">"Keutamaan"</string>
+</resources>

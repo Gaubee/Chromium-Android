@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Az érintéssel kitöltendő hitelesítő adatok listája."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Az érintéssel kitöltendő hitelesítő adatok listája félmagasságban megnyitva."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Az érintéssel kitöltendő hitelesítő adatok listája teljes magasságban megnyitva."</string>
+<string name="all_passwords_bottom_sheet_closed">"Az érintéssel kitölthető hitelesítési adatok listája be van zárva."</string>
+<string name="all_passwords_bottom_sheet_title">"Jelszavak"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Keresés"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Nincs jelszó"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Ha megbízik a(z) %s webhelyben, használhatja másik webhelyhez mentett jelszavát."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Próbáljon minden webhelyen egyedi jelszót használni."</string>
+<string name="autofill_keyboard_accessory_content_description">"Mentett jelszavak használhatók"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Az Automatikus kitöltés javaslatai a billentyűzet felett találhatók"</string>
+<string name="keyboard_accessory_sheet_hide">"Billentyűzet megjelenítése"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"A Chrome automatikus kitöltési javaslatának használata"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"További javaslatok megtekintéséhez csúsztasson"</string>
+<string name="password_generation_accessory_button">"Erős jelszó ajánlása"</string>
+<string name="password_generation_accessory_button_short">"Jelszó ajánlása"</string>
+<string name="password_accessory_sheet_toggle">"Jelszavak mutatása"</string>
+<string name="password_accessory_sheet_opened">"Mentett jelszavak és jelszóbeállítások megjelenítve"</string>
+<string name="address_accessory_sheet_title">"Címek"</string>
+<string name="address_accessory_sheet_toggle">"Címek megjelenítése"</string>
+<string name="address_accessory_sheet_opened">"Mentett címek megjelenítése"</string>
+<string name="credit_card_accessory_sheet_toggle">"Fizetési módok megjelenítése"</string>
+<string name="credit_card_accessory_sheet_opened">"Mentett fizetési módok megjelenítése"</string>
+</resources>

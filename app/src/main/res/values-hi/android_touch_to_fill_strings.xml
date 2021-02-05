@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"खाते के साथ जारी रखें"</string>
+<string name="touch_to_fill_sheet_title">"कोई खाता चुनें"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"टच करके भरी जाने वाली क्रेडेंशियल की सूची."</string>
+<string name="touch_to_fill_sheet_half_height">"टच करके भरी जाने वाली क्रेडेंशियल की सूची आधी स्क्रीन में खुली हुई है."</string>
+<string name="touch_to_fill_sheet_full_height">"टच करके भरी जाने वाली क्रेडेंशियल की सूची पूरी स्क्रीन में खुली हुई है."</string>
+<string name="touch_to_fill_sheet_closed">"टच करके भरी जाने वाली क्रेडेंशियल की सूची बंद है."</string>
+<string name="manage_passwords">"पासवर्ड प्रबंधित करें"</string>
+<string name="touch_to_fill_continue">"जारी रखें"</string>
+</resources>

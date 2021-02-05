@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Направите групу да бисте брзо упоређивали странице. За почетак додирните и задржите линк."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Додирните да бисте видели неку другу картицу"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Картице су груписане заједно овде"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Прелазите са једне картице на другу у групи картица у дну екрана"</string>
+<string name="undo_bar_group_tabs_message">"Картице су груписане (%1$s)"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d картица"</item>
+  <item quantity="few">"%1$d картице"</item>
+  <item quantity="other">"%1$d картица"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Додајте нову картицу у групу"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Сакријте приказ мреже на целом екрану"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Приказује картице групе у мрежи на целом екрану"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Затворите траку са картицама"</string>
+<string name="tabswitcher_create_group">"Направи групу"</string>
+<string name="accessibility_tab_switcher">"Пребацивач картица"</string>
+<string name="accessibility_close_tab_group_button">"Затворите групу од картица: %1$s"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Затворите групу %1$s са картица: %2$s"</string>
+<string name="tab_selection_editor_group">"Група"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Изаберите картице"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Додајте %1$d изабрану картицу у групу"</item>
+  <item quantity="few">"Додајте %1$d изабране картице у групу"</item>
+  <item quantity="other">"Додајте %1$d изабраних картица у групу"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Сакријте режим вишеструког избора"</string>
+<string name="accessibility_tab_selection_editor">"Режим вишеструког избора"</string>
+<string name="tab_grid_dialog_remove_from_group">"Уклони из групе"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Уклони картице из групе"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Уклони"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Дели групу"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Измените име групе"</string>
+<string name="accessibility_expand_tab_group">"Проширите групу са картица: %1$s."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Проширите групу картица %1$s додатним картицама (%2$s)."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Уклоните %1$d изабрану картицу из групе."</item>
+  <item quantity="few">"Уклоните %1$d изабране картице из групе."</item>
+  <item quantity="other">"Уклоните %1$d изабраних картица из групе."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Скупите %1$d картицу."</item>
+  <item quantity="few">"Скупите групу са %1$d картице."</item>
+  <item quantity="other">"Скупите групу са %1$d картица."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Скупите %1$d картицу."</item>
+  <item quantity="few">"Скупите групу %1$s са %2$d картице."</item>
+  <item quantity="other">"Скупите групу %1$s са %2$d картица."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Група картица је проширена"</string>
+<string name="iph_drag_and_drop_introduction">"Превуците картице да бисте их груписали"</string>
+<string name="iph_drag_and_drop_show_me">"Покажи ми"</string>
+<string name="iph_drag_and_drop_title">"Боља организација"</string>
+<string name="iph_drag_and_drop_content">"Да бисте груписали картице, додирните картицу и задржите је. Затим је превуците на другу картицу."</string>
+<string name="tab_switcher_carousel_title">"Наставите са прегледањем"</string>
+<string name="tab_switcher_carousel_view_all">"Прикажи све"</string>
+<string name="tab_suggestion_review_button">"Прегледај"</string>
+<string name="tab_suggestion_close_tab_action_button">"Затвори"</string>
+<string name="tab_suggestion_close_stale_message">"Имате више картица (%1$s) које нисте користили у скорије време. Желите ли да их затворите?"</string>
+<string name="tab_suggestion_group_tabs_message">"Картице (%1$s) делују повезано. Желите ли да их групишете?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Прегледајте предлоге."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Предлог: Имате више картица (%1$s) које нисте користили у скорије време. Желите ли да их затворите?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Предлог: Картице (%1$s) делују повезано. Желите ли да их групишете?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Одбаците предлоге."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Затворите %1$d изабрану картицу"</item>
+  <item quantity="few">"Затворите %1$d изабране картице"</item>
+  <item quantity="other">"Затворите %1$d изабраних картица"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Преместите картицу улево"</string>
+<string name="accessibility_tab_movement_right">"Преместите картицу удесно"</string>
+<string name="accessibility_tab_movement_up">"Премести картицу нагоре"</string>
+<string name="accessibility_tab_movement_down">"Преместите картицу надоле"</string>
+<string name="undo_tab_strip_closure_message">"Затворена трака са картицама"</string>
+<string name="tab_strip_info_bar_question">"Желите ли да се трака са картицама више не приказује?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Не приказуј поново"</string>
+<string name="tab_strip_info_bar_reshow">"Прикажи касније"</string>
+<string name="price_drop_spotted_title">"Уочено је снижење"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Покажи ми"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

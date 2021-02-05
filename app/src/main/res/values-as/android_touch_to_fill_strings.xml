@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"একাউণ্টটোৰ সৈতে অব্যাহত ৰাখক"</string>
+<string name="touch_to_fill_sheet_title">"কোনো একাউণ্ট বাছনি কৰক"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"স্পৰ্শ কৰিলে পূৰ হ’বলগীয়া ক্ৰিডেনশ্বিয়েলৰ সূচী।"</string>
+<string name="touch_to_fill_sheet_half_height">"স্পৰ্শ কৰিলে পূৰ হ’বলগীয়া ক্ৰিডেনশ্বিয়েলৰ সূচীখন অৰ্ধ উচ্চতাত খোল খাইছে।"</string>
+<string name="touch_to_fill_sheet_full_height">"স্পৰ্শ কৰিলে পূৰ হ’বলগীয়া ক্ৰিডেনশ্বিয়েলৰ সূচীখন সম্পূৰ্ণ উচ্চতাত খোল খাইছে।"</string>
+<string name="touch_to_fill_sheet_closed">"স্পৰ্শ কৰিলে পূৰ হ’বলগীয়া ক্ৰিডেনশ্বিয়েলৰ সূচীখন বন্ধ কৰা আছে।"</string>
+<string name="manage_passwords">"পাছৱৰ্ড সলনি কৰক"</string>
+<string name="touch_to_fill_continue">"অব্যাহত ৰাখক"</string>
+</resources>

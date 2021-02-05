@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"နောက်ထပ်"</string>
+<string name="color_picker_hue">"အရောင်အဆင်း"</string>
+<string name="color_picker_saturation">"စိုရွှဲမှု"</string>
+<string name="color_picker_value">"တန်ဖိုး"</string>
+<string name="color_picker_button_set">"သတ်မှတ်"</string>
+<string name="color_picker_button_cancel">"မလုပ်တော့"</string>
+<string name="color_picker_dialog_title">"အရောင်ကို ရွေးရန်"</string>
+<string name="color_picker_button_red">"အနီရောင်"</string>
+<string name="color_picker_button_cyan">"Cyan"</string>
+<string name="color_picker_button_blue">"အပြာရောင်"</string>
+<string name="color_picker_button_green">"အစိမ်းရောင်"</string>
+<string name="color_picker_button_magenta">"ပန်းခရမ်းရောင်"</string>
+<string name="color_picker_button_yellow">"အၐါရောင်"</string>
+<string name="color_picker_button_black">"အနက်ရောင်"</string>
+<string name="color_picker_button_white">"အဖြူ"</string>
+</resources>

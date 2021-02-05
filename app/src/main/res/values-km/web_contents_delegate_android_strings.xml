@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"ច្រើនទៀត"</string>
+<string name="color_picker_hue">"ពណ៌"</string>
+<string name="color_picker_saturation">"កម្រិតពណ៌"</string>
+<string name="color_picker_value">"តម្លៃ"</string>
+<string name="color_picker_button_set">"កំណត់"</string>
+<string name="color_picker_button_cancel">"បដិសេធ"</string>
+<string name="color_picker_dialog_title">"ជ្រើសរើសពណ៌"</string>
+<string name="color_picker_button_red">"ក្រហម"</string>
+<string name="color_picker_button_cyan">"បៃតងខ្ចី"</string>
+<string name="color_picker_button_blue">"ខៀវ"</string>
+<string name="color_picker_button_green">"បៃតង"</string>
+<string name="color_picker_button_magenta">"ស្វាយខ្ចី"</string>
+<string name="color_picker_button_yellow">"លឿង"</string>
+<string name="color_picker_button_black">"ខ្មៅ"</string>
+<string name="color_picker_button_white">"ស"</string>
+</resources>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-be/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Пацвердзіць"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Захаваць картку"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Гэта імя – з вашага Уліковага запісу Google"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"Праверце код CVC і паўтарыце спробу"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Праверце тэрмін дзеяння і паўтарыце спробу"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Праверце тэрмін дзеяння і код CVC, затым паўтарыце спробу."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Праверце месяц заканчэння тэрміну дзеяння і паўтарыце спробу"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Праверце год тэрміну дзеяння і паўтарыце спробу"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Захаваць даныя карткі на прыладзе"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Калі тут паставіць птушку, Chromium будзе захоўваць копію вашай карткі на гэтай прыладзе ў мэтах хутчэйшага запаўнення форм."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Выкарыстоўваць блакіроўку экрана для пацвярджэння картак"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Пацвярджаюцца даныя карткі…"</string>
+<string name="autofill_card_unmask_verification_success">"Картка пацверджана"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Абнавіць картку"</string>
+<string name="autofill_wallet_management_link_text">"Змяніць"</string>
+<string name="autofill_from_google_account_long">"З Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"Выдаліць копію"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Сканіраваць новую картку"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Уключае ў сябе такую інфармацыю, як нумары тэлефонаў, адрасы электроннай пошты і адрасы дастаўкі"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Запаўняе плацежныя формы звесткамі з захаваных спосабаў аплаты"</string>
+<string name="autofill_addresses_settings_title">"Адрасы і іншае"</string>
+<string name="autofill_payment_methods">"Спосабы аплаты"</string>
+<string name="autofill_enable_profiles_toggle_label">"Захоўваць і запаўняць адрасы"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Захоўваць і запаўняць даныя спосабаў аплаты"</string>
+<string name="enable_credit_card_fido_auth_label">"Блакіроўка экрана"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Выкарыстоўваць блакіроўку экрана для хутчэйшага пацвярджэння картак"</string>
+<!-- <string name="http_post_warning_title">"Пацвердзіце паўторную адпраўку формы"</string> -->
+<!-- <string name="http_post_warning">"Старонка, на якую вы спрабуеце перайсці, выкарыстоўвала ўведзеныя вамі звесткі. Калі вярнуцца на яе, у выніку можа быць паўторна зробленае вамі дзеянне. Працягнуць?"</string> -->
+<!-- <string name="http_post_warning_resend">"Працягнуць"</string> -->
+<!-- <string name="login_dialog_title">"Увайсці"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Увайсці"</string> -->
+<!-- <string name="login_dialog_username_field">"Імя карыстальніка"</string> -->
+<!-- <string name="login_dialog_password_field">"Пароль"</string> -->
+<string name="sad_tab_title">"Якая неспадзяванка!"</string>
+<string name="sad_tab_message">"Падчас паказу вэб-старонкі нешта пайшло не так."</string>
+<string name="sad_tab_reload_label">"Перазагрузіць"</string>
+<string name="sad_tab_send_feedback_label">"Адправіць водгук"</string>
+<string name="sad_tab_reload_title">"Не ўдалося адкрыць старонку"</string>
+<string name="sad_tab_reload_try">"Паспрабуйце наступнае:"</string>
+<string name="sad_tab_reload_incognito">"Адкрыйце старонку ва ўкладцы інкогніта"</string>
+<string name="sad_tab_reload_restart_browser">"Перазапусціце Chromium"</string>
+<string name="sad_tab_reload_restart_device">"Перазапусціце прыладу"</string>
+<string name="sad_tab_reload_learn_more">"Даведацца больш"</string>
+<string name="new_tab_otr_title">"Вы перайшлі ў рэжым інкогніта"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Вашы дзеянні &lt;em&gt;могуць быць па-ранейшаму бачныя&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;вэб-сайтам, якія вы наведваеце,
+          &lt;li&gt;работадаўцу або навучальнай установе,
+          &lt;li&gt;інтэрнэт-правайдару.
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Гэтым параметрам можна кіраваць у наладах файлаў cookie."</string>
+<string name="new_tab_otr_third_party_cookie">"Блакіраваць староннія файлы cookie"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Калі ўключыць гэту наладу, сайты не змогуць выкарыстоўваць файлы cookie для адсочвання вас у інтэрнэце. Функцыі на некаторых сайтах могуць перастаць працаваць."</string>
+<string name="ntp_article_suggestions_section_header">"Артыкулы для вас"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Прапановы ад Google"</string>
+<string name="ntp_article_suggestions_section_empty">"Рэкамендаваныя вам артыкулы з\'явяцца тут"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Сайт паказвае назойлівую рэкламу або рэкламу, якая ўводзіць у зман"</string> -->
+<string name="payments_method_of_payment_label">"Спосаб аплаты"</string>
+<string name="payments_contact_details_label">"Кантактная інфармацыя"</string>
+<string name="payments_add_contact_details_label">"Дадаць кантактную інфармацыю"</string>
+<string name="payments_edit_contact_details_label">"Змена кантактных звестак"</string>
+<string name="payments_add_billing_address">"Дадаць адрас для выстаўлення рахункаў"</string>
+<string name="payments_add_name_on_card">"Дадайце імя, указанае на картцы"</string>
+<string name="payments_add_valid_card_number">"Дадайце сапраўдны нумар карткі"</string>
+<string name="payments_add_more_information">"Дадаць болей звестак"</string>
+<string name="payments_edit_card">"Рэдагаваць картку"</string>
+<string name="payments_add_phone_number">"Дадайце нумар тэлефона"</string>
+<string name="payments_add_recipient">"Дадаць імя"</string>
+<string name="payments_add_valid_address">"Дадайце сапраўдны адрас"</string>
+<string name="payments_add_email">"Дадаць адрас электроннай пошты"</string>
+<string name="payments_add_name">"Дадаць імя"</string>
+<string name="payments_order_summary_label">"Зводка па заказе"</string>
+<string name="payment_request_payment_method_section_name">"Плацеж"</string>
+<string name="payment_account_balance">"Баланс уліковага запісу"</string>
+<string name="payments_shipping_summary_label">"Дастаўка"</string>
+<string name="payments_shipping_address_label">"Адрас дастаўкі"</string>
+<string name="payments_shipping_option_label">"Спосаб дастаўкі"</string>
+<string name="payments_delivery_summary_label">"Дастаўка"</string>
+<string name="payments_delivery_address_label">"Адрас дастаўкі"</string>
+<string name="payments_delivery_option_label">"Спосаб дастаўкі"</string>
+<string name="payments_pickup_summary_label">"Прыняцце"</string>
+<string name="payments_pickup_address_label">"Адрас прыняцця"</string>
+<string name="payments_pickup_option_label">"Спосаб прыняцця"</string>
+<string name="payments_edit_button">"Змяніць"</string>
+<string name="payments_pay_button">"Аплаціць"</string>
+<string name="payments_continue_button">"Працягнуць"</string>
+<string name="payments_add_contact">"Дадаць кантактную інфармацыю"</string>
+<string name="payments_add_card">"Дадаць картку"</string>
+<string name="payments_add_address">"Дадаць адрас"</string>
+<string name="payments_edit_address">"Рэдагаваць адрас"</string>
+<string name="payments_name_field_in_contact_details">"Імя"</string>
+<string name="payments_save_card_to_device_checkbox">"Захаваць гэту картку на гэту прыладу"</string>
+<string name="payments_accepted_cards_label">"Карткі, якія прымаюцца"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Тэрмін дзеяння: %1$s/%2$s"</string>
+<string name="payments_loading_message">"Ідзе загрузка"</string>
+<string name="payments_processing_message">"Ідзе апрацоўка"</string>
+<string name="payments_checking_option">"Ідзе праверка"</string>
+<string name="payments_updated_label">"Абноўлена"</string>
+<string name="payment_complete_message">"Аплата завершана"</string>
+<string name="payments_error_message">"Адбылася памылка апрацоўкi вашага заказу. Паўтарыце спробу."</string>
+<string name="payments_card_and_address_settings">"Кіраваць карткамі і адрасамі можна ў BEGIN_LINKНаладахEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"Карткі і адрасы паходзяць з Chrome і вашага Уліковага запісу Google (%1$s). Кіраваць імі можна ў BEGIN_LINKНаладахEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"Каб заплаціць, дакраніцеся да датчыка"</string>
+<string name="payment_fingerprint_not_recognized">"Не распазнана"</string>
+<string name="payments_card_and_address_settings_signed_out">"Даныя крэдытных картак і адрасы паходзяць з браўзера Chrome. Кіраваць імі можна ў BEGIN_LINKНаладахEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"Дазволіць сайтам правяраць, ці ёсць у вас захаваныя спосабы аплаты"</string>
+<string name="payments_required_field_message">"* Абавязковае поле"</string>
+<string name="payments_phone_invalid_validation_message">"Увядзіце сапраўдны нумар тэлефона"</string>
+<string name="payments_email_invalid_validation_message">"Увядзіце сапраўдны адрас электроннай пошты"</string>
+<string name="payments_card_number_invalid_validation_message">"Увядзіце сапраўдны нумар карткі"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Увядзіце сапраўдную дату заканчэння тэрміну дзеяння"</string>
+<string name="payments_invalid_address">"Увядзіце сапраўдны адрас"</string>
+<string name="payments_billing_address_required">"Патрабуецца адрас для выстаўлення рахункаў"</string>
+<string name="payments_name_on_card_required">"Патрабуецца імя ўладальніка карткі"</string>
+<string name="payments_more_information_required">"Патрабуецца дадатковая інфармацыя"</string>
+<string name="payments_phone_number_required">"Патрабуецца нумар тэлефона"</string>
+<string name="payments_recipient_required">"Увядзіце імя"</string>
+<string name="payments_email_required">"Электронны адрас (абавязкова)"</string>
+<string name="payments_name_required">"Увядзіце імя"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Абавязковае поле"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Выберыце адрас, каб убачыць спосабы дастаўкі і патрабаванні для дастаўкі"</string>
+<string name="payments_unsupported_shipping_address">"Адпраўка на гэты адрас немагчымая. Выберыце іншы адрас."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Выберыце адрас, каб убачыць спосабы і ўмовы дастаўкі"</string>
+<string name="payments_unsupported_delivery_address">"Немагчыма адправіць на гэты адрас. Выберыце іншы адрас."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Выберыце адрас, каб убачыць спосабы і ўмовы атрымання"</string>
+<string name="payments_unsupported_pickup_address">"З гэтага адраса забраць нельга – выберыце іншы."</string>
+<string name="payments_android_app_error">"Не ўдалося адкрыць плацежную праграму"</string>
+<string name="external_payment_app_leave_incognito_warning">"Выхад з рэжыму інкогніта для плацяжу праз знешнюю праграму. Працягнуць?"</string>
+<string name="payment_handler_sheet_description">"Аркуш апрацоўшчыка плацяжоў"</string>
+<string name="payment_handler_sheet_opened_half">"Аркуш апрацоўшчыка плацяжоў адкрыты напалову"</string>
+<string name="payment_handler_sheet_opened_full">"Аркуш апрацоўшчыка плацяжоў адкрыты"</string>
+<string name="payment_handler_sheet_closed">"Аркуш апрацоўшчыка плацяжоў закрыты"</string>
+<string name="blocked_ads_prompt_title">"Рэклама заблакіравана"</string>
+<!-- <string name="translate_infobar_error">"Памылка. Не ўдалося перакласці гэту старонку."</string> -->
+<!-- <string name="translate_button">"Перакласці"</string> -->
+<!-- <string name="translate_never_translate_site">"Ніколі не перакладаць гэты сайт"</string> -->
+<string name="translate_dont_offer_site">"Не прапаноўваць перакладаць гэты сайт"</string>
+<!-- <string name="translate_option_always_translate">"Заўсёды перакладаць старонкі на наступнай мове: %1$s"</string> -->
+<!-- <string name="translate_option_never_translate">"Ніколі не перакладаць старонкі на наступнай мове: %1$s"</string> -->
+<string name="translate_dont_offer_lang">"Не прапаноўваць перакладаць старонкі на наступнай мове: %1$s"</string>
+<!-- <string name="translate_option_more_language">"Іншыя мовы"</string> -->
+<!-- <string name="translate_option_not_source_language">"Мова старонкі – не %1$s?"</string> -->
+<string name="translate_snackbar_always_translate">"Цяпер старонкі на мове %1$s будуць перакладацца на мову %2$s"</string>
+<string name="translate_snackbar_language_never">"Старонкі на мове %1$s не будуць перакладацца"</string>
+<string name="translate_snackbar_site_never">"Гэты сайт не будзе перакладацца"</string>
+<string name="translate_snackbar_cancel">"Скасаваць"</string>
+<string name="clear">"Ачысціць"</string>
+<string name="show_content">"Паказаць"</string>
+<string name="hide_content">"Схаваць"</string>
+<string name="choose">"Выбраць"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-be/components_strings.xml -->
+
+<string name="http_post_warning_title">"Пацвердзіце паўторную адпраўку формы"</string>
+<string name="http_post_warning">"Старонка, на якую вы спрабуеце перайсці, выкарыстоўвала ўведзеныя вамі звесткі. Калі вярнуцца на яе, у выніку можа быць паўторна зробленае вамі дзеянне. Працягнуць?"</string>
+<string name="http_post_warning_resend">"Працягнуць"</string>
+<string name="login_dialog_title">"Увайсці"</string>
+<string name="login_dialog_ok_button_label">"Увайсці"</string>
+<string name="login_dialog_username_field">"Імя карыстальніка"</string>
+<string name="login_dialog_password_field">"Пароль"</string>
+<string name="page_info_permission_ads_subtitle">"Сайт паказвае назойлівую рэкламу або рэкламу, якая ўводзіць у зман"</string>
+<string name="translate_infobar_error">"Памылка. Не ўдалося перакласці гэту старонку."</string>
+<string name="translate_button">"Перакласці"</string>
+<string name="translate_never_translate_site">"Ніколі не перакладаць гэты сайт"</string>
+<string name="translate_option_always_translate">"Заўсёды перакладаць старонкі на наступнай мове: %1$s"</string>
+<string name="translate_option_never_translate">"Ніколі не перакладаць старонкі на наступнай мове: %1$s"</string>
+<string name="translate_option_more_language">"Іншыя мовы"</string>
+<string name="translate_option_not_source_language">"Мова старонкі – не %1$s?"</string>
+</resources>

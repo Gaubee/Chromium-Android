@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Mit Konto fortfahren"</string>
+<string name="touch_to_fill_sheet_title">"Konto auswählen"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Die Liste der Anmeldedaten, die bei Berührung ausgefüllt werden, ist geöffnet."</string>
+<string name="touch_to_fill_sheet_half_height">"Die Liste der Anmeldedaten, die bei Berührung ausgefüllt werden, ist halb geöffnet."</string>
+<string name="touch_to_fill_sheet_full_height">"Die Liste der Anmeldedaten, die bei Berührung ausgefüllt werden, ist ganz geöffnet."</string>
+<string name="touch_to_fill_sheet_closed">"Die Liste der Anmeldedaten, die bei Berührung ausgefüllt werden, ist geschlossen."</string>
+<string name="manage_passwords">"Passwörter verwalten"</string>
+<string name="touch_to_fill_continue">"Weiter"</string>
+</resources>

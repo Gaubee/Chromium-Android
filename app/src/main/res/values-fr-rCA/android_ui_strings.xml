@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Impossible de terminer l\'opération précédente en raison d\'un manque de mémoire"</string>
+<string name="opening_file_error">"Échec d\'ouverture du fichier"</string>
+<string name="copy_to_clipboard_failure_message">"Échec de la copie du contenu dans le presse-papiers"</string>
+<string name="link_copied">"Lien copié"</string>
+<string name="chip_remove_icon_content_description">"Supprimer « %1$s »"</string>
+</resources>

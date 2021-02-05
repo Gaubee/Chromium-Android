@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome potřebuje oprávnění k přístupu k fotoaparátu, aby mohl vytvořit 3D mapu vašeho okolí."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome pro tento web potřebuje oprávnění k přístupu k fotoaparátu."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome pro tento web potřebuje oprávnění k přístupu k mikrofonu."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome pro tento web potřebuje oprávnění k přístupu k fotoaparátu a mikrofonu."</string>
+<string name="infobar_missing_location_permission_text">"Chrome potřebuje přístup k vaší poloze, aby ji mohl sdílet s tímto webem."</string>
+<string name="infobar_update_permissions_button_text">"Pokračovat"</string>
+<string name="nfc_disabled_on_device_message">"Chcete-li pokračovat, zapněte NFC v nastavení zařízení Android"</string>
+<string name="nfc_prompt_turn_on">"Zapnout"</string>
+<string name="overlay_detected_dialog_title">"Tento web nemůže žádat o oprávnění"</string>
+<string name="overlay_detected_dialog_message">"Zavřete všechny bubliny a překrytí z ostatních aplikací. Poté je zkuste znovu spárovat."</string>
+</resources>

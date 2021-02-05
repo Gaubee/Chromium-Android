@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Liste over loginoplysninger, der udfyldes ved berøring."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Listen over loginoplysninger, der udfyldes ved berøring, er åbnet i halv højde."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Listen over loginoplysninger, der udfyldes ved berøring, er åbnet i fuld højde."</string>
+<string name="all_passwords_bottom_sheet_closed">"Listen over loginoplysninger, der udfyldes ved berøring, er lukket."</string>
+<string name="all_passwords_bottom_sheet_title">"Adgangskoder"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Søg"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Ingen adgangskode"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Hvis du har tillid til %s, kan du bruge en gemt adgangskode til et andet website."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Prøv at bruge en unik adgangskode til hvert website."</string>
+<string name="autofill_keyboard_accessory_content_description">"Tilgængelige adgangskoder"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Der er tilgængelige forslag fra Autofyld over tastaturet"</string>
+<string name="keyboard_accessory_sheet_hide">"Vis tastatur"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Brug forslag fra Autofyld i Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Stryg for at se flere forslag"</string>
+<string name="password_generation_accessory_button">"Foreslå en stærk adgangskode"</string>
+<string name="password_generation_accessory_button_short">"Foreslå en adgangskode"</string>
+<string name="password_accessory_sheet_toggle">"Vis adgangskoder"</string>
+<string name="password_accessory_sheet_opened">"Viser gemte adgangskoder og valgmuligheder for adgangskoder"</string>
+<string name="address_accessory_sheet_title">"Adresser"</string>
+<string name="address_accessory_sheet_toggle">"Vis adresser"</string>
+<string name="address_accessory_sheet_opened">"Viser gemte adresser"</string>
+<string name="credit_card_accessory_sheet_toggle">"Vis betalingsmetoder"</string>
+<string name="credit_card_accessory_sheet_opened">"Viser gemte betalingsmetoder"</string>
+</resources>

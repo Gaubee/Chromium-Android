@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Men roziman"</string>
+<string name="autofill_assistant_init_title">"Chrome brauzerida\nGoogle Assistentdan foydalaning"</string>
+<string name="autofill_assistant_init_message_rent_car">"Bir nechta harakat bilan\navtomobilni ijaraga oling"</string>
+<string name="autofill_assistant_init_message_password_change">"Parolingizni Google Assistent\nalmashtirishiga ruxsat bering"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Bir nechta harakat bilan\nfilmlarga chipta sotib oling"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Endi ovqat buyurtma berish \n yanada oson!"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Parvozlar uchun registratsiya\nyanada osonlashdi"</string>
+<string name="autofill_assistant_init_message_voice_search">"Saytlarda ovozli\nbuyruqlardan foydalaning"</string>
+<string name="autofill_assistant_init_message_shopping">"Bir nechta harakat bilan\ntez xarid qiling"</string>
+<string name="autofill_assistant_init_message">"Google Assistent internetdagi faoliyatingizda yordam beradi. Masalan, kerakli axborotlarni topadi va buyurtmalarni rasmiylashiradi."</string>
+<string name="autofill_assistant_init_message_short">"Chromedagi Google Assistent buyruqlaringizni saytlararo bajarishi mumkin"</string>
+<string name="autofill_assistant_google_terms_description">"Google internetda ishlashingizni osonlashtirish uchun Assistent orqali kirilgan saytlarning URL manzillari va kontentlarini, shuningdek, soʻrovlarni ham oladi Bu axborot Google hisobingizga saqlanishi mumkin. Chrome sozlamalari ichidan Assistentni faolsizlantirishingiz mumkin. &lt;link&gt;Batafsil axborot&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Uzr, men yordam bera olmayman. Oʻzingiz harakat qiling."</string>
+<string name="autofill_assistant_payment_information_missing">"Axborot butunlay kiritilmadi"</string>
+<string name="autofill_assistant_view_original_image_desc">"Tashqi havola ochilsinmi?"</string>
+<string name="autofill_assistant_view_original_image_view">"Ko‘rish"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Bekor qilish"</string>
+<string name="autofill_assistant_sheet_content_description">"Chromedagi Google Assistent"</string>
+<string name="autofill_assistant_sheet_half_height">"Chromedagi Google Assistent yarim hajmda ochildi."</string>
+<string name="autofill_assistant_sheet_full_height">"Chromedagi Google Assistent toʻliq hajmda ochildi."</string>
+<string name="autofill_assistant_sheet_closed">"Chromedagi Google Assistent yopildi."</string>
+<string name="autofill_assistant_send_feedback">"Fikr-mulohaza"</string>
+<string name="autofill_assistant_increase_value">"Qiymatni oshirish"</string>
+<string name="autofill_assistant_decrease_value">"Qiymatni kamaytirish"</string>
+<string name="autofill_assistant_overflow_options">"Sozlamalar"</string>
+</resources>

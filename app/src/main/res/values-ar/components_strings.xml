@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">"، "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-ar/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"التأكيد"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"حفظ البطاقة"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"‏هذا الاسم من حسابك على Google"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"‏تحقق من رمز التحقق من البطاقة (CVC) ثم أعد المحاولة."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"تحقق من تاريخ انتهاء الصلاحية وأعِد المحاولة مرة أخرى"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"‏تحقق من تاريخ انتهاء الصلاحية ورمز التحقق من البطاقة (CVC) وأعد المحاولة مرة أخرى."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"تحقق من شهر انتهاء الصلاحية وأعِد المحاولة مرة أخرى"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"تحقق من عام انتهاء الصلاحية وأعِد المحاولة مرة أخرى"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"الاحتفاظ بنسخة من هذه البطاقة على هذا الجهاز"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"‏عند وضع علامة على هذا الخيار، سيخزّن Chromium نسخة من بطاقتك على هذا الجهاز لتعبئة النماذج بشكل أسرع."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"استخدام قفل الشاشة للتأكّد من البطاقات من الآن فصاعدًا"</string>
+<string name="autofill_card_unmask_verification_in_progress">"جارٍ التحقق من البطاقة…"</string>
+<string name="autofill_card_unmask_verification_success">"تم التأكد من بطاقتك"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"تحديث البطاقة"</string>
+<string name="autofill_wallet_management_link_text">"تعديل"</string>
+<string name="autofill_from_google_account_long">"‏من Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"إتمام الدفع باستخدام"</string>
+<string name="autofill_offers_reminder_deep_link_text">"الاطّلاع على التفاصيل"</string>
+<string name="autofill_clear_local_copy_button">"محو النسخة"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">"، "</string>
+<string name="autofill_scan_credit_card">"فحص بطاقة جديدة"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"تتضمّن معلومات مثل أرقام الهواتف وعناوين البريد الإلكتروني وعناوين الشحن."</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"تعبئة نماذج الدفع باستخدام طرق الدفع المحفوظة"</string>
+<string name="autofill_addresses_settings_title">"العناوين والمزيد"</string>
+<string name="autofill_payment_methods">"طرق الدفع"</string>
+<string name="autofill_enable_profiles_toggle_label">"حفظ العناوين وملؤها"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"حفظ طرق الدفع وملؤها"</string>
+<string name="enable_credit_card_fido_auth_label">"قفل الشاشة"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"استخدام قفل الشاشة للتأكد من البطاقات بشكلٍ أسرع"</string>
+<!-- <string name="http_post_warning_title">"تأكيد إعادة إرسال النموذج"</string> -->
+<!-- <string name="http_post_warning">"استخدمت الصفحة التي تبحث عنها المعلومات التي أدخلتها وقد يؤدّي الرجوع إليها  إلى تكرار  جميع الإجراءات السابقة. هل تريد المتابعة؟"</string> -->
+<!-- <string name="http_post_warning_resend">"متابعة"</string> -->
+<!-- <string name="login_dialog_title">"تسجيل الدخول"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"تسجيل الدخول"</string> -->
+<!-- <string name="login_dialog_username_field">"اسم المستخدم"</string> -->
+<!-- <string name="login_dialog_password_field">"كلمة المرور"</string> -->
+<string name="sad_tab_title">"عذرًا!"</string>
+<string name="sad_tab_message">"حدث خطأ ما أثناء عرض صفحة الويب هذه."</string>
+<string name="sad_tab_reload_label">"إعادة التحميل"</string>
+<string name="sad_tab_send_feedback_label">"إرسال تعليقات"</string>
+<string name="sad_tab_reload_title">"يتعذّر فتح هذه الصفحة"</string>
+<string name="sad_tab_reload_try">"جرّب النصائح التالية:"</string>
+<string name="sad_tab_reload_incognito">"يمكنك فتح الصفحة في علامة تبويب جديدة للتصفح المتخفي"</string>
+<string name="sad_tab_reload_restart_browser">"‏إعادة تشغيل Chromium"</string>
+<string name="sad_tab_reload_restart_device">"إعادة تشغيل جهازك"</string>
+<string name="sad_tab_reload_learn_more">"مزيد من المعلومات"</string>
+<string name="new_tab_otr_title">"لقد انتقلت إلى التصفّح المتخفي"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"قد يظل &lt;em&gt;نشاطك مرئيًا&lt;/em&gt; للجهات التالية:
+        &lt;ul&gt;
+          &lt;li&gt;المواقع الإلكترونية التي تزورها
+          &lt;li&gt;صاحب العمل أو المدرسة
+          &lt;li&gt;مزوّد خدمة الإنترنت
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"تتم إدارة هذا الإعداد في إعدادات ملفات تعريف الارتباط."</string>
+<string name="new_tab_otr_third_party_cookie">"حظر ملفات تعريف الارتباط للجهات الخارجية"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"عند تفعيل هذه الميزة، لا يمكن للمواقع الإلكترونية استخدام ملفات تعريف الارتباط لتتبّع نشاط تصفحّك على الإنترنت. وقد تتوقف الميزات عن العمل في بعض المواقع الإلكترونية."</string>
+<string name="ntp_article_suggestions_section_header">"مقالات لك"</string>
+<string name="ntp_article_suggestions_section_header_branded">"‏اقتراحات من Google"</string>
+<string name="ntp_article_suggestions_section_empty">"ستظهر المقالات المقترحة هنا"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"يعرض الموقع الإلكتروني إعلانات مضلِّلة أو غير مرغوب فيها"</string> -->
+<string name="payments_method_of_payment_label">"طريقة الدفع"</string>
+<string name="payments_contact_details_label">"معلومات الاتصال"</string>
+<string name="payments_add_contact_details_label">"إضافة معلومات الاتصال"</string>
+<string name="payments_edit_contact_details_label">"تعديل معلومات الاتصال"</string>
+<string name="payments_add_billing_address">"إضافة عنوان إرسال الفواتير"</string>
+<string name="payments_add_name_on_card">"إضافة الاسم الوارد في البطاقة"</string>
+<string name="payments_add_valid_card_number">"إضافة رقم بطاقة صالح"</string>
+<string name="payments_add_more_information">"إضافة مزيد من المعلومات"</string>
+<string name="payments_edit_card">"تعديل البطاقة"</string>
+<string name="payments_add_phone_number">"إضافة رقم هاتف
+"</string>
+<string name="payments_add_recipient">"إضافة اسم"</string>
+<string name="payments_add_valid_address">"إضافة عنوان صالح"</string>
+<string name="payments_add_email">"إضافة بريد إلكتروني"</string>
+<string name="payments_add_name">"إضافة اسم"</string>
+<string name="payments_order_summary_label">"ملخص الطلب"</string>
+<string name="payment_request_payment_method_section_name">"الدفع"</string>
+<string name="payment_account_balance">"رصيد الحساب"</string>
+<string name="payments_shipping_summary_label">"الشحن"</string>
+<string name="payments_shipping_address_label">"عنوان الشحن"</string>
+<string name="payments_shipping_option_label">"طريقة الشحن"</string>
+<string name="payments_delivery_summary_label">"التسليم"</string>
+<string name="payments_delivery_address_label">"عنوان التسليم"</string>
+<string name="payments_delivery_option_label">"طريقة التسليم"</string>
+<string name="payments_pickup_summary_label">"الاستلام"</string>
+<string name="payments_pickup_address_label">"عنوان الاستلام"</string>
+<string name="payments_pickup_option_label">"طريقة الاستلام"</string>
+<string name="payments_edit_button">"تعديل"</string>
+<string name="payments_pay_button">"الدفع"</string>
+<string name="payments_continue_button">"متابعة"</string>
+<string name="payments_add_contact">"إضافة معلومات الاتصال"</string>
+<string name="payments_add_card">"إضافة بطاقة"</string>
+<string name="payments_add_address">"إضافة عنوان"</string>
+<string name="payments_edit_address">"تعديل العنوان"</string>
+<string name="payments_name_field_in_contact_details">"الاسم"</string>
+<string name="payments_save_card_to_device_checkbox">"حفظ هذه البطاقة إلى هذا الجهاز"</string>
+<string name="payments_accepted_cards_label">"البطاقات المقبولة"</string>
+<string name="payments_credit_card_expiration_date_abbr">"تنتهي في %1$s/%2$s"</string>
+<string name="payments_loading_message">"جارٍ التحميل."</string>
+<string name="payments_processing_message">"جارٍ المعالجة"</string>
+<string name="payments_checking_option">"حساب شيكات"</string>
+<string name="payments_updated_label">"تم التحديث"</string>
+<string name="payment_complete_message">"اكتمل إجراء الدفع"</string>
+<string name="payments_error_message">"حدث خطأ أثناء معالجة طلبك. يُرجى إعادة المحاولة."</string>
+<string name="payments_card_and_address_settings">"يمكنك إدارة البطاقات والعناوين في BEGIN_LINKالإعداداتEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"‏يتم أخذ البطاقات والعناوين من Chrome وحسابك على Google (%1$s)، ويمكنك إدارتها في BEGIN_LINKالإعداداتEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"المس المستشعر لإجراء الدفع"</string>
+<string name="payment_fingerprint_not_recognized">"لم يتم التعرف عليها"</string>
+<string name="payments_card_and_address_settings_signed_out">"‏يتم أخذ البطاقات والعناوين من Chrome، ويمكنك إدارتها في BEGIN_LINKالإعداداتEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"السماح للمواقع الإلكترونية بالتحقُّق ممّا إذا كانت لديك طرق دفع محفوظة أم لا"</string>
+<string name="payments_required_field_message">"* هناك حقل مطلوب"</string>
+<string name="payments_phone_invalid_validation_message">"أدخِل رقم هاتف صحيحًا"</string>
+<string name="payments_email_invalid_validation_message">"أدخِل عنوان بريد إلكتروني صحيحًا"</string>
+<string name="payments_card_number_invalid_validation_message">"أدخِل رقم بطاقة صحيحًا"</string>
+<string name="payments_card_expiration_invalid_validation_message">"أدخِل تاريخ انتهاء صلاحية صحيحًا"</string>
+<string name="payments_invalid_address">"أدخِل عنوانًا صحيحًا"</string>
+<string name="payments_billing_address_required">"عنوان إرسال الفواتير مطلوب"</string>
+<string name="payments_name_on_card_required">"اسم حامل البطاقة مطلوب"</string>
+<string name="payments_more_information_required">"مطلوب مزيد من المعلومات"</string>
+<string name="payments_phone_number_required">"رقم الهاتف مطلوب"</string>
+<string name="payments_recipient_required">"الاسم مطلوب"</string>
+<string name="payments_email_required">"البريد الإلكتروني مطلوب"</string>
+<string name="payments_name_required">"الاسم مطلوب"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"حقل مطلوب"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"لعرض طرق الشحن ومتطلباته، اختَر عنوانًا"</string>
+<string name="payments_unsupported_shipping_address">"لا يمكن الشحن على هذا العنوان. اختَر عنوانًا آخر."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"لعرض طرق التسليم ومتطلباته، اختَر عنوانًا"</string>
+<string name="payments_unsupported_delivery_address">"لا يمكن التسليم على هذا العنوان. اختَر عنوانًا آخر."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"لعرض طرق الاستلام ومتطلباته، اختَر عنوانًا"</string>
+<string name="payments_unsupported_pickup_address">"لا يمكن الاستلام من هذا العنوان. اختَر عنوانًا آخر."</string>
+<string name="payments_android_app_error">"لا يمكن فتح تطبيق الدفع"</string>
+<string name="external_payment_app_leave_incognito_warning">"ستتم مغادرة وضع التصفح المتخفي للدفع عبر تطبيق خارجي. هل تريد المتابعة؟"</string>
+<string name="payment_handler_sheet_description">"جدول بيانات معالج الدفع"</string>
+<string name="payment_handler_sheet_opened_half">"جدول بيانات معالج الدفع مفتوح جزئيًا"</string>
+<string name="payment_handler_sheet_opened_full">"جدول بيانات معالج الدفع مفتوح"</string>
+<string name="payment_handler_sheet_closed">"جدول بيانات معالج الدفع مغلق"</string>
+<string name="blocked_ads_prompt_title">"تم حظر الإعلانات"</string>
+<!-- <string name="translate_infobar_error">"عفوًا. تعذرت ترجمة هذه الصفحة."</string> -->
+<!-- <string name="translate_button">"ترجمة"</string> -->
+<!-- <string name="translate_never_translate_site">"عدم ترجمة هذا الموقع مطلقًا"</string> -->
+<string name="translate_dont_offer_site">"عدم اقتراح ترجمة لهذا الموقع الإلكتروني"</string>
+<!-- <string name="translate_option_always_translate">"ترجمة الصفحات باللغة %1$s دائمًا"</string> -->
+<!-- <string name="translate_option_never_translate">"عدم ترجمة الصفحات باللغة %1$s مُطلقًا"</string> -->
+<string name="translate_dont_offer_lang">"عدم اقتراح ترجمة للصفحات المعروضة باللغة %1$s"</string>
+<!-- <string name="translate_option_more_language">"مزيد من اللغات"</string> -->
+<!-- <string name="translate_option_not_source_language">"أليست الصفحة باللغة %1$s؟"</string> -->
+<string name="translate_snackbar_always_translate">"ستتم ترجمة الصفحات باللغة %1$s إلى اللغة %2$s من الآن فصاعدًا"</string>
+<string name="translate_snackbar_language_never">"لن تتم ترجمة الصفحات باللغة %1$s"</string>
+<string name="translate_snackbar_site_never">"لن تتم ترجمة هذا الموقع"</string>
+<string name="translate_snackbar_cancel">"إلغاء"</string>
+<string name="clear">"محو"</string>
+<string name="show_content">"عرض"</string>
+<string name="hide_content">"إخفاء"</string>
+<string name="choose">"اختيار"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-ar/components_strings.xml -->
+
+<string name="http_post_warning_title">"تأكيد إعادة إرسال النموذج"</string>
+<string name="http_post_warning">"استخدمت الصفحة التي تبحث عنها المعلومات التي أدخلتها وقد يؤدّي الرجوع إليها  إلى تكرار  جميع الإجراءات السابقة. هل تريد المتابعة؟"</string>
+<string name="http_post_warning_resend">"متابعة"</string>
+<string name="login_dialog_title">"تسجيل الدخول"</string>
+<string name="login_dialog_ok_button_label">"تسجيل الدخول"</string>
+<string name="login_dialog_username_field">"اسم المستخدم"</string>
+<string name="login_dialog_password_field">"كلمة المرور"</string>
+<string name="page_info_permission_ads_subtitle">"يعرض الموقع الإلكتروني إعلانات مضلِّلة أو غير مرغوب فيها"</string>
+<string name="translate_infobar_error">"عفوًا. تعذرت ترجمة هذه الصفحة."</string>
+<string name="translate_button">"ترجمة"</string>
+<string name="translate_never_translate_site">"عدم ترجمة هذا الموقع مطلقًا"</string>
+<string name="translate_option_always_translate">"ترجمة الصفحات باللغة %1$s دائمًا"</string>
+<string name="translate_option_never_translate">"عدم ترجمة الصفحات باللغة %1$s مُطلقًا"</string>
+<string name="translate_option_more_language">"مزيد من اللغات"</string>
+<string name="translate_option_not_source_language">"أليست الصفحة باللغة %1$s؟"</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"‏Chrome זקוק להרשאת גישה למצלמה כדי ליצור מפה תלת-ממדית של הסביבה שלך."</string>
+<string name="infobar_missing_camera_permission_text">"‏Chrome זקוק להרשאה גישה אל המצלמה בשביל האתר הזה."</string>
+<string name="infobar_missing_microphone_permission_text">"‏Chrome זקוק להרשאת גישה אל המיקרופון בשביל האתר הזה."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"‏Chrome זקוק להרשאת גישה אל המצלמה והמיקרופון בשביל האתר הזה."</string>
+<string name="infobar_missing_location_permission_text">"‏Chrome זקוק לגישה אל המיקום שלך כדי לשתף אותו עם האתר הזה."</string>
+<string name="infobar_update_permissions_button_text">"המשך"</string>
+<string name="nfc_disabled_on_device_message">"‏כדי להמשיך יש להפעיל NFC בהגדרות של Android"</string>
+<string name="nfc_prompt_turn_on">"הפעלה"</string>
+<string name="overlay_detected_dialog_title">"האתר הזה לא יכול לבקש ממך הרשאה"</string>
+<string name="overlay_detected_dialog_message">"יש לסגור את כל הבועות או שכבות-העל ששייכות לאפליקציות אחרות. לאחר מכן, יש לנסות שוב."</string>
+</resources>

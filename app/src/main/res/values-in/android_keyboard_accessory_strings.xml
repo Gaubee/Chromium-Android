@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Daftar kredensial yang terisi dengan gestur sentuhan."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Daftar kredensial yang terisi dengan gestur sentuhan sedang terbuka setengah."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Daftar kredensial yang terisi dengan gestur sentuhan sedang terbuka sepenuhnya."</string>
+<string name="all_passwords_bottom_sheet_closed">"Daftar kredensial yang terisi dengan gestur sentuhan sedang tertutup."</string>
+<string name="all_passwords_bottom_sheet_title">"Sandi"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Telusuri"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Tidak ada sandi"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Jika Anda memercayai %s, Anda dapat menggunakan sandi yang tersimpan untuk situs lainnya."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Coba gunakan sandi yang unik untuk setiap situs."</string>
+<string name="autofill_keyboard_accessory_content_description">"Sandi tersedia"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Saran IsiOtomatis tersedia di atas keyboard"</string>
+<string name="keyboard_accessory_sheet_hide">"Tampilkan keyboard"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Gunakan saran isi otomatis Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Geser untuk melihat saran lainnya"</string>
+<string name="password_generation_accessory_button">"Sarankan sandi yang kuat"</string>
+<string name="password_generation_accessory_button_short">"Sarankan sandi"</string>
+<string name="password_accessory_sheet_toggle">"Tampilkan sandi"</string>
+<string name="password_accessory_sheet_opened">"Menampilkan opsi sandi dan sandi yang disimpan"</string>
+<string name="address_accessory_sheet_title">"Alamat"</string>
+<string name="address_accessory_sheet_toggle">"Tampilkan Alamat"</string>
+<string name="address_accessory_sheet_opened">"Menampilkan alamat yang disimpan"</string>
+<string name="credit_card_accessory_sheet_toggle">"Tampilkan metode pembayaran"</string>
+<string name="credit_card_accessory_sheet_opened">"Menampilkan metode pembayaran yang tersimpan"</string>
+</resources>

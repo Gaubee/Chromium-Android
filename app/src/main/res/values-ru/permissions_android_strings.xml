@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome запрашивает доступ к камере, чтобы создавать 3D-карты места, в котором вы находитесь."</string>
+<string name="infobar_missing_camera_permission_text">"Для этого сайта Chrome запрашивает разрешение на доступ к камере."</string>
+<string name="infobar_missing_microphone_permission_text">"Для этого сайта Chrome запрашивает разрешение на доступ к микрофону."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Для этого сайта Chrome запрашивает разрешение на доступ к камере и микрофону."</string>
+<string name="infobar_missing_location_permission_text">"Для этого сайта Chrome запрашивает доступ к данным о вашем местоположении."</string>
+<string name="infobar_update_permissions_button_text">"Продолжить"</string>
+<string name="nfc_disabled_on_device_message">"Чтобы продолжить, включите NFC в настройках Android."</string>
+<string name="nfc_prompt_turn_on">"Включить"</string>
+<string name="overlay_detected_dialog_title">"Этот сайт не может запросить разрешение"</string>
+<string name="overlay_detected_dialog_message">"Закройте всплывающие подсказки или окна, связанные с другими приложениями, и повторите попытку."</string>
+</resources>

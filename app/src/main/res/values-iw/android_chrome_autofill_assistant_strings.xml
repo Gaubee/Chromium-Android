@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"מקובל עליי"</string>
+<string name="autofill_assistant_init_title">"‏Google Assistant‏\nעומדת לרשותך ב-Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"‏שוכרים רכב\nבכמה הקשות בלבד"</string>
+<string name="autofill_assistant_init_message_password_change">"‏Google Assistant יכולה לעזור לך\nלהחליף סיסמה"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"‏קונים כרטיסים לסרט\nבכמה הקשות בלבד"</string>
+<string name="autofill_assistant_init_message_food_ordering">"‏מזמינים אוכל\nבכמה הקשות בלבד"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"‏עושים צ\'ק-אין לטיסה\nבכמה הקשות בלבד"</string>
+<string name="autofill_assistant_init_message_voice_search">"‏מומלץ: פעולות קוליות\nבאתרי אינטרנט"</string>
+<string name="autofill_assistant_init_message_shopping">"‏תשלום מהיר בקופה\nבכמה הקשות בלבד"</string>
+<string name="autofill_assistant_init_message">"‏כדי לחסוך זמן, Google Assistant עוזרת לך להשלים פעולות באינטרנט כמו חיפוש ותשלום בקופה."</string>
+<string name="autofill_assistant_init_message_short">"‏Google Assistant ב-Chrome יכולה להשלים עבורך פעולות באתרים"</string>
+<string name="autofill_assistant_google_terms_description">"‏כדי לעזור לך להשלים משימות, Google תקבל את כתובות ה-URL והתוכן של אתרים שבהם נעשה שימוש ב-Assistent, וכן את המידע שנשלח דרך Assistant. המידע הזה עשוי להיות מאוחסן בחשבון Google שלך. ניתן להשבית את Assistant דרך ההגדרות של Chrome. &lt;link&gt;מידע נוסף&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"לצערי אין לי אפשרות לעזור. עליך להמשיך בעצמך."</string>
+<string name="autofill_assistant_payment_information_missing">"חסר מידע"</string>
+<string name="autofill_assistant_view_original_image_desc">"לפתוח את הקישור החיצוני?"</string>
+<string name="autofill_assistant_view_original_image_view">"הצגה"</string>
+<string name="autofill_assistant_view_original_image_cancel">"ביטול"</string>
+<string name="autofill_assistant_sheet_content_description">"‏Google Assistant ב-Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"‏Google Assistant ב-Chrome נפתחה בחצי גובה."</string>
+<string name="autofill_assistant_sheet_full_height">"‏Google Assistant ב-Chrome נפתחה בגובה מלא."</string>
+<string name="autofill_assistant_sheet_closed">"‏Google Assistant נסגרה ב-Chrome."</string>
+<string name="autofill_assistant_send_feedback">" שליחת משוב"</string>
+<string name="autofill_assistant_increase_value">"הגדלת ערך"</string>
+<string name="autofill_assistant_decrease_value">"הפחתת ערך"</string>
+<string name="autofill_assistant_overflow_options">"העדפות"</string>
+</resources>

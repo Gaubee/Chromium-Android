@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Teginib kiritiladigan login va parollar roʻyxati."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Teginib kiritiladigan login va parollar yarim hajmda ochildi."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Teginib kiritiladigan login va parollar toʻliq hajmda ochildi."</string>
+<string name="all_passwords_bottom_sheet_closed">"Teginib kiritiladigan login va parollar roʻyxati yopiq."</string>
+<string name="all_passwords_bottom_sheet_title">"Parollar"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Qidiruv"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Parolsiz"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%s saytiga ishonsangiz, saqlangan parolingizni boshqa saytda ishlatishingiz mumkin."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Har bir sayt uchun alohida parol ishlating."</string>
+<string name="autofill_keyboard_accessory_content_description">"Saqlangan parollar"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Avtomatik kiritish takliflari klaviatura tepasida chiqadi"</string>
+<string name="keyboard_accessory_sheet_hide">"Klaviaturani ko‘rsatish"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome avtomatik kiritish taklifidan foydalanish"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Yana takliflar olish uchun suring"</string>
+<string name="password_generation_accessory_button">"Ishonchli parol yaratish"</string>
+<string name="password_generation_accessory_button_short">"Parol yaratish"</string>
+<string name="password_accessory_sheet_toggle">"Parollar ochiq tursin"</string>
+<string name="password_accessory_sheet_opened">"Saqlangan parollar va ularning parametrlari shu yerda turadi"</string>
+<string name="address_accessory_sheet_title">"Manzillar"</string>
+<string name="address_accessory_sheet_toggle">"Manzillarni chiqarish"</string>
+<string name="address_accessory_sheet_opened">"Bu yerda saqlangan manzillar chiqadi"</string>
+<string name="credit_card_accessory_sheet_toggle">"Toʻlov usullarini chiqarish"</string>
+<string name="credit_card_accessory_sheet_opened">"Saqlangan toʻlov usullari koʻrsatilmoqda"</string>
+</resources>

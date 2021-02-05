@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Pārlūkam Chrome ir nepieciešama atļauja piekļūt jūsu kamerai, lai varētu izveidot jūsu apkārtnes 3D karti."</string>
+<string name="infobar_missing_camera_permission_text">"Pārlūkam Chrome ir nepieciešama atļauja piekļūt jūsu kamerai šajā vietnē."</string>
+<string name="infobar_missing_microphone_permission_text">"Pārlūkam Chrome ir nepieciešama atļauja piekļūt jūsu mikrofonam šajā vietnē."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Pārlūkam Chrome ir nepieciešama atļauja piekļūt jūsu kamerai un mikrofonam šajā vietnē."</string>
+<string name="infobar_missing_location_permission_text">"Pārlūkam Chrome ir nepieciešama piekļuve jūsu atrašanās vietas datiem, lai varētu tos kopīgot ar šo vietni."</string>
+<string name="infobar_update_permissions_button_text">"Turpināt"</string>
+<string name="nfc_disabled_on_device_message">"Lai turpinātu, Android ierīces iestatījumos ieslēdziet NFC savienojumu"</string>
+<string name="nfc_prompt_turn_on">"Ieslēgt"</string>
+<string name="overlay_detected_dialog_title">"Šī vietne nevar pieprasīt jums atļauju"</string>
+<string name="overlay_detected_dialog_message">"Aizveriet citu lietotņu burbuļus vai pārklājumus. Pēc tam mēģiniet vēlreiz."</string>
+</resources>

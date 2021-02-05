@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"רשימת פרטי הכניסה למילוי במגע."</string>
+<string name="all_passwords_bottom_sheet_half_height">"רשימת פרטי הכניסה למילוי במגע פתוחה בחצי מגובה המסך."</string>
+<string name="all_passwords_bottom_sheet_full_height">"רשימת פרטי הכניסה למילוי במגע פתוחה בגובה המלא של המסך."</string>
+<string name="all_passwords_bottom_sheet_closed">"רשימת פרטי הכניסה למילוי במגע סגורה."</string>
+<string name="all_passwords_bottom_sheet_title">"סיסמאות"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"חיפוש"</string>
+<string name="all_passwords_bottom_sheet_no_password">"ללא סיסמה"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"אם הכתובת %s מהימנה מבחינתך, אפשר להשתמש בסיסמה שנשמרה באתר אחר."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"כדאי לנסות להשתמש בסיסמה ייחודית בכל אתר."</string>
+<string name="autofill_keyboard_accessory_content_description">"סיסמאות זמינות"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"הצעות המילוי האוטומטי מוצגות מעל למקלדת"</string>
+<string name="keyboard_accessory_sheet_hide">"הצגת מקלדת"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"‏ניתן להשתמש בהצעות המילוי האוטומטי של Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"יש להחליק כדי לראות עוד הצעות"</string>
+<string name="password_generation_accessory_button">"הצעת סיסמה חזקה"</string>
+<string name="password_generation_accessory_button_short">"הצעת סיסמה"</string>
+<string name="password_accessory_sheet_toggle">"הצגת סיסמאות"</string>
+<string name="password_accessory_sheet_opened">"הצגת סיסמאות שמורות ואפשרויות סיסמה"</string>
+<string name="address_accessory_sheet_title">"כתובות"</string>
+<string name="address_accessory_sheet_toggle">"הצגת כתובות"</string>
+<string name="address_accessory_sheet_opened">"מוצגות הכתובות השמורות"</string>
+<string name="credit_card_accessory_sheet_toggle">"הצגת אמצעי תשלום"</string>
+<string name="credit_card_accessory_sheet_opened">"מוצגים אמצעי התשלום השמורים"</string>
+</resources>

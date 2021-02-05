@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"A Chrome-nak engedélyre van szüksége a kamerájához való hozzáféréshez annak érdekében, hogy 3D-s térképet készíthessen az Ön környezetéről."</string>
+<string name="infobar_missing_camera_permission_text">"A Chrome számára engedély szükséges, hogy hozzáférjen a kamerához ennél a webhelynél."</string>
+<string name="infobar_missing_microphone_permission_text">"A Chrome számára engedély szükséges, hogy hozzáférjen a mikrofonhoz ennél a webhelynél."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"A Chrome számára engedély szükséges, hogy hozzáférjen a kamerához és a mikrofonhoz ennél a webhelynél."</string>
+<string name="infobar_missing_location_permission_text">"A Chrome-nak hozzáférésre van szüksége a helyadatokra ahhoz, hogy megoszthassa a webhellyel az Ön tartózkodási helyét."</string>
+<string name="infobar_update_permissions_button_text">"Tovább"</string>
+<string name="nfc_disabled_on_device_message">"A folytatáshoz kapcsolja be az NFC-t az Android beállításai között"</string>
+<string name="nfc_prompt_turn_on">"Bekapcsolás"</string>
+<string name="overlay_detected_dialog_title">"Ez a webhely nem kérhet engedélyt Öntől"</string>
+<string name="overlay_detected_dialog_message">"Zárjon be minden, más alkalmazásokból származó buborékot és fedvényt. Ezután próbálja újra."</string>
+</resources>

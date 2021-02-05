@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"មិនអាចបំពេញការដំណើរការពីមុនទេដោយសារមេម៉ូរីទាប"</string>
+<string name="opening_file_error">"បានបរាជ័យក្នុងការបើកឯកសារដែលបានជ្រើសរើស"</string>
+<string name="copy_to_clipboard_failure_message">"បានបរាជ័យក្នុងចម្លងទៅក្លីបបត"</string>
+<string name="link_copied">"បានចម្លងតំណ"</string>
+<string name="chip_remove_icon_content_description">"លុប \'%1$s\'"</string>
+</resources>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"ບັດ American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"ບັດ Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"ຄົ້ນຫາ"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"UnionPay ປະເທດ​ຈີນ"</string> -->
+<!-- <string name="autofill_cc_visa">"ວີ​ຊາ"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-lo/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"ຢືນ​ຢັນ"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"ບັນທຶກບັດໄວ້"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"ຊື່ນີ້ມາຈາກບັນຊີ Google ຂອງທ່ານ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"ກວດ​ເບິ່ງ CVC ຂອງ​ທ່ານ ແລະ​ລອງ​ໃໝ່​ອີກ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"ກວດເບິ່ງວັນທີໝົດອາຍຸຂອງທ່ານ ແລະ ລອງອີກຄັ້ງ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"ກວດ​ເບິ່ງວັນ​ໝົດ​ອາ​ຍຸ ແລະ CVC ຂອງ​ທ່ານ ແລະ​ລອງ​ໃໝ່​ອີກ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"ກວດເບິ່ງເດືອນໝົດອາຍຸຂອງທ່ານ ແລະ ລອງອີກຄັ້ງ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"ກວດເບິ່ງປີໝົດອາຍຸຂອງທ່ານ ແລະ ລອງອີກຄັ້ງ"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"ຮັກ​ສາ​ສຳ​ເນົາ​ຂອງ​ບັດ​ນີ້​ໄວ້​ຢູ່​ໃນ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"ຖ້າໝາຍຖືກໄວ້, Chromium ຈະບັນທຶກຂໍ້ມູນສຳເນົາບັດຂອງທ່ານໄວ້ໃນອຸປະກອນນີ້ເພື່ອໃຫ້ສາມາດຕື່ມຂໍ້ມູນແບບຟອມໄດ້ໄວຂຶ້ນ."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"ໃຊ້ລັອກໜ້າຈໍເພື່ອຢືນຢັນບັດຈາກນີ້ໄປ"</string>
+<string name="autofill_card_unmask_verification_in_progress">"ກຳລັງຢືນຢັນບັດ…"</string>
+<string name="autofill_card_unmask_verification_success">"ຢືນຢັນບັດຂອງທ່ານແລ້ວ"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"ອັບເດດບັດ"</string>
+<string name="autofill_wallet_management_link_text">"ແກ້ໄຂ"</string>
+<string name="autofill_from_google_account_long">"ຈາກ Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"ລ້າງ​ສຳ​ເນົາ"</string>
+<string name="autofill_cc_amex">"ບັດ American Express"</string>
+<string name="autofill_cc_diners">"ບັດ Diners Club"</string>
+<string name="autofill_cc_discover">"ຄົ້ນຫາ"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"UnionPay ປະເທດ​ຈີນ"</string>
+<string name="autofill_cc_visa">"ວີ​ຊາ"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"ສະ​ແກນ​ບັດ​ໃໝ່"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"ຮວມເອົາຂໍ້ມູນ ເຊັ່ນ: ເບີໂທລະສັບ, ທີ່ຢູ່ອີເມວ ແລະ ທີ່ຢູ່ຈັດສົ່ງ"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"ປະກອບຂໍ້ມູນແບບຟອມການຈ່າຍເງິນດ້ວຍວິທີການຈ່າຍເງິນທີ່ບັນທຶກໄວ້ຂອງທ່ານ"</string>
+<string name="autofill_addresses_settings_title">"ທີ່ຢູ່ ແລະ ອື່ນໆອີກ"</string>
+<string name="autofill_payment_methods">"ວິທີການຈ່າຍເງິນ"</string>
+<string name="autofill_enable_profiles_toggle_label">"ບັນທຶກ ແລະ ປະກອບຂໍ້ມູນທີ່ຢູ່"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"ບັນທຶກ ແລະ ປະກອບຂໍ້ມູນວິທີການຈ່າຍເງິນ"</string>
+<string name="enable_credit_card_fido_auth_label">"ການລັອກໜ້າຈໍ"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"ໃຊ້ລັອກໜ້າຈໍເພື່ອຢືນຢັນບັດໄດ້ໄວຂຶ້ນ"</string>
+<!-- <string name="http_post_warning_title">"ຢືນຢັນການສົ່ງແບບຟອມຄືນໃໝ່"</string> -->
+<!-- <string name="http_post_warning">"ໜ້າທີ່ທ່ານກໍາລັງຊອກຫາຂໍ້ມູນໃຊ້ແລ້ວທີ່ທ່ານປ້ອນເຂົ້າໄປ. ການກັບຄືນມາຫາໜ້ານັ້ນອາດຈະເຮັດໃຫ້ການກະທໍາໃດໜຶ່ງທີ່ທ່ານເຮັດແລ້ວຖືກເຮັດຊໍ້າຄືນ. ທ່ານຕ້ອງການສືບຕໍ່ບໍ?"</string> -->
+<!-- <string name="http_post_warning_resend">"ສືບຕໍ່"</string> -->
+<!-- <string name="login_dialog_title">"ລົງຊື່ເຂົ້າ​ໃຊ້"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"ລົງຊື່ເຂົ້າ​ໃຊ້"</string> -->
+<!-- <string name="login_dialog_username_field">"ຊື່​ຜູ້​ໃຊ້"</string> -->
+<!-- <string name="login_dialog_password_field">"ລະຫັດຜ່ານ"</string> -->
+<string name="sad_tab_title">"ອ່າ, ຖ່າຍຮູບ!"</string>
+<string name="sad_tab_message">"ມີບາງອັນຜິດພາດ ໃນຂະນະທີ່ກໍາລັງສະແດງໜ້າ​ເວັບນີ້."</string>
+<string name="sad_tab_reload_label">"ໂຫຼດຄືນໃໝ່"</string>
+<string name="sad_tab_send_feedback_label">"ສົ່ງຄຳຕິຊົມ"</string>
+<string name="sad_tab_reload_title">"ບໍ່ສາມາດເປີດໜ້ານີ້ໄດ້"</string>
+<string name="sad_tab_reload_try">"ລອງຄຳແນະນຳຕໍ່ໄປນີ້:"</string>
+<string name="sad_tab_reload_incognito">"ເປີດໜ້າເວັບໃນແຖບບໍ່ເປີດເຜີຍຕົວຕົນໃໝ່"</string>
+<string name="sad_tab_reload_restart_browser">"ປິດເປີດ Chromium ຄືນໃໝ່"</string>
+<string name="sad_tab_reload_restart_device">"ເລີ່ມຕົ້ນອຸປະກອນຂອງທ່ານໃໝ່"</string>
+<string name="sad_tab_reload_learn_more">"ສຶກສາເພີ່ມເຕີມ"</string>
+<string name="new_tab_otr_title">"ທ່ານໄດ້ເຂົ້າສູ່ໂໝດ incognito ແລ້ວ"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"ການເຄື່ອນໄຫວຂອງທ່ານ &lt;em&gt;ອາດຈະຍັງເບິ່ງເຫັນໄດ້&lt;/em&gt; ຕໍ່ກັບ:
+        &lt;ul&gt;
+          &lt;li&gt;ເວັບໄຊທີ່ທ່ານເຂົ້າເບິ່ງ
+          &lt;li&gt;ນາຍຈ້າງ ຫຼື ໂຮງຮຽນຂອງທ່ານ
+          &lt;li&gt;ຜູ້ໃຫ້ບໍລິການອິນເຕີເນັດຂອງທ່ານ
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"ການຕັ້ງຄ່ານີ້ຖືກຄວບຄຸມໃນການຕັ້ງຄ່າຄຸກກີ້."</string>
+<string name="new_tab_otr_third_party_cookie">"ບລັອກຄຸກກີ້ພາກສ່ວນທີສາມ"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"ເມື່ອເປີດຢູ່, ເວັບໄຊຈະບໍ່ສາມາດໃຊ້ຄຸກກີ້ທີ່ຕິດຕາມທ່ານໃນທົ່ວເວັບໄຊ. ຄຸນສົມບັດໃນບາງເວັບໄຊອາດຈະໃຊ້ບໍ່ໄດ້."</string>
+<string name="ntp_article_suggestions_section_header">"ບົດຄວາມສຳລັບທ່ານ"</string>
+<string name="ntp_article_suggestions_section_header_branded">"ການແນະນຳໂດຍ Google"</string>
+<string name="ntp_article_suggestions_section_empty">"ບົດຄວາມທີ່ແນະນຳຂອງທ່ານຈະປາກົດຢູ່ບ່ອນນີ້"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"ເວັບໄຊສະແດງໂຄສະນາທີ່ລົບກວນ ຫຼື ຫຼອກລວງ"</string> -->
+<string name="payments_method_of_payment_label">"ວິທີການຈ່າຍເງິນ"</string>
+<string name="payments_contact_details_label">"ຂໍ້​ມູນ​ຕິດ​ຕໍ່"</string>
+<string name="payments_add_contact_details_label">"ເພີ່ມຂໍ້ມູນຕິດຕໍ່"</string>
+<string name="payments_edit_contact_details_label">"ແກ້ໄຂຂໍ້ມູນລາຍຊື່ຜູ້ຕິດຕໍ່"</string>
+<string name="payments_add_billing_address">"ເພີ່ມທີ່ຢູ່ການຮຽກເກັບເງິນ"</string>
+<string name="payments_add_name_on_card">"ເພີ່ມຊື່ໃນບັດ"</string>
+<string name="payments_add_valid_card_number">"ເພີ່ມເລກບັດທີ່ຖືກຕ້ອງ"</string>
+<string name="payments_add_more_information">"ເພີ່ມຂໍ້ມູນເພີ່ມເຕີມ"</string>
+<string name="payments_edit_card">"ແກ້ໄຂບັດ"</string>
+<string name="payments_add_phone_number">"ເພີ່ມ​ເບີໂທລະ​ສັບ"</string>
+<string name="payments_add_recipient">"ເພີ່ມ​ຊື່"</string>
+<string name="payments_add_valid_address">"ເພີ່ມທີ່ຢູ່ທີ່ຖືກຕ້ອງ"</string>
+<string name="payments_add_email">"ເພີ່ມອີເມວ"</string>
+<string name="payments_add_name">"ເພີ່ມ​ຊື່"</string>
+<string name="payments_order_summary_label">"ສະຫຼຸບຄຳສັ່ງຊື້"</string>
+<string name="payment_request_payment_method_section_name">"ການຈ່າຍເງິນ"</string>
+<string name="payment_account_balance">"ຍອດເງິນໃນບັນຊີ"</string>
+<string name="payments_shipping_summary_label">"ການຈັດສົ່ງ"</string>
+<string name="payments_shipping_address_label">"ທີ່​ຢູ່​ຈັດສົ່ງ"</string>
+<string name="payments_shipping_option_label">"ວິທີການຈັດສົ່ງ"</string>
+<string name="payments_delivery_summary_label">"ການຈັດສົ່ງ"</string>
+<string name="payments_delivery_address_label">"ທີ່ຢູ່ການຈັດສົ່ງ"</string>
+<string name="payments_delivery_option_label">"ວິທີການສົ່ງ"</string>
+<string name="payments_pickup_summary_label">"ບ່ອນຮັບເຄື່ອງ"</string>
+<string name="payments_pickup_address_label">"ທີ່ຢູ່ບ່ອນຮັບເຄື່ອງ"</string>
+<string name="payments_pickup_option_label">"ວິທີການຮັບເຄື່ອງ"</string>
+<string name="payments_edit_button">"ແກ້ໄຂ"</string>
+<string name="payments_pay_button">"ຈ່າຍ"</string>
+<string name="payments_continue_button">"ສືບຕໍ່"</string>
+<string name="payments_add_contact">"ເພີ່ມຂໍ້ມູນຕິດຕໍ່"</string>
+<string name="payments_add_card">"ເພີ່ມບັດ"</string>
+<string name="payments_add_address">"ເພີ່ມ​ທີ່​ຢູ່"</string>
+<string name="payments_edit_address">"ແກ້ໄຂທີ່ຢູ່"</string>
+<string name="payments_name_field_in_contact_details">"ຊື່"</string>
+<string name="payments_save_card_to_device_checkbox">"ບັນທຶກບັດນີ້ໃສ່ອຸປະກອນນີ້"</string>
+<string name="payments_accepted_cards_label">"ບັດທີ່ຍອມຮັບແລ້ວ"</string>
+<string name="payments_credit_card_expiration_date_abbr">"ໝົດອາຍຸ %1$s/%2$s"</string>
+<string name="payments_loading_message">"ກໍາລັງໂຫຼດ"</string>
+<string name="payments_processing_message">"ກຳລັງດຳເນີນການ"</string>
+<string name="payments_checking_option">"ກໍາລັງກວດເບິ່ງ"</string>
+<string name="payments_updated_label">"ອັບເດດແລ້ວ"</string>
+<string name="payment_complete_message">"ການຊໍາລະເງິນສຳເລັດແລ້ວ"</string>
+<string name="payments_error_message">"ມີຄວາມຜິດພາດໃນການດຳເນີນຄຳສັ່ງຊື້ຂອງທ່ານ, ກະລຸນາລອງອີກຄັ້ງ."</string>
+<string name="payments_card_and_address_settings">"ທ່ານສາມາດຈັດການບັດ ແລະ ທີ່ຢູ່ໄດ້ໃນ BEGIN_LINKການຕັ້ງຄ່າEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"ບັດ ແລະ ທີ່ຢູ່ມາຈາກ Chrome ແລະ ບັນຊີ Google ຂອງທ່ານ (%1$s). ທ່ານສາມາດຈັດການພວກມັນໄດ້ໃນ BEGIN_LINKການຕັ້ງຄ່າEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"ແຕະເຊັນເຊີເພື່ອຈ່າຍ"</string>
+<string name="payment_fingerprint_not_recognized">"ບໍ່ຮັບຮູ້"</string>
+<string name="payments_card_and_address_settings_signed_out">"ບັດ ແລະ ທີ່ຢູ່ມາຈາກ Chrome. ທ່ານສາມາດຈັດການພວກມັນໄດ້ໃນ BEGIN_LINKການຕັ້ງຄ່າEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"ອະນຸຍາດໃຫ້ເວັບໄຊກວດເບິ່ງວ່າທ່ານມີວິທີການຈ່າຍເງິນທີ່ບັນທຶກໄວ້ຫຼືບໍ່"</string>
+<string name="payments_required_field_message">"* ຊ່ອງໃ່ສ່ຂໍ້ມູນທີ່ຕ້ອງຕື່ມຂໍ້ມູນ"</string>
+<string name="payments_phone_invalid_validation_message">"ປ້ອນເບີໂທລະສັບທີ່ຖືກຕ້ອງ"</string>
+<string name="payments_email_invalid_validation_message">"ປ້ອນທີ່ຢູ່ອີເມວທີ່ຖືກຕ້ອງ"</string>
+<string name="payments_card_number_invalid_validation_message">"ປ້ອນເລກບັດທີ່ຖືກຕ້ອງ"</string>
+<string name="payments_card_expiration_invalid_validation_message">"ປ້ອນວັນທີໝົດອາຍຸທີ່ຖືກຕ້ອງ"</string>
+<string name="payments_invalid_address">"ປ້ອນທີ່ຢູ່ທີ່ຖືກຕ້ອງ"</string>
+<string name="payments_billing_address_required">"ຈຳເປັນຕ້ອງມີທີ່ຢູ່ຮຽກເກັບເງິນ"</string>
+<string name="payments_name_on_card_required">"ຈຳເປັນຕ້ອງບອກຊື່ຜູ້ຖືບັດ"</string>
+<string name="payments_more_information_required">"ຈຳເປັນຕ້ອງມີຂໍ້ມູນເພີ່ມເຕີມ"</string>
+<string name="payments_phone_number_required">"ຈຳເປັນຕ້ອງມີເບີໂທລະສັບ"</string>
+<string name="payments_recipient_required">"ຈຳເປັນຕ້ອງມີຊື່"</string>
+<string name="payments_email_required">"ຈຳເປັນຕ້ອງມີອີເມວ"</string>
+<string name="payments_name_required">"ຈຳເປັນຕ້ອງມີຊື່"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"ຊ່ອງຂໍ້ມູນທີ່ຕ້ອງລະບຸ"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"ເພື່ອເບິ່ງວິທີ ແລະ ຂໍ້ກຳນົດການຈັດສົ່ງ, ກະລຸນາເລືອກທີ່ຢູ່"</string>
+<string name="payments_unsupported_shipping_address">"ບໍ່ສາມາດຈັດສົ່ງຫາທີ່ຢູ່ນີ້ໄດ້. ກະລຸນາເລືອກທີ່ຢູ່ອື່ນ."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"ເພື່ອເບິ່ງວິທີ ແລະ ຂໍ້ກຳນົດການສົ່ງ, ກະລຸນາເລືອກທີ່ຢູ່"</string>
+<string name="payments_unsupported_delivery_address">"ບໍ່ສາມາດສົ່ງຫາທີ່ຢູ່ນີ້ໄດ້. ກະລຸນາເລືອກທີ່ຢູ່ອື່ນ."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"ເພື່ອເບິ່ງວິທີ ແລະ ຂໍ້ກຳນົດການຮັບເຄື່ອງ, ກະລຸນາເລືອກທີ່ຢູ່"</string>
+<string name="payments_unsupported_pickup_address">"ບໍ່ສາມາດຮັບເອົາເຄື່ອງຈາກທີ່ຢູ່ນີ້ໄດ້. ເລືອກທີ່ຢູ່ອື່ນ."</string>
+<string name="payments_android_app_error">"ບໍ່ສາມາດເປີດແອັບການຈ່າຍເງິນໄດ້"</string>
+<string name="external_payment_app_leave_incognito_warning">"ກຳລັງອອກຈາກໂໝດບໍ່ເຜີຍຕົນຕົວເພື່ອຈ່າຍຜ່ານແອັບພລິເຄຊັນພາຍນອກ. ສືບຕໍ່ບໍ?"</string>
+<string name="payment_handler_sheet_description">"ແຜ່ນວຽກຂອງເຄື່ອງຈັດການການຊຳລະເງິນ"</string>
+<string name="payment_handler_sheet_opened_half">"ແຜ່ນວຽກຂອງເຄື່ອງຈັດການການຈ່າຍເງິນເປີດຢູ່ເຄິ່ງດຽວ"</string>
+<string name="payment_handler_sheet_opened_full">"ແຜ່ນວຽກຂອງເຄື່ອງຈັດການການຈ່າຍເງິນເປີດຢູ່"</string>
+<string name="payment_handler_sheet_closed">"ແຜ່ນວຽກຂອງເຄື່ອງຈັດການການຈ່າຍເງິນປິດຢູ່"</string>
+<string name="blocked_ads_prompt_title">"ບລັອກໂຄສະນາໄວ້ແລ້ວ"</string>
+<!-- <string name="translate_infobar_error">"ອຸ້ຍ. ບໍ່ສາມາດແປໜ້ານີ້ໄດ້."</string> -->
+<!-- <string name="translate_button">"ແປພາສາ"</string> -->
+<!-- <string name="translate_never_translate_site">"ຢ່າແປເວັບ​ໄຊ​ທ໌ນີ້"</string> -->
+<string name="translate_dont_offer_site">"ຢ່າສະເໜີແປເວັບໄຊນີ້"</string>
+<!-- <string name="translate_option_always_translate">"ແປໜ້າຕ່າງໆສະເໝີໃນ %1$s"</string> -->
+<!-- <string name="translate_option_never_translate">"ຢ່າແປໜ້າຕ່າງໆໃນ %1$s"</string> -->
+<string name="translate_dont_offer_lang">"ຢ່າສະເໜີແປໜ້າເປັນພາສາ %1$s"</string>
+<!-- <string name="translate_option_more_language">"ພາສາເພີ່ມເຕີມ"</string> -->
+<!-- <string name="translate_option_not_source_language">"ໜ້າບໍ່ຢູ່ໃນ %1$s ບໍ?"</string> -->
+<string name="translate_snackbar_always_translate">"ໜ້າຕ່າງໆຢູ່ໃນ %1$s ຈະຖືກແປເປັນ %2$s ຈາກນີ້ເປັນຕົ້ນໄປ"</string>
+<string name="translate_snackbar_language_never">"ໜ້າຕ່າງໆໃນ %1$s ຈະບໍ່ຖືກແປ"</string>
+<string name="translate_snackbar_site_never">"ເວັບໄຊນີ້ຈະບໍ່ຖືກແປ"</string>
+<string name="translate_snackbar_cancel">"ຍົກ​ເລີກ​"</string>
+<string name="clear">"ລຶບ"</string>
+<string name="show_content">"ສະ​ແດງ​"</string>
+<string name="hide_content">"ເຊື່ອງ"</string>
+<string name="choose">"ເລືອກ"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-lo/components_strings.xml -->
+
+<string name="http_post_warning_title">"ຢືນຢັນການສົ່ງແບບຟອມຄືນໃໝ່"</string>
+<string name="http_post_warning">"ໜ້າທີ່ທ່ານກໍາລັງຊອກຫາຂໍ້ມູນໃຊ້ແລ້ວທີ່ທ່ານປ້ອນເຂົ້າໄປ. ການກັບຄືນມາຫາໜ້ານັ້ນອາດຈະເຮັດໃຫ້ການກະທໍາໃດໜຶ່ງທີ່ທ່ານເຮັດແລ້ວຖືກເຮັດຊໍ້າຄືນ. ທ່ານຕ້ອງການສືບຕໍ່ບໍ?"</string>
+<string name="http_post_warning_resend">"ສືບຕໍ່"</string>
+<string name="login_dialog_title">"ລົງຊື່ເຂົ້າ​ໃຊ້"</string>
+<string name="login_dialog_ok_button_label">"ລົງຊື່ເຂົ້າ​ໃຊ້"</string>
+<string name="login_dialog_username_field">"ຊື່​ຜູ້​ໃຊ້"</string>
+<string name="login_dialog_password_field">"ລະຫັດຜ່ານ"</string>
+<string name="page_info_permission_ads_subtitle">"ເວັບໄຊສະແດງໂຄສະນາທີ່ລົບກວນ ຫຼື ຫຼອກລວງ"</string>
+<string name="translate_infobar_error">"ອຸ້ຍ. ບໍ່ສາມາດແປໜ້ານີ້ໄດ້."</string>
+<string name="translate_button">"ແປພາສາ"</string>
+<string name="translate_never_translate_site">"ຢ່າແປເວັບ​ໄຊ​ທ໌ນີ້"</string>
+<string name="translate_option_always_translate">"ແປໜ້າຕ່າງໆສະເໝີໃນ %1$s"</string>
+<string name="translate_option_never_translate">"ຢ່າແປໜ້າຕ່າງໆໃນ %1$s"</string>
+<string name="translate_option_more_language">"ພາສາເພີ່ມເຕີມ"</string>
+<string name="translate_option_not_source_language">"ໜ້າບໍ່ຢູ່ໃນ %1$s ບໍ?"</string>
+</resources>

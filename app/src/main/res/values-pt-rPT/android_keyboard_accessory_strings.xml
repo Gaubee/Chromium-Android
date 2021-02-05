@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Lista de credenciais a preencher com o toque."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Lista de credenciais a preencher com o toque aberta a meia altura."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Lista de credenciais a preencher com o toque aberta em ecrã cheio."</string>
+<string name="all_passwords_bottom_sheet_closed">"A lista de credenciais a preencher com o toque está fechada."</string>
+<string name="all_passwords_bottom_sheet_title">"Palavras-passe"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Pesquisar"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Sem palavra-passe"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Se confiar em %s, pode utilizar uma palavra-passe guardada para outro site."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Experimente utilizar uma palavra-passe exclusiva para cada site."</string>
+<string name="autofill_keyboard_accessory_content_description">"Palavras-passe disponíveis"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Sugestões do preenchimento automático disponíveis acima do teclado."</string>
+<string name="keyboard_accessory_sheet_hide">"Mostrar teclado"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Utilize as sugestões de preenchimento automático do Chrome."</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Deslize rapidamente para ver mais sugestões"</string>
+<string name="password_generation_accessory_button">"Sugerir palavra-passe forte"</string>
+<string name="password_generation_accessory_button_short">"Sugerir palavra-passe"</string>
+<string name="password_accessory_sheet_toggle">"Mostrar palavras-passe"</string>
+<string name="password_accessory_sheet_opened">"A mostrar palavras-passe guardadas e opções de palavra-passe"</string>
+<string name="address_accessory_sheet_title">"Endereços"</string>
+<string name="address_accessory_sheet_toggle">"Mostrar endereços"</string>
+<string name="address_accessory_sheet_opened">"A mostrar endereços guardados"</string>
+<string name="credit_card_accessory_sheet_toggle">"Mostrar métodos de pagamento"</string>
+<string name="credit_card_accessory_sheet_opened">"A mostrar métodos de pagamento guardados…"</string>
+</resources>

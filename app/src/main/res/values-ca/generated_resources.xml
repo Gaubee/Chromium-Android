@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Les condicions del servei de Chrome canviaran el 31 de març"</string>
+<string name="tos_notification_body_text">"Revisa les condicions noves"</string>
+<string name="tos_notification_ack_button_text">"Entesos"</string>
+<string name="tos_notification_review_button_text">"Revisa"</string>
+<string name="managed">"Gestionat per la teva organització"</string>
+<string name="search_or_type_web_address">"Cerca o escriu l\'adreça web"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Vols suprimir el suggeriment del porta-retalls?"</string>
+<string name="options_homepage_title">"Pàgina d\'inici"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"No s\'ha trobat cap dispositiu a prop."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Permet"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Bloqueja"</string>
+</resources>

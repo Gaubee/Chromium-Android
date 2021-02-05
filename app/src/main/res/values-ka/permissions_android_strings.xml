@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome საჭიროებს თქვენს კამერაზე წვდომის ნებართვას, თქვენი გარემოს 3-განზომილებიანი რუკის შექმნა რომ შეძლოს."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome საჭიროებს თქვენს კამერაზე წვდომის ნებართვას ამ საიტისთვის."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome საჭიროებს თქვენს მიკროფონზე წვდომის ნებართვას ამ საიტისთვის."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome საჭიროებს თქვენს კამერასა და მიკროფონზე წვდომის ნებართვას ამ საიტისთვის."</string>
+<string name="infobar_missing_location_permission_text">"Chrome საჭიროებს თქვენს მდებარეობაზე წვდომის ნებართვას, რათა ის ამ საიტის გაუზიაროს."</string>
+<string name="infobar_update_permissions_button_text">"გაგრძელება"</string>
+<string name="nfc_disabled_on_device_message">"გასაგრძელებლად Android-ის პარამეტრებიდან ჩართეთ NFC"</string>
+<string name="nfc_prompt_turn_on">"ჩართვა"</string>
+<string name="overlay_detected_dialog_title">"ამ საიტს არ შეუძლია თქვენი ნებართვის თხოვნა"</string>
+<string name="overlay_detected_dialog_message">"დახურეთ სხვა აპების ბუშტები ან გადაფარვები, შემდეგ კი ხელახლა ცადეთ."</string>
+</resources>

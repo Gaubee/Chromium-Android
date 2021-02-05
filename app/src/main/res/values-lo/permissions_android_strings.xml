@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome ຕ້ອງການການອະນຸຍາດເພື່ອເຂົ້າເຖິງກ້ອງຂອງທ່ານເພື່ອສ້າງແຜນທີ່ 3 ມິຕິຂອງສະພາບແວດລ້ອມອ້ອມຂ້າງຂອງທ່ານ."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome ຕ້ອງການການອະນຸຍາດເພື່ອເຂົ້າເຖິງກ້ອງຖ່າຍຮູບຂອງທ່ານສຳລັບໄຊນີ້."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome ຕ້ອງການການອະນຸຍາດເພື່ອເຂົ້າເຖິງໄມໂຄຣໂຟນຂອງທ່ານສຳລັບເວັບໄຊນີ້."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome ຕ້ອງການການອະນຸຍາດເພື່ອເຂົ້າເຖິງກ້ອງຖ່າຍຮູບ ແລະ ໄມໂຄຣໂຟນຂອງທ່ານສຳລັບເວັບໄຊນີ້."</string>
+<string name="infobar_missing_location_permission_text">"Chrome ຕ້ອງການເຂົ້າເຖິງສະຖານທີ່ຂອງທ່ານເພື່ອແບ່ງປັນສະຖານທີ່ຂອງທ່ານກັບເວັບໄຊນີ້."</string>
+<string name="infobar_update_permissions_button_text">"ສືບຕໍ່"</string>
+<string name="nfc_disabled_on_device_message">"ເພື່ອສືບຕໍ່, ກະລຸນາເປີດ NFC ໃນການຕັ້ງຄ່າ Android"</string>
+<string name="nfc_prompt_turn_on">"ເປີດ"</string>
+<string name="overlay_detected_dialog_title">"ເວັບໄຊນີ້ບໍ່ສາມາດຂໍເອົາການອະນຸຍາດຂອງທ່ານໄດ້"</string>
+<string name="overlay_detected_dialog_message">"ປິດຟອງຂໍ້ຄວາມ ຫຼື ການສະແດງທັບຈາກແອັບອື່ນ. ຈາກນັ້ນລອງອີກຄັ້ງ."</string>
+</resources>

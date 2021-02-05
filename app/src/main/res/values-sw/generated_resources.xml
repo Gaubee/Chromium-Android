@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Sheria na Masharti ya Chrome yanabadilika tarehe 31 Machi"</string>
+<string name="tos_notification_body_text">"Tafadhali pitia Sheria na Masharti mapya"</string>
+<string name="tos_notification_ack_button_text">"Nimeelewa"</string>
+<string name="tos_notification_review_button_text">"Maoni"</string>
+<string name="managed">"Inasimamiwa na shirika lako"</string>
+<string name="search_or_type_web_address">"Tafuta au andika anwani ya wavuti"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Je, ungependa kuondoa pendekezo kwenye ubao wa kunakili?"</string>
+<string name="options_homepage_title">"Ukurasa wa Mwanzo"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Haikupata vifaa vyovyote vilivyo karibu."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Ruhusu"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Zuia"</string>
+</resources>

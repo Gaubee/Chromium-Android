@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"မှတ်ဉာဏ် နည်းနေ၍ အရင် လုပ်ကိုင်စရာကို ပြီးအောင် မလုပ်နိုင်ပါ။"</string>
+<string name="opening_file_error">"ရွေးထားသည့ ဖိုင်ကို ဖွင့် မရခဲ့"</string>
+<string name="copy_to_clipboard_failure_message">"ညှပ်ဘုတ်သို့ ကော်ပီကူး မရခဲ့ပါ"</string>
+<string name="link_copied">"လင့်ခ်ကူးယူပြီးပါပြီ"</string>
+<string name="chip_remove_icon_content_description">"\'%1$s\' ဖယ်ရှားရန်"</string>
+</resources>

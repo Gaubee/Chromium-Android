@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"मैं सहमत हूं"</string>
+<string name="autofill_assistant_init_title">"Chrome में Google Assistant\n को आज़माएं"</string>
+<string name="autofill_assistant_init_message_rent_car">"सिर्फ़ कुछ टैप में कार\n किराये पर लें"</string>
+<string name="autofill_assistant_init_message_password_change">"पासवर्ड बदलने में\nGoogle Assistant को आपकी मदद करने दें"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"सिर्फ़ कुछ टैप में मूवी के टिकट\n खरीदें"</string>
+<string name="autofill_assistant_init_message_food_ordering">"सिर्फ़ कुछ टैप में खाना\n ऑर्डर करें"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"सिर्फ़ कुछ टैप में अपनी फ़्लाइट\n में चेक इन करें"</string>
+<string name="autofill_assistant_init_message_voice_search">"वेबसाइटों पर बोलकर कार्रवाई\n की सुविधा आज़माएं"</string>
+<string name="autofill_assistant_init_message_shopping">"सिर्फ़ कुछ टैप में\nजल्दी से चेकआउट करें"</string>
+<string name="autofill_assistant_init_message">"Google Assistant, वेब पर कार्रवाइयों को पूरा करने में मदद करके आपका समय बचाती है. इन कार्रवाइयों में खोज और चेकआउट शामिल हैं."</string>
+<string name="autofill_assistant_init_message_short">"Chrome में Google Assistant की सुविधा, सभी वेबसाइटों पर आपके निर्देश पर काम कर सकती है"</string>
+<string name="autofill_assistant_google_terms_description">"टास्क पूरे करने में आपकी मदद के लिए, Google उन साइटों के यूआरएल और सामग्री का इस्तेमाल करेगा जिनसे आपने Assistant को जोड़ा है. साथ ही, वह उस जानकारी का भी इस्तेमाल करेगा जिसे आपने Assistant की मदद से सबमिट किया है. हो सकता है कि यह जानकारी आपके Google खाते में सेव हो. आप Chrome की सेटिंग में जाकर, Assistant को बंद कर सकते हैं. &lt;link&gt;ज़्यादा जानें&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"माफ़ करें, मैं आपकी मदद नहीं कर सकती. कृपया खुद करने की कोशिश करें."</string>
+<string name="autofill_assistant_payment_information_missing">"जानकारी मौजूद नहीं है"</string>
+<string name="autofill_assistant_view_original_image_desc">"बाहरी लिंक खोलना चाहते हैं?"</string>
+<string name="autofill_assistant_view_original_image_view">"देखें"</string>
+<string name="autofill_assistant_view_original_image_cancel">"अभी नहीं"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome में Google Assistant."</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome में Google Assistant सेवा आधी ऊंचाई पर खुली है."</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome में Google Assistant सेवा पूरी ऊंचाई पर खुलती है."</string>
+<string name="autofill_assistant_sheet_closed">"Chrome में Google Assistant की सुविधा बंद हो गई है."</string>
+<string name="autofill_assistant_send_feedback">"फ़ीडबैक भेजें"</string>
+<string name="autofill_assistant_increase_value">"मान बढ़ाएं"</string>
+<string name="autofill_assistant_decrease_value">"मान घटाएं"</string>
+<string name="autofill_assistant_overflow_options">"प्राथमिकताएं"</string>
+</resources>

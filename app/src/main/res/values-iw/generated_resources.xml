@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"‏התנאים וההגבלות של Chrome ישתנו ב-31 במרץ"</string>
+<string name="tos_notification_body_text">"יש לקרוא את התנאים החדשים"</string>
+<string name="tos_notification_ack_button_text">"הבנתי"</string>
+<string name="tos_notification_review_button_text">"עיון"</string>
+<string name="managed">"מנוהל על-ידי הארגון"</string>
+<string name="search_or_type_web_address">"יש להזין ביטוי לחיפוש או כתובת אינטרנט"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"להסיר את ההצעה מהלוח?"</string>
+<string name="options_homepage_title">"דף הבית"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"לא נמצאו מכשירים קרובים."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"זה בסדר"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"חסימה"</string>
+</resources>

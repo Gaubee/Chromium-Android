@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Confronta rapidamente le pagine creando un gruppo. Innanzitutto, tocca e tieni premuto un link."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Tocca per visualizzare un\'altra scheda"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Le schede sono raggruppate qui"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Passa da una scheda all\'altra del gruppo di schede nella parte inferiore dello schermo"</string>
+<string name="undo_bar_group_tabs_message">"%1$s schede raggruppate"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d scheda"</item>
+  <item quantity="other">"%1$d schede"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Aggiungi una nuova scheda al gruppo"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Nascondi la griglia a schermo intero"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Mostra le schede del gruppo in una griglia a schermo intero"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Chiudi la tabstrip"</string>
+<string name="tabswitcher_create_group">"Crea gruppo"</string>
+<string name="accessibility_tab_switcher">"Selettore di schede"</string>
+<string name="accessibility_close_tab_group_button">"Chiudi il gruppo di schede con %1$s schede"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Chiudi il gruppo %1$s con %2$s schede"</string>
+<string name="tab_selection_editor_group">"Raggruppa"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Seleziona schede"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Raggruppa %1$d scheda selezionata"</item>
+  <item quantity="other">"Raggruppa %1$d schede selezionate"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Nascondi modalità di selezione multipla"</string>
+<string name="accessibility_tab_selection_editor">"Modalità di selezione multipla"</string>
+<string name="tab_grid_dialog_remove_from_group">"Rimuovi dal gruppo"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Rimuovi schede dal gruppo"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Rimuovi"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Condividi gruppo"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Modifica nome gruppo"</string>
+<string name="accessibility_expand_tab_group">"Espandi il gruppo di schede con %1$s schede"</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Espandi il gruppo di schede %1$s con %2$s schede."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Rimuovi %1$d scheda selezionata dal gruppo."</item>
+  <item quantity="other">"Rimuovi %1$d schede selezionate dal gruppo."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Comprimi %1$d scheda."</item>
+  <item quantity="other">"Comprimi il gruppo di schede con %1$d schede."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Comprimi %1$d scheda."</item>
+  <item quantity="other">"Comprimi il gruppo di schede %1$s contenente %2$d schede."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Gruppo di schede espanso"</string>
+<string name="iph_drag_and_drop_introduction">"Trascina le schede per raggrupparle"</string>
+<string name="iph_drag_and_drop_show_me">"Mostrami"</string>
+<string name="iph_drag_and_drop_title">"Organizzazione"</string>
+<string name="iph_drag_and_drop_content">"Per raggruppare le schede, tocca e tienine premuta una. Poi trascinala su un\'altra scheda."</string>
+<string name="tab_switcher_carousel_title">"Continua la navigazione"</string>
+<string name="tab_switcher_carousel_view_all">"Visualizza tutti"</string>
+<string name="tab_suggestion_review_button">"Visualizza"</string>
+<string name="tab_suggestion_close_tab_action_button">"Chiudi"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s delle tue schede non sono state usate ultimamente. Vuoi chiuderle?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s schede sembrano correlate. Vuoi raggrupparle?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Controlla i suggerimenti."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Suggerimento: %1$s delle tue schede non sono state usate ultimamente. Vuoi chiuderle?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Suggerimento: %1$s schede sembrano correlate. Vuoi raggrupparle?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Ignora i suggerimenti."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Chiudi %1$d scheda selezionata"</item>
+  <item quantity="other">"Chiudi %1$d schede selezionate"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Sposta scheda a sinistra"</string>
+<string name="accessibility_tab_movement_right">"Sposta scheda a destra"</string>
+<string name="accessibility_tab_movement_up">"Sposta scheda in alto"</string>
+<string name="accessibility_tab_movement_down">"Sposta scheda in basso"</string>
+<string name="undo_tab_strip_closure_message">"Tabstrip chiusa"</string>
+<string name="tab_strip_info_bar_question">"Non vuoi più mostrare la tabstrip?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Non mostrare più"</string>
+<string name="tab_strip_info_bar_reshow">"Mostra più tardi"</string>
+<string name="price_drop_spotted_title">"Prezzo in calo rilevato"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Mostrami"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

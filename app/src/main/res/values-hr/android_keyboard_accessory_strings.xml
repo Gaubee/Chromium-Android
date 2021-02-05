@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Popis vjerodajnica za unos dodirom."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Popis vjerodajnica za unos dodirom otvoren je na pola visine."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Popis vjerodajnica za unos dodirom otvoren je preko cijelog zaslona."</string>
+<string name="all_passwords_bottom_sheet_closed">"Popis vjerodajnica za unos dodirom zatvoren je."</string>
+<string name="all_passwords_bottom_sheet_title">"Zaporke"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Traži"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Nema zaporke"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Ako web-lokaciju %s smatrate pouzdanom, možete upotrijebiti spremljenu zaporku za neku drugu web-lokaciju."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Pokušajte koristiti jedinstvenu zaporku za svaku web-lokaciju."</string>
+<string name="autofill_keyboard_accessory_content_description">"Dostupne zaporke"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Prijedlozi automatskog popunjavanja dostupni iznad tipkovnice"</string>
+<string name="keyboard_accessory_sheet_hide">"Prikaži tipkovnicu"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Upotrijebite Chromeov prijedlog za automatsko popunjavanje"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Prijeđite prstom da biste vidjeli više prijedloga"</string>
+<string name="password_generation_accessory_button">"Predloži snažnu zaporku"</string>
+<string name="password_generation_accessory_button_short">"Predloži zaporku"</string>
+<string name="password_accessory_sheet_toggle">"Prikaz zaporki"</string>
+<string name="password_accessory_sheet_opened">"Prikazivanje spremljenih zaporki i opcija zaporki"</string>
+<string name="address_accessory_sheet_title">"Adrese"</string>
+<string name="address_accessory_sheet_toggle">"Prikaži adrese"</string>
+<string name="address_accessory_sheet_opened">"Prikazivanje spremljenih adresa"</string>
+<string name="credit_card_accessory_sheet_toggle">"Prikaz načina plaćanja"</string>
+<string name="credit_card_accessory_sheet_opened">"Prikazuju se spremljeni načini plaćanja"</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"ስብስብ በመፍጠር በፍጥነት ገጾችን ያነጻጽሩ። ለመጀመር አንድ አገናኝን ነክተው ይያዙ።"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"ሌላ ትር ለመመልከት መታ ያድርጉ"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"የእርስዎ ትሮች እዚህ አብረው ይቦደናሉ"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"ከማያው ግርጌ አጠገብ በትር ቡድንዎ ውስጥ ባሉ ትሮች መካከይ ይቀያይሩ"</string>
+<string name="undo_bar_group_tabs_message">"%1$s ትሮች ተሰብስበዋል"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d ትር"</item>
+  <item quantity="other">"%1$d ትሮች"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"አዲስ ትር ወደ ቡድን አክል"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"የሙሉ ማያ ፍርግርግን ደብቅ"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"የቡድን ትሮች በሙሉ ማያ ፍርግርግ አሳይ"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"የትር ድርድርን ዝጋ"</string>
+<string name="tabswitcher_create_group">"ቡድን ይፍጠሩ"</string>
+<string name="accessibility_tab_switcher">"የትር መቀያየሪያ"</string>
+<string name="accessibility_close_tab_group_button">"የትር ቡድንን ከ%1$s ትሮች ጋር ይዝጉ"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"የ%1$s ቡድንን ከ%2$s ትሮች ጋር ይዝጉ"</string>
+<string name="tab_selection_editor_group">"ቡድን"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"ትሮችን ምረጥ"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"%1$d የተመረጠ ትር ቦድን"</item>
+  <item quantity="other">"%1$d የተመረጡ ትሮችን ቦድን"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"ባለብዙ ምርጫ ሁነታን ደብቅ"</string>
+<string name="accessibility_tab_selection_editor">"ባለብዙ ምርጫ ሁነታ"</string>
+<string name="tab_grid_dialog_remove_from_group">"ከቡድን አስወግድ"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"ትሮችን ከቡድን ያስወግዱ"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"አስወግድ"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"ቡድንን አጋራ"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"የቡድን ስም ያርትዑ"</string>
+<string name="accessibility_expand_tab_group">"ከ%1$s ትሮች ጋር የትር ቡድኖችን ይዘርጉ።"</string>
+<string name="accessibility_expand_tab_group_with_group_name">"የ%1$s ትር ስብስብ በ%2$s ትሮች ያስፉ።"</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"ከቡድን %1$d የተመረጠ ትርን ያስወግዱ።"</item>
+  <item quantity="other">"ከቡድን %1$d የተመረጡ ትሮችን ያስወግዱ።"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d ትርን ሰብስብ።"</item>
+  <item quantity="other">"ከ%1$d ትሮች ጋር የትር ቡድንን ሰብስብ።"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d ትርን ሰብስብ።"</item>
+  <item quantity="other">"የ%1$s ትር ቡድንን ከ%2$d ትሮች ጋር ሰብስብ።"</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"የትር ቡድን ተዘርግቷል"</string>
+<string name="iph_drag_and_drop_introduction">"ለመቦደን ትሮችን ይጎትቱ"</string>
+<string name="iph_drag_and_drop_show_me">"አሳየኝ"</string>
+<string name="iph_drag_and_drop_title">"ይደራጁ"</string>
+<string name="iph_drag_and_drop_content">"ትሮችን ለመቦደን፣ ትርን ነካ አድርገው ይያዙ። በመቀጠል፣ ወደ ሌላ ትር ይጎትቱት።"</string>
+<string name="tab_switcher_carousel_title">"ማሰሱን ይቀጥሉ"</string>
+<string name="tab_switcher_carousel_view_all">"ሁሉንም አሳይ"</string>
+<string name="tab_suggestion_review_button">"ገምግም"</string>
+<string name="tab_suggestion_close_tab_action_button">"ዝጋ"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s ትሮችዎ በቅርቡ ስራ ላይ አልዋሉም። ይዘጉ?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s ትሮች የሚዛመዱ ይመስላሉ ይቦደኑ?"</string>
+<string name="accessibility_tab_suggestion_review_button">"ጥቆማ ሐሳቦችን ይገምግሙ።"</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"ጥቆማ ሐሳብ፦ ከእርስዎ ትሮች %1$s ያክሉ በቅርቡ ጥቅም ላይ አልዋሉም። ይዘጉ?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"የአስተያየት ጥቆማ፦ %1$s ትሮች የሚዛመዱ ይመስላሉ። ይቦደኑ?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"ጥቆማ ሐሳቦችን ያሰናብቱ።"</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"የተመረጠ %1$d ትር ዝጋ"</item>
+  <item quantity="other">"የተመረጡ %1$d ትሮችን ዝጋ"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"ትርን ወደ ግራ አንቀሳቅስ"</string>
+<string name="accessibility_tab_movement_right">"ቅርን ወደ ቀኝ አንቀሳቅስ"</string>
+<string name="accessibility_tab_movement_up">"ትርን ወደ ላይ አንቀሳቅስ"</string>
+<string name="accessibility_tab_movement_down">"ትርን ወደ ታች ያንቀሳቅሱ"</string>
+<string name="undo_tab_strip_closure_message">"የትር ድርድር ተዘግቷል"</string>
+<string name="tab_strip_info_bar_question">"የትር ድርድር ዳግም አይታይ?"</string>
+<string name="tab_strip_info_bar_no_reshow">"ዳግም አታሳይ"</string>
+<string name="tab_strip_info_bar_reshow">"በኋላ አሳይ"</string>
+<string name="price_drop_spotted_title">"የዋጋ ቅነሳ ታይቷል"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"አሳየኝ"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

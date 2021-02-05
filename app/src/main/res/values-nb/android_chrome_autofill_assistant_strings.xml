@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Godta"</string>
+<string name="autofill_assistant_init_title">"Prøv Google-assistenten\ni Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Lei en bil\nmed bare noen få trykk"</string>
+<string name="autofill_assistant_init_message_password_change">"La Google-assistenten hjelpe deg\nmed å endre passordet"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Kjøp kinobilletter\nmed bare noen få trykk"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Bestill mat\nmed bare noen få trykk"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Sjekk inn på flyet\nmed bare noen få trykk"</string>
+<string name="autofill_assistant_init_message_voice_search">"Prøv talehandlinger\npå nettsteder"</string>
+<string name="autofill_assistant_init_message_shopping">"Rask betaling\nmed bare noen få trykk"</string>
+<string name="autofill_assistant_init_message">"Google-assistenten sparer tid ved å hjelpe deg med å gjennomføre handlinger på nettet, som å søke og handle."</string>
+<string name="autofill_assistant_init_message_short">"Google-assistenten i Chrome kan utføre handlinger for deg på ulike nettsteder"</string>
+<string name="autofill_assistant_google_terms_description">"For å hjelpe deg med å fullføre oppgaver mottar Google nettadressene til og innholdet på nettsteder der du bruker assistenten, i tillegg til informasjon som du sender inn gjennom assistenten. Denne informasjonen kan bli lagret i Google-kontoen din. Du kan slå av assistenten i Chrome-innstillingene. &lt;link&gt;Finn ut mer&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Beklager, jeg kan ikke hjelpe deg. Fortsett på egen hånd."</string>
+<string name="autofill_assistant_payment_information_missing">"Informasjon mangler"</string>
+<string name="autofill_assistant_view_original_image_desc">"Vil du åpne den eksterne linken?"</string>
+<string name="autofill_assistant_view_original_image_view">"Visning"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Avbryt"</string>
+<string name="autofill_assistant_sheet_content_description">"Google-assistenten i Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Google-assistenten i Chrome er åpnet i halv høyde."</string>
+<string name="autofill_assistant_sheet_full_height">"Google-assistenten i Chrome er åpnet i full høyde."</string>
+<string name="autofill_assistant_sheet_closed">"Google-assistenten i Chrome er lukket."</string>
+<string name="autofill_assistant_send_feedback">"Send tilbakemelding"</string>
+<string name="autofill_assistant_increase_value">"Øk verdien"</string>
+<string name="autofill_assistant_decrease_value">"Reduser verdien"</string>
+<string name="autofill_assistant_overflow_options">"Innstillinger"</string>
+</resources>

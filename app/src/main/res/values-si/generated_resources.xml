@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"මාර්තු 31 වෙනිදා Chrome හි සේවා නියම වෙනස් වේ"</string>
+<string name="tos_notification_body_text">"නව නියම සමාලෝචන කරන්න"</string>
+<string name="tos_notification_ack_button_text">"එය ලැබුණා"</string>
+<string name="tos_notification_review_button_text">"සමාලෝචන කරන්න"</string>
+<string name="managed">"ඔබේ ආයතනය විසින් කළමනා කෙරේ"</string>
+<string name="search_or_type_web_address">"වෙබ් ලිපිනය සොයන්න හෝ ටයිප් කරන්න"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"පසුරු පුවරුවෙන් යෝජනාව ඉවත් කරන්නේද?"</string>
+<string name="options_homepage_title">"මුල්පිටුව"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"කිසිඳු උපාංගයක් අවටින් හමු නොවිය."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"ඉඩදෙන්න"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"අවහිර කරන්න"</string>
+</resources>

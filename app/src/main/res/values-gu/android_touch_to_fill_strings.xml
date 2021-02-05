@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"એકાઉન્ટ સાથે ચાલુ રાખો"</string>
+<string name="touch_to_fill_sheet_title">"એકાઉન્ટ પસંદ કરો"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Touch પર લૉગ ઇન વિગતો ભરવાની સૂચિ."</string>
+<string name="touch_to_fill_sheet_half_height">"Touch પર લૉગ ઇન વિગતો ભરવાની સૂચિ અડધી ઊંચાઈએ ખૂલી."</string>
+<string name="touch_to_fill_sheet_full_height">"Touch પર લૉગ ઇન વિગતો ભરવાની સૂચિ સંપૂર્ણ ઊંચાઈએ ખૂલી."</string>
+<string name="touch_to_fill_sheet_closed">"Touch પર લૉગ ઇન વિગતો ભરવાની સૂચિ બંધ છે."</string>
+<string name="manage_passwords">"પાસવર્ડ્સનું સંચાલન કરો"</string>
+<string name="touch_to_fill_continue">"આગળ વધો"</string>
+</resources>

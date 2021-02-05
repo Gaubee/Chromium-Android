@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Sutinku"</string>
+<string name="autofill_assistant_init_title">"Išbandykite „Google“ padėjėją naršyklėje „Chrome“"</string>
+<string name="autofill_assistant_init_message_rent_car">"Išsinuomokite automobilį vos keliais palietimais"</string>
+<string name="autofill_assistant_init_message_password_change">"Leiskite „Google“ padėjėjui padėti jums\npakeisti slaptažodį"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Įsigykite bilietus į kiną vos keliais palietimais"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Užsisakykite maisto vos keliais palietimais"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Prisiregistruokite skrydžiui vos keliais palietimais"</string>
+<string name="autofill_assistant_init_message_voice_search">"Išbandykite veiksmus balsu svetainėse"</string>
+<string name="autofill_assistant_init_message_shopping">"Spartus atsiskaitymas\nvos keliais palietimais"</string>
+<string name="autofill_assistant_init_message">"„Google“ padėjėjas padeda sutaupyti laiko atliekant veiksmus žiniatinklyje, pvz., ieškant ir atsiskaitant."</string>
+<string name="autofill_assistant_init_message_short">"„Google“ padėjėjas naršyklėje „Chrome“ gali atlikti veiksmus svetainėse už jus"</string>
+<string name="autofill_assistant_google_terms_description">"Kad padėtų atlikti užduotis, „Google“ gaus svetainių, kuriose naudojate Padėjėją, URL ir turinį bei informaciją, kurią pateikiate naudodami Padėjėją. Ši informacija gali būti saugoma jūsų „Google“ paskyroje. Padėjėją galite išjungti „Chrome“ nustatymuose. &lt;link&gt;Sužinokite daugiau&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Deja, negaliu padėti, tolesnius veiksmus atlikite patys."</string>
+<string name="autofill_assistant_payment_information_missing">"Trūksta informacijos"</string>
+<string name="autofill_assistant_view_original_image_desc">"Atidaryti išorinę nuorodą?"</string>
+<string name="autofill_assistant_view_original_image_view">"Žiūrėti"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Atšaukti"</string>
+<string name="autofill_assistant_sheet_content_description">"„Google Assistant“ sistemoje „Chrome“."</string>
+<string name="autofill_assistant_sheet_half_height">"Programa „Google Assistant“ naršyklėje „Chrome“ atidaryta pusės aukščio."</string>
+<string name="autofill_assistant_sheet_full_height">"Programa „Google Assistant“ naršyklėje „Chrome“ atidaryta viso aukščio."</string>
+<string name="autofill_assistant_sheet_closed">"Programa „Google Assistant“ sistemoje „Chrome“ uždaryta."</string>
+<string name="autofill_assistant_send_feedback">"Siųsti atsiliepimą"</string>
+<string name="autofill_assistant_increase_value">"Padidinti vertę"</string>
+<string name="autofill_assistant_decrease_value">"Sumažinti vertę"</string>
+<string name="autofill_assistant_overflow_options">"Nuostatos"</string>
+</resources>

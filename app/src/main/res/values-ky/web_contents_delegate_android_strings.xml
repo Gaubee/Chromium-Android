@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Дагы"</string>
+<string name="color_picker_hue">"Түс"</string>
+<string name="color_picker_saturation">"Каныктыруу"</string>
+<string name="color_picker_value">"Маани"</string>
+<string name="color_picker_button_set">"Коюу"</string>
+<string name="color_picker_button_cancel">"Жокко чыгаруу"</string>
+<string name="color_picker_dialog_title">"Түс тандоо"</string>
+<string name="color_picker_button_red">"Кызыл"</string>
+<string name="color_picker_button_cyan">"Көгүлтүр"</string>
+<string name="color_picker_button_blue">"Көк"</string>
+<string name="color_picker_button_green">"Жашыл"</string>
+<string name="color_picker_button_magenta">"Маджента"</string>
+<string name="color_picker_button_yellow">"Сары"</string>
+<string name="color_picker_button_black">"Кара"</string>
+<string name="color_picker_button_white">"Ак"</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Gehiago"</string>
+<string name="color_picker_hue">"Ñabardura"</string>
+<string name="color_picker_saturation">"Saturazioa"</string>
+<string name="color_picker_value">"Balioa"</string>
+<string name="color_picker_button_set">"Ezarri"</string>
+<string name="color_picker_button_cancel">"Utzi"</string>
+<string name="color_picker_dialog_title">"Hautatu kolorea"</string>
+<string name="color_picker_button_red">"Gorria"</string>
+<string name="color_picker_button_cyan">"Ziana"</string>
+<string name="color_picker_button_blue">"Urdina"</string>
+<string name="color_picker_button_green">"Berdea"</string>
+<string name="color_picker_button_magenta">"Magenta"</string>
+<string name="color_picker_button_yellow">"Horia"</string>
+<string name="color_picker_button_black">"Beltza"</string>
+<string name="color_picker_button_white">"Zuria"</string>
+</resources>

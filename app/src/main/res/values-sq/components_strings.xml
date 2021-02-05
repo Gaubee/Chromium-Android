@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-sq/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Konfirmo"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Ruaj kartën"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Ky emër është nga \"Llogaria jote e Google\""</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"Kontrollo CVC-në tënde dhe provo përsëri"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Kontrollo datën e skadimit dhe provo përsëri"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Kontrollo datën e skadimit dhe CVC-në dhe provo sërish."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Kontrollo muajin e skadimit dhe provo përsëri"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Kontrollo vitin e skadimit dhe provo përsëri"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Mbaj një kopje të kësaj karte në këtë pajisje"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Nëse zgjidhet, Chromium do të ruajë një kopje të kartës tënde në këtë pajisje për një plotësim më të shpejtë të formularit."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Përdor kyçjen e ekranit për të konfirmuar kartat nga tani e tutje"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Karta po konfirmohet…"</string>
+<string name="autofill_card_unmask_verification_success">"Karta jote është konfirmuar"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Përditëso kartën"</string>
+<string name="autofill_wallet_management_link_text">"Redakto"</string>
+<string name="autofill_from_google_account_long">"Nga Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"Pastro kopjen"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Skano një kartë të re"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Përfshin informacione si numrat e telefonit, adresat e email-it dhe adresat e transportit"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Plotëson formularët e pagesës me mënyrat e ruajtura të pagesës"</string>
+<string name="autofill_addresses_settings_title">"Adresat dhe të tjera"</string>
+<string name="autofill_payment_methods">"Mënyrat e pagesës"</string>
+<string name="autofill_enable_profiles_toggle_label">"Ruaj dhe plotëso adresat"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Ruaj dhe plotëso mënyrat e pagesës"</string>
+<string name="enable_credit_card_fido_auth_label">"Kyçja e ekranit"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Përdor kyçjen e ekranit për të konfirmuar kartat më shpejt"</string>
+<!-- <string name="http_post_warning_title">"Konfirmo ridërgimin e formularit"</string> -->
+<!-- <string name="http_post_warning">"Faqja që po kërkon i përdori informacionet që fute. Kthimi tek ajo faqe mund të bëjë që çdo veprim që bëre të përsëritet përsëri. Dëshiron që të vazhdosh?"</string> -->
+<!-- <string name="http_post_warning_resend">"Vazhdo"</string> -->
+<!-- <string name="login_dialog_title">"Identifikohu"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Identifikohu"</string> -->
+<!-- <string name="login_dialog_username_field">"Emri i përdoruesit"</string> -->
+<!-- <string name="login_dialog_password_field">"Fjalëkalimi"</string> -->
+<string name="sad_tab_title">"Ndërprerje aksidentale!"</string>
+<string name="sad_tab_message">"Shkoi diçka keq kur po shfaqej faqja e uebit."</string>
+<string name="sad_tab_reload_label">"Ringarko"</string>
+<string name="sad_tab_send_feedback_label">"Dërgo komentet"</string>
+<string name="sad_tab_reload_title">"Kjo faqe nuk mund të hapet"</string>
+<string name="sad_tab_reload_try">"Provo këshillat e mëposhtme:"</string>
+<string name="sad_tab_reload_incognito">"Hape faqen në një skedë të re \"të fshehtë\""</string>
+<string name="sad_tab_reload_restart_browser">"Rinis Chromium"</string>
+<string name="sad_tab_reload_restart_device">"Rinise pajisjen"</string>
+<string name="sad_tab_reload_learn_more">"Mëso më shumë"</string>
+<string name="new_tab_otr_title">"Ke kaluar në modalitetin \"e fshehtë\""</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Aktiviteti yt &lt;em&gt;mund të jetë përsëri i dukshëm&lt;/em&gt; për:
+        &lt;ul&gt;
+          &lt;li&gt;Sajtet e uebit që viziton
+          &lt;li&gt;Punëdhënësin ose shkollën tënde
+          &lt;li&gt;Ofruesin tënd të shërbimit të internetit
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Ky cilësim kontrollohet te \"Cilësimet e kukive\"."</string>
+<string name="new_tab_otr_third_party_cookie">"Blloko kukit e palëve të treta"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Kur është aktivizuar, sajtet nuk mund t\'i përdorin kukit për të të monitoruar në ueb. Veçoritë në disa sajte mund të ndalojnë së funksionuari."</string>
+<string name="ntp_article_suggestions_section_header">"Artikujt për ty"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Sugjerime nga Google"</string>
+<string name="ntp_article_suggestions_section_empty">"Artikujt e tu të sugjeruar shfaqen këtu"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Sajti shfaq reklama ndërhyrëse ose mashtruese"</string> -->
+<string name="payments_method_of_payment_label">"Mënyra e pagesës"</string>
+<string name="payments_contact_details_label">"Informacionet e kontaktit"</string>
+<string name="payments_add_contact_details_label">"Shto informacionet e kontaktit"</string>
+<string name="payments_edit_contact_details_label">"Redakto informacionin e kontaktit"</string>
+<string name="payments_add_billing_address">"Shto adresën e faturimit"</string>
+<string name="payments_add_name_on_card">"Shto emrin në kartë"</string>
+<string name="payments_add_valid_card_number">"Shto numër të vlefshëm karte"</string>
+<string name="payments_add_more_information">"Shto më shumë informacion"</string>
+<string name="payments_edit_card">"Redakto kartën"</string>
+<string name="payments_add_phone_number">"Shto numrin e telefonit"</string>
+<string name="payments_add_recipient">"Shto emrin"</string>
+<string name="payments_add_valid_address">"Shto një adresë të vlefshme"</string>
+<string name="payments_add_email">"Shto një email"</string>
+<string name="payments_add_name">"Shto emrin"</string>
+<string name="payments_order_summary_label">"Përmbledhja e porosisë"</string>
+<string name="payment_request_payment_method_section_name">"Pagesa"</string>
+<string name="payment_account_balance">"Balanca e llogarisë"</string>
+<string name="payments_shipping_summary_label">"Transporti"</string>
+<string name="payments_shipping_address_label">"Adresa e transportit"</string>
+<string name="payments_shipping_option_label">"Mënyra e dërgimit"</string>
+<string name="payments_delivery_summary_label">"Dorëzimi"</string>
+<string name="payments_delivery_address_label">"Adresa e dorëzimit"</string>
+<string name="payments_delivery_option_label">"Mënyra e dorëzimit"</string>
+<string name="payments_pickup_summary_label">"Marrja"</string>
+<string name="payments_pickup_address_label">"Adresa e marrjes"</string>
+<string name="payments_pickup_option_label">"Mënyra e marrjes"</string>
+<string name="payments_edit_button">"Redakto"</string>
+<string name="payments_pay_button">"Paguaj"</string>
+<string name="payments_continue_button">"Vazhdo"</string>
+<string name="payments_add_contact">"Shto informacionet e kontaktit"</string>
+<string name="payments_add_card">"Shto kartë"</string>
+<string name="payments_add_address">"Shto adresë"</string>
+<string name="payments_edit_address">"Redakto adresën"</string>
+<string name="payments_name_field_in_contact_details">"Emri"</string>
+<string name="payments_save_card_to_device_checkbox">"Ruaje këtë kartë në këtë pajisje"</string>
+<string name="payments_accepted_cards_label">"Kartat e pranuara"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Skadon më %1$s/%2$s"</string>
+<string name="payments_loading_message">"Po ngarkohet…"</string>
+<string name="payments_processing_message">"Po përpunohet"</string>
+<string name="payments_checking_option">"Po kontrollon"</string>
+<string name="payments_updated_label">"I përditësuar"</string>
+<string name="payment_complete_message">"Pagesa përfundoi"</string>
+<string name="payments_error_message">"Ndodhi një gabim gjatë përpunimit të porosisë. Provo përsëri."</string>
+<string name="payments_card_and_address_settings">"Mund t\'i menaxhosh kartat dhe adresat te BEGIN_LINKCilësimetEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"Kartat dhe adresat janë nga Chrome dhe llogaria jote e Google (%1$s). Ato mund t\'i menaxhosh te BEGIN_LINKCilësimetEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"Prek sensorët për të paguar"</string>
+<string name="payment_fingerprint_not_recognized">"Nuk njihet"</string>
+<string name="payments_card_and_address_settings_signed_out">"Kartat dhe adresat janë nga Chrome. Ato mund t\'i menaxhosh te BEGIN_LINKCilësimetEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"Lejo që sajtet të kontrollojnë nëse ke mënyra të pagesës të ruajtura"</string>
+<string name="payments_required_field_message">"* Fusha është e detyrueshme"</string>
+<string name="payments_phone_invalid_validation_message">"Fut një numër të vlefshëm telefoni"</string>
+<string name="payments_email_invalid_validation_message">"Fut një adresë të vlefshme email-i"</string>
+<string name="payments_card_number_invalid_validation_message">"Fut një numër të vlefshëm karte"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Fut një datë të vlefshme skadimi"</string>
+<string name="payments_invalid_address">"Fut një adresë të vlefshme"</string>
+<string name="payments_billing_address_required">"Adresa e faturimit është e detyrueshme"</string>
+<string name="payments_name_on_card_required">"Kërkohet emri i mbajtësit të kartës"</string>
+<string name="payments_more_information_required">"Kërkohet më shumë informacion"</string>
+<string name="payments_phone_number_required">"Numri i telefonit është i detyrueshëm"</string>
+<string name="payments_recipient_required">"Emri është i detyrueshëm"</string>
+<string name="payments_email_required">"Email-i është i detyrueshëm"</string>
+<string name="payments_name_required">"Emri është i detyrueshëm"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Fushë e detyrueshme"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Për të parë mënyrat dhe kërkesat e dërgimit, zgjidh një adresë"</string>
+<string name="payments_unsupported_shipping_address">"Nuk mund të dërgohet në këtë adresë. Zgjidh një adresë tjetër."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Për të parë mënyrat dhe kërkesat e dorëzimit, zgjidh një adresë"</string>
+<string name="payments_unsupported_delivery_address">"Nuk mund të dorëzohet në këtë adresë. Zgjidh një adresë tjetër."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Për të parë mënyrat dhe kërkesat e marrjes, zgjidh një adresë"</string>
+<string name="payments_unsupported_pickup_address">"Nuk mund të merret nga kjo adresë. Zgjidh një adresë tjetër."</string>
+<string name="payments_android_app_error">"Aplikacioni i pagesës nuk mund të hapet"</string>
+<string name="external_payment_app_leave_incognito_warning">"Po del nga modaliteti \"i fshehur\" për të paguar nëpërmjet një aplikacioni të jashtëm. Do të vazhdosh?"</string>
+<string name="payment_handler_sheet_description">"Fleta e përpunuesit të pagesës"</string>
+<string name="payment_handler_sheet_opened_half">"Fleta e përpunuesit të pagesës është gjysmë e hapur"</string>
+<string name="payment_handler_sheet_opened_full">"Fleta e përpunuesit të pagesës është hapur"</string>
+<string name="payment_handler_sheet_closed">"Fleta e përpunuesit të pagesës është mbyllur"</string>
+<string name="blocked_ads_prompt_title">"Reklamat janë të bllokuara"</string>
+<!-- <string name="translate_infobar_error">"Mos! Kjo faqe nuk mund të përkthehej."</string> -->
+<!-- <string name="translate_button">"Përkthe"</string> -->
+<!-- <string name="translate_never_translate_site">"Asnjëherë mos e përkthe këtë sajt"</string> -->
+<string name="translate_dont_offer_site">"Mos ofro ta përkthesh këtë sajt"</string>
+<!-- <string name="translate_option_always_translate">"Përkthe gjithmonë faqet që janë në %1$s"</string> -->
+<!-- <string name="translate_option_never_translate">"Mos përkthe asnjëherë faqet që janë në %1$s"</string> -->
+<string name="translate_dont_offer_lang">"Mos ofro t\'i përkthesh faqet në %1$s"</string>
+<!-- <string name="translate_option_more_language">"Gjuhë të tjera"</string> -->
+<!-- <string name="translate_option_not_source_language">"Faqja nuk është në %1$s?"</string> -->
+<string name="translate_snackbar_always_translate">"Faqet në %1$s do të përkthehen në %2$s nga tani e në vazhdim"</string>
+<string name="translate_snackbar_language_never">"Faqet në %1$s nuk do të përkthehen"</string>
+<string name="translate_snackbar_site_never">"Ky sajt nuk do të përkthehet"</string>
+<string name="translate_snackbar_cancel">"Anulo"</string>
+<string name="clear">"Pastro"</string>
+<string name="show_content">"Shfaq"</string>
+<string name="hide_content">"Fshih"</string>
+<string name="choose">"Zgjidh"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-sq/components_strings.xml -->
+
+<string name="http_post_warning_title">"Konfirmo ridërgimin e formularit"</string>
+<string name="http_post_warning">"Faqja që po kërkon i përdori informacionet që fute. Kthimi tek ajo faqe mund të bëjë që çdo veprim që bëre të përsëritet përsëri. Dëshiron që të vazhdosh?"</string>
+<string name="http_post_warning_resend">"Vazhdo"</string>
+<string name="login_dialog_title">"Identifikohu"</string>
+<string name="login_dialog_ok_button_label">"Identifikohu"</string>
+<string name="login_dialog_username_field">"Emri i përdoruesit"</string>
+<string name="login_dialog_password_field">"Fjalëkalimi"</string>
+<string name="page_info_permission_ads_subtitle">"Sajti shfaq reklama ndërhyrëse ose mashtruese"</string>
+<string name="translate_infobar_error">"Mos! Kjo faqe nuk mund të përkthehej."</string>
+<string name="translate_button">"Përkthe"</string>
+<string name="translate_never_translate_site">"Asnjëherë mos e përkthe këtë sajt"</string>
+<string name="translate_option_always_translate">"Përkthe gjithmonë faqet që janë në %1$s"</string>
+<string name="translate_option_never_translate">"Mos përkthe asnjëherë faqet që janë në %1$s"</string>
+<string name="translate_option_more_language">"Gjuhë të tjera"</string>
+<string name="translate_option_not_source_language">"Faqja nuk është në %1$s?"</string>
+</resources>

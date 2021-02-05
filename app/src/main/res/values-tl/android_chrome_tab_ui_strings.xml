@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Mabilis na paghambing-hambingin ang mga page sa pamamagitan ng paggawa ng pangkat. Para magsimula, pindutin nang matagal ang isang link."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"I-tap para tumingin ng iba pang tab"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Magkakasama sa pangkat ang iyong mga tab dito"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Magpalipat-lipat sa mga tab sa iyong grupo ng tab malapit sa ibaba ng screen"</string>
+<string name="undo_bar_group_tabs_message">"Naigrupo ang %1$s tab"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d tab"</item>
+  <item quantity="other">"%1$d na tab"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Magdagdag ng bagong tab sa grupo"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Itago ang fullscreen grid"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Ipakita ang mga tab ng grupo sa fullscreen grid"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Isara ang tab strip"</string>
+<string name="tabswitcher_create_group">"Gumawa ng pangkat"</string>
+<string name="accessibility_tab_switcher">"Tab Switcher"</string>
+<string name="accessibility_close_tab_group_button">"Isara ang grupo ng tab na may %1$s (na) tab"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Isara ang grupong %1$s na may %2$s (na) tab"</string>
+<string name="tab_selection_editor_group">"Pangkat"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Pumili ng mga tab"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Igrupo ang %1$d napiling tab"</item>
+  <item quantity="other">"Igrupo ang %1$d na napiling tab"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Itago ang multi-select mode"</string>
+<string name="accessibility_tab_selection_editor">"Multi-select mode"</string>
+<string name="tab_grid_dialog_remove_from_group">"Alisin sa grupo"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Mag-alis ng mga tab sa grupo"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Alisin"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Ibahagi ang pangkat"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"I-edit ang pangalan ng grupo"</string>
+<string name="accessibility_expand_tab_group">"I-expand ang grupo ng tab na may %1$s (na) tab."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"I-expand ang grupo ng tab na %1$s na may %2$s (na) tab."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Alisin ang %1$d piniling tab sa grupo."</item>
+  <item quantity="other">"Alisin ang %1$d na piniling tab sa grupo."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"I-collapse ang %1$d tab."</item>
+  <item quantity="other">"I-collapse ang grupo ng tab na may %1$d na tab."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"I-collapse ang %1$d tab."</item>
+  <item quantity="other">"I-collapse ang grupo ng tab na %1$s na may %2$d na tab."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Na-expand ang grupo ng tab"</string>
+<string name="iph_drag_and_drop_introduction">"I-drag ang mga tab para pagpangkatin ang mga ito"</string>
+<string name="iph_drag_and_drop_show_me">"Ipakita sa akin"</string>
+<string name="iph_drag_and_drop_title">"Maging organisado"</string>
+<string name="iph_drag_and_drop_content">"Sa mga tab ng grupo, pindutin nang matagal ang isang tab. Pagkatapos, i-drag ito sa isa pang tab."</string>
+<string name="tab_switcher_carousel_title">"Magpatuloy sa pag-browse"</string>
+<string name="tab_switcher_carousel_view_all">"Tingnan lahat"</string>
+<string name="tab_suggestion_review_button">"Suriin"</string>
+<string name="tab_suggestion_close_tab_action_button">"Isara"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s sa iyong mga tab ang hindi nagamit nitong nakaraan. Isara ang mga ito?"</string>
+<string name="tab_suggestion_group_tabs_message">"Mukhang magkaugnay ang %1$s (na) tab. Igrupo ang mga ito?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Suriin ang mga suhestyon."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Suhestyon: %1$s sa iyong mga tab ang hindi nagamit nitong nakaraan. Isara ang mga ito?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Suhestyon: Mukhang magkaugnay ang %1$s (na) tab. Igrupo ang mga ito?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"I-dismiss ang mga suhestyon."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Isara ang %1$d napiling tab"</item>
+  <item quantity="other">"Isara ang %1$d na napiling tab"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Ilipat ang tab sa kaliwa"</string>
+<string name="accessibility_tab_movement_right">"Ilipat ang tab sa kanan"</string>
+<string name="accessibility_tab_movement_up">"Ilipat ang tab sa itaas"</string>
+<string name="accessibility_tab_movement_down">"Ilipat ang tab sa ibaba"</string>
+<string name="undo_tab_strip_closure_message">"Nakasarang tabstrip"</string>
+<string name="tab_strip_info_bar_question">"Huwag ipakita ulit ang tabstrip?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Huwag ipakitang muli"</string>
+<string name="tab_strip_info_bar_reshow">"Ipakita sa ibang pagkakataon"</string>
+<string name="price_drop_spotted_title">"May nakitang pagbaba ng presyo"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Ipakita sa akin"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

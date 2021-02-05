@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Syarat Perkhidmatan Chrome akan berubah pada 31 Mac"</string>
+<string name="tos_notification_body_text">"Sila semak syarat baharu"</string>
+<string name="tos_notification_ack_button_text">"Faham"</string>
+<string name="tos_notification_review_button_text">"Semak"</string>
+<string name="managed">"Diurus oleh organisasi anda"</string>
+<string name="search_or_type_web_address">"Cari atau taip alamat web"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Alih keluar cadangan daripada papan keratan?"</string>
+<string name="options_homepage_title">"Halaman utama"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Tiada peranti berdekatan dijumpai."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Benarkan"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Sekat"</string>
+</resources>

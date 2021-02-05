@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"Hiina UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-et/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Kinnita"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Salvesta kaart"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Nimi pärineb teie Google\'i kontolt"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"Kontrollige CVC-d ja proovige uuesti"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Kontrollige aegumiskuupäeva ja proovige uuesti"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Kontrollige aegumiskuupäeva ja CVC-d ning proovige uuesti"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Kontrollige aegumiskuud ja proovige uuesti"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Kontrollige aegumisaastat ja proovige uuesti"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Säilita kaardi koopia seadmes"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Kui see on märgitud, salvestab Chromium teie kaardi koopia vormide kiiremaks täitmiseks sellesse seadmesse."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Edaspidi kasutatakse kaartide kinnitamiseks ekraanilukku"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Kaardi kinnitamine …"</string>
+<string name="autofill_card_unmask_verification_success">"Teie kaart on kinnitatud"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Värskendage kaarti"</string>
+<string name="autofill_wallet_management_link_text">"Muuda"</string>
+<string name="autofill_from_google_account_long">"Teenusest Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"Kustuta koopia"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"Hiina UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Uue kaardi skannimine"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Hõlmab näiteks telefoninumbreid, e-posti ja postiaadresse"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Täidab maksevormid teie salvestatud makseviiside andmete alusel"</string>
+<string name="autofill_addresses_settings_title">"Aadressid ja muu"</string>
+<string name="autofill_payment_methods">"Makseviisid"</string>
+<string name="autofill_enable_profiles_toggle_label">"Salvesta ja sisesta aadressid"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Salvesta ja sisesta makseviisid"</string>
+<string name="enable_credit_card_fido_auth_label">"Ekraanilukk"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Kasutage kaartide kiiremaks kinnitamiseks ekraanilukku"</string>
+<!-- <string name="http_post_warning_title">"Kinnita vormi uuestiesitamist"</string> -->
+<!-- <string name="http_post_warning">"Teie poolt otsitav lehekülg kasutas teie sisestatud andmeid. Sellele leheküljele naasmine võib kaasa tuua kõikide sooritatud tegevuste kordamise. Soovite jätkata?"</string> -->
+<!-- <string name="http_post_warning_resend">"Jätka"</string> -->
+<!-- <string name="login_dialog_title">"Logige sisse"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Logige sisse"</string> -->
+<!-- <string name="login_dialog_username_field">"Kasutajanimi"</string> -->
+<!-- <string name="login_dialog_password_field">"Parool"</string> -->
+<string name="sad_tab_title">"Ups, ebaõnn!"</string>
+<string name="sad_tab_message">"Veebilehe kuvamisel läks midagi valesti."</string>
+<string name="sad_tab_reload_label">"Laadi uuesti"</string>
+<string name="sad_tab_send_feedback_label">"Saada tagasiside"</string>
+<string name="sad_tab_reload_title">"Seda lehte ei saa avada"</string>
+<string name="sad_tab_reload_try">"Proovige järgmiseid nõuandeid."</string>
+<string name="sad_tab_reload_incognito">"Avage leht uuel inkognito vahekaardil"</string>
+<string name="sad_tab_reload_restart_browser">"Taaskäivitage Chromium"</string>
+<string name="sad_tab_reload_restart_device">"Taaskäivitage seade"</string>
+<string name="sad_tab_reload_learn_more">"Lisateave"</string>
+<string name="new_tab_otr_title">"Olete inkognito režiimis"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Teie tegevused &lt;em&gt;võivad siiski olla nähtavad&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;teie külastatud veebisaitidele;
+          &lt;li&gt;teie tööandjale või koolile;
+          &lt;li&gt;teie Interneti-teenusepakkujale.
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Seda seadet saab hallata küpsisefailide seadetes."</string>
+<string name="new_tab_otr_third_party_cookie">"Blokeeri kolmanda osapoole küpsisefailid"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Kui see on sisse lülitatud, ei saa saidid kasutada küpsisefaile, mis jälgivad teid kogu veebis. Mõne saidi funktsioonid ei pruugi töötada."</string>
+<string name="ntp_article_suggestions_section_header">"Teile soovitatud artiklid"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Soovitused Google\'ilt"</string>
+<string name="ntp_article_suggestions_section_empty">"Teie soovitatud artiklid kuvatakse siin"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Sait kuvab sekkuvaid või eksitavaid reklaame"</string> -->
+<string name="payments_method_of_payment_label">"Makseviis"</string>
+<string name="payments_contact_details_label">"Kontaktteave"</string>
+<string name="payments_add_contact_details_label">"Lisage kontaktteave"</string>
+<string name="payments_edit_contact_details_label">"Kontaktandmete muutmine"</string>
+<string name="payments_add_billing_address">"Arveldusaadressi lisamine"</string>
+<string name="payments_add_name_on_card">"Kaardil oleva nime lisamine"</string>
+<string name="payments_add_valid_card_number">"Kehtiva kaardinumbri lisamine"</string>
+<string name="payments_add_more_information">"Lisateabe lisamine"</string>
+<string name="payments_edit_card">"Kaardi muutmine"</string>
+<string name="payments_add_phone_number">"Lisage telefoninumber"</string>
+<string name="payments_add_recipient">"Lisage nimi"</string>
+<string name="payments_add_valid_address">"Sisestage sobiv aadress"</string>
+<string name="payments_add_email">"E-posti aadressi lisamine"</string>
+<string name="payments_add_name">"Lisage nimi"</string>
+<string name="payments_order_summary_label">"Tellimuse kokkuvõte"</string>
+<string name="payment_request_payment_method_section_name">"Makse"</string>
+<string name="payment_account_balance">"Konto saldo"</string>
+<string name="payments_shipping_summary_label">"Kohaletoimetamine"</string>
+<string name="payments_shipping_address_label">"Tarneaadress"</string>
+<string name="payments_shipping_option_label">"Tarneviis"</string>
+<string name="payments_delivery_summary_label">"Kohaletoimetamine"</string>
+<string name="payments_delivery_address_label">"Kohaletoimetamise aadress"</string>
+<string name="payments_delivery_option_label">"Kohaletoimetamisviis"</string>
+<string name="payments_pickup_summary_label">"Kättesaamine"</string>
+<string name="payments_pickup_address_label">"Kättesaamise aadress"</string>
+<string name="payments_pickup_option_label">"Kättesaamisviis"</string>
+<string name="payments_edit_button">"Muuda"</string>
+<string name="payments_pay_button">"Maksmine"</string>
+<string name="payments_continue_button">"Jätka"</string>
+<string name="payments_add_contact">"Lisage kontaktteave"</string>
+<string name="payments_add_card">"Lisa kaart"</string>
+<string name="payments_add_address">"Lisage aadress"</string>
+<string name="payments_edit_address">"Muuda aadressi"</string>
+<string name="payments_name_field_in_contact_details">"Nimi"</string>
+<string name="payments_save_card_to_device_checkbox">"Salvesta kaart sellesse seadmesse"</string>
+<string name="payments_accepted_cards_label">"Aktsepteeritud kaardid"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Aegub: %1$s/%2$s"</string>
+<string name="payments_loading_message">"Laadimine"</string>
+<string name="payments_processing_message">"Töötlemine"</string>
+<string name="payments_checking_option">"Kontrollimine"</string>
+<string name="payments_updated_label">"Värskendatud"</string>
+<string name="payment_complete_message">"Makse on töödeldud"</string>
+<string name="payments_error_message">"Teie tellimuse töötlemisel ilmnes viga. Proovige uuesti."</string>
+<string name="payments_card_and_address_settings">"Kaarte ja aadresse saate hallata menüüs BEGIN_LINKSeadedEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"Kaardid ja aadressid pärinevad Chrome\'ist ning teie Google\'i kontolt (%1$s). Neid saate hallata menüüs BEGIN_LINKSeadedEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"Maksmiseks puudutage andurit"</string>
+<string name="payment_fingerprint_not_recognized">"Ei tuvastatud"</string>
+<string name="payments_card_and_address_settings_signed_out">"Kaardid ja aadressid pärinevad Chrome\'ist. Neid saate hallata menüüs BEGIN_LINKSeadedEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"Luba saitidel kontrollida, kas olete makseviisid salvestanud"</string>
+<string name="payments_required_field_message">"* Kohustuslik väli"</string>
+<string name="payments_phone_invalid_validation_message">"Sisestage kehtiv telefoninumber"</string>
+<string name="payments_email_invalid_validation_message">"Sisestage kehtiv e-posti aadress"</string>
+<string name="payments_card_number_invalid_validation_message">"Sisestaeg kehtiv kaardinumber"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Sisestage kehtiv aegumiskuupäev"</string>
+<string name="payments_invalid_address">"Sisestage kehtiv aadress"</string>
+<string name="payments_billing_address_required">"Arveldusaadress on nõutav"</string>
+<string name="payments_name_on_card_required">"Kaardiomaniku nimi on kohustuslik"</string>
+<string name="payments_more_information_required">"Vaja on rohkem teavet"</string>
+<string name="payments_phone_number_required">"Telefoninumber on nõutav"</string>
+<string name="payments_recipient_required">"Nimi on nõutav"</string>
+<string name="payments_email_required">"E-posti aadress on nõutav"</string>
+<string name="payments_name_required">"Nimi on nõutav"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Kohustuslik väli"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Tarneviiside ja nõuete nägemiseks valige aadress"</string>
+<string name="payments_unsupported_shipping_address">"Sellele aadressile ei saa tarnida. Valige mõni teine aadress."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Kohaletoimetamisviiside ja nõuete nägemiseks valige aadress"</string>
+<string name="payments_unsupported_delivery_address">"Sellele aadressile ei saa kaupa kohale toimetada. Valige mõni teine aadress."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Kättesaamisviiside ja nõuete nägemiseks valige aadress"</string>
+<string name="payments_unsupported_pickup_address">"Sellelt aadressilt ei saa kaupa kätte. Valige mõni teine aadress."</string>
+<string name="payments_android_app_error">"Makserakendust ei saa avada"</string>
+<string name="external_payment_app_leave_incognito_warning">"Väljute inkognito režiimist, et välise rakenduse kaudu maksta. Kas soovite jätkata?"</string>
+<string name="payment_handler_sheet_description">"Maksetöötleja leht"</string>
+<string name="payment_handler_sheet_opened_half">"Maksetöötleja leht on poolenisti avatud"</string>
+<string name="payment_handler_sheet_opened_full">"Maksetöötleja leht on avatud"</string>
+<string name="payment_handler_sheet_closed">"Maksetöötleja leht on suletud"</string>
+<string name="blocked_ads_prompt_title">"Reklaamid on blokeeritud"</string>
+<!-- <string name="translate_infobar_error">"Vabandust. Lehte ei õnnestunud tõlkida."</string> -->
+<!-- <string name="translate_button">"Tõlgi"</string> -->
+<!-- <string name="translate_never_translate_site">"Ära kunagi seda saiti tõlgi"</string> -->
+<string name="translate_dont_offer_site">"Ära paku selle saidi tõlkimist"</string>
+<!-- <string name="translate_option_always_translate">"Tõlgi alati %1$s keeles olevad lehed"</string> -->
+<!-- <string name="translate_option_never_translate">"Ära tõlgi kunagi %1$s keeles olevaid lehti"</string> -->
+<string name="translate_dont_offer_lang">"Ära paku %1$s keeles olevate lehtede tõlkimist"</string>
+<!-- <string name="translate_option_more_language">"Rohkem keeli"</string> -->
+<!-- <string name="translate_option_not_source_language">"Kas leht ei ole %1$s keeles?"</string> -->
+<string name="translate_snackbar_always_translate">"%1$s keeles olevad lehed tõlgitakse edaspidi %2$s keelde"</string>
+<string name="translate_snackbar_language_never">"%1$s keeles olevaid lehti ei tõlgita"</string>
+<string name="translate_snackbar_site_never">"Seda saiti ei tõlgita"</string>
+<string name="translate_snackbar_cancel">"Tühista"</string>
+<string name="clear">"Tühjenda"</string>
+<string name="show_content">"Kuva"</string>
+<string name="hide_content">"Peida"</string>
+<string name="choose">"Vali"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-et/components_strings.xml -->
+
+<string name="http_post_warning_title">"Kinnita vormi uuestiesitamist"</string>
+<string name="http_post_warning">"Teie poolt otsitav lehekülg kasutas teie sisestatud andmeid. Sellele leheküljele naasmine võib kaasa tuua kõikide sooritatud tegevuste kordamise. Soovite jätkata?"</string>
+<string name="http_post_warning_resend">"Jätka"</string>
+<string name="login_dialog_title">"Logige sisse"</string>
+<string name="login_dialog_ok_button_label">"Logige sisse"</string>
+<string name="login_dialog_username_field">"Kasutajanimi"</string>
+<string name="login_dialog_password_field">"Parool"</string>
+<string name="page_info_permission_ads_subtitle">"Sait kuvab sekkuvaid või eksitavaid reklaame"</string>
+<string name="translate_infobar_error">"Vabandust. Lehte ei õnnestunud tõlkida."</string>
+<string name="translate_button">"Tõlgi"</string>
+<string name="translate_never_translate_site">"Ära kunagi seda saiti tõlgi"</string>
+<string name="translate_option_always_translate">"Tõlgi alati %1$s keeles olevad lehed"</string>
+<string name="translate_option_never_translate">"Ära tõlgi kunagi %1$s keeles olevaid lehti"</string>
+<string name="translate_option_more_language">"Rohkem keeli"</string>
+<string name="translate_option_not_source_language">"Kas leht ei ole %1$s keeles?"</string>
+</resources>

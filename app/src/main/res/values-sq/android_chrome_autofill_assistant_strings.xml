@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Jam dakord"</string>
+<string name="autofill_assistant_init_title">"Provo \"Asistentin e Google\"\nnë Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Merr me qira një makinë\nme vetëm pak trokitje"</string>
+<string name="autofill_assistant_init_message_password_change">"Lejo që \"Asistenti i Google\" të të ndihmojë\ntë ndryshosh fjalëkalimin"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Bli bileta kinemaje\nme vetëm pak trokitje"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Porosit ushqime\nme vetëm disa trokitje"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Kryej regjistrimin për fluturimin tënd\nme vetëm disa trokitje"</string>
+<string name="autofill_assistant_init_message_voice_search">"Provo veprimet zanore\nnë faqet e internetit"</string>
+<string name="autofill_assistant_init_message_shopping">"Përfundimi i shpejtë i blerjes\nme pak trokitje"</string>
+<string name="autofill_assistant_init_message">"\"Asistenti i Google\" të kursen kohë duke të ndihmuar të përfundosh veprimet në ueb, si kërkimi dhe përfundimi i blerjes."</string>
+<string name="autofill_assistant_init_message_short">"\"Asistenti i Google\" në Chrome mund të kryejë veprime nëpër faqe interneti për ty"</string>
+<string name="autofill_assistant_google_terms_description">"Për të të ndihmuar të përfundosh detyrat, Google do të marrë URL-të dhe përmbajtjet e sajteve ku ti përdor \"Asistentin\", si dhe informacionet që dërgon nëpërmjet \"Asistentit\". Këto informacione mund të ruhen në \"Llogarinë tënde të Google\". \"Asistentin\" mund ta çaktivizosh te cilësimet e Chrome. &lt;link&gt;Mëso më shumë&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Më vjen keq që nuk mund të të ndihmoj. Vazhdo vetë."</string>
+<string name="autofill_assistant_payment_information_missing">"Mungon informacion"</string>
+<string name="autofill_assistant_view_original_image_desc">"Dëshiron të hapësh lidhjen e jashtme?"</string>
+<string name="autofill_assistant_view_original_image_view">"Pamja"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Anulo"</string>
+<string name="autofill_assistant_sheet_content_description">"\"Asistenti i Google\" në Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"\"Asistenti i Google\" në Chrome është hapur në gjysmë lartësi."</string>
+<string name="autofill_assistant_sheet_full_height">"\"Asistenti i Google\" në Chrome është hapur në lartësi të plotë."</string>
+<string name="autofill_assistant_sheet_closed">"\"Asistenti i Google\" në Chrome është i mbyllur."</string>
+<string name="autofill_assistant_send_feedback">"Dërgo komente"</string>
+<string name="autofill_assistant_increase_value">"Rrit vlerën"</string>
+<string name="autofill_assistant_decrease_value">"Ul vlerën"</string>
+<string name="autofill_assistant_overflow_options">"Preferencat"</string>
+</resources>

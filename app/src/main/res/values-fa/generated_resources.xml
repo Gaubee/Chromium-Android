@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"‏«شرایط خدمات» Chrome، ‏۳۱ مارس تغییر می‌کند"</string>
+<string name="tos_notification_body_text">"لطفاً «شرایط» جدید را مرور کنید"</string>
+<string name="tos_notification_ack_button_text">"متوجه شدم"</string>
+<string name="tos_notification_review_button_text">"مرور"</string>
+<string name="managed">"توسط سازمانتان مدیریت می‌شود"</string>
+<string name="search_or_type_web_address">"نشانی وب را جستجو یا تایپ کنید"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"پیشنهاد از بریده‌دان حذف شود؟"</string>
+<string name="options_homepage_title">"صفحه اصلی"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"هیچ دستگاه نزدیکی پیدا نشد."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"اجازه دادن"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"مسدود کردن"</string>
+</resources>

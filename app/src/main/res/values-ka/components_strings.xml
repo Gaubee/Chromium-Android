@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"ჩინეთის UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">". "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-ka/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"დაადასტურება"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"ბარათის შენახვა"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"ეს სახელი მომდინარეობს თქვენი Google ანგარიშიდან"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"შეამოწმეთ თქვენი CVC და ხელახლა სცადეთ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"შეამოწმეთ ვადის გასვლის თარიღი და ხელახლა ცადეთ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"შეამოწმეთ ვადის გასვლის თარიღი, ასევე CVC კოდი და ხელახლა ცადეთ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"შეამოწმეთ ვადის გასვლის თვე და ხელახლა ცადეთ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"შეამოწმეთ ვადის გასვლის წელი და ხელახლა ცადეთ"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"ამ ბარათის ასლის მოწყობილობაში შენახვა"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"მონიშვნის შემთხვევაში, Chromium ფორმების უფრო სწრაფად შევსების მიზნით, თქვენი ბარათის ასლს ამ მოწყობილობაში შეინახავს."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"ამიერიდან ბარათების დასადასტურებლად ეკრანის დაბლოკვის მეთოდის გამოყენება"</string>
+<string name="autofill_card_unmask_verification_in_progress">"მიმდინარეობს ბარათის დადასტურება…"</string>
+<string name="autofill_card_unmask_verification_success">"თქვენი ბარათი დადასტურდა"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"ბარათის განახლება"</string>
+<string name="autofill_wallet_management_link_text">"რედაქტირება"</string>
+<string name="autofill_from_google_account_long">"Google Pay-დან"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"ასლის გასუფთავება"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"ჩინეთის UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">". "</string>
+<string name="autofill_scan_credit_card">"ახალი ბარათების სკანირება"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"მოიცავს ისეთ ინფორმაციას, როგორიცაა ტელეფონის ნომრები, ელფოსტის მისამართები და მიწოდების მისამართები"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"შეავსებს ანგარიშსწორების ფორმებს გადახდის შენახული მეთოდების მონაცემებით"</string>
+<string name="autofill_addresses_settings_title">"მისამართები და სხვა"</string>
+<string name="autofill_payment_methods">"გადახდის მეთოდები"</string>
+<string name="autofill_enable_profiles_toggle_label">"მისამართების შენახვა და შევსება"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"გადახდის მეთოდების შენახვა და შევსება"</string>
+<string name="enable_credit_card_fido_auth_label">"ეკრანის დაბლოკვა"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"ეკრანის დაბლოკვის გამოყენება ბარათების უფრო სწრაფად დასადასტურებლად"</string>
+<!-- <string name="http_post_warning_title">"დაადასტურეთ ფორმოს ხელმეორედ ჩაბარება"</string> -->
+<!-- <string name="http_post_warning">"გვერდი, რომელსაც ეძებთ, იყენებს თქვენ მიერ შეყვანილ ინფორმაციას. ამ გვერდზე დაბრუნების შემთხვევაში, ნებისმიერი ადრე განხორციელებული მოქმედება შეიძლება გამეორდეს. გსურთ გააგრძელოთ?"</string> -->
+<!-- <string name="http_post_warning_resend">"გაგრძელება"</string> -->
+<!-- <string name="login_dialog_title">"შესვლა"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"შესვლა"</string> -->
+<!-- <string name="login_dialog_username_field">"მომხმარებლის სახელი"</string> -->
+<!-- <string name="login_dialog_password_field">"პაროლი"</string> -->
+<string name="sad_tab_title">"უი, ხარვეზი!"</string>
+<string name="sad_tab_message">"ამ ვებგვერდის ჩვენებისას პრობლემა წარმოიქმნა."</string>
+<string name="sad_tab_reload_label">"ხელახლა ჩატვირთვა"</string>
+<string name="sad_tab_send_feedback_label">"გამოხმაურება"</string>
+<string name="sad_tab_reload_title">"ამ გვერდის გახსნა ვერ მოხერხდა"</string>
+<string name="sad_tab_reload_try">"ცადეთ შემდეგი:"</string>
+<string name="sad_tab_reload_incognito">"გვერდის ახალ ინკოგნიტო ჩანართში გახსნა"</string>
+<string name="sad_tab_reload_restart_browser">"Chromium-ის გადატვირთვა"</string>
+<string name="sad_tab_reload_restart_device">"გადატვირთეთ თქვენი მოწყობილობა"</string>
+<string name="sad_tab_reload_learn_more">"შეიტყვეთ მეტი"</string>
+<string name="new_tab_otr_title">"თქვენ გადახვედით ინკოგნიტო რეჟიმზე"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"თქვენი აქტივობა &lt;em&gt;შეიძლება მაინც იყოს ხილული&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;თქვენ მიერ მონახულებული ვებსაიტებისთვის
+          &lt;li&gt;თქვენი დამსაქმებლისთვის ან სასწავლებლისთვის
+          &lt;li&gt;თქვენი ინტერნეტ-პროვაიდერისთვის
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"ეს პარამეტრი იმართება ქუქი-ჩანაწერების პარამეტრებიდან."</string>
+<string name="new_tab_otr_third_party_cookie">"მესამე მხარის ქუქი-ჩანაწერების დაბლოკვა"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"ჩართვის შემთხვევაში ვებსაიტებს აეკრძალება თქვენთვის თვალის მიდევნება ქუქი-ჩანაწერების მეშვეობით. ზოგიერთი საიტის ფუნქციებმა შეიძლება არასათანადოდ იმუშაოს."</string>
+<string name="ntp_article_suggestions_section_header">"თქვენთვის განკუთვნილი სტატიები"</string>
+<string name="ntp_article_suggestions_section_header_branded">"შემოთავაზებები Google-ისგან"</string>
+<string name="ntp_article_suggestions_section_empty">"აქ გამოჩნდება თქვენთვის შემოთავაზებული სტატიები"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"საიტზე ნაჩვენებია მომაბეზრებელი ან შეცდომაში შემყვანი რეკლამა"</string> -->
+<string name="payments_method_of_payment_label">"გადახდის მეთოდი"</string>
+<string name="payments_contact_details_label">"საკონტაქტო ინფორმაცია"</string>
+<string name="payments_add_contact_details_label">"საკონტაქტო ინფორმაციის დამატება"</string>
+<string name="payments_edit_contact_details_label">"საკონტაქტო ინფორმაციის რედაქტირება"</string>
+<string name="payments_add_billing_address">"ბილინგის მისამართის დამატება"</string>
+<string name="payments_add_name_on_card">"ბარათზე სახელის დამატება"</string>
+<string name="payments_add_valid_card_number">"მიუთითეთ ბარათის სწორი ნომერი"</string>
+<string name="payments_add_more_information">"დამატებითი ინფორმაციის მითითება"</string>
+<string name="payments_edit_card">"ბარათის რედაქტირება"</string>
+<string name="payments_add_phone_number">"დაამატეთ ტელეფონის ნომერი"</string>
+<string name="payments_add_recipient">"სახელის დამატება"</string>
+<string name="payments_add_valid_address">"დაამატეთ სწორი მისამართი"</string>
+<string name="payments_add_email">"ელფოსტის დამატება"</string>
+<string name="payments_add_name">"სახელის დამატება"</string>
+<string name="payments_order_summary_label">"შეკვეთის რეზიუმე"</string>
+<string name="payment_request_payment_method_section_name">"გადახდა"</string>
+<string name="payment_account_balance">"ანგარიშის ბალანსი"</string>
+<string name="payments_shipping_summary_label">"მიწოდება"</string>
+<string name="payments_shipping_address_label">"მიწოდების მისამართი"</string>
+<string name="payments_shipping_option_label">"გაგზავნის მეთოდი"</string>
+<string name="payments_delivery_summary_label">"მიწოდება"</string>
+<string name="payments_delivery_address_label">"მიწოდების მისამართი"</string>
+<string name="payments_delivery_option_label">"მიწოდების მეთოდი"</string>
+<string name="payments_pickup_summary_label">"წაღება"</string>
+<string name="payments_pickup_address_label">"წაღების მისამართი"</string>
+<string name="payments_pickup_option_label">"წაღების მეთოდი"</string>
+<string name="payments_edit_button">"რედაქტირება"</string>
+<string name="payments_pay_button">"გადახდა"</string>
+<string name="payments_continue_button">"გაგრძელება"</string>
+<string name="payments_add_contact">"საკონტაქტო ინფორმაციის დამატება"</string>
+<string name="payments_add_card">"ბარათის დამატება"</string>
+<string name="payments_add_address">"მისამართის დამატება"</string>
+<string name="payments_edit_address">"მისამართის რედაქტირება"</string>
+<string name="payments_name_field_in_contact_details">"სახელი"</string>
+<string name="payments_save_card_to_device_checkbox">"ბარათის ამ მოწყობილობაზე შენახვა"</string>
+<string name="payments_accepted_cards_label">"მისაღები ბარათები"</string>
+<string name="payments_credit_card_expiration_date_abbr">"ვადის გასვლის თარიღი: %1$s/%2$s"</string>
+<string name="payments_loading_message">"იტვირთება"</string>
+<string name="payments_processing_message">"მუშავდება"</string>
+<string name="payments_checking_option">"შემოწმება"</string>
+<string name="payments_updated_label">"განახლებული"</string>
+<string name="payment_complete_message">"გადახდა შესრულდა"</string>
+<string name="payments_error_message">"თქვენი შეკვეთის დამუშავება ვერ მოხერხდა. გთხოვთ, ცადოთ ხელახლა."</string>
+<string name="payments_card_and_address_settings">"ბარათებისა და მისამართების მართვა BEGIN_LINKპარამეტრებშიEND_LINK შეგიძლიათ."</string>
+<string name="payments_card_and_address_settings_signed_in">"ბარათებისა და მისამართების შესახებ ინფორმაცია მიღებულია Chrome-იდან და თქვენი Google ანგარიშიდან (%1$s). მათი მართვა შეგიძლიათ BEGIN_LINKპარამეტრებშიEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"გადასახდელად შეეხეთ სენსორს"</string>
+<string name="payment_fingerprint_not_recognized">"არ არის ამოცნობილი"</string>
+<string name="payments_card_and_address_settings_signed_out">"ბარათებისა და მისამართების შესახებ ინფორმაცია მიღებულია Chrome-იდან. მათი მართვა შეგიძლიათ BEGIN_LINKპარამეტრებშიEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"საიტებისთვის შენახული გადახდის მეთოდების ხელმისაწვდომობის შემოწმების დაშვება"</string>
+<string name="payments_required_field_message">"* ველი აუცილებელია"</string>
+<string name="payments_phone_invalid_validation_message">"შეიყვანეთ სწორი ტელეფონის ნომერი"</string>
+<string name="payments_email_invalid_validation_message">"შეიყვანეთ ელფოსტის სწორი მისამართი"</string>
+<string name="payments_card_number_invalid_validation_message">"შეიყვანეთ ბარათის სწორი ნომერი"</string>
+<string name="payments_card_expiration_invalid_validation_message">"შეიყვანეთ მოქმედების ვადის გასვლის სწორი თარიღი"</string>
+<string name="payments_invalid_address">"შეიყვანეთ სწორი მისამართი"</string>
+<string name="payments_billing_address_required">"ბილინგის მისამართი აუცილებელია"</string>
+<string name="payments_name_on_card_required">"ბარათის მფლობელის სახელის მითითება აუცილებელია"</string>
+<string name="payments_more_information_required">"დამატებითი ინფორმაცია აუცილებელია"</string>
+<string name="payments_phone_number_required">"ტელეფონის ნომრის მითითება აუცილებელია"</string>
+<string name="payments_recipient_required">"აუცილებელია სახელის მითითება"</string>
+<string name="payments_email_required">"აუცილებელია ელფოსტის მითითება"</string>
+<string name="payments_name_required">"აუცილებელია სახელის მითითება"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"აუცილებელი ველი"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"გაგზავნის მეთოდებისა და მოთხოვნების სანახავად აირჩიეთ მისამართი"</string>
+<string name="payments_unsupported_shipping_address">"ამ მისამართზე გაგზავნა ვერ მოხერხდება. აირჩიეთ სხვა მისამართი."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"მიწოდების მეთოდებისა და მოთხოვნების სანახავად აირჩიეთ მისამართი"</string>
+<string name="payments_unsupported_delivery_address">"ამ მისამართზე მიწოდება ვერ მოხერხდება. აირჩიეთ სხვა მისამართი."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"წამოღების მეთოდებისა და მოთხოვნების სანახავად აირჩიეთ მისამართი"</string>
+<string name="payments_unsupported_pickup_address">"ამ მისამართიდან წამოღება ვერ მოხერხდება. აირჩიეთ სხვა მისამართი."</string>
+<string name="payments_android_app_error">"გადახდის აპის გახსნა ვერ მოხერხდა"</string>
+<string name="external_payment_app_leave_incognito_warning">"გარე აპლიკაციით გადახდის შემთხვევაში, ინკოგნიტო რეჟიმიდან გამოსვლა მოხდება. გსურთ გაგრძელება?"</string>
+<string name="payment_handler_sheet_description">"გადახდების დამმუშავებლის გვერდი"</string>
+<string name="payment_handler_sheet_opened_half">"გადახდების დამმუშავებლის გვერდი ნახევრადგახსნილია"</string>
+<string name="payment_handler_sheet_opened_full">"გადახდების დამმუშავებლის გვერდი გახსნილია"</string>
+<string name="payment_handler_sheet_closed">"გადახდების დამმუშავებლის გვერდი დახურულია"</string>
+<string name="blocked_ads_prompt_title">"რეკლამა დაიბლოკა"</string>
+<!-- <string name="translate_infobar_error">"ამ გვერდის გადათარგმნა ვერ მოხერხდა."</string> -->
+<!-- <string name="translate_button">"თარგმნა"</string> -->
+<!-- <string name="translate_never_translate_site">"არასდროს გადათარგმნო ეს საიტი"</string> -->
+<string name="translate_dont_offer_site">"ამ საიტის თარგმნის შემოთავაზების აკრძალვა"</string>
+<!-- <string name="translate_option_always_translate">"ყოველთვის ითარგმნოს %1$s გვერდები"</string> -->
+<!-- <string name="translate_option_never_translate">"არასოდეს ითარგმნოს %1$s გვერდები"</string> -->
+<string name="translate_dont_offer_lang">"%1$s გვერდების თარგმნის შემოთავაზების აკრძალვა"</string>
+<!-- <string name="translate_option_more_language">"სხვა ენები"</string> -->
+<!-- <string name="translate_option_not_source_language">"გვერდის ტექსტი არ არის %1$s?"</string> -->
+<string name="translate_snackbar_always_translate">"%1$s გვერდები ამიერიდან ითარგმნება შემდეგ ენაზე: %2$s"</string>
+<string name="translate_snackbar_language_never">"%1$s გვერდები არ ითარგმნება"</string>
+<string name="translate_snackbar_site_never">"ეს გვერდი არ ითარგმნება"</string>
+<string name="translate_snackbar_cancel">"გაუქმება"</string>
+<string name="clear">"გასუფთავება"</string>
+<string name="show_content">"ჩვენება"</string>
+<string name="hide_content">"დამალვა"</string>
+<string name="choose">"არჩევა"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-ka/components_strings.xml -->
+
+<string name="http_post_warning_title">"დაადასტურეთ ფორმოს ხელმეორედ ჩაბარება"</string>
+<string name="http_post_warning">"გვერდი, რომელსაც ეძებთ, იყენებს თქვენ მიერ შეყვანილ ინფორმაციას. ამ გვერდზე დაბრუნების შემთხვევაში, ნებისმიერი ადრე განხორციელებული მოქმედება შეიძლება გამეორდეს. გსურთ გააგრძელოთ?"</string>
+<string name="http_post_warning_resend">"გაგრძელება"</string>
+<string name="login_dialog_title">"შესვლა"</string>
+<string name="login_dialog_ok_button_label">"შესვლა"</string>
+<string name="login_dialog_username_field">"მომხმარებლის სახელი"</string>
+<string name="login_dialog_password_field">"პაროლი"</string>
+<string name="page_info_permission_ads_subtitle">"საიტზე ნაჩვენებია მომაბეზრებელი ან შეცდომაში შემყვანი რეკლამა"</string>
+<string name="translate_infobar_error">"ამ გვერდის გადათარგმნა ვერ მოხერხდა."</string>
+<string name="translate_button">"თარგმნა"</string>
+<string name="translate_never_translate_site">"არასდროს გადათარგმნო ეს საიტი"</string>
+<string name="translate_option_always_translate">"ყოველთვის ითარგმნოს %1$s გვერდები"</string>
+<string name="translate_option_never_translate">"არასოდეს ითარგმნოს %1$s გვერდები"</string>
+<string name="translate_option_more_language">"სხვა ენები"</string>
+<string name="translate_option_not_source_language">"გვერდის ტექსტი არ არის %1$s?"</string>
+</resources>

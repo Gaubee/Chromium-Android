@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Souhlasím"</string>
+<string name="autofill_assistant_init_title">"Vyzkoušejte Asistenta Google\nv Chromu"</string>
+<string name="autofill_assistant_init_message_rent_car">"Půjčte si auto\npouhými několika klepnutími"</string>
+<string name="autofill_assistant_init_message_password_change">"Asistent Google vám\nse změnou hesla pomůže"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Kupte si lístky do kina\nna pár klepnutí"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Objednejte si jídlo\nna pár klepnutí"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Odbavte se k letu\nna pár klepnutí"</string>
+<string name="autofill_assistant_init_message_voice_search">"Vyzkoušejte hlasové povely\nna webových stránkách"</string>
+<string name="autofill_assistant_init_message_shopping">"Rychlé placení\nna pár klepnutí"</string>
+<string name="autofill_assistant_init_message">"Asistent Google vám šetří čas tím, že vám pomáhá dokončovat akce na webu, jako jsou vyhledávání a platby."</string>
+<string name="autofill_assistant_init_message_short">"Asistent Google v Chromu může na webech provádět různé akce za vás"</string>
+<string name="autofill_assistant_google_terms_description">"Abyste mohli provádět akce, Google bude dostávat adresy URL a obsah webů, ve kterých používáte Asistenta, a informace, které prostřednictvím Asistenta odesíláte. Tyto informace mohou být ukládány do vašeho účtu Google. Asistenta můžete vypnout v nastavení Chromu. &lt;link&gt;Další informace&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Pardon, nedokážu vám pomoct. Je to na vás."</string>
+<string name="autofill_assistant_payment_information_missing">"Některé informace chybí"</string>
+<string name="autofill_assistant_view_original_image_desc">"Otevřít externí odkaz?"</string>
+<string name="autofill_assistant_view_original_image_view">"Zobrazit"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Zrušit"</string>
+<string name="autofill_assistant_sheet_content_description">"Asistent Google v Chromu."</string>
+<string name="autofill_assistant_sheet_half_height">"Asistent Google v Chromu je otevřený na poloviční výšku."</string>
+<string name="autofill_assistant_sheet_full_height">"Asistent Google v Chromu byl otevřen na celou výšku."</string>
+<string name="autofill_assistant_sheet_closed">"Asistent Google v Chromu byl zavřen."</string>
+<string name="autofill_assistant_send_feedback">"Odeslat zpětnou vazbu"</string>
+<string name="autofill_assistant_increase_value">"Zvýšit hodnotu"</string>
+<string name="autofill_assistant_decrease_value">"Snížit hodnotu"</string>
+<string name="autofill_assistant_overflow_options">"Nastavení"</string>
+</resources>

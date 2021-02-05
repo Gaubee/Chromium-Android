@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Ātri salīdziniet lapas, izveidojot grupu. Lai sāktu, pieskarieties un turiet saiti."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Pieskarieties, lai skatītu citu cilni"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Jūsu cilnes šeit ir grupētas kopā"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Pārslēdziet cilnes savā ciļņu grupā ekrāna apakšdaļā."</string>
+<string name="undo_bar_group_tabs_message">"Grupētas %1$s cilnes"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d cilne"</item>
+  <item quantity="zero">"%1$d cilnes"</item>
+  <item quantity="other">"%1$d cilnes"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Pievienot grupai jaunu cilni"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Slēpt pilnekrāna režģi"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Rādīt grupas cilnes pilnekrāna režģī"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Aizvērt ciļņu joslu"</string>
+<string name="tabswitcher_create_group">"Izveidot grupu"</string>
+<string name="accessibility_tab_switcher">"Ciļņu pārslēdzējs"</string>
+<string name="accessibility_close_tab_group_button">"Aizvērt ciļņu grupu. Ciļņu skaits šajā grupā ir %1$s."</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Aizvērt ciļņu grupu “%1$s”. Ciļņu skaits šajā grupā ir %2$s."</string>
+<string name="tab_selection_editor_group">"Grupa"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Atlasiet cilnes"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Grupēt %1$d atlasīto cilni"</item>
+  <item quantity="zero">"Grupēt %1$d atlasītās cilnes"</item>
+  <item quantity="other">"Grupēt %1$d atlasītās cilnes"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Paslēpt vairākatlases režīmu"</string>
+<string name="accessibility_tab_selection_editor">"Vairākatlases režīms"</string>
+<string name="tab_grid_dialog_remove_from_group">"Noņemt no grupas"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Noņemt cilnes no grupas"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Noņemt"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Kopīgot grupu"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Rediģēt grupas nosaukumu"</string>
+<string name="accessibility_expand_tab_group">"Izvērst ciļņu grupu. Ciļņu skaits šajā grupā ir %1$s."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Izvērst ciļņu grupu %1$s. Ciļņu skaits šajā grupā ir %2$s."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Noņemt %1$d atlasīto cilni no grupas."</item>
+  <item quantity="zero">"Noņemt %1$d atlasītās cilnes no grupas."</item>
+  <item quantity="other">"Noņemt %1$d atlasītās cilnes no grupas."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Sakļaut %1$d cilni."</item>
+  <item quantity="zero">"Sakļaut ciļņu grupu, kurā ir %1$d cilnes."</item>
+  <item quantity="other">"Sakļaut ciļņu grupu, kurā ir %1$d cilnes."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Sakļaut %1$d cilni."</item>
+  <item quantity="zero">"Sakļaut ciļņu grupu “%1$s”, kurā ir %2$d cilnes."</item>
+  <item quantity="other">"Sakļaut ciļņu grupu “%1$s”, kurā ir %2$d cilnes."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Ciļņu grupa ir izvērsta"</string>
+<string name="iph_drag_and_drop_introduction">"Velciet cilnes, lai tās sagrupētu"</string>
+<string name="iph_drag_and_drop_show_me">"Rādīt man"</string>
+<string name="iph_drag_and_drop_title">"Informācijas kārtošana"</string>
+<string name="iph_drag_and_drop_content">"Lai sagrupētu cilnes, pieskarieties cilnei un turiet to. Pēc tam velciet to uz citas cilnes."</string>
+<string name="tab_switcher_carousel_title">"Turpiniet pārlūkošanu"</string>
+<string name="tab_switcher_carousel_view_all">"Skatīt visu"</string>
+<string name="tab_suggestion_review_button">"Pārskatīt"</string>
+<string name="tab_suggestion_close_tab_action_button">"Aizvērt"</string>
+<string name="tab_suggestion_close_stale_message">"Vairākas cilnes pēdējā laikā nav izmantotas (kopā %1$s). Vai vēlaties tās aizvērt?"</string>
+<string name="tab_suggestion_group_tabs_message">"Šķiet, ka %1$s cilnes ir saistītas. Vai grupēt tās?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Pārskatīt ieteikumus."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Ieteikums: vairākas cilnes pēdējā laikā nav izmantotas (kopā %1$s). Vai vēlaties tās aizvērt?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Ieteikums: šķiet, ka %1$s cilnes ir saistītas. Vai grupēt tās?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Nerādīt ieteikumus."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Aizvērt atlasīto cilni (skaits: %1$d)"</item>
+  <item quantity="zero">"Aizvērt atlasītās cilnes (skaits: %1$d)"</item>
+  <item quantity="other">"Aizvērt atlasītās cilnes (skaits: %1$d)"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Pārvietot cilni pa kreisi"</string>
+<string name="accessibility_tab_movement_right">"Pārvietot cilni pa labi"</string>
+<string name="accessibility_tab_movement_up">"Pārvietot cilni uz augšu"</string>
+<string name="accessibility_tab_movement_down">"Pārvietot cilni uz leju"</string>
+<string name="undo_tab_strip_closure_message">"Ciļņu josla aizvērta"</string>
+<string name="tab_strip_info_bar_question">"Vai nerādīt ciļņu joslu atkārtoti?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Vairs nerādīt"</string>
+<string name="tab_strip_info_bar_reshow">"Rādīt vēlāk"</string>
+<string name="price_drop_spotted_title">"Konstatēts cenas kritums"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Rādīt man"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Non se puido completar a operación anterior debido á falta de memoria"</string>
+<string name="opening_file_error">"Erro ao abrir o ficheiro"</string>
+<string name="copy_to_clipboard_failure_message">"Non se puido copiar no portapapeis"</string>
+<string name="link_copied">"Copiouse a ligazón"</string>
+<string name="chip_remove_icon_content_description">"Quitar %1$s"</string>
+</resources>

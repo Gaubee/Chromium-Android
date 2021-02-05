@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"ගිණුම සමඟ ඉදිරියට යන්න"</string>
+<string name="touch_to_fill_sheet_title">"ගිණුමක් තෝරා ගන්න"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"ස්පර්ශය මත පිරවිය යුතු අක්තපත්‍ර ලැයිස්තුව."</string>
+<string name="touch_to_fill_sheet_half_height">"ස්පර්ශය මත පිරවිය යුතු අක්තපත්‍ර ලැයිස්තුව අඩ උසින් විවෘත වී ඇත."</string>
+<string name="touch_to_fill_sheet_full_height">"ස්පර්ශය මත පිරවිය යුතු අක්තපත්‍ර ලැයිස්තුව පූර්ණ උසින් විවෘත වී ඇත."</string>
+<string name="touch_to_fill_sheet_closed">"ස්පර්ශය මත පිරවිය යුතු අක්තපත්‍ර ලැයිස්තුව වසා ඇත."</string>
+<string name="manage_passwords">"මුරපද පාලනය"</string>
+<string name="touch_to_fill_continue">"කරගෙන යන්න"</string>
+</resources>

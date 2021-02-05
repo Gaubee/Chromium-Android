@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome necessita permís per accedir a la càmera i poder crear un mapa 3D del teu entorn."</string>
+<string name="infobar_missing_camera_permission_text">"Per visitar aquest lloc web, Chrome necessita permís per accedir a la teva càmera."</string>
+<string name="infobar_missing_microphone_permission_text">"Per visitar aquest lloc web, Chrome necessita permís per accedir al teu micròfon."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Per visitar aquest lloc web, Chrome necessita permís per accedir a la teva càmera i al teu micròfon."</string>
+<string name="infobar_missing_location_permission_text">"Chrome necessita accedir a la teva ubicació per compartir-la amb aquest lloc web."</string>
+<string name="infobar_update_permissions_button_text">"Continua"</string>
+<string name="nfc_disabled_on_device_message">"Per continuar, activa l\'NFC a la configuració d\'Android"</string>
+<string name="nfc_prompt_turn_on">"Activa"</string>
+<string name="overlay_detected_dialog_title">"Aquest lloc web no pot demanar el teu permís"</string>
+<string name="overlay_detected_dialog_message">"Tanca els quadres d\'ajuda o les superposicions d\'altres aplicacions. Després, torna-ho a provar."</string>
+</resources>

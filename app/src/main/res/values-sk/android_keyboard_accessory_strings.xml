@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Zoznam prihlasovacích údajov na vyplnenie po klepnutí."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Zoznam prihlasovacích údajov na vyplnenie po klepnutí je otvorený na polovičnú výšku."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Zoznam prihlasovacích údajov na vyplnenie po klepnutí je otvorený na úplnú výšku."</string>
+<string name="all_passwords_bottom_sheet_closed">"Zoznam prihlasovacích údajov na vyplnenie po klepnutí je zatvorený."</string>
+<string name="all_passwords_bottom_sheet_title">"Heslá"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Vyhľadávanie"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Žiadne heslo"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Ak považujete web %s za dôveryhodný, môžete použiť uložené heslo na inom webe."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Pre každý web skúste použiť jedinečné heslo."</string>
+<string name="autofill_keyboard_accessory_content_description">"K dispozícii sú heslá"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Návrhy automatického dopĺňania sú k dispozícii nad klávesnicou"</string>
+<string name="keyboard_accessory_sheet_hide">"Zobraziť klávesnicu"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Použite návrh automtického dopĺňania v Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Potiahnutím zobrazíte ďalšie návrhy"</string>
+<string name="password_generation_accessory_button">"Navrhnúť silné heslo"</string>
+<string name="password_generation_accessory_button_short">"Navrhnúť heslo"</string>
+<string name="password_accessory_sheet_toggle">"Zobrazovať heslá"</string>
+<string name="password_accessory_sheet_opened">"Zobrazujú sa uložené heslá a možnosti hesiel"</string>
+<string name="address_accessory_sheet_title">"Adresy"</string>
+<string name="address_accessory_sheet_toggle">"Zobraziť adresy"</string>
+<string name="address_accessory_sheet_opened">"Zobrazujú sa uložené adresy"</string>
+<string name="credit_card_accessory_sheet_toggle">"Zobraziť spôsoby platby"</string>
+<string name="credit_card_accessory_sheet_opened">"Zobrazujú sa uložené spôsoby platby"</string>
+</resources>

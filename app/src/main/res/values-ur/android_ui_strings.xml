@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"کم میموری ہونے کی وجہ سے پچھلی کارروائی کو مکمل کرنے سے قاصر"</string>
+<string name="opening_file_error">"منتخبہ فائل کو کھولنے میں ناکام"</string>
+<string name="copy_to_clipboard_failure_message">"کلپ بورڈ میں کاپی کرنے میں ناکام ہوگیا"</string>
+<string name="link_copied">"لنک کاپی ہوگیا"</string>
+<string name="chip_remove_icon_content_description">"’%1$s‘ ہٹائیں"</string>
+</resources>

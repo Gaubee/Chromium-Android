@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Повеќе"</string>
+<string name="color_picker_hue">"Нијанса"</string>
+<string name="color_picker_saturation">"Заситеност"</string>
+<string name="color_picker_value">"Вредност"</string>
+<string name="color_picker_button_set">"Постави"</string>
+<string name="color_picker_button_cancel">"Откажи"</string>
+<string name="color_picker_dialog_title">"Избери боја"</string>
+<string name="color_picker_button_red">"Црвена"</string>
+<string name="color_picker_button_cyan">"Тиркизна"</string>
+<string name="color_picker_button_blue">"Сина"</string>
+<string name="color_picker_button_green">"Зелена"</string>
+<string name="color_picker_button_magenta">"Магента"</string>
+<string name="color_picker_button_yellow">"Жолта боја"</string>
+<string name="color_picker_button_black">"Црна"</string>
+<string name="color_picker_button_white">"Бела"</string>
+</resources>

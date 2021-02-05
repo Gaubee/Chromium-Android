@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Smluvní podmínky prohlížeče Chrome se 31. března změní"</string>
+<string name="tos_notification_body_text">"Prostudujte si nové smluvní podmínky"</string>
+<string name="tos_notification_ack_button_text">"Hotovo"</string>
+<string name="tos_notification_review_button_text">"Zkontrolovat"</string>
+<string name="managed">"Spravováno vaší organizací"</string>
+<string name="search_or_type_web_address">"Zadejte dotaz nebo webovou adresu"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Odstranit návrh ze schránky?"</string>
+<string name="options_homepage_title">"Domovská stránka"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"V okolí nebyla nalezena žádná zařízení."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Povolit"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Blokovat"</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Aşağı yaddaş öncəki əməliyyat başa bilmir"</string>
+<string name="opening_file_error">"Seçilmiş faylı açmaq alınmadı"</string>
+<string name="copy_to_clipboard_failure_message">"Panoya kopyalamaq alınmadı"</string>
+<string name="link_copied">"Link kopyalandı"</string>
+<string name="chip_remove_icon_content_description">"\"%1$s\" daxiletməsini silin"</string>
+</resources>

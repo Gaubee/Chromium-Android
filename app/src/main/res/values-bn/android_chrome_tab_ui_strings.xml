@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"একটি গ্রুপ তৈরি করে দ্রুত পৃষ্ঠাগুলির তুলনা করুন। শুরু করতে, কোনও একটি লিঙ্ক স্পর্শ করে ধরে থাকুন।"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"অন্য ট্যাব দেখতে ট্যাপ করুন"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"আপনার ট্যাবগুলি এখানে একসাথে গ্রুপ করা আছে"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"স্ক্রিনের নিচে থাকা ট্যাব গ্রুপের মধ্যে একটি ট্যাব থেকে অন্য ট্যাবে যান"</string>
+<string name="undo_bar_group_tabs_message">"%1$sটি ট্যাব গ্রুপ করা হয়েছে"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$dটি ট্যাব"</item>
+  <item quantity="other">"%1$dটি ট্যাব"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"গ্রুপে নতুন ট্যাব যোগ করুন"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"ফুলস্ক্রিন গ্রিড লুকান"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"ফুলস্ক্রিন গ্রিডে গ্রুপের ট্যাব দেখুন"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"\'ট্যাব বার\' বন্ধ করুন"</string>
+<string name="tabswitcher_create_group">"গ্রুপ তৈরি করুন"</string>
+<string name="accessibility_tab_switcher">"ট্যাব পাল্টানোর ফিচার"</string>
+<string name="accessibility_close_tab_group_button">"সেই ট্যাব গ্রুপ বন্ধ করুন যেটিতে %1$sটি ট্যাব আছে"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"%1$s গ্রুপ বন্ধ করে দিন যেটিতে %2$sটি ট্যাব আছে"</string>
+<string name="tab_selection_editor_group">"গ্রুপ"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"ট্যাব বেছে নিন"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"বেছে নেওয়া %1$dটি ট্যাব গ্রুপ করুন"</item>
+  <item quantity="other">"বেছে নেওয়া %1$dটি ট্যাব গ্রুপ করুন"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"একাধিক ট্যাব একসাথে বেছে নেওয়ার মোড লুকান"</string>
+<string name="accessibility_tab_selection_editor">"একাধিক ট্যাব একসাথে বেছে নেওয়ার মোড"</string>
+<string name="tab_grid_dialog_remove_from_group">"গ্রুপ থেকে সরান"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"গ্রুপ থেকে ট্যাব সরান"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"সরান"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"গ্রুপ শেয়ার করুন"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"গ্রুপের নাম এডিট করুন"</string>
+<string name="accessibility_expand_tab_group">"সেই গ্রুপকে বড় করে দেখুন যার মধ্যে %1$sটি ট্যাব আছে"</string>
+<string name="accessibility_expand_tab_group_with_group_name">"%1$s ট্যাবটি বড় করুন, যার মধ্যে %2$sটি ট্যাব রয়েছে।"</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"গ্রুপ থেকে বেছে নেওয়া %1$dটি ট্যাব সরিয়ে দিন।"</item>
+  <item quantity="other">"গ্রুপ থেকে বেছে নেওয়া %1$dটি ট্যাব সরিয়ে দিন।"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$dটি ট্যাব ছোট করুন।"</item>
+  <item quantity="other">"সেই ট্যাব গ্রুপকে ছোট করুন যাতে %1$dটি ট্যাব আছে।"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$dটি ট্যাব ছোট করুন।"</item>
+  <item quantity="other">"%1$s ট্যাব গ্রুপকে ছোট করুন যার মধ্যে %2$dটি ট্যাব আছে।"</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"ট্যাব গ্রুপ বড় করে দেখানো হয়েছে"</string>
+<string name="iph_drag_and_drop_introduction">"ট্যাবগুলি গ্রুপ করতে ড্র্যাগ করুন"</string>
+<string name="iph_drag_and_drop_show_me">"আমাকে দেখান"</string>
+<string name="iph_drag_and_drop_title">"সবকিছু গুছিয়ে রাখুন"</string>
+<string name="iph_drag_and_drop_content">"ট্যাব গ্রুপ করতে সেটি টাচ করে ধরে থাকুন। তারপর, সেটি টেনে অন্য ট্যাবে নিয়ে আসুন।"</string>
+<string name="tab_switcher_carousel_title">"ব্রাউজ করা চালিয়ে যান"</string>
+<string name="tab_switcher_carousel_view_all">"সব দেখুন"</string>
+<string name="tab_suggestion_review_button">"পর্যালোচনা করুন"</string>
+<string name="tab_suggestion_close_tab_action_button">"বন্ধ"</string>
+<string name="tab_suggestion_close_stale_message">"সব ট্যাবের মধ্যে থেকে %1$sটি ট্যাব সম্প্রতি ব্যবহার করা হয়নি। সেগুলি বন্ধ করে দিতে চান?"</string>
+<string name="tab_suggestion_group_tabs_message">"মনে হচ্ছে %1$sটি ট্যাব সম্পর্কযুক্ত। সেগুলি গ্রুপ করতে চান?"</string>
+<string name="accessibility_tab_suggestion_review_button">"সাজেশন পর্যালোচনা করুন।"</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"সাজেশন: সব ট্যাবের মধ্যে থেকে %1$sটি ট্যাব সম্প্রতি ব্যবহার করা হয়নি। সেগুলি বন্ধ করে দিতে চান?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"সাজেশন: মনে হচ্ছে %1$sটি ট্যাব সম্পর্কযুক্ত। সেগুলি গ্রুপ করতে চান?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"সাজেশন বাতিল করুন।"</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"বেছে নেওয়া ট্যাবের মধ্যে %1$dটি ট্যাব বন্ধ আছে"</item>
+  <item quantity="other">"বেছে নেওয়া ট্যাবের মধ্যে %1$dটি ট্যাব বন্ধ আছে"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"বাঁদিকে ট্যাব সরান"</string>
+<string name="accessibility_tab_movement_right">"ডানদিকে ট্যাব সরান"</string>
+<string name="accessibility_tab_movement_up">"ট্যাব উপরে সরান"</string>
+<string name="accessibility_tab_movement_down">"ট্যাব নিচে সরান"</string>
+<string name="undo_tab_strip_closure_message">"ট্যাব বার বন্ধ করুন"</string>
+<string name="tab_strip_info_bar_question">"ট্যাব বার আর দেখতে চান না?"</string>
+<string name="tab_strip_info_bar_no_reshow">"আর দেখতে চাই না"</string>
+<string name="tab_strip_info_bar_reshow">"পরে দেখুন"</string>
+<string name="price_drop_spotted_title">"দাম কমেছে বোঝা গেছে"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"আমাকে দেখান"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

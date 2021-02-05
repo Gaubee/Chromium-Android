@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Çevrenizin 3D haritasını oluşturmak için Chrome\'un kameranıza erişim iznine ihtiyacı var."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome\'un bu sitede kameranıza erişmesi için izin gerekiyor."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome\'un bu sitede mikrofonunuza erişmesi için izin gerekiyor."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome\'un bu sitede kameranıza ve mikrofonunuza erişmesi için izin gerekiyor."</string>
+<string name="infobar_missing_location_permission_text">"Konumunuzu bu siteyle paylaşabilmek için Chrome\'un konum bilgilerinize erişmesi gerekiyor."</string>
+<string name="infobar_update_permissions_button_text">"Devam et"</string>
+<string name="nfc_disabled_on_device_message">"Devam etmek için Android ayarlarında NFC\'yi açın"</string>
+<string name="nfc_prompt_turn_on">"Etkinleştir"</string>
+<string name="overlay_detected_dialog_title">"Bu site izninizi isteyemiyor"</string>
+<string name="overlay_detected_dialog_message">"Diğer uygulamalardaki balonları veya yer paylaşımlı öğeleri kapatın. Daha sonra tekrar deneyin."</string>
+</resources>

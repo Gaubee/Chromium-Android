@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Siqhubeka ne-akhawunti"</string>
+<string name="touch_to_fill_sheet_title">"Khetha i-akhawunti"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Uhlu lokuqinisekisa oluzogcwaliswa ekuthinteni."</string>
+<string name="touch_to_fill_sheet_half_height">"Uhlu lokuqinisekisa elizogcwaliswa ekuthintweni livulwe ngobude obuhhafu."</string>
+<string name="touch_to_fill_sheet_full_height">"Uhlu lokuqinisekisa oluzogcwaliswa ekuthinteni livulwe ngobude obugcwele."</string>
+<string name="touch_to_fill_sheet_closed">"Uhlu lokuqinisekisa oluzogcwaliswa ekuthinteni luvaliwe."</string>
+<string name="manage_passwords">"Phatha amaphasiwedi"</string>
+<string name="touch_to_fill_continue">"Qhubeka"</string>
+</resources>

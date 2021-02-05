@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Tạo một nhóm để so sánh nhanh các trang. Để bắt đầu, hãy chạm và giữ một đường liên kết."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Nhấn để xem một thẻ khác"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Các thẻ của bạn được nhóm với nhau tại đây"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Chuyển đổi giữa các thẻ trong nhóm thẻ ở gần cuối màn hình"</string>
+<string name="undo_bar_group_tabs_message">"Đã nhóm %1$s thẻ"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d tab"</item>
+  <item quantity="other">"%1$d tab"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Thêm thẻ mới vào nhóm"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Ẩn lưới toàn màn hình"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Hiển thị các thẻ của nhóm trong lưới toàn màn hình"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Đóng dải thẻ"</string>
+<string name="tabswitcher_create_group">"Tạo nhóm"</string>
+<string name="accessibility_tab_switcher">"Trình chuyển đổi thẻ"</string>
+<string name="accessibility_close_tab_group_button">"Đóng nhóm thẻ có %1$s thẻ"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Đóng nhóm %1$s có %2$s thẻ"</string>
+<string name="tab_selection_editor_group">"Nhóm"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Chọn các thẻ"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Nhóm %1$d thẻ đã chọn"</item>
+  <item quantity="other">"Nhóm %1$d thẻ đã chọn"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Ẩn chế độ chọn nhiều thẻ"</string>
+<string name="accessibility_tab_selection_editor">"Chế độ chọn nhiều thẻ"</string>
+<string name="tab_grid_dialog_remove_from_group">"Xóa khỏi nhóm"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Xóa thẻ khỏi nhóm"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Xóa"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Chia sẻ nhóm"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Chỉnh sửa tên nhóm"</string>
+<string name="accessibility_expand_tab_group">"Mở rộng nhóm thẻ có %1$s thẻ."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Mở rộng nhóm thẻ %1$s có %2$s thẻ."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Xóa %1$d thẻ đã chọn khỏi nhóm."</item>
+  <item quantity="other">"Xóa %1$d thẻ đã chọn khỏi nhóm."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Thu gọn %1$d thẻ."</item>
+  <item quantity="other">"Thu gọn nhóm thẻ có %1$d thẻ."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Thu gọn %1$d thẻ."</item>
+  <item quantity="other">"Thu gọn nhóm thẻ %1$s có %2$d thẻ."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Đã mở rộng nhóm thẻ"</string>
+<string name="iph_drag_and_drop_introduction">"Kéo các thẻ để nhóm lại với nhau"</string>
+<string name="iph_drag_and_drop_show_me">"Hiển thị cho tôi"</string>
+<string name="iph_drag_and_drop_title">"Sắp xếp gọn gàng"</string>
+<string name="iph_drag_and_drop_content">"Để nhóm các thẻ, hãy chạm và giữ một thẻ. Sau đó, kéo thẻ đó lên một thẻ khác."</string>
+<string name="tab_switcher_carousel_title">"Tiếp tục duyệt web"</string>
+<string name="tab_switcher_carousel_view_all">"Xem tất cả"</string>
+<string name="tab_suggestion_review_button">"Xem"</string>
+<string name="tab_suggestion_close_tab_action_button">"Đóng"</string>
+<string name="tab_suggestion_close_stale_message">"Gần đây, bạn không sử dụng %1$s trong tổng số các thẻ của mình. Bạn có muốn đóng các thẻ này không?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s thẻ có vẻ liên quan đến nhau. Bạn có muốn nhóm các thẻ đó lại không?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Xem lại các đề xuất."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Đề xuất: Gần đây, bạn không sử dụng %1$s thẻ. Bạn có muốn đóng các thẻ này không?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Đề xuất: %1$s thẻ có vẻ liên quan đến nhau. Bạn có muốn nhóm các thẻ đó lại không?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Đóng nội dung đề xuất."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Đóng %1$d thẻ đã chọn"</item>
+  <item quantity="other">"Đóng %1$d thẻ đã chọn"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Chuyển thẻ sang trái"</string>
+<string name="accessibility_tab_movement_right">"Chuyển thẻ sang phải"</string>
+<string name="accessibility_tab_movement_up">"Chuyển thẻ lên trên"</string>
+<string name="accessibility_tab_movement_down">"Chuyển thẻ xuống dưới"</string>
+<string name="undo_tab_strip_closure_message">"Đã đóng dải thẻ"</string>
+<string name="tab_strip_info_bar_question">"Không hiển thị lại dải thẻ?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Không hiển thị lại"</string>
+<string name="tab_strip_info_bar_reshow">"Hiển thị sau"</string>
+<string name="price_drop_spotted_title">"Đã phát hiện có mặt hàng giảm giá"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Hiển thị cho tôi"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

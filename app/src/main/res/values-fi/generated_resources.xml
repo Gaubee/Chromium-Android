@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chromen käyttöehdot muuttuvat 31.3."</string>
+<string name="tos_notification_body_text">"Lue uudet ehdot"</string>
+<string name="tos_notification_ack_button_text">"Ymmärretty"</string>
+<string name="tos_notification_review_button_text">"Tarkista"</string>
+<string name="managed">"Organisaatiosi ylläpitämä"</string>
+<string name="search_or_type_web_address">"Hae tai kirjoita verkko-osoite"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Poistetaanko ehdotus leikepöydältä?"</string>
+<string name="options_homepage_title">"Etusivu"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Lähistöllä olevia laitteita ei löydy."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Salli"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Estä"</string>
+</resources>

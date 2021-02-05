@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="actionbar_share">"გაზიარება"</string>
+<string name="actionbar_web_search">"ვებ ძიება"</string>
+<string name="actionbar_textselection_title">"ტექსტის არჩევა"</string>
+<string name="add_to_dictionary">"ლექსიკონში დამატება"</string>
+<string name="delete_suggestion_text">"წაშლა"</string>
+<string name="profiler_started_toast">"პროფაილერი გაშვებულია"</string>
+<string name="profiler_stopped_toast">"პროფაილერი დასრულებულია. შედეგები მოცემულია %1$s-ში."</string>
+<string name="profiler_no_storage_toast">"პროფაილერის გაშვება ვერ მოხერხდა, რადგან გარე მეხსიერება არ არის მზად"</string>
+<string name="profiler_error_toast">"პროფაილერის გაშვება ვერ ხერხდება"</string>
+<string name="accessibility_date_picker_month">"თვე"</string>
+<string name="accessibility_date_picker_year">"წელი"</string>
+<string name="date_picker_dialog_set">"დაყენება"</string>
+<string name="month_picker_dialog_title">"თვის დაყენება"</string>
+<string name="accessibility_date_picker_week">"კვირა"</string>
+<string name="week_picker_dialog_title">"კვირის დაყენება"</string>
+<string name="time_picker_dialog_am">"AM"</string>
+<string name="time_picker_dialog_pm">"PM"</string>
+<string name="time_picker_dialog_title">"დროის დაყენება"</string>
+<string name="accessibility_time_picker_hour">"საათი"</string>
+<string name="accessibility_time_picker_minute">"წუთი"</string>
+<string name="accessibility_time_picker_second">"წამი"</string>
+<string name="accessibility_time_picker_milli">"მილიწამი"</string>
+<string name="accessibility_time_picker_ampm">"AM/PM"</string>
+<string name="time_picker_dialog_hour_minute_separator">":"</string>
+<string name="time_picker_dialog_minute_second_separator">":"</string>
+<string name="time_picker_dialog_second_subsecond_separator">"."</string>
+<string name="date_time_picker_dialog_title">"თარიღისა და დროის დაყენება"</string>
+<string name="accessibility_datetime_picker_date">"თარიღი"</string>
+<string name="accessibility_datetime_picker_time">"დრო"</string>
+<string name="date_picker_dialog_other_button_label">"სხვა"</string>
+<string name="date_picker_dialog_title">"თარიღის დაყენება"</string>
+<string name="date_picker_dialog_clear">"გასუფთავება"</string>
+<string name="speech_recognition_service_not_found">"Google-ის გახმოვანების ძრავა ვერ მოიძებნა"</string>
+</resources>

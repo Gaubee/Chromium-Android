@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="actionbar_share">"Ndaj"</string>
+<string name="actionbar_web_search">"Kërkim në ueb"</string>
+<string name="actionbar_textselection_title">"Përzgjedhja e tekstit"</string>
+<string name="add_to_dictionary">"Shto në fjalor"</string>
+<string name="delete_suggestion_text">"Fshi"</string>
+<string name="profiler_started_toast">"Profilizuesi u nis"</string>
+<string name="profiler_stopped_toast">"Profilizuesi përfundoi. Rezultatet janë në %1$s."</string>
+<string name="profiler_no_storage_toast">"Nuk mund të nisë profilizuesin, sepse hapësira e jashtme ruajtëse nuk është gati."</string>
+<string name="profiler_error_toast">"Dështoi në nisjen e profilizuesit"</string>
+<string name="accessibility_date_picker_month">"Muaji"</string>
+<string name="accessibility_date_picker_year">"Viti"</string>
+<string name="date_picker_dialog_set">"Cakto"</string>
+<string name="month_picker_dialog_title">"Vendos muajin"</string>
+<string name="accessibility_date_picker_week">"Javë"</string>
+<string name="week_picker_dialog_title">"Cakto javën"</string>
+<string name="time_picker_dialog_am">"Paradite"</string>
+<string name="time_picker_dialog_pm">"pasdite"</string>
+<string name="time_picker_dialog_title">"Cakto orën"</string>
+<string name="accessibility_time_picker_hour">"Ora"</string>
+<string name="accessibility_time_picker_minute">"Minuta"</string>
+<string name="accessibility_time_picker_second">"I dytë"</string>
+<string name="accessibility_time_picker_milli">"Milisekondë"</string>
+<string name="accessibility_time_picker_ampm">"Paradite/Pasdite"</string>
+<string name="time_picker_dialog_hour_minute_separator">":"</string>
+<string name="time_picker_dialog_minute_second_separator">":"</string>
+<string name="time_picker_dialog_second_subsecond_separator">"."</string>
+<string name="date_time_picker_dialog_title">"Vendos datën dhe orën"</string>
+<string name="accessibility_datetime_picker_date">"Data"</string>
+<string name="accessibility_datetime_picker_time">"Koha"</string>
+<string name="date_picker_dialog_other_button_label">"Tjetër"</string>
+<string name="date_picker_dialog_title">"Cakto datën"</string>
+<string name="date_picker_dialog_clear">"Pastro"</string>
+<string name="speech_recognition_service_not_found">"Motori i ligjërimit i Google nuk mund të gjendet"</string>
+</resources>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-af/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Bevestig"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Stoor kaart"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Hierdie naam is van jou Google-rekening af"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"Gaan jou CVC na en probeer weer"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Gaan jou vervaldatum na en probeer weer"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Gaan jou vervaldatum en CVC na en probeer weer"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Gaan jou vervalmaand na en probeer weer"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Gaan jou vervaljaar na en probeer weer"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Hou \'n kopie van hierdie kaart op hierdie toestel"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"As dit gemerk is, sal Chromium \'n kopie van jou kaart op hierdie toestel berg om vorms vinniger in te vul."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Gebruik van nou af skermslot om kaarte te bevestig"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Bevestig tans kaart …"</string>
+<string name="autofill_card_unmask_verification_success">"Jou kaart is bevestig"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Dateer kaart op"</string>
+<string name="autofill_wallet_management_link_text">"Wysig"</string>
+<string name="autofill_from_google_account_long">"Van Google Pay af"</string>
+<string name="autofill_offers_reminder_description_text">"Betaal met"</string>
+<string name="autofill_offers_reminder_deep_link_text">"Sien besonderhede."</string>
+<string name="autofill_clear_local_copy_button">"Vee kopie uit"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Skandeer nuwe kaart"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Sluit inligting soos foonnommers, e-posadresse en versendingadresse in"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Vul betaalvorms in met jou gestoorde betaalmetodes"</string>
+<string name="autofill_addresses_settings_title">"Adresse en meer"</string>
+<string name="autofill_payment_methods">"Betaalmetodes"</string>
+<string name="autofill_enable_profiles_toggle_label">"Stoor en vul adresse in"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Stoor en vul betaalmetodes in"</string>
+<string name="enable_credit_card_fido_auth_label">"Skermslot"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Gebruik skermslot om kaarte vinniger te bevestig"</string>
+<!-- <string name="http_post_warning_title">"Bevestig vormherindiening"</string> -->
+<!-- <string name="http_post_warning">"Die bladsy wat jy soek, het inligting gebruik wat jy ingevoer het. As jy na daardie bladsy terugkeer, kan van die handelinge wat jy uitgevoer het, herhaal word. Wil jy voortgaan?"</string> -->
+<!-- <string name="http_post_warning_resend">"Gaan voort"</string> -->
+<!-- <string name="login_dialog_title">"Meld aan"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Meld aan"</string> -->
+<!-- <string name="login_dialog_username_field">"Gebruikernaam"</string> -->
+<!-- <string name="login_dialog_password_field">"Wagwoord"</string> -->
+<string name="sad_tab_title">"O, mapstieks!"</string>
+<string name="sad_tab_message">"Kon nie hierdie webbladsy vertoon nie."</string>
+<string name="sad_tab_reload_label">"Herlaai"</string>
+<string name="sad_tab_send_feedback_label">"Stuur terugvoer"</string>
+<string name="sad_tab_reload_title">"Kan nie hierdie bladsy oopmaak nie"</string>
+<string name="sad_tab_reload_try">"Probeer die volgende wenke:"</string>
+<string name="sad_tab_reload_incognito">"Maak bladsy in nuwe incognito-oortjie oop"</string>
+<string name="sad_tab_reload_restart_browser">"Herbegin Chromium"</string>
+<string name="sad_tab_reload_restart_device">"Herbegin jou toestel"</string>
+<string name="sad_tab_reload_learn_more">"Kom meer te wete"</string>
+<string name="new_tab_otr_title">"Jy is nou incognito."</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Jou aktiwiteit &lt;em&gt;sal dalk steeds sigbaar wees&lt;/em&gt; vir:
+        &lt;ul&gt;
+          &lt;li&gt;Webwerwe wat jy besoek
+          &lt;li&gt;Jou werkgewer of skool
+          &lt;li&gt;Jou internetdiensverskaffer
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Hierdie instelling word in webkoekie-instellings beheer."</string>
+<string name="new_tab_otr_third_party_cookie">"Blokkeer derdeparty-webkoekies"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Wanneer dit aan is, kan werwe nie webkoekies gebruik wat jou oral op die web naspoor nie. Kenmerke op sommige werwe kan breek."</string>
+<string name="ntp_article_suggestions_section_header">"Artikels vir jou"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Voorstelle deur Google"</string>
+<string name="ntp_article_suggestions_section_empty">"Jou voorgestelde artikels verskyn hier"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Werf wys indringerige of misleidende advertensies"</string> -->
+<string name="payments_method_of_payment_label">"Betalingmetode"</string>
+<string name="payments_contact_details_label">"Kontakinligting"</string>
+<string name="payments_add_contact_details_label">"Voeg kontakinligting by"</string>
+<string name="payments_edit_contact_details_label">"Wysig kontakinligting"</string>
+<string name="payments_add_billing_address">"Voeg faktureringadres by"</string>
+<string name="payments_add_name_on_card">"Voeg naam op kaart by"</string>
+<string name="payments_add_valid_card_number">"Voeg geldige kaartnommer by"</string>
+<string name="payments_add_more_information">"Voeg meer inligting by"</string>
+<string name="payments_edit_card">"Wysig kaart"</string>
+<string name="payments_add_phone_number">"Voeg foonnommer by"</string>
+<string name="payments_add_recipient">"Voeg naam by"</string>
+<string name="payments_add_valid_address">"Voeg geldige adres by"</string>
+<string name="payments_add_email">"Voeg e-posadres by"</string>
+<string name="payments_add_name">"Voeg naam by"</string>
+<string name="payments_order_summary_label">"Bestellingopsomming"</string>
+<string name="payment_request_payment_method_section_name">"Betaling"</string>
+<string name="payment_account_balance">"Rekeningsaldo"</string>
+<string name="payments_shipping_summary_label">"Versending"</string>
+<string name="payments_shipping_address_label">"Versendingsadres"</string>
+<string name="payments_shipping_option_label">"Versendingmetode"</string>
+<string name="payments_delivery_summary_label">"Aflewering"</string>
+<string name="payments_delivery_address_label">"Afleweringadres"</string>
+<string name="payments_delivery_option_label">"Afleweringmetode"</string>
+<string name="payments_pickup_summary_label">"Oplaai"</string>
+<string name="payments_pickup_address_label">"Oplaai-adres"</string>
+<string name="payments_pickup_option_label">"Oplaaimetode"</string>
+<string name="payments_edit_button">"Wysig"</string>
+<string name="payments_pay_button">"Betaal"</string>
+<string name="payments_continue_button">"Gaan voort"</string>
+<string name="payments_add_contact">"Voeg kontakinligting by"</string>
+<string name="payments_add_card">"Voeg kaart by"</string>
+<string name="payments_add_address">"Voeg adres by"</string>
+<string name="payments_edit_address">"Wysig adres"</string>
+<string name="payments_name_field_in_contact_details">"Naam"</string>
+<string name="payments_save_card_to_device_checkbox">"Stoor hierdie kaart op hierdie toestel"</string>
+<string name="payments_accepted_cards_label">"Aanvaarde kaarte"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Verval %1$s/%2$s"</string>
+<string name="payments_loading_message">"Laai tans"</string>
+<string name="payments_processing_message">"Verwerk tans"</string>
+<string name="payments_checking_option">"Gaan tans na"</string>
+<string name="payments_updated_label">"Opgedateer"</string>
+<string name="payment_complete_message">"Betaling voltooi"</string>
+<string name="payments_error_message">"Kon nie jou betaling verwerk nie. Probeer weer."</string>
+<string name="payments_card_and_address_settings">"Jy kan kaarte en adresse in BEGIN_LINKInstellingsEND_LINK bestuur."</string>
+<string name="payments_card_and_address_settings_signed_in">"Kaarte en adresse kom uit Chrome en jou Google-rekening (%1$s). Jy kan hulle in BEGIN_LINKInstellingsEND_LINK bestuur."</string>
+<string name="payment_touch_sensor_to_pay">"Raak sensor om te betaal"</string>
+<string name="payment_fingerprint_not_recognized">"Nie herken nie"</string>
+<string name="payments_card_and_address_settings_signed_out">"Kaarte en adresse kom uit Chrome. Jy kan hulle in BEGIN_LINKInstellingsEND_LINK bestuur."</string>
+<string name="settings_can_make_payment_toggle_label">"Laat werwe toe om te kontroleer of jy betaalmetodes gestoor het"</string>
+<string name="payments_required_field_message">"* Veld word vereis"</string>
+<string name="payments_phone_invalid_validation_message">"Voer \'n geldige foonnommer in"</string>
+<string name="payments_email_invalid_validation_message">"Voer \'n geldige e-posadres in"</string>
+<string name="payments_card_number_invalid_validation_message">"Voer \'n geldige kaartnommer in"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Voer \'n geldige vervaldatum in"</string>
+<string name="payments_invalid_address">"Voer \'n geldige adres in"</string>
+<string name="payments_billing_address_required">"Faktureringadres word vereis"</string>
+<string name="payments_name_on_card_required">"Kaarthouer se naam word vereis"</string>
+<string name="payments_more_information_required">"Meer inligting word vereis"</string>
+<string name="payments_phone_number_required">"Foonnommer vereis"</string>
+<string name="payments_recipient_required">"Naam word vereis"</string>
+<string name="payments_email_required">"E-posadres word vereis"</string>
+<string name="payments_name_required">"Naam word vereis"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Vereiste veld"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Kies \'n adres om versendingmetodes en -vereistes te sien"</string>
+<string name="payments_unsupported_shipping_address">"Kan nie na hierdie adres versend nie. Kies \'n ander adres."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Kies \'n adres om afleweringmetodes en -vereistes te sien"</string>
+<string name="payments_unsupported_delivery_address">"Kan nie by hierdie adres aflewer nie. Kies \'n ander adres."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Kies \'n adres om oplaaimetodes en -vereistes te sien"</string>
+<string name="payments_unsupported_pickup_address">"Kan nie by hierdie adres oplaai nie. Kies \'n ander adres."</string>
+<string name="payments_android_app_error">"Kan nie betalingprogram oopmaak nie"</string>
+<string name="external_payment_app_leave_incognito_warning">"Verlaat incognito-modus om via \'n eksterne program te betaal. Gaan voort?"</string>
+<string name="payment_handler_sheet_description">"Betalinghanteerdersigblad"</string>
+<string name="payment_handler_sheet_opened_half">"Betalinghanteerdersigblad is halfoop"</string>
+<string name="payment_handler_sheet_opened_full">"Betalinghanteerdersigblad is oop"</string>
+<string name="payment_handler_sheet_closed">"Betalinghanteerdersigblad is toe"</string>
+<string name="blocked_ads_prompt_title">"Advertensies is geblokkeer"</string>
+<!-- <string name="translate_infobar_error">"Oeps. Hierdie bladsy kon nie vertaal word nie."</string> -->
+<!-- <string name="translate_button">"Vertaal"</string> -->
+<!-- <string name="translate_never_translate_site">"Moet nooit hierdie werf vertaal nie"</string> -->
+<string name="translate_dont_offer_site">"Moenie aanbied om hierdie werf te vertaal nie"</string>
+<!-- <string name="translate_option_always_translate">"Vertaal altyd bladsye in %1$s"</string> -->
+<!-- <string name="translate_option_never_translate">"Moet nooit bladsye in %1$s vertaal nie"</string> -->
+<string name="translate_dont_offer_lang">"Moenie aanbied om bladsye in %1$s te vertaal nie"</string>
+<!-- <string name="translate_option_more_language">"Meer tale"</string> -->
+<!-- <string name="translate_option_not_source_language">"Bladsy is nie in %1$s nie?"</string> -->
+<string name="translate_snackbar_always_translate">"Bladsye in %1$s sal van nou af in %2$s vertaal word"</string>
+<string name="translate_snackbar_language_never">"Bladsye in %1$s sal nie vertaal word nie"</string>
+<string name="translate_snackbar_site_never">"Hierdie werf sal nie vertaal word nie"</string>
+<string name="translate_snackbar_cancel">"Kanselleer"</string>
+<string name="clear">"Vee uit"</string>
+<string name="show_content">"Wys"</string>
+<string name="hide_content">"Versteek"</string>
+<string name="choose">"Kies"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-af/components_strings.xml -->
+
+<string name="http_post_warning_title">"Bevestig vormherindiening"</string>
+<string name="http_post_warning">"Die bladsy wat jy soek, het inligting gebruik wat jy ingevoer het. As jy na daardie bladsy terugkeer, kan van die handelinge wat jy uitgevoer het, herhaal word. Wil jy voortgaan?"</string>
+<string name="http_post_warning_resend">"Gaan voort"</string>
+<string name="login_dialog_title">"Meld aan"</string>
+<string name="login_dialog_ok_button_label">"Meld aan"</string>
+<string name="login_dialog_username_field">"Gebruikernaam"</string>
+<string name="login_dialog_password_field">"Wagwoord"</string>
+<string name="page_info_permission_ads_subtitle">"Werf wys indringerige of misleidende advertensies"</string>
+<string name="translate_infobar_error">"Oeps. Hierdie bladsy kon nie vertaal word nie."</string>
+<string name="translate_button">"Vertaal"</string>
+<string name="translate_never_translate_site">"Moet nooit hierdie werf vertaal nie"</string>
+<string name="translate_option_always_translate">"Vertaal altyd bladsye in %1$s"</string>
+<string name="translate_option_never_translate">"Moet nooit bladsye in %1$s vertaal nie"</string>
+<string name="translate_option_more_language">"Meer tale"</string>
+<string name="translate_option_not_source_language">"Bladsy is nie in %1$s nie?"</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"నేను అంగీకరిస్తున్నాను"</string>
+<string name="autofill_assistant_init_title">"Chromeలో Google Assistantను\nట్రై చేయండి"</string>
+<string name="autofill_assistant_init_message_rent_car">"కేవలం కొన్ని సార్లు ట్యాప్ చేయడం ద్వారా \nకారు అద్దెకు తీసుకోండి"</string>
+<string name="autofill_assistant_init_message_password_change">"మీ పాస్‌వర్డ్‌ను మార్చడంలో Google Assistantను మీకు సహాయం చేయనివ్వండి"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"కేవలం కొన్ని సార్లు ట్యాప్ చేయడం ద్వారా\nసినిమా టిక్కెట్‌లను కొనుగోలు చేయండి"</string>
+<string name="autofill_assistant_init_message_food_ordering">"కేవలం కొన్ని సార్లు ట్యాప్ చేయడం ద్వారా\nఆహారాన్ని ఆర్డర్ చేయండి"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"కేవలం కొన్ని సార్లు ట్యాప్ చేయడం ద్వారా\nమీ విమానంలోకి చెక్ ఇన్ చేయండి"</string>
+<string name="autofill_assistant_init_message_voice_search">"వెబ్‌సైట్‌లలో\nవాయిస్ చర్యలను ట్రై చేయండి"</string>
+<string name="autofill_assistant_init_message_shopping">"కేవలం కొన్ని సార్లు ట్యాప్ చేసి తొందరగా చెక్అవుట్ లేదా చెక్ ఇన్ చేయండి"</string>
+<string name="autofill_assistant_init_message">"శోధన, చెక్అవుట్ వంటి వెబ్ చర్యలను పూర్తి చేయడంలో మీకు సహాయపడటం ద్వారా Google Assistant మీ సమయాన్ని ఆదా చేస్తుంది."</string>
+<string name="autofill_assistant_init_message_short">"Chromeలో Google Assistant మీ కోసం వెబ్‌సైట్‌ల అంతటా చర్యలను పూర్తి చేయగలదు"</string>
+<string name="autofill_assistant_google_terms_description">"టాస్క్‌లు పూర్తి చేయడంలో మీకు సహాయపడటానికి, మీరు అసిస్టెంట్‌ను ఉపయోగించే సైట్‌ల URLలు అలాగే వాటిలోని కంటెంట్‌ను, వీటితో పాటు మీరు అసిస్టెంట్ ద్వారా సమర్పించే సమాచారాన్ని Google పొందుతుంది. ఈ సమాచారం Google ఖాతాలో స్టోర్ చేయబడవచ్చు. మీరు అసిస్టెంట్‌ను Chrome సెట్టింగ్‌లలో ఆఫ్ చేయవచ్చు. &lt;link&gt;మరింత తెలుసుకోండి&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"క్షమించండి నేను సహాయం చేయలేకపోయాను, దయచేసి మీరే స్వంతంగా కొనసాగండి."</string>
+<string name="autofill_assistant_payment_information_missing">"సమాచారం సరిగ్గా లేదు"</string>
+<string name="autofill_assistant_view_original_image_desc">"బాహ్య లింక్‌ను తెరవాలా?"</string>
+<string name="autofill_assistant_view_original_image_view">"వీక్షణ"</string>
+<string name="autofill_assistant_view_original_image_cancel">"రద్దు చేయి"</string>
+<string name="autofill_assistant_sheet_content_description">"Chromeలో Google అసిస్టెంట్."</string>
+<string name="autofill_assistant_sheet_half_height">"Chromeలో Google అసిస్టెంట్ సగం ఎత్తులో తెరవబడింది."</string>
+<string name="autofill_assistant_sheet_full_height">"Chromeలో Google అసిస్టెంట్ పూర్తి ఎత్తులో తెరవబడింది."</string>
+<string name="autofill_assistant_sheet_closed">"Chromeలో Google అసిస్టెంట్ మూసివేయబడింది."</string>
+<string name="autofill_assistant_send_feedback">"ఫీడ్‌బ్యాక్ పంపండి"</string>
+<string name="autofill_assistant_increase_value">"విలువను పెంచుతుంది"</string>
+<string name="autofill_assistant_decrease_value">"విలువను తగ్గిస్తుంది"</string>
+<string name="autofill_assistant_overflow_options">"ప్రాధాన్యతలు"</string>
+</resources>

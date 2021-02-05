@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"De servicevoorwaarden van Chrome veranderen op 31 maart"</string>
+<string name="tos_notification_body_text">"Lees de nieuwe voorwaarden door"</string>
+<string name="tos_notification_ack_button_text">"Begrepen"</string>
+<string name="tos_notification_review_button_text">"Bekijken"</string>
+<string name="managed">"Beheerd door je organisatie"</string>
+<string name="search_or_type_web_address">"Zoek of typ een webadres"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Suggestie verwijderen van klembord?"</string>
+<string name="options_homepage_title">"Homepage"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Geen apparaten in de buurt gevonden."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Toestaan"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Blokkeren"</string>
+</resources>

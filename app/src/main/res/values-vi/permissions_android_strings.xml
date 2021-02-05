@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chromium cần có quyền dùng máy ảnh của bạn để tạo bản đồ 3D về các khu vực xung quanh bạn."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome cần có quyền truy cập máy ảnh của bạn cho trang web này."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome cần có quyền truy cập micrô của bạn cho trang web này."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome cần có quyền truy cập máy ảnh và micrô của bạn cho trang web này."</string>
+<string name="infobar_missing_location_permission_text">"Chrome cần truy cập vị trí của bạn để chia sẻ thông tin vị trí với trang web này."</string>
+<string name="infobar_update_permissions_button_text">"Tiếp tục"</string>
+<string name="nfc_disabled_on_device_message">"Để tiếp tục, hãy bật NFC trong phần cài đặt Android"</string>
+<string name="nfc_prompt_turn_on">"Bật"</string>
+<string name="overlay_detected_dialog_title">"Trang web này không thể yêu cầu bạn cấp quyền"</string>
+<string name="overlay_detected_dialog_message">"Đóng mọi cửa sổ chú giải hoặc lớp phủ của các ứng dụng khác. Sau đó, hãy thử lại."</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"建立群組以快速比較多個頁面。輕觸並按住連結即可開始建立。"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"輕按即可查看另一個分頁"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"您的分頁在這裡分組顯示"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"喺接近畫面底部附近嘅分頁群組入面切換分頁"</string>
+<string name="undo_bar_group_tabs_message">"已將 %1$s 個分頁加入群組"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d 個分頁"</item>
+  <item quantity="other">"%1$d 個分頁"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"喺群組入面加新嘅分頁"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"隱藏全螢幕網格"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"用全螢幕網格顯示群組嘅分頁"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"關閉分頁列"</string>
+<string name="tabswitcher_create_group">"建立群組"</string>
+<string name="accessibility_tab_switcher">"分頁切換工具"</string>
+<string name="accessibility_close_tab_group_button">"閂有 %1$s 個分頁嘅分頁群組"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"閂有 %2$s 個分頁嘅「%1$s」群組"</string>
+<string name="tab_selection_editor_group">"群組"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"選取分頁"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"將 %1$d 個揀咗嘅分頁分組"</item>
+  <item quantity="other">"將 %1$d 個揀咗嘅分頁分組"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"隱藏多重選取模式"</string>
+<string name="accessibility_tab_selection_editor">"多重選取模式"</string>
+<string name="tab_grid_dialog_remove_from_group">"從群組中移除"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"從群組中移除分頁"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"移除"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"分享群組項目"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"編輯群組名稱"</string>
+<string name="accessibility_expand_tab_group">"展開有 %1$s 個分頁嘅分頁群組。"</string>
+<string name="accessibility_expand_tab_group_with_group_name">"用 %2$s 個分頁展開「%1$s」分頁群組。"</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"由群組度移除 %1$d 個揀咗嘅分頁。"</item>
+  <item quantity="other">"由群組度移除 %1$d 個揀咗嘅分頁。"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"收合 %1$d 個分頁。"</item>
+  <item quantity="other">"收合有 %1$d 個分頁嘅分頁群組。"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"收合 %1$d 個分頁。"</item>
+  <item quantity="other">"收合有 %2$d 個分頁嘅「%1$s」分頁群組。"</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"展開咗分頁群組"</string>
+<string name="iph_drag_and_drop_introduction">"拖曳分頁來分組"</string>
+<string name="iph_drag_and_drop_show_me">"顯示"</string>
+<string name="iph_drag_and_drop_title">"讓所有內容變得井井有條"</string>
+<string name="iph_drag_and_drop_content">"如要將分頁加入群組，請輕觸並按住分頁，然後將它拖曳到其他分頁上。"</string>
+<string name="tab_switcher_carousel_title">"繼續瀏覽"</string>
+<string name="tab_switcher_carousel_view_all">"查看全部"</string>
+<string name="tab_suggestion_review_button">"查看"</string>
+<string name="tab_suggestion_close_tab_action_button">"關閉"</string>
+<string name="tab_suggestion_close_stale_message">"您有 %1$s 個分頁最近沒有使用過。要關閉這些分頁嗎？"</string>
+<string name="tab_suggestion_group_tabs_message">"似乎有 %1$s 個相關的分頁。要唔要將佢哋分組？"</string>
+<string name="accessibility_tab_suggestion_review_button">"睇下建議。"</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"我有建議：你有 %1$s 個分頁最近冇用過，係咪要閂咗佢？"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"建議：似乎有 %1$s 個相關嘅分頁。要唔要將佢哋分組？"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"閂建議。"</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"閂 %1$d 個揀咗嘅分頁"</item>
+  <item quantity="other">"閂 %1$d 個揀咗嘅分頁"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"將分頁左移"</string>
+<string name="accessibility_tab_movement_right">"移去右邊"</string>
+<string name="accessibility_tab_movement_up">"將分頁上移"</string>
+<string name="accessibility_tab_movement_down">"下移分頁"</string>
+<string name="undo_tab_strip_closure_message">"已關閉分頁列"</string>
+<string name="tab_strip_info_bar_question">"不要再顯示分頁列嗎？"</string>
+<string name="tab_strip_info_bar_no_reshow">"不要再顯示"</string>
+<string name="tab_strip_info_bar_reshow">"稍後再顯示"</string>
+<string name="price_drop_spotted_title">"有商品降價"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"顯示"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

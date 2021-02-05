@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"ເພີ່ມເຕີມ"</string>
+<string name="color_picker_hue">"ສີສັນ"</string>
+<string name="color_picker_saturation">"ການອີ່ມຕົວ"</string>
+<string name="color_picker_value">"ຄ່າ"</string>
+<string name="color_picker_button_set">"ຕັ້ງ"</string>
+<string name="color_picker_button_cancel">"ຍົກ​ເລີກ​"</string>
+<string name="color_picker_dialog_title">"ເລືອກສີ​"</string>
+<string name="color_picker_button_red">"ສີ​ແດງ"</string>
+<string name="color_picker_button_cyan">"ສີຟ້າຂຽວ"</string>
+<string name="color_picker_button_blue">"ສີ​ຟ້າ"</string>
+<string name="color_picker_button_green">"ສີ​ຂຽວ"</string>
+<string name="color_picker_button_magenta">"ສີແດງມ່ວງ"</string>
+<string name="color_picker_button_yellow">"ສີ​ເຫຼືອງ"</string>
+<string name="color_picker_button_black">"ສີ​ດໍາ"</string>
+<string name="color_picker_button_white">"ສີ​ຂາວ"</string>
+</resources>

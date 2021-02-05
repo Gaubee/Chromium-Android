@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome యొక్క సేవా నిబంధనలు మార్చి 31న మారుతున్నాయి"</string>
+<string name="tos_notification_body_text">"దయచేసి కొత్త నిబంధనలను సమీక్షించండి"</string>
+<string name="tos_notification_ack_button_text">"అర్థమైంది"</string>
+<string name="tos_notification_review_button_text">"సమీక్షించు"</string>
+<string name="managed">"మీ సంస్థ ద్వారా నిర్వహించబడుతున్నవి"</string>
+<string name="search_or_type_web_address">"వెతకండి లేదా వెబ్ చిరునామా టైప్ చేయండి"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"క్లిప్‌బోర్డ్ నుండి సూచనను తొలగించాలా?"</string>
+<string name="options_homepage_title">"హోమ్‌పేజీ"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"సమీప పరికరాలు ఏవీ కనుగొనబడలేదు."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"అనుమతించు"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"నిరోధించు"</string>
+</resources>

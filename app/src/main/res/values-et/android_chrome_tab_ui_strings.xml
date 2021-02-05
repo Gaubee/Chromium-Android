@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Looge rühm, et lehti kiiresti võrrelda. Alustamiseks puudutage pikalt linki."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Puudutage muu vahelehe vaatamiseks"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Teie vahelehed on siin grupeeritud"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Ekraanikuva allosas olevas vahelehtede grupis vahelehtede vahel vahetamine"</string>
+<string name="undo_bar_group_tabs_message">"%1$s vahekaarti grupeeriti"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d vaheleht"</item>
+  <item quantity="other">"%1$d vahelehte"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Lisa gruppi uus vaheleht"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Peida täisekraani ruudustik"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Kuva grupi vahelehed täisekraani ruudustikus"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Sule vahelehtede riba"</string>
+<string name="tabswitcher_create_group">"Loo grupp"</string>
+<string name="accessibility_tab_switcher">"Vahelehtede vaheti"</string>
+<string name="accessibility_close_tab_group_button">"Sule %1$s vahelehega vahelehegrupp"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Sule %2$s vahelehega grupp %1$s"</string>
+<string name="tab_selection_editor_group">"Grupeeri"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Valige vahelehed"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Grupeeri %1$d valitud vaheleht"</item>
+  <item quantity="other">"Grupeeri %1$d valitud vahelehte"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Peida mitmikvalimise režiim"</string>
+<string name="accessibility_tab_selection_editor">"Mitmikvalimise režiim"</string>
+<string name="tab_grid_dialog_remove_from_group">"Grupist eemaldamine"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Eemalda vahelehti grupist"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Eemalda"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Jaga gruppi"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Grupi nime muutmine"</string>
+<string name="accessibility_expand_tab_group">"Laienda %1$s vahelehega vahelehegruppi."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"%2$s vahekaardiga vahekaartide grupi %1$s laiendamine."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Eemalda grupist %1$d valitud vaheleht."</item>
+  <item quantity="other">"Eemalda grupist %1$d valitud vahelehte."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Ahenda %1$d vaheleht."</item>
+  <item quantity="other">"Ahenda %1$d vahelehega vahelehegrupp."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Ahenda %1$d vaheleht."</item>
+  <item quantity="other">"Ahenda %2$d vahelehega vahelehegrupp %1$s."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Vahelehegruppi laiendati"</string>
+<string name="iph_drag_and_drop_introduction">"Lohistage vahelehti, et neid grupeerida"</string>
+<string name="iph_drag_and_drop_show_me">"Kuva mulle"</string>
+<string name="iph_drag_and_drop_title">"Lööge kord majja"</string>
+<string name="iph_drag_and_drop_content">"Vahelehtede rühmitamiseks puudutage vahelehte pikalt. Seejärel lohistage see teise vahelehe peale."</string>
+<string name="tab_switcher_carousel_title">"Jätka sirvimist"</string>
+<string name="tab_switcher_carousel_view_all">"Vaata kõiki"</string>
+<string name="tab_suggestion_review_button">"Vaata üle"</string>
+<string name="tab_suggestion_close_tab_action_button">"Sulge"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s teie vahelehte pole hiljuti kasutatud. Kas sulgeda need?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s vahelehte näivad olevat seotud. Kas soovite need grupeerida?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Vaadake soovitused üle."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Soovitus: %1$s vahelehte pole hiljuti kasutatud. Kas sulgeda need?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Soovitus: %1$s vahelehte näivad olevat seotud. Kas soovite need grupeerida?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Loobuge soovitustest."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Sule %1$d valitud vaheleht"</item>
+  <item quantity="other">"Sule %1$d valitud vahelehte"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Teisalda vaheleht vasakule"</string>
+<string name="accessibility_tab_movement_right">"Teisalda vaheleht paremale"</string>
+<string name="accessibility_tab_movement_up">"Teisalda vaheleht üles"</string>
+<string name="accessibility_tab_movement_down">"Teisalda vaheleht alla"</string>
+<string name="undo_tab_strip_closure_message">"Vahelehtede riba suleti"</string>
+<string name="tab_strip_info_bar_question">"Kas te ei soovi enam vahelehtede riba kuvada?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Ära kuva uuesti"</string>
+<string name="tab_strip_info_bar_reshow">"Kuva hiljem"</string>
+<string name="price_drop_spotted_title">"Märgati hinnalangust"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Kuva mulle"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

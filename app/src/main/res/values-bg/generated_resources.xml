@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Общите условия на Chrome ще бъдат променени на 31 март"</string>
+<string name="tos_notification_body_text">"Моля, прегледайте новите Условия"</string>
+<string name="tos_notification_ack_button_text">"Разбрах"</string>
+<string name="tos_notification_review_button_text">"Преглед"</string>
+<string name="managed">"Управлява се от организацията ви"</string>
+<string name="search_or_type_web_address">"Потърсете нещо или въведете уеб адрес"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Искате ли да премахнете предложението от буферната памет?"</string>
+<string name="options_homepage_title">"Начална страница"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Няма намерени устройства в близост."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Разрешаване"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Блокиране"</string>
+</resources>

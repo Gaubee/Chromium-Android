@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"உங்களைச் சுற்றியுள்ள இடங்களின் 3D வரைபடத்தை உருவாக்க, Chromeமுக்கு உங்கள் கேமராவை அணுக அனுமதி தேவை."</string>
+<string name="infobar_missing_camera_permission_text">"இந்தத் தளத்திற்காகக் கேமராவை அணுக, Chromeமுக்கு அனுமதி தேவை."</string>
+<string name="infobar_missing_microphone_permission_text">"இந்தத் தளத்திற்காக மைக்ரோஃபோனை அணுக, Chromeமுக்கு அனுமதி தேவை."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"இந்தத் தளத்திற்காகக் கேமராவையும் மைக்ரோஃபோனையும் அணுக, Chromeமுக்கு அனுமதி தேவை."</string>
+<string name="infobar_missing_location_permission_text">"இந்தத் தளத்துடன் இருப்பிடத்தைப் பகிர, Chromeமுக்கு உங்கள் இருப்பிடத்திற்கான அணுகல் தேவை."</string>
+<string name="infobar_update_permissions_button_text">"தொடர்க"</string>
+<string name="nfc_disabled_on_device_message">"தொடர்வதற்கு Android அமைப்புகளில் NFCயை இயக்கவும்"</string>
+<string name="nfc_prompt_turn_on">"இயக்கு"</string>
+<string name="overlay_detected_dialog_title">"இந்தத் தளத்தால் உங்களிடம் அனுமதி கேட்க முடியவில்லை"</string>
+<string name="overlay_detected_dialog_message">"பிற ஆப்ஸின் ஏதேனும் குமிழ்களோ மேல் அடுக்குகளோ இருப்பின் அவற்றை மூடியபிறகு மீண்டும் முயலவும்."</string>
+</resources>

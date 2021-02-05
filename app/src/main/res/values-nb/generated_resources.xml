@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Vilkårene for bruk av Chrome endres 31. mars"</string>
+<string name="tos_notification_body_text">"Les gjennom de nye vilkårene"</string>
+<string name="tos_notification_ack_button_text">"Skjønner"</string>
+<string name="tos_notification_review_button_text">"Se gjennom"</string>
+<string name="managed">"Administreres av organisasjonen din"</string>
+<string name="search_or_type_web_address">"Skriv inn søkeord eller en nettadresse"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Vil du fjerne forslaget fra utklippstavlen?"</string>
+<string name="options_homepage_title">"Startside"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Fant ingen enheter i nærheten."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Tillat"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Blokkér"</string>
+</resources>

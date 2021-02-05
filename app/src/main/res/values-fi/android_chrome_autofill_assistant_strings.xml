@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Hyväksyn"</string>
+<string name="autofill_assistant_init_title">"Kokeile Google Assistantia\n Chromessa"</string>
+<string name="autofill_assistant_init_message_rent_car">"Vuokraa auto\n parilla napautuksella"</string>
+<string name="autofill_assistant_init_message_password_change">"Anna Google Assistantin auttaa\nsalasanan vaihdossa"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Osta leffalippuja\n parilla napautuksella"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Tilaa ruokaa\n parilla napautuksella"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Tee lähtöselvitys\n parilla napautuksella"</string>
+<string name="autofill_assistant_init_message_voice_search">"Kokeile puhetoimintoja\n sivustoilla"</string>
+<string name="autofill_assistant_init_message_shopping">"Siirry nopeasti kassalle\nparilla napautuksella"</string>
+<string name="autofill_assistant_init_message">"Google Assistant säästää aikaa nopeuttamalla verkkotoimia, kuten hakemista ja maksamista."</string>
+<string name="autofill_assistant_init_message_short">"Chromen Google Assistant voi tehdä puolestasi verkkotoimia eri sivustoilla"</string>
+<string name="autofill_assistant_google_terms_description">"Jotta tehtävien hoitaminen sujuisi paremmin, Google saa tiedot niiden sivustojen URL-osoitteista ja sisällöstä, joilla käytät Assistantia, sekä Assistantin kautta lähettämäsi tiedot. Nämä tiedot voidaan tallentaa Google-tilillesi. Voit poistaa Assistantin käytöstä Chromen asetuksissa. &lt;link&gt;Lue lisää&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"En valitettavasti voi auttaa. Voit jatkaa omatoimisesti."</string>
+<string name="autofill_assistant_payment_information_missing">"Tietoja puuttuu"</string>
+<string name="autofill_assistant_view_original_image_desc">"Avataanko ulkoinen linkki?"</string>
+<string name="autofill_assistant_view_original_image_view">"Näytä"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Peruuta"</string>
+<string name="autofill_assistant_sheet_content_description">"Chromen Google Assistant"</string>
+<string name="autofill_assistant_sheet_half_height">"Chromen Google Assistant avattu näytön puolivälin korkeudelle"</string>
+<string name="autofill_assistant_sheet_full_height">"Chromen Google Assistant avattu koko näytön korkeudelle."</string>
+<string name="autofill_assistant_sheet_closed">"Chromen Google Assistant suljettu"</string>
+<string name="autofill_assistant_send_feedback">"Lähetä palautetta"</string>
+<string name="autofill_assistant_increase_value">"Suurenna arvoa"</string>
+<string name="autofill_assistant_decrease_value">"Vähennä arvoa"</string>
+<string name="autofill_assistant_overflow_options">"Asetukset"</string>
+</resources>

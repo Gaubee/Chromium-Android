@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Accepto"</string>
+<string name="autofill_assistant_init_title">"Prova l\'Assistent de Google\na Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Lloga un cotxe\namb només uns quants tocs"</string>
+<string name="autofill_assistant_init_message_password_change">"Permet que l\'Assistent de Google t\'ajudi\na canviar la contrasenya"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Compra entrades de cinema\namb només uns quants tocs"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Demana menjar\namb només uns quants tocs"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Fes la facturació per al teu vol\namb només uns quants tocs"</string>
+<string name="autofill_assistant_init_message_voice_search">"Prova les accions de veu\nals llocs web"</string>
+<string name="autofill_assistant_init_message_shopping">"Tramitació ràpida de la compra\namb només uns quants tocs"</string>
+<string name="autofill_assistant_init_message">"L\'Assistent de Google t\'ajuda a completar accions al web, com ara cerques i tramitacions de compres, cosa que et permet estalviar temps."</string>
+<string name="autofill_assistant_init_message_short">"L\'Assistent de Google a Chrome pot dur a terme accions per tu en llocs web"</string>
+<string name="autofill_assistant_google_terms_description">"Per ajudar-te a dur a terme tasques, Google rebrà els URL i el contingut dels llocs web en què facis servir l\'Assistent, així com la informació que enviïs amb l\'Assistent. Pot ser que aquesta informació s\'emmagatzemi al teu Compte de Google. Pots desactivar l\'Assistent a la configuració de Chrome. &lt;link&gt;Més informació&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Em sap greu, però no et puc ajudar. Continua pel teu compte."</string>
+<string name="autofill_assistant_payment_information_missing">"Falta informació"</string>
+<string name="autofill_assistant_view_original_image_desc">"Vols obrir l\'enllaç extern?"</string>
+<string name="autofill_assistant_view_original_image_view">"Mostra"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Cancel·la"</string>
+<string name="autofill_assistant_sheet_content_description">"Assistent de Google a Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"L\'Assistent de Google a Chrome s\'ha obert a mitja alçada."</string>
+<string name="autofill_assistant_sheet_full_height">"L\'Assistent de Google a Chrome s\'ha obert a alçada completa."</string>
+<string name="autofill_assistant_sheet_closed">"L\'Assistent de Google a Chrome s\'ha tancat."</string>
+<string name="autofill_assistant_send_feedback">"Envia suggeriments"</string>
+<string name="autofill_assistant_increase_value">"Augmenta el valor"</string>
+<string name="autofill_assistant_decrease_value">"Disminueix el valor"</string>
+<string name="autofill_assistant_overflow_options">"Preferències"</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"㩒一下先可以填嘅憑證清單。"</string>
+<string name="all_passwords_bottom_sheet_half_height">"㩒一下先可以填嘅憑證清單宜家顯示喺畫面下半部。"</string>
+<string name="all_passwords_bottom_sheet_full_height">"㩒一下先可以填嘅憑證清單，宜家顯示喺成個畫面。"</string>
+<string name="all_passwords_bottom_sheet_closed">"㩒一下先可以填嘅憑證清單閂咗。"</string>
+<string name="all_passwords_bottom_sheet_title">"密碼"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"搜尋"</string>
+<string name="all_passwords_bottom_sheet_no_password">"無需密碼"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"如果您信任 %s，可使用已儲存的其他網站密碼。"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"請嘗試為每個網站使用不重複的密碼。"</string>
+<string name="autofill_keyboard_accessory_content_description">"有可用嘅密碼"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"顯示喺鍵盤上面嘅自動填入建議"</string>
+<string name="keyboard_accessory_sheet_hide">"顯示鍵盤"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"使用 Chrome 自動填入建議"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"滑動即可查看更多建議"</string>
+<string name="password_generation_accessory_button">"建議安全性強的密碼"</string>
+<string name="password_generation_accessory_button_short">"建議密碼"</string>
+<string name="password_accessory_sheet_toggle">"顯示密碼"</string>
+<string name="password_accessory_sheet_opened">"顯示緊儲存咗嘅密碼同密碼選項"</string>
+<string name="address_accessory_sheet_title">"地址"</string>
+<string name="address_accessory_sheet_toggle">"顯示地址"</string>
+<string name="address_accessory_sheet_opened">"顯示已儲存的地址"</string>
+<string name="credit_card_accessory_sheet_toggle">"顯示付款方法"</string>
+<string name="credit_card_accessory_sheet_opened">"顯示緊儲存咗嘅付款方法"</string>
+</resources>

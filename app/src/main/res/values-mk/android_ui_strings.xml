@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Не може да се заврши претходната операција поради мала меморија"</string>
+<string name="opening_file_error">"Избраната датотека не се отвори"</string>
+<string name="copy_to_clipboard_failure_message">"Не успеа да се ископира на клип-табла."</string>
+<string name="link_copied">"Врската е копирана"</string>
+<string name="chip_remove_icon_content_description">"Отстранете го „%1$s“"</string>
+</resources>

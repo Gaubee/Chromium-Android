@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Compare as páginas rapidamente criando um grupo. Para começar, toque em um link e mantenha-o pressionado."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Toque para ver outra guia"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Suas guias são agrupadas aqui"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Alterne entre as guias do seu grupo de guias perto da parte inferior da tela"</string>
+<string name="undo_bar_group_tabs_message">"Guias agrupadas: %1$s"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d guia"</item>
+  <item quantity="other">"%1$d guias"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Adicionar nova guia ao grupo"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Ocultar grade de tela cheia"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Mostrar guias do grupo em grade de tela cheia"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Fechar barra de guias"</string>
+<string name="tabswitcher_create_group">"Criar grupo"</string>
+<string name="accessibility_tab_switcher">"Seletor de guias"</string>
+<string name="accessibility_close_tab_group_button">"Fechar grupo de guias com %1$s guias"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Fechar grupo \"%1$s\" com %2$s guias"</string>
+<string name="tab_selection_editor_group">"Grupo"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Selecione as guias"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Colocar %1$d guia selecionada no grupo"</item>
+  <item quantity="other">"Colocar %1$d guias selecionadas no grupo"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Ocultar modo de seleção múltipla"</string>
+<string name="accessibility_tab_selection_editor">"Modo de seleção múltipla"</string>
+<string name="tab_grid_dialog_remove_from_group">"Remover do grupo"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Remover guias do grupo"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Remover"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Compartilhar grupo"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Editar nome do grupo"</string>
+<string name="accessibility_expand_tab_group">"Expandir grupo de guias com %1$s guias."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Expandir grupo \"%1$s\" que tem %2$s guias."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Remover %1$d guia selecionada do grupo."</item>
+  <item quantity="other">"Remover %1$d guias selecionadas do grupo."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Recolher %1$d guia."</item>
+  <item quantity="other">"Recolher grupo de guias com %1$d guias."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Recolher %1$d guia."</item>
+  <item quantity="other">"Recolher %1$s grupo de guias com %2$d guias."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Grupo de guias expandido"</string>
+<string name="iph_drag_and_drop_introduction">"Arraste as guias para agrupá-las"</string>
+<string name="iph_drag_and_drop_show_me">"Exibir"</string>
+<string name="iph_drag_and_drop_title">"Organize-se"</string>
+<string name="iph_drag_and_drop_content">"Para agrupar guias, toque em uma delas e a mantenha pressionada. Depois disso, arraste-a para outra guia."</string>
+<string name="tab_switcher_carousel_title">"Continuar navegando"</string>
+<string name="tab_switcher_carousel_view_all">"Visualizar todos"</string>
+<string name="tab_suggestion_review_button">"Revisar"</string>
+<string name="tab_suggestion_close_tab_action_button">"Fechar"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s das suas guias não foram usadas recentemente. Fechar todas elas?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s guias parecem ser relacionadas. Agrupá-las?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Revisar as sugestões."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Sugestão: %1$s das suas guias não foram usadas recentemente. Fechar todas elas?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Sugestão: %1$s guias parecem ser relacionadas. Agrupá-las?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Dispensar as sugestões."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Fechar %1$d guia selecionada"</item>
+  <item quantity="other">"Fechar %1$d guias selecionadas"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Mover guia para a esquerda"</string>
+<string name="accessibility_tab_movement_right">"Mover guia para a direita"</string>
+<string name="accessibility_tab_movement_up">"Mover guia para cima"</string>
+<string name="accessibility_tab_movement_down">"Mover guia para baixo"</string>
+<string name="undo_tab_strip_closure_message">"Barra de guias fechada"</string>
+<string name="tab_strip_info_bar_question">"Deixar de mostrar a barra de guias?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Não mostrar novamente"</string>
+<string name="tab_strip_info_bar_reshow">"Mostrar mais tarde"</string>
+<string name="price_drop_spotted_title">"Redução no preço encontrada"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Exibir"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="private_browsing_warning">"Бұл функцияға Android жүйесінің бұл нұсқасында қолдау көрсетілмеген."</string>
+<string name="license_activity_title">"Жүйенің WebView лицензиялары"</string>
+</resources>

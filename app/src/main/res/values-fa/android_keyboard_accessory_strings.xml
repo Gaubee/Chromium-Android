@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"فهرست اطلاعات کاربری که باید با لمس کردن تکمیل شود."</string>
+<string name="all_passwords_bottom_sheet_half_height">"فهرست اطلاعات کاربری که باید با لمس کردن تکمیل شود، به‌صورت نیمه باز شده است."</string>
+<string name="all_passwords_bottom_sheet_full_height">"فهرست اطلاعات کاربری که باید با لمس کردن تکمیل شود کاملاً باز شد."</string>
+<string name="all_passwords_bottom_sheet_closed">"فهرست اطلاعات کاربری که باید با لمس کردن تکمیل شود بسته شده است."</string>
+<string name="all_passwords_bottom_sheet_title">"گذرواژه‌ها"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"جستجو"</string>
+<string name="all_passwords_bottom_sheet_no_password">"گذرواژه لازم نیست"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"اگر به %s اعتماد دارید، می‌توانید از گذرواژه ذخیره‌شده برای سایتی دیگر استفاده کنید."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"از گذرواژه غیرتکراری برای همه سایت‌ها استفاده کنید."</string>
+<string name="autofill_keyboard_accessory_content_description">"گذرواژه‌ها دردسترس است"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"پیشنهادهای تکمیل خودکار در بالای صفحه‌کلید در دسترس است"</string>
+<string name="keyboard_accessory_sheet_hide">"نمایش صفحه‌کلید"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"‏از پیشنهاد تکمیل خودکار Chrome استفاده کنید"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"برای دیدن پیشنهادهای بیشتر، تند بکشید"</string>
+<string name="password_generation_accessory_button">"پیشنهاد گذرواژه قوی"</string>
+<string name="password_generation_accessory_button_short">"پیشنهاد گذرواژه"</string>
+<string name="password_accessory_sheet_toggle">"نمایش گذرواژه‌ها"</string>
+<string name="password_accessory_sheet_opened">"درحال نمایش گذرواژه‌های ذخیره‌شده و گزینه‌های گذرواژه"</string>
+<string name="address_accessory_sheet_title">"آدرس‌ها"</string>
+<string name="address_accessory_sheet_toggle">"نمایش نشانی‌ها"</string>
+<string name="address_accessory_sheet_opened">"درحال نمایش نشانی‌های ذخیره‌شده"</string>
+<string name="credit_card_accessory_sheet_toggle">"نمایش روش‌های پرداخت"</string>
+<string name="credit_card_accessory_sheet_opened">"درحال نمایش روش‌های پرداخت ذخیره‌شده"</string>
+</resources>

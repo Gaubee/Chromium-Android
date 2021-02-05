@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="weblayer_notification_channel_group_name">"សកម្មភាព​កម្មវិធីរុករក​តាមអ៊ីនធឺណិត"</string>
+<string name="amp_publisher_url">"%1$s – បញ្ជូន​ដោយ Google"</string>
+</resources>

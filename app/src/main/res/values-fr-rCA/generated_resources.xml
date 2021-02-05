@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Les conditions d\'utilisation de Chrome changeront le 31 mars"</string>
+<string name="tos_notification_body_text">"Veuillez consulter les nouvelles conditions"</string>
+<string name="tos_notification_ack_button_text">"OK"</string>
+<string name="tos_notification_review_button_text">"Examiner"</string>
+<string name="managed">"Géré par votre organisation"</string>
+<string name="search_or_type_web_address">"Recherchez ou entrez une adresse Web"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Supprimer la suggestion du presse-papiers?"</string>
+<string name="options_homepage_title">"Page d\'accueil"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Aucun appareil à proximité n\'a été détecté."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Autoriser"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Bloquer"</string>
+</resources>

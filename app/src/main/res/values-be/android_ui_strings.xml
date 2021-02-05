@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"Не ўдалося завяршыць папярэднюю аперацыю з-за недахопу памяці"</string>
+<string name="opening_file_error">"Не ўдалося адкрыць выбраны файл"</string>
+<string name="copy_to_clipboard_failure_message">"Не ўдалося скапіраваць у буфер абмену"</string>
+<string name="link_copied">"Спасылка скапіравана"</string>
+<string name="chip_remove_icon_content_description">"Выдаліць чып \"%1$s\""</string>
+</resources>

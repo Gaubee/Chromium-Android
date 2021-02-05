@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Ավելին"</string>
+<string name="color_picker_hue">"Երանգ"</string>
+<string name="color_picker_saturation">"Հագեցում"</string>
+<string name="color_picker_value">"Արժեք"</string>
+<string name="color_picker_button_set">"Հաստատել"</string>
+<string name="color_picker_button_cancel">"Չեղարկել"</string>
+<string name="color_picker_dialog_title">"Ընտրեք գույնը"</string>
+<string name="color_picker_button_red">"Կարմիր"</string>
+<string name="color_picker_button_cyan">"Երկնագույն"</string>
+<string name="color_picker_button_blue">"Կապույտ"</string>
+<string name="color_picker_button_green">"Կանաչ"</string>
+<string name="color_picker_button_magenta">"Ծիրանեգույն"</string>
+<string name="color_picker_button_yellow">"Դեղին"</string>
+<string name="color_picker_button_black">"Սև"</string>
+<string name="color_picker_button_white">"Սպիտակ"</string>
+</resources>

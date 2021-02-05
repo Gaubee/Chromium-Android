@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Die Liste der Anmeldedaten, die bei Berührung ausgefüllt werden, ist geöffnet."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Die Liste der Anmeldedaten, die bei Berührung ausgefüllt werden, ist halb geöffnet."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Die Liste der Anmeldedaten, die bei Berührung ausgefüllt werden, ist ganz geöffnet."</string>
+<string name="all_passwords_bottom_sheet_closed">"Die Liste der Anmeldedaten, die bei Berührung ausgefüllt werden, ist geschlossen."</string>
+<string name="all_passwords_bottom_sheet_title">"Passwörter"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Durchsuchen"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Kein Passwort"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Wenn Sie %s vertrauen, können Sie ein gespeichertes Passwort für eine andere Website verwenden."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Es empfiehlt sich aber, für jede Website ein eigenes Passwort zu verwenden."</string>
+<string name="autofill_keyboard_accessory_content_description">"Passwörter verfügbar"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Vorschläge für automatisches Ausfüllen über der Tastatur verfügbar"</string>
+<string name="keyboard_accessory_sheet_hide">"Tastatur anzeigen"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Vorschlag für automatisches Ausfüllen in Chrome verwenden"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Wischen, um weitere Vorschläge zu sehen"</string>
+<string name="password_generation_accessory_button">"Starkes Passwort vorschlagen"</string>
+<string name="password_generation_accessory_button_short">"Passwort vorschlagen"</string>
+<string name="password_accessory_sheet_toggle">"Passwörter anzeigen"</string>
+<string name="password_accessory_sheet_opened">"Gespeicherte Passwörter und Passwortoptionen werden angezeigt"</string>
+<string name="address_accessory_sheet_title">"Adressen"</string>
+<string name="address_accessory_sheet_toggle">"Adressen anzeigen"</string>
+<string name="address_accessory_sheet_opened">"Gespeicherte Adressen werden angezeigt"</string>
+<string name="credit_card_accessory_sheet_toggle">"Zahlungsmethoden anzeigen"</string>
+<string name="credit_card_accessory_sheet_opened">"Gespeicherte Zahlungsmethoden werden angezeigt"</string>
+</resources>

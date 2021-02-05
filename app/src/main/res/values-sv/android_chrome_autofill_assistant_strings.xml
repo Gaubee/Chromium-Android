@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Jag godkänner"</string>
+<string name="autofill_assistant_init_title">"Testa Google Assistent\ni Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Hyr en bil\nmed några tryck"</string>
+<string name="autofill_assistant_init_message_password_change">"Tillåt att Google-assistenten hjälper dig\natt byta lösenord"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Köp biobiljetter\nmed några tryck"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Beställ mat\nmed några tryck"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Checka in på flyget\nmed några tryck"</string>
+<string name="autofill_assistant_init_message_voice_search">"Testa röstkommandon\npå webbplatser"</string>
+<string name="autofill_assistant_init_message_shopping">"Gå genom kassan\nmed några tryck"</string>
+<string name="autofill_assistant_init_message">"Med Google Assistent kan du spara tid på webben, t.ex. när du söker eller går genom kassan."</string>
+<string name="autofill_assistant_init_message_short">"Google-assistenten i Chrome kan slutföra åtgärder åt dig på webbplatser"</string>
+<string name="autofill_assistant_google_terms_description">"Innehållet på en webbplats där du använder Google Assistent, dess webbadress samt information som du skickar via assistenten överförs till Google så att du kan få uppgifterna utförda. Informationen kan sparas i Google-kontot. Du kan inaktivera Google Assistent i Chrome-inställningarna. &lt;link&gt;Läs mer&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Jag kan tyvärr inte hjälpa till. Fortsätt på egen hand."</string>
+<string name="autofill_assistant_payment_information_missing">"Uppgifter saknas"</string>
+<string name="autofill_assistant_view_original_image_desc">"Vill du öppna extern länk?"</string>
+<string name="autofill_assistant_view_original_image_view">"Visa"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Avbryt"</string>
+<string name="autofill_assistant_sheet_content_description">"Google-assistenten i Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Google-assistenten i Chrome öppnades och tar upp halva skärmen."</string>
+<string name="autofill_assistant_sheet_full_height">"Google-assistenten i Chrome öppnades och tar upp hela skärmen."</string>
+<string name="autofill_assistant_sheet_closed">"Google-assistenten i Chrome är stängd."</string>
+<string name="autofill_assistant_send_feedback">"Skicka feedback"</string>
+<string name="autofill_assistant_increase_value">"Öka värdet"</string>
+<string name="autofill_assistant_decrease_value">"Minska värdet"</string>
+<string name="autofill_assistant_overflow_options">"Inställningar"</string>
+</resources>

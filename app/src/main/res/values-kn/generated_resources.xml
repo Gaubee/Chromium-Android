@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"ಮಾರ್ಚ್ 31 ರಿಂದ Chrome ನ ಸೇವಾ ನಿಯಮಗಳು ಬದಲಾಗುತ್ತಿವೆ"</string>
+<string name="tos_notification_body_text">"ಹೊಸ ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಿ"</string>
+<string name="tos_notification_ack_button_text">"ಅರ್ಥವಾಯಿತು"</string>
+<string name="tos_notification_review_button_text">"ಪರಿಶೀಲಿಸಿ"</string>
+<string name="managed">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಮೂಲಕ ನಿರ್ವಹಿಸಲಾಗಿದೆ"</string>
+<string name="search_or_type_web_address">"ವೆಬ್ ವಿಳಾಸವನ್ನು ಹುಡುಕಿ ಅಥವಾ ಟೈಪ್ ಮಾಡಿ"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ನಿಂದ ಸಲಹೆಗಳನ್ನು ತೆಗೆದುಹಾಕುವುದೇ?"</string>
+<string name="options_homepage_title">"ಮುಖಪುಟ"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"ಯಾವುದೇ ಹತ್ತಿರದ ಸಾಧನಗಳು ಕಂಡುಬಂದಿಲ್ಲ."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"ಅನುಮತಿಸಿ"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"ನಿರ್ಬಂಧಿಸು"</string>
+</resources>

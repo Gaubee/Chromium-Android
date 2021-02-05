@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="low_memory_error">"අඩු මතකය හේතුවෙන් කළින් මෙහෙයුම් සම්පූර්ණ කිරීමට නොහැකි විය."</string>
+<string name="opening_file_error">"තෝරාගත් ගොනුව විවෘත කිරීම අසාර්ථකයි"</string>
+<string name="copy_to_clipboard_failure_message">"පසුරු පුවරුවට පිටපත් කිරීම අසාර්ථක විය"</string>
+<string name="link_copied">"සබැඳිය පිටපත් කරන ලදි"</string>
+<string name="chip_remove_icon_content_description">"\'%1$s\' ඉවත් කරන්න"</string>
+</resources>

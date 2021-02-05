@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Ninakubali"</string>
+<string name="autofill_assistant_init_title">"Jaribu programu ya Mratibu wa Google\nkatika Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Kodisha gari\nkwa gusa mara chache tu"</string>
+<string name="autofill_assistant_init_message_password_change">"Ruhusu programu ya Mratibu wa Google\nikusaidie ubadilishe nenosiri lako"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Nunua tiketi za filamu\nkwa kugusa mara chache tu"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Agiza chakula\nkwa kugusa mara chache tu"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Thibitisha safari yako ya ndege\nkwa kugusa mara chache tu"</string>
+<string name="autofill_assistant_init_message_voice_search">"Jaribu maagizo ya kutamka\nkwenye tovuti"</string>
+<string name="autofill_assistant_init_message_shopping">"Lipa haraka\nkwa kugusa mara chache tu"</string>
+<string name="autofill_assistant_init_message">"Programu ya Mratibu wa Google huokoa muda wako kwa kukusaidia kukamilisha vitendo kwenye tovuti kama vile kutafuta na kufanya malipo."</string>
+<string name="autofill_assistant_init_message_short">"Programu ya Mratibu wa Google katika Chrome inaweza kukukamilishia vitendo kwenye tovuti"</string>
+<string name="autofill_assistant_google_terms_description">"Ili tukusaidie ukamilishe majukumu, Google itapokea URL na maudhui ya tovuti ambako unatumia programu ya Mratibu na pia maelezo unayotuma kupitia programu ya Mratibu. Maelezo haya yanaweza kuhifadhiwa kwenye akaunti yako ya Google. Unaweza kuzima programu ya Mratibu katika mipangilio ya Chrome. &lt;link&gt;Pata maelezo zaidi&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Samahani, nimeshindwa kukusaidia, tafadhali endelea mwenyewe."</string>
+<string name="autofill_assistant_payment_information_missing">"Maelezo hayajakamilika"</string>
+<string name="autofill_assistant_view_original_image_desc">"Ungependa kufungua kiungo cha nje?"</string>
+<string name="autofill_assistant_view_original_image_view">"Mwonekano"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Ghairi"</string>
+<string name="autofill_assistant_sheet_content_description">"Programu ya Mratibu wa Google katika Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Imefungua urefu nusu wa programu ya Mratibu wa Google katika Chrome."</string>
+<string name="autofill_assistant_sheet_full_height">"Programu ya Mratibu wa Google katika Chrome imefunguliwa katika urefu kamili."</string>
+<string name="autofill_assistant_sheet_closed">"Imefunga Mratibu wa Google katika Chrome."</string>
+<string name="autofill_assistant_send_feedback">"Tuma maoni"</string>
+<string name="autofill_assistant_increase_value">"Ongeza thamani"</string>
+<string name="autofill_assistant_decrease_value">"Punguza thamani"</string>
+<string name="autofill_assistant_overflow_options">"Mapendeleo"</string>
+</resources>

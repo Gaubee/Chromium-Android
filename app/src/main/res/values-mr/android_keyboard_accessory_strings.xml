@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"स्पर्श करून भरायची असलेली क्रेडेंशियलची सूची."</string>
+<string name="all_passwords_bottom_sheet_half_height">"स्पर्श करून भरायची असलेली क्रेडेंशियलची सूची अर्ध्या भागावर उघडली आहे."</string>
+<string name="all_passwords_bottom_sheet_full_height">"स्पर्श करून भरायची असलेली क्रेडेंशियलची सूची संपूर्ण भागावर उघडली आहे."</string>
+<string name="all_passwords_bottom_sheet_closed">"स्पर्श करून भरायची असलेली क्रेडेंशियलची सूची बंद आहे."</string>
+<string name="all_passwords_bottom_sheet_title">"पासवर्ड"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Search"</string>
+<string name="all_passwords_bottom_sheet_no_password">"पासवर्ड नाही"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"तुमचा %s वर विश्वास असल्यास, तुम्ही दुसर्‍या साइटसाठी सेव्ह केलेला पासवर्ड वापरू शकता."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"प्रत्येक साइटसाठी युनिक पासवर्ड वापरण्याचा प्रयत्न करा."</string>
+<string name="autofill_keyboard_accessory_content_description">"पासवर्ड उपलब्ध आहे"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"ऑटोफिल सूचना कीबोर्डवर उपलब्ध आहेत"</string>
+<string name="keyboard_accessory_sheet_hide">"कीबोर्ड दाखवा"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome ऑटोफिल सूचना वापरा"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"आणखी सूचना पाहण्यासाठी स्‍वाइप करा"</string>
+<string name="password_generation_accessory_button">"क्लिष्ट पासवर्ड सुचवा"</string>
+<string name="password_generation_accessory_button_short">"पासवर्ड सुचवा"</string>
+<string name="password_accessory_sheet_toggle">"पासवर्ड दाखवा"</string>
+<string name="password_accessory_sheet_opened">"सेव्ह केलेले पासवर्ड आणि पासवर्ड पर्याय दाखवत आहे"</string>
+<string name="address_accessory_sheet_title">"पत्ते"</string>
+<string name="address_accessory_sheet_toggle">"पत्ते दाखवा"</string>
+<string name="address_accessory_sheet_opened">"सेव्ह केलेले ॲड्रेस दाखवत आहे"</string>
+<string name="credit_card_accessory_sheet_toggle">"पेमेंट पद्धती दाखवा"</string>
+<string name="credit_card_accessory_sheet_opened">"सेव्ह केलेल्या पेमेंट पद्धती दाखवत आहे"</string>
+</resources>

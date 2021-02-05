@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"‏سيتم تغيير بنود خدمة Chrome في 31 آذار (مارس)"</string>
+<string name="tos_notification_body_text">"يُرجى مراجعة البنود الجديدة."</string>
+<string name="tos_notification_ack_button_text">"تم"</string>
+<string name="tos_notification_review_button_text">"مراجعة"</string>
+<string name="managed">"بإدارة مؤسستك"</string>
+<string name="search_or_type_web_address">"البحث عن عنوان الويب أو إدخاله"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"هل تريد إزالة اقتراح من الحافظة؟"</string>
+<string name="options_homepage_title">"الصفحة الرئيسية"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"لم يتم العثور على أجهزة مجاورة."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"سماح"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"حظر"</string>
+</resources>

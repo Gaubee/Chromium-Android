@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"ಖಾತೆ ಬಳಸಿಕೊಂಡು ಮುಂದುವರಿಸಿ"</string>
+<string name="touch_to_fill_sheet_title">"ಖಾತೆಯೊಂದನ್ನು ಆರಿಸಿ"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"ಸ್ಪರ್ಶಿಸಿ ಭರ್ತಿಮಾಡುವ ರುಜುವಾತುಗಳ ಪಟ್ಟಿ."</string>
+<string name="touch_to_fill_sheet_half_height">"ಸ್ಪರ್ಶಿಸಿ ಭರ್ತಿಮಾಡುವ ರುಜುವಾತುಗಳ ಪಟ್ಟಿಯನ್ನು ಅರ್ಧ ಎತ್ತರದಲ್ಲಿ ತೆರೆಯಲಾಗಿದೆ."</string>
+<string name="touch_to_fill_sheet_full_height">"ಸ್ಪರ್ಶಿಸಿ ಭರ್ತಿಮಾಡುವ ರುಜುವಾತುಗಳ ಪಟ್ಟಿಯನ್ನು ಸಂಪೂರ್ಣ ಎತ್ತರದಲ್ಲಿ ತೆರೆಯಲಾಗಿದೆ."</string>
+<string name="touch_to_fill_sheet_closed">"ಸ್ಪರ್ಶಿಸಿ ಭರ್ತಿಮಾಡುವ ರುಜುವಾತುಗಳ ಪಟ್ಟಿಯನ್ನು ಮುಚ್ಚಲಾಗಿದೆ."</string>
+<string name="manage_passwords">"ಪಾಸ್‌ವರ್ಡ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ"</string>
+<string name="touch_to_fill_continue">"ಮುಂದುವರೆಸಿ"</string>
+</resources>

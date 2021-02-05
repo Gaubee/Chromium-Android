@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"ਖੋਜੋ"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-pa/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"ਪੁਸ਼ਟੀ ਕਰੋ"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"ਕਾਰਡ ਰੱਖਿਅਤ ਕਰੋ"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"ਇਹ ਨਾਮ ਤੁਹਾਡੇ Google ਖਾਤੇ ਤੋਂ ਲਿਆ ਗਿਆ ਹੈ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"ਆਪਣੇ CVC ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"ਆਪਣੀ ਮਿਆਦ ਸਮਾਪਤੀ ਦੀ ਤਾਰੀਖ ਦੇਖੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"ਆਪਣੀ ਮਿਆਦ ਸਮਾਪਤੀ ਦੀ ਤਾਰੀਖ ਤੇ CVC ਦੇਖੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"ਆਪਣੀ ਮਿਆਦ ਸਮਾਪਤੀ ਦੇ ਮਹੀਨੇ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"ਆਪਣੀ ਮਿਆਦ ਸਮਾਪਤੀ ਦੇ ਸਾਲ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਇਸ ਕਾਰਡ ਦੀ ਇੱਕ ਕਾਪੀ ਰੱਖੋ"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"ਜੇਕਰ ਸਹੀ ਦਾ ਨਿਸ਼ਾਨ ਲਗਾਇਆ ਹੈ, ਤਾਂ Chromium ਤੇਜ਼ੀ ਨਾਲ ਫ਼ਾਰਮ ਭਰਨ ਲਈ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਤੁੁਹਾਡੇ ਕਾਰਡ ਦੀ ਇੱਕ ਕਾਪੀ ਸਟੋਰ ਕਰੇਗਾ।"</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"ਹੁਣ ਤੋਂ ਕਾਰਡਾਂ ਦੀ ਤਸਦੀਕ ਕਰਨ ਲਈ ਸਕ੍ਰੀਨ ਲਾਕ ਵਰਤੋ"</string>
+<string name="autofill_card_unmask_verification_in_progress">"ਕਾਰਡ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…"</string>
+<string name="autofill_card_unmask_verification_success">"ਤੁਹਾਡੇ ਕਾਰਡ ਦੀ ਪੁਸ਼ਟੀ ਹੋ ਗਈ ਹੈ"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"ਕਾਰਡ ਅੱਪਡੇਟ ਕਰੋ"</string>
+<string name="autofill_wallet_management_link_text">"ਸੰਪਾਦਿਤ ਕਰੋ"</string>
+<string name="autofill_from_google_account_long">"Google Pay ਤੋਂ"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"ਕਾਪੀ ਹਟਾਓ"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"ਖੋਜੋ"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"ਨਵਾਂ ਕਾਰਡ ਸਕੈਨ ਕਰੋ"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"ਫ਼ੋਨ ਨੰਬਰ, ਈਮੇਲ ਪਤੇ, ਅਤੇ ਸ਼ਿਪਿੰਗ ਪਤੇ ਜਿਹੀ ਜਾਣਕਾਰੀ ਸ਼ਾਮਲ ਕਰਦਾ ਹੈ"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"ਇਹ ਵਿਸ਼ੇਸ਼ਤਾ ਭੁਗਤਾਨ ਫ਼ਾਰਮਾਂ ਵਿੱਚ ਤੁਹਾਡੀਆਂ ਰੱਖਿਅਤ ਕੀਤੀਆਂ ਭੁਗਤਾਨ ਵਿਧੀਆਂ ਦੀ ਜਾਣਕਾਰੀ ਭਰਦੀ ਹੈ"</string>
+<string name="autofill_addresses_settings_title">"ਪਤੇ ਅਤੇ ਹੋਰ"</string>
+<string name="autofill_payment_methods">"ਭੁਗਤਾਨ ਵਿਧੀਆਂ"</string>
+<string name="autofill_enable_profiles_toggle_label">"ਪਤੇ ਰੱਖਿਅਤ ਕਰੋ ਅਤੇ ਭਰੋ"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"ਭੁਗਤਾਨ ਵਿਧੀਆਂ ਰੱਖਿਅਤ ਕਰੋ ਅਤੇ ਭਰੋ"</string>
+<string name="enable_credit_card_fido_auth_label">"ਸਕ੍ਰੀਨ ਲੌਕ"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"ਕਾਰਡਾਂ ਦੀ ਤੇਜ਼ੀ ਨਾਲ ਤਸਦੀਕ ਕਰਨ ਲਈ ਸਕ੍ਰੀਨ ਲਾਕ ਵਰਤੋ"</string>
+<!-- <string name="http_post_warning_title">"ਫ਼ਾਰਮ ਨੂੰ ਮੁੜ ਸਪੁਰਦ ਕਰਨ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"</string> -->
+<!-- <string name="http_post_warning">"ਪੰਨਾ ਜੋ ਤੁਸੀਂ ਵਰਤੀ ਗਈ ਜਾਣਕਾਰੀ ਲਈ ਖੋਜ ਰਹੇ ਹੋ, ਉਹ ਤੁਸੀਂ ਦਰਜ ਕੀਤਾ ਸੀ। ਉਸ ਪੰਨਾ \'ਤੇ ਵਾਪਸ ਜਾਣ ਨਾਲ ਤੁਹਾਡੇ ਵੱਲੋਂ ਕੀਤੀ ਗਈ ਕੋਈ ਵੀ ਕਾਰਵਾਈ ਦੁਹਰਾਈ ਜਾ ਸਕਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string> -->
+<!-- <string name="http_post_warning_resend">"ਜਾਰੀ ਰੱਖੋ"</string> -->
+<!-- <string name="login_dialog_title">"ਸਾਈਨ-ਇਨ ਕਰੋ"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"ਸਾਈਨ-ਇਨ ਕਰੋ"</string> -->
+<!-- <string name="login_dialog_username_field">"ਵਰਤੋਂਕਾਰ ਨਾਮ"</string> -->
+<!-- <string name="login_dialog_password_field">"ਪਾਸਵਰਡ"</string> -->
+<string name="sad_tab_title">"ਆਹ, ਸਨੈਪ!"</string>
+<string name="sad_tab_message">"ਇਹ ਵੈਬਸਫ਼ਾ ਪ੍ਰਦਰਸ਼ਿਤ ਕਰਦੇ ਸਮੇਂ ਕੁਝ ਗ਼ਲਤ ਹੋਇਆ ਸੀ।"</string>
+<string name="sad_tab_reload_label">"ਰੀਲੋਡ ਕਰੋ"</string>
+<string name="sad_tab_send_feedback_label">"ਵਿਚਾਰ ਭੇਜੋ"</string>
+<string name="sad_tab_reload_title">"ਇਸ ਪੰਨੇ ਨੂੰ ਨਹੀਂ ਖੋਲ੍ਹਿਆ ਜਾ ਸਕਦਾ"</string>
+<string name="sad_tab_reload_try">"ਅੱਗੇ ਦਿੱਤੇ ਨੁਕਤਿਆਂ ਨੂੰ ਅਜ਼ਮਾਓ:"</string>
+<string name="sad_tab_reload_incognito">"ਕਿਸੇ ਨਵੀਂ ਇਨਕੋਗਨਿਟੋ ਟੈਬ ਵਿੱਚ ਪੰਨਾ ਖੋਲ੍ਹੋ"</string>
+<string name="sad_tab_reload_restart_browser">"Chromium ਨੂੰ ਮੁੜ-ਚਾਲੂ ਕਰੋ"</string>
+<string name="sad_tab_reload_restart_device">"ਆਪਣੀ ਡੀਵਾਈਸ ਨੂੰ ਮੁੜ-ਸ਼ੁਰੂ ਕਰੋ"</string>
+<string name="sad_tab_reload_learn_more">"ਹੋਰ ਜਾਣੋ"</string>
+<string name="new_tab_otr_title">"ਤੁਸੀਂ ਗੁੰਮਨਾਮ ਮੋਡ ਵਿੱਚ ਚਲੇ ਗਏ ਹੋ"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"ਤੁਹਾਡੀ ਸਰਗਰਮੀ &lt;em&gt;ਸ਼ਾਇਦ ਹਾਲੇ ਵੀ ਇਹਨਾਂ ਨੂੰ ਵਿਖਾਈ ਦੇਵੇਗੀ&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;ਤੁਹਾਡੇ ਵੱਲੋਂ ਵੇਖੀਆਂ ਗਈਆਂ ਵੈੱਬਸਾਈਟਾਂ ਨੂੰ
+          &lt;li&gt;ਤੁਹਾਡੇ ਰੁਜ਼ਗਾਰਦਾਤੇ ਜਾਂ ਸਕੂਲ ਨੂੰ
+          &lt;li&gt;ਤੁਹਾਡੇ ਇੰਟਰਨੈੱਟ ਸੇਵਾ ਪ੍ਰਦਾਨਕ ਨੂੰ
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"ਇਹ ਸੈਟਿੰਗ ਕੁਕੀਜ਼ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਕੰਟਰੋਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।"</string>
+<string name="new_tab_otr_third_party_cookie">"ਤੀਜੀ-ਧਿਰ ਵਾਲੀਆਂ ਕੁੱਕੀਜ਼ ਨੂੰ ਬਲੌਕ ਕਰੋ"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"ਚਾਲੂ ਹੋਣ \'ਤੇ, ਸਾਈਟਾਂ ਉਹਨਾਂ ਕੁਕੀਜ਼ ਦੀ ਵਰਤੋਂ ਨਹੀਂ ਕਰ ਸਕਦੀਆਂ ਜੋ ਵੈੱਬ \'ਤੇ ਤੁਹਾਨੂੰ ਟਰੈਕ ਕਰਦੀਆਂ ਹਨ। ਸ਼ਾਇਦ ਕੁਝ ਸਾਈਟਾਂ \'ਤੇ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਠੀਕ ਤਰੀਕੇ ਨਾਲ ਕੰਮ ਨਾ ਕਰਨ।"</string>
+<string name="ntp_article_suggestions_section_header">"ਤੁਹਾਡੇ ਲਈ ਲੇਖ"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google ਵੱਲੋਂ ਸੁਝਾਅ"</string>
+<string name="ntp_article_suggestions_section_empty">"ਤੁਹਾਡੇ ਸੁਝਾਏ ਗਏ ਲੇਖ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"ਸਾਈਟ ਦਖਲਅੰਦਾਜ਼ੀ ਜਾਂ ਗੁਮਰਾਹ ਕਰਨ ਵਾਲੇ ਵਿਗਿਆਪਨ ਦਿਖਾਉਂਦੀ ਹੈ"</string> -->
+<string name="payments_method_of_payment_label">"ਭੁਗਤਾਨ ਵਿਧੀ"</string>
+<string name="payments_contact_details_label">"ਸੰਪਰਕ ਜਾਣਕਾਰੀ"</string>
+<string name="payments_add_contact_details_label">"ਸੰਪਰਕ ਜਾਣਕਾਰੀ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_edit_contact_details_label">"ਸੰਪਰਕ ਜਾਣਕਾਰੀ ਦਾ ਸੰਪਾਦਨ ਕਰੋ"</string>
+<string name="payments_add_billing_address">"ਬਿਲਿੰਗ ਪਤਾ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_add_name_on_card">"ਕਾਰਡ \'ਤੇ ਨਾਮ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_add_valid_card_number">"ਵੈਧ ਕਾਰਡ ਨੰਬਰ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_add_more_information">"ਹੋਰ ਜਾਣਕਾਰੀ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_edit_card">"ਕਾਰਡ ਦਾ ਸੰਪਾਦਨ ਕਰੋ"</string>
+<string name="payments_add_phone_number">"ਫ਼ੋਨ ਨੰਬਰ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_add_recipient">"ਨਾਮ ਜੋੜੋ"</string>
+<string name="payments_add_valid_address">"ਵੈਧ ਪਤਾ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_add_email">"ਈਮੇਲ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_add_name">"ਨਾਮ ਜੋੜੋ"</string>
+<string name="payments_order_summary_label">"ਆਰਡਰ ਸਾਰਾਂਸ਼"</string>
+<string name="payment_request_payment_method_section_name">"ਭੁਗਤਾਨ ਵਿਧੀ"</string>
+<string name="payment_account_balance">"ਖਾਤਾ ਬਕਾਇਆ"</string>
+<string name="payments_shipping_summary_label">"ਸ਼ਿਪਿੰਗ"</string>
+<string name="payments_shipping_address_label">"ਸ਼ਿਪਿੰਗ ਪਤਾ"</string>
+<string name="payments_shipping_option_label">"ਸ਼ਿਪਿੰਗ ਵਿਧੀ"</string>
+<string name="payments_delivery_summary_label">"ਡਿਲੀਵਰੀ"</string>
+<string name="payments_delivery_address_label">"ਡਿਲੀਵਰੀ ਪਤਾ"</string>
+<string name="payments_delivery_option_label">"ਅਦਾਇਗੀ ਵਿਧੀ"</string>
+<string name="payments_pickup_summary_label">"ਪਿਕਅੱਪ"</string>
+<string name="payments_pickup_address_label">"ਪਿਕਅੱਪ ਪਤਾ"</string>
+<string name="payments_pickup_option_label">"ਪਿਕਅੱਪ ਵਿਧੀ"</string>
+<string name="payments_edit_button">"ਸੰਪਾਦਿਤ ਕਰੋ"</string>
+<string name="payments_pay_button">"ਭੁਗਤਾਨ ਕਰੋ"</string>
+<string name="payments_continue_button">"ਜਾਰੀ ਰੱਖੋ"</string>
+<string name="payments_add_contact">"ਸੰਪਰਕ ਜਾਣਕਾਰੀ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_add_card">"ਕਾਰਡ ਸ਼ਾਮਲ ਕਰੋ"</string>
+<string name="payments_add_address">"ਪਤਾ ਜੋੜੋ"</string>
+<string name="payments_edit_address">"ਪਤਾ ਸੰਪਾਦਿਤ ਕਰੋ"</string>
+<string name="payments_name_field_in_contact_details">"ਨਾਮ"</string>
+<string name="payments_save_card_to_device_checkbox">"ਇਸ ਕਾਰਡ ਨੂੰ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਰੱਖਿਅਤ ਕਰੋ"</string>
+<string name="payments_accepted_cards_label">"ਮਨਜ਼ੂਰਸ਼ੁਦਾ ਕਾਰਡ"</string>
+<string name="payments_credit_card_expiration_date_abbr">"ਮਿਆਦ ਸਮਾਪਤੀ ਦੀ ਮਿਤੀ %1$s/%2$s"</string>
+<string name="payments_loading_message">"ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ"</string>
+<string name="payments_processing_message">"ਪ੍ਰਕਿਰਿਆ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"</string>
+<string name="payments_checking_option">"ਜਾਂਚ ਕਰ ਰਿਹਾ ਹੈ"</string>
+<string name="payments_updated_label">"ਅੱਪਡੇਟ ਕੀਤਾ"</string>
+<string name="payment_complete_message">"ਭੁਗਤਾਨ ਪੂਰਾ ਹੋਇਆ"</string>
+<string name="payments_error_message">"ਤੁਹਾਡੇ ਆਰਡਰ \'ਤੇ ਪ੍ਰਕਿਰਿਆ ਕਰਨ ਦੌਰਾਨ ਗੜਬੜ ਹੋਈ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"</string>
+<string name="payments_card_and_address_settings">"ਤੁਸੀਂ BEGIN_LINKਸੈਟਿੰਗਾਂEND_LINK ਵਿੱਚ ਕਾਰਡਾਂ ਅਤੇ ਪਤਿਆਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰ ਸਕਦੇ ਹੋ।"</string>
+<string name="payments_card_and_address_settings_signed_in">"ਕਾਰਡ ਅਤੇ ਪਤੇ Chrome ਅਤੇ ਤੁਹਾਡੇ Google ਖਾਤੇ (%1$s) ਤੋਂ ਹਨ। ਤੁਸੀਂ ਉਹਨਾਂ ਦਾ ਪ੍ਰਬੰਧਨ BEGIN_LINKਸੈਟਿੰਗਾਂEND_LINK ਵਿੱਚ ਕਰ ਸਕਦੇ ਹੋ।"</string>
+<string name="payment_touch_sensor_to_pay">"ਭੁਗਤਾਨ ਕਰਨ ਲਈ ਸੈਂਸਰ ਨੂੰ ਸਪਰਸ਼ ਕਰੋ"</string>
+<string name="payment_fingerprint_not_recognized">"ਪਛਾਣ ਨਹੀਂ ਹੋਈ"</string>
+<string name="payments_card_and_address_settings_signed_out">"ਕਾਰਡ ਅਤੇ ਪਤੇ Chrome ਤੋਂ ਹਨ। ਤੁਸੀਂ ਉਹਨਾਂ ਦਾ ਪ੍ਰਬੰਧਨ BEGIN_LINKਸੈਟਿੰਗਾਂEND_LINK ਵਿੱਚ ਜਾ ਕੇ ਕਰ ਸਕਦੇ ਹੋ।"</string>
+<string name="settings_can_make_payment_toggle_label">"ਸਾਈਟਾਂ ਨੂੰ ਇਹ ਜਾਂਚ ਕਰਨ ਦਿਓ ਕਿ ਤੁਸੀਂ ਭੁਗਤਾਨ ਵਿਧੀਆਂ ਰੱਖਿਅਤ ਕੀਤੀਆਂ ਹੋਈਆਂ ਹਨ ਜਾਂ ਨਹੀਂ"</string>
+<string name="payments_required_field_message">"* ਖੇਤਰ ਲੋੜੀਂਦਾ ਹੈ"</string>
+<string name="payments_phone_invalid_validation_message">"ਕੋਈ ਵੈਧ ਫ਼ੋਨ ਨੰਬਰ ਦਾਖਲ ਕਰੋ"</string>
+<string name="payments_email_invalid_validation_message">"ਕੋਈ ਵੈਧ ਈਮੇਲ ਪਤਾ ਦਾਖਲ ਕਰੋ"</string>
+<string name="payments_card_number_invalid_validation_message">"ਕੋਈ ਵੈਧ ਕਾਰਡ ਨੰਬਰ ਦਾਖਲ ਕਰੋ"</string>
+<string name="payments_card_expiration_invalid_validation_message">"ਕੋਈ ਵੈਧ ਮਿਆਦ ਸਮਾਪਤੀ ਮਿਤੀ ਦਾਖਲ ਕਰੋ"</string>
+<string name="payments_invalid_address">"ਕੋਈ ਵੈਧ ਪਤਾ ਦਾਖਲ ਕਰੋ"</string>
+<string name="payments_billing_address_required">"ਬਿਲਿੰਗ ਪਤਾ ਲੋੜੀਂਦਾ ਹੈ"</string>
+<string name="payments_name_on_card_required">"ਕਾਰਡਧਾਰਕ ਦਾ ਨਾਮ ਲੋੜੀਂਦਾ ਹੈ"</string>
+<string name="payments_more_information_required">"ਹੋਰ ਜਾਣਕਾਰੀ ਲੋੜੀਂਦੀ ਹੈ"</string>
+<string name="payments_phone_number_required">"ਫ਼ੋਨ ਨੰਬਰ ਲੋੜੀਂਦਾ ਹੈ"</string>
+<string name="payments_recipient_required">"ਨਾਮ ਲੋੜੀਂਦਾ ਹੈ"</string>
+<string name="payments_email_required">"ਈਮੇਲ ਲੋੜੀਂਦੀ ਹੈ"</string>
+<string name="payments_name_required">"ਨਾਮ ਲੋੜੀਂਦਾ ਹੈ"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"ਲੋੜੀਂਦਾ ਖੇਤਰ"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"ਸ਼ਿਪਿੰਗ ਵਿਧੀਆਂ ਅਤੇ ਲੋੜਾਂ ਨੂੰ ਦੇਖਣ ਲਈ, ਇੱਕ ਪਤਾ ਚੁਣੋ"</string>
+<string name="payments_unsupported_shipping_address">"ਇਸ ਪਤੇ \'ਤੇ ਸ਼ਿਪ ਨਹੀਂ ਕਰ ਸਕਦੇ। ਕੋਈ ਵੱਖਰਾ ਪਤਾ ਚੁਣੋ।"</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"ਅਦਾਇਗੀ ਵਿਧੀਆਂ ਅਤੇ ਲੋੜਾਂ ਨੂੰ ਦੇਖਣ ਲਈ, ਇੱਕ ਪਤਾ ਚੁਣੋ"</string>
+<string name="payments_unsupported_delivery_address">"ਇਸ ਪਤੇ \'ਤੇ ਅਦਾਇਗੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ। ਕੋਈ ਵੱਖਰਾ ਪਤਾ ਚੁਣੋ।"</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"ਪਿੱਕਅੱਪ ਵਿਧੀਆਂ ਅਤੇ ਲੋੜਾਂ ਨੂੰ ਦੇਖਣ ਲਈ, ਇੱਕ ਪਤਾ ਚੁਣੋ"</string>
+<string name="payments_unsupported_pickup_address">"ਇਸ ਪਤੇ ਤੋਂ ਪਿੱਕਅੱਪ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਕਿਸੇ ਵੱਖਰੇ ਪਤੇ ਨੂੰ ਚੁਣੋ।"</string>
+<string name="payments_android_app_error">"ਭੁਗਤਾਨ ਐਪ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ"</string>
+<string name="external_payment_app_leave_incognito_warning">"ਕਿਸੇ ਬਾਹਰੀ ਐਪਲੀਕੇਸ਼ਨ ਰਾਹੀਂ ਭੁਗਤਾਨ ਕਰਨ ਲਈ ਇਨਕੋਗਨਿਟੋ ਮੋਡ ਤੋਂ ਬਾਹਰ ਜਾਇਆ ਜਾ ਰਿਹਾ ਹੈ। ਜਾਰੀ ਰੱਖੀਏ?"</string>
+<string name="payment_handler_sheet_description">"ਭੁਗਤਾਨ ਹੈਂਡਲਰ ਸ਼ੀਟ"</string>
+<string name="payment_handler_sheet_opened_half">"ਭੁਗਤਾਨ ਹੈਂਡਲਰ ਸ਼ੀਟ ਅੱਧੀ ਖੁੱਲ੍ਹੀ ਹੋਈ ਹੈ"</string>
+<string name="payment_handler_sheet_opened_full">"ਭੁਗਤਾਨ ਹੈਂਡਲਰ ਸ਼ੀਟ ਖੁੱਲ੍ਹੀ ਹੋਈ ਹੈ"</string>
+<string name="payment_handler_sheet_closed">"ਭੁਗਤਾਨ ਹੈਂਡਲਰ ਸ਼ੀਟ ਬੰਦ ਹੈ"</string>
+<string name="blocked_ads_prompt_title">"ਵਿਗਿਆਪਨ ਬਲੌਕ ਕੀਤੇ ਗਏ"</string>
+<!-- <string name="translate_infobar_error">"ਓਹੋ। ਇਸ ਪੰਨੇ ਦਾ ਅਨੁਵਾਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string> -->
+<!-- <string name="translate_button">"ਅਨੁਵਾਦ ਕਰੋ"</string> -->
+<!-- <string name="translate_never_translate_site">"ਕਦੇ ਵੀ ਇਸ ਸਾਈਟ ਦਾ ਅਨੁਵਾਦ ਨਾ ਕਰੋ"</string> -->
+<string name="translate_dont_offer_site">"ਇਸ ਸਾਈਟ ਦਾ ਅਨੁਵਾਦ ਕਰਨ ਦੀ ਪੇਸ਼ਕਸ਼ ਨਾ ਕਰੋ"</string>
+<!-- <string name="translate_option_always_translate">"ਪੰਨਿਆਂ ਦਾ ਅਨੁਵਾਦ ਹਮੇਸ਼ਾਂ %1$s ਭਾਸ਼ਾ ਵਿੱਚ ਕਰੋ"</string> -->
+<!-- <string name="translate_option_never_translate">"ਕਦੇ ਵੀ ਪੰਨਿਆਂ ਦਾ ਅਨੁਵਾਦ %1$s ਵਿੱਚ ਨਾ ਕਰੋ"</string> -->
+<string name="translate_dont_offer_lang">"%1$s ਵਿਚਲੇ ਪੰਨਿਆਂ ਦਾ ਅਨੁਵਾਦ ਕਰਨ ਦੀ ਪੇਸ਼ਕਸ਼ ਨਾ ਕਰੋ"</string>
+<!-- <string name="translate_option_more_language">"ਹੋਰ ਭਾਸ਼ਾਵਾਂ"</string> -->
+<!-- <string name="translate_option_not_source_language">"ਕੀ ਪੰਨਾ %1$s ਵਿੱਚ ਨਹੀਂ ਹੈ?"</string> -->
+<string name="translate_snackbar_always_translate">"ਹੁਣ ਤੋਂ %1$s ਭਾਸ਼ਾ ਦੇ ਪੰਨੇ %2$s ਭਾਸ਼ਾ ਵਿੱਚ ਅਨੁਵਾਦ ਕੀਤੇ ਜਾਣਗੇ"</string>
+<string name="translate_snackbar_language_never">"%1$s ਭਾਸ਼ਾ ਵਾਲੇ ਪੰਨਿਆਂ ਦਾ ਅਨੁਵਾਦ ਨਹੀਂ ਕੀਤਾ ਜਾਵੇਗਾ"</string>
+<string name="translate_snackbar_site_never">"ਇਸ ਸਾਈਟ ਦਾ ਅਨੁਵਾਦ ਨਹੀਂ ਕੀਤਾ ਜਾਵੇਗਾ"</string>
+<string name="translate_snackbar_cancel">"ਰੱਦ ਕਰੋ"</string>
+<string name="clear">"ਹਟਾਓ"</string>
+<string name="show_content">"ਦਿਖਾਓ"</string>
+<string name="hide_content">"ਲੁਕਾਓ"</string>
+<string name="choose">"ਚੁਣੋ"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-pa/components_strings.xml -->
+
+<string name="http_post_warning_title">"ਫ਼ਾਰਮ ਨੂੰ ਮੁੜ ਸਪੁਰਦ ਕਰਨ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"</string>
+<string name="http_post_warning">"ਪੰਨਾ ਜੋ ਤੁਸੀਂ ਵਰਤੀ ਗਈ ਜਾਣਕਾਰੀ ਲਈ ਖੋਜ ਰਹੇ ਹੋ, ਉਹ ਤੁਸੀਂ ਦਰਜ ਕੀਤਾ ਸੀ। ਉਸ ਪੰਨਾ \'ਤੇ ਵਾਪਸ ਜਾਣ ਨਾਲ ਤੁਹਾਡੇ ਵੱਲੋਂ ਕੀਤੀ ਗਈ ਕੋਈ ਵੀ ਕਾਰਵਾਈ ਦੁਹਰਾਈ ਜਾ ਸਕਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
+<string name="http_post_warning_resend">"ਜਾਰੀ ਰੱਖੋ"</string>
+<string name="login_dialog_title">"ਸਾਈਨ-ਇਨ ਕਰੋ"</string>
+<string name="login_dialog_ok_button_label">"ਸਾਈਨ-ਇਨ ਕਰੋ"</string>
+<string name="login_dialog_username_field">"ਵਰਤੋਂਕਾਰ ਨਾਮ"</string>
+<string name="login_dialog_password_field">"ਪਾਸਵਰਡ"</string>
+<string name="page_info_permission_ads_subtitle">"ਸਾਈਟ ਦਖਲਅੰਦਾਜ਼ੀ ਜਾਂ ਗੁਮਰਾਹ ਕਰਨ ਵਾਲੇ ਵਿਗਿਆਪਨ ਦਿਖਾਉਂਦੀ ਹੈ"</string>
+<string name="translate_infobar_error">"ਓਹੋ। ਇਸ ਪੰਨੇ ਦਾ ਅਨੁਵਾਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"</string>
+<string name="translate_button">"ਅਨੁਵਾਦ ਕਰੋ"</string>
+<string name="translate_never_translate_site">"ਕਦੇ ਵੀ ਇਸ ਸਾਈਟ ਦਾ ਅਨੁਵਾਦ ਨਾ ਕਰੋ"</string>
+<string name="translate_option_always_translate">"ਪੰਨਿਆਂ ਦਾ ਅਨੁਵਾਦ ਹਮੇਸ਼ਾਂ %1$s ਭਾਸ਼ਾ ਵਿੱਚ ਕਰੋ"</string>
+<string name="translate_option_never_translate">"ਕਦੇ ਵੀ ਪੰਨਿਆਂ ਦਾ ਅਨੁਵਾਦ %1$s ਵਿੱਚ ਨਾ ਕਰੋ"</string>
+<string name="translate_option_more_language">"ਹੋਰ ਭਾਸ਼ਾਵਾਂ"</string>
+<string name="translate_option_not_source_language">"ਕੀ ਪੰਨਾ %1$s ਵਿੱਚ ਨਹੀਂ ਹੈ?"</string>
+</resources>

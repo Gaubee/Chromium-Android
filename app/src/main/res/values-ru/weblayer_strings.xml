@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="weblayer_notification_channel_group_name">"Действия в веб-браузере"</string>
+<string name="amp_publisher_url">"%1$s – представлено Google"</string>
+</resources>

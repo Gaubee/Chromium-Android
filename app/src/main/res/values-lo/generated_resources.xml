@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"ຂໍ້ກຳນົດການບໍລິການຂອງ Chrome ຈະປ່ຽນແປງໃນວັນທີ 31 ເດືອນມີນາ"</string>
+<string name="tos_notification_body_text">"ກະລຸນາກວດເບິ່ງຂໍ້ກຳນົດໃໝ່"</string>
+<string name="tos_notification_ack_button_text">"ເຂົ້າໃຈແລ້ວ"</string>
+<string name="tos_notification_review_button_text">"ກວດສອບ"</string>
+<string name="managed">"ຈັດການໂດຍອົງການຂອງທ່ານ"</string>
+<string name="search_or_type_web_address">"ຊອກຫາ ຫຼື ພິມທີ່ຢູ່ເວັບ"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"ລຶບການແນະນຳອອກຈາກຄລິບບອດບໍ?"</string>
+<string name="options_homepage_title">"ຫນ້າ​ຫຼັກ"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"ບໍ່ພົບອຸປະກອນທີ່ຢູ່ໃກ້ຄຽງ."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"ອະ​ນຸ​ຍາດ​"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"ບລັອກ"</string>
+</resources>

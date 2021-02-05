@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-<string name="infobar_update_permissions_button_text">"继续"</string>
-<string name="search_or_type_web_address">"搜索或输入网址"</string>
-<string name="options_homepage_title">"主页"</string>
-<string name="autofill_from_google_account">"Google Pay"</string>
+<!-- <string name="infobar_update_permissions_button_text">"继续"</string> -->
+<!-- <string name="search_or_type_web_address">"搜索或输入网址"</string> -->
+<!-- <string name="options_homepage_title">"主页"</string> -->
+<!-- <string name="autofill_from_google_account">"Google Pay"</string> -->
 <string name="sync_confirmation_chrome_sync_title">"Chrome 浏览器同步"</string>
 <string name="sync_confirmation_chrome_sync_message">"您的书签、历史记录、密码及其他设置均将同步到您的 Google 帐号，以便您在自己的任意设备上使用"</string>
 <string name="sync_confirmation_personalize_services_title">"对 Google 服务进行个性化设置"</string>
@@ -14,11 +14,27 @@
 <!-- <string name="external_app_leave_incognito_stay">"留下"</string> -->
 <!-- <string name="external_app_leave_incognito_leave">"离开"</string> -->
 <!-- <string name="external_app_restricted_access_error">"Chrome 无权访问请求的资源。"</string> -->
-<string name="blocked_ads_prompt_title">"广告已被拦截"</string>
+<!-- <string name="blocked_ads_prompt_title">"广告已被拦截"</string> -->
 <string name="video_call_notification_text_2">"正在存取视频输入"</string>
 <string name="audio_call_notification_text_2">"正在存取音频输入"</string>
 <string name="video_audio_call_notification_text_2">"正在存取音频和视频输入"</string>
 <string name="video_call_incognito_notification_text_2">"网站正在使用视频输入"</string>
 <string name="audio_call_incognito_notification_text_2">"网站正在使用音频输入"</string>
 <string name="video_audio_call_incognito_notification_text_2">"网站正在使用音频和视频输入"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/chrome/java/res/values-zh-rCN/generated_resources.xml -->
+
+<string name="tos_notification_title">"Chrome 的《服务条款》将于 3 月 31 日变更"</string>
+<string name="tos_notification_body_text">"请查阅新版条款"</string>
+<string name="tos_notification_ack_button_text">"知道了"</string>
+<string name="tos_notification_review_button_text">"查看"</string>
+<string name="managed">"由贵单位管理"</string>
+<string name="search_or_type_web_address">"搜索或输入网址"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"从剪贴板中移除建议？"</string>
+<string name="options_homepage_title">"主页"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"未找到附近的设备。"</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"允许"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"禁止"</string>
 </resources>

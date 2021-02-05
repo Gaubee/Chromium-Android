@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Се согласувам"</string>
+<string name="autofill_assistant_init_title">"Испробајте го „Помошникот на Google“\nво Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Изнајмете автомобил\nсо само неколку допири"</string>
+<string name="autofill_assistant_init_message_password_change">"Дозволете „Помошникот на Google“ да ви помогне\nда ја промените лозинката"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Купувајте билети за кино\nсо само неколку допири"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Нарачајте храна\nсо само неколку допири"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Чекирајте се за летот\nсо само неколку допири"</string>
+<string name="autofill_assistant_init_message_voice_search">"Испробајте гласовни активности\nна веб-сајтови"</string>
+<string name="autofill_assistant_init_message_shopping">"Брза наплата\nсо само неколку допири"</string>
+<string name="autofill_assistant_init_message">"„Помошникот на Google“ ви заштедува време бидејќи ви помага да завршите дејства на интернет, како што се пребарување и наплата."</string>
+<string name="autofill_assistant_init_message_short">"„Помошникот на Google“ во Chrome може да извршува дејства за вас на веб-сајтовите"</string>
+<string name="autofill_assistant_google_terms_description">"За да ви помогне да завршувате задачи, Google ќе ги добива URL-адресите и содржините на сајтовите на кои го користите „Помошникот“, како и податоците што ги испраќате преку „Помошникот“. Податоциве може да се зачуваат на вашата сметка на Google. Може да го исклучите „Помошникот“ во поставките за Chrome. &lt;link&gt;Дознајте повеќе&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Извинете што не можам да ви помогнам, продолжете сами."</string>
+<string name="autofill_assistant_payment_information_missing">"Недостасува информација"</string>
+<string name="autofill_assistant_view_original_image_desc">"Да се отвори надворешен линк?"</string>
+<string name="autofill_assistant_view_original_image_view">"Приказ"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Откажи"</string>
+<string name="autofill_assistant_sheet_content_description">"„Помошникот на Google“ во Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"„Помошникот на Google“ во Chrome е отворен во половина висина."</string>
+<string name="autofill_assistant_sheet_full_height">"„Помошникот на Google“ во Chrome е отворен во цела висина."</string>
+<string name="autofill_assistant_sheet_closed">"„Помошникот на Google“ во Chrome е затворен."</string>
+<string name="autofill_assistant_send_feedback">"Испратете повратни информации"</string>
+<string name="autofill_assistant_increase_value">"Зголемете ја вредноста"</string>
+<string name="autofill_assistant_decrease_value">"Намалете ја вредноста"</string>
+<string name="autofill_assistant_overflow_options">"Претпочитани вредности"</string>
+</resources>

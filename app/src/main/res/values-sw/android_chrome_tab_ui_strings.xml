@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Linganisha kurasa kwa haraka kwa kuanzisha kikundi. Ili uanze, gusa na ushikilie kiungo."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Gusa ili uone kichupo kingine"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Vichupo vyako vimewekwa katika kikundi kimoja hapa"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Badili kati ya vichupo vilivyo katika kikundi chako cha vichupo karibu na sehemu ya chini ya skrini"</string>
+<string name="undo_bar_group_tabs_message">"Umeweka pamoja vichupo %1$s"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"Kichupo %1$d"</item>
+  <item quantity="other">"Vichupo %1$d"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Ongeza kichupo kipya kwenye kikundi"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Ficha gridi ya skrini nzima"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Onyesha vichupo vya kikundi katika gridi ya skrini nzima"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Funga ukanda wa vichupo"</string>
+<string name="tabswitcher_create_group">"Unda kikundi"</string>
+<string name="accessibility_tab_switcher">"Kibadilishaji cha Vichupo"</string>
+<string name="accessibility_close_tab_group_button">"Funga kikundi chenye vichupo %1$s"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Funga kikundi cha %1$s chenye vichupo %2$s"</string>
+<string name="tab_selection_editor_group">"Kikundi"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Chagua vichupo"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Panga kichupo %1$d kilichochaguliwa"</item>
+  <item quantity="other">"Panga pamoja vichupo %1$d vilivyochaguliwa"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Ficha hali ya kuchagua vingi"</string>
+<string name="accessibility_tab_selection_editor">"Hali ya kuchagua vingi"</string>
+<string name="tab_grid_dialog_remove_from_group">"Ondoa kwenye kikundi"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Ondoa vichupo kwenye kikundi"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Ondoa"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Shiriki kikundi"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Badilisha jina la kikundi"</string>
+<string name="accessibility_expand_tab_group">"Panua kikundi chenye vichupo %1$s."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Panua kikundi cha kichupo cha %1$s chenye vichupo %2$s."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Ondoa kichupo %1$d kilichochaguliwa kwenye kikundi."</item>
+  <item quantity="other">"Ondoa vichupo %1$d vilivyochaguliwa kwenye kikundi."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Kunja kichupo %1$d."</item>
+  <item quantity="other">"Kunja kikundi chenye vichupo %1$d."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Kunja kichupo %1$d."</item>
+  <item quantity="other">"Kunja kikundi cha %1$s chenye vichupo %2$d."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Kikundi cha vichupo kimepanuliwa"</string>
+<string name="iph_drag_and_drop_introduction">"Buruta vichupo ili uviweke katika kikundi"</string>
+<string name="iph_drag_and_drop_show_me">"Nionyeshe"</string>
+<string name="iph_drag_and_drop_title">"Weka kwa utaratibu"</string>
+<string name="iph_drag_and_drop_content">"Ili upange vichupo katika makundi, gusa na ushikilie kichupo. Kisha, kiburute kwenye kichupo kingine."</string>
+<string name="tab_switcher_carousel_title">"Endelea kuvinjari"</string>
+<string name="tab_switcher_carousel_view_all">"Angalia vyote"</string>
+<string name="tab_suggestion_review_button">"Maoni"</string>
+<string name="tab_suggestion_close_tab_action_button">"Funga"</string>
+<string name="tab_suggestion_close_stale_message">"Hujatumia vichupo vyako %1$s hivi karibuni. Je, tuvifunge?"</string>
+<string name="tab_suggestion_group_tabs_message">"Vichupo %1$s vinaonekana kuwa vinahusiana. Ungependa kuvipanga pamoja?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Soma mapendekezo."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Pendekezo: Hujatumia vichupo %1$s hivi majuzi. Ungependa tuvifunge?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Pendekezo: Vichupo %1$s vinaonekana kuwa vinahusiana. Ungependa kuvipanga pamoja?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Ondoa mapendekezo."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Funga kichupo %1$d ulichochagua"</item>
+  <item quantity="other">"Funga vichupo %1$d ulivyochagua"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Sogeza kichupo kushoto"</string>
+<string name="accessibility_tab_movement_right">"Sogeza kichupo kulia"</string>
+<string name="accessibility_tab_movement_up">"Sogeza kichupo juu"</string>
+<string name="accessibility_tab_movement_down">"Sogeza kichupo chini"</string>
+<string name="undo_tab_strip_closure_message">"Ukanda wa vichupo umefungwa"</string>
+<string name="tab_strip_info_bar_question">"Hungependa kuonyeshwa ukanda wa vichupo tena?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Usionyeshe tena"</string>
+<string name="tab_strip_info_bar_reshow">"Onyesha baadaye"</string>
+<string name="price_drop_spotted_title">"Punguo la bei limetambuliwa"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Nionyeshe"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

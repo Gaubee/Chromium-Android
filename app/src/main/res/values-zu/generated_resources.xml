@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Imigomo yesevisi ye-Chrome iyashintsha ngomhla kaMashi 31"</string>
+<string name="tos_notification_body_text">"Sicela ubuyekeze imigomo emisha"</string>
+<string name="tos_notification_ack_button_text">"Ngiyitholile"</string>
+<string name="tos_notification_review_button_text">"Buyekeza"</string>
+<string name="managed">"Kuphethwe inhlangano yakho"</string>
+<string name="search_or_type_web_address">"Sesha noma thayipha ikheli lewebhu"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Susa isiphakamiso kusukela kubhodi lokunamathisela?"</string>
+<string name="options_homepage_title">"Ikhasi lasekhaya"</string>
+<string name="autofill_from_google_account">"I-Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Awekho amadivayisi aseduze atholiwe."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Vumela"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Vimba"</string>
+</resources>

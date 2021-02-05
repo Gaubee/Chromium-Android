@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"グループを作成して簡単にページを比較できます。グループを作成するには、リンクを長押しします。"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"タップすると他のタブが表示されます"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"タブはここにグループ化されます"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"画面下部にあるタブグループのタブを切り替えます"</string>
+<string name="undo_bar_group_tabs_message">"%1$s 個のタブがグループ化されました"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d 個のタブ"</item>
+  <item quantity="other">"%1$d 個のタブ"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"グループに新しいタブを追加"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"全画面グリッドを非表示"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"グループのタブを全画面グリッドで表示"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"タブバーを閉じます"</string>
+<string name="tabswitcher_create_group">"グループを作成"</string>
+<string name="accessibility_tab_switcher">"タブ切り替え機能"</string>
+<string name="accessibility_close_tab_group_button">"タブグループの %1$s 個のタブを閉じます"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"%1$s グループの %2$s 個のタブを閉じます"</string>
+<string name="tab_selection_editor_group">"グループ化"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"タブを選択"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"選択した %1$d 個のタブをグループ化する"</item>
+  <item quantity="other">"選択した %1$d 個のタブをグループ化する"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"複数選択モードを非表示にします"</string>
+<string name="accessibility_tab_selection_editor">"複数選択モード"</string>
+<string name="tab_grid_dialog_remove_from_group">"グループから削除"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"グループからタブを削除"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"削除"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"グループを共有"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"グループ名を編集"</string>
+<string name="accessibility_expand_tab_group">"タブグループの %1$s 個のタブを展開します。"</string>
+<string name="accessibility_expand_tab_group_with_group_name">"%1$s タブグループの %2$s 個のタブを展開します。"</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"選択した %1$d 個のタブをグループから削除します。"</item>
+  <item quantity="other">"選択した %1$d 個のタブをグループから削除します。"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d 個のタブを折りたたみます。"</item>
+  <item quantity="other">"タブグループの %1$d 個のタブを折りたたみます。"</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d 個のタブを折りたたみます。"</item>
+  <item quantity="other">"%1$s タブグループの %2$d 個のタブを折りたたみます。"</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"タブグループを展開しました"</string>
+<string name="iph_drag_and_drop_introduction">"タブをグループ化するにはドラッグします"</string>
+<string name="iph_drag_and_drop_show_me">"表示"</string>
+<string name="iph_drag_and_drop_title">"タブを整理"</string>
+<string name="iph_drag_and_drop_content">"タブをグループ化するには、タブを押しながら別のタブにドラッグします。"</string>
+<string name="tab_switcher_carousel_title">"引き続き閲覧"</string>
+<string name="tab_switcher_carousel_view_all">"すべて表示"</string>
+<string name="tab_suggestion_review_button">"内容を確認"</string>
+<string name="tab_suggestion_close_tab_action_button">"閉じる"</string>
+<string name="tab_suggestion_close_stale_message">"しばらく使用していないタブが %1$s 個あります。これらのタブを閉じますか？"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s 個のタブは関連しているようです。グループ化しますか？"</string>
+<string name="accessibility_tab_suggestion_review_button">"提案を確認します。"</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"提案: しばらく使用していないタブが %1$s 個あります。これらのタブを閉じますか？"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"おすすめ: %1$s 個のタブは関連しているようです。グループ化しますか？"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"提案を閉じます。"</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"選択した %1$d 個のタブを閉じます"</item>
+  <item quantity="other">"選択した %1$d 個のタブを閉じます"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"タブを左に移動"</string>
+<string name="accessibility_tab_movement_right">"タブを右に移動"</string>
+<string name="accessibility_tab_movement_up">"タブを上に移動"</string>
+<string name="accessibility_tab_movement_down">"タブを下に移動"</string>
+<string name="undo_tab_strip_closure_message">"タブバーを閉じました"</string>
+<string name="tab_strip_info_bar_question">"次回からタブバーを表示しないよう設定しますか？"</string>
+<string name="tab_strip_info_bar_no_reshow">"次回から表示しない"</string>
+<string name="tab_strip_info_bar_reshow">"後で表示"</string>
+<string name="price_drop_spotted_title">"値下げ情報が見つかりました"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"表示"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

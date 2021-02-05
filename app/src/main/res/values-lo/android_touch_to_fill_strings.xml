@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"ສືບຕໍ່ດ້ວຍບັນຊີ"</string>
+<string name="touch_to_fill_sheet_title">"ເລືອກໜຶ່ງບັນຊີ"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"ລາຍການຂໍ້ມູນປະຈຳຕົວທີ່ຕ້ອງຕື່ມເມື່ອແຕະ."</string>
+<string name="touch_to_fill_sheet_half_height">"ລາຍການຂໍ້ມູນປະຈຳຕົວທີ່ຈະຕື່ມເມື່ອແຕະເປີດຢູ່ລະດັບລວງສູງເຄິ່ງຈໍ."</string>
+<string name="touch_to_fill_sheet_full_height">"ລາຍການຂໍ້ມູນປະຈຳຕົວທີ່ຈະຕື່ມເມື່ອແຕະເປີດຢູ່ລະດັບລວງສູງເຕັມຈໍ."</string>
+<string name="touch_to_fill_sheet_closed">"ລາຍການຂໍ້ມູນປະຈຳຕົວທີ່ຕ້ອງຕື່ມເມື່ອແຕະປິດຢູ່."</string>
+<string name="manage_passwords">"ຈັດການລະ​ຫັດ​ຜ່ານ​"</string>
+<string name="touch_to_fill_continue">"ສືບຕໍ່"</string>
+</resources>

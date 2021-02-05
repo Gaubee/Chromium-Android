@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"ខ្ញុំយល់ព្រម"</string>
+<string name="autofill_assistant_init_title">"សាកល្បង​ប្រើ Google ជំនួយការ\nនៅក្នុង Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"ជួល​រថយន្ត\nដោយគ្រាន់តែ​ចុចពីរបីដង​ប៉ុណ្ណោះ"</string>
+<string name="autofill_assistant_init_message_password_change">"អនុញ្ញាតឱ្យ Google ជំនួយការ​ជួយអ្នក​\nក្នុងការប្ដូរពាក្យសម្ងាត់របស់អ្នក"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"ទិញ​សំបុត្រកុន\nដោយគ្រាន់តែ​ចុចពីរបីដង​ប៉ុណ្ណោះ"</string>
+<string name="autofill_assistant_init_message_food_ordering">"កុម្ម៉ង់​អាហារ\nដោយគ្រាន់តែ​ចុចពីរបីដង​ប៉ុណ្ណោះ"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"ចុះឈ្មោះ​ជើងហោះហើរ​របស់អ្នក\nដោយគ្រាន់តែ​ចុចពីរបីដង​ប៉ុណ្ណោះ"</string>
+<string name="autofill_assistant_init_message_voice_search">"សាកល្បងប្រើ​សកម្មភាព​ជា​សំឡេង\nនៅលើ​គេហទំព័រ"</string>
+<string name="autofill_assistant_init_message_shopping">"បង់ប្រាក់រហ័ស\nដោយគ្រាន់តែ​ចុចពីរបីដង​ប៉ុណ្ណោះ"</string>
+<string name="autofill_assistant_init_message">"Google ជំនួយការ​ជួយសន្សំពេល​របស់អ្នក តាមរយៈ​ការជួយ​អ្នក​ក្នុងការ​បញ្ចប់​សកម្មភាព​ផ្សេងៗ​នៅលើ​បណ្ដាញដូចជា ​ការស្វែងរក និង​ការបង់ប្រាក់ចេញ​ជាដើម​។"</string>
+<string name="autofill_assistant_init_message_short">"Google ជំនួយការ​នៅក្នុង Chrome អាច​បញ្ចប់​សកម្មភាព​នៅលើ​គេហទំព័រ​ជូនអ្នក​បាន"</string>
+<string name="autofill_assistant_google_terms_description">"ដើម្បី​ជួយអ្នកក្នុងការបំពេញ​កិច្ចការផ្សេងៗ Google នឹង​ទទួល​ URL និងខ្លឹមសារ​របស់គេហទំព័រ ដែលអ្នកប្រើជាមួយជំនួយការរបស់អ្នក ព្រមទាំងព័ត៌មានដែលអ្នកដាក់បញ្ជូនតាមរយៈជំនួយការ។ ព័ត៌មាននេះ​អាចត្រូវបានរក្សាទុ​កនៅក្នុងគណនី Google របស់អ្នក។ អ្នក​អាចបិទជំនួយការនៅក្នុងការកំណត់ Chrome។ &lt;link&gt;ស្វែងយល់​បន្ថែម&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"សូមអភ័យទោស ខ្ញុំ​មិនអាច​ជួយបានទេ សូមបន្ត​ដោយ​ខ្លួនឯង។"</string>
+<string name="autofill_assistant_payment_information_missing">"បាត់ព័ត៌មាន"</string>
+<string name="autofill_assistant_view_original_image_desc">"បើក​តំណ​ខាងក្រៅ?"</string>
+<string name="autofill_assistant_view_original_image_view">"មើល"</string>
+<string name="autofill_assistant_view_original_image_cancel">"បដិសេធ"</string>
+<string name="autofill_assistant_sheet_content_description">"Google ជំនួយការនៅក្នុង Chrome ។"</string>
+<string name="autofill_assistant_sheet_half_height">"Google ជំនួយការ​នៅក្នុង Chrome បាន​បើកក្នុងកម្ពស់ពាក់កណ្ដាល។"</string>
+<string name="autofill_assistant_sheet_full_height">"Google ជំនួយការ​នៅក្នុង Chrome បាន​បើកក្នុងកម្ពស់ពេញ។"</string>
+<string name="autofill_assistant_sheet_closed">"បាន​បិទ Google ជំនួយការនៅក្នុង Chrome ។"</string>
+<string name="autofill_assistant_send_feedback">"ផ្ញើមតិ"</string>
+<string name="autofill_assistant_increase_value">"បង្កើន​តម្លៃ"</string>
+<string name="autofill_assistant_decrease_value">"បន្ថយ​តម្លៃ"</string>
+<string name="autofill_assistant_overflow_options">"ចំណូលចិត្ត"</string>
+</resources>

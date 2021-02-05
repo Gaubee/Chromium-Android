@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome þarf leyfi til að nota myndavélina til að búa til þrívíddarkort af umhverfinu."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome þarf leyfi til að nota myndavélina þína á þessu vefsvæði."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome þarf leyfi til að nota hljóðnemann þinn á þessu vefsvæði."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome þarf leyfi til að nota myndavélina og hljóðnemann þinn á þessu vefsvæði."</string>
+<string name="infobar_missing_location_permission_text">"Chrome þarf staðsetningaraðgang til að deila staðsetningu þinni með þessu vefsvæði."</string>
+<string name="infobar_update_permissions_button_text">"Halda áfram"</string>
+<string name="nfc_disabled_on_device_message">"Kveiktu á NFC í stillingum Android til að halda áfram"</string>
+<string name="nfc_prompt_turn_on">"Kveikja"</string>
+<string name="overlay_detected_dialog_title">"Þetta vefsvæði getur ekki beðið þig um heimild"</string>
+<string name="overlay_detected_dialog_message">"Lokaðu öllum blöðrum eða yfirlögnum úr öðrum forritum. Reyndu svo aftur."</string>
+</resources>

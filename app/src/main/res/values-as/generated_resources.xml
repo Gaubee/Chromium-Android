@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"৩১ মাৰ্চৰ পৰা Chromeৰ সেৱাৰ চর্তাৱলী সলনি হ’ব"</string>
+<string name="tos_notification_body_text">"অনুগ্ৰহ কৰি নতুন চৰ্তাৱলী পৰ্যালোচনা কৰক"</string>
+<string name="tos_notification_ack_button_text">"বুজি পালোঁ"</string>
+<string name="tos_notification_review_button_text">"পৰ্যালোচনা কৰক"</string>
+<string name="managed">"আপোনাৰ প্ৰতিষ্ঠানৰ দ্বাৰা পৰিচালিত"</string>
+<string name="search_or_type_web_address">"সন্ধান কৰক বা ৱেব ঠিকনা টাইপ কৰক"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"ক্লিপব’ৰ্ডৰ পৰা পৰামৰ্শ আঁতৰাবনে?"</string>
+<string name="options_homepage_title">"গৃহ পৃষ্ঠা"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"কোনো নিকটৱৰ্তী ডিভাইচ বিচাৰি পোৱা নগ’ল।"</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"অনুমতি দিয়ক"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"অৱৰোধ কৰক"</string>
+</resources>

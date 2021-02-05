@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Kailangan ng Chrome ng access sa iyong camera para gumawa ng 3D na mapa ng kapaligiran mo."</string>
+<string name="infobar_missing_camera_permission_text">"Kailangan ng Chrome ng pahintulot na i-access ang iyong camera para sa site na ito."</string>
+<string name="infobar_missing_microphone_permission_text">"Kailangan ng Chrome ng pahintulot na i-access ang iyong mikropono para sa site na ito."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Kailangan ng Chrome ng pahintulot na i-access ang iyong camera at mikropono para sa site na ito."</string>
+<string name="infobar_missing_location_permission_text">"Kailangan ng Chrome ng access sa iyong lokasyon upang ibahagi ang lokasyon mo sa site na ito."</string>
+<string name="infobar_update_permissions_button_text">"Magpatuloy"</string>
+<string name="nfc_disabled_on_device_message">"Para magpatuloy, i-on ang NFC sa mga setting ng Android"</string>
+<string name="nfc_prompt_turn_on">"I-on"</string>
+<string name="overlay_detected_dialog_title">"Hindi puwedeng hingin ng site na ito ang iyong pahintulot"</string>
+<string name="overlay_detected_dialog_message">"Isara ang anumang bubble o overlay mula sa iba pang app. Pagkatapos ay subukan ulit."</string>
+</resources>

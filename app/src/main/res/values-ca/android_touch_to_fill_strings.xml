@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Continua amb el compte"</string>
+<string name="touch_to_fill_sheet_title">"Tria un compte"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Llista de credencials que s\'emplenaran amb un toc."</string>
+<string name="touch_to_fill_sheet_half_height">"La llista de credencials que s\'emplenaran amb un toc s\'ha obert a mitja alçada."</string>
+<string name="touch_to_fill_sheet_full_height">"La llista de credencials que s\'emplenaran amb un toc s\'ha obert a alçada completa."</string>
+<string name="touch_to_fill_sheet_closed">"La llista de credencials que s\'emplenaran amb un toc està tancada."</string>
+<string name="manage_passwords">"Gestiona les contrasenyes"</string>
+<string name="touch_to_fill_continue">"Continua"</string>
+</resources>

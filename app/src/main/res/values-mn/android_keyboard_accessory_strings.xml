@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Хүрэхэд гүйцээж бөглөх мандат үнэмлэхийн жагсаалт."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Хүрэхэд гүйцээж бөглөх мандат үнэмлэхийн жагсаалтыг хагас өндрөөр нээлээ."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Хүрэхэд гүйцээж бөглөх мандат үнэмлэхийн жагсаалтыг бүтэн өндрөөр нээлээ."</string>
+<string name="all_passwords_bottom_sheet_closed">"Хүрэхэд гүйцээж бөглөх мандат үнэмлэхийн жагсаалт хаалттай байна."</string>
+<string name="all_passwords_bottom_sheet_title">"Нууц үг"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Хайлт"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Нууц үг алга"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Та %s-д итгэж байвал өөр сайтад хадгалсан нууц үг ашиглах боломжтой."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Сайт бүрд өвөрмөц нууц үг ашиглахыг оролдож үзнэ үү."</string>
+<string name="autofill_keyboard_accessory_content_description">"Боломжтой нууц үг"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Гар дээр боломжтой байгаа автоматаар бөглөх хэсгийн саналууд"</string>
+<string name="keyboard_accessory_sheet_hide">"Гарыг харуулах"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome-н автоматаар бөглөх хэсгийн зөвлөмжийг ашиглана уу"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Илүү олон зөвлөмж харахын тулд шударна уу"</string>
+<string name="password_generation_accessory_button">"Сайн нууц үг санал болгох"</string>
+<string name="password_generation_accessory_button_short">"Нууц үг санал болгох"</string>
+<string name="password_accessory_sheet_toggle">"Нууц үгийг харуулах"</string>
+<string name="password_accessory_sheet_opened">"Хадгалсан нууц үг болон нууц үгийн сонголтыг харуулж байна"</string>
+<string name="address_accessory_sheet_title">"Хаягууд"</string>
+<string name="address_accessory_sheet_toggle">"Хаяг харуулах"</string>
+<string name="address_accessory_sheet_opened">"Хадгалсан хаягийг харуулж байна"</string>
+<string name="credit_card_accessory_sheet_toggle">"Төлбөрийн хэрэгслийг харуулах"</string>
+<string name="credit_card_accessory_sheet_opened">"Хадгалсан төлбөрийн хэрэгслийг харуулж байна"</string>
+</resources>

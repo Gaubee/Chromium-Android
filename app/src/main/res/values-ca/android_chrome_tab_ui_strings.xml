@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Crea un grup per comparar pàgines ràpidament. Per començar, mantén premut un enllaç."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Toca per veure una altra pestanya"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Les teves pestanyes s\'agrupen aquí"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Canvia de pestanya al grup de pestanyes de la part inferior de la pantalla"</string>
+<string name="undo_bar_group_tabs_message">"S\'han agrupat %1$s pestanyes"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d pestanya"</item>
+  <item quantity="other">"%1$d pestanyes"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Afegeix una pestanya nova al grup"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Amaga la quadrícula en pantalla completa"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Mostra les pestanyes del grup en una quadrícula en pantalla completa"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Tanca la barra de pestanyes"</string>
+<string name="tabswitcher_create_group">"Crea un grup"</string>
+<string name="accessibility_tab_switcher">"Selector de pestanyes"</string>
+<string name="accessibility_close_tab_group_button">"Tanca el grup format per %1$s pestanyes"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Tanca el grup %1$s format per %2$s pestanyes"</string>
+<string name="tab_selection_editor_group">"Grup"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Selecciona pestanyes"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Agrupa %1$d pestanya seleccionada"</item>
+  <item quantity="other">"Agrupa les %1$d pestanyes seleccionades"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Amaga el mode de multiselecció"</string>
+<string name="accessibility_tab_selection_editor">"Mode de multiselecció"</string>
+<string name="tab_grid_dialog_remove_from_group">"Suprimeix del grup"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Suprimeix les pestanyes"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Suprimeix"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Comparteix el grup"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Edita el nom del grup"</string>
+<string name="accessibility_expand_tab_group">"Desplega el grup format per %1$s pestanyes."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Desplega el grup de pestanyes %1$s amb %2$s pestanyes."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Suprimeix %1$d pestanya seleccionada del grup."</item>
+  <item quantity="other">"Suprimeix %1$d pestanyes seleccionades del grup."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Replega %1$d pestanya."</item>
+  <item quantity="other">"Replega el grup format per %1$d pestanyes."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Replega %1$d pestanya."</item>
+  <item quantity="other">"Replega el grup %1$s format per %2$d pestanyes."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"El grup de pestanyes s\'ha desplegat"</string>
+<string name="iph_drag_and_drop_introduction">"Arrossega les pestanyes per agrupar-les"</string>
+<string name="iph_drag_and_drop_show_me">"Mostra-m\'ho"</string>
+<string name="iph_drag_and_drop_title">"Organitza el contingut"</string>
+<string name="iph_drag_and_drop_content">"Per agrupar les pestanyes, mantén-ne una premuda. A continuació, arrossega-la fins a una altra."</string>
+<string name="tab_switcher_carousel_title">"Continua navegant"</string>
+<string name="tab_switcher_carousel_view_all">"Mostra-ho tot"</string>
+<string name="tab_suggestion_review_button">"Revisa"</string>
+<string name="tab_suggestion_close_tab_action_button">"Tanca"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s de les teves pestanyes no s\'han utilitzat últimament. Vols tancar-les?"</string>
+<string name="tab_suggestion_group_tabs_message">"Sembla que hi ha %1$s pestanyes relacionades. Vols agrupar-les?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Revisa els suggeriments."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Suggeriment: %1$s de les teves pestanyes no s\'han utilitzat últimament. Vols tancar-les?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Suggeriment: sembla que hi ha %1$s pestanyes relacionades. Vols agrupar-les?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Ignora els suggeriments."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Tanca %1$d pestanya seleccionada"</item>
+  <item quantity="other">"Tanca les %1$d pestanyes seleccionades"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Mou la pestanya cap a l\'esquerra"</string>
+<string name="accessibility_tab_movement_right">"Mou la pestanya cap a la dreta"</string>
+<string name="accessibility_tab_movement_up">"Mou la pestanya cap amunt"</string>
+<string name="accessibility_tab_movement_down">"Mou la pestanya cap avall"</string>
+<string name="undo_tab_strip_closure_message">"Barra de pestanyes tancada"</string>
+<string name="tab_strip_info_bar_question">"No vols que es torni a mostrar la barra de pestanyes?"</string>
+<string name="tab_strip_info_bar_no_reshow">"No ho tornis a mostrar"</string>
+<string name="tab_strip_info_bar_reshow">"Mostra més tard"</string>
+<string name="price_drop_spotted_title">"S\'ha detectat una baixada de preu"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Mostra-m\'ho"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

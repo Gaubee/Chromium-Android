@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Топ жасай отырып, беттерді жылдам салыстырыңыз. Бастау үшін сілтемені басып ұстап тұрыңыз."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Басқа қойынды көру үшін түртіңіз."</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Қойындылар осы жерге топтастырылады."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Экранның төменгі жағындағы қойындылар тобында қойындылар арасында ауысуға болады."</string>
+<string name="undo_bar_group_tabs_message">"%1$s қойынды топтастырылды."</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d қойынды"</item>
+  <item quantity="other">"%1$d қойынды"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Топқа жаңа қойынды енгізу"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Толық экрандық торды жасыру"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Топ қойындыларын толық экранда тор түрінде көрсету"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Қойындылар жолағын жабу"</string>
+<string name="tabswitcher_create_group">"Топ құру"</string>
+<string name="accessibility_tab_switcher">"Қойынды ауыстырғышы"</string>
+<string name="accessibility_close_tab_group_button">"%1$s қойындысы бар қойындылар тобын жабу"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"%2$s қойындысы бар %1$s тобын жабу"</string>
+<string name="tab_selection_editor_group">"Топ"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Қойындыларды таңдау"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"%1$d таңдалған қойындыны топтау"</item>
+  <item quantity="other">"%1$d таңдалған қойындыны топтау"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Бірнеше нұсқа таңдау режимін жасыру"</string>
+<string name="accessibility_tab_selection_editor">"Бірнеше нұсқа таңдау режимі"</string>
+<string name="tab_grid_dialog_remove_from_group">"Топтан өшіру"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Қойындыларды топтан өшіру"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Өшіру"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Топты бөлісу"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Топтың атауын өзгерту"</string>
+<string name="accessibility_expand_tab_group">"Қойындылар тобына %1$s қойынды қосыңыз."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"%1$s қойындылар тобына %2$s қойынды қосыңыз."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Таңдалған %1$d қойындыны топтан өшіру."</item>
+  <item quantity="other">"Таңдалған %1$d қойындыны топтан өшіру."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d қойындысын жию."</item>
+  <item quantity="other">"%1$d қойындысы бар қойындылар тобын жию."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d қойындысын жию."</item>
+  <item quantity="other">"%2$d қойындысы бар %1$s қойындылар тобын жию."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Қойындылар тобы жайылды"</string>
+<string name="iph_drag_and_drop_introduction">"Қойындыларды топтастыру үшін оларды сүйреңіз."</string>
+<string name="iph_drag_and_drop_show_me">"Маған көрсету"</string>
+<string name="iph_drag_and_drop_title">"Реттеп қоя аласыз."</string>
+<string name="iph_drag_and_drop_content">"Қойындыларды топтау үшін қойындыны түртіп, ұстап тұрыңыз. Одан кейін басқа қойындыға сүйреңіз."</string>
+<string name="tab_switcher_carousel_title">"Үздіксіз көру"</string>
+<string name="tab_switcher_carousel_view_all">"Барлығын көру"</string>
+<string name="tab_suggestion_review_button">"Көру"</string>
+<string name="tab_suggestion_close_tab_action_button">"Жабу"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s қойынды біраздан бері пайдаланылмады. Олар жабылсын ба?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s қойынды өзара қатысты сияқты. Олар топтастырылсын ба?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Ұсыныстарды көріңіз."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Ұсыныс: %1$s қойынды біраздан бері пайдаланылмады. Олар жабылсын ба?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Ұсыныс: %1$s қойынды өзара қатысты сияқты. Олар топтастырылсын ба?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Ұсыныстарды қабылдамау."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Таңдалған %1$d қойындыны жабу"</item>
+  <item quantity="other">"Таңдалған %1$d қойындыны жабу"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Қойындыны солға жылжыту"</string>
+<string name="accessibility_tab_movement_right">"Қойындыны оңға жылжыту"</string>
+<string name="accessibility_tab_movement_up">"Қойындыны жоғары жылжыту"</string>
+<string name="accessibility_tab_movement_down">"Қойындыны төмен жылжыту"</string>
+<string name="undo_tab_strip_closure_message">"Жабық қойындылар жолағы"</string>
+<string name="tab_strip_info_bar_question">"Қойындылар жолағы қайта көрсетілмесін бе?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Қайта көрсетілмесін"</string>
+<string name="tab_strip_info_bar_reshow">"Кейінірек көрсету"</string>
+<string name="price_drop_spotted_title">"Бағасы арзандады"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Маған көрсету"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

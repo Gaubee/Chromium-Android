@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Liste des identifiants à renseigner de façon tactile."</string>
+<string name="all_passwords_bottom_sheet_half_height">"La liste des identifiants à renseigner de façon tactile est ouverte à mi-hauteur."</string>
+<string name="all_passwords_bottom_sheet_full_height">"La liste des identifiants à renseigner de façon tactile est ouverte à hauteur maximale."</string>
+<string name="all_passwords_bottom_sheet_closed">"La liste des identifiants à renseigner de façon tactile est fermée."</string>
+<string name="all_passwords_bottom_sheet_title">"Mots de passe"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Rechercher"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Aucun mot de passe"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Si vous faites confiance à %s, vous pouvez utiliser un mot de passe enregistré pour un autre site."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Essayez de ne pas réutiliser un même mot de passe sur plusieurs sites."</string>
+<string name="autofill_keyboard_accessory_content_description">"Mots de passe disponibles"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Insérer automatiquement les suggestions proposées au-dessus du clavier"</string>
+<string name="keyboard_accessory_sheet_hide">"Afficher le clavier"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Utiliser la suggestion de la saisie automatique de Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Balayez l\'écran pour voir plus de suggestions"</string>
+<string name="password_generation_accessory_button">"Suggérer un mot de passe sécurisé"</string>
+<string name="password_generation_accessory_button_short">"Suggérer un mot de passe"</string>
+<string name="password_accessory_sheet_toggle">"Afficher les mots de passe"</string>
+<string name="password_accessory_sheet_opened">"Affichage des mots de passe enregistrés et des options de mot de passe"</string>
+<string name="address_accessory_sheet_title">"Adresses"</string>
+<string name="address_accessory_sheet_toggle">"Afficher les adresses"</string>
+<string name="address_accessory_sheet_opened">"Affichage des adresses enregistrées"</string>
+<string name="credit_card_accessory_sheet_toggle">"Afficher les modes de paiement"</string>
+<string name="credit_card_accessory_sheet_opened">"Affichage des modes de paiement enregistrés en cours"</string>
+</resources>

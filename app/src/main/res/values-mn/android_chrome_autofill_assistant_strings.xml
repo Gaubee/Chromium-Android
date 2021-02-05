@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Би зөвшөөрч байна."</string>
+<string name="autofill_assistant_init_title">"Chrome-д Google Туслахыг\nтуршиж үзээрэй"</string>
+<string name="autofill_assistant_init_message_rent_car">"Хэдхэн товшилтоор\nмашин түрээслээрэй"</string>
+<string name="autofill_assistant_init_message_password_change">"Нууц үгээ өөрчлөхөд тань\nтуслахыг Google Туслахад зөвшөөрөх"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Хэдхэн товшилтоор\nкиноны тасалбар худалдаж аваарай"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Хэдхэн товшилтоор\nхоол захиалаарай"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Хэдхэн товшилтоор\nнислэгтээ бүртгүүлээрэй"</string>
+<string name="autofill_assistant_init_message_voice_search">"Веб сайтууд дээр\nдуут үйлдлийг туршиж үзнэ үү"</string>
+<string name="autofill_assistant_init_message_shopping">"Хэдхэн товшилтоор\nхурдан шалгаж үзээрэй"</string>
+<string name="autofill_assistant_init_message">"Google Туслах нь хайлт болон тооцоо хийх зэрэг веб дээрх үйлдлүүдийг дуусгахад тусалж, таны цагийг хэмнэдэг."</string>
+<string name="autofill_assistant_init_message_short">"Chrome-н Google Туслах нь вебсайт дээрх үйлдлүүдийг танд зориулан гүйцээх боломжтой"</string>
+<string name="autofill_assistant_google_terms_description">"Google танд ажлуудаа дуусгахад тань туслахын тулд таны Туслахаа ашиглах сайтуудын URL болон контентоос гадна Туслахаар илгээх мэдээллийг хүлээн авна. Энэ мэдээллийг таны Google бүртгэлд хадгалж болзошгүй. Та Туслахаа Chrome-н тохиргоонд унтраах боломжтой. &lt;link&gt;Нэмэлт мэдээлэл авах&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Уучлаарай, би туслах боломжгүй байна. Та өөрөө үргэлжлүүлнэ үү."</string>
+<string name="autofill_assistant_payment_information_missing">"Мэдээлэл дутуу байна"</string>
+<string name="autofill_assistant_view_original_image_desc">"Гадаад холбоосыг нээх үү?"</string>
+<string name="autofill_assistant_view_original_image_view">"Харах"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Болих"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome-н Google Туслах."</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome-н Google Туслахыг хагас өндрөөр нээлээ."</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome-н Google Туслахыг бүрэн өндрөөр нээлээ."</string>
+<string name="autofill_assistant_sheet_closed">"Chrome-н Google Туслахыг хаалаа."</string>
+<string name="autofill_assistant_send_feedback">"Санал хүсэлт илгээх"</string>
+<string name="autofill_assistant_increase_value">"Утгыг нэмэгдүүлэх"</string>
+<string name="autofill_assistant_decrease_value">"Утгыг бууруулах"</string>
+<string name="autofill_assistant_overflow_options">"Миний сонголт"</string>
+</resources>

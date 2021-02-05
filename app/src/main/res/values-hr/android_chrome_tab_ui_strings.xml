@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Izradom grupe možete brzo usporediti stranice. Da biste započeli, dodirnite i držite vezu."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Dodirnite za prikaz druge kartice"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Ovdje su grupirane vaše kartice"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Prebacujte se između kartica u grupi kartica pri dnu zaslona"</string>
+<string name="undo_bar_group_tabs_message">"Kartice su grupirane (njih %1$s)"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d kartica"</item>
+  <item quantity="few">"%1$d kartice"</item>
+  <item quantity="other">"%1$d kartica"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Dodaj novu karticu grupi"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Sakrij rešetku na cijelom zaslonu"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Prikaži kartice grupe u rešetki na cijelom zaslonu"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Zatvorite vrpcu kartica"</string>
+<string name="tabswitcher_create_group">"Izradi grupu"</string>
+<string name="accessibility_tab_switcher">"Prebacivanje između kartica"</string>
+<string name="accessibility_close_tab_group_button">"Zatvori grupu kartica koja sadrži sljedeći broj kartica: %1$s"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Zatvori grupu %1$s koja sadrži sljedeći broj kartica: %2$s"</string>
+<string name="tab_selection_editor_group">"Grupa"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Odaberite kartice"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Dodaj %1$d odabranu karticu u grupu"</item>
+  <item quantity="few">"Dodaj %1$d odabrane kartice u grupu"</item>
+  <item quantity="other">"Dodaj %1$d odabranih kartica u grupu"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Sakrij način višestrukog odabira"</string>
+<string name="accessibility_tab_selection_editor">"Način višestrukog odabira"</string>
+<string name="tab_grid_dialog_remove_from_group">"Ukloni iz grupe"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Ukloni kartice iz grupe"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Ukloni"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Dijeli grupu"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Uredi naziv grupe"</string>
+<string name="accessibility_expand_tab_group">"Proširite grupu kartica koja sadrži sljedeći broj kartica: %1$s."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Proširite grupu kartica %1$s sljedećim brojem kartica: %2$s."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Ukloni %1$d odabranu karticu iz grupe."</item>
+  <item quantity="few">"Ukloni %1$d odabrane kartice iz grupe."</item>
+  <item quantity="other">"Ukloni %1$d odabranih kartica iz grupe."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Sažmi %1$d karticu."</item>
+  <item quantity="few">"Sažmi grupu kartica koja sadrži %1$d kartice."</item>
+  <item quantity="other">"Sažmi grupu kartica koja sadrži %1$d kartica."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Sažmi %1$d karticu."</item>
+  <item quantity="few">"Sažmi grupu kartica %1$s koja sadrži %2$d kartice."</item>
+  <item quantity="other">"Sažmi grupu kartica %1$s koja sadrži %2$d kartica."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Grupa kartica je proširena"</string>
+<string name="iph_drag_and_drop_introduction">"Povucite kartice da biste ih grupirali"</string>
+<string name="iph_drag_and_drop_show_me">"Pokaži mi"</string>
+<string name="iph_drag_and_drop_title">"Organizirajte se"</string>
+<string name="iph_drag_and_drop_content">"Da biste grupirali kartice, dodirnite i držite karticu. Zatim je povucite na drugu karticu."</string>
+<string name="tab_switcher_carousel_title">"Nastavite pregledavati"</string>
+<string name="tab_switcher_carousel_view_all">"Pogledaj sve"</string>
+<string name="tab_suggestion_review_button">"Pregled"</string>
+<string name="tab_suggestion_close_tab_action_button">"Zatvori"</string>
+<string name="tab_suggestion_close_stale_message">"Broj vaših kartica koje niste koristili neko vrijeme: %1$s. Želite li ih zatvoriti?"</string>
+<string name="tab_suggestion_group_tabs_message">"Čini se da su neke kartice povezane (njih %1$s). Želite li ih grupirati?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Pregledajte prijedloge."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Prijedlog: broj vaših kartica koje niste koristili neko vrijeme: %1$s. Želite li ih zatvoriti?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Prijedlog: čini se da su neke kartice povezane (njih%1$s). Želite li ih grupirati?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Odbacite prijedloge."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Zatvori %1$d odabranu karticu"</item>
+  <item quantity="few">"Zatvori %1$d odabrane kartice"</item>
+  <item quantity="other">"Zatvori %1$d odabranih kartica"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Pomakni karticu ulijevo"</string>
+<string name="accessibility_tab_movement_right">"Pomakni karticu udesno"</string>
+<string name="accessibility_tab_movement_up">"Premjestite karticu gore"</string>
+<string name="accessibility_tab_movement_down">"Pomakni karticu prema dolje"</string>
+<string name="undo_tab_strip_closure_message">"Zatvorena vrpca kartica"</string>
+<string name="tab_strip_info_bar_question">"Želite li da se vrpca kartica više ne prikazuje?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Ne prikazuj ponovo"</string>
+<string name="tab_strip_info_bar_reshow">"Prikaži kasnije"</string>
+<string name="price_drop_spotted_title">"Otkriven je pad cijene"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Pokaži mi"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

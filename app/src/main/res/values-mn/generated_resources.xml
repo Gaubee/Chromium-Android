@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome-н Үйлчилгээний нөхцөлийг гуравдугаар сарын 31-ний өдөр өөрчлөх болно."</string>
+<string name="tos_notification_body_text">"Шинэ нөхцөлийг шалгаж үзнэ үү"</string>
+<string name="tos_notification_ack_button_text">"Ойлголоо"</string>
+<string name="tos_notification_review_button_text">"Шалгах"</string>
+<string name="managed">"Танай байгууллагаас удирддаг"</string>
+<string name="search_or_type_web_address">"Хайх эсвэл веб хаяг бичих"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Түр санах ойгоос зөвлөмжийг устгах уу?"</string>
+<string name="options_homepage_title">"Нүүр хуудас"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Ойролцоох төхөөрөмж олдсонгүй."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Зөвшөөрөх"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Блоклох"</string>
+</resources>

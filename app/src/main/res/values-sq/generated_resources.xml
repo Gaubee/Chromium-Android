@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Kushtet e shërbimit të Chrome ndryshojnë më 31 mars"</string>
+<string name="tos_notification_body_text">"Shqyrto kushtet e reja"</string>
+<string name="tos_notification_ack_button_text">"E kuptova"</string>
+<string name="tos_notification_review_button_text">"Rishiko"</string>
+<string name="managed">"Menaxhohet nga organizata jote"</string>
+<string name="search_or_type_web_address">"Kërko ose shkruaj adresën e uebit"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Të hiqet sugjerimi nga kujtesa e fragmenteve?"</string>
+<string name="options_homepage_title">"Faqja bazë"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Nuk u gjetën pajisje afër."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Lejo"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Bllokoje"</string>
+</resources>

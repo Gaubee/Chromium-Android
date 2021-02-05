@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"तुमच्या आसपासचा 3D नकाशा तयार करण्यासाठी Chrome ला तुमचा कॅमेरा अ‍ॅक्सेस करण्याची परवानगी हवी आहे."</string>
+<string name="infobar_missing_camera_permission_text">"या साइटसाठी Chromeला तुमचा कॅमेरा ॲक्सेस करण्याची परवानगी आवश्यक आहे."</string>
+<string name="infobar_missing_microphone_permission_text">"या साइटसाठी Chromeला तुमचा मायक्रोफोन ॲक्सेस करण्याची परवानगी आवश्यक आहे."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"या साइटसाठी Chromeला तुमचा कॅमेरा आणि मायक्रोफोन ॲक्सेस करण्याची परवानगी आवश्यक आहे."</string>
+<string name="infobar_missing_location_permission_text">"तुमचे स्थान या साइटसोबत शेअर करण्यासाठी Chromeला तुमच्या स्थानाचा अ‍ॅक्सेस हवा आहे."</string>
+<string name="infobar_update_permissions_button_text">"सुरू ठेवा"</string>
+<string name="nfc_disabled_on_device_message">"पुढे सुरू ठेवण्यासाठी, Android सेटिंग्जमध्ये NFC सुरू करा"</string>
+<string name="nfc_prompt_turn_on">"सुरू करा"</string>
+<string name="overlay_detected_dialog_title">"ही साइट तुमची परवानगी मागू शकत नाही"</string>
+<string name="overlay_detected_dialog_message">"इतर अ‍ॅप्समधील कोणतेही बबल किंवा ओव्हरले बंद करा. त्यानंतर, पुन्हा प्रयत्न करा."</string>
+</resources>

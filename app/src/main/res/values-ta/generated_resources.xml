@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"மார்ச் 31 அன்று Chromeமின் சேவை விதிமுறைகள் மாறவுள்ளன"</string>
+<string name="tos_notification_body_text">"புதிய விதிமுறைகளைப் படித்துப் பாருங்கள்"</string>
+<string name="tos_notification_ack_button_text">"புரிந்தது"</string>
+<string name="tos_notification_review_button_text">"சரிபார்"</string>
+<string name="managed">"உங்கள் நிறுவனத்தால் நிர்வகிக்கப்படுகிறது"</string>
+<string name="search_or_type_web_address">"தேடவும் அல்லது இணைய முகவரியை உள்ளிடவும்"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"கிளிப்போர்டிலிருந்து பரிந்துரையை அகற்றவா?"</string>
+<string name="options_homepage_title">"முகப்புப் பக்கம்"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"அருகில் சாதனங்கள் இல்லை."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"அனுமதி"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"தடு"</string>
+</resources>

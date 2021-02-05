@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Termenii și condițiile Chrome se modifică la 31 martie"</string>
+<string name="tos_notification_body_text">"Consultă noile condiții"</string>
+<string name="tos_notification_ack_button_text">"Am înțeles"</string>
+<string name="tos_notification_review_button_text">"Examinează"</string>
+<string name="managed">"Gestionat de organizația ta"</string>
+<string name="search_or_type_web_address">"Caută sau introdu adresa web"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Elimini sugestia din clipboard?"</string>
+<string name="options_homepage_title">"Pagina de pornire"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Nu a fost găsit niciun dispozitiv în apropiere."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Permite"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Blochează"</string>
+</resources>

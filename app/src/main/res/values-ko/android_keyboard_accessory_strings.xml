@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"터치 시 작성되는 사용자 인증 정보 목록입니다."</string>
+<string name="all_passwords_bottom_sheet_half_height">"터치 시 작성되는 사용자 인증 정보 목록이 절반 높이로 열렸습니다."</string>
+<string name="all_passwords_bottom_sheet_full_height">"터치 시 작성되는 사용자 인증 정보 목록이 전체 높이로 열렸습니다."</string>
+<string name="all_passwords_bottom_sheet_closed">"터치 시 작성되는 사용자 인증 정보 목록이 닫혔습니다."</string>
+<string name="all_passwords_bottom_sheet_title">"비밀번호"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"검색"</string>
+<string name="all_passwords_bottom_sheet_no_password">"비밀번호 없음"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%s을(를) 신뢰하는 경우 다른 사이트의 저장된 비밀번호를 사용할 수 있습니다."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"모든 사이트에 고유한 비밀번호를 사용하세요."</string>
+<string name="autofill_keyboard_accessory_content_description">"사용할 수 있는 비밀번호"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"키보드 위에 사용 가능한 자동 완성 제안 표시"</string>
+<string name="keyboard_accessory_sheet_hide">"키보드 표시"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome 자동 완성 추천 사용"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"스와이프하여 추천 더보기"</string>
+<string name="password_generation_accessory_button">"안전한 비밀번호 추천"</string>
+<string name="password_generation_accessory_button_short">"비밀번호 추천"</string>
+<string name="password_accessory_sheet_toggle">"비밀번호 표시"</string>
+<string name="password_accessory_sheet_opened">"저장된 비밀번호 및 비밀번호 옵션 표시 중"</string>
+<string name="address_accessory_sheet_title">"주소"</string>
+<string name="address_accessory_sheet_toggle">"주소 표시"</string>
+<string name="address_accessory_sheet_opened">"저장된 주소를 표시합니다"</string>
+<string name="credit_card_accessory_sheet_toggle">"결제 수단 표시"</string>
+<string name="credit_card_accessory_sheet_opened">"저장된 결제 수단 표시 중"</string>
+</resources>

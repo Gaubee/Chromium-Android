@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Условия использования Chrome будут обновлены 31 марта"</string>
+<string name="tos_notification_body_text">"Просим вас ознакомиться с изменениями."</string>
+<string name="tos_notification_ack_button_text">"Готово"</string>
+<string name="tos_notification_review_button_text">"Посмотреть"</string>
+<string name="managed">"Управляется вашей организацией"</string>
+<string name="search_or_type_web_address">"Введите адрес или поисковый запрос"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Удалить подсказку из буфера обмена?"</string>
+<string name="options_homepage_title">"Главная страница"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Устройства поблизости не найдены."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Разрешить"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Блокировать"</string>
+</resources>

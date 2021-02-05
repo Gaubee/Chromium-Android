@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"স্পৰ্শ কৰিলে পূৰ হ’বলগীয়া ক্ৰিডেনশ্বিয়েলৰ সূচী।"</string>
+<string name="all_passwords_bottom_sheet_half_height">"স্পৰ্শ কৰিলে পূৰ হ’বলগীয়া ক্ৰিডেনশ্বিয়েলৰ সূচীখন অৰ্ধ উচ্চতাত খোল খাইছে।"</string>
+<string name="all_passwords_bottom_sheet_full_height">"স্পৰ্শ কৰিলে পূৰ হ’বলগীয়া ক্ৰিডেনশ্বিয়েলৰ সূচীখন সম্পূৰ্ণ উচ্চতাত খোল খাইছে।"</string>
+<string name="all_passwords_bottom_sheet_closed">"স্পৰ্শ কৰিলে পূৰ হ’বলগীয়া ক্ৰিডেনশ্বিয়েলৰ সূচীখন বন্ধ কৰা আছে।"</string>
+<string name="all_passwords_bottom_sheet_title">"পাছৱৰ্ডসমূহ"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Search"</string>
+<string name="all_passwords_bottom_sheet_no_password">"কোনো পাছৱৰ্ড নাই"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"যদি আপোনাৰ %sৰ ওপৰত বিশ্বাস আছে, তেন্তে আপুনি অন্য এটা ছাইটৰ বাবে ছেভ কৰি থোৱা এটা পাছৱৰ্ড ব্যৱহাৰ কৰিব পাৰে।"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"প্ৰতিটো ছাইটৰ বাবে এটা অদ্বিতীয় পাছৱৰ্ড ব্যৱহাৰ কৰিবলৈ চেষ্টা কৰক।"</string>
+<string name="autofill_keyboard_accessory_content_description">"পাছৱৰ্ড উপলব্ধ"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"কীব’ৰ্ডখনৰ ওপৰত স্বয়ংক্রিয়ভাৱে পূৰ হোৱা সুবিধাটোৱে দিয়া পৰামৰ্শসমূহ উপলব্ধ"</string>
+<string name="keyboard_accessory_sheet_hide">"কীব’র্ড দেখুৱাওক"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome স্বয়ংক্ৰিয়ভাৱে পূৰ হোৱা পৰামৰ্শৰ সুবিধাটো ব্যৱহাৰ কৰক"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"অধিক পৰামৰ্শ চাবলৈ ছোৱাইপ কৰক"</string>
+<string name="password_generation_accessory_button">"জটিল পাছৱৰ্ডৰ পৰামৰ্শ দিয়ক"</string>
+<string name="password_generation_accessory_button_short">"পাছৱর্ডৰ পৰামর্শ দিয়ক"</string>
+<string name="password_accessory_sheet_toggle">"Show passwords"</string>
+<string name="password_accessory_sheet_opened">"ছেভ হৈ থকা পাছৱৰ্ড আৰু পাছৱৰ্ডৰ বিকল্পসমূহ দেখুৱাই থকা হৈছে"</string>
+<string name="address_accessory_sheet_title">"ঠিকনা"</string>
+<string name="address_accessory_sheet_toggle">"ঠিকনাবোৰ দেখুৱাওক"</string>
+<string name="address_accessory_sheet_opened">"ছেভ কৰি থোৱা ঠিকনাবোৰ দেখুওৱা হৈছে"</string>
+<string name="credit_card_accessory_sheet_toggle">"পৰিশোধ পদ্ধতিসমূহ দেখুৱাওক"</string>
+<string name="credit_card_accessory_sheet_opened">"ছেভ কৰি ৰখা পৰিশোধ পদ্ধতিসমূহ প্ৰদর্শন কৰি থকা হৈছে"</string>
+</resources>

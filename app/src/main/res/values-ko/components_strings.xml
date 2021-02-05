@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-ko/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"확인"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"카드 저장"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Google 계정에 등록된 이름입니다."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"CVC를 확인한 후 다시 시도하세요."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"만료일을 확인한 후 다시 시도해 주세요."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"유효기간과 CVC를 확인한 후 다시 시도해 주세요."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"유효기간 월을 확인한 후 다시 시도해 주세요."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"유효기간 연도를 확인한 후 다시 시도해 주세요."</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"카드 사본을 이 기기에 저장"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"선택하면 이 기기에 카드 사본이 저장되어 Chromium에서 양식을 더 빠르게 입력할 수 있습니다."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"지금부터 화면 잠금을 사용하여 카드 확인"</string>
+<string name="autofill_card_unmask_verification_in_progress">"카드 확인 중…"</string>
+<string name="autofill_card_unmask_verification_success">"카드가 확인되었습니다."</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"카드 업데이트"</string>
+<string name="autofill_wallet_management_link_text">"수정"</string>
+<string name="autofill_from_google_account_long">"출처: Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"사본 지우기"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"새 카드 스캔"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"전화번호, 이메일 주소, 배송지 주소 등의 정보를 포함합니다."</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"저장된 결제 수단이 결제 양식에 자동으로 입력됩니다."</string>
+<string name="autofill_addresses_settings_title">"주소 및 기타"</string>
+<string name="autofill_payment_methods">"결제 수단"</string>
+<string name="autofill_enable_profiles_toggle_label">"주소 저장 및 자동 입력"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"결제 수단 저장 및 자동 입력"</string>
+<string name="enable_credit_card_fido_auth_label">"화면 잠금"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"화면 잠금을 사용하여 빠르게 카드 확인"</string>
+<!-- <string name="http_post_warning_title">"양식 다시 제출 확인"</string> -->
+<!-- <string name="http_post_warning">"찾고 있는 페이지에서 사용자가 입력한 정보를 사용했습니다. 해당 페이지로 돌아가면 기존 작업을 반복할 수 있습니다. 계속하시겠습니까?"</string> -->
+<!-- <string name="http_post_warning_resend">"계속"</string> -->
+<!-- <string name="login_dialog_title">"로그인"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"로그인"</string> -->
+<!-- <string name="login_dialog_username_field">"사용자이름"</string> -->
+<!-- <string name="login_dialog_password_field">"비밀번호"</string> -->
+<string name="sad_tab_title">"앗, 이런!"</string>
+<string name="sad_tab_message">"이 웹페이지를 표시하는 도중 문제가 발생했습니다."</string>
+<string name="sad_tab_reload_label">"새로고침"</string>
+<string name="sad_tab_send_feedback_label">"의견 보내기"</string>
+<string name="sad_tab_reload_title">"이 페이지를 열 수 없음"</string>
+<string name="sad_tab_reload_try">"다음 도움말을 확인해 보세요."</string>
+<string name="sad_tab_reload_incognito">"새 시크릿 창에서 페이지 열기"</string>
+<string name="sad_tab_reload_restart_browser">"Chromium 다시 시작"</string>
+<string name="sad_tab_reload_restart_device">"기기 다시 시작"</string>
+<string name="sad_tab_reload_learn_more">"자세히 알아보기"</string>
+<string name="new_tab_otr_title">"시크릿 모드로 전환됨"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"다음의 관계자는 내 활동 내역을 &lt;em&gt;확인할 수도 있습니다&lt;/em&gt;.
+        &lt;ul&gt;
+          &lt;li&gt;방문한 웹사이트
+          &lt;li&gt;고용주 또는 학교
+          &lt;li&gt;인터넷 서비스 제공업체
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"이 설정은 쿠키 설정에서 제어됩니다."</string>
+<string name="new_tab_otr_third_party_cookie">"타사 쿠키 차단"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"이 옵션을 사용 설정하면 사이트가 웹 전반에서 사용자를 추적하는 쿠키를 사용할 수 없습니다. 일부 사이트에서는 기능이 작동하지 않을 수 있습니다."</string>
+<string name="ntp_article_suggestions_section_header">"추천 기사"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google 추천"</string>
+<string name="ntp_article_suggestions_section_empty">"추천 콘텐츠가 여기에 표시됩니다."</string>
+<!-- <string name="page_info_permission_ads_subtitle">"사이트에서 방해가 되거나 사용자를 현혹하는 광고를 표시함"</string> -->
+<string name="payments_method_of_payment_label">"결제 수단"</string>
+<string name="payments_contact_details_label">"연락처 정보"</string>
+<string name="payments_add_contact_details_label">"연락처 정보 추가"</string>
+<string name="payments_edit_contact_details_label">"연락처 정보 수정"</string>
+<string name="payments_add_billing_address">"청구지 주소 추가"</string>
+<string name="payments_add_name_on_card">"카드 명의 추가"</string>
+<string name="payments_add_valid_card_number">"유효한 카드 번호 추가"</string>
+<string name="payments_add_more_information">"자세한 정보 추가"</string>
+<string name="payments_edit_card">"카드 수정"</string>
+<string name="payments_add_phone_number">"번호 추가"</string>
+<string name="payments_add_recipient">"이름 추가"</string>
+<string name="payments_add_valid_address">"유효한 주소 추가"</string>
+<string name="payments_add_email">"이메일 추가"</string>
+<string name="payments_add_name">"이름 추가"</string>
+<string name="payments_order_summary_label">"주문 요약"</string>
+<string name="payment_request_payment_method_section_name">"결제"</string>
+<string name="payment_account_balance">"계정 잔액"</string>
+<string name="payments_shipping_summary_label">"배송"</string>
+<string name="payments_shipping_address_label">"배송지 주소"</string>
+<string name="payments_shipping_option_label">"배송 방법"</string>
+<string name="payments_delivery_summary_label">"배송"</string>
+<string name="payments_delivery_address_label">"배송지 주소"</string>
+<string name="payments_delivery_option_label">"배달 방법"</string>
+<string name="payments_pickup_summary_label">"수령"</string>
+<string name="payments_pickup_address_label">"수령 주소"</string>
+<string name="payments_pickup_option_label">"수령 방법"</string>
+<string name="payments_edit_button">"수정"</string>
+<string name="payments_pay_button">"결제"</string>
+<string name="payments_continue_button">"계속"</string>
+<string name="payments_add_contact">"연락처 정보 추가"</string>
+<string name="payments_add_card">"카드 추가"</string>
+<string name="payments_add_address">"주소 추가"</string>
+<string name="payments_edit_address">"주소 수정"</string>
+<string name="payments_name_field_in_contact_details">"이름"</string>
+<string name="payments_save_card_to_device_checkbox">"기기에 카드 저장"</string>
+<string name="payments_accepted_cards_label">"사용할 수 있는 카드"</string>
+<string name="payments_credit_card_expiration_date_abbr">"만료: %2$s년 %1$s월"</string>
+<string name="payments_loading_message">"로드 중"</string>
+<string name="payments_processing_message">"처리 중"</string>
+<string name="payments_checking_option">"확인 중"</string>
+<string name="payments_updated_label">"업데이트됨"</string>
+<string name="payment_complete_message">"결제 완료"</string>
+<string name="payments_error_message">"주문을 처리하는 중에 오류가 발생했습니다. 다시 시도하세요."</string>
+<string name="payments_card_and_address_settings">"BEGIN_LINK설정END_LINK에서 카드와 주소를 관리할 수 있습니다."</string>
+<string name="payments_card_and_address_settings_signed_in">"카드와 주소는 Chrome 및 Google 계정(%1$s)에서 가져왔습니다. 이 정보는 BEGIN_LINK설정END_LINK에서 관리할 수 있습니다."</string>
+<string name="payment_touch_sensor_to_pay">"센서를 터치하여 결제"</string>
+<string name="payment_fingerprint_not_recognized">"인식할 수 없음"</string>
+<string name="payments_card_and_address_settings_signed_out">"카드와 주소는 Chrome에서 가져왔습니다. 이 정보는 BEGIN_LINK설정END_LINK에서 관리할 수 있습니다."</string>
+<string name="settings_can_make_payment_toggle_label">"사이트에서 저장된 결제 수단이 있는지 확인하도록 허용"</string>
+<string name="payments_required_field_message">"* 필수 입력란"</string>
+<string name="payments_phone_invalid_validation_message">"올바른 전화번호를 입력하세요."</string>
+<string name="payments_email_invalid_validation_message">"올바른 이메일 주소를 입력하세요."</string>
+<string name="payments_card_number_invalid_validation_message">"올바른 카드 번호를 입력하세요."</string>
+<string name="payments_card_expiration_invalid_validation_message">"올바른 만료일을 입력하세요."</string>
+<string name="payments_invalid_address">"올바른 주소를 입력하세요."</string>
+<string name="payments_billing_address_required">"청구지 주소 필요"</string>
+<string name="payments_name_on_card_required">"카드 소유자 이름을 입력해야 합니다."</string>
+<string name="payments_more_information_required">"자세한 정보 필요"</string>
+<string name="payments_phone_number_required">"전화번호 필요"</string>
+<string name="payments_recipient_required">"이름은 필수입니다."</string>
+<string name="payments_email_required">"이메일은 필수입니다."</string>
+<string name="payments_name_required">"이름은 필수입니다."</string>
+<string name="pref_edit_dialog_field_required_validation_message">"필수 입력란"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"배송 방법과 요구사항을 확인하려면 주소를 선택하세요."</string>
+<string name="payments_unsupported_shipping_address">"이 주소로 배송할 수 없습니다. 다른 주소를 선택하세요."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"배달 방법과 요구사항을 확인하려면 주소를 선택하세요."</string>
+<string name="payments_unsupported_delivery_address">"이 주소로 배달할 수 없습니다. 다른 주소를 선택하세요."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"수령 방법과 요구사항을 확인하려면 주소를 선택하세요."</string>
+<string name="payments_unsupported_pickup_address">"이 주소에서 수령할 수 없습니다. 다른 주소를 선택하세요."</string>
+<string name="payments_android_app_error">"결제 앱을 열 수 없습니다."</string>
+<string name="external_payment_app_leave_incognito_warning">"시크릿 모드를 종료하고 외부 애플리케이션에서 결제합니다. 계속하시겠습니까?"</string>
+<string name="payment_handler_sheet_description">"결제 핸들러 시트"</string>
+<string name="payment_handler_sheet_opened_half">"결제 핸들러 시트가 절반 높이로 열림"</string>
+<string name="payment_handler_sheet_opened_full">"결제 핸들러 시트가 열림"</string>
+<string name="payment_handler_sheet_closed">"결제 핸들러 시트가 닫힘"</string>
+<string name="blocked_ads_prompt_title">"광고 차단됨"</string>
+<!-- <string name="translate_infobar_error">"죄송합니다. 이 페이지를 번역할 수 없습니다."</string> -->
+<!-- <string name="translate_button">"번역"</string> -->
+<!-- <string name="translate_never_translate_site">"이 사이트 번역 안함"</string> -->
+<string name="translate_dont_offer_site">"이 사이트 번역 옵션을 제공하지 않음"</string>
+<!-- <string name="translate_option_always_translate">"%1$s로 된 페이지를 항상 번역"</string> -->
+<!-- <string name="translate_option_never_translate">"%1$s로 된 페이지는 번역하지 않음"</string> -->
+<string name="translate_dont_offer_lang">"%1$s로 페이지 번역 옵션 제공 안 함"</string>
+<!-- <string name="translate_option_more_language">"다른 언어"</string> -->
+<!-- <string name="translate_option_not_source_language">"페이지 언어가 %1$s가 아닌가요?"</string> -->
+<string name="translate_snackbar_always_translate">"지금부터 %1$s로 된 페이지가 %2$s로 번역됩니다."</string>
+<string name="translate_snackbar_language_never">"%1$s로 된 페이지를 번역하지 않습니다."</string>
+<string name="translate_snackbar_site_never">"이 사이트는 번역되지 않습니다."</string>
+<string name="translate_snackbar_cancel">"취소"</string>
+<string name="clear">"삭제"</string>
+<string name="show_content">"표시"</string>
+<string name="hide_content">"숨기기"</string>
+<string name="choose">"선택"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-ko/components_strings.xml -->
+
+<string name="http_post_warning_title">"양식 다시 제출 확인"</string>
+<string name="http_post_warning">"찾고 있는 페이지에서 사용자가 입력한 정보를 사용했습니다. 해당 페이지로 돌아가면 기존 작업을 반복할 수 있습니다. 계속하시겠습니까?"</string>
+<string name="http_post_warning_resend">"계속"</string>
+<string name="login_dialog_title">"로그인"</string>
+<string name="login_dialog_ok_button_label">"로그인"</string>
+<string name="login_dialog_username_field">"사용자이름"</string>
+<string name="login_dialog_password_field">"비밀번호"</string>
+<string name="page_info_permission_ads_subtitle">"사이트에서 방해가 되거나 사용자를 현혹하는 광고를 표시함"</string>
+<string name="translate_infobar_error">"죄송합니다. 이 페이지를 번역할 수 없습니다."</string>
+<string name="translate_button">"번역"</string>
+<string name="translate_never_translate_site">"이 사이트 번역 안함"</string>
+<string name="translate_option_always_translate">"%1$s로 된 페이지를 항상 번역"</string>
+<string name="translate_option_never_translate">"%1$s로 된 페이지는 번역하지 않음"</string>
+<string name="translate_option_more_language">"다른 언어"</string>
+<string name="translate_option_not_source_language">"페이지 언어가 %1$s가 아닌가요?"</string>
+</resources>

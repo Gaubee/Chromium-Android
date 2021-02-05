@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"מאסטרקארד"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-iw/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"אישור"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"שמירת הכרטיס"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"‏השם הזה הוא מחשבון Google שלך"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"‏יש לבדוק את ה-CVC ולנסות שוב"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"יש לבדוק את תאריך התפוגה ולנסות שוב"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"‏יש לבדוק את תאריך התפוגה ואת ה-CVC ולנסות שוב"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"יש לבדוק את חודש התפוגה ולנסות שוב"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"יש לבדוק את שנת התפוגה ולנסות שוב"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"שמירת עותק של הכרטיס במכשיר הזה"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"‏אם האפשרות תסומן, Chromium ישמור עותק של הכרטיס במכשיר הזה כדי למלא טפסים במהירות רבה יותר."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"אני רוצה להשתמש בנעילת מסך כדי לאשר כרטיסים מעכשיו ואילך"</string>
+<string name="autofill_card_unmask_verification_in_progress">"אישור הכרטיס מתבצע…"</string>
+<string name="autofill_card_unmask_verification_success">"הכרטיס שלך מאושר"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"עדכון כרטיס"</string>
+<string name="autofill_wallet_management_link_text">"עריכה"</string>
+<string name="autofill_from_google_account_long">"‏מ-Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"תשלום באמצעות"</string>
+<string name="autofill_offers_reminder_deep_link_text">"להצגת פרטים."</string>
+<string name="autofill_clear_local_copy_button">"מחיקת העותק"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"מאסטרקארד"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"סריקת כרטיס חדש"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"כולל מידע כמו מספרי טלפון, כתובות אימייל וכתובות למשלוח"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"שימוש באמצעי התשלום ששמרת למילוי טופסי תשלום"</string>
+<string name="autofill_addresses_settings_title">"כתובות ועוד"</string>
+<string name="autofill_payment_methods">"אמצעי תשלום"</string>
+<string name="autofill_enable_profiles_toggle_label">"שמירה ומילוי של כתובות"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"שמירה ומילוי של אמצעי תשלום"</string>
+<string name="enable_credit_card_fido_auth_label">"נעילת מסך"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"נעילת המסך מאפשרת לך לאשר כרטיסים מהר יותר"</string>
+<!-- <string name="http_post_warning_title">"אישור שליחה מחדש של הטופס"</string> -->
+<!-- <string name="http_post_warning">"הדף שחיפשת השתמש במידע שהזנת. החזרה לדף זה עלולה לגרום לכפילות בפעולות שביצעת. האם ברצונך להמשיך?"</string> -->
+<!-- <string name="http_post_warning_resend">"המשך"</string> -->
+<!-- <string name="login_dialog_title">"כניסה"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"כניסה"</string> -->
+<!-- <string name="login_dialog_username_field">"שם משתמש"</string> -->
+<!-- <string name="login_dialog_password_field">"סיסמה"</string> -->
+<string name="sad_tab_title">"אוי, לא!"</string>
+<string name="sad_tab_message">"משהו השתבש בעת הצגת דף אינטרנט זה."</string>
+<string name="sad_tab_reload_label">"ניסיון טעינה נוסף"</string>
+<string name="sad_tab_send_feedback_label">" שליחת משוב"</string>
+<string name="sad_tab_reload_title">"לא ניתן לפתוח את הדף"</string>
+<string name="sad_tab_reload_try">"אולי הטיפים האלו יעזרו לך:"</string>
+<string name="sad_tab_reload_incognito">"פתיחת הדף בכרטיסייה אנונימית חדשה"</string>
+<string name="sad_tab_reload_restart_browser">"‏אתחול ה-Chromium"</string>
+<string name="sad_tab_reload_restart_device">"הפעלת המכשיר מחדש"</string>
+<string name="sad_tab_reload_learn_more">"מידע נוסף"</string>
+<string name="new_tab_otr_title">"עברת למצב גלישה בסתר"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"הפעילות שלך &lt;em&gt;עדיין עשויה להיות מוצגת&lt;/em&gt; בפני:
+        &lt;ul&gt;
+          &lt;li&gt;אתרים שאליהם נכנסת
+          &lt;li&gt;המעסיק שלך או בית הספר
+          &lt;li&gt;ספק האינטרנט שלך
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"‏ההגדרה הזו מנוהלת בהגדרות הקשורות לקובצי Cookie."</string>
+<string name="new_tab_otr_third_party_cookie">"‏חסימת קובצי Cookie של צד שלישי"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"‏כשהאפשרות מופעלת, אתרים לא יכולים להשתמש בקובצי cookie כדי לעקוב אחריך באינטרנט. ייתכנו שיבושים בפעולה של תכונות באתרים מסוימים."</string>
+<string name="ntp_article_suggestions_section_header">"מאמרים שעשויים לעניין אותך"</string>
+<string name="ntp_article_suggestions_section_header_branded">"‏הצעות מאת Google"</string>
+<string name="ntp_article_suggestions_section_empty">"הצעות של מאמרים עבורך מופיעות כאן"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"באתר מוצגות מודעות מפריעות או מטעות"</string> -->
+<string name="payments_method_of_payment_label">"אמצעי תשלום"</string>
+<string name="payments_contact_details_label">"פרטים ליצירת קשר"</string>
+<string name="payments_add_contact_details_label">"הוספת פרטים ליצירת קשר"</string>
+<string name="payments_edit_contact_details_label">"עריכת הפרטים ליצירת קשר"</string>
+<string name="payments_add_billing_address">"הוספה של כתובת לחיוב"</string>
+<string name="payments_add_name_on_card">"הוספה של השם המופיע בכרטיס"</string>
+<string name="payments_add_valid_card_number">"הוספת מספר כרטיס חוקי"</string>
+<string name="payments_add_more_information">"הוספת מידע"</string>
+<string name="payments_edit_card">"עריכת כרטיס"</string>
+<string name="payments_add_phone_number">"הוספת מספר טלפון"</string>
+<string name="payments_add_recipient">"הוספת שם"</string>
+<string name="payments_add_valid_address">"הוספה של כתובת חוקית"</string>
+<string name="payments_add_email">"הוספת כתובת אימייל"</string>
+<string name="payments_add_name">"הוספת שם"</string>
+<string name="payments_order_summary_label">"סיכום הזמנה"</string>
+<string name="payment_request_payment_method_section_name">"תשלום"</string>
+<string name="payment_account_balance">"יתרה בחשבון"</string>
+<string name="payments_shipping_summary_label">"משלוח"</string>
+<string name="payments_shipping_address_label">"כתובת למשלוח"</string>
+<string name="payments_shipping_option_label">"שיטת משלוח"</string>
+<string name="payments_delivery_summary_label">"משלוח"</string>
+<string name="payments_delivery_address_label">"כתובת למשלוח"</string>
+<string name="payments_delivery_option_label">"שיטת מסירה"</string>
+<string name="payments_pickup_summary_label">"איסוף"</string>
+<string name="payments_pickup_address_label">"כתובת איסוף"</string>
+<string name="payments_pickup_option_label">"שיטת איסוף"</string>
+<string name="payments_edit_button">"עריכה"</string>
+<string name="payments_pay_button">"לתשלום"</string>
+<string name="payments_continue_button">"המשך"</string>
+<string name="payments_add_contact">"הוספת פרטים ליצירת קשר"</string>
+<string name="payments_add_card">"הוספת כרטיס"</string>
+<string name="payments_add_address">"הוספת כתובת"</string>
+<string name="payments_edit_address">"עריכת כתובת"</string>
+<string name="payments_name_field_in_contact_details">"שם"</string>
+<string name="payments_save_card_to_device_checkbox">"שמירת כרטיס זה במכשיר הנוכחי"</string>
+<string name="payments_accepted_cards_label">"כרטיסים מאושרים"</string>
+<string name="payments_credit_card_expiration_date_abbr">"תאריך תפוגה: %1$s/%2$s"</string>
+<string name="payments_loading_message">"בטעינה"</string>
+<string name="payments_processing_message">"המערכת מעבדת את התשלום"</string>
+<string name="payments_checking_option">"מתבצעת בדיקה"</string>
+<string name="payments_updated_label">"עודכן"</string>
+<string name="payment_complete_message">"התשלום הושלם"</string>
+<string name="payments_error_message">"התרחשה שגיאה במהלך עיבוד התשלום שלך. יש לנסות שוב."</string>
+<string name="payments_card_and_address_settings">"אפשר לנהל את הכרטיסים והכתובות דרך הBEGIN_LINKהגדרותEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"‏הכרטיסים והכתובות לקוחים מ-Chrome ומחשבון Google שלך (%1$s). אפשר לנהל אותם בBEGIN_LINKהגדרותEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"כדי לשלם, יש לגעת בחיישן"</string>
+<string name="payment_fingerprint_not_recognized">"לא מזוהה"</string>
+<string name="payments_card_and_address_settings_signed_out">"‏הכרטיסים והכתובות נלקחים מ-Chrome. אפשר לנהל אותם בBEGIN_LINKהגדרותEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"מתן הרשאה לאתרים לבדוק אם שמרת אמצעי תשלום"</string>
+<string name="payments_required_field_message">"* זהו שדה חובה"</string>
+<string name="payments_phone_invalid_validation_message">"עליך להזין מספר טלפון חוקי"</string>
+<string name="payments_email_invalid_validation_message">"עליך להזין כתובת אימייל חוקית"</string>
+<string name="payments_card_number_invalid_validation_message">"עליך להזין מספר כרטיס חוקי"</string>
+<string name="payments_card_expiration_invalid_validation_message">"עליך להזין תאריך תפוגה חוקי"</string>
+<string name="payments_invalid_address">"עליך להזין כתובת חוקית"</string>
+<string name="payments_billing_address_required">"יש להזין כתובת לחיוב"</string>
+<string name="payments_name_on_card_required">"עליך לציין את שם בעל הכרטיס"</string>
+<string name="payments_more_information_required">"נדרש מידע נוסף"</string>
+<string name="payments_phone_number_required">"יש צורך במספר טלפון"</string>
+<string name="payments_recipient_required">"שם (חובה)"</string>
+<string name="payments_email_required">"אימייל (חובה)"</string>
+<string name="payments_name_required">"שם (חובה)"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"שדה חובה"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"עליך לבחור כתובת כדי לראות שיטות משלוח ודרישות"</string>
+<string name="payments_unsupported_shipping_address">"לא ניתן לבצע משלוח לכתובת הזו. עליך לבחור כתובת אחרת."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"עליך לבחור כתובת כדי לראות שיטות מסירה ודרישות"</string>
+<string name="payments_unsupported_delivery_address">"לא ניתן לבצע מסירה בכתובת זו. עליך לבחור כתובת אחרת."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"עליך לבחור כתובת כדי לראות שיטות איסוף ודרישות"</string>
+<string name="payments_unsupported_pickup_address">"לא ניתן לבצע איסוף מהכתובת הזו. עליך לבחור כתובת אחרת."</string>
+<string name="payments_android_app_error">"לא ניתן לפתוח את אפליקציית התשלומים"</string>
+<string name="external_payment_app_leave_incognito_warning">"בחרת לצאת ממצב אנונימי כדי לשלם באמצעות אפליקציה חיצונית. להמשיך?"</string>
+<string name="payment_handler_sheet_description">"גיליון פרטי התשלום"</string>
+<string name="payment_handler_sheet_opened_half">"גיליון פרטי התשלום פתוח בחצי גובה המסך"</string>
+<string name="payment_handler_sheet_opened_full">"טופס פרטי התשלום פתוח"</string>
+<string name="payment_handler_sheet_closed">"גיליון פרטי התשלום סגור"</string>
+<string name="blocked_ads_prompt_title">"מודעות חסומות"</string>
+<!-- <string name="translate_infobar_error">"אופס. לא ניתן היה לתרגם את הדף הזה."</string> -->
+<!-- <string name="translate_button">"תרגום"</string> -->
+<!-- <string name="translate_never_translate_site">"איני רוצה לקבל תרגום של אתר זה"</string> -->
+<string name="translate_dont_offer_site">"אין להציג את ההצעה לתרגם את האתר הזה"</string>
+<!-- <string name="translate_option_always_translate">"ברצוני לקבל תרגום תמיד דפים ב%1$s"</string> -->
+<!-- <string name="translate_option_never_translate">"אף פעם אין לתרגם דפים ב%1$s"</string> -->
+<string name="translate_dont_offer_lang">"אין להציג את ההצעה לתרגם דפים בשפה %1$s"</string>
+<!-- <string name="translate_option_more_language">"שפות נוספות"</string> -->
+<!-- <string name="translate_option_not_source_language">"הדף לא ב%1$s?"</string> -->
+<string name="translate_snackbar_always_translate">"דפים ב%1$s יתורגמו ל%2$s מעכשיו והלאה"</string>
+<string name="translate_snackbar_language_never">"דפים ב%1$s לא יתורגמו"</string>
+<string name="translate_snackbar_site_never">"האתר הזה לא יתורגם"</string>
+<string name="translate_snackbar_cancel">"ביטול"</string>
+<string name="clear">"ניקוי"</string>
+<string name="show_content">"הצגה"</string>
+<string name="hide_content">"הסתרה"</string>
+<string name="choose">"בחירה"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-iw/components_strings.xml -->
+
+<string name="http_post_warning_title">"אישור שליחה מחדש של הטופס"</string>
+<string name="http_post_warning">"הדף שחיפשת השתמש במידע שהזנת. החזרה לדף זה עלולה לגרום לכפילות בפעולות שביצעת. האם ברצונך להמשיך?"</string>
+<string name="http_post_warning_resend">"המשך"</string>
+<string name="login_dialog_title">"כניסה"</string>
+<string name="login_dialog_ok_button_label">"כניסה"</string>
+<string name="login_dialog_username_field">"שם משתמש"</string>
+<string name="login_dialog_password_field">"סיסמה"</string>
+<string name="page_info_permission_ads_subtitle">"באתר מוצגות מודעות מפריעות או מטעות"</string>
+<string name="translate_infobar_error">"אופס. לא ניתן היה לתרגם את הדף הזה."</string>
+<string name="translate_button">"תרגום"</string>
+<string name="translate_never_translate_site">"איני רוצה לקבל תרגום של אתר זה"</string>
+<string name="translate_option_always_translate">"ברצוני לקבל תרגום תמיד דפים ב%1$s"</string>
+<string name="translate_option_never_translate">"אף פעם אין לתרגם דפים ב%1$s"</string>
+<string name="translate_option_more_language">"שפות נוספות"</string>
+<string name="translate_option_not_source_language">"הדף לא ב%1$s?"</string>
+</resources>

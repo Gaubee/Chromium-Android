@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"ٹچ پر پُر کی جانے والی اسناد کی فہرست۔"</string>
+<string name="all_passwords_bottom_sheet_half_height">"ٹچ پر پُر کی جانے والی اسناد کی فہرست نصف اونچائی پر کھلی ہوئی ہے۔"</string>
+<string name="all_passwords_bottom_sheet_full_height">"ٹچ پر پُر کی جانے والی اسناد کی فہرست مکمل اونچائی پر کھلی ہوئی ہے۔"</string>
+<string name="all_passwords_bottom_sheet_closed">"ٹچ پر پُر کی جانے والی اسناد کی فہرست بند ہے۔"</string>
+<string name="all_passwords_bottom_sheet_title">"پاس ورڈز"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"تلاش کریں"</string>
+<string name="all_passwords_bottom_sheet_no_password">"کوئی پاس ورڈ نہیں"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"اگر آپ کو %s پر اعتماد ہے تو آپ کسی اور سائٹ کے لئے محفوظ کردہ پاس ورڈ استعمال کر سکتے ہیں۔"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"ہر سائٹ کے لئے ایک منفرد پاس ورڈ استعمال کرنے کی کوشش کریں۔"</string>
+<string name="autofill_keyboard_accessory_content_description">"پاس ورڈز دستیاب ہیں"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"کی بورڈ کے اوپر آٹو فل تجاویز دستیاب ہیں"</string>
+<string name="keyboard_accessory_sheet_hide">"کی بورڈ دکھائیں"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"‏Chrome آٹو فل تجویز استعمال کریں"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"مزید تجاویز دیکھنے کے لئے سوائپ کریں"</string>
+<string name="password_generation_accessory_button">"مضبوط پاس ورڈ تجویز کریں"</string>
+<string name="password_generation_accessory_button_short">"پاس ورڈ تجویز کریں"</string>
+<string name="password_accessory_sheet_toggle">"پاس ورڈز دکھائیں"</string>
+<string name="password_accessory_sheet_opened">"محفوظ کردہ پاس ورڈز اور پاس ورڈز کے اختیارات دکھائے جا رہے ہیں"</string>
+<string name="address_accessory_sheet_title">"پتے"</string>
+<string name="address_accessory_sheet_toggle">"پتے دکھائیں"</string>
+<string name="address_accessory_sheet_opened">"محفوظہ پتے دکھائے جا رہے ہیں"</string>
+<string name="credit_card_accessory_sheet_toggle">"ادائیگی کے طریقے دکھائیں"</string>
+<string name="credit_card_accessory_sheet_opened">"ادائیگی کے محفوظ کردہ طریقے دکھائے جا رہے ہیں"</string>
+</resources>

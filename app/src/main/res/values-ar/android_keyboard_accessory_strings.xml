@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"قائمة ببيانات الاعتماد التي يتم ملؤها باللمس"</string>
+<string name="all_passwords_bottom_sheet_half_height">"تم فتح قائمة بيانات الاعتماد التي يتم ملؤها باللمس على طول النصف السفلي من الشاشة."</string>
+<string name="all_passwords_bottom_sheet_full_height">"تم فتح قائمة بيانات الاعتماد التي يجب ملؤها باللمس على طول الشاشة."</string>
+<string name="all_passwords_bottom_sheet_closed">"تم إغلاق قائمة بيانات الاعتماد التي يتم ملؤها باللمس."</string>
+<string name="all_passwords_bottom_sheet_title">"كلمات المرور"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"البحث"</string>
+<string name="all_passwords_bottom_sheet_no_password">"بلا كلمة مرور"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"إذا كنت تثِق بالنطاق %s، يمكنك استخدام نفس كلمة المرور المحفوظة لموقع إلكتروني آخر."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"حاوِل استخدام كلمة مرور فريدة لكل موقع إلكتروني."</string>
+<string name="autofill_keyboard_accessory_content_description">"كلمات المرور متاحة"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"اقتراحات الملء التلقائي متاحة أعلى لوحة المفاتيح"</string>
+<string name="keyboard_accessory_sheet_hide">"عرض لوحة المفاتيح"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"‏استخدام اقتراح الملء التلقائي في Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"مرِّر سريعًا للاطّلاع على مزيد من الاقتراحات."</string>
+<string name="password_generation_accessory_button">"اقتراح كلمة مرور قوية"</string>
+<string name="password_generation_accessory_button_short">"اقتراح كلمة مرور"</string>
+<string name="password_accessory_sheet_toggle">"عرض كلمات المرور"</string>
+<string name="password_accessory_sheet_opened">"عرض كلمات المرور المحفوظة وخيارات كلمة المرور"</string>
+<string name="address_accessory_sheet_title">"العناوين"</string>
+<string name="address_accessory_sheet_toggle">"عرض العناوين"</string>
+<string name="address_accessory_sheet_opened">"جارٍ عرض العناوين المحفوظة."</string>
+<string name="credit_card_accessory_sheet_toggle">"عرض طرق الدفع"</string>
+<string name="credit_card_accessory_sheet_opened">"عرض طرق الدفع المحفوظة"</string>
+</resources>

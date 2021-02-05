@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Los Términos del Servicio de Chrome cambiarán el 31 de marzo"</string>
+<string name="tos_notification_body_text">"Revisa los nuevos términos"</string>
+<string name="tos_notification_ack_button_text">"Listo"</string>
+<string name="tos_notification_review_button_text">"Ver"</string>
+<string name="managed">"Gestionado por tu organización"</string>
+<string name="search_or_type_web_address">"Busca o escribe una URL"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"¿Quitar la sugerencia del portapapeles?"</string>
+<string name="options_homepage_title">"Página principal"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"No se ha encontrado ningún dispositivo cerca."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Permitir"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Bloquear"</string>
+</resources>

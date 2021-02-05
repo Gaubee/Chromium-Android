@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Þjónustuskilmálar Chrome breytast 31. mars"</string>
+<string name="tos_notification_body_text">"Kynntu þér nýju skilmálana"</string>
+<string name="tos_notification_ack_button_text">"Ég skil"</string>
+<string name="tos_notification_review_button_text">"Yfirfara"</string>
+<string name="managed">"Stjórnað af fyrirtækinu þínu"</string>
+<string name="search_or_type_web_address">"Leitaðu eða sláðu inn veffang"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Fjarlægja tillögu af klippiborði?"</string>
+<string name="options_homepage_title">"Heimasíða"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Engin nálæg tæki fundust."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Leyfa"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Setja á bannlista"</string>
+</resources>

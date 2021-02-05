@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Kovo 31 dieną bus pakeistos „Chrome“ paslaugų teikimo sąlygos"</string>
+<string name="tos_notification_body_text">"Peržiūrėkite naujas sąlygas"</string>
+<string name="tos_notification_ack_button_text">"Supratau"</string>
+<string name="tos_notification_review_button_text">"Peržiūrėti"</string>
+<string name="managed">"Tvarko jūsų organizacija"</string>
+<string name="search_or_type_web_address">"Iešk. arba įveskite žiniatinklio adr."</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Pašalinti pasiūlymą iš iškarpinės?"</string>
+<string name="options_homepage_title">"Pagrindinis puslapis"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Netoliese esančių įrenginių nerasta."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Leisti"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Blokuoti"</string>
+</resources>

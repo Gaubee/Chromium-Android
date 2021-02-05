@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"周囲の 3D マップを作成するには、Chrome にカメラの使用を許可する必要があります。"</string>
+<string name="infobar_missing_camera_permission_text">"このサイトを利用するには、Chrome でカメラの使用を許可する必要があります。"</string>
+<string name="infobar_missing_microphone_permission_text">"このサイトを利用するには、Chrome でマイクの使用を許可する必要があります。"</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"このサイトを利用するには、Chrome でカメラとマイクの使用を許可する必要があります。"</string>
+<string name="infobar_missing_location_permission_text">"このサイトで現在地を共有するには、Chrome で位置情報の使用を許可する必要があります。"</string>
+<string name="infobar_update_permissions_button_text">"続行"</string>
+<string name="nfc_disabled_on_device_message">"続行するには、Android の設定で NFC をオンにしてください。"</string>
+<string name="nfc_prompt_turn_on">"オンにする"</string>
+<string name="overlay_detected_dialog_title">"このサイトは権限を要求できません"</string>
+<string name="overlay_detected_dialog_message">"他のアプリのバブルやオーバーレイをすべて閉じてから、もう一度お試しください。"</string>
+</resources>

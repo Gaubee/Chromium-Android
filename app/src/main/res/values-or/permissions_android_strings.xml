@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome ଆପଣଙ୍କ ପରିପାର୍ଶ୍ୱର ଏକ 3D ମ୍ୟାପ୍ ତିଆରି କରିବା ପାଇଁ ଆପଣଙ୍କ କ୍ୟାମେରା ଆକ୍ସେସ୍ କରିବାକୁ ଅନୁମତି ଆବଶ୍ୟକ କରେ।"</string>
+<string name="infobar_missing_camera_permission_text">"ଏହି ସାଇଟ୍ ପାଇଁ ଆପଣଙ୍କ କ୍ୟାମେରା ଆକ୍‌ସେସ୍ କରିବାକୁ Chrome ଆପଣଙ୍କର ଅନୁମତି ଆବଶ୍ୟକ କରୁଛି।"</string>
+<string name="infobar_missing_microphone_permission_text">"ଏହି ସାଇଟ୍ ପାଇଁ ଆପଣଙ୍କର ମାଇକ୍ରୋଫୋନ୍‌କୁ ଆକ୍ସେସ୍ କରିବାକୁ Chrome ଅନୁମତି ଆବଶ୍ୟକ କରୁଛି।"</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"ଏହି ସାଇଟ୍ ପାଇଁ ଆପଣଙ୍କର କ୍ୟାମେରା ଓ ମାଇକ୍ରୋଫୋନ୍‍କୁ ଆକ୍ସେସ୍ କରିବା ପାଇଁ Chrome ଆପଣଙ୍କର ଅନୁମତି ଆବଶ୍ୟକ କରେ।"</string>
+<string name="infobar_missing_location_permission_text">"ଏହି ସାଇଟ୍ ସହ ଆପଣଙ୍କ ଲୋକେସନ୍ ସେୟାର୍ କରିବା ପାଇଁ Chrome ଆପଣଙ୍କ ଲୋକେସନ୍‌କୁ ଆକ୍ସେସ୍ କରିବାକୁ ଚାହୁଁଛି।"</string>
+<string name="infobar_update_permissions_button_text">"ଜାରି ରଖନ୍ତୁ"</string>
+<string name="nfc_disabled_on_device_message">"ଜାରି ରଖିବା ପାଇଁ, Android ସେଟିଂସରେ NFC ଚାଲୁ କରନ୍ତୁ"</string>
+<string name="nfc_prompt_turn_on">"ଚାଲୁ କରନ୍ତୁ"</string>
+<string name="overlay_detected_dialog_title">"ଏହି ସାଇଟ୍ ଆପଣଙ୍କ ଅନୁମତି ମାଗିପାରିବ ନାହିଁ"</string>
+<string name="overlay_detected_dialog_message">"ଅନ୍ୟ ଆପଗୁଡ଼ିକରୁ ଯେ କୌଣସି ବବଲ୍ କିମ୍ବା ଓଭରଲେକୁ ବନ୍ଦ କରନ୍ତୁ। ତାପରେ, ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।"</string>
+</resources>

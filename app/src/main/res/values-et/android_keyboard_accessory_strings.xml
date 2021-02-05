@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Loend mandaatidest, mis tuleb puudutusega täita."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Loend mandaatidest, mis tuleb puudutusega täita, on avatud poolele kõrgusele."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Loend mandaatidest, mis tuleb puudutusega täita, on avatud täiskõrgusele."</string>
+<string name="all_passwords_bottom_sheet_closed">"Loend mandaatidest, mis tuleb puudutusega täita, on suletud."</string>
+<string name="all_passwords_bottom_sheet_title">"Paroolid"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Otsi"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Parooli pole"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Kui saiti %s usaldate, saate kasutada mõne teise saidi jaoks salvestatud parooli."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Üritage iga saidi puhul kasutada kordumatut parooli."</string>
+<string name="autofill_keyboard_accessory_content_description">"Paroolid on saadaval"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Automaattäite soovitused on saadaval klaviatuuri kohal"</string>
+<string name="keyboard_accessory_sheet_hide">"Kuva klaviatuur"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Kasuta Chrome\'i automaattäite soovitust"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Pühkige, et näha rohkem soovitusi"</string>
+<string name="password_generation_accessory_button">"Soovita tugevat parooli"</string>
+<string name="password_generation_accessory_button_short">"Soovita parooli"</string>
+<string name="password_accessory_sheet_toggle">"Kuva paroolid"</string>
+<string name="password_accessory_sheet_opened">"Kuvatud on salvestatud paroolid ja paroolivalikud"</string>
+<string name="address_accessory_sheet_title">"Aadressid"</string>
+<string name="address_accessory_sheet_toggle">"Kuva aadressid"</string>
+<string name="address_accessory_sheet_opened">"Kuvatakse salvestatud aadresse"</string>
+<string name="credit_card_accessory_sheet_toggle">"Makseviiside kuvamine"</string>
+<string name="credit_card_accessory_sheet_opened">"Kuvatud on salvestatud makseviisid"</string>
+</resources>

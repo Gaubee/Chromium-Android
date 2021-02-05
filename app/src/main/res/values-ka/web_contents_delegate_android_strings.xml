@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"სხვა"</string>
+<string name="color_picker_hue">"შეფერილობა"</string>
+<string name="color_picker_saturation">"გაჯერება"</string>
+<string name="color_picker_value">"მნიშვნელობა"</string>
+<string name="color_picker_button_set">"დაყენება"</string>
+<string name="color_picker_button_cancel">"გაუქმება"</string>
+<string name="color_picker_dialog_title">"აირჩიეთ ფერი"</string>
+<string name="color_picker_button_red">"წითელი"</string>
+<string name="color_picker_button_cyan">"ციანი"</string>
+<string name="color_picker_button_blue">"ლურჯი"</string>
+<string name="color_picker_button_green">"მწვანე"</string>
+<string name="color_picker_button_magenta">"მაგენტა"</string>
+<string name="color_picker_button_yellow">"ყვითელი"</string>
+<string name="color_picker_button_black">"შავი"</string>
+<string name="color_picker_button_white">"თეთრი"</string>
+</resources>

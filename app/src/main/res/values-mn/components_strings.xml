@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"Американ Эскпресс"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Олох"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"Хятадын UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Виз"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-mn/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Батлах"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Картыг хадгалах"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Энэ нэрийг таны Google Бүртгэлээс гаргасан байна"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"CVC-гээ шалгаад дахин оролдоно уу"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Хүчингүй болох огноогоо шалгаад дахин оролдоно уу"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Дуусах хугацаа болон CVC-гээ шалгаад дахин оролдож үзнэ үү"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Хүчингүй болох сарыг шалгаад дахин оролдоно уу"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Хүчингүй болох жилийг шалгаад дахин оролдоно уу"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Энэ төхөөрөмж дээр тус картын хуулбарыг хадгалах"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Сонгосон тохиолдолд Chromium нь таны энэ төхөөрөмжийн картын хуулбарыг маягт хурдан бөглөхийн тулд хадгалах болно."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Одооноос картуудыг баталгаажуулахын тулд дэлгэцийн түгжээг ашиглах"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Картыг баталгаажуулж байна…"</string>
+<string name="autofill_card_unmask_verification_success">"Таны картыг баталгаажуулсан байна"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Картыг шинэчлэх"</string>
+<string name="autofill_wallet_management_link_text">"Засварлах"</string>
+<string name="autofill_from_google_account_long">"Google Pay-с"</string>
+<string name="autofill_offers_reminder_description_text">"Дараахаар тооцоо хийх"</string>
+<string name="autofill_offers_reminder_deep_link_text">"Дэлгэрэнгүйг харна уу."</string>
+<string name="autofill_clear_local_copy_button">"Хуулбарыг арилгах"</string>
+<string name="autofill_cc_amex">"Американ Эскпресс"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Олох"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"Хятадын UnionPay"</string>
+<string name="autofill_cc_visa">"Виз"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Шинэ картыг скан хийх"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Утасны дугаар, имэйл хаяг болон тээвэрлэх хаяг зэрэг мэдээллийг багтаадаг"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Таны хадгалсан төлбөрийн хэрэгслүүдээр төлбөрийн маягтуудыг бөглөдөг"</string>
+<string name="autofill_addresses_settings_title">"Хаяг болон бусад"</string>
+<string name="autofill_payment_methods">"Төлбөрийн хэрэгсэл"</string>
+<string name="autofill_enable_profiles_toggle_label">"Хаягийг хадгалах болон бөглөх"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Төлбөрийн хэрэгслүүдийг хадгалах болон бөглөх"</string>
+<string name="enable_credit_card_fido_auth_label">"Дэлгэцийн түгжээ"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Картуудыг илүү хурдан баталгаажуулахын тулд дэлгэцийн түгжээг ашиглах"</string>
+<!-- <string name="http_post_warning_title">"Маягтын дахин мэдүүлгийг баталгаажуулах"</string> -->
+<!-- <string name="http_post_warning">"Таны хайж буй хуудас нь таны оруулсан мэдээллийг ашиглаж байна.  Энэ хуудас руу буцсанаар та хийсэн үйлдлээ дахин давтах хэрэгтэй болж магадгүй. Та үргэлжлүүлэхийг хүсч байна уу?"</string> -->
+<!-- <string name="http_post_warning_resend">"Цааш"</string> -->
+<!-- <string name="login_dialog_title">"Нэвтрэх"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Нэвтрэх"</string> -->
+<!-- <string name="login_dialog_username_field">"Хэрэглэгчийн нэр"</string> -->
+<!-- <string name="login_dialog_password_field">"Нууц үг"</string> -->
+<string name="sad_tab_title">"Aw, Snap!"</string>
+<string name="sad_tab_message">"Энэхүү веб хуудсыг харуулахад ямар нэгэн алдаа гарлаа."</string>
+<string name="sad_tab_reload_label">"Дахин ачаал"</string>
+<string name="sad_tab_send_feedback_label">"Санал хүсэлт илгээх"</string>
+<string name="sad_tab_reload_title">"Энэ хуудсыг нээх боломжгүй байна"</string>
+<string name="sad_tab_reload_try">"Дараах зөвлөгөөг дагана уу:"</string>
+<string name="sad_tab_reload_incognito">"Хуудсыг шинэ Нууцлалтай цонхонд нээх"</string>
+<string name="sad_tab_reload_restart_browser">"Chromium-г дахин эхлүүлэх"</string>
+<string name="sad_tab_reload_restart_device">"Төхөөрөмжийг дахин эхлүүл"</string>
+<string name="sad_tab_reload_learn_more">"Дэлгэрэнгүй үзэх"</string>
+<string name="new_tab_otr_title">"Та нууцлалын горимд шилжлээ"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Таны үйл ажиллагаа дараахад &lt;em&gt;харагдсан хэвээр байна&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;Таны зочилсон веб хуудас
+          &lt;li&gt;Таны ажил олгогч эсвэл сургууль
+          &lt;li&gt;Таны интернэт үйлчилгээ нийлүүлэгч
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Күүкигийн тохиргоо хэсэгт энэ тохиргоог хянадаг."</string>
+<string name="new_tab_otr_third_party_cookie">"Гуравдагч талын күүкиг блоклох"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Асаасан үед сайтууд нь таныг веб дээр хянадаг күүкиг ашиглах боломжгүй байна. Зарим сайтын онцлогууд ажиллахгүй байж болзошгүй."</string>
+<string name="ntp_article_suggestions_section_header">"Танд зориулсан нийтлэл"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google-н зөвлөмж"</string>
+<string name="ntp_article_suggestions_section_empty">"Таны санал болгосон нийтлэл энд харагдана"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Сайт төвөгтэй эсвэл хуурамч зар харуулдаг"</string> -->
+<string name="payments_method_of_payment_label">"Төлбөрийн хэрэгсэл"</string>
+<string name="payments_contact_details_label">"Харилцагчийн мэдээлэл"</string>
+<string name="payments_add_contact_details_label">"Харилцагчийн мэдээлэл нэмэх"</string>
+<string name="payments_edit_contact_details_label">"Харилцагчийн мэдээллийг засах"</string>
+<string name="payments_add_billing_address">"Тооцооны хаяг нэмэх"</string>
+<string name="payments_add_name_on_card">"Картанд нэр нэмэх"</string>
+<string name="payments_add_valid_card_number">"Хүчинтэй картын дугаар оруулах"</string>
+<string name="payments_add_more_information">"Дэлгэрэнгүй мэдээлэл нэмэх"</string>
+<string name="payments_edit_card">"Картыг засах"</string>
+<string name="payments_add_phone_number">"Утасны дугаар нэмэх"</string>
+<string name="payments_add_recipient">"Нэр нэмэх"</string>
+<string name="payments_add_valid_address">"Хүчинтэй хаяг нэмэх"</string>
+<string name="payments_add_email">"Имэйл нэмэх"</string>
+<string name="payments_add_name">"Нэр нэмэх"</string>
+<string name="payments_order_summary_label">"Захиалгын хураангуй"</string>
+<string name="payment_request_payment_method_section_name">"Төлбөр"</string>
+<string name="payment_account_balance">"Дансны үлдэгдэл"</string>
+<string name="payments_shipping_summary_label">"Хүргэлт"</string>
+<string name="payments_shipping_address_label">"Илгээх хаяг"</string>
+<string name="payments_shipping_option_label">"Хүргэлтийн арга"</string>
+<string name="payments_delivery_summary_label">"Хүргэлт"</string>
+<string name="payments_delivery_address_label">"Хүргэлтийн хаяг"</string>
+<string name="payments_delivery_option_label">"Хүргэлтийн арга"</string>
+<string name="payments_pickup_summary_label">"Авах"</string>
+<string name="payments_pickup_address_label">"Авах хаяг"</string>
+<string name="payments_pickup_option_label">"Авах арга"</string>
+<string name="payments_edit_button">"Засварлах"</string>
+<string name="payments_pay_button">"Төлөх"</string>
+<string name="payments_continue_button">"Цааш"</string>
+<string name="payments_add_contact">"Харилцагчийн мэдээлэл нэмэх"</string>
+<string name="payments_add_card">"Карт нэмэх"</string>
+<string name="payments_add_address">"Хаяг нэмэх"</string>
+<string name="payments_edit_address">"Хаягийг засах"</string>
+<string name="payments_name_field_in_contact_details">"Нэр"</string>
+<string name="payments_save_card_to_device_checkbox">"Энэ картыг энэ төхөөрөмжид хадгалах"</string>
+<string name="payments_accepted_cards_label">"Зөвшөөрсөн карт"</string>
+<string name="payments_credit_card_expiration_date_abbr">"%1$s/%2$s-д дуусна"</string>
+<string name="payments_loading_message">"Ачаалж байна"</string>
+<string name="payments_processing_message">"Боловсруулж байна"</string>
+<string name="payments_checking_option">"Шалгаж байна"</string>
+<string name="payments_updated_label">"Шинэчилсэн"</string>
+<string name="payment_complete_message">"Төлбөрийг хийж дууслаа"</string>
+<string name="payments_error_message">"Таны захиалгыг боловсруулахад алдаа гарлаa. Дахин оролдоно уу."</string>
+<string name="payments_card_and_address_settings">"Та карт, хаягийг BEGIN_LINKТохиргооEND_LINK хэсэгт удирдах боломжтой."</string>
+<string name="payments_card_and_address_settings_signed_in">"Карт, хаягийг Chrome болон Google Бүртгэлээсээ (%1$s) харах боломжтой. Та тэдгээрийг BEGIN_LINKТохиргооEND_LINK хэсэгт хянах боломжтой."</string>
+<string name="payment_touch_sensor_to_pay">"Төлбөр төлөхийн тулд мэдрэгчид хүрнэ үү"</string>
+<string name="payment_fingerprint_not_recognized">"Танихгүй байна"</string>
+<string name="payments_card_and_address_settings_signed_out">"Карт, хаягийг Chrome-с харж болно. Та тэдгээрийг BEGIN_LINKТохиргооEND_LINK хэсэгт хянах боломжтой."</string>
+<string name="settings_can_make_payment_toggle_label">"Танд хадгалсан төлбөрийн хэрэгсэл байгаа эсэхийг шалгахыг сайтуудад зөвшөөрөх"</string>
+<string name="payments_required_field_message">"* Талбарыг бөглөх шаардлагатай"</string>
+<string name="payments_phone_invalid_validation_message">"Зөв утасны дугаар оруулна уу"</string>
+<string name="payments_email_invalid_validation_message">"Зөв имэйл хаяг оруулна уу"</string>
+<string name="payments_card_number_invalid_validation_message">"Зөв картны дугаар оруулна уу"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Дуусах огноог зөв оруулна уу"</string>
+<string name="payments_invalid_address">"Зөв хаяг оруулна уу"</string>
+<string name="payments_billing_address_required">"Тооцооны хаяг шаардлагатай"</string>
+<string name="payments_name_on_card_required">"Карт эзэмшигчийн нэр шаардлагатай"</string>
+<string name="payments_more_information_required">"Дэлгэрэнгүй мэдээлэл шаардлагатай"</string>
+<string name="payments_phone_number_required">"Утасны дугаар шаардлагатай"</string>
+<string name="payments_recipient_required">"Нэр шаардлагатай"</string>
+<string name="payments_email_required">"Имэйл шаардлагатай"</string>
+<string name="payments_name_required">"Нэр шаардлагатай"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Заавал бөглөх хэсэг"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Хүргэлтийн арга болон шаардлагыг харахын тулд хаяг сонгоно уу"</string>
+<string name="payments_unsupported_shipping_address">"Энэ хаяг руу хүргэх боломжгүй тул өөр хаяг сонгоно уу."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Хүргэлтийн арга болон шаардлагыг харахын тулд хаяг сонгоно уу"</string>
+<string name="payments_unsupported_delivery_address">"Энэ хаяг руу хүргэх боломжгүй тул өөр хаяг сонгоно уу."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Авах арга болон шаардлагыг харахын тулд хаяг сонгоно уу"</string>
+<string name="payments_unsupported_pickup_address">"Энэ хаягаас авах боломжгүй тул өөр хаяг сонгоно уу."</string>
+<string name="payments_android_app_error">"Төлбөрийн аппыг нээх боломжгүй байна"</string>
+<string name="external_payment_app_leave_incognito_warning">"Гадаад апп-р төлбөр хийхийн тулд нууцлалын горимоос гарах гэж байна. Үргэлжлүүлэх үү?"</string>
+<string name="payment_handler_sheet_description">"Төлбөр хариуцагчийн хүснэгт"</string>
+<string name="payment_handler_sheet_opened_half">"Төлбөр хариуцагчийн хүснэгт хагас нээлттэй байна"</string>
+<string name="payment_handler_sheet_opened_full">"Төлбөр хариуцагчийн хүснэгт нээлттэй байна"</string>
+<string name="payment_handler_sheet_closed">"Төлбөр хариуцагчийн хүснэгт хаалттай байна"</string>
+<string name="blocked_ads_prompt_title">"Зарыг блоклосон"</string>
+<!-- <string name="translate_infobar_error">"Өө. Энэ хуудсыг хөрвүүлж чадсангүй."</string> -->
+<!-- <string name="translate_button">"Хөрвүүлэх"</string> -->
+<!-- <string name="translate_never_translate_site">"Энэ сайтыг хэзээ ч бүү хөрвүүл"</string> -->
+<string name="translate_dont_offer_site">"Энэ сайтыг орчуулахыг бүү санал болго"</string>
+<!-- <string name="translate_option_always_translate">"%1$s хэл дээрх хуудсыг байнга орчуулна"</string> -->
+<!-- <string name="translate_option_never_translate">"%1$s хэл дээрх хуудсыг хэзээ ч орчуулахгүй"</string> -->
+<string name="translate_dont_offer_lang">"%1$s хэлээр буй хуудаснуудыг орчуулахыг бүү санал болго"</string>
+<!-- <string name="translate_option_more_language">"Бусад хэл"</string> -->
+<!-- <string name="translate_option_not_source_language">"Хуудас %1$s хэл дээр биш байна уу?"</string> -->
+<string name="translate_snackbar_always_translate">"Одооноос %1$s хэл дээрх хуудсыг %2$s хэл рүү орчуулна"</string>
+<string name="translate_snackbar_language_never">"%1$s хэл дээрх хуудсыг орчуулахгүй"</string>
+<string name="translate_snackbar_site_never">"Энэ сайтыг орчуулахгүй"</string>
+<string name="translate_snackbar_cancel">"Болих"</string>
+<string name="clear">"Цэвэрлэх"</string>
+<string name="show_content">"Харуулах"</string>
+<string name="hide_content">"Нуух"</string>
+<string name="choose">"Сонгох"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-mn/components_strings.xml -->
+
+<string name="http_post_warning_title">"Маягтын дахин мэдүүлгийг баталгаажуулах"</string>
+<string name="http_post_warning">"Таны хайж буй хуудас нь таны оруулсан мэдээллийг ашиглаж байна.  Энэ хуудас руу буцсанаар та хийсэн үйлдлээ дахин давтах хэрэгтэй болж магадгүй. Та үргэлжлүүлэхийг хүсч байна уу?"</string>
+<string name="http_post_warning_resend">"Цааш"</string>
+<string name="login_dialog_title">"Нэвтрэх"</string>
+<string name="login_dialog_ok_button_label">"Нэвтрэх"</string>
+<string name="login_dialog_username_field">"Хэрэглэгчийн нэр"</string>
+<string name="login_dialog_password_field">"Нууц үг"</string>
+<string name="page_info_permission_ads_subtitle">"Сайт төвөгтэй эсвэл хуурамч зар харуулдаг"</string>
+<string name="translate_infobar_error">"Өө. Энэ хуудсыг хөрвүүлж чадсангүй."</string>
+<string name="translate_button">"Хөрвүүлэх"</string>
+<string name="translate_never_translate_site">"Энэ сайтыг хэзээ ч бүү хөрвүүл"</string>
+<string name="translate_option_always_translate">"%1$s хэл дээрх хуудсыг байнга орчуулна"</string>
+<string name="translate_option_never_translate">"%1$s хэл дээрх хуудсыг хэзээ ч орчуулахгүй"</string>
+<string name="translate_option_more_language">"Бусад хэл"</string>
+<string name="translate_option_not_source_language">"Хуудас %1$s хэл дээр биш байна уу?"</string>
+</resources>

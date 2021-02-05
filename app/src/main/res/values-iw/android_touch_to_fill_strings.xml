@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"המשך הפעולה עם החשבון"</string>
+<string name="touch_to_fill_sheet_title">"בחירת חשבון"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"רשימת פרטי הכניסה למילוי במגע."</string>
+<string name="touch_to_fill_sheet_half_height">"רשימת פרטי הכניסה למילוי במגע פתוחה בחצי מגובה המסך."</string>
+<string name="touch_to_fill_sheet_full_height">"רשימת פרטי הכניסה למילוי במגע פתוחה בגובה המלא של המסך."</string>
+<string name="touch_to_fill_sheet_closed">"רשימת פרטי הכניסה למילוי במגע סגורה."</string>
+<string name="manage_passwords">"ניהול סיסמאות"</string>
+<string name="touch_to_fill_continue">"המשך"</string>
+</resources>

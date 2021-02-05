@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Lista över användaruppgifter som ska fyllas i med ett tryck."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Listan över användaruppgifter som ska fyllas i med ett tryck har öppnats över halva skärmen."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Listan över användaruppgifter som ska fyllas i med ett tryck har öppnats över hela skärmen."</string>
+<string name="all_passwords_bottom_sheet_closed">"Listan över användaruppgifter som ska fyllas i med ett tryck är stängd."</string>
+<string name="all_passwords_bottom_sheet_title">"Lösenord"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Sök"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Inget lösenord"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Om du litar på %s kan du använda ett lösenord du sparat för en annan webbplats."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Sträva efter att använda ett unikt lösenord för varje webbplats."</string>
+<string name="autofill_keyboard_accessory_content_description">"Lösenord finns tillgängliga"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Det finns tillgängliga förslag från autofyll ovanför tangentbordet"</string>
+<string name="keyboard_accessory_sheet_hide">"Visa tangentbord"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Använd förslag från Autofyll i Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Svep om du vill se fler förslag"</string>
+<string name="password_generation_accessory_button">"Föreslå ett starkt lösenord"</string>
+<string name="password_generation_accessory_button_short">"Föreslå lösenord"</string>
+<string name="password_accessory_sheet_toggle">"Visa lösenord"</string>
+<string name="password_accessory_sheet_opened">"Sparade lösenord och lösenordsalternativ visas"</string>
+<string name="address_accessory_sheet_title">"Adresser"</string>
+<string name="address_accessory_sheet_toggle">"Visa adresser"</string>
+<string name="address_accessory_sheet_opened">"Visa sparade adresser"</string>
+<string name="credit_card_accessory_sheet_toggle">"Visa betalningsmetoder"</string>
+<string name="credit_card_accessory_sheet_opened">"Sparade betalningsmetoder visas"</string>
+</resources>

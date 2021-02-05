@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"আপনার আশেপাশের 3D ম্যাপ তৈরি করতে এই সাইটটির জন্য Chrome-কে আপনার ক্যামেরা অ্যাক্সেস করার অনুমতি দিতে হবে।"</string>
+<string name="infobar_missing_camera_permission_text">"এই সাইটটির জন্য Chrome কে আপনার ক্যামেরায় অ্যাক্সেস দিতে হবে।"</string>
+<string name="infobar_missing_microphone_permission_text">"এই সাইটটির জন্য Chrome কে আপনার মাইক্রোফোনে অ্যাক্সেস দিতে হবে।"</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"এই সাইটটির জন্য Chrome কে আপনার ক্যামেরা এবং মাইক্রোফোনে অ্যাক্সেস দিতে হবে।"</string>
+<string name="infobar_missing_location_permission_text">"এই সাইটটির সাথে আপনার লোকেশন শেয়ার করার জন্য Chrome কে আপনার লোকেশনের তথ্যে অ্যাক্সেস দিতে হবে।"</string>
+<string name="infobar_update_permissions_button_text">"চালিয়ে যান"</string>
+<string name="nfc_disabled_on_device_message">"চালিয়ে যেতে Android সেটিংসে NFC চালু করুন"</string>
+<string name="nfc_prompt_turn_on">"চালু করুন"</string>
+<string name="overlay_detected_dialog_title">"এই সাইট আপনার অনুমতি চাইতে পারছে না"</string>
+<string name="overlay_detected_dialog_message">"অন্যান্য অ্যাপ থেকে আসা \'বাবল\' ফিচার অথবা ওভারলে বন্ধ করুন। তারপর, আবার চেষ্টা করুন।"</string>
+</resources>

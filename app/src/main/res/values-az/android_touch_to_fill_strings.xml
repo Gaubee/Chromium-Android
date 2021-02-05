@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Hesaba davam edin"</string>
+<string name="touch_to_fill_sheet_title">"Hesab seçin"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Toxunuşla doldurulacaq kredensialların siyahısı."</string>
+<string name="touch_to_fill_sheet_half_height">"Yarı hündürlükdə açılan toxunuşla doldurulacaq kredensialların siyahısı."</string>
+<string name="touch_to_fill_sheet_full_height">"Tam hündürlükdə açılan toxunuşla doldurulacaq kredensialların siyahısı."</string>
+<string name="touch_to_fill_sheet_closed">"Toxunuşla doldurulacaq kredensialların siyahısı bağlıdır."</string>
+<string name="manage_passwords">"Parolları idarə edin"</string>
+<string name="touch_to_fill_continue">"Davam edin"</string>
+</resources>

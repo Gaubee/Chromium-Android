@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"ମୁଁ ରାଜି"</string>
+<string name="autofill_assistant_init_title">"Chromeରେ\nGoogle Assistant ବ୍ୟବହାର କରି ଦେଖନ୍ତୁ"</string>
+<string name="autofill_assistant_init_message_rent_car">"କେବଳ କିଛି ଟାପରେ\nଏକ କାର ଭଡ଼ାରେ ନିଅନ୍ତୁ"</string>
+<string name="autofill_assistant_init_message_password_change">"Google Assistantକୁ ଆପଣଙ୍କ ପାସୱାର୍ଡ \nପରିବର୍ତ୍ତନ କରିବାରେ ସାହାଯ୍ୟ କରିବାକୁ ଦିଅନ୍ତୁ"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"କେବଳ କିଛି ଟାପରେ\nମୁଭି ଟିକେଟଗୁଡ଼ିକ କିଣନ୍ତୁ"</string>
+<string name="autofill_assistant_init_message_food_ordering">"କେବଳ କିଛି ଟାପରେ\nଖାଦ୍ୟ ଅର୍ଡର କରନ୍ତୁ"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"କେବଳ କିଛି ଟାପରେ\nଆପଣଙ୍କ ଫ୍ଲାଇଟରେ ଚେକ୍ ଇନ୍ କରନ୍ତୁ"</string>
+<string name="autofill_assistant_init_message_voice_search">"ୱେବସାଇଟଗୁଡ଼ିକରେ\nଭଏସ୍ ମାଧ୍ୟମରେ କାର୍ଯ୍ୟଗୁଡ଼ିକୁ ବ୍ୟବହାର କରି ଦେଖନ୍ତୁ"</string>
+<string name="autofill_assistant_init_message_shopping">"କେବଳ କିଛି ଟାପରେ\nଶୀଘ୍ର ଚେକ୍ ଆଉଟ୍ କରନ୍ତୁ"</string>
+<string name="autofill_assistant_init_message">"Google Assistant ଆପଣଙ୍କୁ ୱେବ୍‍‍ରେ ସନ୍ଧାନ ଓ ଚେକ୍‍ଆଉଟ୍ ପରି, କାର୍ଯ୍ୟଗୁଡ଼ିକ ସମ୍ପୂର୍ଣ୍ଣ କରିବାରେ ଆପଣଙ୍କୁ ସାହାଯ୍ୟ କରି ଆପଣଙ୍କର ସମୟ ବଞ୍ଚାଏ।"</string>
+<string name="autofill_assistant_init_message_short">"Chromeରେ Google Assistant ଆପଣଙ୍କ ପାଇଁ ସମଗ୍ର ୱେବସାଇଟରେ କାର୍ଯ୍ୟଗୁଡ଼ିକୁ ସମ୍ପୂର୍ଣ୍ଣ କରିପାରିବ"</string>
+<string name="autofill_assistant_google_terms_description">"କାର୍ଯ୍ୟଗୁଡ଼ିକୁ ସମ୍ପୂର୍ଣ୍ଣ କରିବାରେ ଆପଣଙ୍କୁ ସାହାଯ୍ୟ କରିବା ନିମନ୍ତେ, ଆପଣ Assistant ବ୍ୟବହାର କରିଥିବା ସାଇଟଗୁଡ଼ିକର URL ଏବଂ ବିଷୟବସ୍ତୁଗୁଡ଼ିକ ସହିତ Assistant ମାଧ୍ୟମରେ ଆପଣ ଦାଖଲ କରିଥିବା ସୂଚନା Google ପ୍ରାପ୍ତ କରିବ। ଏହି ସୂଚନା ଆପଣଙ୍କ Google ଆକାଉଣ୍ଟରେ ଷ୍ଟୋର୍ ହୋଇପାରେ। ଆପଣ Chrome ସେଟିଂସରେ Assistantକୁ ବନ୍ଦ କରିପାରିବେ। &lt;link&gt;ଅଧିକ ଜାଣନ୍ତୁ&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"କ୍ଷମା କରନ୍ତୁ, ମୁଁ ସାହାଯ୍ୟ କରିବା ପାଇଁ ସକ୍ଷମ ନୁହେଁ, ଦୟାକରି ଆପଣ ଏହାକୁ ନିଜେ କରିବା ଜାରି ରଖନ୍ତୁ।"</string>
+<string name="autofill_assistant_payment_information_missing">"ସୂଚନା ଅନୁପଲବ୍ଧ ଅଛି"</string>
+<string name="autofill_assistant_view_original_image_desc">"ଏକ୍ସଟର୍ନଲ୍ ଲିଙ୍କ୍ ଖୋଲିବେ?"</string>
+<string name="autofill_assistant_view_original_image_view">"ଦେଖନ୍ତୁ"</string>
+<string name="autofill_assistant_view_original_image_cancel">"ବାତିଲ୍"</string>
+<string name="autofill_assistant_sheet_content_description">"Chromeରେ Google Assistant।"</string>
+<string name="autofill_assistant_sheet_half_height">"Chromeରେ Google Assistant ଅର୍ଦ୍ଧେକ ଉଚ୍ଚରେ ଖୋଲାଯାଇଛି।"</string>
+<string name="autofill_assistant_sheet_full_height">"Chromeରେ Google Assistant ସଂପୂର୍ଣ୍ଣ ରୂପେ ଖୋଲାଯାଇଛି।"</string>
+<string name="autofill_assistant_sheet_closed">"Chromeରେ Google Assistant ବନ୍ଦ ହୋଇଗଲା।"</string>
+<string name="autofill_assistant_send_feedback">"ମତାମତ ପଠାନ୍ତୁ"</string>
+<string name="autofill_assistant_increase_value">"ମୂଲ୍ୟ ବଢ଼ାନ୍ତୁ"</string>
+<string name="autofill_assistant_decrease_value">"ମୂଲ୍ୟ କମ୍ କରନ୍ତୁ"</string>
+<string name="autofill_assistant_overflow_options">"ଅଗ୍ରାଧିକାର"</string>
+</resources>

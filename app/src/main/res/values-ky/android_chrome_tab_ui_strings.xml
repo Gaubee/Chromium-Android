@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Барактарды топко бириктирип, тез салыштырып чыгыңыз. Баштоо үчүн, шилтемени коё бербей басып туруңуз."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Башка өтмөктү көрүү үчүн, таптап коюңуз"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Өтмөктөрүңүз бул жерге топтолот"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Экраныңыздын ылдый жагында жайгашкан өтмөктөрдүн тобунан өтмөктөрүңүздү которуштуруңуз"</string>
+<string name="undo_bar_group_tabs_message">"%1$s өтмөк топтолду"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d өтмөк"</item>
+  <item quantity="other">"%1$d өтмөк"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Топко жаңы өтмөк кошуу"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Толук экран торчосун жашыруу"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Топтун өтмөктөрүн толук экрандагы торчодо көрсөтүү"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Өтмөк тасмасын жабуу"</string>
+<string name="tabswitcher_create_group">"Топ түзүү"</string>
+<string name="accessibility_tab_switcher">"Өтмөк которуштургуч"</string>
+<string name="accessibility_close_tab_group_button">"%1$s өтмөктөн турган өтмөктөр тобун жабуу"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"%1$s тобундагы %2$s өтмөктү жабуу"</string>
+<string name="tab_selection_editor_group">"Топ"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Өтмөктөрдү тандоо"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"%1$d тандалган өтмөктү топко бириктирүү"</item>
+  <item quantity="other">"%1$d тандалган өтмөктү топко бириктирүү"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Бир нече тандоосу бар режимди жашыруу"</string>
+<string name="accessibility_tab_selection_editor">"Бир нече тандоосу бар режим"</string>
+<string name="tab_grid_dialog_remove_from_group">"Топтон алып салуу"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Топтогу өтмөктөрдү алып салуу"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Алып салуу"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Топту бөлүшүү"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Топтун аталышын өзгөртүү"</string>
+<string name="accessibility_expand_tab_group">"%1$s өтмөктөн турган өтмөктөр тобу жайылып көрсөтүлсүн."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"%1$s өтмөктөр тобу %2$s өтмөктө жайылып көрсөтүлсүн."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Топтогу тандалган %1$d өтмөк өчүрүлсүн."</item>
+  <item quantity="other">"Топтогу тандалган %1$d өтмөк өчүрүлсүн."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d өтмөк жыйыштырылсын."</item>
+  <item quantity="other">"%1$d өтмөктөн турган өтмөктөр тобу жыйыштырылсын."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d өтмөк жыйыштырылсын."</item>
+  <item quantity="other">"%1$s өтмөктөр тобундагы %2$d өтмөк жыйыштырылсын."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Өтмөктөр тобу жайылып көрсөтүлдү"</string>
+<string name="iph_drag_and_drop_introduction">"Топтоо үчүн өтмөктөрдү сүйрөп келиңиз"</string>
+<string name="iph_drag_and_drop_show_me">"Көрсөтчү гана"</string>
+<string name="iph_drag_and_drop_title">"Иреттеп алыңыз"</string>
+<string name="iph_drag_and_drop_content">"Өтмөктөрдү топко кошуу үчүн алардын бирин басып кармап туруңуз. Андан кийин аны башка өтмөккө сүйрөңүз."</string>
+<string name="tab_switcher_carousel_title">"Серептөөнү улантуу"</string>
+<string name="tab_switcher_carousel_view_all">"Баарын көрүү"</string>
+<string name="tab_suggestion_review_button">"Карап көрүү"</string>
+<string name="tab_suggestion_close_tab_action_button">"Жабуу"</string>
+<string name="tab_suggestion_close_stale_message">"Өтмөктөрүңүздүн %1$s акыркы убакта колдонулган жок. Алар жабылсынбы?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s өтмөк окшош окшойт. Алар топко бириктирилсинби?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Сунуштарды карап чыгуу."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Сунуш: Өтмөктөрүңүздүн %1$s акыркы убакта колдонулган жок. Алар жабылсынбы?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Сунуш: %1$s өтмөк окшош окшойт. Алар топко бириктирилсинби?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Сунушту жабуу."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Тандалган %1$d өтмөктү жабуу"</item>
+  <item quantity="other">"Тандалган %1$d өтмөктү жабуу"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Өтмөктү солго жылдыруу"</string>
+<string name="accessibility_tab_movement_right">"Өтмөктү оңго жылдыруу"</string>
+<string name="accessibility_tab_movement_up">"Өтмөктү жогору жылдыруу"</string>
+<string name="accessibility_tab_movement_down">"Өтмөктү төмөн жылдыруу"</string>
+<string name="undo_tab_strip_closure_message">"Өтмөк тасмасы жабылды"</string>
+<string name="tab_strip_info_bar_question">"Өтмөк тасмасы экинчи көрсөтүлбөсүнбү?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Экинчи көрүнбөсүн"</string>
+<string name="tab_strip_info_bar_reshow">"Кийинчерээк көрсөтүү"</string>
+<string name="price_drop_spotted_title">"Баалардын түшкөнү аныкталды"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Көрсөтчү гана"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

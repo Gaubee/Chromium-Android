@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"タップ操作で入力する認証情報のリスト。"</string>
+<string name="all_passwords_bottom_sheet_half_height">"タップ操作で入力する認証情報のリストが画面の下半分に表示されています。"</string>
+<string name="all_passwords_bottom_sheet_full_height">"タップ操作で入力する認証情報のリストが画面全体に表示されています。"</string>
+<string name="all_passwords_bottom_sheet_closed">"タップ操作で入力する認証情報のリストは閉じています。"</string>
+<string name="all_passwords_bottom_sheet_title">"パスワード"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"検索"</string>
+<string name="all_passwords_bottom_sheet_no_password">"パスワードなし"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%s を信用できる場合は、他のサイトで保存したパスワードを使用できます。"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"各サイトで個別のパスワードを使用することをご検討ください。"</string>
+<string name="autofill_keyboard_accessory_content_description">"使用可能なパスワード"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"キーボード上部で自動入力の候補を選択できます"</string>
+<string name="keyboard_accessory_sheet_hide">"キーボードを表示"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome の自動入力候補を使用する"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"スワイプして他の候補を表示"</string>
+<string name="password_generation_accessory_button">"安全なパスワードを自動生成"</string>
+<string name="password_generation_accessory_button_short">"パスワードを自動生成"</string>
+<string name="password_accessory_sheet_toggle">"パスワードを表示"</string>
+<string name="password_accessory_sheet_opened">"保存したパスワードとパスワードのオプションを表示しています"</string>
+<string name="address_accessory_sheet_title">"住所"</string>
+<string name="address_accessory_sheet_toggle">"住所を表示"</string>
+<string name="address_accessory_sheet_opened">"保存された住所を表示しています"</string>
+<string name="credit_card_accessory_sheet_toggle">"お支払い方法を表示"</string>
+<string name="credit_card_accessory_sheet_opened">"保存されているお支払い方法を表示します"</string>
+</resources>

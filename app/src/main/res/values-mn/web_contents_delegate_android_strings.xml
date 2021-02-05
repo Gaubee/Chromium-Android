@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Илүү их"</string>
+<string name="color_picker_hue">"Hue"</string>
+<string name="color_picker_saturation">"Өнгөний нэвчилт"</string>
+<string name="color_picker_value">"Утга"</string>
+<string name="color_picker_button_set">"Тохируул"</string>
+<string name="color_picker_button_cancel">"Болих"</string>
+<string name="color_picker_dialog_title">"Өнгө сонгох"</string>
+<string name="color_picker_button_red">"Улаан"</string>
+<string name="color_picker_button_cyan">"Шар хөх өнгө"</string>
+<string name="color_picker_button_blue">"Цэнхэр"</string>
+<string name="color_picker_button_green">"Ногоон"</string>
+<string name="color_picker_button_magenta">"Гүн ягаавтар улаан өнгө"</string>
+<string name="color_picker_button_yellow">"Шар"</string>
+<string name="color_picker_button_black">"Хар"</string>
+<string name="color_picker_button_white">"Цагаан"</string>
+</resources>

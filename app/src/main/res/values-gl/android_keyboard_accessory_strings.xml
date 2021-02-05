@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"A lista de credenciais que se completarán ao tocar."</string>
+<string name="all_passwords_bottom_sheet_half_height">"A lista de credenciais que se completarán ao tocar está aberta ata a metade da pantalla."</string>
+<string name="all_passwords_bottom_sheet_full_height">"A lista de credenciais que se completarán ao tocar está aberta a pantalla completa."</string>
+<string name="all_passwords_bottom_sheet_closed">"A lista de credenciais que se completarán ao tocar está pechada."</string>
+<string name="all_passwords_bottom_sheet_title">"Contrasinais"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Buscar"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Sen contrasinal"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Se confías en %s, podes usar un contrasinal gardado para outro sitio."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Tenta usar un contrasinal distinto para cada sitio."</string>
+<string name="autofill_keyboard_accessory_content_description">"Contrasinais dispoñibles"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Autocompletar suxestións dispoñibles sobre o teclado"</string>
+<string name="keyboard_accessory_sheet_hide">"Mostrar teclado"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Usar a suxestión da función de autocompletar de Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Pasa o dedo para ver máis suxestións"</string>
+<string name="password_generation_accessory_button">"Suxerir contrasinal seguro"</string>
+<string name="password_generation_accessory_button_short">"Suxerir contrasinal"</string>
+<string name="password_accessory_sheet_toggle">"Mostra os contrasinais"</string>
+<string name="password_accessory_sheet_opened">"Mostrando contrasinais gardados e opcións de contrasinais"</string>
+<string name="address_accessory_sheet_title">"Enderezos"</string>
+<string name="address_accessory_sheet_toggle">"Mostrar enderezos"</string>
+<string name="address_accessory_sheet_opened">"Mostrando enderezos gardados"</string>
+<string name="credit_card_accessory_sheet_toggle">"Mostrar métodos de pago"</string>
+<string name="credit_card_accessory_sheet_opened">"Mostrando métodos de pago gardados"</string>
+</resources>

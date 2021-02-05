@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Toxunuşla doldurulacaq kredensialların siyahısı."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Yarı hündürlükdə açılan toxunuşla doldurulacaq kredensialların siyahısı."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Tam hündürlükdə açılan toxunuşla doldurulacaq kredensialların siyahısı."</string>
+<string name="all_passwords_bottom_sheet_closed">"Toxunuşla doldurulacaq kredensialların siyahısı bağlıdır."</string>
+<string name="all_passwords_bottom_sheet_title">"Parollar"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Axtar"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Parol yoxdur"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%s mənbəyinə etibar edirsinizsə, saxlanmış parolu başqa sayt üçün istifadə edə bilərsiniz."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Hər sayt üçün unikal parol istifadə edin."</string>
+<string name="autofill_keyboard_accessory_content_description">"Parollar əlçatandır"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Avtomatik doldurma təklifləri klaviaturanın yuxarısında əlçatandır"</string>
+<string name="keyboard_accessory_sheet_hide">"Klaviaturanı göstərin"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome\'un avto doldurma təklifindən istifadə edin"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Daha çox təklif görmək üçün sürüşdürün"</string>
+<string name="password_generation_accessory_button">"Güclü parol təklif edin"</string>
+<string name="password_generation_accessory_button_short">"Parol təklif edin"</string>
+<string name="password_accessory_sheet_toggle">"Parolları göstərin"</string>
+<string name="password_accessory_sheet_opened">"Yadda saxlanmış parollar və parol seçimləri göstərilir"</string>
+<string name="address_accessory_sheet_title">"Ünvanlar"</string>
+<string name="address_accessory_sheet_toggle">"Ünvanları Göstərin"</string>
+<string name="address_accessory_sheet_opened">"Yadda saxlanılan ünvanlar göstərilir"</string>
+<string name="credit_card_accessory_sheet_toggle">"Ödəniş metodlarını göstərin"</string>
+<string name="credit_card_accessory_sheet_opened">"Yadda saxlanılmış ödəniş metodları göstərilir"</string>
+</resources>

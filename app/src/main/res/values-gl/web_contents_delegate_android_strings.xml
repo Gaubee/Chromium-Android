@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Máis"</string>
+<string name="color_picker_hue">"Tonalidade"</string>
+<string name="color_picker_saturation">"Saturación"</string>
+<string name="color_picker_value">"Valor"</string>
+<string name="color_picker_button_set">"Establecer"</string>
+<string name="color_picker_button_cancel">"Cancelar"</string>
+<string name="color_picker_dialog_title">"Seleccionar cor"</string>
+<string name="color_picker_button_red">"Vermello"</string>
+<string name="color_picker_button_cyan">"Ciano"</string>
+<string name="color_picker_button_blue">"Azul"</string>
+<string name="color_picker_button_green">"Verde"</string>
+<string name="color_picker_button_magenta">"Maxenta"</string>
+<string name="color_picker_button_yellow">"Amarelo"</string>
+<string name="color_picker_button_black">"Negro"</string>
+<string name="color_picker_button_white">"Branco"</string>
+</resources>

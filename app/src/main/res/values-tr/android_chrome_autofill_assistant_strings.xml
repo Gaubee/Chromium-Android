@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Kabul ediyorum"</string>
+<string name="autofill_assistant_init_title">"Google Asistan\'ı\nChrome\'da deneyin"</string>
+<string name="autofill_assistant_init_message_rent_car">"Yalnızca birkaç\ndokunuşla araç kiralayın"</string>
+<string name="autofill_assistant_init_message_password_change">"Google Asistan, şifrenizi\ndeğiştirmenize yardımcı olsun"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Yalnızca birkaç dokunuşla\nsinema bileti satın alın"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Yalnızca birkaç\ndokunuşla yemek siparişi verin"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Yalnızca birkaç dokunuşla\nuçağınıza check-in yapın"</string>
+<string name="autofill_assistant_init_message_voice_search">"Sesli işlemleri\nweb sitelerinde deneyin"</string>
+<string name="autofill_assistant_init_message_shopping">"Yalnızca birkaç dokunuşla\nhızlı ödeme"</string>
+<string name="autofill_assistant_init_message">"Google Asistan, internette arama veya ödeme yapma gibi işlemleri tamamlamanıza yardımcı olarak size zaman kazandırır."</string>
+<string name="autofill_assistant_init_message_short">"Chrome\'daki Google Asistan sizin için web sitelerindeki işlemleri tamamlayabilir"</string>
+<string name="autofill_assistant_google_terms_description">"Google, görevleri tamamlamanıza yardımcı olmak için Asistan\'ı kullandığınız sitelerin URL\'lerinin ve içeriklerinin yanı sıra Asistan aracılığıyla gönderdiğiniz bilgileri alır. Bu bilgiler Google hesabınızda depolanabilir. Asistan\'ı Chrome ayarlarından kapatabilirsiniz. &lt;link&gt;Daha fazla bilgi&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Maalesef daha fazla yardımcı olamıyorum, lütfen kendiniz devam edin."</string>
+<string name="autofill_assistant_payment_information_missing">"Bilgi eksik"</string>
+<string name="autofill_assistant_view_original_image_desc">"Harici bağlantı açılsın mı?"</string>
+<string name="autofill_assistant_view_original_image_view">"Görüntüle"</string>
+<string name="autofill_assistant_view_original_image_cancel">"İptal"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome\'da Google Asistan."</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome\'da Google Asistan yarım yükseklikte açıldı."</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome\'da Google Assistant tam yükseklikte açıldı."</string>
+<string name="autofill_assistant_sheet_closed">"Chrome\'da Google Asistan kapatıldı."</string>
+<string name="autofill_assistant_send_feedback">"Geri bildirim gönder"</string>
+<string name="autofill_assistant_increase_value">"Değeri artırma"</string>
+<string name="autofill_assistant_decrease_value">"Değeri azaltma"</string>
+<string name="autofill_assistant_overflow_options">"Tercihler"</string>
+</resources>

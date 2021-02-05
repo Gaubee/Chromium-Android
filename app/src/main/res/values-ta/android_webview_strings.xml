@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="private_browsing_warning">"Android இன் இந்தப் பதிப்பில், இந்தச் செயல்பாடு ஆதரிக்கப்படாது."</string>
+<string name="license_activity_title">"System WebView உரிமங்கள்"</string>
+</resources>

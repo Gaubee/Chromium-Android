@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="private_browsing_warning">"Ova funkcija nije podržana u ovoj verziji Androida."</string>
+<string name="license_activity_title">"WebView licence sustava"</string>
+</resources>

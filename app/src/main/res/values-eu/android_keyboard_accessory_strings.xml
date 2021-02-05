@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Ukitzean bete beharreko kredentzialen zerrenda."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Ukitzean bete beharreko kredentzialen zerrenda altuera erdian dago irekita."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Ukitzean bete beharreko kredentzialen zerrenda altuera osoan dago irekita."</string>
+<string name="all_passwords_bottom_sheet_closed">"Ukitzean bete beharreko kredentzialen zerrenda itxita dago."</string>
+<string name="all_passwords_bottom_sheet_title">"Pasahitzak"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Bilaketa"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Ez da ezarri pasahitzik"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%s fidagarria dela uste baduzu, beste webgune baterako gordetako pasahitz bat erabil dezakezu."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Erabili pasahitz esklusiboa webgune bakoitzerako."</string>
+<string name="autofill_keyboard_accessory_content_description">"Pasahitzak daude erabilgarri"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Teklatuaren gainean agertzen dira eremuak automatikoki betetzeko iradokizunak"</string>
+<string name="keyboard_accessory_sheet_hide">"Erakutsi teklatua"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Erabili Chrome-ren automatikoki betetzeko iradokizuna"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Pasatu hatza iradokizun gehiago ikusteko"</string>
+<string name="password_generation_accessory_button">"Iradoki pasahitz seguru bat"</string>
+<string name="password_generation_accessory_button_short">"Iradoki pasahitza"</string>
+<string name="password_accessory_sheet_toggle">"Erakutsi pasahitzak"</string>
+<string name="password_accessory_sheet_opened">"Gordetako pasahitzak eta pasahitz-aukerak daude ikusgai"</string>
+<string name="address_accessory_sheet_title">"Helbideak"</string>
+<string name="address_accessory_sheet_toggle">"Erakutsi helbideak"</string>
+<string name="address_accessory_sheet_opened">"Gordetako helbideak daude ikusgai"</string>
+<string name="credit_card_accessory_sheet_toggle">"Erakutsi ordainketa-metodoak"</string>
+<string name="credit_card_accessory_sheet_opened">"Gordetako ordainketa-metodoak daude ikusgai"</string>
+</resources>

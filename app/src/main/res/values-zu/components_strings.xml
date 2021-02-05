@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"I-American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"I-Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Zitholele"</string> -->
+<!-- <string name="autofill_cc_jcb">"I-JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"I-Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"I-Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"I-China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"I-Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-zu/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Qinisekisa"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Londoloza ikhadi"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Leli gama lisuka ku-akhawunti yakho ye-Google"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"Hlola i-CVC yakho uphinde uzame futhi"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Hlola idethi yakho yokuphelelwa isikhathi uphinde uzame futhi"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Hlola idethi yakho yokuphelelwa yisikhathi ne-CVC uphinde uzame futhi"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Hlola inyanga yakho yokuphelelwa isikhathi uphinde uzame futhi"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Hlola unyaka wakho wokuphelelwa isikhathi uphinde uzame futhi"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Gcina ikhophi yaleli khadi kule divayisi"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Uma imakiwe, i-Chromium izogcina ikhophi yekhadi lakho kule divayisi ukuze kugcwaliswe ifomu ngokushesha."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Sebenzisa ukukhiya isikrini ukuqinisekisa amakhadi kusuka manje"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Iqinisekisa ikhadi…"</string>
+<string name="autofill_card_unmask_verification_success">"Ikhadi lakho liqinisekisiwe"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Buyekeza ikhadi"</string>
+<string name="autofill_wallet_management_link_text">"Hlela"</string>
+<string name="autofill_from_google_account_long">"Kusukela ku-Google Play"</string>
+<string name="autofill_offers_reminder_description_text">"Phuma nge-"</string>
+<string name="autofill_offers_reminder_deep_link_text">"Bona imininingwane."</string>
+<string name="autofill_clear_local_copy_button">"Sula ikhophi"</string>
+<string name="autofill_cc_amex">"I-American Express"</string>
+<string name="autofill_cc_diners">"I-Diners Club"</string>
+<string name="autofill_cc_discover">"Zitholele"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"I-JCB"</string>
+<string name="autofill_cc_mastercard">"I-Mastercard"</string>
+<string name="autofill_cc_mir">"I-Mir"</string>
+<string name="autofill_cc_union_pay">"I-China UnionPay"</string>
+<string name="autofill_cc_visa">"I-Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Skena ikhadi elisha"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Kubandakanya ulwazi njengezinombolo zefoni, amakheli e-imeyili, namakheli okuhambisisa"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Igcwalisa amafomu okukhokha ngezindlela zakho zokukhokha ezilondoloziwe"</string>
+<string name="autofill_addresses_settings_title">"Amakheli nokuningi"</string>
+<string name="autofill_payment_methods">"Izindlela zokukhokha"</string>
+<string name="autofill_enable_profiles_toggle_label">"Londoloza futhi ugcwalise amakheli"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Londoloza futhi ugcwalise zonke izindlela zokukhokha"</string>
+<string name="enable_credit_card_fido_auth_label">"Isikrini sivaliwe"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Sebenzisa ukukhiya kwesikrini ukuze uqinisekise amakhadi ngokushesha"</string>
+<!-- <string name="http_post_warning_title">"Qiniseka ukuphinda kuthunyelwe kwefomu"</string> -->
+<!-- <string name="http_post_warning">"Ikhasi olifunayo lisebenzise ulwazi olifakile. Ukubuyela kulelo khasi kungabangela noma yisiphi isenzo osenzile ukuthi siphindwe. Ingabe ufuna ukuqhubeka?"</string> -->
+<!-- <string name="http_post_warning_resend">"Qhubeka"</string> -->
+<!-- <string name="login_dialog_title">"Ngena ngemvume"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Ngena ngemvume"</string> -->
+<!-- <string name="login_dialog_username_field">"Igama lomsebenzisi"</string> -->
+<!-- <string name="login_dialog_password_field">"Igama lokungena"</string> -->
+<string name="sad_tab_title">"Hawu, iphutha!"</string>
+<string name="sad_tab_message">"Kukhona okungahambanga kahle ngenkathi kuboniswa lesi khasi lewebhu."</string>
+<string name="sad_tab_reload_label">"Phinda ulayishe"</string>
+<string name="sad_tab_send_feedback_label">"Thumela impendulo"</string>
+<string name="sad_tab_reload_title">"Ayikwazi ukuvula leli khasi"</string>
+<string name="sad_tab_reload_try">"Zama amathiphu alandelayo:"</string>
+<string name="sad_tab_reload_incognito">"Vula ikhasi kuthebhu entsha ye-incognito"</string>
+<string name="sad_tab_reload_restart_browser">"Qalisa kabusha i-Chromium"</string>
+<string name="sad_tab_reload_restart_device">"Qalisa kabusha idivayisi yakho"</string>
+<string name="sad_tab_reload_learn_more">"Funda kabanzi"</string>
+<string name="new_tab_otr_title">"Usuye ku-incognito"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Umsebenzi wakho &lt;em&gt;kusengenzeka uyabonakala&lt;/em&gt; ku-:
+        &lt;ul&gt;
+          &lt;li&gt;Amawebhusayithi owavakashelayo
+          &lt;li&gt;Umqashi wakho noma isikolo
+          &lt;li&gt;Umhlinzeki wesevisi yakho ye-inthanethi
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Lesi silungiselelo silawulwa kuzilungiselelo zamakhukhi."</string>
+<string name="new_tab_otr_third_party_cookie">"Vimba amakhukhi enkampani yangaphandle"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Uma kuvuliwe, amasayithi awakwazi ukusebenzisa amakhukhi akulandelayo kuwebhu yonkana. Izici ezikwamanye amasayithi zingase zinqamuke."</string>
+<string name="ntp_article_suggestions_section_header">"Ama-athikili akho"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Iziphakamiso nge-Google"</string>
+<string name="ntp_article_suggestions_section_empty">"Ama-athikili akho aphakanyisiwe avela lapha"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Isayithi libonisa izikhangiso ezingathandeki noma ezidukisayo"</string> -->
+<string name="payments_method_of_payment_label">"Indlela yokukhokha"</string>
+<string name="payments_contact_details_label">"Ulwazi loxhumana naye"</string>
+<string name="payments_add_contact_details_label">"Engeza imininingwane yokuxhumana"</string>
+<string name="payments_edit_contact_details_label">"Hlela ulwazi loxhumana naye"</string>
+<string name="payments_add_billing_address">"Engeza ikheli lokukhokha"</string>
+<string name="payments_add_name_on_card">"Engeza igama kukhadi"</string>
+<string name="payments_add_valid_card_number">"Engeza inombolo yekhadi evumelekile"</string>
+<string name="payments_add_more_information">"Engeza ulwazi olungaphezulu"</string>
+<string name="payments_edit_card">"Hlela ikhadi"</string>
+<string name="payments_add_phone_number">"Engeza inombolo yefoni"</string>
+<string name="payments_add_recipient">"Engeza igama"</string>
+<string name="payments_add_valid_address">"Engeza ikheli elivumelekile"</string>
+<string name="payments_add_email">"Engeza i-imeyili"</string>
+<string name="payments_add_name">"Engeza igama"</string>
+<string name="payments_order_summary_label">"Isifinyezo se-oda"</string>
+<string name="payment_request_payment_method_section_name">"Inkokhelo"</string>
+<string name="payment_account_balance">"Ibhalansi ye-akhawunti"</string>
+<string name="payments_shipping_summary_label">"Ukuthunyelwa"</string>
+<string name="payments_shipping_address_label">"Ikheli lokuthumela"</string>
+<string name="payments_shipping_option_label">"Indlela yokuthumela"</string>
+<string name="payments_delivery_summary_label">"Ukulethwa"</string>
+<string name="payments_delivery_address_label">"Ikheli lokulethwa"</string>
+<string name="payments_delivery_option_label">"Indlela yokulethwa"</string>
+<string name="payments_pickup_summary_label">"Ukuthathwa"</string>
+<string name="payments_pickup_address_label">"Ikheli lokuthathwa"</string>
+<string name="payments_pickup_option_label">"Indlela yokulandwa"</string>
+<string name="payments_edit_button">"Hlela"</string>
+<string name="payments_pay_button">"Khokha"</string>
+<string name="payments_continue_button">"Qhubeka"</string>
+<string name="payments_add_contact">"Engeza imininingwane yokuxhumana"</string>
+<string name="payments_add_card">"Engeza ikhadi"</string>
+<string name="payments_add_address">"Engeza ikheli"</string>
+<string name="payments_edit_address">"Hlela ikheli"</string>
+<string name="payments_name_field_in_contact_details">"Igama"</string>
+<string name="payments_save_card_to_device_checkbox">"Londoloza leli khadi kule divayisi"</string>
+<string name="payments_accepted_cards_label">"Amakhadi amukelwe"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Iphelelwa isikhathi ngomhla ka-%1$s/%2$s"</string>
+<string name="payments_loading_message">"Iyalayisha"</string>
+<string name="payments_processing_message">"Iyacubungula"</string>
+<string name="payments_checking_option">"Iyahlola"</string>
+<string name="payments_updated_label">"Kubuyekeziwe"</string>
+<string name="payment_complete_message">"Inkokhelo iqediwe"</string>
+<string name="payments_error_message">"Kube nenkinga ekucubunguleni i-oda lakho. Sicela uzame futhi."</string>
+<string name="payments_card_and_address_settings">"Ungaphatha amakhadi namakheli BEGIN_LINKKuzilungiseleloEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"Amakhadi namakheli avela ku-Chrome naku-akhawunti yakho ye-Google (%1$s). Ungawaphatha BEGIN_LINKKuzilungiseleloEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"Thinta inzwa ukuze ukhokhe"</string>
+<string name="payment_fingerprint_not_recognized">"Akubonwa"</string>
+<string name="payments_card_and_address_settings_signed_out">"Amakhadi namakheli asuka ku-Chrome. Ungawaphatha BEGIN_LINKkuzilungiseleloEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"Vumela amasayithi ukuhlola ukuthi ingabe unendlela yokukhokha elondoloziwe"</string>
+<string name="payments_required_field_message">"* Inkambu iyadingeka"</string>
+<string name="payments_phone_invalid_validation_message">"Faka inombolo yefoni evumelekile"</string>
+<string name="payments_email_invalid_validation_message">"Faka ikheli le-imeyili elivumelekile"</string>
+<string name="payments_card_number_invalid_validation_message">"Faka inombolo yekhadi evumelekile"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Faka idethi evumelekile yokuphelelwa isikhathi"</string>
+<string name="payments_invalid_address">"Faka ikheli elivumelekile"</string>
+<string name="payments_billing_address_required">"Kudingeka ikheli lokukhokha"</string>
+<string name="payments_name_on_card_required">"Kudingeka igama lomnikazi wekhadi"</string>
+<string name="payments_more_information_required">"Kudingeka ulwazi olungaphezulu"</string>
+<string name="payments_phone_number_required">"Inombolo yefoni iyadingeka"</string>
+<string name="payments_recipient_required">"Igama liyadingeka"</string>
+<string name="payments_email_required">"I-imeyili iyadingeka"</string>
+<string name="payments_name_required">"Igama liyadingeka"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Inkambu edingekayo"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Ukuze ubone izindlela ezihlukile nezidingo, khetha ikheli"</string>
+<string name="payments_unsupported_shipping_address">"Ayikwazi ukuthumela kuleli kheli. Khetha ikheli elihlukile."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Ukuze ubone izindlela zokulethwa nezidingo, khetha ikheli"</string>
+<string name="payments_unsupported_delivery_address">"Ayikwazi ukuletha kuleli kheli. Khetha ikheli elihlukile."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Ukuze ubone izindlela zokulandwa nokudingekayo, khetha ikheli"</string>
+<string name="payments_unsupported_pickup_address">"Ayikwazi ukulanda kusukela kuleli kheli. Khetha ikheli elihlukile."</string>
+<string name="payments_android_app_error">"Ayikwazi ukuvula uhlelo lokusebenza lwenkokhelo"</string>
+<string name="external_payment_app_leave_incognito_warning">"Ushiya imodi ye-incognito ukuze udlale ngohlelo lokusebenza lwangaphandle. Qhubeka?"</string>
+<string name="payment_handler_sheet_description">"Isidi lesibambi senkokhelo"</string>
+<string name="payment_handler_sheet_opened_half">"Ishidi lesibambi senkokhelo sivuleke kancane"</string>
+<string name="payment_handler_sheet_opened_full">"Ishidi lesibambi senkokhelo sivuliwe"</string>
+<string name="payment_handler_sheet_closed">"Ishidi lesibambi senkokhelo sivaliwe"</string>
+<string name="blocked_ads_prompt_title">"Izikhangiso zivinjewe"</string>
+<!-- <string name="translate_infobar_error">"Eshu. Leli khasi alikwazi ukuhunyushwa."</string> -->
+<!-- <string name="translate_button">"Humusha"</string> -->
+<!-- <string name="translate_never_translate_site">"Ungalokothi uhumushe leli sayithi"</string> -->
+<string name="translate_dont_offer_site">"Unganikezeli ukuhumusha leli sayithi"</string>
+<!-- <string name="translate_option_always_translate">"Njalo humusha amakhasi ngesi-%1$s"</string> -->
+<!-- <string name="translate_option_never_translate">"Ungahumushi amakhasi ngesi-%1$s"</string> -->
+<string name="translate_dont_offer_lang">"Unganikezeli ukuhumusha amakhasi nge-%1$s"</string>
+<!-- <string name="translate_option_more_language">"Izilimi eziningi"</string> -->
+<!-- <string name="translate_option_not_source_language">"Ikhasi alikho ngesi-%1$s?"</string> -->
+<string name="translate_snackbar_always_translate">"Amakhasi ngesi-%1$s azohumushelwa kusi-%2$s kusuka manje"</string>
+<string name="translate_snackbar_language_never">"Amakhasi ngesi-%1$s ngeke ahumushwe"</string>
+<string name="translate_snackbar_site_never">"Leli sayithi ngeke lihumushwe"</string>
+<string name="translate_snackbar_cancel">"Khansela"</string>
+<string name="clear">"Sula"</string>
+<string name="show_content">"Bonisa"</string>
+<string name="hide_content">"Fihla"</string>
+<string name="choose">"Khetha"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-zu/components_strings.xml -->
+
+<string name="http_post_warning_title">"Qiniseka ukuphinda kuthunyelwe kwefomu"</string>
+<string name="http_post_warning">"Ikhasi olifunayo lisebenzise ulwazi olifakile. Ukubuyela kulelo khasi kungabangela noma yisiphi isenzo osenzile ukuthi siphindwe. Ingabe ufuna ukuqhubeka?"</string>
+<string name="http_post_warning_resend">"Qhubeka"</string>
+<string name="login_dialog_title">"Ngena ngemvume"</string>
+<string name="login_dialog_ok_button_label">"Ngena ngemvume"</string>
+<string name="login_dialog_username_field">"Igama lomsebenzisi"</string>
+<string name="login_dialog_password_field">"Igama lokungena"</string>
+<string name="page_info_permission_ads_subtitle">"Isayithi libonisa izikhangiso ezingathandeki noma ezidukisayo"</string>
+<string name="translate_infobar_error">"Eshu. Leli khasi alikwazi ukuhunyushwa."</string>
+<string name="translate_button">"Humusha"</string>
+<string name="translate_never_translate_site">"Ungalokothi uhumushe leli sayithi"</string>
+<string name="translate_option_always_translate">"Njalo humusha amakhasi ngesi-%1$s"</string>
+<string name="translate_option_never_translate">"Ungahumushi amakhasi ngesi-%1$s"</string>
+<string name="translate_option_more_language">"Izilimi eziningi"</string>
+<string name="translate_option_not_source_language">"Ikhasi alikho ngesi-%1$s?"</string>
+</resources>

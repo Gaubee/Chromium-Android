@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Qhathanisa ngokushesha amakhasi ngokwenza iqembu. Ukuze uqale, thinta uphinde ubambe isixhumanisi."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Thepha ukuze ubone enye ithebhu"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Amathebhu akho afakwa kuqembu ndawonye lapha"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Shintsha phakathi komaka kuqembu lethebhu lakho eduze kwangaphansi kwesikrini"</string>
+<string name="undo_bar_group_tabs_message">"%1$s amathebhu aqoqiwe"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d ithebhu"</item>
+  <item quantity="other">"%1$d amathebhu"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Engeza ithebhu entsha kuqembu"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Fihla igridi yesikrini esigcwele"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Bonisa amathebhu eqembu kugridi yesikrini esigcwele"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Vala umugqa wamathebhu"</string>
+<string name="tabswitcher_create_group">"Dala iqembu"</string>
+<string name="accessibility_tab_switcher">"Isishintshi Sethebhu"</string>
+<string name="accessibility_close_tab_group_button">"Vala iqembu lethebhu ngamathebhu angu-%1$s"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"Vala iqembu elingu-%1$s lamathebhu angu-%2$s"</string>
+<string name="tab_selection_editor_group">"Iqembu"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Khetha amathebhu"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"Faka kuqembu ithebhu ekhethiwe e-%1$d"</item>
+  <item quantity="other">"Faka kuqembu amathebhu akhethiwe a-%1$d"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Fihla imodi yokukhetha okuningi"</string>
+<string name="accessibility_tab_selection_editor">"Imodi yokukhetha okuningi"</string>
+<string name="tab_grid_dialog_remove_from_group">"Susa kusukela kuqembu"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Susa amathebhu kusukela kuqembu"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Susa"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Yabelana ngeqembu"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Hlela igama leqembu"</string>
+<string name="accessibility_expand_tab_group">"Nweba iqembu lethebhu ngamathebhu angu-%1$s."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"Nweba %1$s iqembu lethebhu ngamathebhu angu-%2$s."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"Susa ithebhu ekhethiwe engu-%1$d  kusukela eqenjini."</item>
+  <item quantity="other">"Susa amathebhu akhethiwe angu-%1$d kusukela eqenjini."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"Goqa ithebhu engu-%1$d."</item>
+  <item quantity="other">"Goqa iqembu lethebhu enamathebhu angu-%1$d."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"Goqa ithebhu engu-%1$d."</item>
+  <item quantity="other">"Goqa iqembu lethebhu engu-%1$s enamathebhu angu-%2$d."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Iqembu lethebhu linwetshiwe"</string>
+<string name="iph_drag_and_drop_introduction">"Hudula amathebhu ukuze uwafake eqenjini"</string>
+<string name="iph_drag_and_drop_show_me">"Ngibonise"</string>
+<string name="iph_drag_and_drop_title">"Hleleka"</string>
+<string name="iph_drag_and_drop_content">"Ukuze uqoqe amathebhu, thinta futhi ubambe ithebhu. Bese, ihudulele kwenye ithebhu."</string>
+<string name="tab_switcher_carousel_title">"Qhubeka nokuphequlula"</string>
+<string name="tab_switcher_carousel_view_all">"Buka konke"</string>
+<string name="tab_suggestion_review_button">"Buyekeza"</string>
+<string name="tab_suggestion_close_tab_action_button">"Vala"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s yamathebhu akho awakasetshenziswa kamuva nje. Wavale?"</string>
+<string name="tab_suggestion_group_tabs_message">"Amathebhu ayi-%1$s abonakala ahambisana. Wenze iqembu?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Buyekeza iziphakamiso."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Isiphakamiso: %1$s yamathebhu akho awakasetshenziswa kamuva nje. Wavale?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Isiphakamiso: amathebhu a-%1$s abonakala ahlobene. Wenze iqembu?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Cashisa iziphakamiso."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"Vala ithebhu ekhethiwe engu-%1$d"</item>
+  <item quantity="other">"Vala amathebhu akhethiwe angu-%1$d"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Hambisa ithebhu ngakwesokunxele"</string>
+<string name="accessibility_tab_movement_right">"Yisa ithebhu kwesokudla"</string>
+<string name="accessibility_tab_movement_up">"Yisa ithebhu phezulu"</string>
+<string name="accessibility_tab_movement_down">"Yisa ithebhu phansi"</string>
+<string name="undo_tab_strip_closure_message">"Umugqa wamathebhu ovaliwe"</string>
+<string name="tab_strip_info_bar_question">"Ungabonisi umugqa wamathebhu futhi?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Ungabonisi futhi"</string>
+<string name="tab_strip_info_bar_reshow">"Bonisa kamuva"</string>
+<string name="price_drop_spotted_title">"Kubonwe ukwehliswa kwentengo"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Ngibonise"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

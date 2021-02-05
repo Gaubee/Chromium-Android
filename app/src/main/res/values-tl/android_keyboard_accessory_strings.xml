@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Listahan ng mga kredensyal na pupunan kapag pinindot."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Nakabukas nang kalahati ang taas ang listahan ng mga kredensyal na pupunan kapag pinindot."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Nakabukas nang buo ang taas ang listahan ng mga kredensyal na pupunan kapag pinindot."</string>
+<string name="all_passwords_bottom_sheet_closed">"Nakasara ang listahan ng mga kredensyal na pupunan kapag pinindot."</string>
+<string name="all_passwords_bottom_sheet_title">"Mga Password"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Hanapin"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Walang password"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Kung pinagkakatiwalaan mo ang %s, puwede kang gumamit ng naka-save na password para sa isa pang site."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Subukang gumamit ng natatanging password para sa bawat site."</string>
+<string name="autofill_keyboard_accessory_content_description">"May mga password"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Available ang mga suhestyon ng autofill sa itaas ng keyboard"</string>
+<string name="keyboard_accessory_sheet_hide">"Ipakita ang keyboard"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Gamitin ang suhestyon sa autofill ng Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Mag-swipe para makita ang higit pang suhestyon"</string>
+<string name="password_generation_accessory_button">"Magmungkahi ng malakas na password"</string>
+<string name="password_generation_accessory_button_short">"Magmungkahi ng password"</string>
+<string name="password_accessory_sheet_toggle">"Ipakita ang mga password"</string>
+<string name="password_accessory_sheet_opened">"Ipinapakita ang mga naka-save na password at mga opsyon sa password"</string>
+<string name="address_accessory_sheet_title">"Mga Address"</string>
+<string name="address_accessory_sheet_toggle">"Ipakita ang Mga Address"</string>
+<string name="address_accessory_sheet_opened">"Ipinapakita ang mga naka-save na address"</string>
+<string name="credit_card_accessory_sheet_toggle">"Ipakita ang mga paraan ng pagbabayad"</string>
+<string name="credit_card_accessory_sheet_opened">"Ipinapakita ang mga na-save na paraan ng pagbabayad"</string>
+</resources>

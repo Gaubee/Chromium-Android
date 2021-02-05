@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Яшчэ"</string>
+<string name="color_picker_hue">"Адценне"</string>
+<string name="color_picker_saturation">"Насычанасць"</string>
+<string name="color_picker_value">"Значэнне"</string>
+<string name="color_picker_button_set">"Задаць"</string>
+<string name="color_picker_button_cancel">"Скасаваць"</string>
+<string name="color_picker_dialog_title">"Выбар колеру"</string>
+<string name="color_picker_button_red">"Чырвоны"</string>
+<string name="color_picker_button_cyan">"Блакітны"</string>
+<string name="color_picker_button_blue">"Сіні"</string>
+<string name="color_picker_button_green">"Зялёны"</string>
+<string name="color_picker_button_magenta">"Пурпурны"</string>
+<string name="color_picker_button_yellow">"Жоўты"</string>
+<string name="color_picker_button_black">"Чорны"</string>
+<string name="color_picker_button_white">"Белы"</string>
+</resources>

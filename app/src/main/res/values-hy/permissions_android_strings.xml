@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome-ին անհրաժեշտ է տեսախցիկն օգտագործելու թույլտվություն՝ ձեր շրջակայքի եռաչափ քարտեզը ստեղծելու համար։"</string>
+<string name="infobar_missing_camera_permission_text">"Chrome-ին այս կայքի համար անհրաժեշտ է ձեր տեսախցիկն օգտագործելու թույլտվություն։"</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome-ին այս կայքի համար անհրաժեշտ է ձեր խոսափողն օգտագործելու թույլտվություն։"</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome-ին այս կայքի համար անհրաժեշտ է ձեր տեսախցիկն ու խոսափողը օգտագործելու թույլտվություն։"</string>
+<string name="infobar_missing_location_permission_text">"Chrome-ին այս կայքի համար անհրաժեշտ է ձեզ տեղորոշելու թույլտվություն։"</string>
+<string name="infobar_update_permissions_button_text">"Շարունակել"</string>
+<string name="nfc_disabled_on_device_message">"Շարունակելու համար միացրեք NFC-ն Android-ի կարգավորումներում"</string>
+<string name="nfc_prompt_turn_on">"Միացնել"</string>
+<string name="overlay_detected_dialog_title">"Այս կայքը չի կարող ձեր թույլտվությունը հայցել"</string>
+<string name="overlay_detected_dialog_message">"Փակեք ամպիկները կամ այլ կայքերի վրադրումները։ Այնուհետև նորից փորձեք։"</string>
+</resources>

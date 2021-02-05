@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-b+sr+Latn/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Potvrdi"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Sačuvaj karticu"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"To je ime sa vašeg Google naloga"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"Proverite CVC i pokušajte ponovo"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Proverite datum isteka i probajte ponovo"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Proverite datum isteka i CVC i pokušajte ponovo"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Proverite mesec isteka i probajte ponovo"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Proverite godinu isteka i probajte ponovo"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Zadrži kopiju ove kartice na ovom uređaju"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Ako označite ovu opciju, Chromium će skladištiti kopiju kartice na ovom uređaju radi bržeg popunjavanja obrazaca."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Od sada koristi zaključavanje ekrana za potvrdu kartica"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Kartica se potvrđuje…"</string>
+<string name="autofill_card_unmask_verification_success">"Kartica je potvrđena"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Ažurirajte karticu"</string>
+<string name="autofill_wallet_management_link_text">"Izmeni"</string>
+<string name="autofill_from_google_account_long">"Sa Google Pay-a"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"Obriši kopiju"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Skenirajte novu karticu"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Obuhvata informacije poput brojeva telefona, imejl adresa i adresa za isporuku"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Popunjava obrasce za plaćanje informacijama o sačuvanim načinima plaćanja"</string>
+<string name="autofill_addresses_settings_title">"Adrese i drugo"</string>
+<string name="autofill_payment_methods">"Načini plaćanja"</string>
+<string name="autofill_enable_profiles_toggle_label">"Čuvaj i unosi adrese"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Čuvaj i unosi načine plaćanja"</string>
+<string name="enable_credit_card_fido_auth_label">"Zaključavanje ekrana"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Koristite zaključavanje ekrana za bržu potvrdu kartica"</string>
+<!-- <string name="http_post_warning_title">"Potvrđivanje ponovnog slanja obrasca"</string> -->
+<!-- <string name="http_post_warning">"Stranica koju tražite koristila je informacije koje ste uneli. Povratak na tu stranicu može da prouzrokuje potrebnu ponavljanja radnji koje ste izvršili. Želite li da nastavite?"</string> -->
+<!-- <string name="http_post_warning_resend">"Nastavite"</string> -->
+<!-- <string name="login_dialog_title">"Prijavi me"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Prijavi me"</string> -->
+<!-- <string name="login_dialog_username_field">"Korisničko ime"</string> -->
+<!-- <string name="login_dialog_password_field">"Lozinka"</string> -->
+<string name="sad_tab_title">"O, ne!"</string>
+<string name="sad_tab_message">"Došlo je do greške pri prikazivanju ove veb-stranice."</string>
+<string name="sad_tab_reload_label">"Učitaj ponovo"</string>
+<string name="sad_tab_send_feedback_label">"Pošalji povratne informacije"</string>
+<string name="sad_tab_reload_title">"Ne možemo da otvorimo ovu stranicu"</string>
+<string name="sad_tab_reload_try">"Isprobajte sledeće savete:"</string>
+<string name="sad_tab_reload_incognito">"Otvorite stranicu na novoj kartici bez arhiviranja"</string>
+<string name="sad_tab_reload_restart_browser">"Ponovo pokrenite Chromium"</string>
+<string name="sad_tab_reload_restart_device">"Ponovno pokretanje uređaja"</string>
+<string name="sad_tab_reload_learn_more">"Saznajte više"</string>
+<string name="new_tab_otr_title">"Prešli ste u režim Bez arhiviranja"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Aktivnosti će &lt;em&gt;možda ipak biti vidljive&lt;/em&gt; za:
+        &lt;ul&gt;
+          &lt;li&gt;veb-sajtove koje posećujete
+          &lt;li&gt;poslodavca ili školu
+          &lt;li&gt;internet provajdera
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Ovo podešavanje se kontroliše u podešavanjima kolačića."</string>
+<string name="new_tab_otr_third_party_cookie">"Blokiraj kolačiće treće strane"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Kada je ova opcija uključena, sajtovi ne mogu da koriste kolačiće koji vas prate na vebu. Funkcije na nekim sajtovima mogu da prestanu sa radom."</string>
+<string name="ntp_article_suggestions_section_header">"Članci za vas"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google predlozi"</string>
+<string name="ntp_article_suggestions_section_empty">"Predloženi članci se prikazuju ovde"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Sajt prikazuje oglase koji ometaju aktivnosti ili obmanjujuće oglase"</string> -->
+<string name="payments_method_of_payment_label">"Način plaćanja"</string>
+<string name="payments_contact_details_label">"Kontakt informacije"</string>
+<string name="payments_add_contact_details_label">"Dodaj kontakt informacije"</string>
+<string name="payments_edit_contact_details_label">"Izmenite kontakt informacije"</string>
+<string name="payments_add_billing_address">"Dodajte adresu za obračun"</string>
+<string name="payments_add_name_on_card">"Dodajte ime na kartici"</string>
+<string name="payments_add_valid_card_number">"Dodajte važeći broj kartice"</string>
+<string name="payments_add_more_information">"Dodajte još informacija"</string>
+<string name="payments_edit_card">"Izmenite karticu"</string>
+<string name="payments_add_phone_number">"Dodaj tel. broj
+"</string>
+<string name="payments_add_recipient">"Dodajte ime"</string>
+<string name="payments_add_valid_address">"Dodajte važeću adresu"</string>
+<string name="payments_add_email">"Dodajte imejl"</string>
+<string name="payments_add_name">"Dodajte ime"</string>
+<string name="payments_order_summary_label">"Rezime porudžbine"</string>
+<string name="payment_request_payment_method_section_name">"Plaćanje"</string>
+<string name="payment_account_balance">"Stanje na računu"</string>
+<string name="payments_shipping_summary_label">"Isporuka"</string>
+<string name="payments_shipping_address_label">"Adresa za isporuku"</string>
+<string name="payments_shipping_option_label">"Način slanja"</string>
+<string name="payments_delivery_summary_label">"Isporuka"</string>
+<string name="payments_delivery_address_label">"Adresa isporuke"</string>
+<string name="payments_delivery_option_label">"Način isporuke"</string>
+<string name="payments_pickup_summary_label">"Preuzimanje"</string>
+<string name="payments_pickup_address_label">"Adresa preuzimanja"</string>
+<string name="payments_pickup_option_label">"Način preuzimanja"</string>
+<string name="payments_edit_button">"Izmeni"</string>
+<string name="payments_pay_button">"Plati"</string>
+<string name="payments_continue_button">"Nastavite"</string>
+<string name="payments_add_contact">"Dodaj kontakt informacije"</string>
+<string name="payments_add_card">"Dodaj karticu"</string>
+<string name="payments_add_address">"Dodajte adresu"</string>
+<string name="payments_edit_address">"Izmena adrese"</string>
+<string name="payments_name_field_in_contact_details">"Naziv"</string>
+<string name="payments_save_card_to_device_checkbox">"Sačuvaj ovu karticu na ovom uređaju"</string>
+<string name="payments_accepted_cards_label">"Prihvaćene kartice"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Ističe %1$s/%2$s"</string>
+<string name="payments_loading_message">"Učitavanje"</string>
+<string name="payments_processing_message">"Obrada"</string>
+<string name="payments_checking_option">"Provera"</string>
+<string name="payments_updated_label">"Ažurirano"</string>
+<string name="payment_complete_message">"Plaćanje je dovršeno"</string>
+<string name="payments_error_message">"Došlo je do greške pri obradi porudžbine. Probajte ponovo."</string>
+<string name="payments_card_and_address_settings">"Karticama i adresama možete da upravljate u BEGIN_LINKPodešavanjimaEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"Kartice i adrese su iz Chrome-a i sa vašeg Google naloga (%1$s). Njima možete da upravljate u BEGIN_LINKpodešavnjimaEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"Dodirnite senzor da biste platili"</string>
+<string name="payment_fingerprint_not_recognized">"Nije prepoznat"</string>
+<string name="payments_card_and_address_settings_signed_out">"Kartice i adrese su iz Chrome-a. Njima možete da upravljate u BEGIN_LINKpodešavanjimaEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"Dozvoli sajtovima da proveravaju da li imam sačuvane načine plaćanja"</string>
+<string name="payments_required_field_message">"* Polje je obavezno"</string>
+<string name="payments_phone_invalid_validation_message">"Unesite važeći broj telefona"</string>
+<string name="payments_email_invalid_validation_message">"Unesite važeću imejl adresu"</string>
+<string name="payments_card_number_invalid_validation_message">"Unesite važeći broj kartice"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Unesite važeći datum isteka"</string>
+<string name="payments_invalid_address">"Unesite važeću adresu"</string>
+<string name="payments_billing_address_required">"Adresa za obračun je obavezna"</string>
+<string name="payments_name_on_card_required">"Ime vlasnika kartice je obavezno"</string>
+<string name="payments_more_information_required">"Potrebno je više informacija"</string>
+<string name="payments_phone_number_required">"Broj telefona je obavezan"</string>
+<string name="payments_recipient_required">"Ime je obavezno"</string>
+<string name="payments_email_required">"Imejl je obavezan"</string>
+<string name="payments_name_required">"Ime je obavezno"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Obavezno polje"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Da biste videli načine i zahteve za slanje, izaberite adresu"</string>
+<string name="payments_unsupported_shipping_address">"Slanje na ovu adresu nije moguće. Izaberite drugu adresu."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Da biste videli načine i zahteve za isporuku, izaberite adresu"</string>
+<string name="payments_unsupported_delivery_address">"Isporuka na ovu adresu nije moguća. Izaberite drugu adresu."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Da biste videli načine i zahteve za preuzimanje, izaberite adresu"</string>
+<string name="payments_unsupported_pickup_address">"Preuzimanje sa ove adrese nije moguće. Izaberite drugu adresu."</string>
+<string name="payments_android_app_error">"Otvaranje aplikacije za plaćanje nije uspelo"</string>
+<string name="external_payment_app_leave_incognito_warning">"Napustićete režim bez arhiviranja da biste platili u spoljnoj aplikaciji. Želite li da nastavite?"</string>
+<string name="payment_handler_sheet_description">"Stranica obrađivača plaćanja"</string>
+<string name="payment_handler_sheet_opened_half">"Stranica obrađivača plaćanja je poluotvorena"</string>
+<string name="payment_handler_sheet_opened_full">"Stranica obrađivača plaćanja je otvorena"</string>
+<string name="payment_handler_sheet_closed">"Stranica obrađivača plaćanja je zatvorena"</string>
+<string name="blocked_ads_prompt_title">"Oglasi su blokirani"</string>
+<!-- <string name="translate_infobar_error">"Ups, prevođenje ove stranice nije uspelo."</string> -->
+<!-- <string name="translate_button">"Prevedi"</string> -->
+<!-- <string name="translate_never_translate_site">"Nikad ne prevodi ovaj sajt"</string> -->
+<string name="translate_dont_offer_site">"Ne nudi prevod ovog sajta"</string>
+<!-- <string name="translate_option_always_translate">"Uvek predvodi stranice na jeziku %1$s"</string> -->
+<!-- <string name="translate_option_never_translate">"Nikad ne prevodi stranice na jeziku %1$s"</string> -->
+<string name="translate_dont_offer_lang">"Ne nudi prevod stranica na jeziku %1$s"</string>
+<!-- <string name="translate_option_more_language">"Još jezika"</string> -->
+<!-- <string name="translate_option_not_source_language">"Ova stranica nije na jeziku %1$s?"</string> -->
+<string name="translate_snackbar_always_translate">"Stranice na jeziku %1$s će se od sada prevoditi na %2$s"</string>
+<string name="translate_snackbar_language_never">"Stranice na jeziku %1$s se neće prevoditi"</string>
+<string name="translate_snackbar_site_never">"Ovaj sajt se neće prevoditi"</string>
+<string name="translate_snackbar_cancel">"Otkaži"</string>
+<string name="clear">"Obriši"</string>
+<string name="show_content">"Prikaži"</string>
+<string name="hide_content">"Sakrij"</string>
+<string name="choose">"Odaberi"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-b+sr+Latn/components_strings.xml -->
+
+<string name="http_post_warning_title">"Potvrđivanje ponovnog slanja obrasca"</string>
+<string name="http_post_warning">"Stranica koju tražite koristila je informacije koje ste uneli. Povratak na tu stranicu može da prouzrokuje potrebnu ponavljanja radnji koje ste izvršili. Želite li da nastavite?"</string>
+<string name="http_post_warning_resend">"Nastavite"</string>
+<string name="login_dialog_title">"Prijavi me"</string>
+<string name="login_dialog_ok_button_label">"Prijavi me"</string>
+<string name="login_dialog_username_field">"Korisničko ime"</string>
+<string name="login_dialog_password_field">"Lozinka"</string>
+<string name="page_info_permission_ads_subtitle">"Sajt prikazuje oglase koji ometaju aktivnosti ili obmanjujuće oglase"</string>
+<string name="translate_infobar_error">"Ups, prevođenje ove stranice nije uspelo."</string>
+<string name="translate_button">"Prevedi"</string>
+<string name="translate_never_translate_site">"Nikad ne prevodi ovaj sajt"</string>
+<string name="translate_option_always_translate">"Uvek predvodi stranice na jeziku %1$s"</string>
+<string name="translate_option_never_translate">"Nikad ne prevodi stranice na jeziku %1$s"</string>
+<string name="translate_option_more_language">"Još jezika"</string>
+<string name="translate_option_not_source_language">"Ova stranica nije na jeziku %1$s?"</string>
+</resources>

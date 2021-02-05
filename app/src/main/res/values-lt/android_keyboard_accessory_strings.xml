@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Prisijungimo duomenų, kuriuos galima užpildyti palietus, sąrašas."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Prisijungimo duomenų, kuriuos galima užpildyti palietus, sąrašas atidarytas per pusę ekrano aukščio."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Prisijungimo duomenų, kuriuos galima užpildyti palietus, sąrašas atidarytas per visą ekrano aukštį."</string>
+<string name="all_passwords_bottom_sheet_closed">"Prisijungimo duomenų, kuriuos galima užpildyti palietus, sąrašas uždarytas."</string>
+<string name="all_passwords_bottom_sheet_title">"Slaptažodžiai"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Ieškoti"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Nepateiktas slaptažodis"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Jei pasitikite %s, išsaugotą slaptažodį galite naudoti kitoje svetainėje."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Kiekvienoje svetainėje stenkitės naudoti unikalius slaptažodžius."</string>
+<string name="autofill_keyboard_accessory_content_description">"Pasiekiami slaptažodžiai"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Automatinio pildymo pasiūlymai pateikiami virš klaviatūros"</string>
+<string name="keyboard_accessory_sheet_hide">"Rodyti klaviatūrą"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Naudoti „Chrome“ automatinio pildymo pasiūlymą"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Perbraukite, kad peržiūrėtumėte daugiau pasiūlymų"</string>
+<string name="password_generation_accessory_button">"Siūlyti sudėtingą slaptažodį"</string>
+<string name="password_generation_accessory_button_short">"Siūlyti slaptažodį"</string>
+<string name="password_accessory_sheet_toggle">"Rodyti slaptažodžius"</string>
+<string name="password_accessory_sheet_opened">"Rodomi išsaugoti slaptažodžiai ir slaptažodžių parinktys"</string>
+<string name="address_accessory_sheet_title">"Adresai"</string>
+<string name="address_accessory_sheet_toggle">"Rodyti adresus"</string>
+<string name="address_accessory_sheet_opened">"Rodomi išsaugoti adresai"</string>
+<string name="credit_card_accessory_sheet_toggle">"Rodyti mokėjimo metodus"</string>
+<string name="credit_card_accessory_sheet_opened">"Rodomi išsaugoti mokėjimo metodai"</string>
+</resources>

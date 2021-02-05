@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Më shumë"</string>
+<string name="color_picker_hue">"Nuanca"</string>
+<string name="color_picker_saturation">"Ngopje"</string>
+<string name="color_picker_value">"Vlera"</string>
+<string name="color_picker_button_set">"Cakto"</string>
+<string name="color_picker_button_cancel">"Anulo"</string>
+<string name="color_picker_dialog_title">"Zgjidh ngjyrën"</string>
+<string name="color_picker_button_red">"E kuqe"</string>
+<string name="color_picker_button_cyan">"E bruztë"</string>
+<string name="color_picker_button_blue">"E kaltër"</string>
+<string name="color_picker_button_green">"E gjelbër"</string>
+<string name="color_picker_button_magenta">"E purpurt e errët"</string>
+<string name="color_picker_button_yellow">"E verdhë"</string>
+<string name="color_picker_button_black">"E zezë"</string>
+<string name="color_picker_button_white">"E bardhë"</string>
+</resources>

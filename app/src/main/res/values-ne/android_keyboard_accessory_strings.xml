@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"छुँदाखेरि भरिने प्रमाणहरूको सूची।"</string>
+<string name="all_passwords_bottom_sheet_half_height">"छुँदाखेरि भरिने प्रमाणहरूको सूची आधा उचाइमा खोलिएको छ।"</string>
+<string name="all_passwords_bottom_sheet_full_height">"छुँदाखेरि भरिने प्रमाणहरूको सूची पूर्ण उचाइमा खोलिएको छ।"</string>
+<string name="all_passwords_bottom_sheet_closed">"छुँदाखेरि भरिने प्रमाणहरूको सूची बन्द छ।"</string>
+<string name="all_passwords_bottom_sheet_title">"पासवर्डहरू"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"खोज्नुहोस्"</string>
+<string name="all_passwords_bottom_sheet_no_password">"कुनै पासवर्ड छैन"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"तपाईंलाई %s माथि विश्वास छ भने तपाईं सुरक्षित गरिएको पासवर्ड कुनै अर्को साइटमा प्रयोग गर्न सक्नुहुन्छ।"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"हरेक साइटमा एउटा अद्वितीय पासवर्ड प्रयोग गर्ने प्रयास गर्नुहोस्।"</string>
+<string name="autofill_keyboard_accessory_content_description">"पासवर्डहरू उपलब्ध छन्"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"स्वतः भरणसम्बन्धी सुझावहरू किबोर्डको माथिपट्टि दिइएका छन्"</string>
+<string name="keyboard_accessory_sheet_hide">"किबोर्ड देखाउनुहोस्"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome को अटोफिलसम्बन्धी सुझाव प्रयोग गर्नुहोस्"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"थप सुझावहरू हेर्न स्वाइप गर्नुहोस्"</string>
+<string name="password_generation_accessory_button">"भरपर्दो पासवर्ड सिफारिस गर्नुहोस्"</string>
+<string name="password_generation_accessory_button_short">"पासवर्ड सिफारिस गर्नुहोस्"</string>
+<string name="password_accessory_sheet_toggle">"पासवर्डहरू देखाउनुहोस्"</string>
+<string name="password_accessory_sheet_opened">"सुरक्षित गरिएका पासवर्ड तथा पासवर्डका विकल्पहरू देखाउँदै‌"</string>
+<string name="address_accessory_sheet_title">"ठेगानाहरू"</string>
+<string name="address_accessory_sheet_toggle">"ठेगानाहरू देखाउनुहोस्"</string>
+<string name="address_accessory_sheet_opened">"सुरक्षित गरिएका ठेगानाहरू देखाउँदै"</string>
+<string name="credit_card_accessory_sheet_toggle">"भुक्तानी विधिहरू देखाउनुहोस्"</string>
+<string name="credit_card_accessory_sheet_opened">"सुरक्षित गरिएका भुक्तानी विधिहरू देखाउँदै"</string>
+</resources>

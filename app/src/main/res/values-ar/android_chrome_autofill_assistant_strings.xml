@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"أوافق"</string>
+<string name="autofill_assistant_init_title">"‏تجربة \"مساعد Google\" ‏\nفي Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"‏يمكنك استئجار سيارة \nببضع نقرات فقط."</string>
+<string name="autofill_assistant_init_message_password_change">"‏السماح لتطبيق \"مساعد Google\" بمساعدتك في\nتغيير كلمة المرور"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"‏يمكنك شراء تذاكر أفلام \nببضع نقرات فقط."</string>
+<string name="autofill_assistant_init_message_food_ordering">"‏يمكنك طلب الطعام \nببضع نقرات فقط."</string>
+<string name="autofill_assistant_init_message_flights_checkin">"‏يمكنك إنجاز إجراءات السفر \nببضع نقرات فقط."</string>
+<string name="autofill_assistant_init_message_voice_search">"‏يمكنك تجربة إجراءات صوتية \nعلى المواقع الإلكترونية."</string>
+<string name="autofill_assistant_init_message_shopping">"‏الدفع بسرعة\nببضع نقرات فقط"</string>
+<string name="autofill_assistant_init_message">"‏يوفّر لك \"مساعد Google\" الوقت من خلال مساعدتك على إكمال الإجراءات على الويب، مثل البحث والدفع."</string>
+<string name="autofill_assistant_init_message_short">"‏بإمكان \"مساعد Google\" في Chrome إكمال الإجراءات التي تريدها على المواقع الإلكترونية."</string>
+<string name="autofill_assistant_google_terms_description">"‏لمساعدتك على إنجاز المهام، ستتلقى Google عناوين URL للمواقع الإلكترونية ومحتواها عند استخدامك \"مساعد Google\" على تلك المواقع، بالإضافة إلى المعلومات التي يتم إرسالها من خلال \"مساعد Google\". قد تكون هذه المعلومات مُخزّنة في حسابك على Google. يمكنك إيقاف \"مساعد Google\" في إعدادات Chrome. &lt;link&gt;مزيد من المعلومات&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"عذرًا، لا يمكنني مساعدتك، يُرجى المتابعة بنفسك."</string>
+<string name="autofill_assistant_payment_information_missing">"معلومات غير متوفرة"</string>
+<string name="autofill_assistant_view_original_image_desc">"هل تريد فتح الرابط الخارجي؟"</string>
+<string name="autofill_assistant_view_original_image_view">"عرض"</string>
+<string name="autofill_assistant_view_original_image_cancel">"إلغاء"</string>
+<string name="autofill_assistant_sheet_content_description">"‏\"مساعد Google\" في Chrome"</string>
+<string name="autofill_assistant_sheet_half_height">"‏تم فتح \"مساعد Google\" في Chrome بنصف ارتفاع."</string>
+<string name="autofill_assistant_sheet_full_height">"‏يتم فتح \"مساعد Google\" في Chrome بارتفاع كامل."</string>
+<string name="autofill_assistant_sheet_closed">"‏تم إغلاق \"مساعد Google\" في Chrome."</string>
+<string name="autofill_assistant_send_feedback">"إرسال تعليقات"</string>
+<string name="autofill_assistant_increase_value">"زيادة القيمة"</string>
+<string name="autofill_assistant_decrease_value">"تقليل القيمة"</string>
+<string name="autofill_assistant_overflow_options">"الإعدادات المفضّلة"</string>
+</resources>

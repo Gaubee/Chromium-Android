@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Touch પર લૉગ ઇન વિગતો ભરવાની સૂચિ."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Touch પર લૉગ ઇન વિગતો ભરવાની સૂચિ અડધી ઊંચાઈએ ખૂલી."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Touch પર લૉગ ઇન વિગતો ભરવાની સૂચિ સંપૂર્ણ ઊંચાઈએ ખૂલી."</string>
+<string name="all_passwords_bottom_sheet_closed">"Touch પર લૉગ ઇન વિગતો ભરવાની સૂચિ બંધ છે."</string>
+<string name="all_passwords_bottom_sheet_title">"પાસવર્ડ"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"શોધો"</string>
+<string name="all_passwords_bottom_sheet_no_password">"કોઈ પાસવર્ડ જરૂરી નથી"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"જો %s તમારા માટે વિશ્વસનીય હોય, તો તમે અન્ય સાઇટ માટે સાચવેલા પાસવર્ડનો ઉપયોગ કરી શકો છો."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"દરેક સાઇટ માટે વિશિષ્ટ પાસવર્ડનો ઉપયોગ કરી જુઓ."</string>
+<string name="autofill_keyboard_accessory_content_description">"પાસવર્ડ ઉપલબ્ધ છે"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"કીબોર્ડની ઉપર ઉપલબ્ધ સૂચનોને ઑટોમૅટિક રીતે ભરો"</string>
+<string name="keyboard_accessory_sheet_hide">"કીબોર્ડ બતાવો"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chromeમાં ઑટોમૅટિક રીતે ભરવાની સુવિધાના સૂચનનો ઉપયોગ કરો"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"વધુ સૂચનો જોવા માટે સ્વાઇપ કરો"</string>
+<string name="password_generation_accessory_button">"સશક્ત પાસવર્ડ સૂચવો"</string>
+<string name="password_generation_accessory_button_short">"પાસવર્ડ સૂચવો"</string>
+<string name="password_accessory_sheet_toggle">"પાસવર્ડ બતાવો"</string>
+<string name="password_accessory_sheet_opened">"સાચવેલા પાસવર્ડ અને પાસવર્ડ માટેના વિકલ્પો બતાવી રહ્યા છીએ"</string>
+<string name="address_accessory_sheet_title">"સરનામાંઓ"</string>
+<string name="address_accessory_sheet_toggle">"સરનામાં બતાવો"</string>
+<string name="address_accessory_sheet_opened">"સાચવેલાં સરનામાં"</string>
+<string name="credit_card_accessory_sheet_toggle">"ચુકવણી પદ્ધતિઓ બતાવો"</string>
+<string name="credit_card_accessory_sheet_opened">"સાચવેલી ચુકવણી પદ્ધતિઓ બતાવી રહ્યાં છીએ"</string>
+</resources>

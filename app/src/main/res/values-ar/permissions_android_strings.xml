@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"‏يحتاج متصفِّح Chrome إلى إذن للوصول إلى الكاميرا من أجل إنشاء خريطة ثلاثية الأبعاد للبيئة المحيطة بك."</string>
+<string name="infobar_missing_camera_permission_text">"‏يحتاج Chrome إلى إذن لاستخدام الكاميرا للموقع الإلكتروني هذا."</string>
+<string name="infobar_missing_microphone_permission_text">"‏يحتاج Chrome إلى إذن لاستخدام الميكروفون للموقع الإلكتروني هذا."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"‏يحتاج Chrome إلى إذن لاستخدام الكاميرا والميكروفون للموقع الإلكتروني هذا."</string>
+<string name="infobar_missing_location_permission_text">"‏يحتاج Chrome إلى الوصول إلى موقعك الجغرافي لمشاركة موقعك الجغرافي مع الموقع الإلكتروني هذا."</string>
+<string name="infobar_update_permissions_button_text">"متابعة"</string>
+<string name="nfc_disabled_on_device_message">"‏للمواصلة، عليك تفعيل ميزة NFC في إعدادات Android."</string>
+<string name="nfc_prompt_turn_on">"تفعيل"</string>
+<string name="overlay_detected_dialog_title">"يتعذّر على الموقع الإلكتروني هذا طلب الإذن"</string>
+<string name="overlay_detected_dialog_message">"يُرجى إغلاق أيّ فقاعات محادثات أو تراكبات من التطبيقات الأخرى، ثم إعادة المحاولة مرة أخرى."</string>
+</resources>

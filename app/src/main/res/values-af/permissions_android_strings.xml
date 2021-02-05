@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome moet toestemming hê om toegang te kry tot jou kamera om \'n 3D-kaart van jou omgewing te skep."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome het toestemming nodig vir toegang tot jou kamera vir hierdie werf."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome het toestemming nodig vir toegang tot jou mikrofoon vir hierdie werf."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome het toestemming nodig vir toegang tot jou kamera en mikrofoon vir hierdie werf."</string>
+<string name="infobar_missing_location_permission_text">"Chrome het toegang tot jou ligging nodig om jou ligging met hierdie werf te deel."</string>
+<string name="infobar_update_permissions_button_text">"Gaan voort"</string>
+<string name="nfc_disabled_on_device_message">"Skakel NFC in Android-instellings aan om voort te gaan"</string>
+<string name="nfc_prompt_turn_on">"Skakel aan"</string>
+<string name="overlay_detected_dialog_title">"Hierdie werf kan nie vir jou toestemming vra nie"</string>
+<string name="overlay_detected_dialog_message">"Maak enige borrels en oorleggers van ander programme af toe. Probeer dan weer."</string>
+</resources>

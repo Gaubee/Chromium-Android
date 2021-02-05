@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="actionbar_share">"Deila"</string>
+<string name="actionbar_web_search">"Vefleit"</string>
+<string name="actionbar_textselection_title">"Textaval"</string>
+<string name="add_to_dictionary">"Bæta við orðabók"</string>
+<string name="delete_suggestion_text">"Eyða"</string>
+<string name="profiler_started_toast">"Greining ræst"</string>
+<string name="profiler_stopped_toast">"Greiningu lokið. Niðurstöðurnar eru í %1$s."</string>
+<string name="profiler_no_storage_toast">"Ekki er hægt að ræsa greiningu vegna þess að ytri geymsla er ekki tilbúin"</string>
+<string name="profiler_error_toast">"Ekki tókst að ræsa greiningu"</string>
+<string name="accessibility_date_picker_month">"Mánuður"</string>
+<string name="accessibility_date_picker_year">"Ár"</string>
+<string name="date_picker_dialog_set">"Stilla"</string>
+<string name="month_picker_dialog_title">"Veldu mánuð"</string>
+<string name="accessibility_date_picker_week">"Vika"</string>
+<string name="week_picker_dialog_title">"Stilla viku"</string>
+<string name="time_picker_dialog_am">"f.h."</string>
+<string name="time_picker_dialog_pm">"e.h."</string>
+<string name="time_picker_dialog_title">"Stilla tíma"</string>
+<string name="accessibility_time_picker_hour">"Klukkustund"</string>
+<string name="accessibility_time_picker_minute">"Mínúta"</string>
+<string name="accessibility_time_picker_second">"Sekúnda"</string>
+<string name="accessibility_time_picker_milli">"Millisekúnda"</string>
+<string name="accessibility_time_picker_ampm">"f.h./e.h."</string>
+<string name="time_picker_dialog_hour_minute_separator">":"</string>
+<string name="time_picker_dialog_minute_second_separator">":"</string>
+<string name="time_picker_dialog_second_subsecond_separator">"."</string>
+<string name="date_time_picker_dialog_title">"Stilla dagsetningu og tíma"</string>
+<string name="accessibility_datetime_picker_date">"Dagsetning"</string>
+<string name="accessibility_datetime_picker_time">"Tími"</string>
+<string name="date_picker_dialog_other_button_label">"Annað"</string>
+<string name="date_picker_dialog_title">"Stilla dagsetningu"</string>
+<string name="date_picker_dialog_clear">"Hreinsa"</string>
+<string name="speech_recognition_service_not_found">"Talgervisvél Google finnst ekki"</string>
+</resources>

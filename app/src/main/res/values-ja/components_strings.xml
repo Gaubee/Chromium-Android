@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"中国銀聯"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-ja/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"確認"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"カードを保存"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Google アカウントで設定されている名前です"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"CVC を確認してからもう一度お試しください"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"有効期限の「日」を確認してもう一度お試しください"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"有効期限と CVC を確認してからもう一度お試しください"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"有効期限の「月」を確認してもう一度お試しください"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"有効期限の「年」を確認してもう一度お試しください"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"このデバイスにこのカード情報のコピーを保存する"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"チェックボックスをオンにすると、Chromium がカード情報をこのデバイスに保存するためフォームにすばやく入力できるようになります。"</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"今後、画面ロックを使用してカードを確認する"</string>
+<string name="autofill_card_unmask_verification_in_progress">"カードを確認しています…"</string>
+<string name="autofill_card_unmask_verification_success">"カードを確認しました"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"カードを更新"</string>
+<string name="autofill_wallet_management_link_text">"編集"</string>
+<string name="autofill_from_google_account_long">"Google Pay から"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"コピーを消去"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"中国銀聯"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"新しいカードをスキャン"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"電話番号、メールアドレス、配送先住所などの情報が含まれます"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"保存したお支払い方法を使ってお支払いフォームに入力する"</string>
+<string name="autofill_addresses_settings_title">"住所やその他の情報"</string>
+<string name="autofill_payment_methods">"お支払い方法"</string>
+<string name="autofill_enable_profiles_toggle_label">"住所の保存と入力"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"お支払い方法の保存と入力"</string>
+<string name="enable_credit_card_fido_auth_label">"画面ロック"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"画面ロックを使用してカードをすばやく確認する"</string>
+<!-- <string name="http_post_warning_title">"フォーム再送信の確認"</string> -->
+<!-- <string name="http_post_warning">"検索しているページは、入力した情報を使用しています。このページに戻った場合、操作のやり直しが発生する可能性があります。続行しますか？"</string> -->
+<!-- <string name="http_post_warning_resend">"続行"</string> -->
+<!-- <string name="login_dialog_title">"ログイン"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"ログイン"</string> -->
+<!-- <string name="login_dialog_username_field">"ユーザー名"</string> -->
+<!-- <string name="login_dialog_password_field">"パスワード"</string> -->
+<string name="sad_tab_title">"エラー"</string>
+<string name="sad_tab_message">"このウェブページの表示中に問題が発生しました。"</string>
+<string name="sad_tab_reload_label">"再読み込み"</string>
+<string name="sad_tab_send_feedback_label">"フィードバックを送信"</string>
+<string name="sad_tab_reload_title">"このページを開けません"</string>
+<string name="sad_tab_reload_try">"次のことをお試しください。"</string>
+<string name="sad_tab_reload_incognito">"ページを新しいシークレット タブで開く"</string>
+<string name="sad_tab_reload_restart_browser">"Chromium を再起動する"</string>
+<string name="sad_tab_reload_restart_device">"デバイスの再起動"</string>
+<string name="sad_tab_reload_learn_more">"詳細"</string>
+<string name="new_tab_otr_title">"シークレット モードです"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"ただし、次の相手に&lt;em&gt;あなたのアクティビティが知られる&lt;/em&gt;可能性はあります。
+        &lt;ul&gt;
+          &lt;li&gt;訪問先のウェブサイト
+          &lt;li&gt;雇用主または学校
+          &lt;li&gt;ご利用のインターネット サービス プロバイダ
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"この設定は Cookie 設定で管理されています。"</string>
+<string name="new_tab_otr_third_party_cookie">"サードパーティの Cookie をブロックする"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"オンにすると、サイトは Cookie を使用してあなたをウェブ上でトラッキングできなくなります。一部サイトの機能が使用できなくなる可能性もあります。"</string>
+<string name="ntp_article_suggestions_section_header">"おすすめの記事"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google によるおすすめ"</string>
+<string name="ntp_article_suggestions_section_empty">"おすすめの記事がここに表示されます"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"このサイトでは煩わしい広告や誤解を招く広告が表示されます"</string> -->
+<string name="payments_method_of_payment_label">"お支払い方法"</string>
+<string name="payments_contact_details_label">"連絡先情報"</string>
+<string name="payments_add_contact_details_label">"連絡先情報を追加"</string>
+<string name="payments_edit_contact_details_label">"連絡先情報の編集"</string>
+<string name="payments_add_billing_address">"請求先住所を追加"</string>
+<string name="payments_add_name_on_card">"名義人名を追加"</string>
+<string name="payments_add_valid_card_number">"有効なカード番号を追加"</string>
+<string name="payments_add_more_information">"他の情報を追加"</string>
+<string name="payments_edit_card">"カードを編集"</string>
+<string name="payments_add_phone_number">"電話番号を追加
+"</string>
+<string name="payments_add_recipient">"名前を追加"</string>
+<string name="payments_add_valid_address">"有効なアドレスを追加"</string>
+<string name="payments_add_email">"メールを追加"</string>
+<string name="payments_add_name">"名前を追加"</string>
+<string name="payments_order_summary_label">"ご注文概要"</string>
+<string name="payment_request_payment_method_section_name">"お支払い"</string>
+<string name="payment_account_balance">"アカウント残高"</string>
+<string name="payments_shipping_summary_label">"発送先"</string>
+<string name="payments_shipping_address_label">"配送先住所"</string>
+<string name="payments_shipping_option_label">"配送方法"</string>
+<string name="payments_delivery_summary_label">"配送"</string>
+<string name="payments_delivery_address_label">"配送先住所"</string>
+<string name="payments_delivery_option_label">"配達方法"</string>
+<string name="payments_pickup_summary_label">"受け取り"</string>
+<string name="payments_pickup_address_label">"受け取り場所の住所"</string>
+<string name="payments_pickup_option_label">"受け取り方法"</string>
+<string name="payments_edit_button">"編集"</string>
+<string name="payments_pay_button">"お支払い"</string>
+<string name="payments_continue_button">"続行"</string>
+<string name="payments_add_contact">"連絡先情報を追加"</string>
+<string name="payments_add_card">"カードを追加"</string>
+<string name="payments_add_address">"住所を追加"</string>
+<string name="payments_edit_address">"住所の編集"</string>
+<string name="payments_name_field_in_contact_details">"名前"</string>
+<string name="payments_save_card_to_device_checkbox">"このカード情報をこのデバイスに保存する"</string>
+<string name="payments_accepted_cards_label">"利用可能なカード"</string>
+<string name="payments_credit_card_expiration_date_abbr">"有効期限: %1$s / %2$s"</string>
+<string name="payments_loading_message">"読み込み中"</string>
+<string name="payments_processing_message">"処理しています"</string>
+<string name="payments_checking_option">"確認中"</string>
+<string name="payments_updated_label">"更新完了"</string>
+<string name="payment_complete_message">"お支払いの完了"</string>
+<string name="payments_error_message">"ご注文の処理中にエラーが発生しました。もう一度お試しください。"</string>
+<string name="payments_card_and_address_settings">"カードと住所は [BEGIN_LINK設定END_LINK] で管理できます。"</string>
+<string name="payments_card_and_address_settings_signed_in">"Chrome と Google アカウント（%1$s）に保存されているクレジット カードと住所です。[BEGIN_LINK設定END_LINK] で管理できます。"</string>
+<string name="payment_touch_sensor_to_pay">"センサーをタップして支払います"</string>
+<string name="payment_fingerprint_not_recognized">"認識されませんでした"</string>
+<string name="payments_card_and_address_settings_signed_out">"Chrome に保存されているクレジット カードと住所です。[BEGIN_LINK設定END_LINK] で管理できます。"</string>
+<string name="settings_can_make_payment_toggle_label">"お支払い方法を保存しているかどうかの確認をサイトに許可する"</string>
+<string name="payments_required_field_message">"* 必須欄です"</string>
+<string name="payments_phone_invalid_validation_message">"有効な電話番号を入力してください"</string>
+<string name="payments_email_invalid_validation_message">"有効なメールアドレスを入力してください"</string>
+<string name="payments_card_number_invalid_validation_message">"有効なクレジット カード番号を入力してください"</string>
+<string name="payments_card_expiration_invalid_validation_message">"有効期限（日）を入力してください"</string>
+<string name="payments_invalid_address">"有効な住所を入力してください"</string>
+<string name="payments_billing_address_required">"請求先住所が必要です"</string>
+<string name="payments_name_on_card_required">"カード名義人は必須です"</string>
+<string name="payments_more_information_required">"その他の情報が必要です"</string>
+<string name="payments_phone_number_required">"電話番号が必要です"</string>
+<string name="payments_recipient_required">"名前は必須です"</string>
+<string name="payments_email_required">"メールアドレスは必須です"</string>
+<string name="payments_name_required">"名前は必須です"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"必須フィールド"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"配送方法と要件を確認するには、住所を選択してください"</string>
+<string name="payments_unsupported_shipping_address">"この住所には配送できません。別の住所を選択してください。"</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"配達方法と要件を確認するには、住所を選択してください"</string>
+<string name="payments_unsupported_delivery_address">"この住所には配達できません。別の住所を選択してください。"</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"受け取り方法と要件を確認するには、住所を選択してください"</string>
+<string name="payments_unsupported_pickup_address">"この住所での受け取りはできません。別の住所を選択してください。"</string>
+<string name="payments_android_app_error">"お支払いアプリを開けません"</string>
+<string name="external_payment_app_leave_incognito_warning">"外部アプリケーションを経由したお支払いの処理に進むため、シークレット モードを解除します。続行しますか？"</string>
+<string name="payment_handler_sheet_description">"支払いハンドラのシート"</string>
+<string name="payment_handler_sheet_opened_half">"支払いハンドラのシートが半分開いています"</string>
+<string name="payment_handler_sheet_opened_full">"支払いハンドラのシートが開いています"</string>
+<string name="payment_handler_sheet_closed">"支払いハンドラのシートは閉じています"</string>
+<string name="blocked_ads_prompt_title">"広告がブロックされました"</string>
+<!-- <string name="translate_infobar_error">"このページを翻訳できませんでした。"</string> -->
+<!-- <string name="translate_button">"翻訳"</string> -->
+<!-- <string name="translate_never_translate_site">"このサイトは翻訳しない"</string> -->
+<string name="translate_dont_offer_site">"このサイトを翻訳するか尋ねない"</string>
+<!-- <string name="translate_option_always_translate">"%1$sのページを常に翻訳する"</string> -->
+<!-- <string name="translate_option_never_translate">"%1$sのページを翻訳しない"</string> -->
+<string name="translate_dont_offer_lang">"%1$s のページを翻訳するか尋ねない"</string>
+<!-- <string name="translate_option_more_language">"その他の言語"</string> -->
+<!-- <string name="translate_option_not_source_language">"%1$sのページではない場合"</string> -->
+<string name="translate_snackbar_always_translate">"今後、%1$sのページは%2$sに翻訳されます"</string>
+<string name="translate_snackbar_language_never">"%1$sのページは翻訳されません"</string>
+<string name="translate_snackbar_site_never">"このサイトは翻訳されません"</string>
+<string name="translate_snackbar_cancel">"キャンセル"</string>
+<string name="clear">"削除"</string>
+<string name="show_content">"表示"</string>
+<string name="hide_content">"非表示"</string>
+<string name="choose">"選択"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-ja/components_strings.xml -->
+
+<string name="http_post_warning_title">"フォーム再送信の確認"</string>
+<string name="http_post_warning">"検索しているページは、入力した情報を使用しています。このページに戻った場合、操作のやり直しが発生する可能性があります。続行しますか？"</string>
+<string name="http_post_warning_resend">"続行"</string>
+<string name="login_dialog_title">"ログイン"</string>
+<string name="login_dialog_ok_button_label">"ログイン"</string>
+<string name="login_dialog_username_field">"ユーザー名"</string>
+<string name="login_dialog_password_field">"パスワード"</string>
+<string name="page_info_permission_ads_subtitle">"このサイトでは煩わしい広告や誤解を招く広告が表示されます"</string>
+<string name="translate_infobar_error">"このページを翻訳できませんでした。"</string>
+<string name="translate_button">"翻訳"</string>
+<string name="translate_never_translate_site">"このサイトは翻訳しない"</string>
+<string name="translate_option_always_translate">"%1$sのページを常に翻訳する"</string>
+<string name="translate_option_never_translate">"%1$sのページを翻訳しない"</string>
+<string name="translate_option_more_language">"その他の言語"</string>
+<string name="translate_option_not_source_language">"%1$sのページではない場合"</string>
+</resources>

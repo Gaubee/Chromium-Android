@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-lv/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"Apstiprināt"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"Saglabāt karti"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"Šis vārds ir no jūsu Google konta"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"Pārbaudiet CVC kodu un mēģiniet vēlreiz."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"Pārbaudiet derīguma termiņa datumu un mēģiniet vēlreiz."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"Pārbaudiet derīguma termiņu un CVC kodu un mēģiniet vēlreiz."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"Pārbaudiet derīguma termiņa mēnesi un mēģiniet vēlreiz."</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"Pārbaudiet derīguma termiņa gadu un mēģiniet vēlreiz."</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"Saglabāt šīs kartes kopiju šajā ierīcē"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"Ja šī izvēles rūtiņa ir atzīmēta, pārlūks Chromium saglabās jūsu kartes informāciju šajā ierīcē, lai nodrošinātu ātrāku veidlapu aizpildi."</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"Turpmāk izmantot ekrāna bloķēšanu, lai ātrāk apstiprinātu kartes"</string>
+<string name="autofill_card_unmask_verification_in_progress">"Notiek kartes apstiprināšana…"</string>
+<string name="autofill_card_unmask_verification_success">"Karte ir apstiprināta"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"Kartes atjaunināšana"</string>
+<string name="autofill_wallet_management_link_text">"Labot"</string>
+<string name="autofill_from_google_account_long">"No pakalpojuma Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"Dzēst kopiju"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"Skenēt jaunu karti"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"Iekļauta tāda informācija kā tālruņa numuri, e-pasta un piegādes adreses"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"Aizpilda maksājumu veidlapas, izmantojot saglabātos maksājuma veidus"</string>
+<string name="autofill_addresses_settings_title">"Adreses un citus datus"</string>
+<string name="autofill_payment_methods">"Maksājumu veidi"</string>
+<string name="autofill_enable_profiles_toggle_label">"Saglabāt un aizpildīt adreses"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"Saglabāt un aizpildīt maksājuma veidus"</string>
+<string name="enable_credit_card_fido_auth_label">"Ekrāna bloķēšana"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"Izmantot ekrāna bloķēšanu, lai kartes apstiprinātu ātrāk"</string>
+<!-- <string name="http_post_warning_title">"Apstiprināt veidlapas atkārtotu iesniegšanu"</string> -->
+<!-- <string name="http_post_warning">"Lapa, ko meklējāt, izmantoja jūsu ievadīto informāciju. Atgriešanās lapā var radīt jebkuras jūsu darbības atkārtojumu. Vai vēlaties turpināt?"</string> -->
+<!-- <string name="http_post_warning_resend">"Turpināt"</string> -->
+<!-- <string name="login_dialog_title">"Pierakstīties"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"Pierakstīties"</string> -->
+<!-- <string name="login_dialog_username_field">"Lietotājvārds"</string> -->
+<!-- <string name="login_dialog_password_field">"Parole"</string> -->
+<string name="sad_tab_title">"Cilnes avārija."</string>
+<string name="sad_tab_message">"Šīs tīmekļa lapas rādīšanas laikā radās kļūda."</string>
+<string name="sad_tab_reload_label">"Pārlādēt"</string>
+<string name="sad_tab_send_feedback_label">"Sūtīt atsauksmes"</string>
+<string name="sad_tab_reload_title">"Nevar atvērt šo lapu"</string>
+<string name="sad_tab_reload_try">"Izmantojiet tālāk sniegtos padomus."</string>
+<string name="sad_tab_reload_incognito">"Atvērt lapu jaunā inkognito režīma cilnē"</string>
+<string name="sad_tab_reload_restart_browser">"Restartējiet pārlūku Chromium"</string>
+<string name="sad_tab_reload_restart_device">"Ierīces restartēšana"</string>
+<string name="sad_tab_reload_learn_more">"Uzzināt vairāk"</string>
+<string name="new_tab_otr_title">"Jūs esat atvēris inkognito režīmu"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"Iespējams, jūsu darbības &lt;em&gt;joprojām būs redzamas&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;jūsu apmeklētajām vietnēm;
+          &lt;li&gt;jūsu darba devējam vai mācību iestādei;
+          &lt;li&gt;jūsu interneta pakalpojumu sniedzējam.
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"Šo iestatījumu var kontrolēt sadaļā Sīkfaili."</string>
+<string name="new_tab_otr_third_party_cookie">"Bloķēt trešo pušu sīkfailus"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"Ja šis iestatījums ir ieslēgts, vietnes nevar izmantot sīkfailus, lai izsekotu jūsu darbības tīmeklī. Noteiktās vietnēs funkcijas var nedarboties."</string>
+<string name="ntp_article_suggestions_section_header">"Jums piemeklēti raksti"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google ieteikumi"</string>
+<string name="ntp_article_suggestions_section_empty">"Ieteiktie raksti tiek parādīti šeit"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"Vietnē tiek rādītas traucējošas vai maldinošas reklāmas"</string> -->
+<string name="payments_method_of_payment_label">"Maksājuma veids"</string>
+<string name="payments_contact_details_label">"Kontaktinformācija"</string>
+<string name="payments_add_contact_details_label">"Pievienot kontaktinformāciju"</string>
+<string name="payments_edit_contact_details_label">"Kontaktinformācijas rediģēšana"</string>
+<string name="payments_add_billing_address">"Norēķinu adreses pievienošana"</string>
+<string name="payments_add_name_on_card">"Pievienot vārdu un uzvārdu uz kartes"</string>
+<string name="payments_add_valid_card_number">"Derīga kartes numura pievienošana"</string>
+<string name="payments_add_more_information">"Papildu informācijas pievienošana"</string>
+<string name="payments_edit_card">"Kartes informācijas rediģēšana"</string>
+<string name="payments_add_phone_number">"Piev. tālr. nr.
+"</string>
+<string name="payments_add_recipient">"Pievienojiet vārdu."</string>
+<string name="payments_add_valid_address">"Derīgas adreses pievienošana"</string>
+<string name="payments_add_email">"E-pasta adreses pievienošana"</string>
+<string name="payments_add_name">"Pievienojiet vārdu."</string>
+<string name="payments_order_summary_label">"Pasūtījuma kopsavilkums"</string>
+<string name="payment_request_payment_method_section_name">"Maksājums"</string>
+<string name="payment_account_balance">"Konta atlikums"</string>
+<string name="payments_shipping_summary_label">"Piegāde"</string>
+<string name="payments_shipping_address_label">"Piegādes adrese"</string>
+<string name="payments_shipping_option_label">"Nosūtīšanas veids"</string>
+<string name="payments_delivery_summary_label">"Piegāde"</string>
+<string name="payments_delivery_address_label">"Piegādes adrese"</string>
+<string name="payments_delivery_option_label">"Piegādes veids"</string>
+<string name="payments_pickup_summary_label">"Informācija par saņemšanu"</string>
+<string name="payments_pickup_address_label">"Saņemšanas adrese"</string>
+<string name="payments_pickup_option_label">"Saņemšanas veids"</string>
+<string name="payments_edit_button">"Labot"</string>
+<string name="payments_pay_button">"Maksāt"</string>
+<string name="payments_continue_button">"Turpināt"</string>
+<string name="payments_add_contact">"Pievienot kontaktinformāciju"</string>
+<string name="payments_add_card">"Pievienot karti"</string>
+<string name="payments_add_address">"Pievienot adresi"</string>
+<string name="payments_edit_address">"Rediģēt adresi"</string>
+<string name="payments_name_field_in_contact_details">"Nosaukums"</string>
+<string name="payments_save_card_to_device_checkbox">"Saglabāt šo karti šajā ierīcē"</string>
+<string name="payments_accepted_cards_label">"Pieņemtās kartes"</string>
+<string name="payments_credit_card_expiration_date_abbr">"Derīguma termiņš: %1$s/%2$s"</string>
+<string name="payments_loading_message">"Notiek ielāde"</string>
+<string name="payments_processing_message">"Notiek apstrāde"</string>
+<string name="payments_checking_option">"Pārbaude"</string>
+<string name="payments_updated_label">"Atjaunināts"</string>
+<string name="payment_complete_message">"Maksājums pabeigts"</string>
+<string name="payments_error_message">"Apstrādājot pasūtījumu, radās kļūda. Lūdzu, mēģiniet vēlreiz."</string>
+<string name="payments_card_and_address_settings">"Varat pārvaldīt karšu un adrešu informāciju sadaļā BEGIN_LINKIestatījumiEND_LINK."</string>
+<string name="payments_card_and_address_settings_signed_in">"Kartes un adreses tiek iegūtas no Chrome un jūsu Google konta (%1$s). Varat tās pārvaldīt BEGIN_LINKiestatījumosEND_LINK."</string>
+<string name="payment_touch_sensor_to_pay">"Pieskarieties sensoram, lai samaksātu."</string>
+<string name="payment_fingerprint_not_recognized">"Nav atpazīts"</string>
+<string name="payments_card_and_address_settings_signed_out">"Kartes un adreses tiek iegūtas no Chrome. Varat pārvaldīt tās BEGIN_LINKiestatījumosEND_LINK."</string>
+<string name="settings_can_make_payment_toggle_label">"Atļaut vietnēm pārbaudīt, vai jums ir saglabāti maksājumu veidi"</string>
+<string name="payments_required_field_message">"* Obligāts lauks"</string>
+<string name="payments_phone_invalid_validation_message">"Ievadiet derīgu tālruņa numuru"</string>
+<string name="payments_email_invalid_validation_message">"Ievadiet derīgu e-pasta adresi"</string>
+<string name="payments_card_number_invalid_validation_message">"Ievadiet derīgu kartes numuru"</string>
+<string name="payments_card_expiration_invalid_validation_message">"Ievadiet derīgu datumu"</string>
+<string name="payments_invalid_address">"Ievadiet derīgu adresi"</string>
+<string name="payments_billing_address_required">"Jānorāda norēķinu adrese."</string>
+<string name="payments_name_on_card_required">"Jānorāda kartes īpašnieka vārds un uzvārds"</string>
+<string name="payments_more_information_required">"Nepieciešama plašāka informācija."</string>
+<string name="payments_phone_number_required">"Jānorāda tālruņa numurs"</string>
+<string name="payments_recipient_required">"Jānorāda vārds vai nosaukums."</string>
+<string name="payments_email_required">"Jānorāda e-pasta adrese."</string>
+<string name="payments_name_required">"Jānorāda vārds vai nosaukums."</string>
+<string name="pref_edit_dialog_field_required_validation_message">"Obligātais lauks"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"Lai skatītu nosūtīšanas veidus un prasības, atlasiet adresi."</string>
+<string name="payments_unsupported_shipping_address">"Nevar nosūtīt uz šo adresi. Atlasiet citu adresi."</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"Lai skatītu piegādes veidus un prasības, atlasiet adresi."</string>
+<string name="payments_unsupported_delivery_address">"Nevar piegādāt uz šo adresi. Atlasiet citu adresi."</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"Lai skatītu saņemšanas veidus un prasības, atlasiet adresi."</string>
+<string name="payments_unsupported_pickup_address">"Nevar saņemt sūtījumu šajā adresē. Atlasiet citu adresi."</string>
+<string name="payments_android_app_error">"Nevar atvērt maksājumu lietotni"</string>
+<string name="external_payment_app_leave_incognito_warning">"Ja maksāšanai tiks izmantota ārēja lietojumprogramma, tiks aizvērts inkognito režīms. Vai turpināt?"</string>
+<string name="payment_handler_sheet_description">"Maksājumu apstrādātāja lapa"</string>
+<string name="payment_handler_sheet_opened_half">"Maksājumu apstrādātāja lapa ir līdz pusei atvērta"</string>
+<string name="payment_handler_sheet_opened_full">"Maksājumu apstrādātāja lapa ir atvērta"</string>
+<string name="payment_handler_sheet_closed">"Maksājumu apstrādātāja lapa ir aizvērta"</string>
+<string name="blocked_ads_prompt_title">"Reklāmu rādīšana bloķēta"</string>
+<!-- <string name="translate_infobar_error">"Hmm… Šo lapu nevarēja iztulkot."</string> -->
+<!-- <string name="translate_button">"Tulkot"</string> -->
+<!-- <string name="translate_never_translate_site">"Nekad netulkot šo vietni"</string> -->
+<string name="translate_dont_offer_site">"Nepiedāvāt tulkot šo vietni"</string>
+<!-- <string name="translate_option_always_translate">"Vienmēr tulkot lapas šādā valodā: %1$s"</string> -->
+<!-- <string name="translate_option_never_translate">"Nekad netulkot lapas šādā valodā: %1$s"</string> -->
+<string name="translate_dont_offer_lang">"Nepiedāvāt tulkot lapas no šādas valodas: %1$s"</string>
+<!-- <string name="translate_option_more_language">"Citas valodas…"</string> -->
+<!-- <string name="translate_option_not_source_language">"Vai lapa nav šajā valodā: %1$s?"</string> -->
+<string name="translate_snackbar_always_translate">"Turpmāk lapas šādā valodā: %1$s tiks tulkotas šādā valodā: %2$s."</string>
+<string name="translate_snackbar_language_never">"Lapas šādā valodā: %1$s netiks tulkotas."</string>
+<string name="translate_snackbar_site_never">"Šī vietne netiks tulkota"</string>
+<string name="translate_snackbar_cancel">"Atcelt"</string>
+<string name="clear">"Notīrīt"</string>
+<string name="show_content">"Rādīt"</string>
+<string name="hide_content">"Slēpt"</string>
+<string name="choose">"Izvēlēties"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-lv/components_strings.xml -->
+
+<string name="http_post_warning_title">"Apstiprināt veidlapas atkārtotu iesniegšanu"</string>
+<string name="http_post_warning">"Lapa, ko meklējāt, izmantoja jūsu ievadīto informāciju. Atgriešanās lapā var radīt jebkuras jūsu darbības atkārtojumu. Vai vēlaties turpināt?"</string>
+<string name="http_post_warning_resend">"Turpināt"</string>
+<string name="login_dialog_title">"Pierakstīties"</string>
+<string name="login_dialog_ok_button_label">"Pierakstīties"</string>
+<string name="login_dialog_username_field">"Lietotājvārds"</string>
+<string name="login_dialog_password_field">"Parole"</string>
+<string name="page_info_permission_ads_subtitle">"Vietnē tiek rādītas traucējošas vai maldinošas reklāmas"</string>
+<string name="translate_infobar_error">"Hmm… Šo lapu nevarēja iztulkot."</string>
+<string name="translate_button">"Tulkot"</string>
+<string name="translate_never_translate_site">"Nekad netulkot šo vietni"</string>
+<string name="translate_option_always_translate">"Vienmēr tulkot lapas šādā valodā: %1$s"</string>
+<string name="translate_option_never_translate">"Nekad netulkot lapas šādā valodā: %1$s"</string>
+<string name="translate_option_more_language">"Citas valodas…"</string>
+<string name="translate_option_not_source_language">"Vai lapa nav šajā valodā: %1$s?"</string>
+</resources>

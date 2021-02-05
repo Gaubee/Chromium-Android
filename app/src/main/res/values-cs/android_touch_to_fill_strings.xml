@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Pokračovat s účtem"</string>
+<string name="touch_to_fill_sheet_title">"Vyberte účet"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Seznam identifikačních údajů k vyplnění při klepnutí."</string>
+<string name="touch_to_fill_sheet_half_height">"Seznam identifikačních údajů k vyplnění při klepnutí je otevřený na polovinu výšky."</string>
+<string name="touch_to_fill_sheet_full_height">"Seznam identifikačních údajů k vyplnění při klepnutí je otevřený na celou výšku."</string>
+<string name="touch_to_fill_sheet_closed">"Seznam identifikačních údajů k vyplnění při klepnutí je zavřený."</string>
+<string name="manage_passwords">"Spravovat hesla"</string>
+<string name="touch_to_fill_continue">"Pokračovat"</string>
+</resources>

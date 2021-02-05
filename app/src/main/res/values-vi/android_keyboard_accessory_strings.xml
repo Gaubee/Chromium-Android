@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Danh sách các thông tin đăng nhập mà bạn có thể chạm để điền."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Danh sách thông tin đăng nhập mà bạn có thể chạm để điền đã được mở ở nửa dưới của màn hình."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Danh sách các thông tin xác thực mà bạn có thể chạm để điền đã được mở ở toàn độ cao."</string>
+<string name="all_passwords_bottom_sheet_closed">"Danh sách thông tin đăng nhập mà bạn có thể chạm để điền đã bị đóng."</string>
+<string name="all_passwords_bottom_sheet_title">"Mật khẩu"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Tìm kiếm"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Không có mật khẩu"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Nếu tin tưởng %s, bạn có thể sử dụng mật khẩu đã lưu cho trang web khác."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Hãy cố gắng sử dụng một mật khẩu riêng cho mỗi trang web."</string>
+<string name="autofill_keyboard_accessory_content_description">"Mật khẩu sẵn có"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Nội dung tự động điền đề xuất có sẵn phía trên bàn phím"</string>
+<string name="keyboard_accessory_sheet_hide">"Hiển thị bàn phím"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Sử dụng nội dung tự động điền do Chrome đề xuất"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Vuốt để xem thêm mục đề xuất"</string>
+<string name="password_generation_accessory_button">"Đề xuất mật khẩu mạnh"</string>
+<string name="password_generation_accessory_button_short">"Đề xuất mật khẩu"</string>
+<string name="password_accessory_sheet_toggle">"Hiển thị mật khẩu"</string>
+<string name="password_accessory_sheet_opened">"Đang hiển thị mật khẩu đã lưu và các tùy chọn mật khẩu"</string>
+<string name="address_accessory_sheet_title">"Địa chỉ"</string>
+<string name="address_accessory_sheet_toggle">"Hiển thị địa chỉ"</string>
+<string name="address_accessory_sheet_opened">"Đang hiển thị các địa chỉ đã lưu"</string>
+<string name="credit_card_accessory_sheet_toggle">"Hiển thị các phương thức thanh toán"</string>
+<string name="credit_card_accessory_sheet_opened">"Đang hiển thị các phương thức thanh toán đã lưu"</string>
+</resources>

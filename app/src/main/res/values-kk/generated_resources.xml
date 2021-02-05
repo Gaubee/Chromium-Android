@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="tos_notification_title">"Chrome-ның Қызмет көрсету шарттары 31 наурыздан бастап өзгереді"</string>
+<string name="tos_notification_body_text">"Жаңа шарттарды қарап шығыңыз."</string>
+<string name="tos_notification_ack_button_text">"Түсінікті"</string>
+<string name="tos_notification_review_button_text">"Көру"</string>
+<string name="managed">"Ұйым басқарады"</string>
+<string name="search_or_type_web_address">"Веб-мекенжайды енгізіңіз не іздеңіз"</string>
+<string name="omnibox_confirm_delete_from_clipboard">"Ұсыныс буферден өшірілсін бе?"</string>
+<string name="options_homepage_title">"Негізгі бет"</string>
+<string name="autofill_from_google_account">"Google Pay"</string>
+<string name="bluetooth_scanning_prompt_no_devices_found_prompt">"Маңайдан құрылғы табылған жоқ."</string>
+<string name="bluetooth_scanning_prompt_allow_button_text">"Рұқсат беру"</string>
+<string name="bluetooth_scanning_prompt_block_button_text">"Бөгеу"</string>
+</resources>

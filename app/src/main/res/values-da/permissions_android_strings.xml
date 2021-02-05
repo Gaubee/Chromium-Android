@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome skal have adgangstilladelse til dit kamera for at oprette et 3D-kort over dine omgivelser."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome skal have tilladelse til at bruge dit kamera på dette website."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome skal have tilladelse til at bruge din mikrofon på dette website."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome skal have tilladelse til at bruge dit kamera og din mikrofon på dette website."</string>
+<string name="infobar_missing_location_permission_text">"Chrome skal have adgang til din placering for at dele din placering med dette website."</string>
+<string name="infobar_update_permissions_button_text">"Fortsæt"</string>
+<string name="nfc_disabled_on_device_message">"Aktivér NFC i Android-indstillingerne for at fortsætte"</string>
+<string name="nfc_prompt_turn_on">"Aktivér"</string>
+<string name="overlay_detected_dialog_title">"Dette website kan ikke anmode om din tilladelse"</string>
+<string name="overlay_detected_dialog_message">"Luk alle bobler og overlejringer fra andre apps. Prøv derefter igen."</string>
+</resources>

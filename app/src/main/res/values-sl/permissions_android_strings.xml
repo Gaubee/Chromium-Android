@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome potrebuje dovoljenje za dostop do fotoaparata zaradi ustvarjanja tridimenzionalnega zemljevida okolice."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome potrebuje dovoljenje za dostop do fotoaparata za to spletno mesto."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome potrebuje dovoljenje za dostop do mikrofona za to spletno mesto."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome potrebuje dovoljenje za dostop do fotoaparata in mikrofona za to spletno mesto."</string>
+<string name="infobar_missing_location_permission_text">"Chrome potrebuje dostop do vaše lokacije, da jo bo lahko delil s tem spletnim mestom."</string>
+<string name="infobar_update_permissions_button_text">"Naprej"</string>
+<string name="nfc_disabled_on_device_message">"Če želite nadaljevati, v nastavitvah za Android vklopite tehnologijo NFC"</string>
+<string name="nfc_prompt_turn_on">"Vklopi"</string>
+<string name="overlay_detected_dialog_title">"To spletno mesto ne more zahtevati vašega dovoljenja"</string>
+<string name="overlay_detected_dialog_message">"Zaprite morebitne oblačke ali prekrivanja drugih aplikacij. Nato poskusite znova."</string>
+</resources>

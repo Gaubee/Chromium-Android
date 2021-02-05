@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Shu hisobda davom etish"</string>
+<string name="touch_to_fill_sheet_title">"Hisobni tanlang"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Teginib kiritiladigan login va parollar roʻyxati."</string>
+<string name="touch_to_fill_sheet_half_height">"Teginib kiritiladigan login va parollar yarim hajmda ochildi."</string>
+<string name="touch_to_fill_sheet_full_height">"Teginib kiritiladigan login va parollar toʻliq hajmda ochildi."</string>
+<string name="touch_to_fill_sheet_closed">"Teginib kiritiladigan login va parollar roʻyxati yopiq."</string>
+<string name="manage_passwords">"Sozlash"</string>
+<string name="touch_to_fill_continue">"Davom etish"</string>
+</resources>

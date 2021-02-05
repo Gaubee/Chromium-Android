@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"China UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"Visa"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-th/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"ยืนยัน"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"บันทึกบัตร"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"ชื่อนี้มาจากบัญชี Google ของคุณ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"ตรวจสอบ CVC และลองอีกครั้ง"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"ตรวจสอบวันหมดอายุแล้วลองอีกครั้ง"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"ตรวจสอบวันหมดอายุและ CVC แล้วลองอีกครั้ง"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"ตรวจสอบเดือนหมดอายุแล้วลองอีกครั้ง"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"ตรวจสอบปีหมดอายุแล้วลองอีกครั้ง"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"เก็บสำเนาบัตรนี้ไว้บนอุปกรณ์นี้"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"หากเลือกไว้ Chromium จะจัดเก็บสำเนาบัตรของคุณบนอุปกรณ์นี้เพื่อการกรอกแบบฟอร์มที่รวดเร็วขึ้น"</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"จากนี้ไปให้ใช้ฟีเจอร์ล็อกหน้าจอเพื่อยืนยันบัตร"</string>
+<string name="autofill_card_unmask_verification_in_progress">"กำลังยืนยันบัตร…"</string>
+<string name="autofill_card_unmask_verification_success">"บัตรของคุณได้รับการยืนยันแล้ว"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"อัปเดตบัตร"</string>
+<string name="autofill_wallet_management_link_text">"แก้ไข"</string>
+<string name="autofill_from_google_account_long">"จาก Google Pay"</string>
+<string name="autofill_offers_reminder_description_text">"ชำระเงินด้วย"</string>
+<string name="autofill_offers_reminder_deep_link_text">"ดูรายละเอียด"</string>
+<string name="autofill_clear_local_copy_button">"ล้างสำเนา"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"China UnionPay"</string>
+<string name="autofill_cc_visa">"Visa"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"สแกนบัตรใหม่"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"รวมข้อมูล เช่น หมายเลขโทรศัพท์ อีเมล และที่อยู่สำหรับจัดส่ง"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"กรอกฟอร์มการชำระเงินด้วยวิธีการชำระเงินที่คุณบันทึกไว้"</string>
+<string name="autofill_addresses_settings_title">"ที่อยู่และอื่นๆ"</string>
+<string name="autofill_payment_methods">"วิธีการชำระเงิน"</string>
+<string name="autofill_enable_profiles_toggle_label">"บันทึกและกรอกที่อยู่"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"บันทึกและกรอกวิธีการชำระเงิน"</string>
+<string name="enable_credit_card_fido_auth_label">"ล็อกหน้าจอ"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"ใช้ฟีเจอร์ล็อกหน้าจอเพื่อยืนยันบัตรได้เร็วขึ้น"</string>
+<!-- <string name="http_post_warning_title">"ยืนยันการส่งแบบฟอร์มอีกครั้ง"</string> -->
+<!-- <string name="http_post_warning">"หน้าที่คุณกำลังมองหาใช้ข้อมูลที่คุณได้ป้อนไว้แล้ว การกลับไปสู่หน้านั้นอาจทำให้คุณต้องทำซ้ำการดำเนินการใดๆ ที่คุณทำแล้ว คุณต้องการดำเนินการต่อหรือไม่"</string> -->
+<!-- <string name="http_post_warning_resend">"ต่อไป"</string> -->
+<!-- <string name="login_dialog_title">"ลงชื่อเข้าใช้"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"ลงชื่อเข้าใช้"</string> -->
+<!-- <string name="login_dialog_username_field">"ชื่อผู้ใช้"</string> -->
+<!-- <string name="login_dialog_password_field">"รหัสผ่าน"</string> -->
+<string name="sad_tab_title">"แย่จัง!"</string>
+<string name="sad_tab_message">"มีสิ่งผิดปกติเกิดขึ้นในขณะที่แสดงหน้าเว็บนี้"</string>
+<string name="sad_tab_reload_label">"โหลดใหม่"</string>
+<string name="sad_tab_send_feedback_label">"ส่งความคิดเห็น"</string>
+<string name="sad_tab_reload_title">"ไม่สามารถเปิดหน้านี้"</string>
+<string name="sad_tab_reload_try">"ลองทำตามเคล็ดลับต่อไปนี้:"</string>
+<string name="sad_tab_reload_incognito">"เปิดหน้าเว็บในแท็บไม่ระบุตัวตนใหม่"</string>
+<string name="sad_tab_reload_restart_browser">"รีสตาร์ท Chromium"</string>
+<string name="sad_tab_reload_restart_device">"รีสตาร์ทอุปกรณ์ของคุณ"</string>
+<string name="sad_tab_reload_learn_more">"ดูข้อมูลเพิ่มเติม"</string>
+<string name="new_tab_otr_title">"คุณได้เข้าสู่โหมดไม่ระบุตัวตนแล้ว"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"ผู้อื่น&lt;em&gt;อาจยังมองเห็น&lt;/em&gt;กิจกรรมของคุณ:
+        &lt;ul&gt;
+          &lt;li&gt;เว็บไซต์ที่คุณเข้าชม
+          &lt;li&gt;นายจ้างหรือโรงเรียน
+          &lt;li&gt;ผู้ให้บริการอินเทอร์เน็ต
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"ควบคุมการตั้งค่านี้ได้ในการตั้งค่าคุกกี้"</string>
+<string name="new_tab_otr_third_party_cookie">"บล็อกคุกกี้ของบุคคลที่สาม"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"เมื่อเปิดใช้ เว็บไซต์ต่างๆ จะใช้คุกกี้ที่ติดตามคุณในอินเทอร์เน็ตไม่ได้ ฟีเจอร์ในเว็บไซต์บางแห่งอาจใช้งานไม่ได้"</string>
+<string name="ntp_article_suggestions_section_header">"บทความสำหรับคุณ"</string>
+<string name="ntp_article_suggestions_section_header_branded">"คำแนะนำโดย Google"</string>
+<string name="ntp_article_suggestions_section_empty">"บทความที่แนะนำจะปรากฏที่นี่"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"เว็บไซต์แสดงโฆษณาที่แทรกหรือทำให้เข้าใจผิด"</string> -->
+<string name="payments_method_of_payment_label">"วิธีการชำระเงิน"</string>
+<string name="payments_contact_details_label">"ข้อมูลติดต่อ"</string>
+<string name="payments_add_contact_details_label">"เพิ่มข้อมูลติดต่อ"</string>
+<string name="payments_edit_contact_details_label">"แก้ไขข้อมูลติดต่อ"</string>
+<string name="payments_add_billing_address">"เพิ่มที่อยู่สำหรับการเรียกเก็บเงิน"</string>
+<string name="payments_add_name_on_card">"เพิ่มชื่อบนบัตร"</string>
+<string name="payments_add_valid_card_number">"เพิ่มหมายเลขบัตรที่ถูกต้อง"</string>
+<string name="payments_add_more_information">"เพิ่มข้อมูลเพิ่มเติม"</string>
+<string name="payments_edit_card">"แก้ไขบัตร"</string>
+<string name="payments_add_phone_number">"เพิ่มเบอร์โทร
+"</string>
+<string name="payments_add_recipient">"เพิ่มชื่อ"</string>
+<string name="payments_add_valid_address">"เพิ่มที่อยู่ที่ถูกต้อง"</string>
+<string name="payments_add_email">"เพิ่มอีเมล"</string>
+<string name="payments_add_name">"เพิ่มชื่อ"</string>
+<string name="payments_order_summary_label">"ข้อมูลสรุปคำสั่งซื้อ"</string>
+<string name="payment_request_payment_method_section_name">"การชำระเงิน"</string>
+<string name="payment_account_balance">"เงินคงเหลือ"</string>
+<string name="payments_shipping_summary_label">"จัดส่ง"</string>
+<string name="payments_shipping_address_label">"ที่อยู่สำหรับจัดส่ง"</string>
+<string name="payments_shipping_option_label">"วิธีการจัดส่งสินค้า"</string>
+<string name="payments_delivery_summary_label">"การจัดส่ง"</string>
+<string name="payments_delivery_address_label">"ที่อยู่สำหรับจัดส่ง"</string>
+<string name="payments_delivery_option_label">"วิธีการนำส่งสินค้า"</string>
+<string name="payments_pickup_summary_label">"การรับ"</string>
+<string name="payments_pickup_address_label">"ที่อยู่ในการรับ"</string>
+<string name="payments_pickup_option_label">"วิธีการรับสินค้า"</string>
+<string name="payments_edit_button">"แก้ไข"</string>
+<string name="payments_pay_button">"จ่าย"</string>
+<string name="payments_continue_button">"ต่อไป"</string>
+<string name="payments_add_contact">"เพิ่มข้อมูลติดต่อ"</string>
+<string name="payments_add_card">"เพิ่มบัตร"</string>
+<string name="payments_add_address">"เพิ่มที่อยู่"</string>
+<string name="payments_edit_address">"แก้ไขที่อยู่"</string>
+<string name="payments_name_field_in_contact_details">"ชื่อ"</string>
+<string name="payments_save_card_to_device_checkbox">"บันทึกบัตรนี้ลงในอุปกรณ์นี้"</string>
+<string name="payments_accepted_cards_label">"บัตรที่ยอมรับ"</string>
+<string name="payments_credit_card_expiration_date_abbr">"หมดอายุ %1$s/%2$s"</string>
+<string name="payments_loading_message">"กำลังโหลด"</string>
+<string name="payments_processing_message">"กำลังดำเนินการ"</string>
+<string name="payments_checking_option">"กำลังตรวจสอบ"</string>
+<string name="payments_updated_label">"อัปเดตแล้ว"</string>
+<string name="payment_complete_message">"การชำระเงินเสร็จสมบูรณ์"</string>
+<string name="payments_error_message">"เกิดข้อผิดพลาดในการประมวลผลคำสั่งซื้อของคุณ โปรดลองอีกครั้ง"</string>
+<string name="payments_card_and_address_settings">"คุณสามารถจัดการบัตรและที่อยู่ในBEGIN_LINKการตั้งค่าEND_LINK"</string>
+<string name="payments_card_and_address_settings_signed_in">"ข้อมูลบัตรและที่อยู่มาจาก Chrome และบัญชี Google (%1$s) คุณสามารถจัดการข้อมูลเหล่านี้ในBEGIN_LINKการตั้งค่าEND_LINK"</string>
+<string name="payment_touch_sensor_to_pay">"แตะเซ็นเซอร์เพื่อจ่าย"</string>
+<string name="payment_fingerprint_not_recognized">"ไม่รู้จัก"</string>
+<string name="payments_card_and_address_settings_signed_out">"ข้อมูลบัตรและที่อยู่มาจาก Chrome คุณสามารถจัดการข้อมูลเหล่านี้ในBEGIN_LINKการตั้งค่าEND_LINK"</string>
+<string name="settings_can_make_payment_toggle_label">"อนุญาตให้เว็บไซต์ตรวจสอบว่าคุณได้บันทึกวิธีการชำระเงินไว้ไหม"</string>
+<string name="payments_required_field_message">"* ช่องที่ต้องกรอก"</string>
+<string name="payments_phone_invalid_validation_message">"ป้อนหมายเลขโทรศัพท์ที่ถูกต้อง"</string>
+<string name="payments_email_invalid_validation_message">"ป้อนที่อยู่อีเมลที่ถูกต้อง"</string>
+<string name="payments_card_number_invalid_validation_message">"ป้อนหมายเลขบัตรที่ถูกต้อง"</string>
+<string name="payments_card_expiration_invalid_validation_message">"ป้อนวันที่หมดอายุที่ถูกต้อง"</string>
+<string name="payments_invalid_address">"ป้อนที่อยู่ที่ถูกต้อง"</string>
+<string name="payments_billing_address_required">"ต้องใส่ที่อยู่สำหรับการเรียกเก็บเงิน"</string>
+<string name="payments_name_on_card_required">"ต้องระบุชื่อผู้ถือบัตร"</string>
+<string name="payments_more_information_required">"ต้องระบุข้อมูลเพิ่มเติม"</string>
+<string name="payments_phone_number_required">"ต้องระบุหมายเลขโทรศัพท์"</string>
+<string name="payments_recipient_required">"ต้องระบุชื่อ"</string>
+<string name="payments_email_required">"ต้องระบุอีเมล"</string>
+<string name="payments_name_required">"ต้องระบุชื่อ"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"ช่องที่ต้องกรอก"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"หากต้องการดูวิธีการจัดส่งสินค้าและข้อกำหนด โปรดเลือกที่อยู่"</string>
+<string name="payments_unsupported_shipping_address">"ไม่สามารถจัดส่งสินค้าไปยังที่อยู่นี้ โปรดเลือกที่อยู่อื่น"</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"หากต้องการดูวิธีการนำส่งสินค้าและข้อกำหนด โปรดเลือกที่อยู่"</string>
+<string name="payments_unsupported_delivery_address">"ไม่สามารถนำส่งสินค้าไปยังที่อยู่นี้ โปรดเลือกที่อยู่อื่น"</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"หากต้องการดูวิธีการรับสินค้าและข้อกำหนด โปรดเลือกที่อยู่"</string>
+<string name="payments_unsupported_pickup_address">"ไม่สามารถรับสินค้าจากที่อยู่นี้ โปรดเลือกที่อยู่อื่น"</string>
+<string name="payments_android_app_error">"ไม่สามารถเปิดแอปการชำระเงิน"</string>
+<string name="external_payment_app_leave_incognito_warning">"ออกจากโหมดไม่ระบุตัวตนเพื่อชำระเงินผ่านแอปพลิเคชันภายนอก ดำเนินการต่อไหม"</string>
+<string name="payment_handler_sheet_description">"แผ่นงานของเครื่องจัดการการชำระเงิน"</string>
+<string name="payment_handler_sheet_opened_half">"แผ่นงานของเครื่องจัดการการชำระเงินเปิดอยู่ครึ่งเดียว"</string>
+<string name="payment_handler_sheet_opened_full">"แผ่นงานของเครื่องจัดการการชำระเงินเปิดอยู่"</string>
+<string name="payment_handler_sheet_closed">"แผ่นงานของเครื่องจัดการการชำระเงินปิดอยู่"</string>
+<string name="blocked_ads_prompt_title">"บล็อกโฆษณา"</string>
+<!-- <string name="translate_infobar_error">"อ๊ะ หน้านี้ไม่สามารถแปลได้"</string> -->
+<!-- <string name="translate_button">"แปลภาษา"</string> -->
+<!-- <string name="translate_never_translate_site">"ไม่ต้องแปลเว็บไซต์นี้"</string> -->
+<string name="translate_dont_offer_site">"ไม่ต้องเสนอการแปลเว็บไซต์นี้"</string>
+<!-- <string name="translate_option_always_translate">"แปลหน้าเว็บภาษา%1$sทุกครั้ง"</string> -->
+<!-- <string name="translate_option_never_translate">"ไม่ต้องแปลหน้าเว็บภาษา%1$s"</string> -->
+<string name="translate_dont_offer_lang">"ไม่ต้องเสนอการแปลหน้าเว็บภาษา%1$s"</string>
+<!-- <string name="translate_option_more_language">"ภาษาเพิ่มเติม"</string> -->
+<!-- <string name="translate_option_not_source_language">"หน้านี้ไม่ใช่ภาษา%1$sใช่ไหม"</string> -->
+<string name="translate_snackbar_always_translate">"จากนี้ไประบบจะแปลหน้าภาษา%1$sเป็นภาษา%2$s"</string>
+<string name="translate_snackbar_language_never">"ระบบจะไม่แปลหน้าเว็บภาษา%1$s"</string>
+<string name="translate_snackbar_site_never">"ระบบจะไม่แปลไซต์นี้"</string>
+<string name="translate_snackbar_cancel">"ยกเลิก"</string>
+<string name="clear">"ล้าง"</string>
+<string name="show_content">"แสดง"</string>
+<string name="hide_content">"ซ่อน"</string>
+<string name="choose">"เลือก"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-th/components_strings.xml -->
+
+<string name="http_post_warning_title">"ยืนยันการส่งแบบฟอร์มอีกครั้ง"</string>
+<string name="http_post_warning">"หน้าที่คุณกำลังมองหาใช้ข้อมูลที่คุณได้ป้อนไว้แล้ว การกลับไปสู่หน้านั้นอาจทำให้คุณต้องทำซ้ำการดำเนินการใดๆ ที่คุณทำแล้ว คุณต้องการดำเนินการต่อหรือไม่"</string>
+<string name="http_post_warning_resend">"ต่อไป"</string>
+<string name="login_dialog_title">"ลงชื่อเข้าใช้"</string>
+<string name="login_dialog_ok_button_label">"ลงชื่อเข้าใช้"</string>
+<string name="login_dialog_username_field">"ชื่อผู้ใช้"</string>
+<string name="login_dialog_password_field">"รหัสผ่าน"</string>
+<string name="page_info_permission_ads_subtitle">"เว็บไซต์แสดงโฆษณาที่แทรกหรือทำให้เข้าใจผิด"</string>
+<string name="translate_infobar_error">"อ๊ะ หน้านี้ไม่สามารถแปลได้"</string>
+<string name="translate_button">"แปลภาษา"</string>
+<string name="translate_never_translate_site">"ไม่ต้องแปลเว็บไซต์นี้"</string>
+<string name="translate_option_always_translate">"แปลหน้าเว็บภาษา%1$sทุกครั้ง"</string>
+<string name="translate_option_never_translate">"ไม่ต้องแปลหน้าเว็บภาษา%1$s"</string>
+<string name="translate_option_more_language">"ภาษาเพิ่มเติม"</string>
+<string name="translate_option_not_source_language">"หน้านี้ไม่ใช่ภาษา%1$sใช่ไหม"</string>
+</resources>

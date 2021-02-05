@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Prihvatam"</string>
+<string name="autofill_assistant_init_title">"Isprobajte Google pomoćnik\nu Chrome-u"</string>
+<string name="autofill_assistant_init_message_rent_car">"Iznajmite automobil\nu samo nekoliko dodira"</string>
+<string name="autofill_assistant_init_message_password_change">"Dozvolite Google pomoćniku da vam pomogne u\npromeni lozinke"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Kupite bioskopske karte\nu samo nekoliko dodira"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Poručite hranu\nu samo nekoliko dodira"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Čekirajte se za let\nu samo nekoliko dodira"</string>
+<string name="autofill_assistant_init_message_voice_search">"Isprobajte glasovne radnje\nna veb-sajtovima"</string>
+<string name="autofill_assistant_init_message_shopping">"Brzo plaćanje\nu samo par dodira"</string>
+<string name="autofill_assistant_init_message">"Google pomoćnik vam štedi vreme jer vam pomaže da dovršite radnje na vebu, poput pretrage i plaćanja."</string>
+<string name="autofill_assistant_init_message_short">"Google pomoćnik u Chrome-u može da dovršava radnje za vas na veb-sajtovima"</string>
+<string name="autofill_assistant_google_terms_description">"Da bi vam pomogao u obavljanju zadataka, Google će dobijati URL-ove i sadržaj sajtova na kojima koristite Pomoćnik, kao i informacije koje pošaljete preko Pomoćnika. Ove informacije mogu da se čuvaju na Google nalogu. Možete da isključite Pomoćnik u Chrome podešavanjima. &lt;link&gt;Saznajte više&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Žao mi je, ne mogu da vam pomognem. Nastavite sami."</string>
+<string name="autofill_assistant_payment_information_missing">"Nedostaju informacije"</string>
+<string name="autofill_assistant_view_original_image_desc">"Želite li da otvorite spoljni link?"</string>
+<string name="autofill_assistant_view_original_image_view">"Prikaz"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Otkaži"</string>
+<string name="autofill_assistant_sheet_content_description">"Google pomoćnik u Chrome-u."</string>
+<string name="autofill_assistant_sheet_half_height">"Google pomoćnik u Chrome-u je otvoren na pola visine."</string>
+<string name="autofill_assistant_sheet_full_height">"Google pomoćnik u Chrome-u je otvoren u punoj visini."</string>
+<string name="autofill_assistant_sheet_closed">"Google pomoćnik u Chrome-u je zatvoren."</string>
+<string name="autofill_assistant_send_feedback">"Pošalji povratne informacije"</string>
+<string name="autofill_assistant_increase_value">"Povećava vrednost"</string>
+<string name="autofill_assistant_decrease_value">"Smanjuje vrednost"</string>
+<string name="autofill_assistant_overflow_options">"Podešavanja"</string>
+</resources>

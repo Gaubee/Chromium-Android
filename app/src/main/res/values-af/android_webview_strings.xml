@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="private_browsing_warning">"Hierdie funksie word nie in hierdie weergawe van Android gesteun nie."</string>
+<string name="license_activity_title">"Stelsel se WebView-lisensies"</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Эсептик дайындардын басып коюп толтурула турган тизмеси."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Эсептик дайындардын басып коюп толтурула турган тизмеси жарымына чейин ачылды."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Эсептик дайындардын басып коюп толтурула турган тизмеси толугу менен ачылды."</string>
+<string name="all_passwords_bottom_sheet_closed">"Эсептик дайындардын басып коюп толтурула турган тизмеси жабык."</string>
+<string name="all_passwords_bottom_sheet_title">"Сырсөздөр"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Издөө"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Сырсөз талап кылынбайт"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Эгер %s сайтына ишенсеңиз, башка сайтта сакталган сырсөзүңүздү колдоно бериңиз."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Ар бир сайт үчүн өзүнчө сырсөздү колдонуп көрүңүз."</string>
+<string name="autofill_keyboard_accessory_content_description">"Сырсөздөр жеткиликтүү"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Автотолтуруу сунуштары баскычтоптун жогору жагында жеткиликтүү"</string>
+<string name="keyboard_accessory_sheet_hide">"Баскычтопту көрсөтүү"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Chrome\'дун автотолтуруу сунушун колдонуңуз"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Дагы сунуштарды көрүү үчүн экранды сүрүп коюңуз"</string>
+<string name="password_generation_accessory_button">"Татаал сырсөз сунушталсын"</string>
+<string name="password_generation_accessory_button_short">"Сырсөз сунушталсын"</string>
+<string name="password_accessory_sheet_toggle">"Сырсөз көрсөтүлсүн"</string>
+<string name="password_accessory_sheet_opened">"Сакталган сырсөздөр жана сырсөздүн параметрлери көрсөтүлүүдө"</string>
+<string name="address_accessory_sheet_title">"Даректер"</string>
+<string name="address_accessory_sheet_toggle">"Даректерди көрсөтүү"</string>
+<string name="address_accessory_sheet_opened">"Сакталган даректер көрсөтүлүүдө"</string>
+<string name="credit_card_accessory_sheet_toggle">"Төлөм ыкмаларын көрсөтүү"</string>
+<string name="credit_card_accessory_sheet_opened">"Сакталган төлөм ыкмалары көрсөтүлүүдө"</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"Vergelijk pagina\'s snel door een groep te maken. Tik op een link en houd deze vast om te beginnen."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"Tik om nog een tabblad te bekijken"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"Je tabbladen zijn hier gegroepeerd"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"Je kunt onderaan het scherm schakelen tussen tabbladen in je tabbladgroep"</string>
+<string name="undo_bar_group_tabs_message">"%1$s tabbladen gegroepeerd"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d tabblad"</item>
+  <item quantity="other">"%1$d tabbladen"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"Nieuw tabblad aan groep toevoegen"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"Raster op volledig scherm verbergen"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"Tabbladen van groep weergeven in raster op volledig scherm"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"Tabbladstrook sluiten"</string>
+<string name="tabswitcher_create_group">"Groep maken"</string>
+<string name="accessibility_tab_switcher">"Tabbladschakelaar"</string>
+<string name="accessibility_close_tab_group_button">"Tabbladgroep met %1$s tabbladen sluiten"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"De groep %1$s met %2$s tabbladen sluiten"</string>
+<string name="tab_selection_editor_group">"Groep"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"Tabbladen selecteren"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"%1$d geselecteerd tabblad groeperen"</item>
+  <item quantity="other">"%1$d geselecteerde tabbladen groeperen"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"Optie om meerdere tabbladen te selecteren verbergen"</string>
+<string name="accessibility_tab_selection_editor">"Optie om meerdere tabbladen te selecteren"</string>
+<string name="tab_grid_dialog_remove_from_group">"Uit groep verwijderen"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"Tabbladen uit groep verwijderen"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"Verwijderen"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"Groep delen"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"Groepsnaam bewerken"</string>
+<string name="accessibility_expand_tab_group">"Tabbladgroep met %1$s tabbladen uitvouwen"</string>
+<string name="accessibility_expand_tab_group_with_group_name">"De tabbladgroep %1$s uitvouwen met %2$s tabbladen."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"%1$d geselecteerd tabblad uit groep verwijderen."</item>
+  <item quantity="other">"%1$d geselecteerde tabbladen uit groep verwijderen."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d tabblad samenvouwen."</item>
+  <item quantity="other">"Tabbladgroep met %1$d tabbladen samenvouwen."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d tabblad samenvouwen."</item>
+  <item quantity="other">"De tabbladgroep %1$s met %2$d tabbladen samenvouwen."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"Tabbladgroep uitgevouwen"</string>
+<string name="iph_drag_and_drop_introduction">"Sleep de tabbladen om ze te groeperen"</string>
+<string name="iph_drag_and_drop_show_me">"Weergeven"</string>
+<string name="iph_drag_and_drop_title">"Georganiseerd werken"</string>
+<string name="iph_drag_and_drop_content">"Als je tabbladen wilt groeperen, tik je op een tabblad en houd je dit vast. Sleep het vervolgens op een ander tabblad."</string>
+<string name="tab_switcher_carousel_title">"Verder browsen"</string>
+<string name="tab_switcher_carousel_view_all">"Alles weergeven"</string>
+<string name="tab_suggestion_review_button">"Bekijken"</string>
+<string name="tab_suggestion_close_tab_action_button">"Sluiten"</string>
+<string name="tab_suggestion_close_stale_message">"%1$s van je tabbladen zijn niet recent gebruikt. Wil je ze sluiten?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s tabbladen lijken gerelateerd. Wil je deze groeperen?"</string>
+<string name="accessibility_tab_suggestion_review_button">"Bekijk de suggesties."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"Suggestie: %1$s van je tabbladen zijn niet recent gebruikt. Wil je ze sluiten?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"Suggestie: %1$s tabbladen lijken gerelateerd. Wil je deze groeperen?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"Sluit de suggesties."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"%1$d geselecteerd tabblad sluiten"</item>
+  <item quantity="other">"%1$d geselecteerde tabbladen sluiten"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"Tabblad naar links verplaatsen"</string>
+<string name="accessibility_tab_movement_right">"Tabblad naar rechts verplaatsen"</string>
+<string name="accessibility_tab_movement_up">"Tabblad omhoog verplaatsen"</string>
+<string name="accessibility_tab_movement_down">"Tabblad naar beneden verplaatsen"</string>
+<string name="undo_tab_strip_closure_message">"Tabbladstrook gesloten"</string>
+<string name="tab_strip_info_bar_question">"Tabbladstrook niet meer weergeven?"</string>
+<string name="tab_strip_info_bar_no_reshow">"Niet meer tonen"</string>
+<string name="tab_strip_info_bar_reshow">"Later weergeven"</string>
+<string name="price_drop_spotted_title">"Prijsdaling opgemerkt"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"Weergeven"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

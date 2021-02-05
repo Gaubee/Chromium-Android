@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"میں متفق ہوں"</string>
+<string name="autofill_assistant_init_title">"‏‫Chrome میں\nGoogle اسسٹنٹ آزمائیں"</string>
+<string name="autofill_assistant_init_message_rent_car">"‏صرف چند تھپتھپاہٹوں میں\nکار کرائے پر لیں"</string>
+<string name="autofill_assistant_init_message_password_change">"‏Google اسسٹنٹ کو آپ کی مدد کرنے\nاپنا پاس ورڈ تبدیل کرنے دیں"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"‏صرف چند تھپتھپاہٹوں میں\nمووی ٹکٹس خریدیں"</string>
+<string name="autofill_assistant_init_message_food_ordering">"‏صرف چند تھپتھپاہٹوں میں\nکھانا آرڈر کریں"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"‏صرف چند تھپتھپاہٹوں میں\nاپنی فلائیٹ میں چیک ان کریں"</string>
+<string name="autofill_assistant_init_message_voice_search">"‏ویب سائٹس پر\nصوتی کارروائیاں آزمائیں"</string>
+<string name="autofill_assistant_init_message_shopping">"‏تیز چیک آؤٹ\nصرف چند تھپتھپاہٹوں سے"</string>
+<string name="autofill_assistant_init_message">"‏تلاش اور چیک آؤٹ جیسے ویب پر کارروائیاں مکمل کرنے میں آپ کی مدد کر کے Google اسسٹنٹ آپ کا وقت بچاتی ہے۔"</string>
+<string name="autofill_assistant_init_message_short">"‏Chrome میں موجود Google اسسٹنٹ سبھی ویب سائٹوں پر آپ کے لیے کارروائیوں کو مکمل کر سکتی ہے"</string>
+<string name="autofill_assistant_google_terms_description">"‏ٹاسکس کو مکمل کرنے میں آپ کی مدد کرنے کے لیے، Google کو ان سائٹس کے URLs اور مواد موصول ہوں گے جن پر آپ اسسٹنٹ استعمال کرتے ہیں، نیز اسسٹنٹ کے ذریعے آپ کی جمع کروائی ہوئی معلومات بھی موصول ہوں گی۔ اس معلومات کو آپ کے Google اکاؤنٹ میں اسٹور کیا جا سکتا ہے۔ آپ Chrome کی ترتیبات میں اسسٹنٹ کو آف کر سکتے ہیں۔ &lt;link&gt;مزید جانیں&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"معذرت، میں مدد کرنے سے قاصر ہوں، براہ کرم اپنے طور پر جاری رکھیں۔"</string>
+<string name="autofill_assistant_payment_information_missing">"معلومات موجود نہیں ہے"</string>
+<string name="autofill_assistant_view_original_image_desc">"خارجی لنک کھولیں؟"</string>
+<string name="autofill_assistant_view_original_image_view">"دیکھیں"</string>
+<string name="autofill_assistant_view_original_image_cancel">"منسوخ کریں"</string>
+<string name="autofill_assistant_sheet_content_description">"‏Chrome میں Google اسسٹنٹ۔"</string>
+<string name="autofill_assistant_sheet_half_height">"‏Chrome میں Google اسسٹنٹ نصف اونچائی پر کھلی ہے۔"</string>
+<string name="autofill_assistant_sheet_full_height">"‏Chrome میں Google اسسٹنٹ مکمل اونچائی پر کھلی ہے۔"</string>
+<string name="autofill_assistant_sheet_closed">"‏Chrome میں Google اسسٹنٹ بند ہو گئی ہے۔"</string>
+<string name="autofill_assistant_send_feedback">"تاثرات بھیجیں"</string>
+<string name="autofill_assistant_increase_value">"قدر بڑھائیں"</string>
+<string name="autofill_assistant_decrease_value">"قدر گھٹائیں"</string>
+<string name="autofill_assistant_overflow_options">"ترجیحات"</string>
+</resources>

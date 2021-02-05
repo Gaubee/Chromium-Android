@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="actionbar_share">"Partekatu"</string>
+<string name="actionbar_web_search">"Web-bilaketa"</string>
+<string name="actionbar_textselection_title">"Testua hautatzea"</string>
+<string name="add_to_dictionary">"Gehitu hiztegian"</string>
+<string name="delete_suggestion_text">"Ezabatu"</string>
+<string name="profiler_started_toast">"Analizatzailea hasi da"</string>
+<string name="profiler_stopped_toast">"Analizatzaileak lana amaitu du. Emaitzak %1$s fitxategian daude."</string>
+<string name="profiler_no_storage_toast">"Ezin izan da abiarazi profilatzailea kanpoko memoria prest ez dagoelako"</string>
+<string name="profiler_error_toast">"Ezin izan da hasi analizatzailea"</string>
+<string name="accessibility_date_picker_month">"Hilabetea"</string>
+<string name="accessibility_date_picker_year">"Urtea"</string>
+<string name="date_picker_dialog_set">"Ezarri"</string>
+<string name="month_picker_dialog_title">"Ezarri hilabetea"</string>
+<string name="accessibility_date_picker_week">"Astea"</string>
+<string name="week_picker_dialog_title">"Ezarri astea"</string>
+<string name="time_picker_dialog_am">"AM"</string>
+<string name="time_picker_dialog_pm">"PM"</string>
+<string name="time_picker_dialog_title">"Ezarri ordua"</string>
+<string name="accessibility_time_picker_hour">"Ordua"</string>
+<string name="accessibility_time_picker_minute">"Minutuak"</string>
+<string name="accessibility_time_picker_second">"Segundoak"</string>
+<string name="accessibility_time_picker_milli">"Milisegundo"</string>
+<string name="accessibility_time_picker_ampm">"AM//PM"</string>
+<string name="time_picker_dialog_hour_minute_separator">":"</string>
+<string name="time_picker_dialog_minute_second_separator">":"</string>
+<string name="time_picker_dialog_second_subsecond_separator">"."</string>
+<string name="date_time_picker_dialog_title">"Ezarri data eta ordua"</string>
+<string name="accessibility_datetime_picker_date">"Data"</string>
+<string name="accessibility_datetime_picker_time">"Ordua"</string>
+<string name="date_picker_dialog_other_button_label">"Beste bat"</string>
+<string name="date_picker_dialog_title">"Ezarri data"</string>
+<string name="date_picker_dialog_clear">"Garbitu"</string>
+<string name="speech_recognition_service_not_found">"Ezin da aurkitu Google-ren Testua ahots bihurtzeko motorra"</string>
+</resources>

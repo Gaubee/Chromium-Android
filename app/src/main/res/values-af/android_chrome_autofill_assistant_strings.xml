@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Ek stem in"</string>
+<string name="autofill_assistant_init_title">"Probeer Google Assistent\nin Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Huur \'n motor\ndeur net \'n paar keer te tik"</string>
+<string name="autofill_assistant_init_message_password_change">"Laat Google Assistent jou help om jou wagwoord te verander"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Koop fliekkaartjies\ndeur net \'n paar keer te tik"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Bestel kos\ndeur net \'n paar keer te tik"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Boek by jou vlug in\ndeur net \'n paar keer te tik"</string>
+<string name="autofill_assistant_init_message_voice_search">"Probeer stemaksies\nop webwerwe"</string>
+<string name="autofill_assistant_init_message_shopping">"Handel betaling vinnig af deur net \'n paar keer te tik"</string>
+<string name="autofill_assistant_init_message">"Google Assistent bespaar jou tyd deur jou te help om handelinge op die web te voltooi, soos om te soek en na betaalpunt toe te gaan."</string>
+<string name="autofill_assistant_init_message_short">"Google Assistent in Chrome kan vir jou handelinge op webwerwe voltooi"</string>
+<string name="autofill_assistant_google_terms_description">"Om jou te help om take te voltooi, sal Google die URL\'e en inhoud ontvang van werwe waarop jy Assistent gebruik, asook inligting wat jy deur Assistent indien. Hierdie inligting kan in jou Google-rekening geberg word. Jy kan Assistent in Chrome-instellings afskakel. &lt;link&gt;Kom meer te wete&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Jammer dat ek nie kan help nie; gaan asseblief op jou eie voort."</string>
+<string name="autofill_assistant_payment_information_missing">"Inligting ontbreek"</string>
+<string name="autofill_assistant_view_original_image_desc">"Maak eksterne skakel oop?"</string>
+<string name="autofill_assistant_view_original_image_view">"Bekyk"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Kanselleer"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Assistent in Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"Google Assistent in Chrome is teen halwe hoogte oopgemaak."</string>
+<string name="autofill_assistant_sheet_full_height">"Google Assistent in Chrome is teen volle hoogte oopgemaak."</string>
+<string name="autofill_assistant_sheet_closed">"Google Assistent in Chrome is toegemaak."</string>
+<string name="autofill_assistant_send_feedback">"Stuur terugvoer"</string>
+<string name="autofill_assistant_increase_value">"Vermeerder waarde"</string>
+<string name="autofill_assistant_decrease_value">"Verminder waarde"</string>
+<string name="autofill_assistant_overflow_options">"Voorkeure"</string>
+</resources>

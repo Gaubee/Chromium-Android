@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"Համաձայն եմ"</string>
+<string name="autofill_assistant_init_title">"Փորձեք Google Օգնականը\nChrome-ում"</string>
+<string name="autofill_assistant_init_message_rent_car">"Մեքենա վարձեք՝\nկատարելով մի քանի հպում"</string>
+<string name="autofill_assistant_init_message_password_change">"Թույլ տվեք Google Օգնականին օգնել ձեզ փոխել գաղտնաբառը"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Գնեք ֆիլմի տոմսեր՝\nկատարելով մի քանի հպում"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Պատվիրեք սնունդ՝\nկատարելով մի քանի հպում"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Գրանցվեք չվերթին՝\nկատարելով մի քանի հպում"</string>
+<string name="autofill_assistant_init_message_voice_search">"Փորձեք ձայնային հրահանգները\nկայքերում"</string>
+<string name="autofill_assistant_init_message_shopping">"Արագ վճարում՝ մի քանի հպումով"</string>
+<string name="autofill_assistant_init_message">"Google Օգնականը խնայում է ձեր ժամանակը և օգնում է ձեզ գործողություններ կատարել համացանցում (օրինակ՝ որոնում կամ վճարում)։"</string>
+<string name="autofill_assistant_init_message_short">"Google Օգնականը Chrome-ում կարող է կայքերի հետ կապված գործողություններ կատարել"</string>
+<string name="autofill_assistant_google_terms_description">"Ձեր աշխատանքը հեշտացնելու համար Google-ը կստանա կայքերի հասցեներն ու բովանդակությունը, որոնցում օգտվում եք Օգնականից, ինչպես նաև տվյալները, որոնք ուղարկում եք Օգնականի միջոցով։ Այս տեղեկությունները կարող են պահվել ձեր Google հաշվում։ Օգնականը կարող եք անջատել Chrome-ի կարգավորումներում։ &lt;link&gt;Իմանալ ավելին&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Այլևս չեմ կարող օգնել ձեզ: Շարունակեք ինքնուրույն:"</string>
+<string name="autofill_assistant_payment_information_missing">"Տեղեկություններ չկան"</string>
+<string name="autofill_assistant_view_original_image_desc">"Բացե՞լ արտաքին հղումը"</string>
+<string name="autofill_assistant_view_original_image_view">"Տեսք"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Չեղարկել"</string>
+<string name="autofill_assistant_sheet_content_description">"Google Օգնականը Chrome-ում:"</string>
+<string name="autofill_assistant_sheet_half_height">"Google Օգնականը Chrome-ում կիսով չափ է բացված։"</string>
+<string name="autofill_assistant_sheet_full_height">"Google Օգնականը Chrome-ում բացված է ամբողջությամբ։"</string>
+<string name="autofill_assistant_sheet_closed">"Google Օգնականը Chrome-ում փակվեց:"</string>
+<string name="autofill_assistant_send_feedback">"Կարծիք հայտնել"</string>
+<string name="autofill_assistant_increase_value">"Մեծացնել արժեքը"</string>
+<string name="autofill_assistant_decrease_value">"Փոքրացնել արժեքը"</string>
+<string name="autofill_assistant_overflow_options">"Նախընտրանքներ"</string>
+</resources>

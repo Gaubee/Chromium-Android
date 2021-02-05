@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"ಗುಂಪನ್ನು ರಚಿಸುವ ಮೂಲಕ ಪುಟಗಳನ್ನು ತ್ವರಿತವಾಗಿ ಹೋಲಿಸಿ ನೋಡಿ. ಪ್ರಾರಂಭಿಸಲು, ಲಿಂಕ್ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"ಇನ್ನೊಂದು ಟ್ಯಾಬ್ ನೋಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"ಟ್ಯಾಬ್‌ಗಳನ್ನು ಇಲ್ಲಿ ಒಟ್ಟಿಗೆ ಗುಂಪುಗೂಡಿಸಲಾಗಿದೆ"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"ಸ್ಕ್ರೀನ್‌ನ ಕೆಳಭಾಗದಲ್ಲಿರುವ ನಿಮ್ಮ ಟ್ಯಾಬ್ ಗುಂಪಿನಲ್ಲಿರುವ ಟ್ಯಾಬ್‌ಗಳ ನಡುವೆ ಬದಲಾಯಿಸಿ"</string>
+<string name="undo_bar_group_tabs_message">"%1$s ಟ್ಯಾಬ್‌ಗಳನ್ನು ಗುಂಪು ಮಾಡಲಾಗಿದೆ"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d ಟ್ಯಾಬ್"</item>
+  <item quantity="other">"%1$d ಟ್ಯಾಬ್‌ಗಳು"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"ಗುಂಪಿಗೆ ಹೊಸ ಟ್ಯಾಬ್‌ ಸೇರಿಸಿ"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"ಪೂರ್ಣ ಸ್ಕ್ರೀನ್ ಗ್ರಿಡ್‌ ಅನ್ನು ಮರೆಮಾಡಿ"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"ಗುಂಪಿನ ಟ್ಯಾಬ್‌ಗಳನ್ನು ಪೂರ್ಣ ಸ್ಕ್ರೀನ್‌ ಗ್ರಿಡ್‌ನಲ್ಲಿ ತೋರಿಸಿ"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"ಟ್ಯಾಬ್‌ ಸ್ಟ್ರೈಪ್‌ ಮುಚ್ಚಿ"</string>
+<string name="tabswitcher_create_group">"ಗುಂಪನ್ನು ರಚಿಸಿ"</string>
+<string name="accessibility_tab_switcher">"ಟ್ಯಾಬ್ ಸ್ವಿಚರ್"</string>
+<string name="accessibility_close_tab_group_button">"%1$s ಟ್ಯಾಬ್‌ಗಳ ಜೊತೆಗೆ ಟ್ಯಾಬ್ ಗುಂಪನ್ನು ಮುಚ್ಚಿರಿ"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"%2$s ಟ್ಯಾಬ್‌ಗಳ ಜೊತೆಗೆ %1$s ಗುಂಪನ್ನು ಮುಚ್ಚಿರಿ"</string>
+<string name="tab_selection_editor_group">"ಗುಂಪು"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"ಟ್ಯಾಬ್‌ ಆಯ್ಕೆ"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"%1$d ಆಯ್ಕೆಮಾಡಿದ ಟ್ಯಾಬ್ ಅನ್ನು ಗುಂಪು ಮಾಡಿ"</item>
+  <item quantity="other">"%1$d ಆಯ್ಕೆಮಾಡಿದ ಟ್ಯಾಬ್‌ಗಳನ್ನು ಗುಂಪು ಮಾಡಿ"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"ಬಹು ಆಯ್ಕೆ ಮೋಡ್ ಅನ್ನು ಮರೆಮಾಡಿ"</string>
+<string name="accessibility_tab_selection_editor">"ಬಹು ಆಯ್ಕೆ ಮೋಡ್"</string>
+<string name="tab_grid_dialog_remove_from_group">"ಗುಂಪಿನಿಂದ ತೆಗೆದುಹಾಕಿ"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"ಗುಂಪಿನಿಂದ ಟ್ಯಾಬ್‌ಗಳನ್ನು ತೆಗೆದುಹಾಕಿ"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"ತೆಗೆದುಹಾಕು"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"ಗುಂಪನ್ನು ಹಂಚಿಕೊಳ್ಳಿ"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"ಗುಂಪಿನ ಹೆಸರನ್ನು ಎಡಿಟ್ ಮಾಡಿ"</string>
+<string name="accessibility_expand_tab_group">"%1$s ಟ್ಯಾಬ್‌ಗಳ ಜೊತೆಗೆ ಟ್ಯಾಬ್ ಗುಂಪನ್ನು ವಿಸ್ತೃತಗೊಳಿಸಿ."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"%2$s ಟ್ಯಾಬ್‌ಗಳ ಜೊತೆಗೆ %1$s ಟ್ಯಾಬ್ ಗುಂಪನ್ನು ವಿಸ್ತರಿಸಿ."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"ಗುಂಪಿನಿಂದ ಆಯ್ದ %1$d ಟ್ಯಾಬ್ ಅನ್ನು ತೆಗೆದುಹಾಕಿ."</item>
+  <item quantity="other">"ಗುಂಪಿನಿಂದ ಆಯ್ದ %1$d ಟ್ಯಾಬ್‌ಗಳನ್ನು ತೆಗೆದುಹಾಕಿ."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d ಟ್ಯಾಬ್ ಅನ್ನು ಕುಗ್ಗಿಸಿ."</item>
+  <item quantity="other">"%1$d ಟ್ಯಾಬ್‌ಗಳ ಜೊತೆಗೆ ಟ್ಯಾಬ್ ಗುಂಪನ್ನು ಕುಗ್ಗಿಸಿ."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d ಟ್ಯಾಬ್ ಅನ್ನು ಕುಗ್ಗಿಸಿ."</item>
+  <item quantity="other">"%2$d ಟ್ಯಾಬ್‌ಗಳ ಜೊತೆಗೆ %1$s ಟ್ಯಾಬ್ ಗುಂಪನ್ನು ಕುಗ್ಗಿಸಿ."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"ಟ್ಯಾಬ್ ಗುಂಪನ್ನು ವಿಸ್ತೃತಗೊಳಿಸಲಾಗಿದೆ"</string>
+<string name="iph_drag_and_drop_introduction">"ಟ್ಯಾಬ್‍‍ಗಳನ್ನು ಗುಂಪುಗೂಡಿಸಲು ಅವುಗಳನ್ನು ಡ್ರ್ಯಾಗ್ ಮಾಡಿ"</string>
+<string name="iph_drag_and_drop_show_me">"ನನಗೆ ತೋರಿಸಿ"</string>
+<string name="iph_drag_and_drop_title">"ವ್ಯವಸ್ಥಿತರಾಗಿರಿ"</string>
+<string name="iph_drag_and_drop_content">"ಟ್ಯಾಬ್‌ಗಳನ್ನು ಗುಂಪು ಮಾಡಲು , ಟ್ಯಾಬ್ ಒಂದನ್ನು ಸ್ಪರ್ಶಿಸಿ ಮತ್ತು ಹೋಲ್ಡ್‌ ಮಾಡಿ. ನಂತರ, ಅದನ್ನು ಮತ್ತೊಂದು ಟ್ಯಾಬ್‌ನ ಮೇಲೆ ಡ್ರ್ಯಾಗ್ ಮಾಡಿ."</string>
+<string name="tab_switcher_carousel_title">"ಬ್ರೌಸಿಂಗ್ ಮುಂದುವರಿಸಿ"</string>
+<string name="tab_switcher_carousel_view_all">"ಎಲ್ಲವನ್ನೂ ವೀಕ್ಷಿಸಿ"</string>
+<string name="tab_suggestion_review_button">"ಪರಿಶೀಲಿಸಿ"</string>
+<string name="tab_suggestion_close_tab_action_button">"ಮುಚ್ಚಿರಿ"</string>
+<string name="tab_suggestion_close_stale_message">"ನೀವು ಈ ನಡುವೆ ಬಳಸದ %1$s ಟ್ಯಾಬ್‌ಗಳಿವೆ. ಅವುಗಳನ್ನು ಮುಚ್ಚುವುದೇ?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s ಟ್ಯಾಬ್‌ಗಳು ಸಂಬಂಧಿಸಿರುವ ಹಾಗೆ ಕಾಣುತ್ತಿದೆ. ಅವುಗಳನ್ನು ಗುಂಪು ಮಾಡುವುದೇ?"</string>
+<string name="accessibility_tab_suggestion_review_button">"ಸಲಹೆಗಳನ್ನು ಪರಿಶೀಲಿಸಿ."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"ಸಲಹೆ: ನೀವು ಈ ನಡುವೆ ಬಳಸದ %1$s ಟ್ಯಾಬ್‌ಗಳಿವೆ. ಅವುಗಳನ್ನು ಮುಚ್ಚಬೇಕೆ?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"ಸಲಹೆ: %1$s ಟ್ಯಾಬ್‌ಗಳು ಸಂಬಂಧಿಸಿರುವ ಹಾಗೆ ಕಾಣುತ್ತಿದೆ. ಅವುಗಳನ್ನು ಗುಂಪು ಮಾಡುವುದೇ?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"ಸಲಹೆಗಳನ್ನು ವಜಾಗೊಳಿಸಿ."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"ಆಯ್ಕೆಮಾಡಿದ %1$d ಟ್ಯಾಬ್ ಅನ್ನು ಮುಚ್ಚಿರಿ"</item>
+  <item quantity="other">"ಆಯ್ಕೆಮಾಡಿದ %1$d ಟ್ಯಾಬ್‌ಗಳನ್ನು ಮುಚ್ಚಿರಿ"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"ಟ್ಯಾಬ್ ಅನ್ನು ಎಡಕ್ಕೆ ಸರಿಸಿ"</string>
+<string name="accessibility_tab_movement_right">"ಟ್ಯಾಬ್ ಅನ್ನು ಬಲಕ್ಕೆ ಸರಿಸಿ"</string>
+<string name="accessibility_tab_movement_up">"ಟ್ಯಾಬ್ ಅನ್ನು ಮೇಲಕ್ಕೆ ಸರಿಸಿ"</string>
+<string name="accessibility_tab_movement_down">"ಟ್ಯಾಬ್ ಅನ್ನು ಕೆಳಕ್ಕೆ ಸರಿಸಿ"</string>
+<string name="undo_tab_strip_closure_message">"ಮುಚ್ಚಿದ ಟ್ಯಾಬ್‌ ಸ್ಟ್ರೈಪ್‌"</string>
+<string name="tab_strip_info_bar_question">"ಪುನಃ ಟ್ಯಾಬ್‌ ಸ್ಟ್ರೈಪ್‌ ಅನ್ನು ತೋರಿಸಬಾರದೇ?"</string>
+<string name="tab_strip_info_bar_no_reshow">"ಮತ್ತೊಮ್ಮೆ ತೋರಿಸಬೇಡಿ"</string>
+<string name="tab_strip_info_bar_reshow">"ನಂತರ ತೋರಿಸಿ"</string>
+<string name="price_drop_spotted_title">"ದರ ಇಳಿಕೆ ಕಂಡುಬಂದಿದೆ"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"ನನಗೆ ತೋರಿಸಿ"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <string name="autofill_cc_amex">"American Express"</string> -->
+<!-- <string name="autofill_cc_diners">"Diners Club"</string> -->
+<!-- <string name="autofill_cc_discover">"Discover"</string> -->
+<!-- <string name="autofill_cc_jcb">"JCB"</string> -->
+<!-- <string name="autofill_cc_mastercard">"Mastercard"</string> -->
+<!-- <string name="autofill_cc_mir">"Mir"</string> -->
+<!-- <string name="autofill_cc_union_pay">"တရုတ် UnionPay"</string> -->
+<!-- <string name="autofill_cc_visa">"ဗီဇာ"</string> -->
+<!-- <string name="autofill_address_summary_separator">", "</string> -->
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/components/strings/java/res/values-my/components_strings.xml -->
+
+<string name="autofill_save_card_prompt_confirm">"အတည်ပြုရန်"</string>
+<string name="autofill_fix_flow_prompt_save_card_label">"ကတ်သိမ်းရန်"</string>
+<string name="autofill_save_card_prompt_cardholder_name_tooltip">"ဤအမည်သည် သင်၏ Google အကောင့်မှဖြစ်သည်။"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc">"သင့် CVC အားစစ်ဆေးပြီး ထပ်မံကြိုးစားပါ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_date">"သင့်ကုန်ဆုံးရက်ကို ကြည့်ပြီး ပြန်စမ်းကြည့်ပါ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_cvc_and_expiration">"သင်၏ သက်တမ်းကုန်ဆုံးရက်နှင့် CVC အား စစ်ဆေးပြီး ထပ်မံကြိုးစားပါ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_month">"သင့်ကုန်ဆုံးမည့်လကို ကြည့်ပြီး ပြန်စမ်းကြည့်ပါ"</string>
+<string name="autofill_card_unmask_prompt_error_try_again_expiration_year">"သင့်ကုန်ဆုံးမည့်နှစ်ကို ကြည့်ပြီး ပြန်စမ်းကြည့်ပါ"</string>
+<string name="autofill_card_unmask_prompt_storage_checkbox">"ဤစက်ကိရိယာတွင် ထိုကဒ်များ၏ မိတ္တူအား သိမ်းထားရန်"</string>
+<string name="autofill_card_unmask_prompt_storage_tooltip">"အမှန်ခြစ်ထားပါက၊ ပုံစံဖြည့်မှု မြန်လာစေရန် Chrome သည် သင့်ကဒ်၏ မိတ္ထူကို ဤကိရိယာထဲတွင် သိမ်းထားပါမည်။"</string>
+<string name="autofill_card_unmask_prompt_enable_fido_auth_checkbox">"ယခုမှစ၍ ကတ်များကို အတည်ပြရန် ဖုန်းမျက်နှာပြင် လော့ခ်ကို အသုံးပြုရန်"</string>
+<string name="autofill_card_unmask_verification_in_progress">"ကတ် အတည်ပြုနေသည်…"</string>
+<string name="autofill_card_unmask_verification_success">"သင့်ကဒ်ကို အတည်ပြုပြီးပါပြီ"</string>
+<string name="autofill_expiration_date_separator">"/"</string>
+<string name="autofill_card_unmask_new_card_link">"ကတ်ကို အပ်ဒိတ်လုပ်ပါ"</string>
+<string name="autofill_wallet_management_link_text">"ပြင်ဆင်ရန်"</string>
+<string name="autofill_from_google_account_long">"Google Pay မှ"</string>
+<string name="autofill_offers_reminder_description_text">"Check out with"</string>
+<string name="autofill_offers_reminder_deep_link_text">"See details."</string>
+<string name="autofill_clear_local_copy_button">"ကြည်လင်ပြတ်သား မိတ္ထူ"</string>
+<string name="autofill_cc_amex">"American Express"</string>
+<string name="autofill_cc_diners">"Diners Club"</string>
+<string name="autofill_cc_discover">"Discover"</string>
+<string name="autofill_cc_google_issued">"Google"</string>
+<string name="autofill_cc_jcb">"JCB"</string>
+<string name="autofill_cc_mastercard">"Mastercard"</string>
+<string name="autofill_cc_mir">"Mir"</string>
+<string name="autofill_cc_union_pay">"တရုတ် UnionPay"</string>
+<string name="autofill_cc_visa">"ဗီဇာ"</string>
+<string name="autofill_address_summary_separator">", "</string>
+<string name="autofill_scan_credit_card">"ကတ်အသစ်အား ဖတ်ရှုစစ်ဆေးပါ"</string>
+<string name="autofill_enable_profiles_toggle_sublabel">"ဖုန်းနံပါတ်များ၊ အီးမေးလ်လိပ်စာများနှင့် ပစ္စည်းပို့ရမည့် လိပ်စာများကဲ့သို့ အချက်အလက်များ ပါဝင်သည်"</string>
+<string name="autofill_enable_credit_cards_toggle_sublabel">"သင်သိမ်းထားသော ငွေပေးချေနည်းလမ်းများဖြင့် ငွေပေးချေမှု ပုံစံများကို ဖြည့်သည်"</string>
+<string name="autofill_addresses_settings_title">"လိပ်စာများနှင့် အခြားအရာများ"</string>
+<string name="autofill_payment_methods">"ငွေပေးချေ နည်းလမ်းများ"</string>
+<string name="autofill_enable_profiles_toggle_label">"လိပ်စာများကို သိမ်းပြီး ဖြည့်ရန်"</string>
+<string name="autofill_enable_credit_cards_toggle_label">"ငွေပေးချေနည်းလမ်းများကို သိမ်းပြီး ဖြည့်ရန်"</string>
+<string name="enable_credit_card_fido_auth_label">"မျက်နှာပြင်လော့ခ်"</string>
+<string name="enable_credit_card_fido_auth_sublabel">"ကတ်များကို ပိုမိုမြန်ဆန်စွာ အတည်ပြုရန် မျက်နှာပြင်လော့ခ်ကို အသုံးပြုပါ"</string>
+<!-- <string name="http_post_warning_title">"ပုံစံ ပြန်လည်တင်မှုကို အတည်ပြုရန်"</string> -->
+<!-- <string name="http_post_warning">"သင်က ရိုက်ထည့် အသုံးပြုခဲ့သည့် အချက်အလက်များကို ကြည့်ရှုရနိုင်သည့် စာမျက်နှာပါ။ သင်က ထပ်လုပ်ရန် တစ်ခုခု လုပ်ဆောင်ခဲ့လျှင် ထိုစာမျက်နှာသို့ ပြန်ရောက်သွားနိုင်သည်။ သင်သည် ဆက်ပြီး လုပ်ကိုင်လိုပါသလား?"</string> -->
+<!-- <string name="http_post_warning_resend">"ဆက်လုပ်ရန်"</string> -->
+<!-- <string name="login_dialog_title">"ဝင်ရောက်"</string> -->
+<!-- <string name="login_dialog_ok_button_label">"ဝင်ရောက်"</string> -->
+<!-- <string name="login_dialog_username_field">"အသုံးပြုသူအမည်"</string> -->
+<!-- <string name="login_dialog_password_field">"စကားဝှက်"</string> -->
+<string name="sad_tab_title">"အော၊ လက်ဖျောက်!"</string>
+<string name="sad_tab_message">"ဤဝဘ်ဆိုက်အား ပြသစဉ် တစ်ခုခု မှားသွား၏။"</string>
+<string name="sad_tab_reload_label">"ပြန်တင်ရန်"</string>
+<string name="sad_tab_send_feedback_label">"အကြံပြုချက် ပို့ရန်"</string>
+<string name="sad_tab_reload_title">"ဤစာမျက်နှာကို ဖွင့်မရပါ"</string>
+<string name="sad_tab_reload_try">"အောက်ပါ နည်းလမ်းများကို စမ်းကြည့်ပါ−"</string>
+<string name="sad_tab_reload_incognito">"စာမျက်နှာကို ရုပ်ဖျက်တဘ်အသစ်တွင် ဖွင့်ရန်"</string>
+<string name="sad_tab_reload_restart_browser">"Chromium ကို ပိတ်ပြီးပြန်ဖွင့်ပါ"</string>
+<string name="sad_tab_reload_restart_device">"သင့်စက်ပစ္စည်းကို ပြန်လည် အစပြုပါ"</string>
+<string name="sad_tab_reload_learn_more">"ပိုမိုလေ့လာရန်"</string>
+<string name="new_tab_otr_title">"ရုပ်ဖျက်မုဒ်ကို သုံးနေပါသည်"</string>
+<string name="new_tab_otr_subtitle">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads and bookmarks will be saved."</string>
+<string name="new_tab_otr_subtitle_with_reading_list">"Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved."</string>
+<string name="new_tab_otr_not_saved">"Chrome &lt;em&gt;won’t save&lt;/em&gt; the following information:
+        &lt;ul&gt;
+          &lt;li&gt;Your browsing history
+          &lt;li&gt;Cookies and site data
+          &lt;li&gt;Information entered in forms
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_visible">"သင်၏လုပ်ဆောင်ချက်ကို အောက်ပါတို့က &lt;em&gt;မြင်ကောင်းမြင်ရနိုင်ပါသေးသည်&lt;/em&gt;−
+        &lt;ul&gt;
+          &lt;li&gt;သင်ဝင်ကြည့်သော ဝဘ်ဆိုက်များ
+          &lt;li&gt;သင်၏အလုပ်ရှင် သို့မဟုတ် ကျောင်း
+          &lt;li&gt;သင်၏ အင်တာနက်ဝန်ဆောင်မှုပေးသူ
+        &lt;/ul&gt;"</string>
+<string name="new_tab_otr_cookie_controls_controlled_tooltip_text">"ဤဆက်တင်ကို \'ကွတ်ကီး\' ဆက်တင်များတွင် ထိန်းချုပ်ပါသည်။"</string>
+<string name="new_tab_otr_third_party_cookie">"ပြင်ပကုမ္ပဏီကွတ်ကီးများကို ပိတ်ဆို့မည်"</string>
+<string name="new_tab_otr_third_party_cookie_sublabel">"ဖွင့်ထားသည့်အခါ ဝဘ်တစ်လျှောက် သင့်အားခြေရာခံသည့် ကွတ်ကီးများကို ဝဘ်ဆိုက်များက အသုံးမပြုနိုင်ပါ။ အချို့ဝဘ်ဆိုက်များပေါ်ရှိ ဝန်ဆောင်မှုများ ရပ်သွားနိုင်ပါသည်။"</string>
+<string name="ntp_article_suggestions_section_header">"သင့်အတွက်ဆောင်းပါးများ"</string>
+<string name="ntp_article_suggestions_section_header_branded">"Google ၏ အကြံပြုချက်များ"</string>
+<string name="ntp_article_suggestions_section_empty">"သင်အကြံပြုထားသည့် ဆောင်းပါးများ ဤနေရာတွင် ပေါ်ပါမည်"</string>
+<!-- <string name="page_info_permission_ads_subtitle">"ဝဘ်ဆိုက်က စိတ်အနှောင့်အယှက်ဖြစ်စေသော (သို့) အထင်အမြင်မှားစေသော ကြော်ငြာများကို ပြသည်"</string> -->
+<string name="payments_method_of_payment_label">"ငွေပေးချေမှုစနစ်"</string>
+<string name="payments_contact_details_label">"ဆက်သွယ်ရန်အချက်အလက်"</string>
+<string name="payments_add_contact_details_label">"ဆက်သွယ်ရန်အချက်အလက် ထည့်ရန်"</string>
+<string name="payments_edit_contact_details_label">"အဆက်အသွယ်အချက်အလက်ကို တည်းဖြတ်ပါ"</string>
+<string name="payments_add_billing_address">"ငွေတောင်းခံလွှာပို့ရန် လိပ်စာကို ထည့်ပါ"</string>
+<string name="payments_add_name_on_card">"ကတ်ပေါ်ရှိ အမည်ကို ထည့်ပါ"</string>
+<string name="payments_add_valid_card_number">"မှန်ကန်သည့် ကတ်နံပါတ်ကို ထည့်ပါ"</string>
+<string name="payments_add_more_information">"နောက်ထပ် အချက်အလက်များကို ထည့်ပါ"</string>
+<string name="payments_edit_card">"ကတ်ကို တည်းဖြတ်ပါ"</string>
+<string name="payments_add_phone_number">"ဖုန်းနံပါတ် ပေါင်းထည့်ရန်"</string>
+<string name="payments_add_recipient">"အမည်ပေါင်းထည့်"</string>
+<string name="payments_add_valid_address">"မှန်ကန်သည့် လိပ်စာကို ထည့်ပါ"</string>
+<string name="payments_add_email">"အီးမေးလ် ထည့်ပါ"</string>
+<string name="payments_add_name">"အမည်ပေါင်းထည့်"</string>
+<string name="payments_order_summary_label">"မှာယူမှု စုစုပေါင်း"</string>
+<string name="payment_request_payment_method_section_name">"ငွေပေးချေမှု"</string>
+<string name="payment_account_balance">"အကောင့် လက်ကျန်ငွေ"</string>
+<string name="payments_shipping_summary_label">"ပစ္စည်းပို့ရန်"</string>
+<string name="payments_shipping_address_label">"ပို့ဆောင်ရမည့် လိပ်စာ"</string>
+<string name="payments_shipping_option_label">"ပစ္စည်းပို့ခြင်း နည်းလမ်း"</string>
+<string name="payments_delivery_summary_label">"ပို့ဆောင်မှု"</string>
+<string name="payments_delivery_address_label">"ပို့ဆောင်ရန် လိပ်စာ"</string>
+<string name="payments_delivery_option_label">"ပို့ရန် နည်းလမ်း"</string>
+<string name="payments_pickup_summary_label">"ထုတ်ယူရန်"</string>
+<string name="payments_pickup_address_label">"ထုတ်ယူရန် လိပ်စာ"</string>
+<string name="payments_pickup_option_label">"ပစ္စည်းထုတ်ယူရန် နည်းလမ်း"</string>
+<string name="payments_edit_button">"ပြင်ဆင်ရန်"</string>
+<string name="payments_pay_button">"ငွေပေးချေရန်"</string>
+<string name="payments_continue_button">"ဆက်လုပ်ရန်"</string>
+<string name="payments_add_contact">"ဆက်သွယ်ရန်အချက်အလက် ထည့်ရန်"</string>
+<string name="payments_add_card">"ကတ်ကိုထည့်ရန်"</string>
+<string name="payments_add_address">"လိပ်စာများ ထည့်သွင်းပါ"</string>
+<string name="payments_edit_address">"လိပ်စာ တည်းဖြတ်ရန်"</string>
+<string name="payments_name_field_in_contact_details">"အမည်"</string>
+<string name="payments_save_card_to_device_checkbox">"ဤကဒ်ကို ဤစက်ပစ္စည်းတွင် သိမ်းရန်"</string>
+<string name="payments_accepted_cards_label">"လက်ခံသည့် ကဒ်များ"</string>
+<string name="payments_credit_card_expiration_date_abbr">"%1$s/%2$s တွင် ကုန်ဆုံးမည်"</string>
+<string name="payments_loading_message">"တင်ပေးနေ"</string>
+<string name="payments_processing_message">"ဆောင်ရွက်နေသည်"</string>
+<string name="payments_checking_option">"စစ်ကြည့်နေ"</string>
+<string name="payments_updated_label">"မွမ်းမံပြီး"</string>
+<string name="payment_complete_message">"ငွေပေးချေမှု ပြီးစီးပါပြီ"</string>
+<string name="payments_error_message">"သင်၏ မှာယူမှုကို ဆောင်ရွက်နေစဉ် မှားယွင်းမှုတစ်ခု ရှိနေပါသည်။ ထပ်လုပ်ကြည့်ပါ။"</string>
+<string name="payments_card_and_address_settings">"ကတ်နှင့် လိပ်စာများကို BEGIN_LINKဆက်တင်များEND_LINK တွင် စီမံနိုင်သည်။"</string>
+<string name="payments_card_and_address_settings_signed_in">"ကဒ်နှင့် လိပ်စာများသည် Chrome နှင့် သင်၏ Google အကောင့် (%1$s) မှဖြစ်သည်။ ၎င်းတို့ကို BEGIN_LINKဆက်တင်များEND_LINK တွင် စီမံခန့်ခွဲနိုင်သည်။"</string>
+<string name="payment_touch_sensor_to_pay">"ငွေပေးချေရန် အာရုံခံစနစ်ကို ထိပါ"</string>
+<string name="payment_fingerprint_not_recognized">"မသိပါ"</string>
+<string name="payments_card_and_address_settings_signed_out">"ကဒ်နှင့် လိပ်စာများသည် Chrome မှ ဖြစ်သည်။ ၎င်းတို့ကို BEGIN_LINKဆက်တင်များEND_LINK ထဲတွင် စီမံခန့်ခွဲနိုင်သည်။"</string>
+<string name="settings_can_make_payment_toggle_label">"သင့်တွင် သိမ်းထားသော ငွေပေးချေနည်းလမ်းများရှိမရှိ စစ်ဆေးရန် ဝဘ်ဆိုက်များကို ခွင့်ပြုပါ"</string>
+<string name="payments_required_field_message">"* ပြထားသော အကွက်ကို ဖြည့်ရန်လိုသည်"</string>
+<string name="payments_phone_invalid_validation_message">"မှန်ကန်သောဖုန်းနံပါတ်ကို ထည့်ပါ"</string>
+<string name="payments_email_invalid_validation_message">"မှန်ကန်သော အီးမေးလ်လိပ်စာကို ထည့်ပါ"</string>
+<string name="payments_card_number_invalid_validation_message">"မှန်ကန်သည့် ကဒ်နံပါတ်ကို ထည့်ပါ"</string>
+<string name="payments_card_expiration_invalid_validation_message">"မှန်ကန်သည့် ကုန်ဆုံးမည့်ရက်ကို ထည့်ပါ"</string>
+<string name="payments_invalid_address">"မှန်ကန်သည့် လိပ်စာကို ထည့်ပါ"</string>
+<string name="payments_billing_address_required">"ငွေတောင်းခံလွှာပို့ရန် လိပ်စာ လိုအပ်ပါသည်"</string>
+<string name="payments_name_on_card_required">"ကဒ်ကိုင်ဆောင်သူ၏အမည် လိုအပ်သည်"</string>
+<string name="payments_more_information_required">"နောက်ထပ် အချက်အလက်များ လိုအပ်ပါသည်"</string>
+<string name="payments_phone_number_required">"ဖုန်းနံပါတ်လိုအပ်ပါသည်"</string>
+<string name="payments_recipient_required">"အမည် လိုအပ်သည်"</string>
+<string name="payments_email_required">"အီးမေးလ် လိုအပ်သည်"</string>
+<string name="payments_name_required">"အမည် လိုအပ်သည်"</string>
+<string name="pref_edit_dialog_field_required_validation_message">"ဖြည့်ရန်လိုအပ်သည့်အကွက်"</string>
+<string name="payments_select_shipping_address_for_shipping_methods">"ပစ္စည်းပို့ခြင်းနည်းလမ်းနှင့် သတ်မှတ်ချက်ချက်များကို ကြည့်ရန် လိပ်စာရွေးပါ"</string>
+<string name="payments_unsupported_shipping_address">"ဤလိပ်စာသို့ ပို့၍မရပါ။ အခြားလိပ်စာတစ်ခုကို ရွေးပါ။"</string>
+<string name="payments_select_delivery_address_for_delivery_methods">"ပစ္စည်းပို့ခြင်းနည်းလမ်းများနှင့် သတ်မှတ်ချက်များကို ကြည့်ရန် လိပ်စာရွေးပါ"</string>
+<string name="payments_unsupported_delivery_address">"ဤလိပ်စာသို့ ပို့၍မရပါ။ အခြားလိပ်စာတစ်ခုကို ရွေးပါ။"</string>
+<string name="payments_select_pickup_address_for_pickup_methods">"ပစ္စည်းထုတ်ယူရန် နည်းလမ်းနှင့် သတ်မှတ်ချက်များကို ကြည့်ရန် လိပ်စာရွေးပါ"</string>
+<string name="payments_unsupported_pickup_address">"ဤလိပ်စာမှ ပစ္စည်းထုတ်ယူ၍မရပါ။ အခြားလိပ်စာတစ်ခုကို ရွေးပါ။"</string>
+<string name="payments_android_app_error">"ငွေပေးချေမှုအက်ပ်ကို ဖွင့်မရပါ"</string>
+<string name="external_payment_app_leave_incognito_warning">"ပြင်ပအပလီကေးရှင်းဖြင့် ငွေပေးချေရန် ရုပ်ဖျက်မုဒ်မှ ထွက်နေသည်။ ရှေ့ဆက် လိုပါသလား။"</string>
+<string name="payment_handler_sheet_description">"ငွေပေးချေမှု ကိုင်တွယ်သည့်စနစ်စာမျက်နှာ"</string>
+<string name="payment_handler_sheet_opened_half">"ငွေပေးချေမှု ကိုင်တွယ်သည့်စနစ်စာမျက်နှာကို တစ်ဝက်ဖွင့်ထားသည်"</string>
+<string name="payment_handler_sheet_opened_full">"ငွေပေးချေမှု ကိုင်တွယ်သည့်စနစ်စာမျက်နှာကို ဖွင့်ထားသည်"</string>
+<string name="payment_handler_sheet_closed">"ငွေပေးချေမှု ကိုင်တွယ်သည့်စနစ်စာမျက်နှာကို ပိတ်ထားသည်"</string>
+<string name="blocked_ads_prompt_title">"ကြော်ငြာများကို ပိတ်လိုက်ပါပြီ"</string>
+<!-- <string name="translate_infobar_error">"အူးပ်စ်။ ဒီစာမျက်နှာကို ဘာသာပြန် မရနိုင်ခဲ့ပါ။"</string> -->
+<!-- <string name="translate_button">"ဘာသာပြန်ရန်"</string> -->
+<!-- <string name="translate_never_translate_site">"ဒီဆိုက်ကို ဘယ်တော့မှ ဘာသာမပြန်ပါနှင့်"</string> -->
+<string name="translate_dont_offer_site">"ဤဝဘ်ဆိုက်ကို ပြန်ဆိုရန် မကမ်းလှမ်းပါနှင့်"</string>
+<!-- <string name="translate_option_always_translate">"%1$s ဘာသာဖြင့် စာမျက်နှာများအားလုံးကို အမြဲဘာသာပြန်ရန်"</string> -->
+<!-- <string name="translate_option_never_translate">"%1$s ဘာသာ စာမျက်နှာများကို ဘယ်သောအခါမျှ ဘာသာမပြန်ရန်"</string> -->
+<string name="translate_dont_offer_lang">"%1$s စာမျက်နှာများကို ပြန်ဆိုရန် မကမ်းလှမ်းပါနှင့်"</string>
+<!-- <string name="translate_option_more_language">"နောက်ထပ် ဘာသာစကားများ"</string> -->
+<!-- <string name="translate_option_not_source_language">"စာမျက်နှာသည် %1$s ဖြင့် ဟုတ်ပါသလား။"</string> -->
+<string name="translate_snackbar_always_translate">"%1$s ဘာသာဖြင့် စာမျက်နှာများကို ယခုမှစ၍ %2$s ဘာသာသို့ ဘာသာပြန်သွားပါမည်"</string>
+<string name="translate_snackbar_language_never">"%1$s ဘာသာဖြင့် စာမျက်နှာများကို ဘာသာပြန်သွားပါမည်"</string>
+<string name="translate_snackbar_site_never">"ဤဝဘ်ဆိုက်ကို ဘာသာပြန်မည် မဟုတ်ပါ"</string>
+<string name="translate_snackbar_cancel">"မလုပ်တော့"</string>
+<string name="clear">"ရှင်းရန်"</string>
+<string name="show_content">"ပြရန်"</string>
+<string name="hide_content">"ဝှက်ထားရန်"</string>
+<string name="choose">"ရွေးချယ်ရန်"</string>
+
+
+<!-- /mnt/d/dev/GitHub/chromium/src/out/Default/gen/weblayer/java/res/values-my/components_strings.xml -->
+
+<string name="http_post_warning_title">"ပုံစံ ပြန်လည်တင်မှုကို အတည်ပြုရန်"</string>
+<string name="http_post_warning">"သင်က ရိုက်ထည့် အသုံးပြုခဲ့သည့် အချက်အလက်များကို ကြည့်ရှုရနိုင်သည့် စာမျက်နှာပါ။ သင်က ထပ်လုပ်ရန် တစ်ခုခု လုပ်ဆောင်ခဲ့လျှင် ထိုစာမျက်နှာသို့ ပြန်ရောက်သွားနိုင်သည်။ သင်သည် ဆက်ပြီး လုပ်ကိုင်လိုပါသလား?"</string>
+<string name="http_post_warning_resend">"ဆက်လုပ်ရန်"</string>
+<string name="login_dialog_title">"ဝင်ရောက်"</string>
+<string name="login_dialog_ok_button_label">"ဝင်ရောက်"</string>
+<string name="login_dialog_username_field">"အသုံးပြုသူအမည်"</string>
+<string name="login_dialog_password_field">"စကားဝှက်"</string>
+<string name="page_info_permission_ads_subtitle">"ဝဘ်ဆိုက်က စိတ်အနှောင့်အယှက်ဖြစ်စေသော (သို့) အထင်အမြင်မှားစေသော ကြော်ငြာများကို ပြသည်"</string>
+<string name="translate_infobar_error">"အူးပ်စ်။ ဒီစာမျက်နှာကို ဘာသာပြန် မရနိုင်ခဲ့ပါ။"</string>
+<string name="translate_button">"ဘာသာပြန်ရန်"</string>
+<string name="translate_never_translate_site">"ဒီဆိုက်ကို ဘယ်တော့မှ ဘာသာမပြန်ပါနှင့်"</string>
+<string name="translate_option_always_translate">"%1$s ဘာသာဖြင့် စာမျက်နှာများအားလုံးကို အမြဲဘာသာပြန်ရန်"</string>
+<string name="translate_option_never_translate">"%1$s ဘာသာ စာမျက်နှာများကို ဘယ်သောအခါမျှ ဘာသာမပြန်ရန်"</string>
+<string name="translate_option_more_language">"နောက်ထပ် ဘာသာစကားများ"</string>
+<string name="translate_option_not_source_language">"စာမျက်နှာသည် %1$s ဖြင့် ဟုတ်ပါသလား။"</string>
+</resources>

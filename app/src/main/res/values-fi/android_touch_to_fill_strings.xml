@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Jatka tilin avulla"</string>
+<string name="touch_to_fill_sheet_title">"Valitse tili"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Kosketuksella täytettävien kirjautumistietojen lista"</string>
+<string name="touch_to_fill_sheet_half_height">"Kosketuksella täytettävien kirjautumistietojen lista avattu puolen näytön korkeudella."</string>
+<string name="touch_to_fill_sheet_full_height">"Kosketuksella täytettävien kirjautumistietojen lista avattu koko näytön korkeudella."</string>
+<string name="touch_to_fill_sheet_closed">"Kosketuksella täytettävien kirjautumistietojen lista on suljettu."</string>
+<string name="manage_passwords">"Hallitse salasanoja"</string>
+<string name="touch_to_fill_continue">"Jatka"</string>
+</resources>

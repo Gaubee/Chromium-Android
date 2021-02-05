@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome vajab luba teie kaamerale juurdepääsemiseks, et luua teid ümbritsevast 3D-kaart."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome vajab selle saidi puhul luba, et teie kaamerale juurde pääseda."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome vajab selle saidi puhul luba, et teie mikrofonile juurde pääseda."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome vajab selle saidi puhul luba, et teie kaamerale ja mikrofonile juurde pääseda."</string>
+<string name="infobar_missing_location_permission_text">"Chrome vajab juurdepääsu teie asukohale, et seda selle saidiga jagada."</string>
+<string name="infobar_update_permissions_button_text">"Jätka"</string>
+<string name="nfc_disabled_on_device_message">"Jätkamiseks lülitage NFC Androidi seadetes sisse"</string>
+<string name="nfc_prompt_turn_on">"Lülita sisse"</string>
+<string name="overlay_detected_dialog_title">"See sait ei saa teilt luba küsida"</string>
+<string name="overlay_detected_dialog_message">"Sulgege kõik muude rakenduste mullid ja ülekatted. Seejärel proovige uuesti."</string>
+</resources>

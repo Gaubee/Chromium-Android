@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"Nastavite sa nalogom"</string>
+<string name="touch_to_fill_sheet_title">"Izaberite nalog"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"Lista akreditiva koji treba da se unesu na dodir."</string>
+<string name="touch_to_fill_sheet_half_height">"Lista akreditiva koji treba da se unesu na dodir se otvorila do polovine ekrana."</string>
+<string name="touch_to_fill_sheet_full_height">"Lista akreditiva koji treba da se unesu na dodir se otvorila na celom ekranu,"</string>
+<string name="touch_to_fill_sheet_closed">"Lista akreditiva koji treba da se unesu na dodir je zatvorena."</string>
+<string name="manage_passwords">"Upravljaj lozinkama"</string>
+<string name="touch_to_fill_continue">"Nastavite"</string>
+</resources>

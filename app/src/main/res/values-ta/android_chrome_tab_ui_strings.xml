@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"ஒரு குழுவை உருவாக்கிப் பக்கங்களை விரைவாக ஒப்பிடலாம். தொடங்க, ஓர் இணைப்பைத் தொட்டுப் பிடிக்கவும்."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"வேறொரு தாவலைப் பார்க்க, தட்டவும்"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"உங்கள் தாவல்கள் இங்கு குழுவாக்கப்பட்டுள்ளன"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"திரையின் கீழ்ப்பகுதிக்கு அருகில் உங்கள் தாவல் குழுவிலுள்ள தாவல்களுக்கு இடையே மாறலாம்"</string>
+<string name="undo_bar_group_tabs_message">"%1$s தாவல்கள் குழுவாக்கப்பட்டுள்ளன"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d தாவல்"</item>
+  <item quantity="other">"%1$d தாவல்கள்"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"குழுவில் புதிய தாவலைச் சேர்"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"முழுத்திரை கட்டத்தை மூடு"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"குழு தாவல்களை முழுத்திரை கட்டத்தில் காட்டு"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"தாவல் பட்டையை மூடும்"</string>
+<string name="tabswitcher_create_group">"குழுவை உருவாக்கு"</string>
+<string name="accessibility_tab_switcher">"தாவல் மாற்றி"</string>
+<string name="accessibility_close_tab_group_button">"%1$s தாவல்கள் உள்ள தாவல் குழுவை மூடும்"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"%2$s தாவல்கள் உள்ள %1$s குழுவை மூடும்"</string>
+<string name="tab_selection_editor_group">"குழு"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"தாவல்களைத் தேர்ந்தெடுக்கவும்"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"தேர்ந்தெடுத்த %1$d தாவலைக் குழுவாக்கும்"</item>
+  <item quantity="other">"தேர்ந்தெடுத்த %1$d தாவல்களைக் குழுவாக்கும்"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"பல தேர்வுப் பயன்முறையை மறைக்கும்"</string>
+<string name="accessibility_tab_selection_editor">"பல தேர்வுப் பயன்முறை"</string>
+<string name="tab_grid_dialog_remove_from_group">"குழுவிலிருந்து அகற்று"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"குழுவிலிருந்து தாவல்களை அகற்று"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"அகற்று"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"குழுவைப் பகிர்"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"குழுவின் பெயரை மாற்று"</string>
+<string name="accessibility_expand_tab_group">"%1$s தாவல்கள் உள்ள தாவல் குழுவை விரிவாக்கும்."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"%2$s தாவல்கள் உள்ள %1$s தாவல் குழுவை விரிவாக்கும்."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"தேர்ந்தெடுத்த %1$d தாவலைக் குழுவிலிருந்து அகற்றும்."</item>
+  <item quantity="other">"தேர்ந்தெடுத்த %1$d தாவல்களைக் குழுவிலிருந்து அகற்றும்."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d தாவலைச் சுருக்கும்."</item>
+  <item quantity="other">"%1$d தாவல்கள் உள்ள தாவல் குழுவைச் சுருக்கும்."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d தாவலைச் சுருக்கும்."</item>
+  <item quantity="other">"%2$d தாவல்கள் உள்ள %1$s தாவல் குழுவைச் சுருக்கும்."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"தாவல் குழு விரிவாக்கப்பட்டது"</string>
+<string name="iph_drag_and_drop_introduction">"தாவல்களை இழுப்பதன் மூலம் அவற்றைக் குழுவாக்கலாம்"</string>
+<string name="iph_drag_and_drop_show_me">"எனக்கு காண்பி"</string>
+<string name="iph_drag_and_drop_title">"ஒருங்கமைப்புடன் இருக்கலாம்"</string>
+<string name="iph_drag_and_drop_content">"தாவல்களைக் குழுவாக்க தாவலைத் தொட்டுப் பிடித்திருக்கவும். பிறகு அதை மற்றொரு தாவலுக்கு இழுத்துச்சென்று விடவும்."</string>
+<string name="tab_switcher_carousel_title">"உலாவலைத் தொடர்க"</string>
+<string name="tab_switcher_carousel_view_all">"அனைத்தும் காட்டு"</string>
+<string name="tab_suggestion_review_button">"சரிபார்"</string>
+<string name="tab_suggestion_close_tab_action_button">"மூடு"</string>
+<string name="tab_suggestion_close_stale_message">"உங்கள் %1$s தாவல்கள் சமீபத்தில் பயன்படுத்தவில்லை. அவற்றை மூடவா?"</string>
+<string name="tab_suggestion_group_tabs_message">"%1$s தாவல்கள் தொடர்புடையவையாகத் தெரிகின்றன. அவற்றைக் குழுவாக்கவா?"</string>
+<string name="accessibility_tab_suggestion_review_button">"பரிந்துரைகளை சரிபார்க்கும்."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"பரிந்துரை: உங்களின் %1$s தாவல்கள் சமீபத்தில் பயன்படுத்தவில்லை. அவற்றை மூட வேண்டுமா?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"பரிந்துரை: %1$s தாவல்கள் தொடர்புடையவையாகத் தெரிகின்றன. அவற்றைக் குழுவாக்கவா?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"பரிந்துரைகளை நிராகரிக்கும்."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"தேர்ந்தெடுத்த %1$d தாவலை மூடும்"</item>
+  <item quantity="other">"தேர்ந்தெடுத்த %1$d தாவல்களை மூடும்"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"தாவலை இடப்புறம் நகர்த்து"</string>
+<string name="accessibility_tab_movement_right">"தாவலை வலதுபுறம் நகர்த்து"</string>
+<string name="accessibility_tab_movement_up">"தாவலை மேலே நகர்த்து"</string>
+<string name="accessibility_tab_movement_down">"தாவலைக் கீழே நகர்த்து"</string>
+<string name="undo_tab_strip_closure_message">"மூடப்பட்டுள்ள தாவல் பட்டை"</string>
+<string name="tab_strip_info_bar_question">"தாவல் பட்டையை மீண்டும் காட்டவா?"</string>
+<string name="tab_strip_info_bar_no_reshow">"மீண்டும் காட்டாதே"</string>
+<string name="tab_strip_info_bar_reshow">"பின்னர் காட்டு"</string>
+<string name="price_drop_spotted_title">"விலைச் சரிவு கண்டறியப்பட்டது"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"எனக்கு காண்பி"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

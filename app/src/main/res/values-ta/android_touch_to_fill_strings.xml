@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"இந்தக் கணக்கு மூலம் தொடர்க"</string>
+<string name="touch_to_fill_sheet_title">"கணக்கைத் தேர்வு செய்யவும்"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"தொட்டால் நிரப்பப்பட வேண்டிய அனுமதிச் சான்றுகளின் பட்டியல்."</string>
+<string name="touch_to_fill_sheet_half_height">"தொட்டால் நிரப்பப்பட வேண்டிய அனுமதிச் சான்றுகளின் பட்டியல் பாதித் திரையில் திறக்கப்பட்டுள்ளது."</string>
+<string name="touch_to_fill_sheet_full_height">"தொட்டால் நிரப்பப்பட வேண்டிய அனுமதிச் சான்றுகளின் பட்டியல் முழுத் திரையில் திறக்கப்பட்டுள்ளது."</string>
+<string name="touch_to_fill_sheet_closed">"தொட்டால் நிரப்பப்பட வேண்டிய அனுமதிச் சான்றுகளின் பட்டியல் மூடப்பட்டுள்ளது."</string>
+<string name="manage_passwords">"கடவுச்சொற்களை நிர்வகி"</string>
+<string name="touch_to_fill_continue">"தொடர்க"</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="color_picker_button_more">"Meira"</string>
+<string name="color_picker_hue">"Litblær"</string>
+<string name="color_picker_saturation">"Mettun"</string>
+<string name="color_picker_value">"Gildi"</string>
+<string name="color_picker_button_set">"Stilla"</string>
+<string name="color_picker_button_cancel">"Hætta við"</string>
+<string name="color_picker_dialog_title">"Veldu lit"</string>
+<string name="color_picker_button_red">"Rauður"</string>
+<string name="color_picker_button_cyan">"Blár (cyan)"</string>
+<string name="color_picker_button_blue">"Blár"</string>
+<string name="color_picker_button_green">"Grænn"</string>
+<string name="color_picker_button_magenta">"Bleikur"</string>
+<string name="color_picker_button_yellow">"Gulur"</string>
+<string name="color_picker_button_black">"Svartur"</string>
+<string name="color_picker_button_white">"Hvítur"</string>
+</resources>

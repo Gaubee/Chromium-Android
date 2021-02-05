@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"మీ పరిసరాల 3D మ్యాప్‌ను సృష్టించడానికి Chromeకు మీ కెమెరాను యాక్సెస్ చేసే అనుమతి కావాలి."</string>
+<string name="infobar_missing_camera_permission_text">"ఈ సైట్ కోసం మీ కెమెరాను యాక్సెస్ చేయడానికి Chromeకు అనుమతి అవసరం."</string>
+<string name="infobar_missing_microphone_permission_text">"ఈ సైట్ కోసం మీ మైక్రోఫోన్‌ను యాక్సెస్ చేయడానికి Chromeకు అనుమతి అవసరం."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"ఈ సైట్ కోసం మీ కెమెరా మరియు మైక్రోఫోన్‌ను యాక్సెస్ చేయడానికి Chromeకు అనుమతి అవసరం."</string>
+<string name="infobar_missing_location_permission_text">"ఈ సైట్‌తో మీ స్థానాన్ని షేర్ చేయడానికి Chromeకు మీ స్థాన యాక్సెస్ అవసరం."</string>
+<string name="infobar_update_permissions_button_text">"కొనసాగించు"</string>
+<string name="nfc_disabled_on_device_message">"కొనసాగించడానికి, Android సెట్టింగ్‌లలో NFCని ఆన్ చేయండి"</string>
+<string name="nfc_prompt_turn_on">"ఆన్ చేయండి"</string>
+<string name="overlay_detected_dialog_title">"మీ అనుమతిని అడగడం ఈ సైట్‌కు సాధ్యం కాదు"</string>
+<string name="overlay_detected_dialog_message">"ఇతర యాప్‌ల బబుల్‌లను లేదా ఓవర్‌లేలను మూసివేయండి. ఆపై, మళ్లీ ట్రై చేయండి."</string>
+</resources>

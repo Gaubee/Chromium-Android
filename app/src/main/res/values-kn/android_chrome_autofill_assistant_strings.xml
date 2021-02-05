@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"ನಾನು ಒಪ್ಪುತ್ತೇನೆ"</string>
+<string name="autofill_assistant_init_title">"Chrome ನಲ್ಲಿ\nGoogle Assistant ಬಳಸಿ ನೋಡಿ"</string>
+<string name="autofill_assistant_init_message_rent_car">"ಕೆಲವೇ ಟ್ಯಾಪ್‌ಗಳ ಮೂಲಕ\nಕಾರನ್ನು ಬಾಡಿಗೆಗೆ ಪಡೆಯಿರಿ"</string>
+<string name="autofill_assistant_init_message_password_change">"ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಬದಲಾಯಿಸುವುದಕ್ಕಾಗಿ\nನಿಮಗೆ ಸಹಾಯ ಮಾಡಲು Google Assistant ಗೆ ಅನುಮತಿ ನೀಡಿ"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"ಕೆಲವೇ ಟ್ಯಾಪ್‌ಗಳ ಮೂಲಕ\nಚಲನಚಿತ್ರ ಟಿಕೆಟ್‌ಗಳನ್ನು ಖರೀದಿಸಿ"</string>
+<string name="autofill_assistant_init_message_food_ordering">"ಕೆಲವೇ ಟ್ಯಾಪ್‌ಗಳ ಮೂಲಕ\nಆಹಾರವನ್ನು ಆರ್ಡರ್ ಮಾಡಿ"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"ಕೆಲವೇ ಟ್ಯಾಪ್‌ಗಳ ಮೂಲಕ\nನಿಮ್ಮ ಫ್ಲೈಟ್‌ಗಳ ಕುರಿತು ಪರಿಶೀಲಿಸಿ"</string>
+<string name="autofill_assistant_init_message_voice_search">"ವೆಬ್‌ಸೈಟ್‌ಗಳಲ್ಲಿ\nಧ್ವನಿ ಕ್ರಿಯೆಗಳನ್ನು ಬಳಸಿ ನೋಡಿ"</string>
+<string name="autofill_assistant_init_message_shopping">"ಕೆಲವೇ ಟ್ಯಾಪ್‌ಗಳಲ್ಲಿ\nವೇಗವಾದ ಚೆಕ್‌ಔಟ್"</string>
+<string name="autofill_assistant_init_message">"ಹುಡುಕಾಟ ಮತ್ತು ಚೆಕ್‌ ಔಟ್‌ನಂತಹ ವೆಬ್‌ನಲ್ಲಿನ ಕ್ರಿಯೆಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ನಿಮಗೆ ಸಹಾಯ ಮಾಡುವ ಮೂಲಕ Google ಅಸಿಸ್ಟೆಂಟ್ ನಿಮ್ಮ ಸಮಯವನ್ನು ಉಳಿಸುತ್ತದೆ."</string>
+<string name="autofill_assistant_init_message_short">"Chrome ನಲ್ಲಿರುವ Google Assistant, ನಿಮಗಾಗಿ ವೆಬ್‌ಸೈಟ್‌ಗಳಾದ್ಯಂತದ ಕ್ರಿಯೆಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಬಲ್ಲದು"</string>
+<string name="autofill_assistant_google_terms_description">"ಕಾರ್ಯಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸುವುದಕ್ಕೆ ನಿಮಗೆ ಸಹಾಯ ಮಾಡಲು, ನೀವು ಅಸಿಸ್ಟೆಂಟ್ ಅನ್ನು ಬಳಸಿದ ಸೈಟ್‌ಗಳ URL ಗಳು ಮತ್ತು ವಿಷಯಗಳು ಹಾಗೂ ಅಸಿಸ್ಟೆಂಟ್ ಮೂಲಕ ನೀವು ಸಲ್ಲಿಸಿದ ಮಾಹಿತಿಯನ್ನು Google ಸ್ವೀಕರಿಸುತ್ತದೆ. ಈ ಮಾಹಿತಿಯನ್ನು Google ಖಾತೆಯಲ್ಲಿ ಸಂಗ್ರಹಿಸಿರಬಹುದು. ಅಸಿಸ್ಟೆಂಟ್ ಅನ್ನು Chrome ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಆಫ್ ಮಾಡಬಹುದು. &lt;link&gt;ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"ಕ್ಷಮಿಸಿ, ನನ್ನಿಂದ ಸಹಾಯ ಮಾಡಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ, ನಿಮ್ಮ ವಿವೇಚನೆಗೆ ತಕ್ಕಂತೆ ಮುಂದುವರಿಸಿ."</string>
+<string name="autofill_assistant_payment_information_missing">"ಮಾಹಿತಿ ಕಾಣೆಯಾಗಿದೆ"</string>
+<string name="autofill_assistant_view_original_image_desc">"ಬಾಹ್ಯ ಲಿಂಕ್ ತೆರೆಯುವುದೇ?"</string>
+<string name="autofill_assistant_view_original_image_view">"ವೀಕ್ಷಣೆ"</string>
+<string name="autofill_assistant_view_original_image_cancel">"ರದ್ದುಮಾಡಿ"</string>
+<string name="autofill_assistant_sheet_content_description">"Chrome ನಲ್ಲಿ Google ಅಸಿಸ್ಟೆಂಟ್."</string>
+<string name="autofill_assistant_sheet_half_height">"Chrome ನಲ್ಲಿ Google ಅಸಿಸ್ಟೆಂಟ್ ಅನ್ನು ಅರ್ಧ ಎತ್ತರದಲ್ಲಿ ತೆರೆಯಲಾಗಿದೆ."</string>
+<string name="autofill_assistant_sheet_full_height">"Chrome ನಲ್ಲಿ Google ಅಸಿಸ್ಟೆಂಟ್ ಅನ್ನು ಪೂರ್ಣ ಎತ್ತರದಲ್ಲಿ ತೆರೆಯಲಾಗಿದೆ."</string>
+<string name="autofill_assistant_sheet_closed">"Chrome ನಲ್ಲಿ Google ಅಸಿಸ್ಟೆಂಟ್ ಅನ್ನು ಮುಚ್ಚಲಾಗಿದೆ."</string>
+<string name="autofill_assistant_send_feedback">"ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಕಳುಹಿಸಿ"</string>
+<string name="autofill_assistant_increase_value">"ಮೌಲ್ಯವನ್ನು ಹೆಚ್ಚಿಸಿ"</string>
+<string name="autofill_assistant_decrease_value">"ಮೌಲ್ಯವನ್ನು ಕಡಿಮೆ ಮಾಡಿ"</string>
+<string name="autofill_assistant_overflow_options">"ಪ್ರಾಶಸ್ತ್ಯಗಳು"</string>
+</resources>

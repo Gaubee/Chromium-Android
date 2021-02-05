@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"‏Chrome برای ایجاد نقشه سه‌بعدی محیط شما باید اجازه دسترسی به دوربین داشته باشد."</string>
+<string name="infobar_missing_camera_permission_text">"‏Chrome به مجوز دسترسی به دوربین برای این سایت نیاز دارد."</string>
+<string name="infobar_missing_microphone_permission_text">"‏Chrome برای این سایت به مجوز دسترسی به میکروفون نیاز دارد."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"‏Chrome برای این سایت به مجوز دسترسی به دوربین و میکروفون نیاز دارد."</string>
+<string name="infobar_missing_location_permission_text">"‏Chrome برای اشتراک‌گذاری مکانتان با این سایت باید به مکانتان دسترسی داشته باشد."</string>
+<string name="infobar_update_permissions_button_text">"ادامه"</string>
+<string name="nfc_disabled_on_device_message">"‏برای ادامه دادن، NFC را در تنظیمات Android روشن کنید"</string>
+<string name="nfc_prompt_turn_on">"روشن کردن"</string>
+<string name="overlay_detected_dialog_title">"این سایت نمی‌تواند اجازه شما را درخواست کند"</string>
+<string name="overlay_detected_dialog_message">"حبابک‌ها یا هم‌پوشانی‌های برنامه‌های دیگر را ببندید. سپس، دوباره امتحان کنید."</string>
+</resources>

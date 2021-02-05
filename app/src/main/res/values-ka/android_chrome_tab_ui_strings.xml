@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="iph_tab_groups_quickly_compare_pages_text">"სწრაფად შეადარეთ გვერდები დაჯგუფების მეშვეობით. დასაწყებად ხანგრძლივად შეეხეთ ბმულს."</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_text">"შეეხეთ სხვა ჩანართის სანახავად"</string>
+<string name="iph_tab_groups_your_tabs_together_text">"თქვენი ჩანართები აქ დაჯგუფებულია"</string>
+<string name="iph_tab_groups_tap_to_see_another_tab_accessibility_text">"გადაერთეთ ჩანართებს შორის თქვენს ჩანართების ჯგუფში, ეკრანის ქვედა ნაწილში"</string>
+<string name="undo_bar_group_tabs_message">"%1$s ჩანართი დაჯგუფდა"</string>
+<plurals name="bottom_tab_grid_title_placeholder">
+  <item quantity="one">"%1$d ჩანართი"</item>
+  <item quantity="other">"%1$d ჩანართი"</item>
+</plurals>
+<string name="bottom_tab_grid_new_tab">"ჯგუფში ახალი ჩანართის დამატება"</string>
+<string name="accessibility_bottom_tab_grid_close_tab_sheet">"სრულეკრანიანი ბადის დამალვა"</string>
+<string name="accessibility_bottom_tab_strip_expand_tab_sheet">"ჯგუფის ჩანართების სრულეკრანიან ბადეში ჩვენება"</string>
+<string name="accessibility_bottom_tab_strip_close_strip">"ჩანართების ზოლის დახურვა"</string>
+<string name="tabswitcher_create_group">"ჯგუფის შექმნა"</string>
+<string name="accessibility_tab_switcher">"ჩანართების გადამრთველი"</string>
+<string name="accessibility_close_tab_group_button">"ჩანართების %1$s-ჩანართიანი ჯგუფის დახურვა"</string>
+<string name="accessibility_close_tab_group_button_with_group_name">"%2$s-ჩანართიანი ჯგუფის „%1$s“ დახურვა"</string>
+<string name="tab_selection_editor_group">"ჯგუფი"</string>
+<string name="tab_selection_editor_toolbar_select_tabs">"აირჩიეთ ჩანართები"</string>
+<plurals name="accessibility_tab_selection_editor_group_button">
+  <item quantity="one">"%1$d არჩეული ჩანართის დაჯგუფება"</item>
+  <item quantity="other">"%1$d არჩეული ჩანართის დაჯგუფება"</item>
+</plurals>
+<string name="accessibility_tab_selection_editor_back_button">"რამდენიმეარჩევანიანი რეჟიმის დამალვა"</string>
+<string name="accessibility_tab_selection_editor">"რამდენიმეარჩევანიანი რეჟიმი"</string>
+<string name="tab_grid_dialog_remove_from_group">"ჯგუფიდან ამოშლა"</string>
+<string name="tab_grid_dialog_toolbar_remove_from_group">"ჩანართების წაშლა ჯგუფიდან"</string>
+<string name="tab_grid_dialog_selection_mode_remove">"ამოშლა"</string>
+<string name="tab_grid_dialog_toolbar_share_group">"ჯგუფის გაზიარება"</string>
+<string name="tab_grid_dialog_toolbar_edit_group_name">"ჯგუფის სახელის რედაქტირება"</string>
+<string name="accessibility_expand_tab_group">"ჩანართების %1$s-ჩანართიანი ჯგუფის გაფართოება."</string>
+<string name="accessibility_expand_tab_group_with_group_name">"გააფართოეთ ჩანართების ჯგუფი „%1$s“ %2$s ჩანართით."</string>
+<plurals name="accessibility_tab_selection_dialog_remove_button">
+  <item quantity="one">"%1$d არჩეული ჩანართის ამოშლა ჯგუფიდან."</item>
+  <item quantity="other">"%1$d არჩეული ჩანართის ამოშლა ჯგუფიდან."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button">
+  <item quantity="one">"%1$d ჩანართის ჩაკეცვა."</item>
+  <item quantity="other">"ჩანართების %1$d-ჩანართიანი ჯგუფის ჩაკეცვა."</item>
+</plurals>
+<plurals name="accessibility_dialog_back_button_with_group_name">
+  <item quantity="one">"%1$d ჩანართის ჩაკეცვა."</item>
+  <item quantity="other">"%2$d-ჩანართიანი ჯგუფის „%1$s“ ჩაკეცვა."</item>
+</plurals>
+<string name="accessibility_tab_grid_dialog">"ჩანართების ჯგუფი გაფართოვდა"</string>
+<string name="iph_drag_and_drop_introduction">"ჩანართების დასაჯგუფებლად ჩავლებით გადაიტანეთ ისინი"</string>
+<string name="iph_drag_and_drop_show_me">"მაჩვენე"</string>
+<string name="iph_drag_and_drop_title">"იყავით ორგანიზებული"</string>
+<string name="iph_drag_and_drop_content">"ჩანართების დასაჯგუფებლად ხანგრძლივად შეეხეთ ჩანართს. შემდეგ კი ჩავლებით გადაიტანეს ის სხვა ჩანართზე."</string>
+<string name="tab_switcher_carousel_title">"დათვალიერების გაგრძელება"</string>
+<string name="tab_switcher_carousel_view_all">"ყველას ნახვა"</string>
+<string name="tab_suggestion_review_button">"გადახედვა"</string>
+<string name="tab_suggestion_close_tab_action_button">"დახურვა"</string>
+<string name="tab_suggestion_close_stale_message">"თქვენი %1$s ჩანართი ბოლო დროს არ გამოგიყენებიათ. გსურთ მათი დახურვა?"</string>
+<string name="tab_suggestion_group_tabs_message">"როგორც ჩანს, %1$s ჩანართი დაკავშირებულია. გსურთ მათი დაჯგუფება?"</string>
+<string name="accessibility_tab_suggestion_review_button">"შემოთავაზებების გადახედვა."</string>
+<string name="accessibility_tab_suggestion_close_stale_message">"შემოთავაზება: თქვენი %1$s ჩანართი ბოლო დროს არ გამოგიყენებიათ. გსურთ მათი დახურვა?"</string>
+<string name="accessibility_tab_suggestion_group_tabs_message">"შემოთავაზება: როგორც ჩანს, %1$s ჩანართი დაკავშირებულია. გსურთ მათი დაჯგუფება?"</string>
+<string name="accessibility_tab_suggestion_dismiss_button">"შემოთავაზებების დახურვა."</string>
+<plurals name="accessibility_tab_suggestion_close_tab_action_button">
+  <item quantity="one">"%1$d არჩეული ჩანართის დახურვა"</item>
+  <item quantity="other">"%1$d არჩეული ჩანართის დახურვა"</item>
+</plurals>
+<string name="accessibility_tab_movement_left">"ჩანართის მარცხნივ გადატანა"</string>
+<string name="accessibility_tab_movement_right">"ჩანართის მარჯვნივ გადატანა"</string>
+<string name="accessibility_tab_movement_up">"ჩანართის ზემოთ გადატანა"</string>
+<string name="accessibility_tab_movement_down">"ჩანართის ქვემოთ გადატანა"</string>
+<string name="undo_tab_strip_closure_message">"ჩანართების ზოლი დახურულია"</string>
+<string name="tab_strip_info_bar_question">"აღარ გამოჩნდეს ჩანართების ზოლი?"</string>
+<string name="tab_strip_info_bar_no_reshow">"აღარ გამოჩნდეს"</string>
+<string name="tab_strip_info_bar_reshow">"მოგვიანებით ჩვენება"</string>
+<string name="price_drop_spotted_title">"აღმოჩენილია ფასის დაწევა"</string>
+<string name="price_drop_spotted_content">"See which item in your open tabs has a lower price"</string>
+<string name="price_drop_spotted_show_me">"მაჩვენე"</string>
+<string name="price_drop_spotted_lower_price">"Lower price"</string>
+<string name="price_drop_alerts_card_title">"Get alerts for price drops?"</string>
+<string name="price_drop_alerts_card_content">"You\'ll get an alert when there\'s a lower price in an open tab. You can turn off alerts in %1$s."</string>
+<string name="price_drop_alerts_card_settings">"settings"</string>
+<string name="price_drop_alerts_card_get_notified">"Get notified"</string>
+<string name="price_tracking_settings">"Price tracking settings"</string>
+<string name="track_prices_on_tabs">"Track prices on tabs"</string>
+<string name="track_prices_on_tabs_description">"See price drops on your tabs"</string>
+<string name="price_drop_alerts">"Price drop alerts"</string>
+<string name="price_drop_alerts_description">"Get notified when prices drop"</string>
+</resources>

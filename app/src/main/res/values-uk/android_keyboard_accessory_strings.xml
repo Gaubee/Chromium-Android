@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Список облікових даних, які вставляються дотиком."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Список облікових даних, які вставляються дотиком, відкрито на половину висоти екрана."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Список облікових даних, які вставляються дотиком, відкрито на всю висоту екрана."</string>
+<string name="all_passwords_bottom_sheet_closed">"Список облікових даних, які вставляються дотиком, закритий."</string>
+<string name="all_passwords_bottom_sheet_title">"Паролі"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Пошук"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Немає пароля"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Якщо ви довіряєте сайту %s, то можете скористатися збереженим паролем для іншого сайту."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Намагайтеся використовувати для кожного сайту унікальний пароль."</string>
+<string name="autofill_keyboard_accessory_content_description">"Доступні паролі"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Над клавіатурою показано пропозиції автозаповнення"</string>
+<string name="keyboard_accessory_sheet_hide">"Показати клавіатуру"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Використати пропозицію автозаповнення Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Гортайте, щоб переглянути інші пропозиції"</string>
+<string name="password_generation_accessory_button">"Запропонувати надійний пароль"</string>
+<string name="password_generation_accessory_button_short">"Запропонувати пароль"</string>
+<string name="password_accessory_sheet_toggle">"Показати паролі"</string>
+<string name="password_accessory_sheet_opened">"Показано збережені паролі та їх параметри"</string>
+<string name="address_accessory_sheet_title">"Адреси"</string>
+<string name="address_accessory_sheet_toggle">"Показати адреси"</string>
+<string name="address_accessory_sheet_opened">"Показано збережені адреси"</string>
+<string name="credit_card_accessory_sheet_toggle">"Показати способи оплати"</string>
+<string name="credit_card_accessory_sheet_opened">"Показано збережені способи оплати"</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="infobar_missing_ar_camera_permission_text">"Chrome се нуждае от разрешение за достъп до камерата ви, за да създаде триизмерна карта на заобикалящата ви среда."</string>
+<string name="infobar_missing_camera_permission_text">"Chrome се нуждае от разрешение за достъп до камерата ви за този сайт."</string>
+<string name="infobar_missing_microphone_permission_text">"Chrome се нуждае от разрешение за достъп до микрофона ви за този сайт."</string>
+<string name="infobar_missing_microphone_camera_permissions_text">"Chrome се нуждае от разрешение за достъп до камерата и микрофона ви за този сайт."</string>
+<string name="infobar_missing_location_permission_text">"Chrome се нуждае от достъп до данните за местоположението ви, за да ги сподели с този сайт."</string>
+<string name="infobar_update_permissions_button_text">"Напред"</string>
+<string name="nfc_disabled_on_device_message">"За да продължите, включете NFC в настройките на Android"</string>
+<string name="nfc_prompt_turn_on">"Включване"</string>
+<string name="overlay_detected_dialog_title">"Този сайт не може да извежда запитвания за разрешения"</string>
+<string name="overlay_detected_dialog_message">"Затворете всички балончета и наслагвания от други приложения. След това опитайте отново."</string>
+</resources>

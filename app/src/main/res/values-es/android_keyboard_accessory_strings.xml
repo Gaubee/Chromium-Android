@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Lista de credenciales que puedes rellenar con un toque."</string>
+<string name="all_passwords_bottom_sheet_half_height">"La lista de credenciales que puedes rellenar con un toque está abierta y ocupa la mitad inferior de la pantalla."</string>
+<string name="all_passwords_bottom_sheet_full_height">"La lista de credenciales que puedes rellenar con un toque está abierta y ocupa toda la pantalla."</string>
+<string name="all_passwords_bottom_sheet_closed">"La lista de credenciales que puedes rellenar con un toque está cerrada."</string>
+<string name="all_passwords_bottom_sheet_title">"Contraseñas"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Buscar"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Sin contraseña"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Si confías en %s, puedes usar una contraseña guardada de otro sitio web."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Intenta usar una contraseña exclusiva en cada sitio web."</string>
+<string name="autofill_keyboard_accessory_content_description">"Contraseñas disponibles"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Sugerencias de la función Autocompletar disponibles sobre el teclado"</string>
+<string name="keyboard_accessory_sheet_hide">"Mostrar teclado"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Utilizar sugerencia de Autocompletar de Chrome"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Desliza el dedo para ver más sugerencias"</string>
+<string name="password_generation_accessory_button">"Sugerir contraseña segura"</string>
+<string name="password_generation_accessory_button_short">"Sugerir contraseña"</string>
+<string name="password_accessory_sheet_toggle">"Mostrar contraseñas"</string>
+<string name="password_accessory_sheet_opened">"Mostrando contraseñas guardadas y opciones de contraseña"</string>
+<string name="address_accessory_sheet_title">"Direcciones"</string>
+<string name="address_accessory_sheet_toggle">"Mostrar direcciones"</string>
+<string name="address_accessory_sheet_opened">"Mostrando direcciones guardadas"</string>
+<string name="credit_card_accessory_sheet_toggle">"Mostrar métodos de pago"</string>
+<string name="credit_card_accessory_sheet_opened">"Mostrando métodos de pago guardados"</string>
+</resources>

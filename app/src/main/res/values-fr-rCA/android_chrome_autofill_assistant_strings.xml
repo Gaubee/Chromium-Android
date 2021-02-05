@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="init_ok">"J\'accepte"</string>
+<string name="autofill_assistant_init_title">"Essayer l\'Assistant Google \ndans Chrome"</string>
+<string name="autofill_assistant_init_message_rent_car">"Louez une voiture \nen quelques touchers seulement"</string>
+<string name="autofill_assistant_init_message_password_change">"Permettre à l\'Assistant Google de vous aider à\nchanger votre mot de passe"</string>
+<string name="autofill_assistant_init_message_buy_movie_tickets">"Achetez des billets de cinéma \nen quelques touchers seulement"</string>
+<string name="autofill_assistant_init_message_food_ordering">"Commandez de la nourriture \nen quelques touchers de l\'écran"</string>
+<string name="autofill_assistant_init_message_flights_checkin">"Enregistrez-vous pour votre vol \nen quelques touchers de l\'écran"</string>
+<string name="autofill_assistant_init_message_voice_search">"Essayez les actions vocales \nsur les sites Web"</string>
+<string name="autofill_assistant_init_message_shopping">"Passez rapidement à la caisse\nen quelques touchers"</string>
+<string name="autofill_assistant_init_message">"L\'Assistant Google vous fait gagner du temps en vous aidant à effectuer des actions sur le Web, comme des recherches et des paiements."</string>
+<string name="autofill_assistant_init_message_short">"L\'Assistant Google dans Chrome peut effectuer des actions dans différents sites Web pour vous"</string>
+<string name="autofill_assistant_google_terms_description">"Pour vous aider à effectuer des tâches, Google recevra les URL et le contenu des sites avec lesquels vous utilisez l\'Assistant, ainsi que l\'information que vous envoyez par l\'intermédiaire de l\'Assistant. Cette information peut être stockée dans votre compte Google. Vous pouvez désactiver l\'Assistant dans les paramètres de Chrome. &lt;link&gt;En savoir plus&lt;/link&gt;"</string>
+<string name="autofill_assistant_google_terms_url">"http://support.google.com/assistant?p=fast_checkout"</string>
+<string name="autofill_assistant_give_up">"Désolée, je ne suis plus en mesure de vous aider, veuillez continuer par vous-même."</string>
+<string name="autofill_assistant_payment_information_missing">"Renseignements manquants"</string>
+<string name="autofill_assistant_view_original_image_desc">"Ouvrir le lien externe?"</string>
+<string name="autofill_assistant_view_original_image_view">"Affichage"</string>
+<string name="autofill_assistant_view_original_image_cancel">"Annuler"</string>
+<string name="autofill_assistant_sheet_content_description">"Assistant Google dans Chrome."</string>
+<string name="autofill_assistant_sheet_half_height">"L\'Assistant Google dans Chrome est ouvert à la mi-hauteur."</string>
+<string name="autofill_assistant_sheet_full_height">"L\'Assistant Google dans Chrome est ouvert à la hauteur maximale."</string>
+<string name="autofill_assistant_sheet_closed">"L\'Assistant Google dans Chrome est fermé."</string>
+<string name="autofill_assistant_send_feedback">"Envoyer un commentaire à Google"</string>
+<string name="autofill_assistant_increase_value">"Augmenter la valeur"</string>
+<string name="autofill_assistant_decrease_value">"Réduire la valeur"</string>
+<string name="autofill_assistant_overflow_options">"Préférences"</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="leave">"ለቅቀህ ውጣ"</string>
+<string name="suppress_js_modal_dialogs">"ይህ ገጽ ተጨማሪ መገናኛዎችን እንዳይፈጥር አግድ"</string>
+</resources>

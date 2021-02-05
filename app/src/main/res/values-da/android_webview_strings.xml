@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="private_browsing_warning">"Funktionen er ikke understøttet i denne version af Android."</string>
+<string name="license_activity_title">"System WebView-licenser"</string>
+</resources>

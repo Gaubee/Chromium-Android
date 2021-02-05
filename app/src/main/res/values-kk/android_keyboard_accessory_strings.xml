@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"Түрту арқылы толтырылатын тіркелу деректері тізімі."</string>
+<string name="all_passwords_bottom_sheet_half_height">"Түрту арқылы толтырылатын тіркелу деректерінің тізімі жарты экранға ашылған."</string>
+<string name="all_passwords_bottom_sheet_full_height">"Түрту арқылы толтырылатын тіркелу деректері тізімі толық экранға ашылған."</string>
+<string name="all_passwords_bottom_sheet_closed">"Түрту арқылы толтырылатын тіркелу деректерінің тізімі жабық."</string>
+<string name="all_passwords_bottom_sheet_title">"Құпия сөздер"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"Іздеу"</string>
+<string name="all_passwords_bottom_sheet_no_password">"Құпия сөз жоқ"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"Егер %s сайты сенімді болса, сақталған құпия сөзді басқа сайтқа пайдалана аласыз."</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"Әрбір сайтқа бірегей құпия сөз пайдаланып көріңіз."</string>
+<string name="autofill_keyboard_accessory_content_description">"Қолжетімді құпия сөздер"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"Пернетақтаның жоғарғы жағында автотолтыру ұсыныстары бар."</string>
+<string name="keyboard_accessory_sheet_hide">"Пернетақтаны көрсету"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"Ұсыныстарды автоматты түрде толтыру үшін Chrome-ды пайдаланыңыз."</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"Басқа ұсыныстарды көру үшін сырғытыңыз."</string>
+<string name="password_generation_accessory_button">"Күрделі құпия сөз ұсыну"</string>
+<string name="password_generation_accessory_button_short">"Құпия сөз ұсыну"</string>
+<string name="password_accessory_sheet_toggle">"Құпия сөздерді көрсету"</string>
+<string name="password_accessory_sheet_opened">"Сақталған құпия сөздер мен құпия сөз опциялары көрсетіліп тұр"</string>
+<string name="address_accessory_sheet_title">"Мекенжайлар"</string>
+<string name="address_accessory_sheet_toggle">"Мекенжайларды көрсету"</string>
+<string name="address_accessory_sheet_opened">"Сақталған мекенжайларды көрсету"</string>
+<string name="credit_card_accessory_sheet_toggle">"Төлеу әдістерін көрсету"</string>
+<string name="credit_card_accessory_sheet_opened">"Сақталған төлеу әдістері көрсетілуде."</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="all_passwords_bottom_sheet_content_description">"ሲነካ የሚሞሉ የመግቢያ ማስረጃዎች ዝርዝር።"</string>
+<string name="all_passwords_bottom_sheet_half_height">"በግማሽ ቁመት ላይ ሲነካ የሚሞሉ የመግቢያ ማስረጃዎች ዝርዝር።"</string>
+<string name="all_passwords_bottom_sheet_full_height">"በሙሉ ቁመት ላይ ሲነካ የሚሞሉ የመግቢያ ማስረጃዎች ዝርዝር።"</string>
+<string name="all_passwords_bottom_sheet_closed">"ሲነካ የሚሞሉ የመግቢያ ማስረጃዎች ተዘግቷል።"</string>
+<string name="all_passwords_bottom_sheet_title">"የይለፍ ቃላት"</string>
+<string name="all_passwords_bottom_sheet_search_hint">"ፍለጋ "</string>
+<string name="all_passwords_bottom_sheet_no_password">"የይለፍ ቃል የለም"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_first">"%sን የሚያምኑት ከሆነ ለሌላ ጣቢያ የተቀመጠ የይለፍ ቃልን መጠቀም ይችላሉ።"</string>
+<string name="all_passwords_bottom_sheet_warning_dialog_message_second">"ለእያንዳንዱ ጣቢያ የተለየ የይለፍ ቃል ለመጠቀም ይሞክሩ።"</string>
+<string name="autofill_keyboard_accessory_content_description">"የይለፍ ቃላት ይገኛሉ"</string>
+<string name="autofill_keyboard_accessory_modern_content_description">"የራስ-ሙላ አስተያየት ጥቆማዎች ከቁልፍ ሰሌዳው በላይ ይገኛሉ"</string>
+<string name="keyboard_accessory_sheet_hide">"የቁልፍ ሰሌዳን አሳይ"</string>
+<string name="iph_keyboard_accessory_fill_with_chrome">"የChrome የራስ-ሙላ አስተያየት ጥቆማን ይጠቀሙ"</string>
+<string name="iph_keyboard_accessory_swipe_for_more">"ተጨማሪ አስተያየቶችን ለማየት ያንሸራትቱ"</string>
+<string name="password_generation_accessory_button">"ጠንካራ የይለፍ ቃል ጠቁም"</string>
+<string name="password_generation_accessory_button_short">"የይለፍ ቃል ጠቁም"</string>
+<string name="password_accessory_sheet_toggle">"የይለፍ ቃላትን አሳይ"</string>
+<string name="password_accessory_sheet_opened">"የተቀመጡ የይለፍ ቃላትን እና የይለፍ ቃል አማራጮችን በማሳየት ላይ"</string>
+<string name="address_accessory_sheet_title">"አድራሻዎች"</string>
+<string name="address_accessory_sheet_toggle">"አድራሻዎችን አሳይ"</string>
+<string name="address_accessory_sheet_opened">"የተቀመጡ አድራሻዎችን በማሳየት ላይ"</string>
+<string name="credit_card_accessory_sheet_toggle">"የመክፈያ ዘዴዎችን አሳይ"</string>
+<string name="credit_card_accessory_sheet_opened">"የተቀመጡ የመክፈያ ዘዴዎችን በማሳየት ላይ"</string>
+</resources>

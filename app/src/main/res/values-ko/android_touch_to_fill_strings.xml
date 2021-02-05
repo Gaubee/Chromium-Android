@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<string name="touch_to_fill_sheet_title_single">"계정을 사용하여 로그인"</string>
+<string name="touch_to_fill_sheet_title">"계정 선택"</string>
+<string name="touch_to_fill_sheet_subtitle_not_secure">"%1$s (not secure)"</string>
+<string name="touch_to_fill_content_description">"터치 시 작성되는 사용자 인증 정보 목록입니다."</string>
+<string name="touch_to_fill_sheet_half_height">"터치 시 작성되는 사용자 인증 정보 목록이 절반 높이로 열렸습니다."</string>
+<string name="touch_to_fill_sheet_full_height">"터치 시 작성되는 사용자 인증 정보 목록이 전체 높이로 열렸습니다."</string>
+<string name="touch_to_fill_sheet_closed">"터치 시 작성되는 사용자 인증 정보 목록이 닫혔습니다."</string>
+<string name="manage_passwords">"비밀번호 관리"</string>
+<string name="touch_to_fill_continue">"계속"</string>
+</resources>
